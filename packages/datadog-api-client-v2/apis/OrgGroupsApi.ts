@@ -89,7 +89,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
         "OrgGroupMembershipBulkUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -141,7 +142,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OrgGroupCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -195,7 +197,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OrgGroupMembershipCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -247,7 +250,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OrgGroupPolicyCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -305,7 +309,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
         "OrgGroupPolicyOverrideCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -487,7 +492,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
         "OrgGroupMembershipBulkDeleteRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1250,7 +1256,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OrgGroupUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1317,7 +1324,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OrgGroupMembershipUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1379,7 +1387,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OrgGroupPolicyUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1453,7 +1462,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
         "OrgGroupPolicyOverrideUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1469,6 +1479,12 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class OrgGroupsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1477,15 +1493,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async bulkUpdateOrgGroupMemberships(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupMembershipListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupMembershipListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupMembershipListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupMembershipListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupMembershipListResponse;
       return body;
     }
@@ -1497,13 +1521,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1520,13 +1547,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1541,9 +1571,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupMembershipListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupMembershipListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupMembershipListResponse;
       return body;
     }
@@ -1563,15 +1598,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createOrgGroup(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: OrgGroupResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupResponse;
       return body;
     }
@@ -1583,13 +1626,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1606,13 +1652,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1627,9 +1676,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupResponse;
       return body;
     }
@@ -1649,8 +1703,10 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createOrgGroupMemberships(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1665,13 +1721,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1688,13 +1747,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1726,15 +1788,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createOrgGroupPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupPolicyResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: OrgGroupPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupPolicyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupPolicyResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyResponse;
       return body;
     }
@@ -1746,13 +1816,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1769,13 +1842,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1790,9 +1866,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupPolicyResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyResponse;
       return body;
     }
@@ -1812,15 +1893,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createOrgGroupPolicyOverride(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupPolicyOverrideResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: OrgGroupPolicyOverrideResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupPolicyOverrideResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupPolicyOverrideResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyOverrideResponse;
       return body;
     }
@@ -1832,13 +1921,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1855,13 +1947,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1876,9 +1971,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupPolicyOverrideResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupPolicyOverrideResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyOverrideResponse;
       return body;
     }
@@ -1897,7 +1997,11 @@ export class OrgGroupsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOrgGroup
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOrgGroup(response: ResponseContext): Promise<void> {
+  public async deleteOrgGroup(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1912,13 +2016,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1935,13 +2042,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1973,8 +2083,10 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteOrgGroupMembership(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1989,13 +2101,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2012,13 +2127,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2050,8 +2168,10 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteOrgGroupMemberships(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2066,13 +2186,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2089,13 +2212,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2126,7 +2252,11 @@ export class OrgGroupsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOrgGroupPolicy
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOrgGroupPolicy(response: ResponseContext): Promise<void> {
+  public async deleteOrgGroupPolicy(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2141,13 +2271,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2164,13 +2297,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2202,8 +2338,10 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteOrgGroupPolicyOverride(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2218,13 +2356,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2241,13 +2382,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2279,15 +2423,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOrgGroup(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupResponse;
       return body;
     }
@@ -2299,13 +2451,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2322,13 +2477,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2343,9 +2501,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupResponse;
       return body;
     }
@@ -2365,15 +2528,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOrgGroupMembership(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupMembershipResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupMembershipResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupMembershipResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupMembershipResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupMembershipResponse;
       return body;
     }
@@ -2385,13 +2556,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2408,13 +2582,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2429,9 +2606,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupMembershipResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupMembershipResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupMembershipResponse;
       return body;
     }
@@ -2451,15 +2633,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOrgGroupPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupPolicyResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupPolicyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupPolicyResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyResponse;
       return body;
     }
@@ -2471,13 +2661,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2494,13 +2687,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2515,9 +2711,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupPolicyResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyResponse;
       return body;
     }
@@ -2537,15 +2738,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOrgGroupPolicyOverride(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupPolicyOverrideResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyOverrideResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupPolicyOverrideResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupPolicyOverrideResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyOverrideResponse;
       return body;
     }
@@ -2557,13 +2766,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2580,13 +2792,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2601,9 +2816,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupPolicyOverrideResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupPolicyOverrideResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyOverrideResponse;
       return body;
     }
@@ -2623,15 +2843,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOrgGroupMemberships(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupMembershipListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupMembershipListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupMembershipListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupMembershipListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupMembershipListResponse;
       return body;
     }
@@ -2642,13 +2870,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2665,13 +2896,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2686,9 +2920,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupMembershipListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupMembershipListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupMembershipListResponse;
       return body;
     }
@@ -2708,15 +2947,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOrgGroupPolicies(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupPolicyListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupPolicyListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupPolicyListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyListResponse;
       return body;
     }
@@ -2727,13 +2974,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2750,13 +3000,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2771,9 +3024,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupPolicyListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupPolicyListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyListResponse;
       return body;
     }
@@ -2793,29 +3051,40 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOrgGroupPolicyConfigs(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupPolicyConfigListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyConfigListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "OrgGroupPolicyConfigListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "OrgGroupPolicyConfigListResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as OrgGroupPolicyConfigListResponse;
       return body;
     }
     if (response.httpStatusCode === 401 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2832,13 +3101,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2854,9 +3126,14 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupPolicyConfigListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "OrgGroupPolicyConfigListResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as OrgGroupPolicyConfigListResponse;
       return body;
     }
@@ -2876,16 +3153,24 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOrgGroupPolicyOverrides(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupPolicyOverrideListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyOverrideListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "OrgGroupPolicyOverrideListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "OrgGroupPolicyOverrideListResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as OrgGroupPolicyOverrideListResponse;
       return body;
     }
@@ -2896,13 +3181,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2919,13 +3207,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2941,9 +3232,14 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupPolicyOverrideListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "OrgGroupPolicyOverrideListResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as OrgGroupPolicyOverrideListResponse;
       return body;
     }
@@ -2963,16 +3259,24 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOrgGroupPolicySuggestions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupPolicySuggestionListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicySuggestionListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "OrgGroupPolicySuggestionListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "OrgGroupPolicySuggestionListResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as OrgGroupPolicySuggestionListResponse;
       return body;
     }
@@ -2983,13 +3287,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3006,13 +3313,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3028,9 +3338,14 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupPolicySuggestionListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "OrgGroupPolicySuggestionListResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as OrgGroupPolicySuggestionListResponse;
       return body;
     }
@@ -3050,15 +3365,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOrgGroups(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupListResponse;
       return body;
     }
@@ -3069,13 +3392,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3092,13 +3418,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3113,9 +3442,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupListResponse;
       return body;
     }
@@ -3135,15 +3469,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateOrgGroup(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupResponse;
       return body;
     }
@@ -3155,13 +3497,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3178,13 +3523,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3199,9 +3547,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupResponse;
       return body;
     }
@@ -3221,15 +3574,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateOrgGroupMembership(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupMembershipResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupMembershipResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupMembershipResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupMembershipResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupMembershipResponse;
       return body;
     }
@@ -3241,13 +3602,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3264,13 +3628,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3285,9 +3652,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupMembershipResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupMembershipResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupMembershipResponse;
       return body;
     }
@@ -3307,15 +3679,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateOrgGroupPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupPolicyResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupPolicyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupPolicyResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyResponse;
       return body;
     }
@@ -3327,13 +3707,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3350,13 +3733,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3371,9 +3757,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupPolicyResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyResponse;
       return body;
     }
@@ -3393,15 +3784,23 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateOrgGroupPolicyOverride(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgGroupPolicyOverrideResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyOverrideResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgGroupPolicyOverrideResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgGroupPolicyOverrideResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyOverrideResponse;
       return body;
     }
@@ -3413,13 +3812,16 @@ export class OrgGroupsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3436,13 +3838,16 @@ export class OrgGroupsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3457,9 +3862,14 @@ export class OrgGroupsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgGroupPolicyOverrideResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgGroupPolicyOverrideResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgGroupPolicyOverrideResponse;
       return body;
     }
@@ -3765,7 +4175,7 @@ export class OrgGroupsApi {
     this.requestFactory =
       requestFactory || new OrgGroupsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new OrgGroupsApiResponseProcessor();
+      responseProcessor || new OrgGroupsApiResponseProcessor(configuration);
   }
 
   /**
@@ -3783,7 +4193,8 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.bulkUpdateOrgGroupMemberships(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3805,7 +4216,10 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createOrgGroup(responseContext);
+          return this.responseProcessor.createOrgGroup(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3827,7 +4241,8 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createOrgGroupMemberships(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3849,7 +4264,10 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createOrgGroupPolicy(responseContext);
+          return this.responseProcessor.createOrgGroupPolicy(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3869,7 +4287,8 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createOrgGroupPolicyOverride(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3891,7 +4310,10 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteOrgGroup(responseContext);
+          return this.responseProcessor.deleteOrgGroup(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3914,7 +4336,8 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteOrgGroupMembership(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3938,7 +4361,8 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteOrgGroupMemberships(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3960,7 +4384,10 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteOrgGroupPolicy(responseContext);
+          return this.responseProcessor.deleteOrgGroupPolicy(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3983,7 +4410,8 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteOrgGroupPolicyOverride(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4005,7 +4433,7 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOrgGroup(responseContext);
+          return this.responseProcessor.getOrgGroup(responseContext, options);
         });
     });
   }
@@ -4026,7 +4454,10 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOrgGroupMembership(responseContext);
+          return this.responseProcessor.getOrgGroupMembership(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4047,7 +4478,10 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOrgGroupPolicy(responseContext);
+          return this.responseProcessor.getOrgGroupPolicy(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4069,7 +4503,8 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getOrgGroupPolicyOverride(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4096,7 +4531,8 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listOrgGroupMemberships(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4123,7 +4559,10 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOrgGroupPolicies(responseContext);
+          return this.responseProcessor.listOrgGroupPolicies(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4142,7 +4581,8 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listOrgGroupPolicyConfigs(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4170,7 +4610,8 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listOrgGroupPolicyOverrides(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4194,7 +4635,8 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listOrgGroupPolicySuggestions(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4218,7 +4660,7 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOrgGroups(responseContext);
+          return this.responseProcessor.listOrgGroups(responseContext, options);
         });
     });
   }
@@ -4240,7 +4682,10 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOrgGroup(responseContext);
+          return this.responseProcessor.updateOrgGroup(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4263,7 +4708,8 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateOrgGroupMembership(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4286,7 +4732,10 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOrgGroupPolicy(responseContext);
+          return this.responseProcessor.updateOrgGroupPolicy(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4310,7 +4759,8 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateOrgGroupPolicyOverride(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

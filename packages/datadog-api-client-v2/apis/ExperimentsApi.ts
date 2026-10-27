@@ -202,7 +202,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsCancelExperimentV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -262,7 +263,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsConcludeExperimentV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -313,7 +315,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsCreateExperimentV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -374,7 +377,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsCreateExperimentMetricGroupV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -479,7 +483,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsCreateExperimentProtocolRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -530,7 +535,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsCreateExposureSQLModelV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -577,7 +583,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ExperimentsCreateMetricV2Request", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -628,7 +635,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsCreateMetricCollectionV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -679,7 +687,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsCreateMetricSQLModelV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -730,7 +739,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsCreateSubjectTypeV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -2133,7 +2143,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsPatchExperimentV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -2193,7 +2204,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsPatchExperimentProtocolRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -2254,7 +2266,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsPatchSubjectTypeV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -2454,7 +2467,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsReplaceExperimentProtocolRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -2549,7 +2563,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsStartExperimentV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -2656,7 +2671,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsAnalysisPlanWriteV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -2725,7 +2741,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsPatchExperimentMetricGroupV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -2796,7 +2813,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsCreateExposureSQLModelV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -2852,7 +2870,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ExperimentsUpdateMetricV2Request", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -2913,7 +2932,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsPatchMetricCollectionV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -2974,7 +2994,8 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "ExperimentsCreateMetricSQLModelV2Request",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -2990,6 +3011,12 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ExperimentsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -2998,16 +3025,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async archiveExperimentProtocol(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsPublicProtocolResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsPublicProtocolResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsPublicProtocolResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsPublicProtocolResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolResponse;
       return body;
     }
@@ -3021,13 +3056,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3044,13 +3082,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3066,9 +3107,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsPublicProtocolResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsPublicProtocolResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolResponse;
       return body;
     }
@@ -3088,8 +3134,10 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async archiveExposureSQLModel(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -3104,13 +3152,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3127,13 +3178,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3164,7 +3218,11 @@ export class ExperimentsApiResponseProcessor {
    * @params response Response returned by the server for a request to cancelExperiment
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async cancelExperiment(response: ResponseContext): Promise<void> {
+  public async cancelExperiment(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -3180,13 +3238,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3203,13 +3264,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3240,7 +3304,11 @@ export class ExperimentsApiResponseProcessor {
    * @params response Response returned by the server for a request to concludeExperiment
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async concludeExperiment(response: ResponseContext): Promise<void> {
+  public async concludeExperiment(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -3256,13 +3324,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3279,13 +3350,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3317,15 +3391,23 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createExperiment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsExperimentV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ExperimentsExperimentV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExperimentsExperimentV2DTO"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExperimentsExperimentV2DTO",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsExperimentV2DTO;
       return body;
     }
@@ -3340,13 +3422,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3363,13 +3448,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3384,9 +3472,14 @@ export class ExperimentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsExperimentV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExperimentsExperimentV2DTO",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsExperimentV2DTO;
       return body;
     }
@@ -3406,16 +3499,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createExperimentMetricGroup(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsExperimentMetricGroupMutationV2> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ExperimentsExperimentMetricGroupMutationV2 =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsExperimentMetricGroupMutationV2"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsExperimentMetricGroupMutationV2",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExperimentMetricGroupMutationV2;
       return body;
     }
@@ -3429,13 +3530,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3452,13 +3556,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3474,9 +3581,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsExperimentMetricGroupMutationV2 =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsExperimentMetricGroupMutationV2",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExperimentMetricGroupMutationV2;
       return body;
     }
@@ -3496,16 +3608,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createExperimentMetricGroupFromCollection(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsExperimentMetricGroupMutationV2> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ExperimentsExperimentMetricGroupMutationV2 =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsExperimentMetricGroupMutationV2"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsExperimentMetricGroupMutationV2",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExperimentMetricGroupMutationV2;
       return body;
     }
@@ -3518,13 +3638,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3541,13 +3664,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3563,9 +3689,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsExperimentMetricGroupMutationV2 =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsExperimentMetricGroupMutationV2",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExperimentMetricGroupMutationV2;
       return body;
     }
@@ -3585,16 +3716,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createExperimentProtocol(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsPublicProtocolResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ExperimentsPublicProtocolResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsPublicProtocolResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsPublicProtocolResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolResponse;
       return body;
     }
@@ -3608,13 +3747,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3631,13 +3773,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3653,9 +3798,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsPublicProtocolResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsPublicProtocolResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolResponse;
       return body;
     }
@@ -3675,16 +3825,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createExposureSQLModel(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsExposureSQLModelV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ExperimentsExposureSQLModelV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsExposureSQLModelV2DTO"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsExposureSQLModelV2DTO",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExposureSQLModelV2DTO;
       return body;
     }
@@ -3697,13 +3855,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3720,13 +3881,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3742,9 +3906,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsExposureSQLModelV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsExposureSQLModelV2DTO",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExposureSQLModelV2DTO;
       return body;
     }
@@ -3764,15 +3933,23 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createMetric(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsMetricV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ExperimentsMetricV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExperimentsMetricV2DTO"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExperimentsMetricV2DTO",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsMetricV2DTO;
       return body;
     }
@@ -3785,13 +3962,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3808,13 +3988,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3829,9 +4012,14 @@ export class ExperimentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsMetricV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExperimentsMetricV2DTO",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsMetricV2DTO;
       return body;
     }
@@ -3851,16 +4039,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createMetricCollection(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsMetricCollectionV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ExperimentsMetricCollectionV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsMetricCollectionV2DTO"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsMetricCollectionV2DTO",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsMetricCollectionV2DTO;
       return body;
     }
@@ -3873,13 +4069,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3896,13 +4095,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3918,9 +4120,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsMetricCollectionV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsMetricCollectionV2DTO",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsMetricCollectionV2DTO;
       return body;
     }
@@ -3940,15 +4147,23 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createMetricSQLModel(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsMetricSQLModelV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ExperimentsMetricSQLModelV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExperimentsMetricSQLModelV2DTO"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExperimentsMetricSQLModelV2DTO",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsMetricSQLModelV2DTO;
       return body;
     }
@@ -3960,13 +4175,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3983,13 +4201,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4004,9 +4225,14 @@ export class ExperimentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsMetricSQLModelV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExperimentsMetricSQLModelV2DTO",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsMetricSQLModelV2DTO;
       return body;
     }
@@ -4026,15 +4252,23 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createSubjectType(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsSubjectTypeV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ExperimentsSubjectTypeV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExperimentsSubjectTypeV2DTO"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExperimentsSubjectTypeV2DTO",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsSubjectTypeV2DTO;
       return body;
     }
@@ -4045,13 +4279,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4068,13 +4305,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4089,9 +4329,14 @@ export class ExperimentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsSubjectTypeV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExperimentsSubjectTypeV2DTO",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsSubjectTypeV2DTO;
       return body;
     }
@@ -4110,7 +4355,11 @@ export class ExperimentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteExperiment
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteExperiment(response: ResponseContext): Promise<void> {
+  public async deleteExperiment(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -4126,13 +4375,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4149,13 +4401,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4187,8 +4442,10 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteExperimentMetricGroup(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -4204,13 +4461,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4227,13 +4487,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4265,8 +4528,10 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteExperimentProtocol(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -4283,13 +4548,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4306,13 +4574,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4343,7 +4614,11 @@ export class ExperimentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteMetric(response: ResponseContext): Promise<void> {
+  public async deleteMetric(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -4359,13 +4634,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4382,13 +4660,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4420,8 +4701,10 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteMetricCollection(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -4436,13 +4719,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4459,13 +4745,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4496,7 +4785,11 @@ export class ExperimentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteSubjectType
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteSubjectType(response: ResponseContext): Promise<void> {
+  public async deleteSubjectType(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -4512,13 +4805,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4535,13 +4831,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4573,15 +4872,23 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getExperiment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsExperimentV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsExperimentV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExperimentsExperimentV2DTO"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExperimentsExperimentV2DTO",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsExperimentV2DTO;
       return body;
     }
@@ -4594,13 +4901,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4617,13 +4927,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4638,9 +4951,14 @@ export class ExperimentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsExperimentV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExperimentsExperimentV2DTO",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsExperimentV2DTO;
       return body;
     }
@@ -4660,15 +4978,23 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getExperimentAnalysisPlan(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsAnalysisPlanV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsAnalysisPlanV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExperimentsAnalysisPlanV2DTO"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExperimentsAnalysisPlanV2DTO",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsAnalysisPlanV2DTO;
       return body;
     }
@@ -4680,13 +5006,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4703,13 +5032,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4724,9 +5056,14 @@ export class ExperimentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsAnalysisPlanV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExperimentsAnalysisPlanV2DTO",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsAnalysisPlanV2DTO;
       return body;
     }
@@ -4746,16 +5083,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getExperimentDiagnostics(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsExperimentDiagnosticsV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsExperimentDiagnosticsV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsExperimentDiagnosticsV2DTO"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsExperimentDiagnosticsV2DTO",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExperimentDiagnosticsV2DTO;
       return body;
     }
@@ -4767,13 +5112,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4790,13 +5138,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4812,9 +5163,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsExperimentDiagnosticsV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsExperimentDiagnosticsV2DTO",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExperimentDiagnosticsV2DTO;
       return body;
     }
@@ -4834,16 +5190,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getExperimentProtocol(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsPublicProtocolResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsPublicProtocolResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsPublicProtocolResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsPublicProtocolResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolResponse;
       return body;
     }
@@ -4855,13 +5219,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4878,13 +5245,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4900,9 +5270,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsPublicProtocolResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsPublicProtocolResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolResponse;
       return body;
     }
@@ -4922,16 +5297,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getExperimentResults(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsVariantResultsV2DTOArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsVariantResultsV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsVariantResultsV2DTOArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsVariantResultsV2DTOArray",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsVariantResultsV2DTOArray;
       return body;
     }
@@ -4944,13 +5327,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4967,13 +5353,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4989,9 +5378,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsVariantResultsV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsVariantResultsV2DTOArray",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsVariantResultsV2DTOArray;
       return body;
     }
@@ -5011,15 +5405,23 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getExperimentTrafficSummary(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsTrafficSummaryV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsTrafficSummaryV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExperimentsTrafficSummaryV2DTO"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExperimentsTrafficSummaryV2DTO",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsTrafficSummaryV2DTO;
       return body;
     }
@@ -5032,13 +5434,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5055,13 +5460,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5076,9 +5484,14 @@ export class ExperimentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsTrafficSummaryV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExperimentsTrafficSummaryV2DTO",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsTrafficSummaryV2DTO;
       return body;
     }
@@ -5098,16 +5511,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getExposureSQLModel(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsExposureSQLModelV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsExposureSQLModelV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsExposureSQLModelV2DTO"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsExposureSQLModelV2DTO",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExposureSQLModelV2DTO;
       return body;
     }
@@ -5119,13 +5540,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5142,13 +5566,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5164,9 +5591,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsExposureSQLModelV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsExposureSQLModelV2DTO",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExposureSQLModelV2DTO;
       return body;
     }
@@ -5186,15 +5618,23 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getMetric(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsMetricV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsMetricV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExperimentsMetricV2DTO"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExperimentsMetricV2DTO",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsMetricV2DTO;
       return body;
     }
@@ -5206,13 +5646,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5229,13 +5672,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5250,9 +5696,14 @@ export class ExperimentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsMetricV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExperimentsMetricV2DTO",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsMetricV2DTO;
       return body;
     }
@@ -5272,16 +5723,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getMetricCollection(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsMetricCollectionV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsMetricCollectionV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsMetricCollectionV2DTO"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsMetricCollectionV2DTO",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsMetricCollectionV2DTO;
       return body;
     }
@@ -5293,13 +5752,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5316,13 +5778,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5338,9 +5803,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsMetricCollectionV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsMetricCollectionV2DTO",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsMetricCollectionV2DTO;
       return body;
     }
@@ -5360,15 +5830,23 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getMetricSQLModel(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsMetricSQLModelV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsMetricSQLModelV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExperimentsMetricSQLModelV2DTO"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExperimentsMetricSQLModelV2DTO",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsMetricSQLModelV2DTO;
       return body;
     }
@@ -5380,13 +5858,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5403,13 +5884,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5424,9 +5908,14 @@ export class ExperimentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsMetricSQLModelV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExperimentsMetricSQLModelV2DTO",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsMetricSQLModelV2DTO;
       return body;
     }
@@ -5446,15 +5935,23 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getSubjectType(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsSubjectTypeV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsSubjectTypeV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExperimentsSubjectTypeV2DTO"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExperimentsSubjectTypeV2DTO",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsSubjectTypeV2DTO;
       return body;
     }
@@ -5466,13 +5963,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5489,13 +5989,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5510,9 +6013,14 @@ export class ExperimentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsSubjectTypeV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExperimentsSubjectTypeV2DTO",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsSubjectTypeV2DTO;
       return body;
     }
@@ -5532,16 +6040,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listExperimentMetricGroups(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsExperimentMetricGroupV2DTOArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsExperimentMetricGroupV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsExperimentMetricGroupV2DTOArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsExperimentMetricGroupV2DTOArray",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExperimentMetricGroupV2DTOArray;
       return body;
     }
@@ -5553,13 +6069,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5576,13 +6095,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5598,9 +6120,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsExperimentMetricGroupV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsExperimentMetricGroupV2DTOArray",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExperimentMetricGroupV2DTOArray;
       return body;
     }
@@ -5620,16 +6147,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listExperimentProtocols(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsPublicProtocolListResponseArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsPublicProtocolListResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsPublicProtocolListResponseArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsPublicProtocolListResponseArray",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolListResponseArray;
       return body;
     }
@@ -5640,13 +6175,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5663,13 +6201,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5685,9 +6226,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsPublicProtocolListResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsPublicProtocolListResponseArray",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolListResponseArray;
       return body;
     }
@@ -5707,16 +6253,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listExperiments(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsExperimentV2ListDTOArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsExperimentV2ListDTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsExperimentV2ListDTOArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsExperimentV2ListDTOArray",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExperimentV2ListDTOArray;
       return body;
     }
@@ -5727,13 +6281,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5750,13 +6307,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5772,9 +6332,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsExperimentV2ListDTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsExperimentV2ListDTOArray",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExperimentV2ListDTOArray;
       return body;
     }
@@ -5794,16 +6359,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listExposureSQLModels(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsExposureSQLModelV2DTOArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsExposureSQLModelV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsExposureSQLModelV2DTOArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsExposureSQLModelV2DTOArray",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExposureSQLModelV2DTOArray;
       return body;
     }
@@ -5814,13 +6387,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5837,13 +6413,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5859,9 +6438,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsExposureSQLModelV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsExposureSQLModelV2DTOArray",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExposureSQLModelV2DTOArray;
       return body;
     }
@@ -5881,16 +6465,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listMetricCollections(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsMetricCollectionV2DTOArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsMetricCollectionV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsMetricCollectionV2DTOArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsMetricCollectionV2DTOArray",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsMetricCollectionV2DTOArray;
       return body;
     }
@@ -5901,13 +6493,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5924,13 +6519,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5946,9 +6544,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsMetricCollectionV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsMetricCollectionV2DTOArray",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsMetricCollectionV2DTOArray;
       return body;
     }
@@ -5968,15 +6571,23 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listMetrics(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsMetricV2DTOArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsMetricV2DTOArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExperimentsMetricV2DTOArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExperimentsMetricV2DTOArray",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsMetricV2DTOArray;
       return body;
     }
@@ -5987,13 +6598,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6010,13 +6624,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6031,9 +6648,14 @@ export class ExperimentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsMetricV2DTOArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExperimentsMetricV2DTOArray",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsMetricV2DTOArray;
       return body;
     }
@@ -6053,16 +6675,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listMetricSQLModels(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsMetricSQLModelV2DTOArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsMetricSQLModelV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsMetricSQLModelV2DTOArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsMetricSQLModelV2DTOArray",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsMetricSQLModelV2DTOArray;
       return body;
     }
@@ -6073,13 +6703,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6096,13 +6729,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6118,9 +6754,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsMetricSQLModelV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsMetricSQLModelV2DTOArray",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsMetricSQLModelV2DTOArray;
       return body;
     }
@@ -6140,16 +6781,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listSubjectTypes(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsSubjectTypeV2DTOArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsSubjectTypeV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsSubjectTypeV2DTOArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsSubjectTypeV2DTOArray",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsSubjectTypeV2DTOArray;
       return body;
     }
@@ -6160,13 +6809,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6183,13 +6835,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6205,9 +6860,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsSubjectTypeV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsSubjectTypeV2DTOArray",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsSubjectTypeV2DTOArray;
       return body;
     }
@@ -6227,16 +6887,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async patchExperiment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsPatchExperimentV2Response> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsPatchExperimentV2Response =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsPatchExperimentV2Response"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsPatchExperimentV2Response",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPatchExperimentV2Response;
       return body;
     }
@@ -6250,13 +6918,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6273,13 +6944,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6295,9 +6969,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsPatchExperimentV2Response =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsPatchExperimentV2Response",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPatchExperimentV2Response;
       return body;
     }
@@ -6317,16 +6996,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async patchExperimentProtocol(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsPublicProtocolResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsPublicProtocolResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsPublicProtocolResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsPublicProtocolResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolResponse;
       return body;
     }
@@ -6341,13 +7028,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6364,13 +7054,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6386,9 +7079,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsPublicProtocolResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsPublicProtocolResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolResponse;
       return body;
     }
@@ -6408,15 +7106,23 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async patchSubjectType(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsSubjectTypeV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsSubjectTypeV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExperimentsSubjectTypeV2DTO"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExperimentsSubjectTypeV2DTO",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsSubjectTypeV2DTO;
       return body;
     }
@@ -6428,13 +7134,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6451,13 +7160,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6472,9 +7184,14 @@ export class ExperimentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsSubjectTypeV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExperimentsSubjectTypeV2DTO",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsSubjectTypeV2DTO;
       return body;
     }
@@ -6494,16 +7211,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async publishExperimentProtocol(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsPublicProtocolResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsPublicProtocolResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsPublicProtocolResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsPublicProtocolResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolResponse;
       return body;
     }
@@ -6517,13 +7242,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6540,13 +7268,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6562,9 +7293,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsPublicProtocolResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsPublicProtocolResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolResponse;
       return body;
     }
@@ -6584,16 +7320,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async refreshExperimentResults(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsRefreshExperimentResultsV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 202) {
       const body: ExperimentsRefreshExperimentResultsV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsRefreshExperimentResultsV2DTO"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsRefreshExperimentResultsV2DTO",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsRefreshExperimentResultsV2DTO;
       return body;
     }
@@ -6606,13 +7350,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6629,13 +7376,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6651,9 +7401,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsRefreshExperimentResultsV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsRefreshExperimentResultsV2DTO",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsRefreshExperimentResultsV2DTO;
       return body;
     }
@@ -6673,16 +7428,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async refreshExperimentResultsForOrg(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsRefreshExperimentResultsV2DTOArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 202) {
       const body: ExperimentsRefreshExperimentResultsV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsRefreshExperimentResultsV2DTOArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsRefreshExperimentResultsV2DTOArray",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsRefreshExperimentResultsV2DTOArray;
       return body;
     }
@@ -6693,13 +7456,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6716,13 +7482,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6738,9 +7507,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsRefreshExperimentResultsV2DTOArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsRefreshExperimentResultsV2DTOArray",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsRefreshExperimentResultsV2DTOArray;
       return body;
     }
@@ -6760,16 +7534,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async replaceExperimentProtocol(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsPublicProtocolResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsPublicProtocolResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsPublicProtocolResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsPublicProtocolResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolResponse;
       return body;
     }
@@ -6784,13 +7566,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6807,13 +7592,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6829,9 +7617,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsPublicProtocolResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsPublicProtocolResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsPublicProtocolResponse;
       return body;
     }
@@ -6850,7 +7643,11 @@ export class ExperimentsApiResponseProcessor {
    * @params response Response returned by the server for a request to setDefaultSubjectType
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async setDefaultSubjectType(response: ResponseContext): Promise<void> {
+  public async setDefaultSubjectType(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -6865,13 +7662,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6888,13 +7688,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6925,7 +7728,11 @@ export class ExperimentsApiResponseProcessor {
    * @params response Response returned by the server for a request to startExperiment
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async startExperiment(response: ResponseContext): Promise<void> {
+  public async startExperiment(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -6941,13 +7748,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6964,13 +7774,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7002,8 +7815,10 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async unarchiveExposureSQLModel(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7018,13 +7833,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7041,13 +7859,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7079,16 +7900,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateExperimentAnalysisPlanAttributes(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsAnalysisPlanV2MutationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsAnalysisPlanV2MutationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsAnalysisPlanV2MutationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsAnalysisPlanV2MutationResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsAnalysisPlanV2MutationResponse;
       return body;
     }
@@ -7102,13 +7931,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7125,13 +7957,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7147,9 +7982,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsAnalysisPlanV2MutationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsAnalysisPlanV2MutationResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsAnalysisPlanV2MutationResponse;
       return body;
     }
@@ -7169,16 +8009,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateExperimentMetricGroup(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsExperimentMetricGroupMutationV2> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsExperimentMetricGroupMutationV2 =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsExperimentMetricGroupMutationV2"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsExperimentMetricGroupMutationV2",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExperimentMetricGroupMutationV2;
       return body;
     }
@@ -7192,13 +8040,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7215,13 +8066,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7237,9 +8091,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsExperimentMetricGroupMutationV2 =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsExperimentMetricGroupMutationV2",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsExperimentMetricGroupMutationV2;
       return body;
     }
@@ -7259,16 +8118,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateExposureSQLModel(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsUpdateExposureSQLModelV2Response> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsUpdateExposureSQLModelV2Response =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsUpdateExposureSQLModelV2Response"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsUpdateExposureSQLModelV2Response",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsUpdateExposureSQLModelV2Response;
       return body;
     }
@@ -7282,13 +8149,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7305,13 +8175,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7327,9 +8200,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsUpdateExposureSQLModelV2Response =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsUpdateExposureSQLModelV2Response",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsUpdateExposureSQLModelV2Response;
       return body;
     }
@@ -7349,15 +8227,23 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateMetric(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsMetricV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsMetricV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExperimentsMetricV2DTO"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExperimentsMetricV2DTO",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsMetricV2DTO;
       return body;
     }
@@ -7371,13 +8257,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7394,13 +8283,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7415,9 +8307,14 @@ export class ExperimentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsMetricV2DTO = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExperimentsMetricV2DTO",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExperimentsMetricV2DTO;
       return body;
     }
@@ -7437,16 +8334,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateMetricCollection(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsMetricCollectionV2DTO> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsMetricCollectionV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsMetricCollectionV2DTO"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsMetricCollectionV2DTO",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsMetricCollectionV2DTO;
       return body;
     }
@@ -7460,13 +8365,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7483,13 +8391,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7505,9 +8416,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsMetricCollectionV2DTO =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsMetricCollectionV2DTO",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsMetricCollectionV2DTO;
       return body;
     }
@@ -7527,16 +8443,24 @@ export class ExperimentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateMetricSQLModel(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExperimentsUpdateMetricSQLModelV2Response> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExperimentsUpdateMetricSQLModelV2Response =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ExperimentsUpdateMetricSQLModelV2Response"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ExperimentsUpdateMetricSQLModelV2Response",
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsUpdateMetricSQLModelV2Response;
       return body;
     }
@@ -7549,13 +8473,16 @@ export class ExperimentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7572,13 +8499,16 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7594,9 +8524,14 @@ export class ExperimentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExperimentsUpdateMetricSQLModelV2Response =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ExperimentsUpdateMetricSQLModelV2Response",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ExperimentsUpdateMetricSQLModelV2Response;
       return body;
     }
@@ -8363,7 +9298,7 @@ export class ExperimentsApi {
     this.requestFactory =
       requestFactory || new ExperimentsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ExperimentsApiResponseProcessor();
+      responseProcessor || new ExperimentsApiResponseProcessor(configuration);
   }
 
   /**
@@ -8384,7 +9319,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.archiveExperimentProtocol(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -8407,7 +9343,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.archiveExposureSQLModel(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -8436,7 +9373,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.cancelExperiment(responseContext);
+          return this.responseProcessor.cancelExperiment(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -8458,7 +9398,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.concludeExperiment(responseContext);
+          return this.responseProcessor.concludeExperiment(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -8479,7 +9422,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createExperiment(responseContext);
+          return this.responseProcessor.createExperiment(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -8503,7 +9449,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createExperimentMetricGroup(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -8528,7 +9475,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createExperimentMetricGroupFromCollection(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -8551,7 +9499,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createExperimentProtocol(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -8573,7 +9522,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createExposureSQLModel(responseContext);
+          return this.responseProcessor.createExposureSQLModel(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -8594,7 +9546,7 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createMetric(responseContext);
+          return this.responseProcessor.createMetric(responseContext, options);
         });
     });
   }
@@ -8615,7 +9567,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createMetricCollection(responseContext);
+          return this.responseProcessor.createMetricCollection(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -8636,7 +9591,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createMetricSQLModel(responseContext);
+          return this.responseProcessor.createMetricSQLModel(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -8657,7 +9615,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createSubjectType(responseContext);
+          return this.responseProcessor.createSubjectType(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -8678,7 +9639,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteExperiment(responseContext);
+          return this.responseProcessor.deleteExperiment(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -8702,7 +9666,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteExperimentMetricGroup(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -8726,7 +9691,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteExperimentProtocol(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -8748,7 +9714,7 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteMetric(responseContext);
+          return this.responseProcessor.deleteMetric(responseContext, options);
         });
     });
   }
@@ -8769,7 +9735,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteMetricCollection(responseContext);
+          return this.responseProcessor.deleteMetricCollection(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -8790,7 +9759,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteSubjectType(responseContext);
+          return this.responseProcessor.deleteSubjectType(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -8811,7 +9783,7 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getExperiment(responseContext);
+          return this.responseProcessor.getExperiment(responseContext, options);
         });
     });
   }
@@ -8833,7 +9805,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getExperimentAnalysisPlan(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -8856,7 +9829,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getExperimentDiagnostics(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -8878,7 +9852,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getExperimentProtocol(responseContext);
+          return this.responseProcessor.getExperimentProtocol(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -8899,7 +9876,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getExperimentResults(responseContext);
+          return this.responseProcessor.getExperimentResults(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -8922,7 +9902,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getExperimentTrafficSummary(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -8945,7 +9926,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getExposureSQLModel(responseContext);
+          return this.responseProcessor.getExposureSQLModel(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -8967,7 +9951,7 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getMetric(responseContext);
+          return this.responseProcessor.getMetric(responseContext, options);
         });
     });
   }
@@ -8988,7 +9972,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getMetricCollection(responseContext);
+          return this.responseProcessor.getMetricCollection(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9010,7 +9997,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getMetricSQLModel(responseContext);
+          return this.responseProcessor.getMetricSQLModel(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9032,7 +10022,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSubjectType(responseContext);
+          return this.responseProcessor.getSubjectType(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9055,7 +10048,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listExperimentMetricGroups(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -9084,7 +10078,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listExperimentProtocols(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -9116,7 +10111,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listExperiments(responseContext);
+          return this.responseProcessor.listExperiments(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9142,7 +10140,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listExposureSQLModels(responseContext);
+          return this.responseProcessor.listExposureSQLModels(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9167,7 +10168,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listMetricCollections(responseContext);
+          return this.responseProcessor.listMetricCollections(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9192,7 +10196,7 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listMetrics(responseContext);
+          return this.responseProcessor.listMetrics(responseContext, options);
         });
     });
   }
@@ -9216,7 +10220,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listMetricSQLModels(responseContext);
+          return this.responseProcessor.listMetricSQLModels(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9241,7 +10248,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listSubjectTypes(responseContext);
+          return this.responseProcessor.listSubjectTypes(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9319,7 +10329,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.patchExperiment(responseContext);
+          return this.responseProcessor.patchExperiment(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9344,7 +10357,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.patchExperimentProtocol(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -9367,7 +10381,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.patchSubjectType(responseContext);
+          return this.responseProcessor.patchSubjectType(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9391,7 +10408,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.publishExperimentProtocol(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -9415,7 +10433,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.refreshExperimentResults(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -9439,7 +10458,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.refreshExperimentResultsForOrg(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -9468,7 +10488,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.replaceExperimentProtocol(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -9490,7 +10511,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.setDefaultSubjectType(responseContext);
+          return this.responseProcessor.setDefaultSubjectType(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9512,7 +10536,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.startExperiment(responseContext);
+          return this.responseProcessor.startExperiment(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9534,7 +10561,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.unarchiveExposureSQLModel(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -9559,7 +10587,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateExperimentAnalysisPlanAttributes(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -9585,7 +10614,8 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateExperimentMetricGroup(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -9609,7 +10639,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateExposureSQLModel(responseContext);
+          return this.responseProcessor.updateExposureSQLModel(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9631,7 +10664,7 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateMetric(responseContext);
+          return this.responseProcessor.updateMetric(responseContext, options);
         });
     });
   }
@@ -9653,7 +10686,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateMetricCollection(responseContext);
+          return this.responseProcessor.updateMetricCollection(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -9675,7 +10711,10 @@ export class ExperimentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateMetricSQLModel(responseContext);
+          return this.responseProcessor.updateMetricSQLModel(
+            responseContext,
+            options
+          );
         });
     });
   }

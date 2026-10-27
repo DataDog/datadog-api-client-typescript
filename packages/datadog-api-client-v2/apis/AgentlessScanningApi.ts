@@ -65,7 +65,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AwsOnDemandCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -112,7 +113,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AwsScanOptionsCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -159,7 +161,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AzureScanOptions", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -206,7 +209,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "GcpScanOptions", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -663,7 +667,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AwsScanOptionsUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -720,7 +725,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AzureScanOptionsInputUpdate", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -777,7 +783,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "GcpScanOptionsInputUpdate", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -793,6 +800,12 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class AgentlessScanningApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -801,15 +814,23 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createAwsOnDemandTask(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AwsOnDemandResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: AwsOnDemandResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AwsOnDemandResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AwsOnDemandResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AwsOnDemandResponse;
       return body;
     }
@@ -820,13 +841,16 @@ export class AgentlessScanningApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -841,9 +865,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AwsOnDemandResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AwsOnDemandResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AwsOnDemandResponse;
       return body;
     }
@@ -863,15 +892,23 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createAwsScanOptions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AwsScanOptionsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: AwsScanOptionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AwsScanOptionsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AwsScanOptionsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AwsScanOptionsResponse;
       return body;
     }
@@ -883,13 +920,16 @@ export class AgentlessScanningApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -904,9 +944,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AwsScanOptionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AwsScanOptionsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AwsScanOptionsResponse;
       return body;
     }
@@ -926,28 +971,39 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createAzureScanOptions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AzureScanOptions> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: AzureScanOptions = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AzureScanOptions"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AzureScanOptions",
+        "",
+        _config?.preserveLargeIntegers
       ) as AzureScanOptions;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -962,9 +1018,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AzureScanOptions = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AzureScanOptions",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AzureScanOptions;
       return body;
     }
@@ -984,15 +1045,23 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createGcpScanOptions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GcpScanOptions> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: GcpScanOptions = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GcpScanOptions"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GcpScanOptions",
+        "",
+        _config?.preserveLargeIntegers
       ) as GcpScanOptions;
       return body;
     }
@@ -1004,13 +1073,16 @@ export class AgentlessScanningApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1025,9 +1097,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GcpScanOptions = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GcpScanOptions",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GcpScanOptions;
       return body;
     }
@@ -1046,7 +1123,11 @@ export class AgentlessScanningApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAwsScanOptions
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAwsScanOptions(response: ResponseContext): Promise<void> {
+  public async deleteAwsScanOptions(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1061,13 +1142,16 @@ export class AgentlessScanningApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1099,8 +1183,10 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteAzureScanOptions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1110,13 +1196,16 @@ export class AgentlessScanningApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1147,7 +1236,11 @@ export class AgentlessScanningApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteGcpScanOptions
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteGcpScanOptions(response: ResponseContext): Promise<void> {
+  public async deleteGcpScanOptions(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1162,13 +1255,16 @@ export class AgentlessScanningApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1200,15 +1296,23 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAwsOnDemandTask(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AwsOnDemandResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AwsOnDemandResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AwsOnDemandResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AwsOnDemandResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AwsOnDemandResponse;
       return body;
     }
@@ -1220,13 +1324,16 @@ export class AgentlessScanningApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1241,9 +1348,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AwsOnDemandResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AwsOnDemandResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AwsOnDemandResponse;
       return body;
     }
@@ -1263,15 +1375,23 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAwsScanOptions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AwsScanOptionsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AwsScanOptionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AwsScanOptionsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AwsScanOptionsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AwsScanOptionsResponse;
       return body;
     }
@@ -1283,13 +1403,16 @@ export class AgentlessScanningApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1304,9 +1427,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AwsScanOptionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AwsScanOptionsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AwsScanOptionsResponse;
       return body;
     }
@@ -1326,15 +1454,23 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAzureScanOptions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AzureScanOptions> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AzureScanOptions = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AzureScanOptions"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AzureScanOptions",
+        "",
+        _config?.preserveLargeIntegers
       ) as AzureScanOptions;
       return body;
     }
@@ -1346,13 +1482,16 @@ export class AgentlessScanningApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1367,9 +1506,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AzureScanOptions = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AzureScanOptions",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AzureScanOptions;
       return body;
     }
@@ -1389,15 +1533,23 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getGcpScanOptions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GcpScanOptions> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GcpScanOptions = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GcpScanOptions"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GcpScanOptions",
+        "",
+        _config?.preserveLargeIntegers
       ) as GcpScanOptions;
       return body;
     }
@@ -1409,13 +1561,16 @@ export class AgentlessScanningApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1430,9 +1585,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GcpScanOptions = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GcpScanOptions",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GcpScanOptions;
       return body;
     }
@@ -1452,28 +1612,39 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAwsOnDemandTasks(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AwsOnDemandListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AwsOnDemandListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AwsOnDemandListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AwsOnDemandListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AwsOnDemandListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1488,9 +1659,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AwsOnDemandListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AwsOnDemandListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AwsOnDemandListResponse;
       return body;
     }
@@ -1510,28 +1686,39 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAwsScanOptions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AwsScanOptionsListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AwsScanOptionsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AwsScanOptionsListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AwsScanOptionsListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AwsScanOptionsListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1546,9 +1733,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AwsScanOptionsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AwsScanOptionsListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AwsScanOptionsListResponse;
       return body;
     }
@@ -1568,28 +1760,39 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAzureScanOptions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AzureScanOptionsArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AzureScanOptionsArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AzureScanOptionsArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AzureScanOptionsArray",
+        "",
+        _config?.preserveLargeIntegers
       ) as AzureScanOptionsArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1604,9 +1807,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AzureScanOptionsArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AzureScanOptionsArray",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AzureScanOptionsArray;
       return body;
     }
@@ -1626,28 +1834,39 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listGcpScanOptions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GcpScanOptionsArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GcpScanOptionsArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GcpScanOptionsArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GcpScanOptionsArray",
+        "",
+        _config?.preserveLargeIntegers
       ) as GcpScanOptionsArray;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1662,9 +1881,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GcpScanOptionsArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GcpScanOptionsArray",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GcpScanOptionsArray;
       return body;
     }
@@ -1683,7 +1907,11 @@ export class AgentlessScanningApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAwsScanOptions
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAwsScanOptions(response: ResponseContext): Promise<void> {
+  public async updateAwsScanOptions(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1698,13 +1926,16 @@ export class AgentlessScanningApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1736,28 +1967,39 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateAzureScanOptions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AzureScanOptions> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AzureScanOptions = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AzureScanOptions"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AzureScanOptions",
+        "",
+        _config?.preserveLargeIntegers
       ) as AzureScanOptions;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1772,9 +2014,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AzureScanOptions = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AzureScanOptions",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AzureScanOptions;
       return body;
     }
@@ -1794,15 +2041,23 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateGcpScanOptions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GcpScanOptions> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GcpScanOptions = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GcpScanOptions"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GcpScanOptions",
+        "",
+        _config?.preserveLargeIntegers
       ) as GcpScanOptions;
       return body;
     }
@@ -1814,13 +2069,16 @@ export class AgentlessScanningApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1835,9 +2093,14 @@ export class AgentlessScanningApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GcpScanOptions = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GcpScanOptions",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GcpScanOptions;
       return body;
     }
@@ -1989,7 +2252,8 @@ export class AgentlessScanningApi {
     this.requestFactory =
       requestFactory || new AgentlessScanningApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new AgentlessScanningApiResponseProcessor();
+      responseProcessor ||
+      new AgentlessScanningApiResponseProcessor(configuration);
   }
 
   /**
@@ -2008,7 +2272,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAwsOnDemandTask(responseContext);
+          return this.responseProcessor.createAwsOnDemandTask(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2029,7 +2296,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAwsScanOptions(responseContext);
+          return this.responseProcessor.createAwsScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2050,7 +2320,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAzureScanOptions(responseContext);
+          return this.responseProcessor.createAzureScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2071,7 +2344,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createGcpScanOptions(responseContext);
+          return this.responseProcessor.createGcpScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2092,7 +2368,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteAwsScanOptions(responseContext);
+          return this.responseProcessor.deleteAwsScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2113,7 +2392,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteAzureScanOptions(responseContext);
+          return this.responseProcessor.deleteAzureScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2134,7 +2416,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteGcpScanOptions(responseContext);
+          return this.responseProcessor.deleteGcpScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2155,7 +2440,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAwsOnDemandTask(responseContext);
+          return this.responseProcessor.getAwsOnDemandTask(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2176,7 +2464,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAwsScanOptions(responseContext);
+          return this.responseProcessor.getAwsScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2197,7 +2488,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAzureScanOptions(responseContext);
+          return this.responseProcessor.getAzureScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2218,7 +2512,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getGcpScanOptions(responseContext);
+          return this.responseProcessor.getGcpScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2236,7 +2533,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAwsOnDemandTasks(responseContext);
+          return this.responseProcessor.listAwsOnDemandTasks(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2254,7 +2554,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAwsScanOptions(responseContext);
+          return this.responseProcessor.listAwsScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2272,7 +2575,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAzureScanOptions(responseContext);
+          return this.responseProcessor.listAzureScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2290,7 +2596,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listGcpScanOptions(responseContext);
+          return this.responseProcessor.listGcpScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2312,7 +2621,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateAwsScanOptions(responseContext);
+          return this.responseProcessor.updateAwsScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2334,7 +2646,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateAzureScanOptions(responseContext);
+          return this.responseProcessor.updateAzureScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2356,7 +2671,10 @@ export class AgentlessScanningApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateGcpScanOptions(responseContext);
+          return this.responseProcessor.updateGcpScanOptions(
+            responseContext,
+            options
+          );
         });
     });
   }

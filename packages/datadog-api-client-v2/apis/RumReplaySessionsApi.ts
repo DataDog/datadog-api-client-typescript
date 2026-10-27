@@ -100,6 +100,12 @@ export class RumReplaySessionsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class RumReplaySessionsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -107,7 +113,11 @@ export class RumReplaySessionsApiResponseProcessor {
    * @params response Response returned by the server for a request to getSegments
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getSegments(response: ResponseContext): Promise<void> {
+  public async getSegments(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -117,13 +127,16 @@ export class RumReplaySessionsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -195,7 +208,8 @@ export class RumReplaySessionsApi {
     this.requestFactory =
       requestFactory || new RumReplaySessionsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RumReplaySessionsApiResponseProcessor();
+      responseProcessor ||
+      new RumReplaySessionsApiResponseProcessor(configuration);
   }
 
   /**
@@ -219,7 +233,7 @@ export class RumReplaySessionsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSegments(responseContext);
+          return this.responseProcessor.getSegments(responseContext, options);
         });
     });
   }

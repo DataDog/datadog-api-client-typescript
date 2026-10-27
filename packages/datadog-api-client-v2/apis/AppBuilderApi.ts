@@ -76,7 +76,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateAppRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -133,7 +134,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreatePublishRequestRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -219,7 +221,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DeleteAppsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -827,7 +830,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateAppRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -883,7 +887,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateAppFavoriteRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -940,7 +945,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateAppSelfServiceRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -996,7 +1002,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateAppTagsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1068,7 +1075,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateAppVersionNameRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1125,7 +1133,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateAppProtectionLevelRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1141,6 +1150,12 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class AppBuilderApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1149,28 +1164,39 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createApp(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CreateAppResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: CreateAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CreateAppResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CreateAppResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CreateAppResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1187,13 +1213,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1208,9 +1237,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CreateAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CreateAppResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CreateAppResponse;
       return body;
     }
@@ -1230,15 +1264,23 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createPublishRequest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PublishAppResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: PublishAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PublishAppResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PublishAppResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as PublishAppResponse;
       return body;
     }
@@ -1249,13 +1291,16 @@ export class AppBuilderApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1272,13 +1317,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1293,9 +1341,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PublishAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PublishAppResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PublishAppResponse;
       return body;
     }
@@ -1315,15 +1368,23 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteApp(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<DeleteAppResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: DeleteAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DeleteAppResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "DeleteAppResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as DeleteAppResponse;
       return body;
     }
@@ -1335,13 +1396,16 @@ export class AppBuilderApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1358,13 +1422,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1379,9 +1446,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeleteAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "DeleteAppResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as DeleteAppResponse;
       return body;
     }
@@ -1401,15 +1473,23 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteApps(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<DeleteAppsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: DeleteAppsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DeleteAppsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "DeleteAppsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as DeleteAppsResponse;
       return body;
     }
@@ -1420,13 +1500,16 @@ export class AppBuilderApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1443,13 +1526,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1464,9 +1550,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeleteAppsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "DeleteAppsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as DeleteAppsResponse;
       return body;
     }
@@ -1485,14 +1576,24 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to getApp
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getApp(response: ResponseContext): Promise<GetAppResponse> {
+  public async getApp(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<GetAppResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GetAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GetAppResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GetAppResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GetAppResponse;
       return body;
     }
@@ -1504,13 +1605,16 @@ export class AppBuilderApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1527,13 +1631,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1548,9 +1655,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GetAppResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GetAppResponse;
       return body;
     }
@@ -1570,28 +1682,39 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getBlueprint(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GetBlueprintResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GetBlueprintResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GetBlueprintResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GetBlueprintResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GetBlueprintResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1608,13 +1731,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1629,9 +1755,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetBlueprintResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GetBlueprintResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GetBlueprintResponse;
       return body;
     }
@@ -1651,28 +1782,39 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getBlueprintsByIntegrationId(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GetBlueprintsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GetBlueprintsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GetBlueprintsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GetBlueprintsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GetBlueprintsResponse;
       return body;
     }
     if (response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1689,13 +1831,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1710,9 +1855,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetBlueprintsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GetBlueprintsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GetBlueprintsResponse;
       return body;
     }
@@ -1732,28 +1882,39 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getBlueprintsBySlugs(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GetBlueprintsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GetBlueprintsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GetBlueprintsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GetBlueprintsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GetBlueprintsResponse;
       return body;
     }
     if (response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1770,13 +1931,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1791,9 +1955,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetBlueprintsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GetBlueprintsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GetBlueprintsResponse;
       return body;
     }
@@ -1812,27 +1981,40 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to listApps
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listApps(response: ResponseContext): Promise<ListAppsResponse> {
+  public async listApps(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<ListAppsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListAppsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListAppsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListAppsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListAppsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1849,13 +2031,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1870,9 +2055,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListAppsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListAppsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListAppsResponse;
       return body;
     }
@@ -1892,15 +2082,23 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAppVersions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListAppVersionsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListAppVersionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListAppVersionsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListAppVersionsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListAppVersionsResponse;
       return body;
     }
@@ -1911,13 +2109,16 @@ export class AppBuilderApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1934,13 +2135,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1955,9 +2159,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListAppVersionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListAppVersionsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListAppVersionsResponse;
       return body;
     }
@@ -1977,28 +2186,39 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listBlueprints(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListBlueprintsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListBlueprintsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListBlueprintsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListBlueprintsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListBlueprintsResponse;
       return body;
     }
     if (response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2015,13 +2235,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2036,9 +2259,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListBlueprintsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListBlueprintsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListBlueprintsResponse;
       return body;
     }
@@ -2058,28 +2286,39 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listTags(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AppBuilderListTagsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AppBuilderListTagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AppBuilderListTagsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AppBuilderListTagsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AppBuilderListTagsResponse;
       return body;
     }
     if (response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2096,13 +2335,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2117,9 +2359,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AppBuilderListTagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AppBuilderListTagsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AppBuilderListTagsResponse;
       return body;
     }
@@ -2139,15 +2386,23 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async publishApp(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PublishAppResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: PublishAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PublishAppResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PublishAppResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as PublishAppResponse;
       return body;
     }
@@ -2158,13 +2413,16 @@ export class AppBuilderApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2181,13 +2439,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2202,9 +2463,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PublishAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PublishAppResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PublishAppResponse;
       return body;
     }
@@ -2224,15 +2490,23 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async revertApp(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UpdateAppResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UpdateAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UpdateAppResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UpdateAppResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UpdateAppResponse;
       return body;
     }
@@ -2243,13 +2517,16 @@ export class AppBuilderApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2266,13 +2543,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2287,9 +2567,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdateAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UpdateAppResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UpdateAppResponse;
       return body;
     }
@@ -2309,15 +2594,23 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async unpublishApp(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UnpublishAppResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UnpublishAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UnpublishAppResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UnpublishAppResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UnpublishAppResponse;
       return body;
     }
@@ -2328,13 +2621,16 @@ export class AppBuilderApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2351,13 +2647,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2372,9 +2671,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UnpublishAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UnpublishAppResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UnpublishAppResponse;
       return body;
     }
@@ -2394,28 +2698,39 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateApp(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UpdateAppResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UpdateAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UpdateAppResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UpdateAppResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UpdateAppResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2432,13 +2747,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2453,9 +2771,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdateAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UpdateAppResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UpdateAppResponse;
       return body;
     }
@@ -2474,7 +2797,11 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAppFavorite
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAppFavorite(response: ResponseContext): Promise<void> {
+  public async updateAppFavorite(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2488,13 +2815,16 @@ export class AppBuilderApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2511,13 +2841,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2548,7 +2881,11 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAppSelfService
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAppSelfService(response: ResponseContext): Promise<void> {
+  public async updateAppSelfService(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2562,13 +2899,16 @@ export class AppBuilderApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2585,13 +2925,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2622,7 +2965,11 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAppTags
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAppTags(response: ResponseContext): Promise<void> {
+  public async updateAppTags(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2636,13 +2983,16 @@ export class AppBuilderApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2659,13 +3009,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2696,7 +3049,11 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAppVersionName
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAppVersionName(response: ResponseContext): Promise<void> {
+  public async updateAppVersionName(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2710,13 +3067,16 @@ export class AppBuilderApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2733,13 +3093,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2771,15 +3134,23 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateProtectionLevel(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UpdateAppResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UpdateAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UpdateAppResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UpdateAppResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UpdateAppResponse;
       return body;
     }
@@ -2790,13 +3161,16 @@ export class AppBuilderApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2813,13 +3187,16 @@ export class AppBuilderApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2834,9 +3211,14 @@ export class AppBuilderApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdateAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UpdateAppResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UpdateAppResponse;
       return body;
     }
@@ -3129,7 +3511,7 @@ export class AppBuilderApi {
     this.requestFactory =
       requestFactory || new AppBuilderApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new AppBuilderApiResponseProcessor();
+      responseProcessor || new AppBuilderApiResponseProcessor(configuration);
   }
 
   /**
@@ -3148,7 +3530,7 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createApp(responseContext);
+          return this.responseProcessor.createApp(responseContext, options);
         });
     });
   }
@@ -3170,7 +3552,10 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createPublishRequest(responseContext);
+          return this.responseProcessor.createPublishRequest(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3191,7 +3576,7 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteApp(responseContext);
+          return this.responseProcessor.deleteApp(responseContext, options);
         });
     });
   }
@@ -3212,7 +3597,7 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteApps(responseContext);
+          return this.responseProcessor.deleteApps(responseContext, options);
         });
     });
   }
@@ -3234,7 +3619,7 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getApp(responseContext);
+          return this.responseProcessor.getApp(responseContext, options);
         });
     });
   }
@@ -3255,7 +3640,7 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getBlueprint(responseContext);
+          return this.responseProcessor.getBlueprint(responseContext, options);
         });
     });
   }
@@ -3278,7 +3663,8 @@ export class AppBuilderApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getBlueprintsByIntegrationId(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3300,7 +3686,10 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getBlueprintsBySlugs(responseContext);
+          return this.responseProcessor.getBlueprintsBySlugs(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3331,7 +3720,7 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listApps(responseContext);
+          return this.responseProcessor.listApps(responseContext, options);
         });
     });
   }
@@ -3354,7 +3743,10 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAppVersions(responseContext);
+          return this.responseProcessor.listAppVersions(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3376,7 +3768,10 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listBlueprints(responseContext);
+          return this.responseProcessor.listBlueprints(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3393,7 +3788,7 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listTags(responseContext);
+          return this.responseProcessor.listTags(responseContext, options);
         });
     });
   }
@@ -3414,7 +3809,7 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.publishApp(responseContext);
+          return this.responseProcessor.publishApp(responseContext, options);
         });
     });
   }
@@ -3436,7 +3831,7 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.revertApp(responseContext);
+          return this.responseProcessor.revertApp(responseContext, options);
         });
     });
   }
@@ -3457,7 +3852,7 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.unpublishApp(responseContext);
+          return this.responseProcessor.unpublishApp(responseContext, options);
         });
     });
   }
@@ -3479,7 +3874,7 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateApp(responseContext);
+          return this.responseProcessor.updateApp(responseContext, options);
         });
     });
   }
@@ -3501,7 +3896,10 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateAppFavorite(responseContext);
+          return this.responseProcessor.updateAppFavorite(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3523,7 +3921,10 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateAppSelfService(responseContext);
+          return this.responseProcessor.updateAppSelfService(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3545,7 +3946,7 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateAppTags(responseContext);
+          return this.responseProcessor.updateAppTags(responseContext, options);
         });
     });
   }
@@ -3568,7 +3969,10 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateAppVersionName(responseContext);
+          return this.responseProcessor.updateAppVersionName(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3590,7 +3994,10 @@ export class AppBuilderApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateProtectionLevel(responseContext);
+          return this.responseProcessor.updateProtectionLevel(
+            responseContext,
+            options
+          );
         });
     });
   }

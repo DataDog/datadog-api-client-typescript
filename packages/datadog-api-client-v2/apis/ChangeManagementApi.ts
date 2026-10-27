@@ -63,7 +63,8 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ChangeRequestCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -127,7 +128,8 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ChangeRequestBranchCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -289,7 +291,8 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ChangeRequestUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -365,7 +368,8 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
         "ChangeRequestDecisionUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -381,6 +385,12 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ChangeManagementApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -389,28 +399,39 @@ export class ChangeManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createChangeRequest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ChangeRequestResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ChangeRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ChangeRequestResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ChangeRequestResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ChangeRequestResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -427,13 +448,16 @@ export class ChangeManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -448,9 +472,14 @@ export class ChangeManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ChangeRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ChangeRequestResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ChangeRequestResponse;
       return body;
     }
@@ -470,28 +499,39 @@ export class ChangeManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createChangeRequestBranch(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ChangeRequestResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ChangeRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ChangeRequestResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ChangeRequestResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ChangeRequestResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -508,13 +548,16 @@ export class ChangeManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -529,9 +572,14 @@ export class ChangeManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ChangeRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ChangeRequestResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ChangeRequestResponse;
       return body;
     }
@@ -551,28 +599,39 @@ export class ChangeManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteChangeRequestDecision(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ChangeRequestResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ChangeRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ChangeRequestResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ChangeRequestResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ChangeRequestResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -589,13 +648,16 @@ export class ChangeManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -610,9 +672,14 @@ export class ChangeManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ChangeRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ChangeRequestResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ChangeRequestResponse;
       return body;
     }
@@ -632,28 +699,39 @@ export class ChangeManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getChangeRequest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ChangeRequestResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ChangeRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ChangeRequestResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ChangeRequestResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ChangeRequestResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -670,13 +748,16 @@ export class ChangeManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -691,9 +772,14 @@ export class ChangeManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ChangeRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ChangeRequestResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ChangeRequestResponse;
       return body;
     }
@@ -713,15 +799,23 @@ export class ChangeManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateChangeRequest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ChangeRequestResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ChangeRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ChangeRequestResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ChangeRequestResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ChangeRequestResponse;
       return body;
     }
@@ -732,13 +826,16 @@ export class ChangeManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -755,13 +852,16 @@ export class ChangeManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -776,9 +876,14 @@ export class ChangeManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ChangeRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ChangeRequestResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ChangeRequestResponse;
       return body;
     }
@@ -798,28 +903,39 @@ export class ChangeManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateChangeRequestDecision(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ChangeRequestResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ChangeRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ChangeRequestResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ChangeRequestResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ChangeRequestResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -836,13 +952,16 @@ export class ChangeManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -857,9 +976,14 @@ export class ChangeManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ChangeRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ChangeRequestResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ChangeRequestResponse;
       return body;
     }
@@ -959,7 +1083,8 @@ export class ChangeManagementApi {
     this.requestFactory =
       requestFactory || new ChangeManagementApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ChangeManagementApiResponseProcessor();
+      responseProcessor ||
+      new ChangeManagementApiResponseProcessor(configuration);
   }
 
   /**
@@ -978,7 +1103,10 @@ export class ChangeManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createChangeRequest(responseContext);
+          return this.responseProcessor.createChangeRequest(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1001,7 +1129,8 @@ export class ChangeManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createChangeRequestBranch(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1026,7 +1155,8 @@ export class ChangeManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteChangeRequestDecision(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1048,7 +1178,10 @@ export class ChangeManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getChangeRequest(responseContext);
+          return this.responseProcessor.getChangeRequest(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1070,7 +1203,10 @@ export class ChangeManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateChangeRequest(responseContext);
+          return this.responseProcessor.updateChangeRequest(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1095,7 +1231,8 @@ export class ChangeManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateChangeRequestDecision(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

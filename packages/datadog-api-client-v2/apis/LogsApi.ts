@@ -63,7 +63,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LogsAggregateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -105,7 +106,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LogsListRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -269,7 +271,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Array<HTTPLogItem>", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -281,6 +284,12 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class LogsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -289,15 +298,23 @@ export class LogsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async aggregateLogs(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LogsAggregateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LogsAggregateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsAggregateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LogsAggregateResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsAggregateResponse;
       return body;
     }
@@ -308,13 +325,16 @@ export class LogsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -329,9 +349,14 @@ export class LogsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsAggregateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LogsAggregateResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsAggregateResponse;
       return body;
     }
@@ -350,14 +375,24 @@ export class LogsApiResponseProcessor {
    * @params response Response returned by the server for a request to listLogs
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listLogs(response: ResponseContext): Promise<LogsListResponse> {
+  public async listLogs(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<LogsListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LogsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LogsListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsListResponse;
       return body;
     }
@@ -368,13 +403,16 @@ export class LogsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -389,9 +427,14 @@ export class LogsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LogsListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsListResponse;
       return body;
     }
@@ -411,15 +454,23 @@ export class LogsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLogsGet(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LogsListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LogsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LogsListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsListResponse;
       return body;
     }
@@ -430,13 +481,16 @@ export class LogsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -451,9 +505,14 @@ export class LogsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LogsListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsListResponse;
       return body;
     }
@@ -472,14 +531,24 @@ export class LogsApiResponseProcessor {
    * @params response Response returned by the server for a request to submitLog
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async submitLog(response: ResponseContext): Promise<any> {
+  public async submitLog(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<any> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 202) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "any"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "any",
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -495,13 +564,16 @@ export class LogsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: HTTPLogErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPLogErrors"
+          "HTTPLogErrors",
+          "",
+          _config?.preserveLargeIntegers
         ) as HTTPLogErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -516,9 +588,14 @@ export class LogsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "any",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -621,7 +698,7 @@ export class LogsApi {
     this.requestFactory =
       requestFactory || new LogsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new LogsApiResponseProcessor();
+      responseProcessor || new LogsApiResponseProcessor(configuration);
   }
 
   /**
@@ -640,7 +717,7 @@ export class LogsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.aggregateLogs(responseContext);
+          return this.responseProcessor.aggregateLogs(responseContext, options);
         });
     });
   }
@@ -671,7 +748,7 @@ export class LogsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLogs(responseContext);
+          return this.responseProcessor.listLogs(responseContext, options);
         });
     });
   }
@@ -703,7 +780,10 @@ export class LogsApi {
         requestContext
       );
 
-      const response = await this.responseProcessor.listLogs(responseContext);
+      const response = await this.responseProcessor.listLogs(
+        responseContext,
+        options
+      );
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -765,7 +845,7 @@ export class LogsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLogsGet(responseContext);
+          return this.responseProcessor.listLogsGet(responseContext, options);
         });
     });
   }
@@ -799,7 +879,8 @@ export class LogsApi {
       );
 
       const response = await this.responseProcessor.listLogsGet(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -870,7 +951,7 @@ export class LogsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.submitLog(responseContext);
+          return this.responseProcessor.submitLog(responseContext, options);
         });
     });
   }

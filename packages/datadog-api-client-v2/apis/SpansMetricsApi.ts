@@ -56,7 +56,8 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SpansMetricCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -220,7 +221,8 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SpansMetricUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -236,6 +238,12 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class SpansMetricsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -244,15 +252,23 @@ export class SpansMetricsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createSpansMetric(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SpansMetricResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SpansMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SpansMetricResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SpansMetricResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as SpansMetricResponse;
       return body;
     }
@@ -264,13 +280,16 @@ export class SpansMetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -285,9 +304,14 @@ export class SpansMetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SpansMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SpansMetricResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SpansMetricResponse;
       return body;
     }
@@ -306,7 +330,11 @@ export class SpansMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteSpansMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteSpansMetric(response: ResponseContext): Promise<void> {
+  public async deleteSpansMetric(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -320,13 +348,16 @@ export class SpansMetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -358,15 +389,23 @@ export class SpansMetricsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getSpansMetric(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SpansMetricResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SpansMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SpansMetricResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SpansMetricResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as SpansMetricResponse;
       return body;
     }
@@ -377,13 +416,16 @@ export class SpansMetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -398,9 +440,14 @@ export class SpansMetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SpansMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SpansMetricResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SpansMetricResponse;
       return body;
     }
@@ -420,28 +467,39 @@ export class SpansMetricsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listSpansMetrics(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SpansMetricsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SpansMetricsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SpansMetricsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SpansMetricsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as SpansMetricsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -456,9 +514,14 @@ export class SpansMetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SpansMetricsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SpansMetricsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SpansMetricsResponse;
       return body;
     }
@@ -478,15 +541,23 @@ export class SpansMetricsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateSpansMetric(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SpansMetricResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SpansMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SpansMetricResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SpansMetricResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as SpansMetricResponse;
       return body;
     }
@@ -498,13 +569,16 @@ export class SpansMetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -519,9 +593,14 @@ export class SpansMetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SpansMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SpansMetricResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SpansMetricResponse;
       return body;
     }
@@ -585,7 +664,7 @@ export class SpansMetricsApi {
     this.requestFactory =
       requestFactory || new SpansMetricsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new SpansMetricsApiResponseProcessor();
+      responseProcessor || new SpansMetricsApiResponseProcessor(configuration);
   }
 
   /**
@@ -605,7 +684,10 @@ export class SpansMetricsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createSpansMetric(responseContext);
+          return this.responseProcessor.createSpansMetric(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -626,7 +708,10 @@ export class SpansMetricsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteSpansMetric(responseContext);
+          return this.responseProcessor.deleteSpansMetric(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -647,7 +732,10 @@ export class SpansMetricsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSpansMetric(responseContext);
+          return this.responseProcessor.getSpansMetric(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -664,7 +752,10 @@ export class SpansMetricsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listSpansMetrics(responseContext);
+          return this.responseProcessor.listSpansMetrics(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -687,7 +778,10 @@ export class SpansMetricsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateSpansMetric(responseContext);
+          return this.responseProcessor.updateSpansMetric(
+            responseContext,
+            options
+          );
         });
     });
   }

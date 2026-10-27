@@ -65,7 +65,8 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Watch", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -269,6 +270,12 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class RumReplayViewershipApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -277,28 +284,39 @@ export class RumReplayViewershipApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createRumReplaySessionWatch(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Watch> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: Watch = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Watch"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Watch",
+        "",
+        _config?.preserveLargeIntegers
       ) as Watch;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -313,9 +331,14 @@ export class RumReplayViewershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Watch = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Watch",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Watch;
       return body;
     }
@@ -335,8 +358,10 @@ export class RumReplayViewershipApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteRumReplaySessionWatch(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -346,13 +371,16 @@ export class RumReplayViewershipApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -384,28 +412,39 @@ export class RumReplayViewershipApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listRumReplaySessionWatchers(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<WatcherArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: WatcherArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WatcherArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "WatcherArray",
+        "",
+        _config?.preserveLargeIntegers
       ) as WatcherArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -420,9 +459,14 @@ export class RumReplayViewershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WatcherArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "WatcherArray",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as WatcherArray;
       return body;
     }
@@ -442,28 +486,39 @@ export class RumReplayViewershipApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listRumReplayViewershipHistorySessions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ViewershipHistorySessionArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ViewershipHistorySessionArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ViewershipHistorySessionArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ViewershipHistorySessionArray",
+        "",
+        _config?.preserveLargeIntegers
       ) as ViewershipHistorySessionArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -478,9 +533,14 @@ export class RumReplayViewershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ViewershipHistorySessionArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ViewershipHistorySessionArray",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ViewershipHistorySessionArray;
       return body;
     }
@@ -583,7 +643,8 @@ export class RumReplayViewershipApi {
     this.requestFactory =
       requestFactory || new RumReplayViewershipApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RumReplayViewershipApiResponseProcessor();
+      responseProcessor ||
+      new RumReplayViewershipApiResponseProcessor(configuration);
   }
 
   /**
@@ -605,7 +666,8 @@ export class RumReplayViewershipApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createRumReplaySessionWatch(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -626,7 +688,8 @@ export class RumReplayViewershipApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteRumReplaySessionWatch(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -652,7 +715,8 @@ export class RumReplayViewershipApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listRumReplaySessionWatchers(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -682,7 +746,8 @@ export class RumReplayViewershipApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listRumReplayViewershipHistorySessions(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

@@ -71,7 +71,8 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
         "ApplicationSecurityWafCustomRuleCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -128,7 +129,8 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
         "ApplicationSecurityWafExclusionFilterCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -179,7 +181,8 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
         "ApplicationSecurityPolicyCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -645,7 +648,8 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
         "ApplicationSecurityWafCustomRuleUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -714,7 +718,8 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
         "ApplicationSecurityWafExclusionFilterUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -775,7 +780,8 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
         "ApplicationSecurityPolicyUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -791,6 +797,12 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class ApplicationSecurityApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -799,16 +811,24 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createApplicationSecurityWafCustomRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ApplicationSecurityWafCustomRuleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafCustomRuleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ApplicationSecurityWafCustomRuleResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
@@ -820,13 +840,16 @@ export class ApplicationSecurityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -842,9 +865,14 @@ export class ApplicationSecurityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationSecurityWafCustomRuleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ApplicationSecurityWafCustomRuleResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
@@ -864,16 +892,24 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createApplicationSecurityWafExclusionFilter(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafExclusionFilterResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafExclusionFilterResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ApplicationSecurityWafExclusionFilterResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
@@ -885,13 +921,16 @@ export class ApplicationSecurityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -907,9 +946,14 @@ export class ApplicationSecurityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationSecurityWafExclusionFilterResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ApplicationSecurityWafExclusionFilterResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
@@ -929,16 +973,24 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createApplicationSecurityWafPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationSecurityPolicyResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ApplicationSecurityPolicyResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityPolicyResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ApplicationSecurityPolicyResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityPolicyResponse;
       return body;
     }
@@ -950,13 +1002,16 @@ export class ApplicationSecurityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -972,9 +1027,14 @@ export class ApplicationSecurityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationSecurityPolicyResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ApplicationSecurityPolicyResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityPolicyResponse;
       return body;
     }
@@ -994,8 +1054,10 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteApplicationSecurityWafCustomRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1010,13 +1072,16 @@ export class ApplicationSecurityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1048,8 +1113,10 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteApplicationSecurityWafExclusionFilter(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1064,13 +1131,16 @@ export class ApplicationSecurityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1102,8 +1172,10 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteApplicationSecurityWafPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1118,13 +1190,16 @@ export class ApplicationSecurityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1156,29 +1231,40 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getApplicationSecurityWafCustomRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafCustomRuleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafCustomRuleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ApplicationSecurityWafCustomRuleResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1194,9 +1280,14 @@ export class ApplicationSecurityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationSecurityWafCustomRuleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ApplicationSecurityWafCustomRuleResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
@@ -1216,16 +1307,24 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getApplicationSecurityWafExclusionFilter(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafExclusionFilterResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafExclusionFilterResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ApplicationSecurityWafExclusionFilterResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
@@ -1236,13 +1335,16 @@ export class ApplicationSecurityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1258,9 +1360,14 @@ export class ApplicationSecurityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationSecurityWafExclusionFilterResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ApplicationSecurityWafExclusionFilterResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
@@ -1280,29 +1387,40 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getApplicationSecurityWafPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationSecurityPolicyResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityPolicyResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityPolicyResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ApplicationSecurityPolicyResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityPolicyResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1318,9 +1436,14 @@ export class ApplicationSecurityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationSecurityPolicyResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ApplicationSecurityPolicyResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityPolicyResponse;
       return body;
     }
@@ -1340,29 +1463,40 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAsmServiceByName(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationSecurityServicesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityServicesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityServicesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ApplicationSecurityServicesResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityServicesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1378,9 +1512,14 @@ export class ApplicationSecurityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationSecurityServicesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ApplicationSecurityServicesResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityServicesResponse;
       return body;
     }
@@ -1400,29 +1539,40 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listApplicationSecurityWAFCustomRules(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationSecurityWafCustomRuleListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafCustomRuleListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafCustomRuleListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ApplicationSecurityWafCustomRuleListResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafCustomRuleListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1438,9 +1588,14 @@ export class ApplicationSecurityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationSecurityWafCustomRuleListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ApplicationSecurityWafCustomRuleListResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafCustomRuleListResponse;
       return body;
     }
@@ -1460,29 +1615,40 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listApplicationSecurityWafExclusionFilters(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationSecurityWafExclusionFiltersResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafExclusionFiltersResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafExclusionFiltersResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ApplicationSecurityWafExclusionFiltersResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafExclusionFiltersResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1498,9 +1664,14 @@ export class ApplicationSecurityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationSecurityWafExclusionFiltersResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ApplicationSecurityWafExclusionFiltersResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafExclusionFiltersResponse;
       return body;
     }
@@ -1520,29 +1691,40 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listApplicationSecurityWAFPolicies(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationSecurityPolicyListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityPolicyListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityPolicyListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ApplicationSecurityPolicyListResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityPolicyListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1558,9 +1740,14 @@ export class ApplicationSecurityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationSecurityPolicyListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ApplicationSecurityPolicyListResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityPolicyListResponse;
       return body;
     }
@@ -1580,16 +1767,24 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateApplicationSecurityWafCustomRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafCustomRuleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafCustomRuleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ApplicationSecurityWafCustomRuleResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
@@ -1602,13 +1797,16 @@ export class ApplicationSecurityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1624,9 +1822,14 @@ export class ApplicationSecurityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationSecurityWafCustomRuleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ApplicationSecurityWafCustomRuleResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
@@ -1646,16 +1849,24 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateApplicationSecurityWafExclusionFilter(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafExclusionFilterResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafExclusionFilterResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ApplicationSecurityWafExclusionFilterResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
@@ -1668,13 +1879,16 @@ export class ApplicationSecurityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1690,9 +1904,14 @@ export class ApplicationSecurityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationSecurityWafExclusionFilterResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ApplicationSecurityWafExclusionFilterResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
@@ -1712,16 +1931,24 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateApplicationSecurityWafPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationSecurityPolicyResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityPolicyResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityPolicyResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ApplicationSecurityPolicyResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityPolicyResponse;
       return body;
     }
@@ -1734,13 +1961,16 @@ export class ApplicationSecurityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1756,9 +1986,14 @@ export class ApplicationSecurityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationSecurityPolicyResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ApplicationSecurityPolicyResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ApplicationSecurityPolicyResponse;
       return body;
     }
@@ -1905,7 +2140,8 @@ export class ApplicationSecurityApi {
     this.requestFactory =
       requestFactory || new ApplicationSecurityApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ApplicationSecurityApiResponseProcessor();
+      responseProcessor ||
+      new ApplicationSecurityApiResponseProcessor(configuration);
   }
 
   /**
@@ -1926,7 +2162,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createApplicationSecurityWafCustomRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1953,7 +2190,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createApplicationSecurityWafExclusionFilter(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1977,7 +2215,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createApplicationSecurityWafPolicy(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2001,7 +2240,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteApplicationSecurityWafCustomRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2025,7 +2265,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteApplicationSecurityWafExclusionFilter(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2049,7 +2290,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteApplicationSecurityWafPolicy(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2073,7 +2315,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getApplicationSecurityWafCustomRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2097,7 +2340,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getApplicationSecurityWafExclusionFilter(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2121,7 +2365,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getApplicationSecurityWafPolicy(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2146,7 +2391,10 @@ export class ApplicationSecurityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAsmServiceByName(responseContext);
+          return this.responseProcessor.getAsmServiceByName(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2165,7 +2413,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listApplicationSecurityWAFCustomRules(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2185,7 +2434,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listApplicationSecurityWafExclusionFilters(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2205,7 +2455,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listApplicationSecurityWAFPolicies(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2231,7 +2482,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateApplicationSecurityWafCustomRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2257,7 +2509,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateApplicationSecurityWafExclusionFilter(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2283,7 +2536,8 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateApplicationSecurityWafPolicy(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

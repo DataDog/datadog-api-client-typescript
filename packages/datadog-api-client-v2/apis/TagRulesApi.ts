@@ -65,7 +65,8 @@ export class TagRulesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TagRuleCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -397,7 +398,8 @@ export class TagRulesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TagRuleUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -413,6 +415,12 @@ export class TagRulesApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class TagRulesApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -421,15 +429,23 @@ export class TagRulesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createTagRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TagRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: TagRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TagRuleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TagRuleResponse;
       return body;
     }
@@ -441,13 +457,16 @@ export class TagRulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -464,13 +483,16 @@ export class TagRulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -485,9 +507,14 @@ export class TagRulesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TagRuleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TagRuleResponse;
       return body;
     }
@@ -506,7 +533,11 @@ export class TagRulesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTagRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTagRule(response: ResponseContext): Promise<void> {
+  public async deleteTagRule(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -521,13 +552,16 @@ export class TagRulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -544,13 +578,16 @@ export class TagRulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -581,14 +618,24 @@ export class TagRulesApiResponseProcessor {
    * @params response Response returned by the server for a request to getTagRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getTagRule(response: ResponseContext): Promise<TagRuleResponse> {
+  public async getTagRule(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<TagRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TagRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TagRuleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TagRuleResponse;
       return body;
     }
@@ -600,13 +647,16 @@ export class TagRulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -623,13 +673,16 @@ export class TagRulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -644,9 +697,14 @@ export class TagRulesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TagRuleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TagRuleResponse;
       return body;
     }
@@ -666,15 +724,23 @@ export class TagRulesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getTagRuleScore(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TagRuleScoreResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TagRuleScoreResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagRuleScoreResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TagRuleScoreResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TagRuleScoreResponse;
       return body;
     }
@@ -686,13 +752,16 @@ export class TagRulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -709,13 +778,16 @@ export class TagRulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -730,9 +802,14 @@ export class TagRulesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagRuleScoreResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TagRuleScoreResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TagRuleScoreResponse;
       return body;
     }
@@ -752,15 +829,23 @@ export class TagRulesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listTagRules(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TagRulesListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TagRulesListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagRulesListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TagRulesListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TagRulesListResponse;
       return body;
     }
@@ -771,13 +856,16 @@ export class TagRulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -794,13 +882,16 @@ export class TagRulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -815,9 +906,14 @@ export class TagRulesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagRulesListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TagRulesListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TagRulesListResponse;
       return body;
     }
@@ -837,15 +933,23 @@ export class TagRulesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateTagRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TagRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TagRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TagRuleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TagRuleResponse;
       return body;
     }
@@ -857,13 +961,16 @@ export class TagRulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -880,13 +987,16 @@ export class TagRulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -901,9 +1011,14 @@ export class TagRulesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TagRuleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TagRuleResponse;
       return body;
     }
@@ -1036,7 +1151,7 @@ export class TagRulesApi {
     this.requestFactory =
       requestFactory || new TagRulesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new TagRulesApiResponseProcessor();
+      responseProcessor || new TagRulesApiResponseProcessor(configuration);
   }
 
   /**
@@ -1057,7 +1172,7 @@ export class TagRulesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createTagRule(responseContext);
+          return this.responseProcessor.createTagRule(responseContext, options);
         });
     });
   }
@@ -1081,7 +1196,7 @@ export class TagRulesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteTagRule(responseContext);
+          return this.responseProcessor.deleteTagRule(responseContext, options);
         });
     });
   }
@@ -1107,7 +1222,7 @@ export class TagRulesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTagRule(responseContext);
+          return this.responseProcessor.getTagRule(responseContext, options);
         });
     });
   }
@@ -1133,7 +1248,10 @@ export class TagRulesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTagRuleScore(responseContext);
+          return this.responseProcessor.getTagRuleScore(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1161,7 +1279,7 @@ export class TagRulesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listTagRules(responseContext);
+          return this.responseProcessor.listTagRules(responseContext, options);
         });
     });
   }
@@ -1185,7 +1303,7 @@ export class TagRulesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateTagRule(responseContext);
+          return this.responseProcessor.updateTagRule(responseContext, options);
         });
     });
   }

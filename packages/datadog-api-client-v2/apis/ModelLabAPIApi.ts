@@ -982,6 +982,12 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ModelLabAPIApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -989,7 +995,11 @@ export class ModelLabAPIApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteModelLabRun
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteModelLabRun(response: ResponseContext): Promise<void> {
+  public async deleteModelLabRun(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1003,13 +1013,16 @@ export class ModelLabAPIApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1026,13 +1039,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1064,8 +1080,10 @@ export class ModelLabAPIApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getModelLabArtifactContent(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<HttpFile> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1076,13 +1094,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1099,13 +1120,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1139,15 +1163,23 @@ export class ModelLabAPIApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getModelLabProject(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ModelLabProjectResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ModelLabProjectResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ModelLabProjectResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ModelLabProjectResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabProjectResponse;
       return body;
     }
@@ -1158,13 +1190,16 @@ export class ModelLabAPIApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1181,13 +1216,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1202,9 +1240,14 @@ export class ModelLabAPIApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ModelLabProjectResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ModelLabProjectResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabProjectResponse;
       return body;
     }
@@ -1224,15 +1267,23 @@ export class ModelLabAPIApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getModelLabRun(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ModelLabRunResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ModelLabRunResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ModelLabRunResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ModelLabRunResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabRunResponse;
       return body;
     }
@@ -1243,13 +1294,16 @@ export class ModelLabAPIApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1266,13 +1320,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1287,9 +1344,14 @@ export class ModelLabAPIApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ModelLabRunResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ModelLabRunResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabRunResponse;
       return body;
     }
@@ -1309,29 +1371,40 @@ export class ModelLabAPIApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listModelLabProjectArtifacts(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ModelLabProjectArtifactsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ModelLabProjectArtifactsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ModelLabProjectArtifactsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ModelLabProjectArtifactsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ModelLabProjectArtifactsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1348,13 +1421,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1370,9 +1446,14 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ModelLabProjectArtifactsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ModelLabProjectArtifactsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ModelLabProjectArtifactsResponse;
       return body;
     }
@@ -1392,28 +1473,39 @@ export class ModelLabAPIApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listModelLabProjectFacetKeys(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ModelLabFacetKeysResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ModelLabFacetKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ModelLabFacetKeysResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ModelLabFacetKeysResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabFacetKeysResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1427,13 +1519,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1451,9 +1546,14 @@ export class ModelLabAPIApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ModelLabFacetKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ModelLabFacetKeysResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabFacetKeysResponse;
       return body;
     }
@@ -1473,28 +1573,39 @@ export class ModelLabAPIApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listModelLabProjectFacetValues(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ModelLabFacetValuesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ModelLabFacetValuesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ModelLabFacetValuesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ModelLabFacetValuesResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabFacetValuesResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1511,13 +1622,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1532,9 +1646,14 @@ export class ModelLabAPIApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ModelLabFacetValuesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ModelLabFacetValuesResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabFacetValuesResponse;
       return body;
     }
@@ -1554,28 +1673,39 @@ export class ModelLabAPIApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listModelLabProjects(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ModelLabProjectsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ModelLabProjectsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ModelLabProjectsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ModelLabProjectsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabProjectsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1592,13 +1722,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1613,9 +1746,14 @@ export class ModelLabAPIApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ModelLabProjectsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ModelLabProjectsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabProjectsResponse;
       return body;
     }
@@ -1635,15 +1773,23 @@ export class ModelLabAPIApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listModelLabRunArtifacts(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ModelLabRunArtifactsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ModelLabRunArtifactsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ModelLabRunArtifactsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ModelLabRunArtifactsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabRunArtifactsResponse;
       return body;
     }
@@ -1654,13 +1800,16 @@ export class ModelLabAPIApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1677,13 +1826,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1698,9 +1850,14 @@ export class ModelLabAPIApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ModelLabRunArtifactsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ModelLabRunArtifactsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabRunArtifactsResponse;
       return body;
     }
@@ -1720,15 +1877,23 @@ export class ModelLabAPIApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listModelLabRunFacetKeys(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ModelLabFacetKeysResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ModelLabFacetKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ModelLabFacetKeysResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ModelLabFacetKeysResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabFacetKeysResponse;
       return body;
     }
@@ -1739,13 +1904,16 @@ export class ModelLabAPIApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1762,13 +1930,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1783,9 +1954,14 @@ export class ModelLabAPIApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ModelLabFacetKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ModelLabFacetKeysResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabFacetKeysResponse;
       return body;
     }
@@ -1805,15 +1981,23 @@ export class ModelLabAPIApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listModelLabRunFacetValues(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ModelLabFacetValuesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ModelLabFacetValuesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ModelLabFacetValuesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ModelLabFacetValuesResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabFacetValuesResponse;
       return body;
     }
@@ -1824,13 +2008,16 @@ export class ModelLabAPIApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1847,13 +2034,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1868,9 +2058,14 @@ export class ModelLabAPIApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ModelLabFacetValuesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ModelLabFacetValuesResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabFacetValuesResponse;
       return body;
     }
@@ -1890,28 +2085,39 @@ export class ModelLabAPIApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listModelLabRuns(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ModelLabRunsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ModelLabRunsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ModelLabRunsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ModelLabRunsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabRunsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1928,13 +2134,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1949,9 +2158,14 @@ export class ModelLabAPIApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ModelLabRunsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ModelLabRunsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ModelLabRunsResponse;
       return body;
     }
@@ -1970,7 +2184,11 @@ export class ModelLabAPIApiResponseProcessor {
    * @params response Response returned by the server for a request to pinModelLabRun
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async pinModelLabRun(response: ResponseContext): Promise<void> {
+  public async pinModelLabRun(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1985,13 +2203,16 @@ export class ModelLabAPIApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2008,13 +2229,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2045,7 +2269,11 @@ export class ModelLabAPIApiResponseProcessor {
    * @params response Response returned by the server for a request to starModelLabProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async starModelLabProject(response: ResponseContext): Promise<void> {
+  public async starModelLabProject(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2060,13 +2288,16 @@ export class ModelLabAPIApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2083,13 +2314,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2120,7 +2354,11 @@ export class ModelLabAPIApiResponseProcessor {
    * @params response Response returned by the server for a request to unpinModelLabRun
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unpinModelLabRun(response: ResponseContext): Promise<void> {
+  public async unpinModelLabRun(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2135,13 +2373,16 @@ export class ModelLabAPIApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2158,13 +2399,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2195,7 +2439,11 @@ export class ModelLabAPIApiResponseProcessor {
    * @params response Response returned by the server for a request to unstarModelLabProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unstarModelLabProject(response: ResponseContext): Promise<void> {
+  public async unstarModelLabProject(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2210,13 +2458,16 @@ export class ModelLabAPIApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2233,13 +2484,16 @@ export class ModelLabAPIApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2513,7 +2767,7 @@ export class ModelLabAPIApi {
     this.requestFactory =
       requestFactory || new ModelLabAPIApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ModelLabAPIApiResponseProcessor();
+      responseProcessor || new ModelLabAPIApiResponseProcessor(configuration);
   }
 
   /**
@@ -2532,7 +2786,10 @@ export class ModelLabAPIApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteModelLabRun(responseContext);
+          return this.responseProcessor.deleteModelLabRun(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2556,7 +2813,8 @@ export class ModelLabAPIApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getModelLabArtifactContent(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2578,7 +2836,10 @@ export class ModelLabAPIApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getModelLabProject(responseContext);
+          return this.responseProcessor.getModelLabProject(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2599,7 +2860,10 @@ export class ModelLabAPIApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getModelLabRun(responseContext);
+          return this.responseProcessor.getModelLabRun(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2622,7 +2886,8 @@ export class ModelLabAPIApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listModelLabProjectArtifacts(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2642,7 +2907,8 @@ export class ModelLabAPIApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listModelLabProjectFacetKeys(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2667,7 +2933,8 @@ export class ModelLabAPIApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listModelLabProjectFacetValues(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2694,7 +2961,10 @@ export class ModelLabAPIApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listModelLabProjects(responseContext);
+          return this.responseProcessor.listModelLabProjects(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2717,7 +2987,8 @@ export class ModelLabAPIApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listModelLabRunArtifacts(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2740,7 +3011,8 @@ export class ModelLabAPIApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listModelLabRunFacetKeys(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2766,7 +3038,8 @@ export class ModelLabAPIApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listModelLabRunFacetValues(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2801,7 +3074,10 @@ export class ModelLabAPIApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listModelLabRuns(responseContext);
+          return this.responseProcessor.listModelLabRuns(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2822,7 +3098,10 @@ export class ModelLabAPIApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.pinModelLabRun(responseContext);
+          return this.responseProcessor.pinModelLabRun(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2843,7 +3122,10 @@ export class ModelLabAPIApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.starModelLabProject(responseContext);
+          return this.responseProcessor.starModelLabProject(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2864,7 +3146,10 @@ export class ModelLabAPIApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.unpinModelLabRun(responseContext);
+          return this.responseProcessor.unpinModelLabRun(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2885,7 +3170,10 @@ export class ModelLabAPIApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.unstarModelLabProject(responseContext);
+          return this.responseProcessor.unstarModelLabProject(
+            responseContext,
+            options
+          );
         });
     });
   }

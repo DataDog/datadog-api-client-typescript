@@ -234,6 +234,12 @@ export class UserAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactor
 }
 
 export class UserAuthorizedClientsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -242,8 +248,10 @@ export class UserAuthorizedClientsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteUserAuthorizedClient(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -253,13 +261,16 @@ export class UserAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -276,13 +287,16 @@ export class UserAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -314,8 +328,10 @@ export class UserAuthorizedClientsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteUserAuthorizedClientsByClient(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -325,13 +341,16 @@ export class UserAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -348,13 +367,16 @@ export class UserAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -386,28 +408,39 @@ export class UserAuthorizedClientsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getUserAuthorizedClient(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UserAuthorizedClientResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UserAuthorizedClientResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UserAuthorizedClientResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UserAuthorizedClientResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UserAuthorizedClientResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -424,13 +457,16 @@ export class UserAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -445,9 +481,14 @@ export class UserAuthorizedClientsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserAuthorizedClientResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UserAuthorizedClientResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UserAuthorizedClientResponse;
       return body;
     }
@@ -467,28 +508,39 @@ export class UserAuthorizedClientsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listUserAuthorizedClients(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UserAuthorizedClientsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UserAuthorizedClientsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UserAuthorizedClientsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UserAuthorizedClientsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UserAuthorizedClientsResponse;
       return body;
     }
     if (response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -505,13 +557,16 @@ export class UserAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -526,9 +581,14 @@ export class UserAuthorizedClientsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserAuthorizedClientsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UserAuthorizedClientsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UserAuthorizedClientsResponse;
       return body;
     }
@@ -608,7 +668,8 @@ export class UserAuthorizedClientsApi {
       requestFactory ||
       new UserAuthorizedClientsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new UserAuthorizedClientsApiResponseProcessor();
+      responseProcessor ||
+      new UserAuthorizedClientsApiResponseProcessor(configuration);
   }
 
   /**
@@ -629,7 +690,8 @@ export class UserAuthorizedClientsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteUserAuthorizedClient(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -653,7 +715,8 @@ export class UserAuthorizedClientsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteUserAuthorizedClientsByClient(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -676,7 +739,8 @@ export class UserAuthorizedClientsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getUserAuthorizedClient(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -703,7 +767,8 @@ export class UserAuthorizedClientsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listUserAuthorizedClients(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -737,7 +802,8 @@ export class UserAuthorizedClientsApi {
       );
 
       const response = await this.responseProcessor.listUserAuthorizedClients(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {

@@ -59,7 +59,8 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "FastlyAccountCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -116,7 +117,8 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "FastlyServiceRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -413,7 +415,8 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "FastlyAccountUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -475,7 +478,8 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "FastlyServiceRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -491,6 +495,12 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class FastlyIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -499,15 +509,23 @@ export class FastlyIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createFastlyAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FastlyAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: FastlyAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FastlyAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FastlyAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyAccountResponse;
       return body;
     }
@@ -519,13 +537,16 @@ export class FastlyIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -540,9 +561,14 @@ export class FastlyIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FastlyAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyAccountResponse;
       return body;
     }
@@ -562,15 +588,23 @@ export class FastlyIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createFastlyService(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FastlyServiceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: FastlyServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FastlyServiceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FastlyServiceResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyServiceResponse;
       return body;
     }
@@ -582,13 +616,16 @@ export class FastlyIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -603,9 +640,14 @@ export class FastlyIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FastlyServiceResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyServiceResponse;
       return body;
     }
@@ -624,7 +666,11 @@ export class FastlyIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteFastlyAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteFastlyAccount(response: ResponseContext): Promise<void> {
+  public async deleteFastlyAccount(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -639,13 +685,16 @@ export class FastlyIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -676,7 +725,11 @@ export class FastlyIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteFastlyService
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteFastlyService(response: ResponseContext): Promise<void> {
+  public async deleteFastlyService(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -691,13 +744,16 @@ export class FastlyIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -729,15 +785,23 @@ export class FastlyIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getFastlyAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FastlyAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: FastlyAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FastlyAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FastlyAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyAccountResponse;
       return body;
     }
@@ -749,13 +813,16 @@ export class FastlyIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -770,9 +837,14 @@ export class FastlyIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FastlyAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyAccountResponse;
       return body;
     }
@@ -792,15 +864,23 @@ export class FastlyIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getFastlyService(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FastlyServiceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: FastlyServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FastlyServiceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FastlyServiceResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyServiceResponse;
       return body;
     }
@@ -812,13 +892,16 @@ export class FastlyIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -833,9 +916,14 @@ export class FastlyIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FastlyServiceResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyServiceResponse;
       return body;
     }
@@ -855,15 +943,23 @@ export class FastlyIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listFastlyAccounts(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FastlyAccountsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: FastlyAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FastlyAccountsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FastlyAccountsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyAccountsResponse;
       return body;
     }
@@ -875,13 +971,16 @@ export class FastlyIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -896,9 +995,14 @@ export class FastlyIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FastlyAccountsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyAccountsResponse;
       return body;
     }
@@ -918,15 +1022,23 @@ export class FastlyIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listFastlyServices(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FastlyServicesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: FastlyServicesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FastlyServicesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FastlyServicesResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyServicesResponse;
       return body;
     }
@@ -938,13 +1050,16 @@ export class FastlyIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -959,9 +1074,14 @@ export class FastlyIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyServicesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FastlyServicesResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyServicesResponse;
       return body;
     }
@@ -981,15 +1101,23 @@ export class FastlyIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateFastlyAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FastlyAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: FastlyAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FastlyAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FastlyAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyAccountResponse;
       return body;
     }
@@ -1001,13 +1129,16 @@ export class FastlyIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1022,9 +1153,14 @@ export class FastlyIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FastlyAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyAccountResponse;
       return body;
     }
@@ -1044,15 +1180,23 @@ export class FastlyIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateFastlyService(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FastlyServiceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: FastlyServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FastlyServiceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FastlyServiceResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyServiceResponse;
       return body;
     }
@@ -1064,13 +1208,16 @@ export class FastlyIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1085,9 +1232,14 @@ export class FastlyIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FastlyServiceResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FastlyServiceResponse;
       return body;
     }
@@ -1212,7 +1364,8 @@ export class FastlyIntegrationApi {
     this.requestFactory =
       requestFactory || new FastlyIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new FastlyIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new FastlyIntegrationApiResponseProcessor(configuration);
   }
 
   /**
@@ -1231,7 +1384,10 @@ export class FastlyIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createFastlyAccount(responseContext);
+          return this.responseProcessor.createFastlyAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1253,7 +1409,10 @@ export class FastlyIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createFastlyService(responseContext);
+          return this.responseProcessor.createFastlyService(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1274,7 +1433,10 @@ export class FastlyIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteFastlyAccount(responseContext);
+          return this.responseProcessor.deleteFastlyAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1296,7 +1458,10 @@ export class FastlyIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteFastlyService(responseContext);
+          return this.responseProcessor.deleteFastlyService(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1317,7 +1482,10 @@ export class FastlyIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getFastlyAccount(responseContext);
+          return this.responseProcessor.getFastlyAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1339,7 +1507,10 @@ export class FastlyIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getFastlyService(responseContext);
+          return this.responseProcessor.getFastlyService(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1357,7 +1528,10 @@ export class FastlyIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listFastlyAccounts(responseContext);
+          return this.responseProcessor.listFastlyAccounts(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1378,7 +1552,10 @@ export class FastlyIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listFastlyServices(responseContext);
+          return this.responseProcessor.listFastlyServices(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1400,7 +1577,10 @@ export class FastlyIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateFastlyAccount(responseContext);
+          return this.responseProcessor.updateFastlyAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1423,7 +1603,10 @@ export class FastlyIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateFastlyService(responseContext);
+          return this.responseProcessor.updateFastlyService(
+            responseContext,
+            options
+          );
         });
     });
   }

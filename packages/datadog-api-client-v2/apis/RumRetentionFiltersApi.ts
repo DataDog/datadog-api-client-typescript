@@ -76,7 +76,8 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RumExclusionFilterCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -133,7 +134,8 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RumRetentionFilterCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -538,7 +540,8 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RumRetentionFiltersOrderRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -600,7 +603,8 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RumExclusionFilterUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -672,7 +676,8 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
         "RumPermanentRetentionFilterUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -734,7 +739,8 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RumRetentionFilterUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -750,6 +756,12 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class RumRetentionFiltersApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -758,15 +770,23 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createExclusionFilter(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumExclusionFilterResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: RumExclusionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumExclusionFilterResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RumExclusionFilterResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RumExclusionFilterResponse;
       return body;
     }
@@ -777,13 +797,16 @@ export class RumRetentionFiltersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -798,9 +821,14 @@ export class RumRetentionFiltersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumExclusionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RumExclusionFilterResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RumExclusionFilterResponse;
       return body;
     }
@@ -820,15 +848,23 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createRetentionFilter(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumRetentionFilterResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: RumRetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumRetentionFilterResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RumRetentionFilterResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RumRetentionFilterResponse;
       return body;
     }
@@ -839,13 +875,16 @@ export class RumRetentionFiltersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -860,9 +899,14 @@ export class RumRetentionFiltersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumRetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RumRetentionFilterResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RumRetentionFilterResponse;
       return body;
     }
@@ -881,7 +925,11 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteExclusionFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteExclusionFilter(response: ResponseContext): Promise<void> {
+  public async deleteExclusionFilter(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -896,13 +944,16 @@ export class RumRetentionFiltersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -933,7 +984,11 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteRetentionFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRetentionFilter(response: ResponseContext): Promise<void> {
+  public async deleteRetentionFilter(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -947,13 +1002,16 @@ export class RumRetentionFiltersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -985,15 +1043,23 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getExclusionFilter(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumExclusionFilterResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RumExclusionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumExclusionFilterResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RumExclusionFilterResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RumExclusionFilterResponse;
       return body;
     }
@@ -1004,13 +1070,16 @@ export class RumRetentionFiltersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1025,9 +1094,14 @@ export class RumRetentionFiltersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumExclusionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RumExclusionFilterResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RumExclusionFilterResponse;
       return body;
     }
@@ -1047,16 +1121,24 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getPermanentRetentionFilter(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumPermanentRetentionFilterResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RumPermanentRetentionFilterResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RumPermanentRetentionFilterResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "RumPermanentRetentionFilterResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as RumPermanentRetentionFilterResponse;
       return body;
     }
@@ -1067,13 +1149,16 @@ export class RumRetentionFiltersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1089,9 +1174,14 @@ export class RumRetentionFiltersApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumPermanentRetentionFilterResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "RumPermanentRetentionFilterResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as RumPermanentRetentionFilterResponse;
       return body;
     }
@@ -1111,15 +1201,23 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getRetentionFilter(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumRetentionFilterResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RumRetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumRetentionFilterResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RumRetentionFilterResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RumRetentionFilterResponse;
       return body;
     }
@@ -1130,13 +1228,16 @@ export class RumRetentionFiltersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1151,9 +1252,14 @@ export class RumRetentionFiltersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumRetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RumRetentionFilterResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RumRetentionFilterResponse;
       return body;
     }
@@ -1173,28 +1279,39 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listExclusionFilters(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumExclusionFiltersResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RumExclusionFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumExclusionFiltersResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RumExclusionFiltersResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RumExclusionFiltersResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1209,9 +1326,14 @@ export class RumRetentionFiltersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumExclusionFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RumExclusionFiltersResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RumExclusionFiltersResponse;
       return body;
     }
@@ -1231,29 +1353,40 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listPermanentRetentionFilters(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumPermanentRetentionFiltersResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RumPermanentRetentionFiltersResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RumPermanentRetentionFiltersResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "RumPermanentRetentionFiltersResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as RumPermanentRetentionFiltersResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1269,9 +1402,14 @@ export class RumRetentionFiltersApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumPermanentRetentionFiltersResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "RumPermanentRetentionFiltersResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as RumPermanentRetentionFiltersResponse;
       return body;
     }
@@ -1291,28 +1429,39 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listRetentionFilters(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumRetentionFiltersResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RumRetentionFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumRetentionFiltersResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RumRetentionFiltersResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RumRetentionFiltersResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1327,9 +1476,14 @@ export class RumRetentionFiltersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumRetentionFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RumRetentionFiltersResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RumRetentionFiltersResponse;
       return body;
     }
@@ -1349,16 +1503,24 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async orderRetentionFilters(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumRetentionFiltersOrderResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RumRetentionFiltersOrderResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RumRetentionFiltersOrderResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "RumRetentionFiltersOrderResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as RumRetentionFiltersOrderResponse;
       return body;
     }
@@ -1369,13 +1531,16 @@ export class RumRetentionFiltersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1391,9 +1556,14 @@ export class RumRetentionFiltersApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumRetentionFiltersOrderResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "RumRetentionFiltersOrderResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as RumRetentionFiltersOrderResponse;
       return body;
     }
@@ -1413,15 +1583,23 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateExclusionFilter(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumExclusionFilterResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RumExclusionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumExclusionFilterResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RumExclusionFilterResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RumExclusionFilterResponse;
       return body;
     }
@@ -1434,13 +1612,16 @@ export class RumRetentionFiltersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1455,9 +1636,14 @@ export class RumRetentionFiltersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumExclusionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RumExclusionFilterResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RumExclusionFilterResponse;
       return body;
     }
@@ -1477,16 +1663,24 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updatePermanentRetentionFilter(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumPermanentRetentionFilterResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RumPermanentRetentionFilterResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RumPermanentRetentionFilterResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "RumPermanentRetentionFilterResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as RumPermanentRetentionFilterResponse;
       return body;
     }
@@ -1498,13 +1692,16 @@ export class RumRetentionFiltersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1520,9 +1717,14 @@ export class RumRetentionFiltersApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumPermanentRetentionFilterResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "RumPermanentRetentionFilterResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as RumPermanentRetentionFilterResponse;
       return body;
     }
@@ -1542,15 +1744,23 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateRetentionFilter(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumRetentionFilterResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RumRetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumRetentionFilterResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RumRetentionFilterResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RumRetentionFilterResponse;
       return body;
     }
@@ -1562,13 +1772,16 @@ export class RumRetentionFiltersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1583,9 +1796,14 @@ export class RumRetentionFiltersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumRetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RumRetentionFilterResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RumRetentionFilterResponse;
       return body;
     }
@@ -1794,7 +2012,8 @@ export class RumRetentionFiltersApi {
     this.requestFactory =
       requestFactory || new RumRetentionFiltersApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RumRetentionFiltersApiResponseProcessor();
+      responseProcessor ||
+      new RumRetentionFiltersApiResponseProcessor(configuration);
   }
 
   /**
@@ -1815,7 +2034,10 @@ export class RumRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createExclusionFilter(responseContext);
+          return this.responseProcessor.createExclusionFilter(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1838,7 +2060,10 @@ export class RumRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createRetentionFilter(responseContext);
+          return this.responseProcessor.createRetentionFilter(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1862,7 +2087,10 @@ export class RumRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteExclusionFilter(responseContext);
+          return this.responseProcessor.deleteExclusionFilter(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1884,7 +2112,10 @@ export class RumRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteRetentionFilter(responseContext);
+          return this.responseProcessor.deleteRetentionFilter(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1906,7 +2137,10 @@ export class RumRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getExclusionFilter(responseContext);
+          return this.responseProcessor.getExclusionFilter(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1930,7 +2164,8 @@ export class RumRetentionFiltersApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getPermanentRetentionFilter(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1953,7 +2188,10 @@ export class RumRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getRetentionFilter(responseContext);
+          return this.responseProcessor.getRetentionFilter(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1975,7 +2213,10 @@ export class RumRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listExclusionFilters(responseContext);
+          return this.responseProcessor.listExclusionFilters(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1997,7 +2238,8 @@ export class RumRetentionFiltersApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listPermanentRetentionFilters(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2019,7 +2261,10 @@ export class RumRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listRetentionFilters(responseContext);
+          return this.responseProcessor.listRetentionFilters(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2042,7 +2287,10 @@ export class RumRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.orderRetentionFilters(responseContext);
+          return this.responseProcessor.orderRetentionFilters(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2068,7 +2316,10 @@ export class RumRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateExclusionFilter(responseContext);
+          return this.responseProcessor.updateExclusionFilter(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -2095,7 +2346,8 @@ export class RumRetentionFiltersApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updatePermanentRetentionFilter(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -2120,7 +2372,10 @@ export class RumRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateRetentionFilter(responseContext);
+          return this.responseProcessor.updateRetentionFilter(
+            responseContext,
+            options
+          );
         });
     });
   }

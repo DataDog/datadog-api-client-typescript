@@ -61,7 +61,8 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OpsgenieAccountCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -108,7 +109,8 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OpsgenieServiceCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -345,7 +347,8 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OpsgenieAccountUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -402,7 +405,8 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OpsgenieServiceUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -418,6 +422,12 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class OpsgenieIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -426,15 +436,23 @@ export class OpsgenieIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createOpsgenieAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OpsgenieAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: OpsgenieAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OpsgenieAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OpsgenieAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieAccountResponse;
       return body;
     }
@@ -445,13 +463,16 @@ export class OpsgenieIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -466,9 +487,14 @@ export class OpsgenieIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OpsgenieAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OpsgenieAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieAccountResponse;
       return body;
     }
@@ -488,15 +514,23 @@ export class OpsgenieIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createOpsgenieService(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OpsgenieServiceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: OpsgenieServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OpsgenieServiceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OpsgenieServiceResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieServiceResponse;
       return body;
     }
@@ -508,13 +542,16 @@ export class OpsgenieIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -529,9 +566,14 @@ export class OpsgenieIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OpsgenieServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OpsgenieServiceResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieServiceResponse;
       return body;
     }
@@ -550,7 +592,11 @@ export class OpsgenieIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOpsgenieAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOpsgenieAccount(response: ResponseContext): Promise<void> {
+  public async deleteOpsgenieAccount(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -565,13 +611,16 @@ export class OpsgenieIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -602,7 +651,11 @@ export class OpsgenieIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOpsgenieService
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOpsgenieService(response: ResponseContext): Promise<void> {
+  public async deleteOpsgenieService(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -617,13 +670,16 @@ export class OpsgenieIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -655,15 +711,23 @@ export class OpsgenieIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOpsgenieService(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OpsgenieServiceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OpsgenieServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OpsgenieServiceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OpsgenieServiceResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieServiceResponse;
       return body;
     }
@@ -676,13 +740,16 @@ export class OpsgenieIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -697,9 +764,14 @@ export class OpsgenieIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OpsgenieServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OpsgenieServiceResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieServiceResponse;
       return body;
     }
@@ -719,28 +791,39 @@ export class OpsgenieIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOpsgenieAccounts(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OpsgenieAccountsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OpsgenieAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OpsgenieAccountsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OpsgenieAccountsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieAccountsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -755,9 +838,14 @@ export class OpsgenieIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OpsgenieAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OpsgenieAccountsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieAccountsResponse;
       return body;
     }
@@ -777,28 +865,39 @@ export class OpsgenieIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOpsgenieServices(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OpsgenieServicesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OpsgenieServicesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OpsgenieServicesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OpsgenieServicesResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieServicesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -813,9 +912,14 @@ export class OpsgenieIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OpsgenieServicesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OpsgenieServicesResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieServicesResponse;
       return body;
     }
@@ -835,15 +939,23 @@ export class OpsgenieIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateOpsgenieAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OpsgenieAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OpsgenieAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OpsgenieAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OpsgenieAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieAccountResponse;
       return body;
     }
@@ -855,13 +967,16 @@ export class OpsgenieIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -875,13 +990,16 @@ export class OpsgenieIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -899,9 +1017,14 @@ export class OpsgenieIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OpsgenieAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OpsgenieAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieAccountResponse;
       return body;
     }
@@ -921,15 +1044,23 @@ export class OpsgenieIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateOpsgenieService(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OpsgenieServiceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OpsgenieServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OpsgenieServiceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OpsgenieServiceResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieServiceResponse;
       return body;
     }
@@ -942,13 +1073,16 @@ export class OpsgenieIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -963,9 +1097,14 @@ export class OpsgenieIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OpsgenieServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OpsgenieServiceResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OpsgenieServiceResponse;
       return body;
     }
@@ -1058,7 +1197,8 @@ export class OpsgenieIntegrationApi {
     this.requestFactory =
       requestFactory || new OpsgenieIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new OpsgenieIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new OpsgenieIntegrationApiResponseProcessor(configuration);
   }
 
   /**
@@ -1077,7 +1217,10 @@ export class OpsgenieIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createOpsgenieAccount(responseContext);
+          return this.responseProcessor.createOpsgenieAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1098,7 +1241,10 @@ export class OpsgenieIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createOpsgenieService(responseContext);
+          return this.responseProcessor.createOpsgenieService(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1119,7 +1265,10 @@ export class OpsgenieIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteOpsgenieAccount(responseContext);
+          return this.responseProcessor.deleteOpsgenieAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1140,7 +1289,10 @@ export class OpsgenieIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteOpsgenieService(responseContext);
+          return this.responseProcessor.deleteOpsgenieService(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1161,7 +1313,10 @@ export class OpsgenieIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOpsgenieService(responseContext);
+          return this.responseProcessor.getOpsgenieService(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1179,7 +1334,10 @@ export class OpsgenieIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOpsgenieAccounts(responseContext);
+          return this.responseProcessor.listOpsgenieAccounts(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1197,7 +1355,10 @@ export class OpsgenieIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOpsgenieServices(responseContext);
+          return this.responseProcessor.listOpsgenieServices(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1219,7 +1380,10 @@ export class OpsgenieIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOpsgenieAccount(responseContext);
+          return this.responseProcessor.updateOpsgenieAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1241,7 +1405,10 @@ export class OpsgenieIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOpsgenieService(responseContext);
+          return this.responseProcessor.updateOpsgenieService(
+            responseContext,
+            options
+          );
         });
     });
   }

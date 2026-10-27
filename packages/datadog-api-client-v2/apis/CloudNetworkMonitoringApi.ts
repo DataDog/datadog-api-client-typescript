@@ -180,6 +180,12 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
 }
 
 export class CloudNetworkMonitoringApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -188,16 +194,24 @@ export class CloudNetworkMonitoringApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAggregatedConnections(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SingleAggregatedConnectionResponseArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SingleAggregatedConnectionResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SingleAggregatedConnectionResponseArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SingleAggregatedConnectionResponseArray",
+          "",
+          _config?.preserveLargeIntegers
         ) as SingleAggregatedConnectionResponseArray;
       return body;
     }
@@ -208,13 +222,16 @@ export class CloudNetworkMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -230,9 +247,14 @@ export class CloudNetworkMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SingleAggregatedConnectionResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SingleAggregatedConnectionResponseArray",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SingleAggregatedConnectionResponseArray;
       return body;
     }
@@ -252,16 +274,24 @@ export class CloudNetworkMonitoringApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAggregatedDns(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SingleAggregatedDnsResponseArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SingleAggregatedDnsResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SingleAggregatedDnsResponseArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SingleAggregatedDnsResponseArray",
+          "",
+          _config?.preserveLargeIntegers
         ) as SingleAggregatedDnsResponseArray;
       return body;
     }
@@ -272,13 +302,16 @@ export class CloudNetworkMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -294,9 +327,14 @@ export class CloudNetworkMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SingleAggregatedDnsResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SingleAggregatedDnsResponseArray",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SingleAggregatedDnsResponseArray;
       return body;
     }
@@ -390,7 +428,8 @@ export class CloudNetworkMonitoringApi {
       requestFactory ||
       new CloudNetworkMonitoringApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CloudNetworkMonitoringApiResponseProcessor();
+      responseProcessor ||
+      new CloudNetworkMonitoringApiResponseProcessor(configuration);
   }
 
   /**
@@ -415,7 +454,8 @@ export class CloudNetworkMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getAggregatedConnections(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -442,7 +482,10 @@ export class CloudNetworkMonitoringApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAggregatedDns(responseContext);
+          return this.responseProcessor.getAggregatedDns(
+            responseContext,
+            options
+          );
         });
     });
   }

@@ -72,6 +72,12 @@ export class DashboardSharingApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class DashboardSharingApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -80,28 +86,39 @@ export class DashboardSharingApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listSharedDashboardsByDashboardId(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListSharedDashboardsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListSharedDashboardsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListSharedDashboardsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListSharedDashboardsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListSharedDashboardsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -118,13 +135,16 @@ export class DashboardSharingApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -139,9 +159,14 @@ export class DashboardSharingApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListSharedDashboardsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListSharedDashboardsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListSharedDashboardsResponse;
       return body;
     }
@@ -176,7 +201,8 @@ export class DashboardSharingApi {
     this.requestFactory =
       requestFactory || new DashboardSharingApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new DashboardSharingApiResponseProcessor();
+      responseProcessor ||
+      new DashboardSharingApiResponseProcessor(configuration);
   }
 
   /**
@@ -197,7 +223,8 @@ export class DashboardSharingApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listSharedDashboardsByDashboardId(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

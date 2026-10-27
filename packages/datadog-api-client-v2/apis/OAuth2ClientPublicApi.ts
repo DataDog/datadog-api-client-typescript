@@ -217,7 +217,8 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OAuthClientRegistrationRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -278,7 +279,8 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
         "UpsertOAuthScopesRestrictionRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -294,6 +296,12 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class OAuth2ClientPublicApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -302,8 +310,10 @@ export class OAuth2ClientPublicApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteScopesRestriction(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -313,13 +323,16 @@ export class OAuth2ClientPublicApiResponseProcessor {
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -336,13 +349,16 @@ export class OAuth2ClientPublicApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -374,28 +390,39 @@ export class OAuth2ClientPublicApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOAuth2WellKnownSites(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OAuth2WellKnownSitesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OAuth2WellKnownSitesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OAuth2WellKnownSitesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OAuth2WellKnownSitesResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OAuth2WellKnownSitesResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -410,9 +437,14 @@ export class OAuth2ClientPublicApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OAuth2WellKnownSitesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OAuth2WellKnownSitesResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OAuth2WellKnownSitesResponse;
       return body;
     }
@@ -432,28 +464,39 @@ export class OAuth2ClientPublicApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOIDCDiscoveryDocument(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OIDCDiscoveryDocument> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OIDCDiscoveryDocument = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OIDCDiscoveryDocument"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OIDCDiscoveryDocument",
+        "",
+        _config?.preserveLargeIntegers
       ) as OIDCDiscoveryDocument;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -468,9 +511,14 @@ export class OAuth2ClientPublicApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OIDCDiscoveryDocument = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OIDCDiscoveryDocument",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OIDCDiscoveryDocument;
       return body;
     }
@@ -490,28 +538,39 @@ export class OAuth2ClientPublicApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getScopesRestriction(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OAuthScopesRestrictionResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OAuthScopesRestrictionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OAuthScopesRestrictionResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OAuthScopesRestrictionResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OAuthScopesRestrictionResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -528,13 +587,16 @@ export class OAuth2ClientPublicApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -549,9 +611,14 @@ export class OAuth2ClientPublicApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OAuthScopesRestrictionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OAuthScopesRestrictionResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OAuthScopesRestrictionResponse;
       return body;
     }
@@ -571,29 +638,40 @@ export class OAuth2ClientPublicApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async registerOAuthClient(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OAuthClientRegistrationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: OAuthClientRegistrationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "OAuthClientRegistrationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "OAuthClientRegistrationResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as OAuthClientRegistrationResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: OAuthClientRegistrationError;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "OAuthClientRegistrationError"
+          "OAuthClientRegistrationError",
+          "",
+          _config?.preserveLargeIntegers
         ) as OAuthClientRegistrationError;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -610,13 +688,16 @@ export class OAuth2ClientPublicApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -632,9 +713,14 @@ export class OAuth2ClientPublicApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OAuthClientRegistrationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "OAuthClientRegistrationResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as OAuthClientRegistrationResponse;
       return body;
     }
@@ -654,28 +740,39 @@ export class OAuth2ClientPublicApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async upsertScopesRestriction(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OAuthScopesRestrictionResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OAuthScopesRestrictionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OAuthScopesRestrictionResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OAuthScopesRestrictionResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OAuthScopesRestrictionResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -692,13 +789,16 @@ export class OAuth2ClientPublicApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -713,9 +813,14 @@ export class OAuth2ClientPublicApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OAuthScopesRestrictionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OAuthScopesRestrictionResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OAuthScopesRestrictionResponse;
       return body;
     }
@@ -777,7 +882,8 @@ export class OAuth2ClientPublicApi {
     this.requestFactory =
       requestFactory || new OAuth2ClientPublicApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new OAuth2ClientPublicApiResponseProcessor();
+      responseProcessor ||
+      new OAuth2ClientPublicApiResponseProcessor(configuration);
   }
 
   /**
@@ -797,7 +903,8 @@ export class OAuth2ClientPublicApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteScopesRestriction(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -817,7 +924,8 @@ export class OAuth2ClientPublicApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getOAuth2WellKnownSites(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -837,7 +945,8 @@ export class OAuth2ClientPublicApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getOIDCDiscoveryDocument(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -859,7 +968,10 @@ export class OAuth2ClientPublicApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getScopesRestriction(responseContext);
+          return this.responseProcessor.getScopesRestriction(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -880,7 +992,10 @@ export class OAuth2ClientPublicApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.registerOAuthClient(responseContext);
+          return this.responseProcessor.registerOAuthClient(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -903,7 +1018,8 @@ export class OAuth2ClientPublicApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.upsertScopesRestriction(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

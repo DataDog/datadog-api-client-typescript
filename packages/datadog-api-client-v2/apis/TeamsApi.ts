@@ -104,7 +104,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AddMemberTeamRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -151,7 +152,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamHierarchyLinkCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -198,7 +200,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -245,7 +248,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamConnectionCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -301,7 +305,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamLinkCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -357,7 +362,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UserTeamRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -413,7 +419,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamNotificationRuleRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -499,7 +506,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamConnectionDeleteRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1617,7 +1625,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamSyncRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1673,7 +1682,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1734,7 +1744,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamLinkCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1795,7 +1806,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UserTeamUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1856,7 +1868,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamNotificationRuleRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1921,7 +1934,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
         "TeamPermissionSettingUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1937,6 +1951,12 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class TeamsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1944,7 +1964,11 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to addMemberTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async addMemberTeam(response: ResponseContext): Promise<void> {
+  public async addMemberTeam(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1958,13 +1982,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1996,15 +2023,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async addTeamHierarchyLink(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamHierarchyLinkResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamHierarchyLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamHierarchyLinkResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamHierarchyLinkResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamHierarchyLinkResponse;
       return body;
     }
@@ -2015,13 +2050,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2036,9 +2074,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamHierarchyLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamHierarchyLinkResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamHierarchyLinkResponse;
       return body;
     }
@@ -2057,14 +2100,24 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to createTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createTeam(response: ResponseContext): Promise<TeamResponse> {
+  public async createTeam(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<TeamResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: TeamResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamResponse;
       return body;
     }
@@ -2075,13 +2128,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2096,9 +2152,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamResponse;
       return body;
     }
@@ -2118,15 +2179,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createTeamConnections(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamConnectionsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: TeamConnectionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamConnectionsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamConnectionsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamConnectionsResponse;
       return body;
     }
@@ -2138,13 +2207,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2159,9 +2231,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamConnectionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamConnectionsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamConnectionsResponse;
       return body;
     }
@@ -2181,15 +2258,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createTeamLink(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamLinkResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamLinkResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamLinkResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamLinkResponse;
       return body;
     }
@@ -2201,13 +2286,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2222,9 +2310,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamLinkResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamLinkResponse;
       return body;
     }
@@ -2244,15 +2337,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createTeamMembership(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UserTeamResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UserTeamResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UserTeamResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UserTeamResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UserTeamResponse;
       return body;
     }
@@ -2264,13 +2365,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2285,9 +2389,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserTeamResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UserTeamResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UserTeamResponse;
       return body;
     }
@@ -2307,15 +2416,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createTeamNotificationRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamNotificationRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: TeamNotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamNotificationRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamNotificationRuleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamNotificationRuleResponse;
       return body;
     }
@@ -2327,13 +2444,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2348,9 +2468,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamNotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamNotificationRuleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamNotificationRuleResponse;
       return body;
     }
@@ -2369,7 +2494,11 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTeam(response: ResponseContext): Promise<void> {
+  public async deleteTeam(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2383,13 +2512,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2420,7 +2552,11 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTeamConnections
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTeamConnections(response: ResponseContext): Promise<void> {
+  public async deleteTeamConnections(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2435,13 +2571,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2472,7 +2611,11 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTeamLink
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTeamLink(response: ResponseContext): Promise<void> {
+  public async deleteTeamLink(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2486,13 +2629,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2523,7 +2669,11 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTeamMembership
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTeamMembership(response: ResponseContext): Promise<void> {
+  public async deleteTeamMembership(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2537,13 +2687,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2575,8 +2728,10 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteTeamNotificationRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2590,13 +2745,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2627,14 +2785,24 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to getTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getTeam(response: ResponseContext): Promise<TeamResponse> {
+  public async getTeam(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<TeamResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamResponse;
       return body;
     }
@@ -2645,13 +2813,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2666,9 +2837,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamResponse;
       return body;
     }
@@ -2688,15 +2864,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getTeamHierarchyLink(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamHierarchyLinkResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamHierarchyLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamHierarchyLinkResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamHierarchyLinkResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamHierarchyLinkResponse;
       return body;
     }
@@ -2707,13 +2891,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2728,9 +2915,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamHierarchyLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamHierarchyLinkResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamHierarchyLinkResponse;
       return body;
     }
@@ -2750,15 +2942,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getTeamLink(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamLinkResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamLinkResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamLinkResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamLinkResponse;
       return body;
     }
@@ -2769,13 +2969,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2790,9 +2993,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamLinkResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamLinkResponse;
       return body;
     }
@@ -2812,15 +3020,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getTeamLinks(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamLinksResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamLinksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamLinksResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamLinksResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamLinksResponse;
       return body;
     }
@@ -2831,13 +3047,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2852,9 +3071,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamLinksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamLinksResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamLinksResponse;
       return body;
     }
@@ -2874,15 +3098,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getTeamMemberships(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UserTeamsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UserTeamsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UserTeamsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UserTeamsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UserTeamsResponse;
       return body;
     }
@@ -2893,13 +3125,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2914,9 +3149,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserTeamsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UserTeamsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UserTeamsResponse;
       return body;
     }
@@ -2936,15 +3176,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getTeamNotificationRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamNotificationRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamNotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamNotificationRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamNotificationRuleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamNotificationRuleResponse;
       return body;
     }
@@ -2955,13 +3203,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2976,9 +3227,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamNotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamNotificationRuleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamNotificationRuleResponse;
       return body;
     }
@@ -2998,15 +3254,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getTeamNotificationRules(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamNotificationRulesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamNotificationRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamNotificationRulesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamNotificationRulesResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamNotificationRulesResponse;
       return body;
     }
@@ -3017,13 +3281,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3038,9 +3305,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamNotificationRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamNotificationRulesResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamNotificationRulesResponse;
       return body;
     }
@@ -3060,15 +3332,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getTeamPermissionSettings(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamPermissionSettingsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamPermissionSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamPermissionSettingsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamPermissionSettingsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamPermissionSettingsResponse;
       return body;
     }
@@ -3079,13 +3359,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3100,9 +3383,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamPermissionSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamPermissionSettingsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamPermissionSettingsResponse;
       return body;
     }
@@ -3122,28 +3410,39 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getTeamSync(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamSyncResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamSyncResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamSyncResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamSyncResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamSyncResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3158,9 +3457,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamSyncResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamSyncResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamSyncResponse;
       return body;
     }
@@ -3180,28 +3484,39 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getUserMemberships(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UserTeamsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UserTeamsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UserTeamsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UserTeamsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UserTeamsResponse;
       return body;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3216,9 +3531,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserTeamsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UserTeamsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UserTeamsResponse;
       return body;
     }
@@ -3238,15 +3558,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listMemberTeams(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamsResponse;
       return body;
     }
@@ -3257,13 +3585,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3278,9 +3609,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamsResponse;
       return body;
     }
@@ -3300,15 +3636,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listTeamConnections(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamConnectionsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamConnectionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamConnectionsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamConnectionsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamConnectionsResponse;
       return body;
     }
@@ -3319,13 +3663,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3340,9 +3687,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamConnectionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamConnectionsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamConnectionsResponse;
       return body;
     }
@@ -3362,28 +3714,39 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listTeamHierarchyLinks(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamHierarchyLinksResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamHierarchyLinksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamHierarchyLinksResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamHierarchyLinksResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamHierarchyLinksResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3398,9 +3761,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamHierarchyLinksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamHierarchyLinksResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamHierarchyLinksResponse;
       return body;
     }
@@ -3420,15 +3788,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listTeamHierarchyMembers(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamHierarchyMembersResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamHierarchyMembersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamHierarchyMembersResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamHierarchyMembersResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamHierarchyMembersResponse;
       return body;
     }
@@ -3439,13 +3815,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3462,13 +3841,16 @@ export class TeamsApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3483,9 +3865,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamHierarchyMembersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamHierarchyMembersResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamHierarchyMembersResponse;
       return body;
     }
@@ -3504,27 +3891,40 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to listTeams
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listTeams(response: ResponseContext): Promise<TeamsResponse> {
+  public async listTeams(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<TeamsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3539,9 +3939,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamsResponse;
       return body;
     }
@@ -3560,7 +3965,11 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to removeMemberTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async removeMemberTeam(response: ResponseContext): Promise<void> {
+  public async removeMemberTeam(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -3574,13 +3983,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3612,8 +4024,10 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async removeTeamHierarchyLink(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -3627,13 +4041,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3664,7 +4081,11 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to syncTeams
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async syncTeams(response: ResponseContext): Promise<void> {
+  public async syncTeams(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -3678,13 +4099,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3715,14 +4139,24 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateTeam(response: ResponseContext): Promise<TeamResponse> {
+  public async updateTeam(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<TeamResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamResponse;
       return body;
     }
@@ -3735,13 +4169,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3756,9 +4193,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamResponse;
       return body;
     }
@@ -3778,15 +4220,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateTeamLink(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamLinkResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamLinkResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamLinkResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamLinkResponse;
       return body;
     }
@@ -3797,13 +4247,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3818,9 +4271,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamLinkResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamLinkResponse;
       return body;
     }
@@ -3840,15 +4298,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateTeamMembership(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UserTeamResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UserTeamResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UserTeamResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UserTeamResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UserTeamResponse;
       return body;
     }
@@ -3860,13 +4326,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3881,9 +4350,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserTeamResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UserTeamResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UserTeamResponse;
       return body;
     }
@@ -3903,15 +4377,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateTeamNotificationRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamNotificationRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamNotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamNotificationRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamNotificationRuleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamNotificationRuleResponse;
       return body;
     }
@@ -3922,13 +4404,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3943,9 +4428,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamNotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamNotificationRuleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamNotificationRuleResponse;
       return body;
     }
@@ -3965,15 +4455,23 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateTeamPermissionSetting(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamPermissionSettingResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamPermissionSettingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamPermissionSettingResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamPermissionSettingResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamPermissionSettingResponse;
       return body;
     }
@@ -3984,13 +4482,16 @@ export class TeamsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4005,9 +4506,14 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamPermissionSettingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamPermissionSettingResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamPermissionSettingResponse;
       return body;
     }
@@ -4535,7 +5041,7 @@ export class TeamsApi {
     this.requestFactory =
       requestFactory || new TeamsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new TeamsApiResponseProcessor();
+      responseProcessor || new TeamsApiResponseProcessor(configuration);
   }
 
   /**
@@ -4558,7 +5064,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.addMemberTeam(responseContext);
+          return this.responseProcessor.addMemberTeam(responseContext, options);
         });
     });
   }
@@ -4579,7 +5085,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.addTeamHierarchyLink(responseContext);
+          return this.responseProcessor.addTeamHierarchyLink(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4601,7 +5110,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createTeam(responseContext);
+          return this.responseProcessor.createTeam(responseContext, options);
         });
     });
   }
@@ -4622,7 +5131,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createTeamConnections(responseContext);
+          return this.responseProcessor.createTeamConnections(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4644,7 +5156,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createTeamLink(responseContext);
+          return this.responseProcessor.createTeamLink(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4668,7 +5183,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createTeamMembership(responseContext);
+          return this.responseProcessor.createTeamMembership(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4691,7 +5209,8 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createTeamNotificationRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4713,7 +5232,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteTeam(responseContext);
+          return this.responseProcessor.deleteTeam(responseContext, options);
         });
     });
   }
@@ -4734,7 +5253,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteTeamConnections(responseContext);
+          return this.responseProcessor.deleteTeamConnections(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4756,7 +5278,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteTeamLink(responseContext);
+          return this.responseProcessor.deleteTeamLink(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4780,7 +5305,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteTeamMembership(responseContext);
+          return this.responseProcessor.deleteTeamMembership(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4803,7 +5331,8 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteTeamNotificationRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4825,7 +5354,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTeam(responseContext);
+          return this.responseProcessor.getTeam(responseContext, options);
         });
     });
   }
@@ -4846,7 +5375,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTeamHierarchyLink(responseContext);
+          return this.responseProcessor.getTeamHierarchyLink(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4868,7 +5400,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTeamLink(responseContext);
+          return this.responseProcessor.getTeamLink(responseContext, options);
         });
     });
   }
@@ -4889,7 +5421,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTeamLinks(responseContext);
+          return this.responseProcessor.getTeamLinks(responseContext, options);
         });
     });
   }
@@ -4914,7 +5446,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTeamMemberships(responseContext);
+          return this.responseProcessor.getTeamMemberships(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4946,7 +5481,8 @@ export class TeamsApi {
       );
 
       const response = await this.responseProcessor.getTeamMemberships(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -4980,7 +5516,8 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getTeamNotificationRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -5002,7 +5539,8 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getTeamNotificationRules(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -5025,7 +5563,8 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getTeamPermissionSettings(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -5048,7 +5587,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTeamSync(responseContext);
+          return this.responseProcessor.getTeamSync(responseContext, options);
         });
     });
   }
@@ -5069,7 +5608,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getUserMemberships(responseContext);
+          return this.responseProcessor.getUserMemberships(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5096,7 +5638,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listMemberTeams(responseContext);
+          return this.responseProcessor.listMemberTeams(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5127,7 +5672,8 @@ export class TeamsApi {
       );
 
       const response = await this.responseProcessor.listMemberTeams(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -5165,7 +5711,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listTeamConnections(responseContext);
+          return this.responseProcessor.listTeamConnections(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5198,7 +5747,8 @@ export class TeamsApi {
       );
 
       const response = await this.responseProcessor.listTeamConnections(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -5234,7 +5784,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listTeamHierarchyLinks(responseContext);
+          return this.responseProcessor.listTeamHierarchyLinks(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5265,7 +5818,8 @@ export class TeamsApi {
       );
 
       const response = await this.responseProcessor.listTeamHierarchyLinks(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -5312,7 +5866,8 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listTeamHierarchyMembers(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -5348,7 +5903,8 @@ export class TeamsApi {
       );
 
       const response = await this.responseProcessor.listTeamHierarchyMembers(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -5388,7 +5944,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listTeams(responseContext);
+          return this.responseProcessor.listTeams(responseContext, options);
         });
     });
   }
@@ -5421,7 +5977,10 @@ export class TeamsApi {
         requestContext
       );
 
-      const response = await this.responseProcessor.listTeams(responseContext);
+      const response = await this.responseProcessor.listTeams(
+        responseContext,
+        options
+      );
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -5456,7 +6015,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.removeMemberTeam(responseContext);
+          return this.responseProcessor.removeMemberTeam(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5478,7 +6040,8 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.removeTeamHierarchyLink(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -5519,7 +6082,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.syncTeams(responseContext);
+          return this.responseProcessor.syncTeams(responseContext, options);
         });
     });
   }
@@ -5542,7 +6105,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateTeam(responseContext);
+          return this.responseProcessor.updateTeam(responseContext, options);
         });
     });
   }
@@ -5565,7 +6128,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateTeamLink(responseContext);
+          return this.responseProcessor.updateTeamLink(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5590,7 +6156,10 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateTeamMembership(responseContext);
+          return this.responseProcessor.updateTeamMembership(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5614,7 +6183,8 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateTeamNotificationRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -5640,7 +6210,8 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateTeamPermissionSetting(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

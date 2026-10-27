@@ -88,7 +88,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "EscalationPolicyCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -145,7 +146,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ScheduleCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -212,7 +214,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateOverridesRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -273,7 +276,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
         "CreateUserNotificationChannelRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -334,7 +338,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
         "CreateOnCallNotificationRuleRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1387,7 +1392,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamRoutingRulesRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1454,7 +1460,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "EscalationPolicyUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1520,7 +1527,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ScheduleUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1596,7 +1604,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
         "UpdateOnCallNotificationRuleRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1612,6 +1621,12 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class OnCallApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1620,15 +1635,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createOnCallEscalationPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<EscalationPolicy> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: EscalationPolicy = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "EscalationPolicy"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "EscalationPolicy",
+        "",
+        _config?.preserveLargeIntegers
       ) as EscalationPolicy;
       return body;
     }
@@ -1640,13 +1663,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1661,9 +1687,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EscalationPolicy = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "EscalationPolicy",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as EscalationPolicy;
       return body;
     }
@@ -1683,15 +1714,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createOnCallSchedule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Schedule> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: Schedule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Schedule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Schedule",
+        "",
+        _config?.preserveLargeIntegers
       ) as Schedule;
       return body;
     }
@@ -1703,13 +1742,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1724,9 +1766,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Schedule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Schedule",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Schedule;
       return body;
     }
@@ -1746,15 +1793,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createScheduleOverrides(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OverrideCreateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: OverrideCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OverrideCreateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OverrideCreateResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OverrideCreateResponse;
       return body;
     }
@@ -1767,13 +1822,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1788,9 +1846,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OverrideCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OverrideCreateResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OverrideCreateResponse;
       return body;
     }
@@ -1810,15 +1873,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createUserNotificationChannel(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<NotificationChannel> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: NotificationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "NotificationChannel"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "NotificationChannel",
+        "",
+        _config?.preserveLargeIntegers
       ) as NotificationChannel;
       return body;
     }
@@ -1831,13 +1902,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1852,9 +1926,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotificationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "NotificationChannel",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as NotificationChannel;
       return body;
     }
@@ -1874,15 +1953,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createUserNotificationRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OnCallNotificationRule> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: OnCallNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OnCallNotificationRule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OnCallNotificationRule",
+        "",
+        _config?.preserveLargeIntegers
       ) as OnCallNotificationRule;
       return body;
     }
@@ -1895,13 +1982,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1916,9 +2006,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OnCallNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OnCallNotificationRule",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OnCallNotificationRule;
       return body;
     }
@@ -1938,8 +2033,10 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteOnCallEscalationPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1954,13 +2051,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1991,7 +2091,11 @@ export class OnCallApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOnCallSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOnCallSchedule(response: ResponseContext): Promise<void> {
+  public async deleteOnCallSchedule(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2006,13 +2110,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2044,8 +2151,10 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteScheduleOverride(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2061,13 +2170,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2099,8 +2211,10 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteUserNotificationChannel(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2116,13 +2230,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2154,8 +2271,10 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteUserNotificationRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2171,13 +2290,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2209,15 +2331,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOnCallEscalationPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<EscalationPolicy> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: EscalationPolicy = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "EscalationPolicy"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "EscalationPolicy",
+        "",
+        _config?.preserveLargeIntegers
       ) as EscalationPolicy;
       return body;
     }
@@ -2230,13 +2360,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2251,9 +2384,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EscalationPolicy = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "EscalationPolicy",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as EscalationPolicy;
       return body;
     }
@@ -2272,14 +2410,24 @@ export class OnCallApiResponseProcessor {
    * @params response Response returned by the server for a request to getOnCallSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getOnCallSchedule(response: ResponseContext): Promise<Schedule> {
+  public async getOnCallSchedule(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<Schedule> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Schedule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Schedule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Schedule",
+        "",
+        _config?.preserveLargeIntegers
       ) as Schedule;
       return body;
     }
@@ -2291,13 +2439,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2312,9 +2463,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Schedule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Schedule",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Schedule;
       return body;
     }
@@ -2334,28 +2490,39 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOnCallTeamRoutingRules(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamRoutingRules> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamRoutingRules = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamRoutingRules"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamRoutingRules",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamRoutingRules;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2370,9 +2537,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamRoutingRules = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamRoutingRules",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamRoutingRules;
       return body;
     }
@@ -2392,15 +2564,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getScheduleOnCallResponders(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ScheduleOnCallResponders> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ScheduleOnCallResponders = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ScheduleOnCallResponders"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ScheduleOnCallResponders",
+        "",
+        _config?.preserveLargeIntegers
       ) as ScheduleOnCallResponders;
       return body;
     }
@@ -2413,13 +2593,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2434,9 +2617,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ScheduleOnCallResponders = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ScheduleOnCallResponders",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ScheduleOnCallResponders;
       return body;
     }
@@ -2456,15 +2644,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getScheduleOnCallUser(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Shift> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Shift = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Shift"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Shift",
+        "",
+        _config?.preserveLargeIntegers
       ) as Shift;
       return body;
     }
@@ -2477,13 +2673,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2498,9 +2697,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Shift = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Shift",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Shift;
       return body;
     }
@@ -2520,15 +2724,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getTeamOnCallUsers(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamOnCallResponders> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamOnCallResponders = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamOnCallResponders"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamOnCallResponders",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamOnCallResponders;
       return body;
     }
@@ -2541,13 +2753,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2562,9 +2777,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamOnCallResponders = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamOnCallResponders",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamOnCallResponders;
       return body;
     }
@@ -2584,15 +2804,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getUserNotificationChannel(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<NotificationChannel> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: NotificationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "NotificationChannel"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "NotificationChannel",
+        "",
+        _config?.preserveLargeIntegers
       ) as NotificationChannel;
       return body;
     }
@@ -2605,13 +2833,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2626,9 +2857,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotificationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "NotificationChannel",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as NotificationChannel;
       return body;
     }
@@ -2648,15 +2884,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getUserNotificationRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OnCallNotificationRule> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OnCallNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OnCallNotificationRule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OnCallNotificationRule",
+        "",
+        _config?.preserveLargeIntegers
       ) as OnCallNotificationRule;
       return body;
     }
@@ -2669,13 +2913,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2690,9 +2937,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OnCallNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OnCallNotificationRule",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OnCallNotificationRule;
       return body;
     }
@@ -2712,15 +2964,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOnCallEscalationPolicies(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<EscalationPolicies> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: EscalationPolicies = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "EscalationPolicies"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "EscalationPolicies",
+        "",
+        _config?.preserveLargeIntegers
       ) as EscalationPolicies;
       return body;
     }
@@ -2732,13 +2992,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2753,9 +3016,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EscalationPolicies = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "EscalationPolicies",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as EscalationPolicies;
       return body;
     }
@@ -2775,15 +3043,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOnCallSchedules(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Schedules> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Schedules = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Schedules"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Schedules",
+        "",
+        _config?.preserveLargeIntegers
       ) as Schedules;
       return body;
     }
@@ -2795,13 +3071,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2816,9 +3095,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Schedules = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Schedules",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Schedules;
       return body;
     }
@@ -2838,15 +3122,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listScheduleOverrides(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Overrides> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Overrides = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Overrides"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Overrides",
+        "",
+        _config?.preserveLargeIntegers
       ) as Overrides;
       return body;
     }
@@ -2859,13 +3151,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2880,9 +3175,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Overrides = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Overrides",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Overrides;
       return body;
     }
@@ -2902,16 +3202,24 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listUserNotificationChannels(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListNotificationChannelsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListNotificationChannelsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ListNotificationChannelsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ListNotificationChannelsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ListNotificationChannelsResponse;
       return body;
     }
@@ -2924,13 +3232,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2946,9 +3257,14 @@ export class OnCallApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListNotificationChannelsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ListNotificationChannelsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ListNotificationChannelsResponse;
       return body;
     }
@@ -2968,16 +3284,24 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listUserNotificationRules(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListOnCallNotificationRulesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListOnCallNotificationRulesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ListOnCallNotificationRulesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ListOnCallNotificationRulesResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ListOnCallNotificationRulesResponse;
       return body;
     }
@@ -2990,13 +3314,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3012,9 +3339,14 @@ export class OnCallApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListOnCallNotificationRulesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ListOnCallNotificationRulesResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ListOnCallNotificationRulesResponse;
       return body;
     }
@@ -3034,28 +3366,39 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async setOnCallTeamRoutingRules(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<TeamRoutingRules> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TeamRoutingRules = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamRoutingRules"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TeamRoutingRules",
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamRoutingRules;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3070,9 +3413,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamRoutingRules = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TeamRoutingRules",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TeamRoutingRules;
       return body;
     }
@@ -3092,15 +3440,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateOnCallEscalationPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<EscalationPolicy> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: EscalationPolicy = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "EscalationPolicy"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "EscalationPolicy",
+        "",
+        _config?.preserveLargeIntegers
       ) as EscalationPolicy;
       return body;
     }
@@ -3113,13 +3469,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3134,9 +3493,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EscalationPolicy = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "EscalationPolicy",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as EscalationPolicy;
       return body;
     }
@@ -3156,15 +3520,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateOnCallSchedule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Schedule> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Schedule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Schedule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Schedule",
+        "",
+        _config?.preserveLargeIntegers
       ) as Schedule;
       return body;
     }
@@ -3177,13 +3549,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3198,9 +3573,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Schedule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Schedule",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Schedule;
       return body;
     }
@@ -3220,15 +3600,23 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateUserNotificationRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OnCallNotificationRule> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OnCallNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OnCallNotificationRule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OnCallNotificationRule",
+        "",
+        _config?.preserveLargeIntegers
       ) as OnCallNotificationRule;
       return body;
     }
@@ -3241,13 +3629,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3262,9 +3653,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OnCallNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OnCallNotificationRule",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OnCallNotificationRule;
       return body;
     }
@@ -3733,7 +4129,7 @@ export class OnCallApi {
     this.requestFactory =
       requestFactory || new OnCallApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new OnCallApiResponseProcessor();
+      responseProcessor || new OnCallApiResponseProcessor(configuration);
   }
 
   /**
@@ -3755,7 +4151,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createOnCallEscalationPolicy(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3778,7 +4175,10 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createOnCallSchedule(responseContext);
+          return this.responseProcessor.createOnCallSchedule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3802,7 +4202,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createScheduleOverrides(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3827,7 +4228,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createUserNotificationChannel(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3852,7 +4254,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createUserNotificationRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3873,7 +4276,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteOnCallEscalationPolicy(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3895,7 +4299,10 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteOnCallSchedule(responseContext);
+          return this.responseProcessor.deleteOnCallSchedule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3917,7 +4324,10 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteScheduleOverride(responseContext);
+          return this.responseProcessor.deleteScheduleOverride(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3941,7 +4351,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteUserNotificationChannel(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3966,7 +4377,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteUserNotificationRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3990,7 +4402,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getOnCallEscalationPolicy(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4013,7 +4426,10 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOnCallSchedule(responseContext);
+          return this.responseProcessor.getOnCallSchedule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4036,7 +4452,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getOnCallTeamRoutingRules(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4063,7 +4480,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getScheduleOnCallResponders(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4087,7 +4505,10 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getScheduleOnCallUser(responseContext);
+          return this.responseProcessor.getScheduleOnCallUser(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4109,7 +4530,10 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTeamOnCallUsers(responseContext);
+          return this.responseProcessor.getTeamOnCallUsers(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4133,7 +4557,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getUserNotificationChannel(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4158,7 +4583,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getUserNotificationRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4190,7 +4616,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listOnCallEscalationPolicies(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4229,7 +4656,8 @@ export class OnCallApi {
 
       const response =
         await this.responseProcessor.listOnCallEscalationPolicies(
-          responseContext
+          responseContext,
+          options
         );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -4265,7 +4693,10 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOnCallSchedules(responseContext);
+          return this.responseProcessor.listOnCallSchedules(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4296,7 +4727,8 @@ export class OnCallApi {
       );
 
       const response = await this.responseProcessor.listOnCallSchedules(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -4334,7 +4766,10 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listScheduleOverrides(responseContext);
+          return this.responseProcessor.listScheduleOverrides(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4367,7 +4802,8 @@ export class OnCallApi {
       );
 
       const response = await this.responseProcessor.listScheduleOverrides(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -4399,7 +4835,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listUserNotificationChannels(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4423,7 +4860,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listUserNotificationRules(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4448,7 +4886,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.setOnCallTeamRoutingRules(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4474,7 +4913,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateOnCallEscalationPolicy(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4498,7 +4938,10 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOnCallSchedule(responseContext);
+          return this.responseProcessor.updateOnCallSchedule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4524,7 +4967,8 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateUserNotificationRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

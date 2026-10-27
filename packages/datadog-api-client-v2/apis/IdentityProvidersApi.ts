@@ -187,7 +187,8 @@ export class IdentityProvidersApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IdentityProviderUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -203,6 +204,12 @@ export class IdentityProvidersApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class IdentityProvidersApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -211,28 +218,39 @@ export class IdentityProvidersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIdentityProviders(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IdentityProvidersResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IdentityProvidersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IdentityProvidersResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IdentityProvidersResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IdentityProvidersResponse;
       return body;
     }
     if (response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -249,13 +267,16 @@ export class IdentityProvidersApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -270,9 +291,14 @@ export class IdentityProvidersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IdentityProvidersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IdentityProvidersResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IdentityProvidersResponse;
       return body;
     }
@@ -292,15 +318,23 @@ export class IdentityProvidersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIdentityProviderUsers(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UsersResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UsersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsersResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UsersResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UsersResponse;
       return body;
     }
@@ -311,13 +345,16 @@ export class IdentityProvidersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -334,13 +371,16 @@ export class IdentityProvidersApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -355,9 +395,14 @@ export class IdentityProvidersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UsersResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UsersResponse;
       return body;
     }
@@ -377,15 +422,23 @@ export class IdentityProvidersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIdentityProvider(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IdentityProviderResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IdentityProviderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IdentityProviderResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IdentityProviderResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IdentityProviderResponse;
       return body;
     }
@@ -396,13 +449,16 @@ export class IdentityProvidersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -419,13 +475,16 @@ export class IdentityProvidersApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -440,9 +499,14 @@ export class IdentityProvidersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IdentityProviderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IdentityProviderResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IdentityProviderResponse;
       return body;
     }
@@ -521,7 +585,8 @@ export class IdentityProvidersApi {
     this.requestFactory =
       requestFactory || new IdentityProvidersApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new IdentityProvidersApiResponseProcessor();
+      responseProcessor ||
+      new IdentityProvidersApiResponseProcessor(configuration);
   }
 
   /**
@@ -537,7 +602,10 @@ export class IdentityProvidersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIdentityProviders(responseContext);
+          return this.responseProcessor.listIdentityProviders(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -566,7 +634,8 @@ export class IdentityProvidersApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIdentityProviderUsers(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -602,7 +671,8 @@ export class IdentityProvidersApi {
       );
 
       const response = await this.responseProcessor.listIdentityProviderUsers(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -636,7 +706,10 @@ export class IdentityProvidersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIdentityProvider(responseContext);
+          return this.responseProcessor.updateIdentityProvider(
+            responseContext,
+            options
+          );
         });
     });
   }

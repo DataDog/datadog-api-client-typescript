@@ -64,7 +64,8 @@ export class ExecutionPolicyApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ExecutionPolicyCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -325,7 +326,8 @@ export class ExecutionPolicyApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ExecutionPolicyUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -341,6 +343,12 @@ export class ExecutionPolicyApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ExecutionPolicyApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -349,28 +357,39 @@ export class ExecutionPolicyApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createExecutionPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExecutionPolicyResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ExecutionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExecutionPolicyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExecutionPolicyResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExecutionPolicyResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -387,13 +406,16 @@ export class ExecutionPolicyApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -408,9 +430,14 @@ export class ExecutionPolicyApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExecutionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExecutionPolicyResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExecutionPolicyResponse;
       return body;
     }
@@ -429,7 +456,11 @@ export class ExecutionPolicyApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteExecutionPolicy
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteExecutionPolicy(response: ResponseContext): Promise<void> {
+  public async deleteExecutionPolicy(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -439,13 +470,16 @@ export class ExecutionPolicyApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -462,13 +496,16 @@ export class ExecutionPolicyApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -500,28 +537,39 @@ export class ExecutionPolicyApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getExecutionPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExecutionPolicyResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExecutionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExecutionPolicyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExecutionPolicyResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExecutionPolicyResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -538,13 +586,16 @@ export class ExecutionPolicyApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -559,9 +610,14 @@ export class ExecutionPolicyApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExecutionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExecutionPolicyResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExecutionPolicyResponse;
       return body;
     }
@@ -581,28 +637,39 @@ export class ExecutionPolicyApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listExecutionPolicies(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExecutionPolicyListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExecutionPolicyListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExecutionPolicyListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExecutionPolicyListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExecutionPolicyListResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -619,13 +686,16 @@ export class ExecutionPolicyApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -640,9 +710,14 @@ export class ExecutionPolicyApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExecutionPolicyListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExecutionPolicyListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExecutionPolicyListResponse;
       return body;
     }
@@ -662,15 +737,23 @@ export class ExecutionPolicyApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateExecutionPolicy(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ExecutionPolicyResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ExecutionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ExecutionPolicyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ExecutionPolicyResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ExecutionPolicyResponse;
       return body;
     }
@@ -681,13 +764,16 @@ export class ExecutionPolicyApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -704,13 +790,16 @@ export class ExecutionPolicyApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -725,9 +814,14 @@ export class ExecutionPolicyApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ExecutionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ExecutionPolicyResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ExecutionPolicyResponse;
       return body;
     }
@@ -836,7 +930,8 @@ export class ExecutionPolicyApi {
     this.requestFactory =
       requestFactory || new ExecutionPolicyApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ExecutionPolicyApiResponseProcessor();
+      responseProcessor ||
+      new ExecutionPolicyApiResponseProcessor(configuration);
   }
 
   /**
@@ -855,7 +950,10 @@ export class ExecutionPolicyApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createExecutionPolicy(responseContext);
+          return this.responseProcessor.createExecutionPolicy(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -876,7 +974,10 @@ export class ExecutionPolicyApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteExecutionPolicy(responseContext);
+          return this.responseProcessor.deleteExecutionPolicy(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -897,7 +998,10 @@ export class ExecutionPolicyApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getExecutionPolicy(responseContext);
+          return this.responseProcessor.getExecutionPolicy(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -925,7 +1029,10 @@ export class ExecutionPolicyApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listExecutionPolicies(responseContext);
+          return this.responseProcessor.listExecutionPolicies(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -948,7 +1055,10 @@ export class ExecutionPolicyApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateExecutionPolicy(responseContext);
+          return this.responseProcessor.updateExecutionPolicy(
+            responseContext,
+            options
+          );
         });
     });
   }

@@ -62,7 +62,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SloReportCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -246,6 +247,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 }
 
 export class ServiceLevelObjectivesApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -254,15 +261,23 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createSLOReportJob(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SLOReportPostResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SLOReportPostResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOReportPostResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SLOReportPostResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as SLOReportPostResponse;
       return body;
     }
@@ -273,13 +288,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -294,9 +312,14 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOReportPostResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SLOReportPostResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SLOReportPostResponse;
       return body;
     }
@@ -315,14 +338,24 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @params response Response returned by the server for a request to getSLOReport
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getSLOReport(response: ResponseContext): Promise<string> {
+  public async getSLOReport(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<string> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: string = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "string"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "string",
+        "",
+        _config?.preserveLargeIntegers
       ) as string;
       return body;
     }
@@ -334,13 +367,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -355,9 +391,14 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: string = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "string",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as string;
       return body;
     }
@@ -377,15 +418,23 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getSLOReportJobStatus(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SLOReportStatusGetResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SLOReportStatusGetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOReportStatusGetResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SLOReportStatusGetResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as SLOReportStatusGetResponse;
       return body;
     }
@@ -397,13 +446,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -418,9 +470,14 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOReportStatusGetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SLOReportStatusGetResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SLOReportStatusGetResponse;
       return body;
     }
@@ -440,15 +497,23 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getSloStatus(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SloStatusResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SloStatusResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SloStatusResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SloStatusResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as SloStatusResponse;
       return body;
     }
@@ -459,13 +524,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -482,13 +550,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -503,9 +574,14 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SloStatusResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SloStatusResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SloStatusResponse;
       return body;
     }
@@ -580,7 +656,8 @@ export class ServiceLevelObjectivesApi {
       requestFactory ||
       new ServiceLevelObjectivesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ServiceLevelObjectivesApiResponseProcessor();
+      responseProcessor ||
+      new ServiceLevelObjectivesApiResponseProcessor(configuration);
   }
 
   /**
@@ -601,7 +678,10 @@ export class ServiceLevelObjectivesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createSLOReportJob(responseContext);
+          return this.responseProcessor.createSLOReportJob(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -624,7 +704,7 @@ export class ServiceLevelObjectivesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSLOReport(responseContext);
+          return this.responseProcessor.getSLOReport(responseContext, options);
         });
     });
   }
@@ -645,7 +725,10 @@ export class ServiceLevelObjectivesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSLOReportJobStatus(responseContext);
+          return this.responseProcessor.getSLOReportJobStatus(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -671,7 +754,7 @@ export class ServiceLevelObjectivesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSloStatus(responseContext);
+          return this.responseProcessor.getSloStatus(responseContext, options);
         });
     });
   }

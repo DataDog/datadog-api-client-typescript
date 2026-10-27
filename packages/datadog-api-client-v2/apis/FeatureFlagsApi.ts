@@ -143,7 +143,8 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateAllocationsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -190,7 +191,8 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateFeatureFlagRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -237,7 +239,8 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateEnvironmentRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -294,7 +297,8 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateVariant", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1113,7 +1117,8 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OverwriteAllocationsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1169,7 +1174,8 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateFeatureFlagRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1226,7 +1232,8 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateEnvironmentRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1283,7 +1290,8 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "PatchSavedFilterRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1345,7 +1353,8 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateVariantRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1361,6 +1370,12 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class FeatureFlagsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1369,15 +1384,23 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async archiveFeatureFlag(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FeatureFlagResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: FeatureFlagResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FeatureFlagResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FeatureFlagResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FeatureFlagResponse;
       return body;
     }
@@ -1389,13 +1412,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1410,9 +1436,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FeatureFlagResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FeatureFlagResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FeatureFlagResponse;
       return body;
     }
@@ -1432,15 +1463,23 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createAllocationsForFeatureFlagInEnvironment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AllocationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201 || response.httpStatusCode === 202) {
       const body: AllocationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AllocationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AllocationResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AllocationResponse;
       return body;
     }
@@ -1453,13 +1492,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1474,9 +1516,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AllocationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AllocationResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AllocationResponse;
       return body;
     }
@@ -1496,15 +1543,23 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createFeatureFlag(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FeatureFlagResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: FeatureFlagResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FeatureFlagResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FeatureFlagResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FeatureFlagResponse;
       return body;
     }
@@ -1516,13 +1571,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1537,9 +1595,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FeatureFlagResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FeatureFlagResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FeatureFlagResponse;
       return body;
     }
@@ -1559,15 +1622,23 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createFeatureFlagsEnvironment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<EnvironmentResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: EnvironmentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "EnvironmentResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "EnvironmentResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as EnvironmentResponse;
       return body;
     }
@@ -1579,13 +1650,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1600,9 +1674,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EnvironmentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "EnvironmentResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as EnvironmentResponse;
       return body;
     }
@@ -1622,15 +1701,23 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createVariantForFeatureFlag(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Variant> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: Variant = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Variant"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Variant",
+        "",
+        _config?.preserveLargeIntegers
       ) as Variant;
       return body;
     }
@@ -1643,13 +1730,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1664,9 +1754,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Variant = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Variant",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Variant;
       return body;
     }
@@ -1686,8 +1781,10 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteFeatureFlagsEnvironment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1701,13 +1798,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1739,8 +1839,10 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteVariantFromFeatureFlag(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1756,13 +1858,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1794,8 +1899,10 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async disableFeatureFlagEnvironment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1809,13 +1916,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1847,8 +1957,10 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async enableFeatureFlagEnvironment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1862,13 +1974,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1900,15 +2015,23 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getFeatureFlag(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FeatureFlagResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: FeatureFlagResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FeatureFlagResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FeatureFlagResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FeatureFlagResponse;
       return body;
     }
@@ -1919,13 +2042,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1940,9 +2066,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FeatureFlagResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FeatureFlagResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FeatureFlagResponse;
       return body;
     }
@@ -1962,15 +2093,23 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getFeatureFlagsEnvironment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<EnvironmentResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: EnvironmentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "EnvironmentResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "EnvironmentResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as EnvironmentResponse;
       return body;
     }
@@ -1981,13 +2120,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2002,9 +2144,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EnvironmentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "EnvironmentResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as EnvironmentResponse;
       return body;
     }
@@ -2024,28 +2171,39 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getSavedFilter(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SavedFilterResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SavedFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SavedFilterResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SavedFilterResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as SavedFilterResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2062,13 +2220,16 @@ export class FeatureFlagsApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2083,9 +2244,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SavedFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SavedFilterResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SavedFilterResponse;
       return body;
     }
@@ -2105,28 +2271,39 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listFeatureFlags(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListFeatureFlagsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListFeatureFlagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListFeatureFlagsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListFeatureFlagsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListFeatureFlagsResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2143,13 +2320,16 @@ export class FeatureFlagsApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2164,9 +2344,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListFeatureFlagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListFeatureFlagsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListFeatureFlagsResponse;
       return body;
     }
@@ -2186,28 +2371,39 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listFeatureFlagsEnvironments(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListEnvironmentsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListEnvironmentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListEnvironmentsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListEnvironmentsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListEnvironmentsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2222,9 +2418,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListEnvironmentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListEnvironmentsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListEnvironmentsResponse;
       return body;
     }
@@ -2244,16 +2445,24 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async pauseExposureSchedule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AllocationExposureScheduleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AllocationExposureScheduleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "AllocationExposureScheduleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "AllocationExposureScheduleResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as AllocationExposureScheduleResponse;
       return body;
     }
@@ -2266,13 +2475,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2288,9 +2500,14 @@ export class FeatureFlagsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AllocationExposureScheduleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "AllocationExposureScheduleResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as AllocationExposureScheduleResponse;
       return body;
     }
@@ -2310,16 +2527,24 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async resumeExposureSchedule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AllocationExposureScheduleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AllocationExposureScheduleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "AllocationExposureScheduleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "AllocationExposureScheduleResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as AllocationExposureScheduleResponse;
       return body;
     }
@@ -2332,13 +2557,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2354,9 +2582,14 @@ export class FeatureFlagsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AllocationExposureScheduleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "AllocationExposureScheduleResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as AllocationExposureScheduleResponse;
       return body;
     }
@@ -2376,16 +2609,24 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async startExposureSchedule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AllocationExposureScheduleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AllocationExposureScheduleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "AllocationExposureScheduleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "AllocationExposureScheduleResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as AllocationExposureScheduleResponse;
       return body;
     }
@@ -2398,13 +2639,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2420,9 +2664,14 @@ export class FeatureFlagsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AllocationExposureScheduleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "AllocationExposureScheduleResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as AllocationExposureScheduleResponse;
       return body;
     }
@@ -2442,16 +2691,24 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async stopExposureSchedule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AllocationExposureScheduleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AllocationExposureScheduleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "AllocationExposureScheduleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "AllocationExposureScheduleResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as AllocationExposureScheduleResponse;
       return body;
     }
@@ -2464,13 +2721,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2486,9 +2746,14 @@ export class FeatureFlagsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AllocationExposureScheduleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "AllocationExposureScheduleResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as AllocationExposureScheduleResponse;
       return body;
     }
@@ -2508,15 +2773,23 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async unarchiveFeatureFlag(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FeatureFlagResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: FeatureFlagResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FeatureFlagResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FeatureFlagResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FeatureFlagResponse;
       return body;
     }
@@ -2528,13 +2801,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2549,9 +2825,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FeatureFlagResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FeatureFlagResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FeatureFlagResponse;
       return body;
     }
@@ -2571,15 +2852,23 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateAllocationsForFeatureFlagInEnvironment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListAllocationsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200 || response.httpStatusCode === 202) {
       const body: ListAllocationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListAllocationsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListAllocationsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListAllocationsResponse;
       return body;
     }
@@ -2592,13 +2881,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2613,9 +2905,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListAllocationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListAllocationsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListAllocationsResponse;
       return body;
     }
@@ -2635,15 +2932,23 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateFeatureFlag(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FeatureFlagResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: FeatureFlagResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FeatureFlagResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FeatureFlagResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FeatureFlagResponse;
       return body;
     }
@@ -2655,13 +2960,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2676,9 +2984,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FeatureFlagResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FeatureFlagResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FeatureFlagResponse;
       return body;
     }
@@ -2698,15 +3011,23 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateFeatureFlagsEnvironment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<EnvironmentResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: EnvironmentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "EnvironmentResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "EnvironmentResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as EnvironmentResponse;
       return body;
     }
@@ -2718,13 +3039,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2739,9 +3063,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EnvironmentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "EnvironmentResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as EnvironmentResponse;
       return body;
     }
@@ -2761,28 +3090,39 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateSavedFilterAttributes(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SavedFilterResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SavedFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SavedFilterResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SavedFilterResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as SavedFilterResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2799,13 +3139,16 @@ export class FeatureFlagsApiResponseProcessor {
     if (response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: PatchSavedFilterForbiddenResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "PatchSavedFilterForbiddenResponse"
+          "PatchSavedFilterForbiddenResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as PatchSavedFilterForbiddenResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2822,13 +3165,16 @@ export class FeatureFlagsApiResponseProcessor {
     if (response.httpStatusCode === 409) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: PatchSavedFilterConflictResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "PatchSavedFilterConflictResponse"
+          "PatchSavedFilterConflictResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as PatchSavedFilterConflictResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2845,13 +3191,16 @@ export class FeatureFlagsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2866,9 +3215,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SavedFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SavedFilterResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SavedFilterResponse;
       return body;
     }
@@ -2888,15 +3242,23 @@ export class FeatureFlagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateVariantForFeatureFlag(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Variant> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Variant = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Variant"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Variant",
+        "",
+        _config?.preserveLargeIntegers
       ) as Variant;
       return body;
     }
@@ -2909,13 +3271,16 @@ export class FeatureFlagsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2930,9 +3295,14 @@ export class FeatureFlagsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Variant = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Variant",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Variant;
       return body;
     }
@@ -3307,7 +3677,7 @@ export class FeatureFlagsApi {
     this.requestFactory =
       requestFactory || new FeatureFlagsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new FeatureFlagsApiResponseProcessor();
+      responseProcessor || new FeatureFlagsApiResponseProcessor(configuration);
   }
 
   /**
@@ -3327,7 +3697,10 @@ export class FeatureFlagsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.archiveFeatureFlag(responseContext);
+          return this.responseProcessor.archiveFeatureFlag(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3352,7 +3725,8 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createAllocationsForFeatureFlagInEnvironment(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3374,7 +3748,10 @@ export class FeatureFlagsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createFeatureFlag(responseContext);
+          return this.responseProcessor.createFeatureFlag(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3394,7 +3771,8 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createFeatureFlagsEnvironment(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3425,7 +3803,8 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createVariantForFeatureFlag(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3449,7 +3828,8 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteFeatureFlagsEnvironment(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3476,7 +3856,8 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteVariantFromFeatureFlag(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3501,7 +3882,8 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.disableFeatureFlagEnvironment(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3526,7 +3908,8 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.enableFeatureFlagEnvironment(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3549,7 +3932,10 @@ export class FeatureFlagsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getFeatureFlag(responseContext);
+          return this.responseProcessor.getFeatureFlag(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3572,7 +3958,8 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getFeatureFlagsEnvironment(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3598,7 +3985,10 @@ export class FeatureFlagsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSavedFilter(responseContext);
+          return this.responseProcessor.getSavedFilter(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3637,7 +4027,10 @@ export class FeatureFlagsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listFeatureFlags(responseContext);
+          return this.responseProcessor.listFeatureFlags(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3665,7 +4058,8 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listFeatureFlagsEnvironments(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3687,7 +4081,10 @@ export class FeatureFlagsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.pauseExposureSchedule(responseContext);
+          return this.responseProcessor.pauseExposureSchedule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3708,7 +4105,10 @@ export class FeatureFlagsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.resumeExposureSchedule(responseContext);
+          return this.responseProcessor.resumeExposureSchedule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3729,7 +4129,10 @@ export class FeatureFlagsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.startExposureSchedule(responseContext);
+          return this.responseProcessor.startExposureSchedule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3750,7 +4153,10 @@ export class FeatureFlagsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.stopExposureSchedule(responseContext);
+          return this.responseProcessor.stopExposureSchedule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3772,7 +4178,10 @@ export class FeatureFlagsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.unarchiveFeatureFlag(responseContext);
+          return this.responseProcessor.unarchiveFeatureFlag(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3798,7 +4207,8 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateAllocationsForFeatureFlagInEnvironment(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3822,7 +4232,10 @@ export class FeatureFlagsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateFeatureFlag(responseContext);
+          return this.responseProcessor.updateFeatureFlag(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -3847,7 +4260,8 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateFeatureFlagsEnvironment(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3879,7 +4293,8 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateSavedFilterAttributes(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -3907,7 +4322,8 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateVariantForFeatureFlag(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

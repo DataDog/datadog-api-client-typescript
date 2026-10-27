@@ -180,6 +180,12 @@ export class APMTraceApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class APMTraceApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -188,15 +194,23 @@ export class APMTraceApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getPrunedTraceByID(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PrunedTraceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: PrunedTraceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PrunedTraceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PrunedTraceResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as PrunedTraceResponse;
       return body;
     }
@@ -208,13 +222,16 @@ export class APMTraceApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -231,13 +248,16 @@ export class APMTraceApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -252,9 +272,14 @@ export class APMTraceApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PrunedTraceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PrunedTraceResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PrunedTraceResponse;
       return body;
     }
@@ -273,14 +298,24 @@ export class APMTraceApiResponseProcessor {
    * @params response Response returned by the server for a request to getTraceByID
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getTraceByID(response: ResponseContext): Promise<TraceResponse> {
+  public async getTraceByID(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<TraceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: TraceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TraceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "TraceResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as TraceResponse;
       return body;
     }
@@ -292,13 +327,16 @@ export class APMTraceApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -315,13 +353,16 @@ export class APMTraceApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -336,9 +377,14 @@ export class APMTraceApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TraceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "TraceResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as TraceResponse;
       return body;
     }
@@ -438,7 +484,7 @@ export class APMTraceApi {
     this.requestFactory =
       requestFactory || new APMTraceApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new APMTraceApiResponseProcessor();
+      responseProcessor || new APMTraceApiResponseProcessor(configuration);
   }
 
   /**
@@ -469,7 +515,10 @@ export class APMTraceApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getPrunedTraceByID(responseContext);
+          return this.responseProcessor.getPrunedTraceByID(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -495,7 +544,7 @@ export class APMTraceApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTraceByID(responseContext);
+          return this.responseProcessor.getTraceByID(responseContext, options);
         });
     });
   }

@@ -77,7 +77,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateConnectionRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -179,7 +180,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "FacetInfoRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -275,7 +277,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "FacetInfoRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -372,7 +375,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "QueryAccountRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -426,7 +430,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "QueryEventFilteredUsersRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -478,7 +483,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "QueryUsersRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -540,7 +546,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateConnectionRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -556,6 +563,12 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
 }
 
 export class RumAudienceManagementApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -563,7 +576,11 @@ export class RumAudienceManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createConnection
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createConnection(response: ResponseContext): Promise<void> {
+  public async createConnection(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -573,13 +590,16 @@ export class RumAudienceManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -610,7 +630,11 @@ export class RumAudienceManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteConnection
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteConnection(response: ResponseContext): Promise<void> {
+  public async deleteConnection(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -620,13 +644,16 @@ export class RumAudienceManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -658,28 +685,39 @@ export class RumAudienceManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAccountFacetInfo(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FacetInfoResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: FacetInfoResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FacetInfoResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FacetInfoResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FacetInfoResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -694,9 +732,14 @@ export class RumAudienceManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FacetInfoResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FacetInfoResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FacetInfoResponse;
       return body;
     }
@@ -716,28 +759,39 @@ export class RumAudienceManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getMapping(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GetMappingResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GetMappingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GetMappingResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GetMappingResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GetMappingResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -752,9 +806,14 @@ export class RumAudienceManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetMappingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GetMappingResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GetMappingResponse;
       return body;
     }
@@ -774,28 +833,39 @@ export class RumAudienceManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getUserFacetInfo(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<FacetInfoResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: FacetInfoResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FacetInfoResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "FacetInfoResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as FacetInfoResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -810,9 +880,14 @@ export class RumAudienceManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FacetInfoResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "FacetInfoResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as FacetInfoResponse;
       return body;
     }
@@ -832,28 +907,39 @@ export class RumAudienceManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listConnections(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListConnectionsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListConnectionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListConnectionsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListConnectionsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListConnectionsResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -868,9 +954,14 @@ export class RumAudienceManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListConnectionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListConnectionsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListConnectionsResponse;
       return body;
     }
@@ -890,28 +981,39 @@ export class RumAudienceManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async queryAccounts(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<QueryResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: QueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "QueryResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "QueryResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as QueryResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -926,9 +1028,14 @@ export class RumAudienceManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: QueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "QueryResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as QueryResponse;
       return body;
     }
@@ -948,28 +1055,39 @@ export class RumAudienceManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async queryEventFilteredUsers(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<QueryResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: QueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "QueryResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "QueryResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as QueryResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -984,9 +1102,14 @@ export class RumAudienceManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: QueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "QueryResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as QueryResponse;
       return body;
     }
@@ -1005,27 +1128,40 @@ export class RumAudienceManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to queryUsers
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async queryUsers(response: ResponseContext): Promise<QueryResponse> {
+  public async queryUsers(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<QueryResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: QueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "QueryResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "QueryResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as QueryResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1040,9 +1176,14 @@ export class RumAudienceManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: QueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "QueryResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as QueryResponse;
       return body;
     }
@@ -1061,7 +1202,11 @@ export class RumAudienceManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateConnection
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateConnection(response: ResponseContext): Promise<void> {
+  public async updateConnection(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1071,13 +1216,16 @@ export class RumAudienceManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1205,7 +1353,8 @@ export class RumAudienceManagementApi {
       requestFactory ||
       new RumAudienceManagementApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RumAudienceManagementApiResponseProcessor();
+      responseProcessor ||
+      new RumAudienceManagementApiResponseProcessor(configuration);
   }
 
   /**
@@ -1225,7 +1374,10 @@ export class RumAudienceManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createConnection(responseContext);
+          return this.responseProcessor.createConnection(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1247,7 +1399,10 @@ export class RumAudienceManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteConnection(responseContext);
+          return this.responseProcessor.deleteConnection(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1268,7 +1423,10 @@ export class RumAudienceManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAccountFacetInfo(responseContext);
+          return this.responseProcessor.getAccountFacetInfo(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1289,7 +1447,7 @@ export class RumAudienceManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getMapping(responseContext);
+          return this.responseProcessor.getMapping(responseContext, options);
         });
     });
   }
@@ -1310,7 +1468,10 @@ export class RumAudienceManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getUserFacetInfo(responseContext);
+          return this.responseProcessor.getUserFacetInfo(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1331,7 +1492,10 @@ export class RumAudienceManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listConnections(responseContext);
+          return this.responseProcessor.listConnections(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1352,7 +1516,7 @@ export class RumAudienceManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.queryAccounts(responseContext);
+          return this.responseProcessor.queryAccounts(responseContext, options);
         });
     });
   }
@@ -1374,7 +1538,8 @@ export class RumAudienceManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.queryEventFilteredUsers(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1396,7 +1561,7 @@ export class RumAudienceManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.queryUsers(responseContext);
+          return this.responseProcessor.queryUsers(responseContext, options);
         });
     });
   }
@@ -1418,7 +1583,10 @@ export class RumAudienceManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateConnection(responseContext);
+          return this.responseProcessor.updateConnection(
+            responseContext,
+            options
+          );
         });
     });
   }

@@ -64,7 +64,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSAccount", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -111,7 +112,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSEventBridgeCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -158,7 +160,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSTagFilterCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -205,7 +208,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSAccount", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -252,7 +256,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSAccountDeleteRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -299,7 +304,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSEventBridgeDeleteRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -346,7 +352,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSTagFilterDeleteRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -580,7 +587,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSAccount", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -596,6 +604,12 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class AWSIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -604,15 +618,23 @@ export class AWSIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createAWSAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AWSAccountCreateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AWSAccountCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AWSAccountCreateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AWSAccountCreateResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSAccountCreateResponse;
       return body;
     }
@@ -624,13 +646,16 @@ export class AWSIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -645,9 +670,14 @@ export class AWSIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSAccountCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AWSAccountCreateResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSAccountCreateResponse;
       return body;
     }
@@ -667,15 +697,23 @@ export class AWSIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createAWSEventBridgeSource(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AWSEventBridgeCreateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AWSEventBridgeCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AWSEventBridgeCreateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AWSEventBridgeCreateResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSEventBridgeCreateResponse;
       return body;
     }
@@ -686,13 +724,16 @@ export class AWSIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -707,9 +748,14 @@ export class AWSIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSEventBridgeCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AWSEventBridgeCreateResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSEventBridgeCreateResponse;
       return body;
     }
@@ -728,14 +774,24 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to createAWSTagFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createAWSTagFilter(response: ResponseContext): Promise<any> {
+  public async createAWSTagFilter(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<any> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "any"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "any",
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -746,13 +802,16 @@ export class AWSIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -767,9 +826,14 @@ export class AWSIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "any",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -789,15 +853,23 @@ export class AWSIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createNewAWSExternalID(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AWSAccountCreateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AWSAccountCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AWSAccountCreateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AWSAccountCreateResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSAccountCreateResponse;
       return body;
     }
@@ -808,13 +880,16 @@ export class AWSIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -829,9 +904,14 @@ export class AWSIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSAccountCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AWSAccountCreateResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSAccountCreateResponse;
       return body;
     }
@@ -850,14 +930,24 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAWSAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAWSAccount(response: ResponseContext): Promise<any> {
+  public async deleteAWSAccount(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<any> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "any"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "any",
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -869,13 +959,16 @@ export class AWSIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -890,9 +983,14 @@ export class AWSIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "any",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -912,15 +1010,23 @@ export class AWSIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteAWSEventBridgeSource(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AWSEventBridgeDeleteResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AWSEventBridgeDeleteResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AWSEventBridgeDeleteResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AWSEventBridgeDeleteResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSEventBridgeDeleteResponse;
       return body;
     }
@@ -931,13 +1037,16 @@ export class AWSIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -952,9 +1061,14 @@ export class AWSIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSEventBridgeDeleteResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AWSEventBridgeDeleteResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSEventBridgeDeleteResponse;
       return body;
     }
@@ -973,14 +1087,24 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAWSTagFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAWSTagFilter(response: ResponseContext): Promise<any> {
+  public async deleteAWSTagFilter(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<any> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "any"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "any",
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -991,13 +1115,16 @@ export class AWSIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1012,9 +1139,14 @@ export class AWSIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "any",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -1034,28 +1166,39 @@ export class AWSIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAvailableAWSNamespaces(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Array<string>> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Array<string> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<string>"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Array<string>",
+        "",
+        _config?.preserveLargeIntegers
       ) as Array<string>;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1070,9 +1213,14 @@ export class AWSIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<string> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Array<string>",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Array<string>;
       return body;
     }
@@ -1092,15 +1240,23 @@ export class AWSIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAWSAccounts(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AWSAccountListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AWSAccountListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AWSAccountListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AWSAccountListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSAccountListResponse;
       return body;
     }
@@ -1111,13 +1267,16 @@ export class AWSIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1132,9 +1291,14 @@ export class AWSIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSAccountListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AWSAccountListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSAccountListResponse;
       return body;
     }
@@ -1154,15 +1318,23 @@ export class AWSIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAWSEventBridgeSources(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AWSEventBridgeListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AWSEventBridgeListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AWSEventBridgeListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AWSEventBridgeListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSEventBridgeListResponse;
       return body;
     }
@@ -1173,13 +1345,16 @@ export class AWSIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1194,9 +1369,14 @@ export class AWSIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSEventBridgeListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AWSEventBridgeListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSEventBridgeListResponse;
       return body;
     }
@@ -1216,15 +1396,23 @@ export class AWSIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAWSTagFilters(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AWSTagFilterListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AWSTagFilterListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AWSTagFilterListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AWSTagFilterListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSTagFilterListResponse;
       return body;
     }
@@ -1235,13 +1423,16 @@ export class AWSIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1256,9 +1447,14 @@ export class AWSIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSTagFilterListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AWSTagFilterListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSTagFilterListResponse;
       return body;
     }
@@ -1277,14 +1473,24 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAWSAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAWSAccount(response: ResponseContext): Promise<any> {
+  public async updateAWSAccount(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<any> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "any"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "any",
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -1296,13 +1502,16 @@ export class AWSIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1317,9 +1526,14 @@ export class AWSIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "any",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -1456,7 +1670,8 @@ export class AWSIntegrationApi {
     this.requestFactory =
       requestFactory || new AWSIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new AWSIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new AWSIntegrationApiResponseProcessor(configuration);
   }
 
   /**
@@ -1478,7 +1693,10 @@ export class AWSIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAWSAccount(responseContext);
+          return this.responseProcessor.createAWSAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1498,7 +1716,8 @@ export class AWSIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createAWSEventBridgeSource(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1520,7 +1739,10 @@ export class AWSIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAWSTagFilter(responseContext);
+          return this.responseProcessor.createAWSTagFilter(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1541,7 +1763,10 @@ export class AWSIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createNewAWSExternalID(responseContext);
+          return this.responseProcessor.createNewAWSExternalID(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1562,7 +1787,10 @@ export class AWSIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteAWSAccount(responseContext);
+          return this.responseProcessor.deleteAWSAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1582,7 +1810,8 @@ export class AWSIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteAWSEventBridgeSource(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1604,7 +1833,10 @@ export class AWSIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteAWSTagFilter(responseContext);
+          return this.responseProcessor.deleteAWSTagFilter(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1623,7 +1855,8 @@ export class AWSIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listAvailableAWSNamespaces(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1647,7 +1880,10 @@ export class AWSIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAWSAccounts(responseContext);
+          return this.responseProcessor.listAWSAccounts(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1666,7 +1902,8 @@ export class AWSIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listAWSEventBridgeSources(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1688,7 +1925,10 @@ export class AWSIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAWSTagFilters(responseContext);
+          return this.responseProcessor.listAWSTagFilters(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1712,7 +1952,10 @@ export class AWSIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateAWSAccount(responseContext);
+          return this.responseProcessor.updateAWSAccount(
+            responseContext,
+            options
+          );
         });
     });
   }

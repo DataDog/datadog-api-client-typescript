@@ -49,6 +49,12 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class AWSLogsIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -57,28 +63,39 @@ export class AWSLogsIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAWSLogsServices(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AWSLogsServicesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AWSLogsServicesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AWSLogsServicesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AWSLogsServicesResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSLogsServicesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -93,9 +110,14 @@ export class AWSLogsIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSLogsServicesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AWSLogsServicesResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AWSLogsServicesResponse;
       return body;
     }
@@ -122,7 +144,8 @@ export class AWSLogsIntegrationApi {
     this.requestFactory =
       requestFactory || new AWSLogsIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new AWSLogsIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new AWSLogsIntegrationApiResponseProcessor(configuration);
   }
 
   /**
@@ -138,7 +161,10 @@ export class AWSLogsIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAWSLogsServices(responseContext);
+          return this.responseProcessor.listAWSLogsServices(
+            responseContext,
+            options
+          );
         });
     });
   }
