@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { RUMAggregateBucketValue } from "./RUMAggregateBucketValue";
+import { RUMBucketGroupByValue } from "./RUMBucketGroupByValue";
 
 /**
  * Bucket values.
@@ -9,7 +10,7 @@ export class RUMBucketResponse {
   /**
    * The key-value pairs for each group-by.
    */
-  "by"?: { [key: string]: string };
+  "by"?: { [key: string]: RUMBucketGroupByValue };
   /**
    * A map of the metric name to value for regular compute, or a list of values for a timeseries.
    */
@@ -31,7 +32,7 @@ export class RUMBucketResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     by: {
       baseName: "by",
-      type: "{ [key: string]: string; }",
+      type: "{ [key: string]: RUMBucketGroupByValue; }",
     },
     computes: {
       baseName: "computes",

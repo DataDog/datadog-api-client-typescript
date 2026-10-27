@@ -141,6 +141,7 @@ export const TypingInfo: ModelTypingInfo = {
       "number",
       "Array<RUMAggregateBucketValueTimeseriesPoint>",
     ],
+    RUMBucketGroupByValue: ["string", "number"],
     RUMGroupByMissing: ["string", "number"],
     RUMGroupByTotal: ["boolean", "string", "number"],
     SourcemapItem: [
