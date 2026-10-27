@@ -8377,6 +8377,7 @@ export { RUMApplicationUpdate } from "./models/RUMApplicationUpdate";
 export { RUMApplicationUpdateAttributes } from "./models/RUMApplicationUpdateAttributes";
 export { RUMApplicationUpdateRequest } from "./models/RUMApplicationUpdateRequest";
 export { RUMApplicationUpdateType } from "./models/RUMApplicationUpdateType";
+export { RUMBucketGroupByValue } from "./models/RUMBucketGroupByValue";
 export { RUMBucketResponse } from "./models/RUMBucketResponse";
 export { RUMCompute } from "./models/RUMCompute";
 export { RUMComputeType } from "./models/RUMComputeType";

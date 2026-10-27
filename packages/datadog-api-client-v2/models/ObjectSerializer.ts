@@ -19364,6 +19364,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "number",
     "Array<RUMAggregateBucketValueTimeseriesPoint>",
   ],
+  RUMBucketGroupByValue: ["string", "number"],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
   ReportScheduleIncludedResource: [
