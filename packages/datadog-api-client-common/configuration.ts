@@ -714,6 +714,7 @@ export function createConfiguration(
       "v2.listTagIndexingRulesForMetric": false,
       "v2.reorderTagIndexingRules": false,
       "v2.updateTagIndexingRule": false,
+      "v2.updateTagIndexingRuleExemption": false,
       "v2.deleteModelLabRun": false,
       "v2.getModelLabArtifactContent": false,
       "v2.getModelLabProject": false,

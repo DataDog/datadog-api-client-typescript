@@ -5998,6 +5998,9 @@ import { TagIndexingRuleExemptionCreateData } from "./TagIndexingRuleExemptionCr
 import { TagIndexingRuleExemptionCreateRequest } from "./TagIndexingRuleExemptionCreateRequest";
 import { TagIndexingRuleExemptionData } from "./TagIndexingRuleExemptionData";
 import { TagIndexingRuleExemptionResponse } from "./TagIndexingRuleExemptionResponse";
+import { TagIndexingRuleExemptionUpdateAttributes } from "./TagIndexingRuleExemptionUpdateAttributes";
+import { TagIndexingRuleExemptionUpdateData } from "./TagIndexingRuleExemptionUpdateData";
+import { TagIndexingRuleExemptionUpdateRequest } from "./TagIndexingRuleExemptionUpdateRequest";
 import { TagIndexingRuleExemptionsResponse } from "./TagIndexingRuleExemptionsResponse";
 import { TagIndexingRuleMetricMatch } from "./TagIndexingRuleMetricMatch";
 import { TagIndexingRuleOptions } from "./TagIndexingRuleOptions";
@@ -17906,6 +17909,10 @@ const typeMap: { [index: string]: any } = {
   TagIndexingRuleExemptionCreateRequest: TagIndexingRuleExemptionCreateRequest,
   TagIndexingRuleExemptionData: TagIndexingRuleExemptionData,
   TagIndexingRuleExemptionResponse: TagIndexingRuleExemptionResponse,
+  TagIndexingRuleExemptionUpdateAttributes:
+    TagIndexingRuleExemptionUpdateAttributes,
+  TagIndexingRuleExemptionUpdateData: TagIndexingRuleExemptionUpdateData,
+  TagIndexingRuleExemptionUpdateRequest: TagIndexingRuleExemptionUpdateRequest,
   TagIndexingRuleExemptionsResponse: TagIndexingRuleExemptionsResponse,
   TagIndexingRuleMetricMatch: TagIndexingRuleMetricMatch,
   TagIndexingRuleOptions: TagIndexingRuleOptions,
