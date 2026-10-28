@@ -290,6 +290,10 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentityKind: [
       "workload_identity",
     ],
+    ObservabilityPipelineAzureDataExplorerDestinationIngestionMode: [
+      "streaming",
+      "queue",
+    ],
     ObservabilityPipelineAzureDataExplorerDestinationManagedIdentityIdType: [
       "client_id",
       "object_id",
