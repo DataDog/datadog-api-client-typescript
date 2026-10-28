@@ -16,11 +16,12 @@ export class ContainerMetaPage {
    */
   "cursor"?: string;
   /**
-   * Number of results returned
+   * Maximum number of results requested.
    */
   "limit"?: number;
   /**
-   * The cursor used to get the next results, if any.
+   * The cursor used to get the next results, if any. To make the next request, use the same
+   * parameters with the addition of the `page[cursor]`. Empty for grouped results.
    */
   "nextCursor"?: string;
   /**
@@ -28,7 +29,7 @@ export class ContainerMetaPage {
    */
   "prevCursor"?: string;
   /**
-   * Total number of records that match the query.
+   * Total number of containers that match the query. Always `0` for grouped results.
    */
   "total"?: number;
   /**

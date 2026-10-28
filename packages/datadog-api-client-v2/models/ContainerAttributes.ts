@@ -7,7 +7,8 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for a container.
+ * Attributes for a container. For CPU or memory metrics, use its full `container_id` as
+ * `container_id:<container_id>` in `tag_filters` with the `container` data source.
  */
 export class ContainerAttributes {
   /**
