@@ -5,6 +5,7 @@
  */
 import { ObservabilityPipelineAzureDataExplorerDestinationAuth } from "./ObservabilityPipelineAzureDataExplorerDestinationAuth";
 import { ObservabilityPipelineAzureDataExplorerDestinationBatch } from "./ObservabilityPipelineAzureDataExplorerDestinationBatch";
+import { ObservabilityPipelineAzureDataExplorerDestinationIngestionMode } from "./ObservabilityPipelineAzureDataExplorerDestinationIngestionMode";
 import { ObservabilityPipelineAzureDataExplorerDestinationType } from "./ObservabilityPipelineAzureDataExplorerDestinationType";
 import { ObservabilityPipelineAzureStorageDestinationCompressionGzip } from "./ObservabilityPipelineAzureStorageDestinationCompressionGzip";
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
@@ -46,6 +47,15 @@ export class ObservabilityPipelineAzureDataExplorerDestination {
    * Defaults to `DESTINATION_AZURE_DATA_EXPLORER_INGESTION_ENDPOINT` (prefixed with `DD_OP_` at runtime).
    */
   "ingestionEndpointKey"?: string;
+  /**
+   * The ingestion method used to send data to Azure Data Explorer.
+   *
+   * - `streaming`: Sends events directly to the table using streaming ingestion.
+   * - `queue`: Sends events through queued (batched) ingestion.
+   *
+   * Defaults to `streaming`.
+   */
+  "ingestionMode"?: ObservabilityPipelineAzureDataExplorerDestinationIngestionMode;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
    */
@@ -114,6 +124,10 @@ export class ObservabilityPipelineAzureDataExplorerDestination {
     ingestionEndpointKey: {
       baseName: "ingestion_endpoint_key",
       type: "string",
+    },
+    ingestionMode: {
+      baseName: "ingestion_mode",
+      type: "ObservabilityPipelineAzureDataExplorerDestinationIngestionMode",
     },
     inputs: {
       baseName: "inputs",
