@@ -20,6 +20,7 @@ export class RecommendationsFilterRequestDataAttributes {
   "filter"?: string;
   /**
    * Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations or `*` for both.
+   * An empty value is treated as `ccm`.
    */
   "scope"?: RecommendationsFilterRequestScope;
   /**
