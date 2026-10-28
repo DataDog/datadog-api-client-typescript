@@ -173,13 +173,23 @@ import { IncidentResponderRoleAssignmentRelationshipData } from "./IncidentRespo
 import { IncidentResponderRoleAssignmentsRelationship } from "./IncidentResponderRoleAssignmentsRelationship";
 import { IncidentResponderUserRelationship } from "./IncidentResponderUserRelationship";
 import { IncidentResponderUserRelationshipData } from "./IncidentResponderUserRelationshipData";
+import { IncidentRespondersPagination } from "./IncidentRespondersPagination";
 import { IncidentRespondersResponse } from "./IncidentRespondersResponse";
+import { IncidentRespondersResponseMeta } from "./IncidentRespondersResponseMeta";
+import { IncidentRespondersResponseMetaPage } from "./IncidentRespondersResponseMetaPage";
 import { IncidentResponse } from "./IncidentResponse";
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
 import { IncidentResponseData } from "./IncidentResponseData";
 import { IncidentResponseMeta } from "./IncidentResponseMeta";
 import { IncidentResponseMetaPagination } from "./IncidentResponseMetaPagination";
 import { IncidentResponseRelationships } from "./IncidentResponseRelationships";
+import { IncidentRoleAssignmentDataAttributesResponse } from "./IncidentRoleAssignmentDataAttributesResponse";
+import { IncidentRoleAssignmentDataResponse } from "./IncidentRoleAssignmentDataResponse";
+import { IncidentRoleAssignmentRelationshipsResponse } from "./IncidentRoleAssignmentRelationshipsResponse";
+import { IncidentRoleAssignmentResponderRelationship } from "./IncidentRoleAssignmentResponderRelationship";
+import { IncidentRoleAssignmentResponderRelationshipData } from "./IncidentRoleAssignmentResponderRelationshipData";
+import { IncidentRoleAssignmentRoleRelationship } from "./IncidentRoleAssignmentRoleRelationship";
+import { IncidentRoleAssignmentRoleRelationshipData } from "./IncidentRoleAssignmentRoleRelationshipData";
 import { IncidentRuleCondition } from "./IncidentRuleCondition";
 import { IncidentRuleDataAttributesRequest } from "./IncidentRuleDataAttributesRequest";
 import { IncidentRuleDataAttributesResponse } from "./IncidentRuleDataAttributesResponse";
@@ -413,8 +423,10 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentPageUUIDType: ["page_uuid"],
     IncidentPostmortemType: ["incident_postmortems"],
     IncidentRelatedObject: ["users", "attachments"],
+    IncidentResponderRelatedObject: ["users", "role_assignments"],
     IncidentResponderType: ["incident_responders"],
     IncidentRespondersType: ["incident_responders"],
+    IncidentRoleAssignmentType: ["incident_role_assignments"],
     IncidentRuleExecutionType: [1, 2],
     IncidentRuleResponseType: ["incidents_rules"],
     IncidentRuleTaskIDType: [
@@ -508,6 +520,10 @@ export const TypingInfo: ModelTypingInfo = {
       "IncidentNotificationTemplateObject",
     ],
     IncidentNotificationTemplateIncludedItems: ["User", "IncidentTypeObject"],
+    IncidentResponderIncludedItem: [
+      "IncidentUserData",
+      "IncidentRoleAssignmentDataResponse",
+    ],
     IncidentResponseIncludedItem: ["IncidentUserData", "AttachmentData"],
     IncidentTimelineCellCreateAttributes: [
       "IncidentTimelineCellMarkdownCreateAttributes",
@@ -763,13 +779,29 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentResponderUserRelationship: IncidentResponderUserRelationship,
     IncidentResponderUserRelationshipData:
       IncidentResponderUserRelationshipData,
+    IncidentRespondersPagination: IncidentRespondersPagination,
     IncidentRespondersResponse: IncidentRespondersResponse,
+    IncidentRespondersResponseMeta: IncidentRespondersResponseMeta,
+    IncidentRespondersResponseMetaPage: IncidentRespondersResponseMetaPage,
     IncidentResponse: IncidentResponse,
     IncidentResponseAttributes: IncidentResponseAttributes,
     IncidentResponseData: IncidentResponseData,
     IncidentResponseMeta: IncidentResponseMeta,
     IncidentResponseMetaPagination: IncidentResponseMetaPagination,
     IncidentResponseRelationships: IncidentResponseRelationships,
+    IncidentRoleAssignmentDataAttributesResponse:
+      IncidentRoleAssignmentDataAttributesResponse,
+    IncidentRoleAssignmentDataResponse: IncidentRoleAssignmentDataResponse,
+    IncidentRoleAssignmentRelationshipsResponse:
+      IncidentRoleAssignmentRelationshipsResponse,
+    IncidentRoleAssignmentResponderRelationship:
+      IncidentRoleAssignmentResponderRelationship,
+    IncidentRoleAssignmentResponderRelationshipData:
+      IncidentRoleAssignmentResponderRelationshipData,
+    IncidentRoleAssignmentRoleRelationship:
+      IncidentRoleAssignmentRoleRelationship,
+    IncidentRoleAssignmentRoleRelationshipData:
+      IncidentRoleAssignmentRoleRelationshipData,
     IncidentRuleCondition: IncidentRuleCondition,
     IncidentRuleDataAttributesRequest: IncidentRuleDataAttributesRequest,
     IncidentRuleDataAttributesResponse: IncidentRuleDataAttributesResponse,

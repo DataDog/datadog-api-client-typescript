@@ -5,6 +5,7 @@ import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttach
 import { RelationshipToIncidentImpacts } from "./RelationshipToIncidentImpacts";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentResponders } from "./RelationshipToIncidentResponders";
+import { RelationshipToIncidentType } from "./RelationshipToIncidentType";
 import { RelationshipToIncidentUserDefinedFields } from "./RelationshipToIncidentUserDefinedFields";
 import { RelationshipToUser } from "./RelationshipToUser";
 
@@ -32,6 +33,10 @@ export class IncidentResponseRelationships {
    * Relationship to impacts.
    */
   "impacts"?: RelationshipToIncidentImpacts;
+  /**
+   * Relationship to an incident type.
+   */
+  "incidentType"?: RelationshipToIncidentType;
   /**
    * A relationship reference for multiple integration metadata objects.
    */
@@ -82,6 +87,10 @@ export class IncidentResponseRelationships {
     impacts: {
       baseName: "impacts",
       type: "RelationshipToIncidentImpacts",
+    },
+    incidentType: {
+      baseName: "incident_type",
+      type: "RelationshipToIncidentType",
     },
     integrations: {
       baseName: "integrations",
