@@ -1260,6 +1260,7 @@ export {
   OnCallPagingApiAcknowledgeOnCallPageRequest,
   OnCallPagingApiCreateOnCallPageRequest,
   OnCallPagingApiEscalateOnCallPageRequest,
+  OnCallPagingApiRerouteOnCallPageRequest,
   OnCallPagingApiResolveOnCallPageRequest,
   OnCallPagingApi,
 } from "./apis/OnCallPagingApi";
@@ -8204,6 +8205,10 @@ export { ReportScheduleToggleRequest } from "./models/ReportScheduleToggleReques
 export { ReportScheduleToggleRequestAttributes } from "./models/ReportScheduleToggleRequestAttributes";
 export { ReportScheduleToggleRequestData } from "./models/ReportScheduleToggleRequestData";
 export { ReportScheduleType } from "./models/ReportScheduleType";
+export { RerouteOnCallPageRequest } from "./models/RerouteOnCallPageRequest";
+export { RerouteOnCallPageRequestData } from "./models/RerouteOnCallPageRequestData";
+export { RerouteOnCallPageRequestDataAttributes } from "./models/RerouteOnCallPageRequestDataAttributes";
+export { RerouteOnCallPageRequestDataType } from "./models/RerouteOnCallPageRequestDataType";
 export { ResolveVulnerableSymbolsRequest } from "./models/ResolveVulnerableSymbolsRequest";
 export { ResolveVulnerableSymbolsRequestData } from "./models/ResolveVulnerableSymbolsRequestData";
 export { ResolveVulnerableSymbolsRequestDataAttributes } from "./models/ResolveVulnerableSymbolsRequestDataAttributes";
