@@ -2,7 +2,8 @@
 
 ## Description
 
-The Containers API allows you to query container data for your organization. See the [Container Monitoring page](https://docs.datadoghq.com/containers/) for more information.
+The Containers API allows you to query container data for your organization.
+See the [Container Monitoring page](https://docs.datadoghq.com/containers/) for more information.
 
 ## Navigation
 
