@@ -5,6 +5,8 @@ export {
 } from "./DataObservabilityApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { DataObservabilityMonitorGroupStatus } from "./models/DataObservabilityMonitorGroupStatus";
+export { DataObservabilityMonitorRunGroup } from "./models/DataObservabilityMonitorRunGroup";
 export { DataObservabilityMonitorRunStatus } from "./models/DataObservabilityMonitorRunStatus";
 export { DataObservabilityMonitorRunType } from "./models/DataObservabilityMonitorRunType";
 export { GetDataObservabilityMonitorRunStatusResponse } from "./models/GetDataObservabilityMonitorRunStatusResponse";

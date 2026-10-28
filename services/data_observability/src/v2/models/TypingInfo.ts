@@ -1,6 +1,7 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { DataObservabilityMonitorRunGroup } from "./DataObservabilityMonitorRunGroup";
 import { GetDataObservabilityMonitorRunStatusResponse } from "./GetDataObservabilityMonitorRunStatusResponse";
 import { GetDataObservabilityMonitorRunStatusResponseAttributes } from "./GetDataObservabilityMonitorRunStatusResponseAttributes";
 import { GetDataObservabilityMonitorRunStatusResponseData } from "./GetDataObservabilityMonitorRunStatusResponseData";
@@ -12,6 +13,13 @@ import { RunDataObservabilityMonitorResponseData } from "./RunDataObservabilityM
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    DataObservabilityMonitorGroupStatus: [
+      "ok",
+      "warn",
+      "alert",
+      "no_data",
+      "unknown",
+    ],
     DataObservabilityMonitorRunStatus: [
       "pending",
       "ok",
@@ -24,6 +32,7 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    DataObservabilityMonitorRunGroup: DataObservabilityMonitorRunGroup,
     GetDataObservabilityMonitorRunStatusResponse:
       GetDataObservabilityMonitorRunStatusResponse,
     GetDataObservabilityMonitorRunStatusResponseAttributes:
