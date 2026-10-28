@@ -62,7 +62,7 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
 
     // Path Params
     const localVarPath =
-      "/api/v2/csm/ownership/{resource_id}/{owner_type}/feedback"
+      "/api/v2/security/ownership/{resource_id}/{owner_type}/feedback"
         .replace("{resource_id}", encodeURIComponent(String(resourceId)))
         .replace("{owner_type}", encodeURIComponent(String(ownerType)));
 
@@ -124,7 +124,7 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
 
     // Path Params
     const localVarPath =
-      "/api/v2/csm/ownership/{resource_id}/{owner_type}/evidence"
+      "/api/v2/security/ownership/{resource_id}/{owner_type}/evidence"
         .replace("{resource_id}", encodeURIComponent(String(resourceId)))
         .replace("{owner_type}", encodeURIComponent(String(ownerType)));
 
@@ -182,7 +182,7 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/csm/ownership/{resource_id}/{owner_type}"
+    const localVarPath = "/api/v2/security/ownership/{resource_id}/{owner_type}"
       .replace("{resource_id}", encodeURIComponent(String(resourceId)))
       .replace("{owner_type}", encodeURIComponent(String(ownerType)));
 
@@ -307,10 +307,11 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/csm/ownership/{resource_id}/history".replace(
-      "{resource_id}",
-      encodeURIComponent(String(resourceId))
-    );
+    const localVarPath =
+      "/api/v2/security/ownership/{resource_id}/history".replace(
+        "{resource_id}",
+        encodeURIComponent(String(resourceId))
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -378,7 +379,7 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
 
     // Path Params
     const localVarPath =
-      "/api/v2/csm/ownership/{resource_id}/{owner_type}/history"
+      "/api/v2/security/ownership/{resource_id}/{owner_type}/history"
         .replace("{resource_id}", encodeURIComponent(String(resourceId)))
         .replace("{owner_type}", encodeURIComponent(String(ownerType)));
 
@@ -439,7 +440,7 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/csm/ownership/{resource_id}".replace(
+    const localVarPath = "/api/v2/security/ownership/{resource_id}".replace(
       "{resource_id}",
       encodeURIComponent(String(resourceId))
     );
