@@ -1373,6 +1373,7 @@ import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
 import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
 import { DataExportConfig } from "./DataExportConfig";
+import { DataObservabilityMonitorRunGroup } from "./DataObservabilityMonitorRunGroup";
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 import { DataRelationshipsTeamsDataItems } from "./DataRelationshipsTeamsDataItems";
 import { DataScalarColumn } from "./DataScalarColumn";
@@ -7337,6 +7338,13 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   DashboardUsageType: ["dashboards-usages"],
   DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
+  DataObservabilityMonitorGroupStatus: [
+    "ok",
+    "warn",
+    "alert",
+    "no_data",
+    "unknown",
+  ],
   DataObservabilityMonitorRunStatus: [
     "pending",
     "ok",
@@ -12020,6 +12028,7 @@ const typeMap: { [index: string]: any } = {
   DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
   DataDeletionResponseMeta: DataDeletionResponseMeta,
   DataExportConfig: DataExportConfig,
+  DataObservabilityMonitorRunGroup: DataObservabilityMonitorRunGroup,
   DataRelationshipsTeams: DataRelationshipsTeams,
   DataRelationshipsTeamsDataItems: DataRelationshipsTeamsDataItems,
   DataScalarColumn: DataScalarColumn,

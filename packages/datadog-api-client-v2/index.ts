@@ -3932,6 +3932,8 @@ export { DatadogIntegration } from "./models/DatadogIntegration";
 export { DatadogIntegrationType } from "./models/DatadogIntegrationType";
 export { DatadogIntegrationUpdate } from "./models/DatadogIntegrationUpdate";
 export { DataExportConfig } from "./models/DataExportConfig";
+export { DataObservabilityMonitorGroupStatus } from "./models/DataObservabilityMonitorGroupStatus";
+export { DataObservabilityMonitorRunGroup } from "./models/DataObservabilityMonitorRunGroup";
 export { DataObservabilityMonitorRunStatus } from "./models/DataObservabilityMonitorRunStatus";
 export { DataObservabilityMonitorRunType } from "./models/DataObservabilityMonitorRunType";
 export { DataRelationshipsTeams } from "./models/DataRelationshipsTeams";
