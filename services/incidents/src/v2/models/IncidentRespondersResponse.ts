@@ -1,7 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { IncidentResponderDataResponse } from "./IncidentResponderDataResponse";
-import { IncidentUserData } from "./IncidentUserData";
+import { IncidentResponderIncludedItem } from "./IncidentResponderIncludedItem";
+import { IncidentRespondersResponseMeta } from "./IncidentRespondersResponseMeta";
 
 /**
  * Response with a list of incident responders.
@@ -14,7 +15,15 @@ export class IncidentRespondersResponse {
   /**
    * Included related resources.
    */
-  "included"?: Array<IncidentUserData>;
+  "included"?: Array<IncidentResponderIncludedItem>;
+  /**
+   * Links to pages of incident responders.
+   */
+  "links"?: { [key: string]: string };
+  /**
+   * Pagination metadata for the responder list.
+   */
+  "meta"?: IncidentRespondersResponseMeta;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -37,7 +46,15 @@ export class IncidentRespondersResponse {
     },
     included: {
       baseName: "included",
-      type: "Array<IncidentUserData>",
+      type: "Array<IncidentResponderIncludedItem>",
+    },
+    links: {
+      baseName: "links",
+      type: "{ [key: string]: string; }",
+    },
+    meta: {
+      baseName: "meta",
+      type: "IncidentRespondersResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
