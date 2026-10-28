@@ -48,7 +48,7 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cloud_auth/aws/persona_mapping";
+    const localVarPath = "/api/v2/wif/aws/persona_mapping";
 
     // Make Request Context
     const requestContext = _config
@@ -108,7 +108,7 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cloud_auth/github/intake_mapping";
+    const localVarPath = "/api/v2/wif/github/intake_mapping";
 
     // Make Request Context
     const requestContext = _config
@@ -168,7 +168,7 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cloud_auth/github/persona_mapping";
+    const localVarPath = "/api/v2/wif/github/persona_mapping";
 
     // Make Request Context
     const requestContext = _config
@@ -232,7 +232,7 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Path Params
     const localVarPath =
-      "/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}".replace(
+      "/api/v2/wif/aws/persona_mapping/{persona_mapping_id}".replace(
         "{persona_mapping_id}",
         encodeURIComponent(String(personaMappingId))
       );
@@ -284,7 +284,7 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Path Params
     const localVarPath =
-      "/api/v2/cloud_auth/github/intake_mapping/{intake_mapping_id}".replace(
+      "/api/v2/wif/github/intake_mapping/{intake_mapping_id}".replace(
         "{intake_mapping_id}",
         encodeURIComponent(String(intakeMappingId))
       );
@@ -336,7 +336,7 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Path Params
     const localVarPath =
-      "/api/v2/cloud_auth/github/persona_mapping/{persona_mapping_id}".replace(
+      "/api/v2/wif/github/persona_mapping/{persona_mapping_id}".replace(
         "{persona_mapping_id}",
         encodeURIComponent(String(personaMappingId))
       );
@@ -388,7 +388,7 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Path Params
     const localVarPath =
-      "/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}".replace(
+      "/api/v2/wif/aws/persona_mapping/{persona_mapping_id}".replace(
         "{persona_mapping_id}",
         encodeURIComponent(String(personaMappingId))
       );
@@ -438,7 +438,7 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Path Params
     const localVarPath =
-      "/api/v2/cloud_auth/github/intake_mapping/{intake_mapping_id}".replace(
+      "/api/v2/wif/github/intake_mapping/{intake_mapping_id}".replace(
         "{intake_mapping_id}",
         encodeURIComponent(String(intakeMappingId))
       );
@@ -488,7 +488,7 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Path Params
     const localVarPath =
-      "/api/v2/cloud_auth/github/persona_mapping/{persona_mapping_id}".replace(
+      "/api/v2/wif/github/persona_mapping/{persona_mapping_id}".replace(
         "{persona_mapping_id}",
         encodeURIComponent(String(personaMappingId))
       );
@@ -528,7 +528,7 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cloud_auth/aws/persona_mapping";
+    const localVarPath = "/api/v2/wif/aws/persona_mapping";
 
     // Make Request Context
     const requestContext = _config
@@ -565,7 +565,7 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cloud_auth/github/intake_mapping";
+    const localVarPath = "/api/v2/wif/github/intake_mapping";
 
     // Make Request Context
     const requestContext = _config
@@ -604,7 +604,7 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cloud_auth/github/persona_mapping";
+    const localVarPath = "/api/v2/wif/github/persona_mapping";
 
     // Make Request Context
     const requestContext = _config
