@@ -4,7 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { IncidentResponderDataResponse } from "./IncidentResponderDataResponse";
-import { IncidentUserData } from "./IncidentUserData";
+import { IncidentResponderIncludedItem } from "./IncidentResponderIncludedItem";
+import { IncidentRespondersResponseMeta } from "./IncidentRespondersResponseMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -19,7 +20,15 @@ export class IncidentRespondersResponse {
   /**
    * Included related resources.
    */
-  "included"?: Array<IncidentUserData>;
+  "included"?: Array<IncidentResponderIncludedItem>;
+  /**
+   * Links to pages of incident responders.
+   */
+  "links"?: { [key: string]: string };
+  /**
+   * Pagination metadata for the responder list.
+   */
+  "meta"?: IncidentRespondersResponseMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,7 +53,15 @@ export class IncidentRespondersResponse {
     },
     included: {
       baseName: "included",
-      type: "Array<IncidentUserData>",
+      type: "Array<IncidentResponderIncludedItem>",
+    },
+    links: {
+      baseName: "links",
+      type: "{ [key: string]: string; }",
+    },
+    meta: {
+      baseName: "meta",
+      type: "IncidentRespondersResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",

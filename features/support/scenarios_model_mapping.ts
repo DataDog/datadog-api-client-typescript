@@ -12558,6 +12558,18 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "include": {
+            "type": "Array<IncidentResponderRelatedObject>",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
         "operationResponseType": "IncidentRespondersResponse",
     },
     "v2.CreateIncidentResponder": {

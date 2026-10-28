@@ -64,6 +64,7 @@ import { IncidentOrgSettingsListResponse } from "../models/IncidentOrgSettingsLi
 import { IncidentOrgSettingsResponse } from "../models/IncidentOrgSettingsResponse";
 import { IncidentPageUUIDResponse } from "../models/IncidentPageUUIDResponse";
 import { IncidentRelatedObject } from "../models/IncidentRelatedObject";
+import { IncidentResponderRelatedObject } from "../models/IncidentResponderRelatedObject";
 import { IncidentResponderRequest } from "../models/IncidentResponderRequest";
 import { IncidentResponderResponse } from "../models/IncidentResponderResponse";
 import { IncidentRespondersResponse } from "../models/IncidentRespondersResponse";
@@ -3571,6 +3572,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listIncidentResponders(
     incidentId: string,
+    include?: Array<IncidentResponderRelatedObject>,
+    pageLimit?: number,
+    pageOffset?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -3603,6 +3607,33 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(
+          include,
+          "Array<IncidentResponderRelatedObject>",
+          ""
+        ),
+        "csv"
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        ""
+      );
     }
 
     // Apply auth methods
@@ -12359,6 +12390,21 @@ export interface IncidentsApiListIncidentRespondersRequest {
    * @type string
    */
   incidentId: string;
+  /**
+   * Comma-separated related resource types to include. Supported values are `users` and `role_assignments`.
+   * @type Array<IncidentResponderRelatedObject>
+   */
+  include?: Array<IncidentResponderRelatedObject>;
+  /**
+   * Maximum number of responders to return per page.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * The offset of the first responder to return.
+   * @type number
+   */
+  pageOffset?: number;
 }
 
 export interface IncidentsApiListIncidentRulesRequest {
@@ -14297,6 +14343,9 @@ export class IncidentsApi {
   ): Promise<IncidentRespondersResponse> {
     const requestContextPromise = this.requestFactory.listIncidentResponders(
       param.incidentId,
+      param.include,
+      param.pageLimit,
+      param.pageOffset,
       options
     );
     return requestContextPromise.then((requestContext) => {
