@@ -32,7 +32,9 @@ import { RUMApplicationResponse } from "./models/RUMApplicationResponse";
 import { RUMApplicationsResponse } from "./models/RUMApplicationsResponse";
 import { RUMApplicationUpdateRequest } from "./models/RUMApplicationUpdateRequest";
 import { RUMEvent } from "./models/RUMEvent";
+import { RUMEventProcessingState } from "./models/RUMEventProcessingState";
 import { RUMEventsResponse } from "./models/RUMEventsResponse";
+import { RUMProductAnalyticsRetentionState } from "./models/RUMProductAnalyticsRetentionState";
 import { RUMQueryPageOptions } from "./models/RUMQueryPageOptions";
 import { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
 import { RUMSort } from "./models/RUMSort";
@@ -485,6 +487,12 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async getRUMApplications(
+    filterRumEnabled?: boolean,
+    filterProductAnalyticsEnabled?: boolean,
+    filterErrorFocusedModeEnabled?: boolean,
+    filterRemoteConfigEnabled?: boolean,
+    filterRumEventProcessingState?: RUMEventProcessingState,
+    filterProductAnalyticsRetentionState?: RUMProductAnalyticsRetentionState,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -513,6 +521,60 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterRumEnabled !== undefined) {
+      requestContext.setQueryParam(
+        "filter[rum_enabled]",
+        serialize(filterRumEnabled, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (filterProductAnalyticsEnabled !== undefined) {
+      requestContext.setQueryParam(
+        "filter[product_analytics_enabled]",
+        serialize(filterProductAnalyticsEnabled, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (filterErrorFocusedModeEnabled !== undefined) {
+      requestContext.setQueryParam(
+        "filter[error_focused_mode_enabled]",
+        serialize(filterErrorFocusedModeEnabled, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (filterRemoteConfigEnabled !== undefined) {
+      requestContext.setQueryParam(
+        "filter[remote_config_enabled]",
+        serialize(filterRemoteConfigEnabled, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (filterRumEventProcessingState !== undefined) {
+      requestContext.setQueryParam(
+        "filter[rum_event_processing_state]",
+        serialize(
+          filterRumEventProcessingState,
+          TypingInfo,
+          "RUMEventProcessingState",
+          "",
+        ),
+        "",
+      );
+    }
+    if (filterProductAnalyticsRetentionState !== undefined) {
+      requestContext.setQueryParam(
+        "filter[product_analytics_retention_state]",
+        serialize(
+          filterProductAnalyticsRetentionState,
+          TypingInfo,
+          "RUMProductAnalyticsRetentionState",
+          "",
+        ),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -670,8 +732,8 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listRUMEvents(
     filterQuery?: string,
-    filterFrom?: Date,
-    filterTo?: Date,
+    filterFrom?: string,
+    filterTo?: string,
     sort?: RUMSort,
     pageCursor?: string,
     pageLimit?: number,
@@ -716,14 +778,14 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     if (filterFrom !== undefined) {
       requestContext.setQueryParam(
         "filter[from]",
-        serialize(filterFrom, TypingInfo, "Date", "date-time"),
+        serialize(filterFrom, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterTo !== undefined) {
       requestContext.setQueryParam(
         "filter[to]",
-        serialize(filterTo, TypingInfo, "Date", "date-time"),
+        serialize(filterTo, TypingInfo, "string", ""),
         "",
       );
     }
@@ -1413,7 +1475,32 @@ export class RUMApiResponseProcessor {
       ) as RUMApplicationResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -1462,7 +1549,11 @@ export class RUMApiResponseProcessor {
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 404) {
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
@@ -1614,7 +1705,11 @@ export class RUMApiResponseProcessor {
       ) as RUMApplicationResponse;
       return body;
     }
-    if (response.httpStatusCode === 404) {
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
@@ -1690,6 +1785,27 @@ export class RUMApiResponseProcessor {
         "RUMApplicationsResponse",
       ) as RUMApplicationsResponse;
       return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
@@ -2189,27 +2305,10 @@ export class RUMApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
-      response.httpStatusCode === 422 ||
-      response.httpStatusCode === 429
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 422
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-    if (response.httpStatusCode === 404) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
@@ -2229,6 +2328,24 @@ export class RUMApiResponseProcessor {
         response.httpStatusCode,
         body,
       );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2266,7 +2383,7 @@ export interface RUMApiCreateRUMApplicationRequest {
 
 export interface RUMApiDeleteRUMApplicationRequest {
   /**
-   * RUM application ID.
+   * ID of the RUM application, returned as `application_id` by `GetRUMApplications` and `CreateRUMApplication`.
    * @type string
    */
   id: string;
@@ -2383,10 +2500,43 @@ export interface RUMApiDeleteSourcemapsRequest {
 
 export interface RUMApiGetRUMApplicationRequest {
   /**
-   * RUM application ID.
+   * ID of the RUM application, returned as `application_id` by `GetRUMApplications` and `CreateRUMApplication`.
    * @type string
    */
   id: string;
+}
+
+export interface RUMApiGetRUMApplicationsRequest {
+  /**
+   * Only return applications for which RUM event processing is enabled (`true`) or not (`false`).
+   * @type boolean
+   */
+  filterRumEnabled?: boolean;
+  /**
+   * Only return applications for which Product Analytics is enabled (`true`) or not (`false`).
+   * @type boolean
+   */
+  filterProductAnalyticsEnabled?: boolean;
+  /**
+   * Only return applications that run in error focused mode (`true`) or not (`false`).
+   * @type boolean
+   */
+  filterErrorFocusedModeEnabled?: boolean;
+  /**
+   * Only return applications that have an SDK remote configuration (`true`) or not (`false`).
+   * @type boolean
+   */
+  filterRemoteConfigEnabled?: boolean;
+  /**
+   * Only return applications with this RUM event processing state.
+   * @type RUMEventProcessingState
+   */
+  filterRumEventProcessingState?: RUMEventProcessingState;
+  /**
+   * Only return applications with this Product Analytics retention state.
+   * @type RUMProductAnalyticsRetentionState
+   */
+  filterProductAnalyticsRetentionState?: RUMProductAnalyticsRetentionState;
 }
 
 export interface RUMApiGetServiceRepositoryInfoRequest {
@@ -2422,32 +2572,32 @@ export interface RUMApiGetSourcemapsRequest {
 
 export interface RUMApiListRUMEventsRequest {
   /**
-   * Search query following RUM syntax.
+   * Search query following the [RUM search syntax](https://docs.datadoghq.com/real_user_monitoring/explorer/search_syntax/). Defaults to `*`.
    * @type string
    */
   filterQuery?: string;
   /**
-   * Minimum timestamp for requested events.
-   * @type Date
+   * Minimum time for requested events, inclusive. Accepts date math (for example `now-15m`), an ISO 8601 date, or a timestamp in milliseconds. Defaults to `now-15m`.
+   * @type string
    */
-  filterFrom?: Date;
+  filterFrom?: string;
   /**
-   * Maximum timestamp for requested events.
-   * @type Date
+   * Maximum time for requested events. Accepts the same formats as `filter[from]`. Defaults to `now`.
+   * @type string
    */
-  filterTo?: Date;
+  filterTo?: string;
   /**
-   * Order of events in results.
+   * Order of events in results, by event timestamp.
    * @type RUMSort
    */
   sort?: RUMSort;
   /**
-   * List following results with a cursor provided in the previous query.
+   * Cursor to get the next page of results, taken from `meta.page.after` or `links.next` of the previous response. Use it with the same other parameters.
    * @type string
    */
   pageCursor?: string;
   /**
-   * Maximum number of events in the response.
+   * Maximum number of events in the response. Between 1 and 1000.
    * @type number
    */
   pageLimit?: number;
@@ -2704,7 +2854,7 @@ export interface RUMApiSearchRUMEventsRequest {
 
 export interface RUMApiUpdateRUMApplicationRequest {
   /**
-   * RUM application ID.
+   * ID of the RUM application, returned as `application_id` by `GetRUMApplications` and `CreateRUMApplication`.
    * @type string
    */
   id: string;
@@ -2733,7 +2883,11 @@ export class RUMApi {
   }
 
   /**
-   * The API endpoint to aggregate RUM events into buckets of computed metrics and timeseries.
+   * Aggregate RUM events into buckets of computed metrics and timeseries. Use this endpoint for counts, percentiles, top-N breakdowns and timeseries. To read individual events, use `SearchRUMEvents` or `ListRUMEvents`.
+   *
+   * `filter` selects the events with the [RUM search syntax][1] and a time range (`from` and `to` accept date math such as `now-15m`, ISO 8601 dates and timestamps in milliseconds). Each `compute` rule produces one value (`type: total`) or one list of time points (`type: timeseries`) per bucket, keyed `c0`, `c1`... in the response. Each `group_by` rule splits the events into buckets by a facet, returned in `by`. Use `histogram` on a numeric facet to bucket it by ranges.
+   *
+   * [1]: https://docs.datadoghq.com/real_user_monitoring/explorer/search_syntax/
    * @param param The request object
    */
   public aggregateRUMEvents(
@@ -2755,6 +2909,8 @@ export class RUMApi {
 
   /**
    * Create a new RUM application in your organization.
+   * The application ID is generated by Datadog and returned in `data.attributes.application_id`. A client token is created with the application and returned in `data.attributes.client_token`, use both to initialize the RUM SDK.
+   * The application is created with the default retention filters unless `create_default_retention_filters` is `false`.
    * @param param The request object
    */
   public createRUMApplication(
@@ -2776,6 +2932,8 @@ export class RUMApi {
 
   /**
    * Delete an existing RUM application in your organization.
+   * The application is disabled and its client token is revoked, so the RUM SDK stops sending events for it. The application ID cannot be reused or re-enabled through the API.
+   * Deleting an application with Product Analytics enabled requires the `product_analytics_apps_write` permission.
    * @param param The request object
    */
   public deleteRUMApplication(
@@ -2839,6 +2997,7 @@ export class RUMApi {
 
   /**
    * Get the RUM application with given ID in your organization.
+   * Unlike `GetRUMApplications`, the response includes the `client_token` used to initialize the RUM SDK.
    * @param param The request object
    */
   public getRUMApplication(
@@ -2859,14 +3018,24 @@ export class RUMApi {
   }
 
   /**
-   * List all the RUM applications in your organization.
+   * List the enabled RUM applications of your organization. Applications deleted with `DeleteRUMApplication` are not returned.
+   * The response is not paginated and does not include the `client_token`, use `GetRUMApplication` to retrieve it.
+   * Use the `application_id` of an item as the `id` path parameter of the other application operations, and as `@application.id` in RUM event queries.
    * @param param The request object
    */
   public getRUMApplications(
+    param: RUMApiGetRUMApplicationsRequest = {},
     options?: Configuration,
   ): Promise<RUMApplicationsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getRUMApplications(options);
+    const requestContextPromise = this.requestFactory.getRUMApplications(
+      param.filterRumEnabled,
+      param.filterProductAnalyticsEnabled,
+      param.filterErrorFocusedModeEnabled,
+      param.filterRemoteConfigEnabled,
+      param.filterRumEventProcessingState,
+      param.filterProductAnalyticsRetentionState,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -2956,12 +3125,14 @@ export class RUMApi {
   }
 
   /**
-   * List endpoint returns events that match a RUM search query.
-   * [Results are paginated][1].
+   * Returns the RUM events that match a RUM search query within a time range. Use this endpoint to see your latest RUM events with a simple query. For long filters, use `SearchRUMEvents`. To compute counts, percentiles or timeseries, use `AggregateRUMEvents`.
    *
-   * Use this endpoint to see your latest RUM events.
+   * The query follows the [RUM search syntax][2]. Without `filter[from]` and `filter[to]`, the last 15 minutes are searched.
+   *
+   * [Results are paginated][1]: `page[limit]` is at most 1000 (default 10). When more results are available, the response contains `meta.page.after` and `links.next`. Request `links.next`, or send `meta.page.after` as `page[cursor]` with the same other parameters, and repeat until they are absent.
    *
    * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+   * [2]: https://docs.datadoghq.com/real_user_monitoring/explorer/search_syntax/
    * @param param The request object
    */
   public listRUMEvents(
@@ -3208,12 +3379,14 @@ export class RUMApi {
   }
 
   /**
-   * List endpoint returns RUM events that match a RUM search query.
-   * [Results are paginated][1].
+   * Returns the RUM events that match a RUM search query within a time range, as a list of individual events. Use this endpoint when the filter is too long for a query string, or to set `options`. To compute counts, percentiles or timeseries instead of reading events, use `AggregateRUMEvents`.
    *
-   * Use this endpoint to build complex RUM events filtering and search.
+   * The query follows the [RUM search syntax][2]. `filter.from` and `filter.to` accept date math (`now-15m`), ISO 8601 dates and timestamps in milliseconds.
+   *
+   * [Results are paginated][1]: `page.limit` is at most 1000 (default 10). When more results are available, the response contains `meta.page.after`. Send it as `page.cursor`, with the same `filter` and `sort`, to get the next page, and repeat until `meta.page.after` is absent.
    *
    * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+   * [2]: https://docs.datadoghq.com/real_user_monitoring/explorer/search_syntax/
    * @param param The request object
    */
   public searchRUMEvents(
@@ -3289,6 +3462,7 @@ export class RUMApi {
 
   /**
    * Update the RUM application with given ID in your organization.
+   * This is a partial update: only the attributes present in the request are changed. `data.id` must match the `id` path parameter.
    * @param param The request object
    */
   public updateRUMApplication(
