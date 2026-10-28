@@ -5311,6 +5311,16 @@ import { SecurityMonitoringRuleConvertResponse } from "./SecurityMonitoringRuleC
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
+import { SecurityMonitoringRuleProposalError } from "./SecurityMonitoringRuleProposalError";
+import { SecurityMonitoringRuleProposalResponse } from "./SecurityMonitoringRuleProposalResponse";
+import { SecurityMonitoringRuleProposalResponseAttributes } from "./SecurityMonitoringRuleProposalResponseAttributes";
+import { SecurityMonitoringRuleProposalResponseData } from "./SecurityMonitoringRuleProposalResponseData";
+import { SecurityMonitoringRuleProposalStartRequest } from "./SecurityMonitoringRuleProposalStartRequest";
+import { SecurityMonitoringRuleProposalStartRequestAttributes } from "./SecurityMonitoringRuleProposalStartRequestAttributes";
+import { SecurityMonitoringRuleProposalStartRequestData } from "./SecurityMonitoringRuleProposalStartRequestData";
+import { SecurityMonitoringRuleProposalStartResponse } from "./SecurityMonitoringRuleProposalStartResponse";
+import { SecurityMonitoringRuleProposalStartResponseAttributes } from "./SecurityMonitoringRuleProposalStartResponseAttributes";
+import { SecurityMonitoringRuleProposalStartResponseData } from "./SecurityMonitoringRuleProposalStartResponseData";
 import { SecurityMonitoringRuleQueryPayload } from "./SecurityMonitoringRuleQueryPayload";
 import { SecurityMonitoringRuleQueryPayloadData } from "./SecurityMonitoringRuleQueryPayloadData";
 import { SecurityMonitoringRuleSequenceDetectionOptions } from "./SecurityMonitoringRuleSequenceDetectionOptions";
@@ -9686,6 +9696,8 @@ const enumsMap: { [key: string]: any[] } = {
     "threshold",
   ],
   SecurityMonitoringRuleNewValueOptionsLearningThreshold: [0, 1],
+  SecurityMonitoringRuleProposalInputType: ["natural_language", "spl", "kql"],
+  SecurityMonitoringRuleProposalType: ["rule_proposals"],
   SecurityMonitoringRuleQueryAggregation: [
     "count",
     "cardinality",
@@ -17033,6 +17045,25 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringRuleImpossibleTravelOptions,
   SecurityMonitoringRuleNewValueOptions: SecurityMonitoringRuleNewValueOptions,
   SecurityMonitoringRuleOptions: SecurityMonitoringRuleOptions,
+  SecurityMonitoringRuleProposalError: SecurityMonitoringRuleProposalError,
+  SecurityMonitoringRuleProposalResponse:
+    SecurityMonitoringRuleProposalResponse,
+  SecurityMonitoringRuleProposalResponseAttributes:
+    SecurityMonitoringRuleProposalResponseAttributes,
+  SecurityMonitoringRuleProposalResponseData:
+    SecurityMonitoringRuleProposalResponseData,
+  SecurityMonitoringRuleProposalStartRequest:
+    SecurityMonitoringRuleProposalStartRequest,
+  SecurityMonitoringRuleProposalStartRequestAttributes:
+    SecurityMonitoringRuleProposalStartRequestAttributes,
+  SecurityMonitoringRuleProposalStartRequestData:
+    SecurityMonitoringRuleProposalStartRequestData,
+  SecurityMonitoringRuleProposalStartResponse:
+    SecurityMonitoringRuleProposalStartResponse,
+  SecurityMonitoringRuleProposalStartResponseAttributes:
+    SecurityMonitoringRuleProposalStartResponseAttributes,
+  SecurityMonitoringRuleProposalStartResponseData:
+    SecurityMonitoringRuleProposalStartResponseData,
   SecurityMonitoringRuleQueryPayload: SecurityMonitoringRuleQueryPayload,
   SecurityMonitoringRuleQueryPayloadData:
     SecurityMonitoringRuleQueryPayloadData,

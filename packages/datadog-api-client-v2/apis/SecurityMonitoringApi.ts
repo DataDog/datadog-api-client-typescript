@@ -168,6 +168,9 @@ import { SecurityMonitoringRuleConvertBulkPayload } from "../models/SecurityMoni
 import { SecurityMonitoringRuleConvertPayload } from "../models/SecurityMonitoringRuleConvertPayload";
 import { SecurityMonitoringRuleConvertResponse } from "../models/SecurityMonitoringRuleConvertResponse";
 import { SecurityMonitoringRuleCreatePayload } from "../models/SecurityMonitoringRuleCreatePayload";
+import { SecurityMonitoringRuleProposalResponse } from "../models/SecurityMonitoringRuleProposalResponse";
+import { SecurityMonitoringRuleProposalStartRequest } from "../models/SecurityMonitoringRuleProposalStartRequest";
+import { SecurityMonitoringRuleProposalStartResponse } from "../models/SecurityMonitoringRuleProposalStartResponse";
 import { SecurityMonitoringRuleResponse } from "../models/SecurityMonitoringRuleResponse";
 import { SecurityMonitoringRuleSort } from "../models/SecurityMonitoringRuleSort";
 import { SecurityMonitoringRuleTestRequest } from "../models/SecurityMonitoringRuleTestRequest";
@@ -5994,6 +5997,56 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getSecurityMonitoringRuleProposal(
+    proposalId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getSecurityMonitoringRuleProposal'");
+    if (!_config.unstableOperations["v2.getSecurityMonitoringRuleProposal"]) {
+      throw new Error(
+        "Unstable operation 'getSecurityMonitoringRuleProposal' is disabled"
+      );
+    }
+
+    // verify required parameter 'proposalId' is not null or undefined
+    if (proposalId === null || proposalId === undefined) {
+      throw new RequiredError(
+        "proposalId",
+        "getSecurityMonitoringRuleProposal"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/rules/proposals/{proposal_id}".replace(
+        "{proposal_id}",
+        encodeURIComponent(String(proposalId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getSecurityMonitoringRuleProposal")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getSecurityMonitoringSignal(
     signalId: string,
     _options?: Configuration
@@ -10129,6 +10182,66 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async startSecurityMonitoringRuleProposal(
+    body: SecurityMonitoringRuleProposalStartRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'startSecurityMonitoringRuleProposal'"
+    );
+    if (!_config.unstableOperations["v2.startSecurityMonitoringRuleProposal"]) {
+      throw new Error(
+        "Unstable operation 'startSecurityMonitoringRuleProposal' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "startSecurityMonitoringRuleProposal");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security_monitoring/rules/proposals";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.startSecurityMonitoringRuleProposal")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringRuleProposalStartRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -18503,6 +18616,94 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSecurityMonitoringRuleProposal
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityMonitoringRuleProposal(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringRuleProposalResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringRuleProposalResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleProposalResponse"
+        ) as SecurityMonitoringRuleProposalResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringRuleProposalResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleProposalResponse",
+          ""
+        ) as SecurityMonitoringRuleProposalResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSecurityMonitoringSignal
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -22756,6 +22957,93 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to startSecurityMonitoringRuleProposal
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async startSecurityMonitoringRuleProposal(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringRuleProposalStartResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 202) {
+      const body: SecurityMonitoringRuleProposalStartResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleProposalStartResponse"
+        ) as SecurityMonitoringRuleProposalStartResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringRuleProposalStartResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleProposalStartResponse",
+          ""
+        ) as SecurityMonitoringRuleProposalStartResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to testExistingSecurityMonitoringRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -25410,6 +25698,14 @@ export interface SecurityMonitoringApiGetSecurityMonitoringRuleRequest {
   ruleId: string;
 }
 
+export interface SecurityMonitoringApiGetSecurityMonitoringRuleProposalRequest {
+  /**
+   * The ID of the rule proposal, returned by the start a rule proposal endpoint.
+   * @type string
+   */
+  proposalId: string;
+}
+
 export interface SecurityMonitoringApiGetSecurityMonitoringSignalRequest {
   /**
    * The ID of the signal.
@@ -26544,6 +26840,13 @@ export interface SecurityMonitoringApiStartSecurityMonitoringBatchMigrationReque
   batchId: string;
 }
 
+export interface SecurityMonitoringApiStartSecurityMonitoringRuleProposalRequest {
+  /**
+   * @type SecurityMonitoringRuleProposalStartRequest
+   */
+  body: SecurityMonitoringRuleProposalStartRequest;
+}
+
 export interface SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest {
   /**
    * The ID of the rule.
@@ -27635,6 +27938,7 @@ export class SecurityMonitoringApi {
    * rule. To load more rules, add them with the add resources endpoint before starting the
    * batch migration. A batch migration can hold up to 1000 resources. The response does not
    * include the created resources: list the resources of the batch migration to retrieve them.
+   * Alternatively, use the start-a-rule-proposal endpoint to get a single proposed rule.
    * @param param The request object
    */
   public createSecurityMonitoringBatchMigration(
@@ -29302,6 +29606,37 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSecurityMonitoringRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the status of a rule proposal started with the start-a-rule-proposal endpoint.
+   * While the status is `pending` or `in_progress`, the proposed rule is still being
+   * generated. Poll this endpoint again later. If the status is `completed`, the response's `rule` field contains
+   * the proposed Cloud SIEM detection rule. If the status is `failed`, the response's `error` field contains
+   * the reason a rule could not be generated.
+   *
+   * This endpoint does not create or modify any detection rules in Cloud SIEM. To create the
+   * proposed rule, use the create-a-detection-rule endpoint.
+   * @param param The request object
+   */
+  public getSecurityMonitoringRuleProposal(
+    param: SecurityMonitoringApiGetSecurityMonitoringRuleProposalRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringRuleProposalResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityMonitoringRuleProposal(
+        param.proposalId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityMonitoringRuleProposal(
             responseContext
           );
         });
@@ -31406,6 +31741,41 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.startSecurityMonitoringBatchMigration(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Start generating a proposed Cloud SIEM detection rule from a natural-language
+   * description, or from an SPL or KQL rule. The proposal is based on your organization's
+   * log sources, log fields, and existing detection rules. When logs from the matching
+   * source are available, the proposed query is tested against your recent logs.
+   *
+   * The proposed rule is generated asynchronously. This endpoint returns a proposal `id`
+   * with the status `pending`. To get the proposed rule, pass this `id` to the get-a-rule-proposal
+   * endpoint and poll the endpoint until the status is `completed` or `failed`. A proposal
+   * usually takes a few minutes, and up to 10 minutes.
+   *
+   * This endpoint does not create or modify any detection rules in Cloud SIEM. To translate
+   * many rules at once, use batch migrations instead.
+   * @param param The request object
+   */
+  public startSecurityMonitoringRuleProposal(
+    param: SecurityMonitoringApiStartSecurityMonitoringRuleProposalRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringRuleProposalStartResponse> {
+    const requestContextPromise =
+      this.requestFactory.startSecurityMonitoringRuleProposal(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.startSecurityMonitoringRuleProposal(
             responseContext
           );
         });
