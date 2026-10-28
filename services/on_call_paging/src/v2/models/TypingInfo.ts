@@ -7,6 +7,12 @@ import { CreatePageRequestDataAttributes } from "./CreatePageRequestDataAttribut
 import { CreatePageRequestDataAttributesTarget } from "./CreatePageRequestDataAttributesTarget";
 import { CreatePageResponse } from "./CreatePageResponse";
 import { CreatePageResponseData } from "./CreatePageResponseData";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { RerouteOnCallPageRequest } from "./RerouteOnCallPageRequest";
+import { RerouteOnCallPageRequestData } from "./RerouteOnCallPageRequestData";
+import { RerouteOnCallPageRequestDataAttributes } from "./RerouteOnCallPageRequestDataAttributes";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -14,6 +20,7 @@ export const TypingInfo: ModelTypingInfo = {
     CreatePageResponseDataType: ["pages"],
     OnCallPageTargetType: ["team_id", "team_handle", "user_id"],
     PageUrgency: ["low", "high"],
+    RerouteOnCallPageRequestDataType: ["reroute"],
   },
   oneOfMap: {},
   typeMap: {
@@ -25,5 +32,12 @@ export const TypingInfo: ModelTypingInfo = {
       CreatePageRequestDataAttributesTarget,
     CreatePageResponse: CreatePageResponse,
     CreatePageResponseData: CreatePageResponseData,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
+    RerouteOnCallPageRequest: RerouteOnCallPageRequest,
+    RerouteOnCallPageRequestData: RerouteOnCallPageRequestData,
+    RerouteOnCallPageRequestDataAttributes:
+      RerouteOnCallPageRequestDataAttributes,
   },
 };
