@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A Datadog user referenced by a RUM operation.
+ * A Datadog user referenced by a RUM operation. `null` when the user could not be resolved.
  */
 export class RUMOperationUser {
   /**
