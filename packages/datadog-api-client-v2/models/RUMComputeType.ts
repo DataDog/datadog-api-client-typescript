@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of compute.
+ * The type of compute. `total` returns one value per bucket, `timeseries` returns a list of time points per bucket.
  */
 
 export type RUMComputeType = typeof TIMESERIES | typeof TOTAL | UnparsedObject;

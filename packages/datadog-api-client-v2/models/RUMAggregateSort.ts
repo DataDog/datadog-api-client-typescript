@@ -14,7 +14,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RUMAggregateSort {
   /**
-   * An aggregation function.
+   * An aggregation function. `count` counts events and needs no metric. `cardinality` counts the distinct values of the metric. `sum`, `min`, `max`, `avg`, `median` and the percentiles (`pc75` to `pc99`) apply to a numeric metric such as `@view.loading_time`.
    */
   "aggregation"?: RUMAggregationFunction;
   /**
@@ -26,7 +26,7 @@ export class RUMAggregateSort {
    */
   "order"?: RUMSortOrder;
   /**
-   * The type of sorting algorithm.
+   * The type of sorting algorithm. `alphabetical` sorts buckets by the facet value, `measure` sorts them by a computed aggregation.
    */
   "type"?: RUMAggregateSortType;
 
