@@ -7617,6 +7617,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "HttpFile",
   },
+  "SecurityMonitoringApi.V2.StartSecurityMonitoringRuleProposal": {
+    body: {
+      type: "SecurityMonitoringRuleProposalStartRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringRuleProposalStartResponse",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityMonitoringRuleProposal": {
+    proposalId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "SecurityMonitoringRuleProposalResponse",
+  },
   "SecurityMonitoringApi.V2.TestSecurityMonitoringRule": {
     body: {
       type: "SecurityMonitoringRuleTestRequest",
