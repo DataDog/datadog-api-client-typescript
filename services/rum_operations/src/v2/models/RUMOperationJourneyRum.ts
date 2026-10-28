@@ -8,8 +8,9 @@ import { RUMOperationJourneyStep } from "./RUMOperationJourneyStep";
 export class RUMOperationJourneyRum {
   /**
    * The ordered list of steps composing the RUM journey.
+   * `null` in responses for operations that have no journey defined.
    */
-  "rumSteps": Array<RUMOperationJourneyStep>;
+  "rumSteps": Array<RUMOperationJourneyStep> | null;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with

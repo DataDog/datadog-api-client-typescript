@@ -11,6 +11,8 @@ export type RumRetentionFilterEventType =
   | typeof RESOURCE
   | typeof LONG_TASK
   | typeof VITAL
+  | typeof OPERATION
+  | typeof EXECUTION_CONTEXT
   | UnparsedObject;
 export const SESSION = "session";
 export const VIEW = "view";
@@ -19,3 +21,5 @@ export const ERROR = "error";
 export const RESOURCE = "resource";
 export const LONG_TASK = "long_task";
 export const VITAL = "vital";
+export const OPERATION = "operation";
+export const EXECUTION_CONTEXT = "execution_context";
