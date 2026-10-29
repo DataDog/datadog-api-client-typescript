@@ -226,6 +226,7 @@ export { ScheduleUser } from "./models/ScheduleUser";
 export { ScheduleUserAttributes } from "./models/ScheduleUserAttributes";
 export { ScheduleUserType } from "./models/ScheduleUserType";
 export { SendSlackMessageAction } from "./models/SendSlackMessageAction";
+export { SendSlackMessageActionCustomizableContent } from "./models/SendSlackMessageActionCustomizableContent";
 export { SendSlackMessageActionType } from "./models/SendSlackMessageActionType";
 export { SendTeamsMessageAction } from "./models/SendTeamsMessageAction";
 export { SendTeamsMessageActionType } from "./models/SendTeamsMessageActionType";
