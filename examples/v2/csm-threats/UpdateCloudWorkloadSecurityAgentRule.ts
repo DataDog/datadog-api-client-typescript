@@ -13,21 +13,37 @@ const configuration = client.createConfiguration({
 });
 const apiInstance = new v2.CSMThreatsApi(configuration);
 
-// there is a valid "agent_rule" in the system
-const AGENT_RULE_DATA_ID = process.env.AGENT_RULE_DATA_ID as string;
-
 const params: v2.CSMThreatsApiUpdateCloudWorkloadSecurityAgentRuleRequest = {
   body: {
     data: {
       attributes: {
-        description: "Updated Agent rule",
+        actions: [
+          {
+            coredump: {},
+            disabled: false,
+            hash: {},
+            kill: {},
+            log: {},
+            metadata: {},
+            networkFilter: {},
+            set: {},
+          },
+        ],
+        blocking: [],
+        description: "My Agent rule",
+        disabled: [],
+        enabled: true,
         expression: `exec.file.name == "sh"`,
+        monitoring: [],
+        policyId: "a8c8e364-6556-434d-b798-a4c23de29c0b",
+        productTags: [],
+        silent: false,
       },
-      id: AGENT_RULE_DATA_ID,
+      id: "3dd-0uc-h1s",
       type: "agent_rule",
     },
   },
-  agentRuleId: AGENT_RULE_DATA_ID,
+  agentRuleId: "agent_rule_id",
 };
 
 apiInstance

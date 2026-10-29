@@ -17,11 +17,29 @@ const params: v2.CSMThreatsApiCreateCloudWorkloadSecurityAgentRuleRequest = {
   body: {
     data: {
       attributes: {
+        actions: [
+          {
+            coredump: {},
+            disabled: false,
+            hash: {},
+            kill: {},
+            log: {},
+            metadata: {},
+            networkFilter: {},
+            set: {},
+          },
+        ],
+        blocking: [],
         description: "My Agent rule",
+        disabled: [],
         enabled: true,
         expression: `exec.file.name == "sh"`,
         filters: [],
-        name: "examplecsmthreat",
+        monitoring: [],
+        name: "my_agent_rule",
+        policyId: "a8c8e364-6556-434d-b798-a4c23de29c0b",
+        productTags: [],
+        silent: false,
       },
       type: "agent_rule",
     },
