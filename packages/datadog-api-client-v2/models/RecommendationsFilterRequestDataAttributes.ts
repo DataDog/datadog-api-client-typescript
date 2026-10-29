@@ -19,7 +19,8 @@ export class RecommendationsFilterRequestDataAttributes {
    */
   "filter"?: string;
   /**
-   * Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations or `*` for both.
+   * Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations
+   * or `*` for both.
    */
   "scope"?: RecommendationsFilterRequestScope;
   /**
@@ -27,7 +28,8 @@ export class RecommendationsFilterRequestDataAttributes {
    */
   "sort"?: Array<RecommendationsFilterRequestSortItems>;
   /**
-   * Active view name (for example, `active`, `dismissed`, `open`, `in-progress`, or `completed`).
+   * Status view to return: `all`, `active` (not dismissed), `dismissed`, `open`, `in-progress`,
+   * or `completed`. Defaults to `all`, which returns recommendations in every status.
    */
   "view"?: string;
 

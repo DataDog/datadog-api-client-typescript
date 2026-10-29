@@ -8672,8 +8672,8 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     },
     "v2.SearchCostRecommendations": {
         "pageSize": {
-            "type": "string",
-            "format": "",
+            "type": "number",
+            "format": "int32",
             },
         "pageToken": {
             "type": "string",
