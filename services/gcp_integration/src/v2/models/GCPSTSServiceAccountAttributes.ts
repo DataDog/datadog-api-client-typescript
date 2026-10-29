@@ -32,7 +32,7 @@ export class GCPSTSServiceAccountAttributes {
    */
   "hostFilters"?: Array<string>;
   /**
-   * When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.
+   * When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled or is_org_folder_resource_collection_enabled to be set to true.
    */
   "isCspmEnabled"?: boolean;
   /**
