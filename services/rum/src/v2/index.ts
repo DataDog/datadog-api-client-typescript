@@ -117,6 +117,7 @@ export { SourcemapSearchBy } from "./models/SourcemapSearchBy";
 export { SourcemapsListMeta } from "./models/SourcemapsListMeta";
 export { SourcemapsListMetaPage } from "./models/SourcemapsListMetaPage";
 export { SourcemapsResponse } from "./models/SourcemapsResponse";
+export { SourcemapSymbolType } from "./models/SourcemapSymbolType";
 export { WASMSourcemapAttributes } from "./models/WASMSourcemapAttributes";
 export { WASMSourcemapData } from "./models/WASMSourcemapData";
 export { WASMSourcemapMapKind } from "./models/WASMSourcemapMapKind";
