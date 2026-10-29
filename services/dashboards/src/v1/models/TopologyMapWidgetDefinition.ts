@@ -1,5 +1,6 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
+import { TopologyMapWidgetDefinitionCustom } from "./TopologyMapWidgetDefinitionCustom";
 import { TopologyMapWidgetDefinitionDataStreams } from "./TopologyMapWidgetDefinitionDataStreams";
 import { TopologyMapWidgetDefinitionServiceMap } from "./TopologyMapWidgetDefinitionServiceMap";
 
@@ -9,4 +10,5 @@ import { TopologyMapWidgetDefinitionServiceMap } from "./TopologyMapWidgetDefini
 export type TopologyMapWidgetDefinition =
   | TopologyMapWidgetDefinitionDataStreams
   | TopologyMapWidgetDefinitionServiceMap
+  | TopologyMapWidgetDefinitionCustom
   | UnparsedObject;
