@@ -11005,6 +11005,76 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AllocationExposureScheduleResponse",
     },
+    "v2.ListFeatureFlagHistory": {
+        "startDate": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endDate": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "teams": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "tags": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "featureFlagId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "environmentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "includeSuggestionEvents": {
+            "type": "boolean",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ListFeatureFlagHistoryResponse",
+    },
+    "v2.ExportFeatureFlagHistory": {
+        "startDate": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endDate": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "teams": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "tags": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "featureFlagId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "environmentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "includeSuggestionEvents": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "string",
+    },
     "v2.GetSavedFilter": {
         "savedFilterId": {
             "type": "string",

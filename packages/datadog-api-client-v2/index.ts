@@ -794,9 +794,11 @@ export {
   FeatureFlagsApiDeleteVariantFromFeatureFlagRequest,
   FeatureFlagsApiDisableFeatureFlagEnvironmentRequest,
   FeatureFlagsApiEnableFeatureFlagEnvironmentRequest,
+  FeatureFlagsApiExportFeatureFlagHistoryRequest,
   FeatureFlagsApiGetFeatureFlagRequest,
   FeatureFlagsApiGetFeatureFlagsEnvironmentRequest,
   FeatureFlagsApiGetSavedFilterRequest,
+  FeatureFlagsApiListFeatureFlagHistoryRequest,
   FeatureFlagsApiListFeatureFlagsRequest,
   FeatureFlagsApiListFeatureFlagsEnvironmentsRequest,
   FeatureFlagsApiPauseExposureScheduleRequest,
@@ -4854,9 +4856,22 @@ export { FastlyServicesResponse } from "./models/FastlyServicesResponse";
 export { FastlyServiceType } from "./models/FastlyServiceType";
 export { FeatureFlag } from "./models/FeatureFlag";
 export { FeatureFlagAttributes } from "./models/FeatureFlagAttributes";
+export { FeatureFlagChangeEvent } from "./models/FeatureFlagChangeEvent";
+export { FeatureFlagChangeEventAction } from "./models/FeatureFlagChangeEventAction";
+export { FeatureFlagChangeEventAttributes } from "./models/FeatureFlagChangeEventAttributes";
+export { FeatureFlagChangeEventCreationSource } from "./models/FeatureFlagChangeEventCreationSource";
+export { FeatureFlagChangeEventEnvironment } from "./models/FeatureFlagChangeEventEnvironment";
+export { FeatureFlagChangeEventFlag } from "./models/FeatureFlagChangeEventFlag";
+export { FeatureFlagChangeEventProperty } from "./models/FeatureFlagChangeEventProperty";
+export { FeatureFlagChangeEventSuggestionLifecycleStatus } from "./models/FeatureFlagChangeEventSuggestionLifecycleStatus";
+export { FeatureFlagChangeEventSuggestionReview } from "./models/FeatureFlagChangeEventSuggestionReview";
+export { FeatureFlagChangeEventSuggestionStatus } from "./models/FeatureFlagChangeEventSuggestionStatus";
+export { FeatureFlagChangeEventType } from "./models/FeatureFlagChangeEventType";
 export { FeatureFlagDistributionChannel } from "./models/FeatureFlagDistributionChannel";
 export { FeatureFlagEnvironment } from "./models/FeatureFlagEnvironment";
 export { FeatureFlagEnvironmentListItem } from "./models/FeatureFlagEnvironmentListItem";
+export { FeatureFlagHistoryPaginationMeta } from "./models/FeatureFlagHistoryPaginationMeta";
+export { FeatureFlagHistoryPaginationMetaPage } from "./models/FeatureFlagHistoryPaginationMetaPage";
 export { FeatureFlagListItem } from "./models/FeatureFlagListItem";
 export { FeatureFlagListItemAttributes } from "./models/FeatureFlagListItemAttributes";
 export { FeatureFlagProductionStatus } from "./models/FeatureFlagProductionStatus";
@@ -6029,6 +6044,7 @@ export { ListEntityCatalogResponse } from "./models/ListEntityCatalogResponse";
 export { ListEntityCatalogResponseIncludedItem } from "./models/ListEntityCatalogResponseIncludedItem";
 export { ListEntityCatalogResponseLinks } from "./models/ListEntityCatalogResponseLinks";
 export { ListEnvironmentsResponse } from "./models/ListEnvironmentsResponse";
+export { ListFeatureFlagHistoryResponse } from "./models/ListFeatureFlagHistoryResponse";
 export { ListFeatureFlagsResponse } from "./models/ListFeatureFlagsResponse";
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
