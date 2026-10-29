@@ -22,9 +22,9 @@ export class ExecutionPolicyWriteAttributes {
    */
   "name": string;
   /**
-   * Restricts where the policy applies. At most one of `kubernetes`, `scripts`,
-   * or `remote_action_rshell` can be set. An empty object means the policy has
-   * no scope restriction.
+   * Restricts where the policy applies. At most one scope type can be set,
+   * and it must match the action pattern's integration. An empty object means
+   * the policy has no scope restriction.
    */
   "scope"?: ExecutionPolicyScope;
   /**

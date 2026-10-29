@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * A target this policy is scoped to, expressed as a set of Agent tags.
+ * A target this policy is scoped to, expressed as a set of tags.
  */
 export class ExecutionPolicyTarget {
   /**
-   * The Agent tags identifying the target.
+   * The tags identifying the target.
    */
   "agentTags": Array<string>;
   /**
