@@ -17057,6 +17057,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "SourcemapMapKind",
       format: "",
     },
+    symbolType: {
+      type: "SourcemapSymbolType",
+      format: "",
+    },
     dryRun: {
       type: "boolean",
       format: "",
@@ -17142,6 +17146,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     mapkind: {
       type: "SourcemapMapKind",
+      format: "",
+    },
+    symbolType: {
+      type: "SourcemapSymbolType",
       format: "",
     },
     pageAfter: {
@@ -17233,6 +17241,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "RUMApi.V2.RestoreSourcemaps": {
     mapkind: {
       type: "SourcemapMapKind",
+      format: "",
+    },
+    symbolType: {
+      type: "SourcemapSymbolType",
       format: "",
     },
     dryRun: {

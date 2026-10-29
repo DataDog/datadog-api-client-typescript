@@ -133,6 +133,7 @@ export const TypingInfo: ModelTypingInfo = {
       "portable_pdb",
     ],
     SourcemapSearchBy: ["debug_id"],
+    SourcemapSymbolType: ["dwarf", "sourcemap"],
     WASMSourcemapMapKind: ["wasm"],
   },
   oneOfMap: {
