@@ -108,6 +108,7 @@ export { AWSRegions } from "./models/AWSRegions";
 export { AWSRegionsIncludeAll } from "./models/AWSRegionsIncludeAll";
 export { AWSRegionsIncludeOnly } from "./models/AWSRegionsIncludeOnly";
 export { AWSResourcesConfig } from "./models/AWSResourcesConfig";
+export { AWSResourceTypeTagFilter } from "./models/AWSResourceTypeTagFilter";
 export { AWSTracesConfig } from "./models/AWSTracesConfig";
 export { DataExportConfig } from "./models/DataExportConfig";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
