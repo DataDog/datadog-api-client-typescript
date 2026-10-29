@@ -8,6 +8,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
  * The type of aggregation to use.
+ * `count` counts the matching events. `distribution` aggregates the values found at `path`.
  */
 
 export type RumMetricComputeAggregationType =

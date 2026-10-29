@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The RUM-based metric filter. RUM events matching this filter will be aggregated in this metric.
+ * The RUM-based metric filter. RUM events matching this filter are aggregated in this metric. Omitted if the metric only filters on the event type.
  */
 export class RumMetricResponseFilter {
   /**
-   * The search query - following the RUM search syntax.
+   * The search query, following the [RUM search syntax](https://docs.datadoghq.com/real_user_monitoring/explorer/search_syntax/). It does not include the event type filter.
    */
   "query"?: string;
 
