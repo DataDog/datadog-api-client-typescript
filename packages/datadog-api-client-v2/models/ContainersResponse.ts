@@ -14,7 +14,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ContainersResponse {
   /**
-   * Array of Container objects.
+   * Array of containers or container group objects.
    */
   "data"?: Array<ContainerItem>;
   /**

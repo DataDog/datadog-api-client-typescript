@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ContainerGroupAttributes {
   /**
-   * Number of containers in the group.
+   * Number of containers in the group. A container with multiple values for a grouping tag can appear in multiple groups. Summing group counts can overcount distinct containers.
    */
   "count"?: number;
   /**
