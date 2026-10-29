@@ -15509,6 +15509,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "OnCallPagingApi.V2.RerouteOnCallPage": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "RerouteOnCallPageRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "OnCallPagingApi.V2.ResolveOnCallPage": {
     pageId: {
       type: "string",

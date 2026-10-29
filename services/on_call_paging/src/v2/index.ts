@@ -2,6 +2,7 @@ export {
   OnCallPagingApiAcknowledgeOnCallPageRequest,
   OnCallPagingApiCreateOnCallPageRequest,
   OnCallPagingApiEscalateOnCallPageRequest,
+  OnCallPagingApiRerouteOnCallPageRequest,
   OnCallPagingApiResolveOnCallPageRequest,
   OnCallPagingApi,
 } from "./OnCallPagingApi";
@@ -15,5 +16,12 @@ export { CreatePageRequestDataType } from "./models/CreatePageRequestDataType";
 export { CreatePageResponse } from "./models/CreatePageResponse";
 export { CreatePageResponseData } from "./models/CreatePageResponseData";
 export { CreatePageResponseDataType } from "./models/CreatePageResponseDataType";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { OnCallPageTargetType } from "./models/OnCallPageTargetType";
 export { PageUrgency } from "./models/PageUrgency";
+export { RerouteOnCallPageRequest } from "./models/RerouteOnCallPageRequest";
+export { RerouteOnCallPageRequestData } from "./models/RerouteOnCallPageRequestData";
+export { RerouteOnCallPageRequestDataAttributes } from "./models/RerouteOnCallPageRequestDataAttributes";
+export { RerouteOnCallPageRequestDataType } from "./models/RerouteOnCallPageRequestDataType";
