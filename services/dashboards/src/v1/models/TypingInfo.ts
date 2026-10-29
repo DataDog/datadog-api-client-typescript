@@ -105,6 +105,12 @@ import { HostMapWidgetProjectionDimensionMapping } from "./HostMapWidgetProjecti
 import { HostMapWidgetScalarRequest } from "./HostMapWidgetScalarRequest";
 import { IFrameWidgetDefinition } from "./IFrameWidgetDefinition";
 import { ImageWidgetDefinition } from "./ImageWidgetDefinition";
+import { JourneyMapExpandedPrefix } from "./JourneyMapExpandedPrefix";
+import { JourneyMapGroupBy } from "./JourneyMapGroupBy";
+import { JourneyMapQuery } from "./JourneyMapQuery";
+import { JourneyMapTarget } from "./JourneyMapTarget";
+import { JourneyMapWidgetDefinition } from "./JourneyMapWidgetDefinition";
+import { JourneyMapWidgetRequest } from "./JourneyMapWidgetRequest";
 import { ListStreamColumn } from "./ListStreamColumn";
 import { ListStreamComputeItems } from "./ListStreamComputeItems";
 import { ListStreamGroupByItems } from "./ListStreamGroupByItems";
@@ -483,6 +489,14 @@ export const TypingInfo: ModelTypingInfo = {
     HostMapWidgetScalarRequestResponseFormat: ["scalar"],
     IFrameWidgetDefinitionType: ["iframe"],
     ImageWidgetDefinitionType: ["image"],
+    JourneyMapConversionType: ["conversion", "drop-off"],
+    JourneyMapCountingMethod: ["uniques", "totals"],
+    JourneyMapGroupByAudience: [
+      "product_analytics_audience_filters.users",
+      "product_analytics_audience_filters.accounts",
+    ],
+    JourneyMapRequestType: ["journey_map"],
+    JourneyMapWidgetDefinitionType: ["journey_map"],
     ListStreamColumnWidth: ["auto", "compact", "full"],
     ListStreamComputeAggregation: [
       "count",
@@ -847,6 +861,7 @@ export const TypingInfo: ModelTypingInfo = {
       "HostMapWidgetDefinition",
       "IFrameWidgetDefinition",
       "ImageWidgetDefinition",
+      "JourneyMapWidgetDefinition",
       "ListStreamWidgetDefinition",
       "LogStreamWidgetDefinition",
       "MonitorSummaryWidgetDefinition",
@@ -1006,6 +1021,12 @@ export const TypingInfo: ModelTypingInfo = {
     HostMapWidgetScalarRequest: HostMapWidgetScalarRequest,
     IFrameWidgetDefinition: IFrameWidgetDefinition,
     ImageWidgetDefinition: ImageWidgetDefinition,
+    JourneyMapExpandedPrefix: JourneyMapExpandedPrefix,
+    JourneyMapGroupBy: JourneyMapGroupBy,
+    JourneyMapQuery: JourneyMapQuery,
+    JourneyMapTarget: JourneyMapTarget,
+    JourneyMapWidgetDefinition: JourneyMapWidgetDefinition,
+    JourneyMapWidgetRequest: JourneyMapWidgetRequest,
     ListStreamColumn: ListStreamColumn,
     ListStreamComputeItems: ListStreamComputeItems,
     ListStreamGroupByItems: ListStreamGroupByItems,
