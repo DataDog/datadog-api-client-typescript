@@ -30,6 +30,18 @@ import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse
 import { ProjectedCost } from "./ProjectedCost";
 import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
 import { ProjectedCostResponse } from "./ProjectedCostResponse";
+import { TemporaryGrantRequestAttributes } from "./TemporaryGrantRequestAttributes";
+import { TemporaryGrantRequestCreateAttributes } from "./TemporaryGrantRequestCreateAttributes";
+import { TemporaryGrantRequestCreateData } from "./TemporaryGrantRequestCreateData";
+import { TemporaryGrantRequestCreateRequest } from "./TemporaryGrantRequestCreateRequest";
+import { TemporaryGrantRequestData } from "./TemporaryGrantRequestData";
+import { TemporaryGrantRequestDecisionAttributes } from "./TemporaryGrantRequestDecisionAttributes";
+import { TemporaryGrantRequestDecisionData } from "./TemporaryGrantRequestDecisionData";
+import { TemporaryGrantRequestDecisionRequest } from "./TemporaryGrantRequestDecisionRequest";
+import { TemporaryGrantRequestListMeta } from "./TemporaryGrantRequestListMeta";
+import { TemporaryGrantRequestListResponse } from "./TemporaryGrantRequestListResponse";
+import { TemporaryGrantRequestPage } from "./TemporaryGrantRequestPage";
+import { TemporaryGrantRequestResponse } from "./TemporaryGrantRequestResponse";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageAttributionTypesAttributes } from "./UsageAttributionTypesAttributes";
@@ -75,6 +87,15 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ProjectedCostType: ["projected_cost"],
     SortDirection: ["desc", "asc"],
+    TemporaryGrantRequestDecision: ["approved", "denied"],
+    TemporaryGrantRequestGrantState: [
+      "active",
+      "expired",
+      "revoked",
+      "replaced",
+    ],
+    TemporaryGrantRequestStatus: ["pending", "approved", "denied", "cancelled"],
+    TemporaryGrantRequestType: ["temporary_grant_requests"],
     UsageAttributionTypesType: ["usage_attribution_types"],
     UsageQuotaType: ["quotas"],
     UsageSummaryAvailableFieldsType: ["usage_summary_available_fields"],
@@ -114,6 +135,20 @@ export const TypingInfo: ModelTypingInfo = {
     ProjectedCost: ProjectedCost,
     ProjectedCostAttributes: ProjectedCostAttributes,
     ProjectedCostResponse: ProjectedCostResponse,
+    TemporaryGrantRequestAttributes: TemporaryGrantRequestAttributes,
+    TemporaryGrantRequestCreateAttributes:
+      TemporaryGrantRequestCreateAttributes,
+    TemporaryGrantRequestCreateData: TemporaryGrantRequestCreateData,
+    TemporaryGrantRequestCreateRequest: TemporaryGrantRequestCreateRequest,
+    TemporaryGrantRequestData: TemporaryGrantRequestData,
+    TemporaryGrantRequestDecisionAttributes:
+      TemporaryGrantRequestDecisionAttributes,
+    TemporaryGrantRequestDecisionData: TemporaryGrantRequestDecisionData,
+    TemporaryGrantRequestDecisionRequest: TemporaryGrantRequestDecisionRequest,
+    TemporaryGrantRequestListMeta: TemporaryGrantRequestListMeta,
+    TemporaryGrantRequestListResponse: TemporaryGrantRequestListResponse,
+    TemporaryGrantRequestPage: TemporaryGrantRequestPage,
+    TemporaryGrantRequestResponse: TemporaryGrantRequestResponse,
     UsageApplicationSecurityMonitoringResponse:
       UsageApplicationSecurityMonitoringResponse,
     UsageAttributesObject: UsageAttributesObject,

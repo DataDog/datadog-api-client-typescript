@@ -1,19 +1,27 @@
 export {
   UsageMeteringApiCreateQuotasRequest,
+  UsageMeteringApiCreateTemporaryGrantRequestRequest,
   UsageMeteringApiDeletePendingQuotaRequest,
   UsageMeteringApiDeleteQuotaRequest,
+  UsageMeteringApiDeleteRequestedTemporaryGrantRequest,
+  UsageMeteringApiDeleteTemporaryGrantRequestRequest,
   UsageMeteringApiGetBillingDimensionMappingRequest,
   UsageMeteringApiGetCostByOrgRequest,
   UsageMeteringApiGetEstimatedCostByOrgRequest,
   UsageMeteringApiGetHistoricalCostByOrgRequest,
   UsageMeteringApiGetHourlyUsageRequest,
   UsageMeteringApiGetMonthlyCostAttributionRequest,
+  UsageMeteringApiGetMyTemporaryGrantRequestRequest,
   UsageMeteringApiGetProjectedCostRequest,
+  UsageMeteringApiGetTemporaryGrantRequestRequest,
   UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
   UsageMeteringApiGetUsageLambdaTracedInvocationsRequest,
   UsageMeteringApiGetUsageObservabilityPipelinesRequest,
+  UsageMeteringApiListMyTemporaryGrantRequestsRequest,
   UsageMeteringApiListQuotasRequest,
+  UsageMeteringApiListTemporaryGrantRequestsRequest,
   UsageMeteringApiUpdateQuotaRequest,
+  UsageMeteringApiUpdateTemporaryGrantRequestRequest,
   UsageMeteringApi,
 } from "./UsageMeteringApi";
 
@@ -55,6 +63,22 @@ export { ProjectedCostAttributes } from "./models/ProjectedCostAttributes";
 export { ProjectedCostResponse } from "./models/ProjectedCostResponse";
 export { ProjectedCostType } from "./models/ProjectedCostType";
 export { SortDirection } from "./models/SortDirection";
+export { TemporaryGrantRequestAttributes } from "./models/TemporaryGrantRequestAttributes";
+export { TemporaryGrantRequestCreateAttributes } from "./models/TemporaryGrantRequestCreateAttributes";
+export { TemporaryGrantRequestCreateData } from "./models/TemporaryGrantRequestCreateData";
+export { TemporaryGrantRequestCreateRequest } from "./models/TemporaryGrantRequestCreateRequest";
+export { TemporaryGrantRequestData } from "./models/TemporaryGrantRequestData";
+export { TemporaryGrantRequestDecision } from "./models/TemporaryGrantRequestDecision";
+export { TemporaryGrantRequestDecisionAttributes } from "./models/TemporaryGrantRequestDecisionAttributes";
+export { TemporaryGrantRequestDecisionData } from "./models/TemporaryGrantRequestDecisionData";
+export { TemporaryGrantRequestDecisionRequest } from "./models/TemporaryGrantRequestDecisionRequest";
+export { TemporaryGrantRequestGrantState } from "./models/TemporaryGrantRequestGrantState";
+export { TemporaryGrantRequestListMeta } from "./models/TemporaryGrantRequestListMeta";
+export { TemporaryGrantRequestListResponse } from "./models/TemporaryGrantRequestListResponse";
+export { TemporaryGrantRequestPage } from "./models/TemporaryGrantRequestPage";
+export { TemporaryGrantRequestResponse } from "./models/TemporaryGrantRequestResponse";
+export { TemporaryGrantRequestStatus } from "./models/TemporaryGrantRequestStatus";
+export { TemporaryGrantRequestType } from "./models/TemporaryGrantRequestType";
 export { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplicationSecurityMonitoringResponse";
 export { UsageAttributesObject } from "./models/UsageAttributesObject";
 export { UsageAttributionTypesAttributes } from "./models/UsageAttributionTypesAttributes";
