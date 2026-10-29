@@ -9247,7 +9247,6 @@ export { SensitiveDataScannerGroupUpdate } from "./models/SensitiveDataScannerGr
 export { SensitiveDataScannerGroupUpdateRequest } from "./models/SensitiveDataScannerGroupUpdateRequest";
 export { SensitiveDataScannerGroupUpdateResponse } from "./models/SensitiveDataScannerGroupUpdateResponse";
 export { SensitiveDataScannerIncludedKeywordConfiguration } from "./models/SensitiveDataScannerIncludedKeywordConfiguration";
-export { SensitiveDataScannerMeta } from "./models/SensitiveDataScannerMeta";
 export { SensitiveDataScannerMetaVersionOnly } from "./models/SensitiveDataScannerMetaVersionOnly";
 export { SensitiveDataScannerProduct } from "./models/SensitiveDataScannerProduct";
 export { SensitiveDataScannerReorderConfig } from "./models/SensitiveDataScannerReorderConfig";

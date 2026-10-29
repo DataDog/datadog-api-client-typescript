@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SensitiveDataScannerMetaVersionOnly } from "./SensitiveDataScannerMetaVersionOnly";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +11,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SensitiveDataScannerGroupDeleteResponse {
   /**
-   * Meta payload containing information about the API.
+   * Always `null`.
    */
-  "meta"?: SensitiveDataScannerMetaVersionOnly;
+  "data"?: { [key: string]: any };
+  /**
+   * Meta response. Always an empty object.
+   */
+  "meta"?: { [key: string]: any };
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +35,13 @@ export class SensitiveDataScannerGroupDeleteResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    data: {
+      baseName: "data",
+      type: "{ [key: string]: any; }",
+    },
     meta: {
       baseName: "meta",
-      type: "SensitiveDataScannerMetaVersionOnly",
+      type: "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
