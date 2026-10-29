@@ -49,6 +49,10 @@ export class DataDeletionResponseItemAttributes {
    */
   "query": string;
   /**
+   * Time when the recovery period for the deletion request ends. Before this time, you can cancel the request and recover the data. After this time, permanent deletion begins, and the status changes to `deleting` within a few minutes. This field is returned only for `in_progress` requests when listing deletion requests, and is omitted if the value cannot be determined.
+   */
+  "recoverableUntil"?: string;
+  /**
    * The source of the deletion request.
    */
   "source"?: string;
@@ -141,6 +145,10 @@ export class DataDeletionResponseItemAttributes {
       baseName: "query",
       type: "string",
       required: true,
+    },
+    recoverableUntil: {
+      baseName: "recoverable_until",
+      type: "string",
     },
     source: {
       baseName: "source",
