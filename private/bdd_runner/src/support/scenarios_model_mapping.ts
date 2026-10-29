@@ -8699,8 +8699,8 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   },
   "CloudCostManagementApi.V2.SearchCostRecommendations": {
     pageSize: {
-      type: "string",
-      format: "",
+      type: "number",
+      format: "int32",
     },
     pageToken: {
       type: "string",
