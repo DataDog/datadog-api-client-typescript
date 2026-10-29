@@ -6,13 +6,14 @@
 import { ExecutionPolicyKubernetesScope } from "./ExecutionPolicyKubernetesScope";
 import { ExecutionPolicyRemoteActionRshellScope } from "./ExecutionPolicyRemoteActionRshellScope";
 import { ExecutionPolicyScriptScope } from "./ExecutionPolicyScriptScope";
+import { ExecutionPolicySlackScope } from "./ExecutionPolicySlackScope";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Restricts where the policy applies. At most one of `kubernetes`, `scripts`,
- * or `remote_action_rshell` can be set. An empty object means the policy has
- * no scope restriction.
+ * Restricts where the policy applies. At most one scope type can be set,
+ * and it must match the action pattern's integration. An empty object means
+ * the policy has no scope restriction.
  */
 export class ExecutionPolicyScope {
   /**
@@ -27,6 +28,10 @@ export class ExecutionPolicyScope {
    * Restricts the policy to specific scripts.
    */
   "scripts"?: ExecutionPolicyScriptScope;
+  /**
+   * Restricts the policy to specific Slack private channel names.
+   */
+  "slack"?: ExecutionPolicySlackScope;
 
   /**
    * A container for additional, undeclared properties.
@@ -55,6 +60,10 @@ export class ExecutionPolicyScope {
     scripts: {
       baseName: "scripts",
       type: "ExecutionPolicyScriptScope",
+    },
+    slack: {
+      baseName: "slack",
+      type: "ExecutionPolicySlackScope",
     },
     additionalProperties: {
       baseName: "additionalProperties",

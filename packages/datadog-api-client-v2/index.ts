@@ -4555,6 +4555,8 @@ export { ExecutionPolicyResponseData } from "./models/ExecutionPolicyResponseDat
 export { ExecutionPolicyScope } from "./models/ExecutionPolicyScope";
 export { ExecutionPolicyScriptScope } from "./models/ExecutionPolicyScriptScope";
 export { ExecutionPolicyScriptScopeRule } from "./models/ExecutionPolicyScriptScopeRule";
+export { ExecutionPolicySlackScope } from "./models/ExecutionPolicySlackScope";
+export { ExecutionPolicySlackScopeRule } from "./models/ExecutionPolicySlackScopeRule";
 export { ExecutionPolicyTarget } from "./models/ExecutionPolicyTarget";
 export { ExecutionPolicyType } from "./models/ExecutionPolicyType";
 export { ExecutionPolicyUpdateRequest } from "./models/ExecutionPolicyUpdateRequest";
