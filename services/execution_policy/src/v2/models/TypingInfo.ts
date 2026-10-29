@@ -17,6 +17,8 @@ import { ExecutionPolicyResponseData } from "./ExecutionPolicyResponseData";
 import { ExecutionPolicyScope } from "./ExecutionPolicyScope";
 import { ExecutionPolicyScriptScope } from "./ExecutionPolicyScriptScope";
 import { ExecutionPolicyScriptScopeRule } from "./ExecutionPolicyScriptScopeRule";
+import { ExecutionPolicySlackScope } from "./ExecutionPolicySlackScope";
+import { ExecutionPolicySlackScopeRule } from "./ExecutionPolicySlackScopeRule";
 import { ExecutionPolicyTarget } from "./ExecutionPolicyTarget";
 import { ExecutionPolicyUpdateRequest } from "./ExecutionPolicyUpdateRequest";
 import { ExecutionPolicyUpdateRequestData } from "./ExecutionPolicyUpdateRequestData";
@@ -32,6 +34,7 @@ export const TypingInfo: ModelTypingInfo = {
       "INTEGRATION_KUBERNETES",
       "INTEGRATION_SCRIPT",
       "INTEGRATION_REMOTE_ACTION",
+      "INTEGRATION_SLACK",
     ],
     ExecutionPolicyRemoteActionRshellAccess: ["read_only", "read_write"],
     ExecutionPolicyType: ["execution_policy"],
@@ -57,6 +60,8 @@ export const TypingInfo: ModelTypingInfo = {
     ExecutionPolicyScope: ExecutionPolicyScope,
     ExecutionPolicyScriptScope: ExecutionPolicyScriptScope,
     ExecutionPolicyScriptScopeRule: ExecutionPolicyScriptScopeRule,
+    ExecutionPolicySlackScope: ExecutionPolicySlackScope,
+    ExecutionPolicySlackScopeRule: ExecutionPolicySlackScopeRule,
     ExecutionPolicyTarget: ExecutionPolicyTarget,
     ExecutionPolicyUpdateRequest: ExecutionPolicyUpdateRequest,
     ExecutionPolicyUpdateRequestData: ExecutionPolicyUpdateRequestData,
