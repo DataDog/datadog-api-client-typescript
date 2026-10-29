@@ -4971,11 +4971,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getRuleVersionHistory'");
-    if (!_config.unstableOperations["v2.getRuleVersionHistory"]) {
-      throw new Error("Unstable operation 'getRuleVersionHistory' is disabled");
-    }
-
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
       throw new RequiredError("ruleId", "getRuleVersionHistory");
@@ -9784,13 +9779,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'restoreSecurityMonitoringRule'");
-    if (!_config.unstableOperations["v2.restoreSecurityMonitoringRule"]) {
-      throw new Error(
-        "Unstable operation 'restoreSecurityMonitoringRule' is disabled"
-      );
-    }
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
