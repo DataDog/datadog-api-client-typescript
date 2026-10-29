@@ -7518,6 +7518,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "HttpFile",
     },
+    "v2.StartSecurityMonitoringRuleProposal": {
+        "body": {
+            "type": "SecurityMonitoringRuleProposalStartRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleProposalStartResponse",
+    },
+    "v2.GetSecurityMonitoringRuleProposal": {
+        "proposalId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "SecurityMonitoringRuleProposalResponse",
+    },
     "v2.TestSecurityMonitoringRule": {
         "body": {
             "type": "SecurityMonitoringRuleTestRequest",

@@ -1701,6 +1701,7 @@ export {
   SecurityMonitoringApiGetSecurityMonitoringHistsignalsByJobIdRequest,
   SecurityMonitoringApiGetSecurityMonitoringIntegrationConfigRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiGetSecurityMonitoringRuleProposalRequest,
   SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
   SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiGetSignalEntitiesRequest,
@@ -1755,6 +1756,7 @@ export {
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiSendSecurityMonitoringNotificationPreviewRequest,
   SecurityMonitoringApiStartSecurityMonitoringBatchMigrationRequest,
+  SecurityMonitoringApiStartSecurityMonitoringRuleProposalRequest,
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateCustomFrameworkRequest,
@@ -9049,6 +9051,18 @@ export { SecurityMonitoringRuleNewValueOptions } from "./models/SecurityMonitori
 export { SecurityMonitoringRuleNewValueOptionsLearningMethod } from "./models/SecurityMonitoringRuleNewValueOptionsLearningMethod";
 export { SecurityMonitoringRuleNewValueOptionsLearningThreshold } from "./models/SecurityMonitoringRuleNewValueOptionsLearningThreshold";
 export { SecurityMonitoringRuleOptions } from "./models/SecurityMonitoringRuleOptions";
+export { SecurityMonitoringRuleProposalError } from "./models/SecurityMonitoringRuleProposalError";
+export { SecurityMonitoringRuleProposalInputType } from "./models/SecurityMonitoringRuleProposalInputType";
+export { SecurityMonitoringRuleProposalResponse } from "./models/SecurityMonitoringRuleProposalResponse";
+export { SecurityMonitoringRuleProposalResponseAttributes } from "./models/SecurityMonitoringRuleProposalResponseAttributes";
+export { SecurityMonitoringRuleProposalResponseData } from "./models/SecurityMonitoringRuleProposalResponseData";
+export { SecurityMonitoringRuleProposalStartRequest } from "./models/SecurityMonitoringRuleProposalStartRequest";
+export { SecurityMonitoringRuleProposalStartRequestAttributes } from "./models/SecurityMonitoringRuleProposalStartRequestAttributes";
+export { SecurityMonitoringRuleProposalStartRequestData } from "./models/SecurityMonitoringRuleProposalStartRequestData";
+export { SecurityMonitoringRuleProposalStartResponse } from "./models/SecurityMonitoringRuleProposalStartResponse";
+export { SecurityMonitoringRuleProposalStartResponseAttributes } from "./models/SecurityMonitoringRuleProposalStartResponseAttributes";
+export { SecurityMonitoringRuleProposalStartResponseData } from "./models/SecurityMonitoringRuleProposalStartResponseData";
+export { SecurityMonitoringRuleProposalType } from "./models/SecurityMonitoringRuleProposalType";
 export { SecurityMonitoringRuleQuery } from "./models/SecurityMonitoringRuleQuery";
 export { SecurityMonitoringRuleQueryAggregation } from "./models/SecurityMonitoringRuleQueryAggregation";
 export { SecurityMonitoringRuleQueryPayload } from "./models/SecurityMonitoringRuleQueryPayload";
