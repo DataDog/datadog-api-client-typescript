@@ -5467,7 +5467,6 @@ import { SensitiveDataScannerGroupUpdate } from "./SensitiveDataScannerGroupUpda
 import { SensitiveDataScannerGroupUpdateRequest } from "./SensitiveDataScannerGroupUpdateRequest";
 import { SensitiveDataScannerGroupUpdateResponse } from "./SensitiveDataScannerGroupUpdateResponse";
 import { SensitiveDataScannerIncludedKeywordConfiguration } from "./SensitiveDataScannerIncludedKeywordConfiguration";
-import { SensitiveDataScannerMeta } from "./SensitiveDataScannerMeta";
 import { SensitiveDataScannerMetaVersionOnly } from "./SensitiveDataScannerMetaVersionOnly";
 import { SensitiveDataScannerReorderConfig } from "./SensitiveDataScannerReorderConfig";
 import { SensitiveDataScannerReorderGroupsResponse } from "./SensitiveDataScannerReorderGroupsResponse";
@@ -17368,7 +17367,6 @@ const typeMap: { [index: string]: any } = {
     SensitiveDataScannerGroupUpdateResponse,
   SensitiveDataScannerIncludedKeywordConfiguration:
     SensitiveDataScannerIncludedKeywordConfiguration,
-  SensitiveDataScannerMeta: SensitiveDataScannerMeta,
   SensitiveDataScannerMetaVersionOnly: SensitiveDataScannerMetaVersionOnly,
   SensitiveDataScannerReorderConfig: SensitiveDataScannerReorderConfig,
   SensitiveDataScannerReorderGroupsResponse:

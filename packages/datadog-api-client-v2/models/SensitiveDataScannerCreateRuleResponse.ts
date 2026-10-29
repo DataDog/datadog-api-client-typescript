@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SensitiveDataScannerMetaVersionOnly } from "./SensitiveDataScannerMetaVersionOnly";
 import { SensitiveDataScannerRuleResponse } from "./SensitiveDataScannerRuleResponse";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -17,9 +16,9 @@ export class SensitiveDataScannerCreateRuleResponse {
    */
   "data"?: SensitiveDataScannerRuleResponse;
   /**
-   * Meta payload containing information about the API.
+   * Meta response. Always an empty object.
    */
-  "meta"?: SensitiveDataScannerMetaVersionOnly;
+  "meta"?: { [key: string]: any };
 
   /**
    * A container for additional, undeclared properties.
@@ -43,7 +42,7 @@ export class SensitiveDataScannerCreateRuleResponse {
     },
     meta: {
       baseName: "meta",
-      type: "SensitiveDataScannerMetaVersionOnly",
+      type: "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",

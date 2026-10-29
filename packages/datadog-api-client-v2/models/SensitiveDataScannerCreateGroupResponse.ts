@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SensitiveDataScannerGroupResponse } from "./SensitiveDataScannerGroupResponse";
-import { SensitiveDataScannerMetaVersionOnly } from "./SensitiveDataScannerMetaVersionOnly";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -17,9 +16,9 @@ export class SensitiveDataScannerCreateGroupResponse {
    */
   "data"?: SensitiveDataScannerGroupResponse;
   /**
-   * Meta payload containing information about the API.
+   * Meta response. Always an empty object.
    */
-  "meta"?: SensitiveDataScannerMetaVersionOnly;
+  "meta"?: { [key: string]: any };
 
   /**
    * A container for additional, undeclared properties.
@@ -43,7 +42,7 @@ export class SensitiveDataScannerCreateGroupResponse {
     },
     meta: {
       baseName: "meta",
-      type: "SensitiveDataScannerMetaVersionOnly",
+      type: "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
