@@ -11,13 +11,17 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ServiceRepositoryInfoRequestAttributes {
   /**
-   * The name of the service.
+   * The debug ID of a JavaScript source map, in UUID format. Alternative to `service` and `version`.
    */
-  "service": string;
+  "debugId"?: string;
   /**
-   * The version of the service.
+   * The name of the service. Required with `version` when `debug_id` is not set.
    */
-  "version": string;
+  "service"?: string;
+  /**
+   * The version of the service. Required with `service` when `debug_id` is not set.
+   */
+  "version"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,15 +39,18 @@ export class ServiceRepositoryInfoRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    debugId: {
+      baseName: "debug_id",
+      type: "string",
+      format: "uuid",
+    },
     service: {
       baseName: "service",
       type: "string",
-      required: true,
     },
     version: {
       baseName: "version",
       type: "string",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

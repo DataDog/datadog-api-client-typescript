@@ -36,6 +36,7 @@ import { SourcemapFileResponse } from "../models/SourcemapFileResponse";
 import { SourcemapMapKind } from "../models/SourcemapMapKind";
 import { SourcemapSearchBy } from "../models/SourcemapSearchBy";
 import { SourcemapsResponse } from "../models/SourcemapsResponse";
+import { SourcemapSymbolType } from "../models/SourcemapSymbolType";
 
 export class RUMApiRequestFactory extends BaseAPIRequestFactory {
   public async aggregateRUMEvents(
@@ -174,6 +175,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
   public async deleteSourcemaps(
     mapkind: SourcemapMapKind,
     dryRun: boolean,
+    symbolType?: SourcemapSymbolType,
     filterService?: Array<string>,
     filterVersion?: Array<string>,
     filterVariant?: Array<string>,
@@ -231,6 +233,13 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "mapkind",
         ObjectSerializer.serialize(mapkind, "SourcemapMapKind", ""),
+        ""
+      );
+    }
+    if (symbolType !== undefined) {
+      requestContext.setQueryParam(
+        "symbol_type",
+        ObjectSerializer.serialize(symbolType, "SourcemapSymbolType", ""),
         ""
       );
     }
@@ -653,6 +662,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
   public async listSourcemaps(
     searchBy?: SourcemapSearchBy,
     mapkind?: SourcemapMapKind,
+    symbolType?: SourcemapSymbolType,
     pageAfter?: string,
     pageSize?: number,
     pageNumber?: number,
@@ -710,6 +720,13 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "mapkind",
         ObjectSerializer.serialize(mapkind, "SourcemapMapKind", ""),
+        ""
+      );
+    }
+    if (symbolType !== undefined) {
+      requestContext.setQueryParam(
+        "symbol_type",
+        ObjectSerializer.serialize(symbolType, "SourcemapSymbolType", ""),
         ""
       );
     }
@@ -874,6 +891,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
   public async restoreSourcemaps(
     mapkind: SourcemapMapKind,
     dryRun: boolean,
+    symbolType?: SourcemapSymbolType,
     filterService?: Array<string>,
     filterVersion?: Array<string>,
     filterVariant?: Array<string>,
@@ -931,6 +949,13 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "mapkind",
         ObjectSerializer.serialize(mapkind, "SourcemapMapKind", ""),
+        ""
+      );
+    }
+    if (symbolType !== undefined) {
+      requestContext.setQueryParam(
+        "symbol_type",
+        ObjectSerializer.serialize(symbolType, "SourcemapSymbolType", ""),
         ""
       );
     }
@@ -1617,7 +1642,11 @@ export class RUMApiResponseProcessor {
       ) as ServiceRepositoryInfoResponse;
       return body;
     }
-    if (response.httpStatusCode === 401 || response.httpStatusCode === 500) {
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 500
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -2180,14 +2209,23 @@ export interface RUMApiDeleteSourcemapsRequest {
    */
   dryRun: boolean;
   /**
+   * WASM symbol representation. Only supported for `mapkind=wasm`.
+   * Defaults to `dwarf`, which requires `filter[build_id]`. `sourcemap`
+   * requires `filter[service]` and `filter[version]`.
+   * @type SourcemapSymbolType
+   */
+  symbolType?: SourcemapSymbolType;
+  /**
    * Filter by service names (multiple values allowed). Required for
-   * `js`, `jvm`, `react`, and `flutter` map kinds.
+   * `js`, `jvm`, `react`, and `flutter` map kinds, and for `wasm` with
+   * `symbol_type=sourcemap`.
    * @type Array<string>
    */
   filterService?: Array<string>;
   /**
    * Filter by version values (multiple values allowed, maximum 10).
-   * Required for `js`, `jvm`, `react`, and `flutter` map kinds.
+   * Required for `js`, `jvm`, `react`, and `flutter` map kinds, and for
+   * `wasm` with `symbol_type=sourcemap`.
    * @type Array<string>
    */
   filterVersion?: Array<string>;
@@ -2202,7 +2240,9 @@ export interface RUMApiDeleteSourcemapsRequest {
    */
   filterId?: Array<string>;
   /**
-   * Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`.
+   * Filter by build ID values (multiple values allowed). Supported for `jvm`,
+   * `ndk`, `il2cpp`, `wasm`, and `portable_pdb`. Required for `wasm` with
+   * `symbol_type=dwarf`.
    * @type Array<string>
    */
   filterBuildId?: Array<string>;
@@ -2361,6 +2401,13 @@ export interface RUMApiListSourcemapsRequest {
    */
   mapkind?: SourcemapMapKind;
   /**
+   * WASM symbol representation. Only supported for `mapkind=wasm`.
+   * Defaults to `dwarf`, which requires `filter[build_id]`. `sourcemap`
+   * requires `filter[service]` and `filter[version]`.
+   * @type SourcemapSymbolType
+   */
+  symbolType?: SourcemapSymbolType;
+  /**
    * Cursor for the next page of a JavaScript listing. Use the value from
    * `meta.page.next_cursor` and keep the same search mode and filters.
    * Omit on the first request. Not supported for other map kinds or for
@@ -2382,14 +2429,16 @@ export interface RUMApiListSourcemapsRequest {
   pageNumber?: number;
   /**
    * Filter by service names (multiple values allowed). Required for
-   * `jvm`, `react`, and `flutter` map kinds. Also required for `js` unless
+   * `jvm`, `react`, and `flutter` map kinds, and for `wasm` with
+   * `symbol_type=sourcemap`. Also required for `js` unless
    * searching by `filter[debug_id]` or browsing with `search_by=debug_id`.
    * @type Array<string>
    */
   filterService?: Array<string>;
   /**
    * Filter by version values (multiple values allowed). Required for
-   * `jvm`, `react`, and `flutter` map kinds. Also required for `js` unless
+   * `jvm`, `react`, and `flutter` map kinds, and for `wasm` with
+   * `symbol_type=sourcemap`. Also required for `js` unless
    * searching by `filter[debug_id]` or browsing with `search_by=debug_id`.
    * @type Array<string>
    */
@@ -2405,7 +2454,9 @@ export interface RUMApiListSourcemapsRequest {
    */
   filterId?: Array<string>;
   /**
-   * Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`.
+   * Filter by build ID values (multiple values allowed). Supported for `jvm`,
+   * `ndk`, `il2cpp`, `wasm`, and `portable_pdb`. Required for `wasm` with
+   * `symbol_type=dwarf`.
    * @type Array<string>
    */
   filterBuildId?: Array<string>;
@@ -2494,14 +2545,23 @@ export interface RUMApiRestoreSourcemapsRequest {
    */
   dryRun: boolean;
   /**
+   * WASM symbol representation. Only supported for `mapkind=wasm`.
+   * Defaults to `dwarf`, which requires `filter[build_id]`. `sourcemap`
+   * requires `filter[service]` and `filter[version]`.
+   * @type SourcemapSymbolType
+   */
+  symbolType?: SourcemapSymbolType;
+  /**
    * Filter by service names (multiple values allowed). Required for
-   * `js`, `jvm`, `react`, and `flutter` map kinds.
+   * `js`, `jvm`, `react`, and `flutter` map kinds, and for `wasm` with
+   * `symbol_type=sourcemap`.
    * @type Array<string>
    */
   filterService?: Array<string>;
   /**
    * Filter by version values (multiple values allowed, maximum 10).
-   * Required for `js`, `jvm`, `react`, and `flutter` map kinds.
+   * Required for `js`, `jvm`, `react`, and `flutter` map kinds, and for
+   * `wasm` with `symbol_type=sourcemap`.
    * @type Array<string>
    */
   filterVersion?: Array<string>;
@@ -2516,7 +2576,9 @@ export interface RUMApiRestoreSourcemapsRequest {
    */
   filterId?: Array<string>;
   /**
-   * Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`.
+   * Filter by build ID values (multiple values allowed). Supported for `jvm`,
+   * `ndk`, `il2cpp`, `wasm`, and `portable_pdb`. Required for `wasm` with
+   * `symbol_type=dwarf`.
    * @type Array<string>
    */
   filterBuildId?: Array<string>;
@@ -2699,6 +2761,7 @@ export class RUMApi {
     const requestContextPromise = this.requestFactory.deleteSourcemaps(
       param.mapkind,
       param.dryRun,
+      param.symbolType,
       param.filterService,
       param.filterVersion,
       param.filterVariant,
@@ -2768,7 +2831,8 @@ export class RUMApi {
   }
 
   /**
-   * Returns the repository URL and commit SHA associated with a given service and version.
+   * Returns the repository URL and commit SHA associated with a debug ID or a given service and version.
+   * Provide either `debug_id`, or both `service` and `version`. When `debug_id` is set, it takes precedence.
    * @param param The request object
    */
   public getServiceRepositoryInfo(
@@ -3026,6 +3090,7 @@ export class RUMApi {
     const requestContextPromise = this.requestFactory.listSourcemaps(
       param.searchBy,
       param.mapkind,
+      param.symbolType,
       param.pageAfter,
       param.pageSize,
       param.pageNumber,
@@ -3071,6 +3136,7 @@ export class RUMApi {
     const requestContextPromise = this.requestFactory.restoreSourcemaps(
       param.mapkind,
       param.dryRun,
+      param.symbolType,
       param.filterService,
       param.filterVersion,
       param.filterVariant,

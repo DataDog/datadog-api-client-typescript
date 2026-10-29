@@ -9921,6 +9921,7 @@ const enumsMap: { [key: string]: any[] } = {
     "portable_pdb",
   ],
   SourcemapSearchBy: ["debug_id"],
+  SourcemapSymbolType: ["dwarf", "sourcemap"],
   SpansAggregateBucketType: ["bucket"],
   SpansAggregateRequestType: ["aggregate_request"],
   SpansAggregateResponseStatus: ["done", "timeout"],

@@ -17005,6 +17005,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "SourcemapMapKind",
             "format": "",
             },
+        "symbolType": {
+            "type": "SourcemapSymbolType",
+            "format": "",
+            },
         "dryRun": {
             "type": "boolean",
             "format": "",
@@ -17090,6 +17094,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "mapkind": {
             "type": "SourcemapMapKind",
+            "format": "",
+            },
+        "symbolType": {
+            "type": "SourcemapSymbolType",
             "format": "",
             },
         "pageAfter": {
@@ -17181,6 +17189,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.RestoreSourcemaps": {
         "mapkind": {
             "type": "SourcemapMapKind",
+            "format": "",
+            },
+        "symbolType": {
+            "type": "SourcemapSymbolType",
             "format": "",
             },
         "dryRun": {

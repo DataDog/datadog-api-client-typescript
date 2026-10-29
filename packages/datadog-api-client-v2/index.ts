@@ -9536,6 +9536,7 @@ export { SourcemapSearchBy } from "./models/SourcemapSearchBy";
 export { SourcemapsListMeta } from "./models/SourcemapsListMeta";
 export { SourcemapsListMetaPage } from "./models/SourcemapsListMetaPage";
 export { SourcemapsResponse } from "./models/SourcemapsResponse";
+export { SourcemapSymbolType } from "./models/SourcemapSymbolType";
 export { Span } from "./models/Span";
 export { SpansAggregateBucket } from "./models/SpansAggregateBucket";
 export { SpansAggregateBucketAttributes } from "./models/SpansAggregateBucketAttributes";
