@@ -1,15 +1,17 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SensitiveDataScannerMetaVersionOnly } from "./SensitiveDataScannerMetaVersionOnly";
-
 /**
  * Update rule response.
  */
 export class SensitiveDataScannerRuleUpdateResponse {
   /**
-   * Meta payload containing information about the API.
+   * Always `null`.
    */
-  "meta"?: SensitiveDataScannerMetaVersionOnly;
+  "data"?: { [key: string]: any };
+  /**
+   * Meta response. Always an empty object.
+   */
+  "meta"?: { [key: string]: any };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +27,13 @@ export class SensitiveDataScannerRuleUpdateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    data: {
+      baseName: "data",
+      type: "{ [key: string]: any; }",
+    },
     meta: {
       baseName: "meta",
-      type: "SensitiveDataScannerMetaVersionOnly",
+      type: "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -1,15 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SensitiveDataScannerMeta } from "./SensitiveDataScannerMeta";
-
 /**
  * Group reorder response.
  */
 export class SensitiveDataScannerReorderGroupsResponse {
   /**
-   * Meta response containing information about the API.
+   * Meta response. Always an empty object.
    */
-  "meta"?: SensitiveDataScannerMeta;
+  "meta"?: { [key: string]: any };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +25,7 @@ export class SensitiveDataScannerReorderGroupsResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     meta: {
       baseName: "meta",
-      type: "SensitiveDataScannerMeta",
+      type: "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
