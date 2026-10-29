@@ -1,11 +1,9 @@
 export {
-  MetricsApiCreateBulkTagsMetricsConfigurationRequest,
   MetricsApiCreateDerivedMetricRequest,
   MetricsApiCreateHistoricalMetricsConfigurationRequest,
   MetricsApiCreateTagConfigurationRequest,
   MetricsApiCreateTagIndexingRuleRequest,
   MetricsApiCreateTagIndexingRuleExemptionRequest,
-  MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
   MetricsApiDeleteDerivedMetricRequest,
   MetricsApiDeleteHistoricalMetricsConfigurationRequest,
   MetricsApiDeleteTagConfigurationRequest,
@@ -99,16 +97,6 @@ export { MetricAssetResponseRelationships } from "./models/MetricAssetResponseRe
 export { MetricAssetSLORelationship } from "./models/MetricAssetSLORelationship";
 export { MetricAssetSLORelationships } from "./models/MetricAssetSLORelationships";
 export { MetricAssetsResponse } from "./models/MetricAssetsResponse";
-export { MetricBulkConfigureTagsType } from "./models/MetricBulkConfigureTagsType";
-export { MetricBulkTagConfigCreate } from "./models/MetricBulkTagConfigCreate";
-export { MetricBulkTagConfigCreateAttributes } from "./models/MetricBulkTagConfigCreateAttributes";
-export { MetricBulkTagConfigCreateRequest } from "./models/MetricBulkTagConfigCreateRequest";
-export { MetricBulkTagConfigDelete } from "./models/MetricBulkTagConfigDelete";
-export { MetricBulkTagConfigDeleteAttributes } from "./models/MetricBulkTagConfigDeleteAttributes";
-export { MetricBulkTagConfigDeleteRequest } from "./models/MetricBulkTagConfigDeleteRequest";
-export { MetricBulkTagConfigResponse } from "./models/MetricBulkTagConfigResponse";
-export { MetricBulkTagConfigStatus } from "./models/MetricBulkTagConfigStatus";
-export { MetricBulkTagConfigStatusAttributes } from "./models/MetricBulkTagConfigStatusAttributes";
 export { MetricContentEncoding } from "./models/MetricContentEncoding";
 export { MetricCustomAggregation } from "./models/MetricCustomAggregation";
 export { MetricCustomSpaceAggregation } from "./models/MetricCustomSpaceAggregation";
