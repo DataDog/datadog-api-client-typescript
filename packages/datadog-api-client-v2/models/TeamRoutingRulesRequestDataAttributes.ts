@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class TeamRoutingRulesRequestDataAttributes {
   /**
-   * A list of routing rule items that define how incoming pages should be handled.
+   * A list of routing rule items that define how incoming Pages should be handled.
    */
   "rules"?: Array<TeamRoutingRulesRequestRule>;
 

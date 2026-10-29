@@ -16,7 +16,7 @@ export class RoutingRuleRelationshipsPolicyData {
    */
   "id": string;
   /**
-   * Indicates that the resource is of type 'policies'.
+   * Indicates that the resource is of type `policies`.
    */
   "type": RoutingRuleRelationshipsPolicyDataType;
 

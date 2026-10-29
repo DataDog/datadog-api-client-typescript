@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Indicates that the resource is of type 'notification_rules'.
+ * Indicates that the resource is of type `notification_rules`.
  */
 
 export type OnCallNotificationRuleType =

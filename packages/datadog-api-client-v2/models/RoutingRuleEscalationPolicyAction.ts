@@ -14,7 +14,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RoutingRuleEscalationPolicyAction {
   /**
-   * The number of minutes before an acknowledged page is re-triggered.
+   * The number of minutes before an acknowledged Page is re-triggered.
    */
   "ackTimeoutMinutes"?: number;
   /**

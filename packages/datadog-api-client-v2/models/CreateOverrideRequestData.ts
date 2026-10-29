@@ -22,7 +22,7 @@ export class CreateOverrideRequestData {
    */
   "relationships"?: CreateOverrideRequestRelationships;
   /**
-   * Indicates that the resource is of type 'overrides'.
+   * Indicates that the resource is of type `overrides`.
    */
   "type": OverrideDataType;
 

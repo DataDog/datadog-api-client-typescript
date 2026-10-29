@@ -4032,6 +4032,37 @@ import { OnCallNotificationRuleChannelRelationshipData } from "./OnCallNotificat
 import { OnCallNotificationRuleData } from "./OnCallNotificationRuleData";
 import { OnCallNotificationRuleRelationships } from "./OnCallNotificationRuleRelationships";
 import { OnCallNotificationRuleRequestAttributes } from "./OnCallNotificationRuleRequestAttributes";
+import { OnCallPageAuthorRelationship } from "./OnCallPageAuthorRelationship";
+import { OnCallPageAuthorRelationshipData } from "./OnCallPageAuthorRelationshipData";
+import { OnCallPageData } from "./OnCallPageData";
+import { OnCallPageDataAttributes } from "./OnCallPageDataAttributes";
+import { OnCallPageDataRelationships } from "./OnCallPageDataRelationships";
+import { OnCallPageJiraIssueRelationship } from "./OnCallPageJiraIssueRelationship";
+import { OnCallPageJiraIssueRelationshipData } from "./OnCallPageJiraIssueRelationshipData";
+import { OnCallPageLink } from "./OnCallPageLink";
+import { OnCallPageLinkAttributes } from "./OnCallPageLinkAttributes";
+import { OnCallPageLinkRelationshipData } from "./OnCallPageLinkRelationshipData";
+import { OnCallPageLinksRelationship } from "./OnCallPageLinksRelationship";
+import { OnCallPageLiveCall } from "./OnCallPageLiveCall";
+import { OnCallPageLiveCallOver } from "./OnCallPageLiveCallOver";
+import { OnCallPageRespondersRelationship } from "./OnCallPageRespondersRelationship";
+import { OnCallPageResponse } from "./OnCallPageResponse";
+import { OnCallPageScheduledAction } from "./OnCallPageScheduledAction";
+import { OnCallPageScheduledActionAttributes } from "./OnCallPageScheduledActionAttributes";
+import { OnCallPageScheduledActionRelationship } from "./OnCallPageScheduledActionRelationship";
+import { OnCallPageScheduledActionRelationshipData } from "./OnCallPageScheduledActionRelationshipData";
+import { OnCallPageScheduledActionRelationships } from "./OnCallPageScheduledActionRelationships";
+import { OnCallPageScheduledActionRelationshipsSchedules } from "./OnCallPageScheduledActionRelationshipsSchedules";
+import { OnCallPageScheduledActionRelationshipsSchedulesData } from "./OnCallPageScheduledActionRelationshipsSchedulesData";
+import { OnCallPageScheduledActionRelationshipsUsers } from "./OnCallPageScheduledActionRelationshipsUsers";
+import { OnCallPageServiceNowIncidentRelationship } from "./OnCallPageServiceNowIncidentRelationship";
+import { OnCallPageServiceNowIncidentRelationshipData } from "./OnCallPageServiceNowIncidentRelationshipData";
+import { OnCallPageTargetRelationship } from "./OnCallPageTargetRelationship";
+import { OnCallPageTargetRelationshipData } from "./OnCallPageTargetRelationshipData";
+import { OnCallPageTeamRoutingRuleRelationship } from "./OnCallPageTeamRoutingRuleRelationship";
+import { OnCallPageTeamRoutingRuleRelationshipData } from "./OnCallPageTeamRoutingRuleRelationshipData";
+import { OnCallPageUserRelationshipData } from "./OnCallPageUserRelationshipData";
+import { OnCallPagesResponse } from "./OnCallPagesResponse";
 import { OnCallPhoneNotificationRuleSettings } from "./OnCallPhoneNotificationRuleSettings";
 import { OnCallShiftChangeTrigger } from "./OnCallShiftChangeTrigger";
 import { OnCallShiftChangeTriggerWrapper } from "./OnCallShiftChangeTriggerWrapper";
@@ -8921,7 +8952,53 @@ const enumsMap: { [key: string]: any[] } = {
   OktaIntegrationType: ["Okta"],
   OnCallNotificationRuleCategory: ["high_urgency", "low_urgency"],
   OnCallNotificationRuleType: ["notification_rules"],
+  OnCallPageDataType: ["pages"],
+  OnCallPageJiraIssueType: ["jira_issues"],
+  OnCallPageLinkEntityType: ["case", "incident", "page", "agent_conversation"],
+  OnCallPageLinkRelationshipType: [
+    "relates_to",
+    "causes",
+    "blocks",
+    "duplicates",
+    "parent_of",
+    "successor_of",
+    "escalates_to",
+    "pages",
+  ],
+  OnCallPageLinkType: ["links"],
+  OnCallPageLiveCallOutcome: [
+    "success_call_answered",
+    "failure_no_responder",
+    "failure_caller_abandoned",
+    "failure_outside_support_hours",
+    "failure_internal_error",
+  ],
+  OnCallPageReleaseOrigin: [
+    "ack_timeout",
+    "team_rules_active_hours",
+    "manual_snooze",
+  ],
+  OnCallPageScheduledActionAttributesType: [
+    "escalate",
+    "resolve",
+    "release",
+    "retrigger",
+  ],
+  OnCallPageScheduledActionType: ["scheduled_actions"],
+  OnCallPageServiceNowIncidentType: ["service_now_incidents"],
+  OnCallPageStatus: ["triggered", "acknowledged", "resolved"],
+  OnCallPageTargetRelationshipDataType: ["teams", "users", "cross_org_handles"],
   OnCallPageTargetType: ["team_id", "team_handle", "user_id"],
+  OnCallPagesSort: [
+    "created_at",
+    "-created_at",
+    "modified_at",
+    "-modified_at",
+    "status",
+    "-status",
+    "priority",
+    "-priority",
+  ],
   OnCallPhoneNotificationRuleMethod: ["sms", "voice"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpenAIAPIKeyType: ["OpenAIAPIKey"],
@@ -15466,6 +15543,45 @@ const typeMap: { [index: string]: any } = {
   OnCallNotificationRuleRelationships: OnCallNotificationRuleRelationships,
   OnCallNotificationRuleRequestAttributes:
     OnCallNotificationRuleRequestAttributes,
+  OnCallPageAuthorRelationship: OnCallPageAuthorRelationship,
+  OnCallPageAuthorRelationshipData: OnCallPageAuthorRelationshipData,
+  OnCallPageData: OnCallPageData,
+  OnCallPageDataAttributes: OnCallPageDataAttributes,
+  OnCallPageDataRelationships: OnCallPageDataRelationships,
+  OnCallPageJiraIssueRelationship: OnCallPageJiraIssueRelationship,
+  OnCallPageJiraIssueRelationshipData: OnCallPageJiraIssueRelationshipData,
+  OnCallPageLink: OnCallPageLink,
+  OnCallPageLinkAttributes: OnCallPageLinkAttributes,
+  OnCallPageLinkRelationshipData: OnCallPageLinkRelationshipData,
+  OnCallPageLinksRelationship: OnCallPageLinksRelationship,
+  OnCallPageLiveCall: OnCallPageLiveCall,
+  OnCallPageLiveCallOver: OnCallPageLiveCallOver,
+  OnCallPageRespondersRelationship: OnCallPageRespondersRelationship,
+  OnCallPageResponse: OnCallPageResponse,
+  OnCallPageScheduledAction: OnCallPageScheduledAction,
+  OnCallPageScheduledActionAttributes: OnCallPageScheduledActionAttributes,
+  OnCallPageScheduledActionRelationship: OnCallPageScheduledActionRelationship,
+  OnCallPageScheduledActionRelationshipData:
+    OnCallPageScheduledActionRelationshipData,
+  OnCallPageScheduledActionRelationships:
+    OnCallPageScheduledActionRelationships,
+  OnCallPageScheduledActionRelationshipsSchedules:
+    OnCallPageScheduledActionRelationshipsSchedules,
+  OnCallPageScheduledActionRelationshipsSchedulesData:
+    OnCallPageScheduledActionRelationshipsSchedulesData,
+  OnCallPageScheduledActionRelationshipsUsers:
+    OnCallPageScheduledActionRelationshipsUsers,
+  OnCallPageServiceNowIncidentRelationship:
+    OnCallPageServiceNowIncidentRelationship,
+  OnCallPageServiceNowIncidentRelationshipData:
+    OnCallPageServiceNowIncidentRelationshipData,
+  OnCallPageTargetRelationship: OnCallPageTargetRelationship,
+  OnCallPageTargetRelationshipData: OnCallPageTargetRelationshipData,
+  OnCallPageTeamRoutingRuleRelationship: OnCallPageTeamRoutingRuleRelationship,
+  OnCallPageTeamRoutingRuleRelationshipData:
+    OnCallPageTeamRoutingRuleRelationshipData,
+  OnCallPageUserRelationshipData: OnCallPageUserRelationshipData,
+  OnCallPagesResponse: OnCallPagesResponse,
   OnCallPhoneNotificationRuleSettings: OnCallPhoneNotificationRuleSettings,
   OnCallShiftChangeTrigger: OnCallShiftChangeTrigger,
   OnCallShiftChangeTriggerWrapper: OnCallShiftChangeTriggerWrapper,
@@ -19404,6 +19520,12 @@ const oneOfMap: { [index: string]: string[] } = {
     "OnCallPhoneNotificationRuleSettings",
   ],
   OnCallNotificationRulesIncluded: ["NotificationChannelData"],
+  OnCallPagesIncluded: [
+    "ScheduleUser",
+    "TeamReference",
+    "OnCallPageScheduledAction",
+    "OnCallPageLink",
+  ],
   OpenAICredentials: ["OpenAIAPIKey"],
   OpenAICredentialsUpdate: ["OpenAIAPIKeyUpdate"],
   OverrideIncluded: ["ScheduleUser"],
