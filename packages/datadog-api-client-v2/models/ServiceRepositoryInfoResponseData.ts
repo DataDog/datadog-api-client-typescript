@@ -17,7 +17,7 @@ export class ServiceRepositoryInfoResponseData {
    */
   "attributes": ServiceRepositoryInfoResponseAttributes;
   /**
-   * The identifier composed of the service name and version.
+   * The identifier composed of the service name and version, or the debug ID when the lookup was made by debug ID.
    */
   "id": string;
   /**
