@@ -4743,6 +4743,9 @@ import { ReportScheduleTemplateVariable } from "./ReportScheduleTemplateVariable
 import { ReportScheduleToggleRequest } from "./ReportScheduleToggleRequest";
 import { ReportScheduleToggleRequestAttributes } from "./ReportScheduleToggleRequestAttributes";
 import { ReportScheduleToggleRequestData } from "./ReportScheduleToggleRequestData";
+import { RerouteOnCallPageRequest } from "./RerouteOnCallPageRequest";
+import { RerouteOnCallPageRequestData } from "./RerouteOnCallPageRequestData";
+import { RerouteOnCallPageRequestDataAttributes } from "./RerouteOnCallPageRequestDataAttributes";
 import { ResolveVulnerableSymbolsRequest } from "./ResolveVulnerableSymbolsRequest";
 import { ResolveVulnerableSymbolsRequestData } from "./ResolveVulnerableSymbolsRequestData";
 import { ResolveVulnerableSymbolsRequestDataAttributes } from "./ResolveVulnerableSymbolsRequestDataAttributes";
@@ -9232,6 +9235,7 @@ const enumsMap: { [key: string]: any[] } = {
   ReportScheduleResponseAttributesDeliveryFormat: ["pdf", "png", "pdf_and_png"],
   ReportScheduleStatus: ["active", "inactive"],
   ReportScheduleType: ["schedule"],
+  RerouteOnCallPageRequestDataType: ["reroute"],
   ResolveVulnerableSymbolsRequestDataType: [
     "resolve-vulnerable-symbols-request",
   ],
@@ -16276,6 +16280,10 @@ const typeMap: { [index: string]: any } = {
   ReportScheduleToggleRequest: ReportScheduleToggleRequest,
   ReportScheduleToggleRequestAttributes: ReportScheduleToggleRequestAttributes,
   ReportScheduleToggleRequestData: ReportScheduleToggleRequestData,
+  RerouteOnCallPageRequest: RerouteOnCallPageRequest,
+  RerouteOnCallPageRequestData: RerouteOnCallPageRequestData,
+  RerouteOnCallPageRequestDataAttributes:
+    RerouteOnCallPageRequestDataAttributes,
   ResolveVulnerableSymbolsRequest: ResolveVulnerableSymbolsRequest,
   ResolveVulnerableSymbolsRequestData: ResolveVulnerableSymbolsRequestData,
   ResolveVulnerableSymbolsRequestDataAttributes:
