@@ -75,6 +75,7 @@ import { AWSNewExternalIDResponseAttributes } from "./AWSNewExternalIDResponseAt
 import { AWSNewExternalIDResponseData } from "./AWSNewExternalIDResponseData";
 import { AWSRegionsIncludeAll } from "./AWSRegionsIncludeAll";
 import { AWSRegionsIncludeOnly } from "./AWSRegionsIncludeOnly";
+import { AWSResourceTypeTagFilter } from "./AWSResourceTypeTagFilter";
 import { AWSResourcesConfig } from "./AWSResourcesConfig";
 import { AWSTracesConfig } from "./AWSTracesConfig";
 import { DataExportConfig } from "./DataExportConfig";
@@ -220,6 +221,7 @@ export const TypingInfo: ModelTypingInfo = {
     AWSNewExternalIDResponseData: AWSNewExternalIDResponseData,
     AWSRegionsIncludeAll: AWSRegionsIncludeAll,
     AWSRegionsIncludeOnly: AWSRegionsIncludeOnly,
+    AWSResourceTypeTagFilter: AWSResourceTypeTagFilter,
     AWSResourcesConfig: AWSResourcesConfig,
     AWSTracesConfig: AWSTracesConfig,
     DataExportConfig: DataExportConfig,
