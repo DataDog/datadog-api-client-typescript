@@ -3576,15 +3576,6 @@ import { MetricAssetResponseRelationships } from "./MetricAssetResponseRelations
 import { MetricAssetSLORelationship } from "./MetricAssetSLORelationship";
 import { MetricAssetSLORelationships } from "./MetricAssetSLORelationships";
 import { MetricAssetsResponse } from "./MetricAssetsResponse";
-import { MetricBulkTagConfigCreate } from "./MetricBulkTagConfigCreate";
-import { MetricBulkTagConfigCreateAttributes } from "./MetricBulkTagConfigCreateAttributes";
-import { MetricBulkTagConfigCreateRequest } from "./MetricBulkTagConfigCreateRequest";
-import { MetricBulkTagConfigDelete } from "./MetricBulkTagConfigDelete";
-import { MetricBulkTagConfigDeleteAttributes } from "./MetricBulkTagConfigDeleteAttributes";
-import { MetricBulkTagConfigDeleteRequest } from "./MetricBulkTagConfigDeleteRequest";
-import { MetricBulkTagConfigResponse } from "./MetricBulkTagConfigResponse";
-import { MetricBulkTagConfigStatus } from "./MetricBulkTagConfigStatus";
-import { MetricBulkTagConfigStatusAttributes } from "./MetricBulkTagConfigStatusAttributes";
 import { MetricCustomAggregation } from "./MetricCustomAggregation";
 import { MetricDashboardAsset } from "./MetricDashboardAsset";
 import { MetricDashboardAttributes } from "./MetricDashboardAttributes";
@@ -8405,7 +8396,6 @@ const enumsMap: { [key: string]: any[] } = {
   McpScanRequestResponseDataType: ["mcpscanrequestresponse"],
   MemberTeamType: ["member_teams"],
   MetricActiveConfigurationType: ["actively_queried_configurations"],
-  MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
   MetricContentEncoding: ["deflate", "zstd1", "gzip"],
   MetricCustomSpaceAggregation: ["avg", "max", "min", "sum"],
   MetricCustomTimeAggregation: ["avg", "count", "max", "min", "sum"],
@@ -14872,15 +14862,6 @@ const typeMap: { [index: string]: any } = {
   MetricAssetSLORelationship: MetricAssetSLORelationship,
   MetricAssetSLORelationships: MetricAssetSLORelationships,
   MetricAssetsResponse: MetricAssetsResponse,
-  MetricBulkTagConfigCreate: MetricBulkTagConfigCreate,
-  MetricBulkTagConfigCreateAttributes: MetricBulkTagConfigCreateAttributes,
-  MetricBulkTagConfigCreateRequest: MetricBulkTagConfigCreateRequest,
-  MetricBulkTagConfigDelete: MetricBulkTagConfigDelete,
-  MetricBulkTagConfigDeleteAttributes: MetricBulkTagConfigDeleteAttributes,
-  MetricBulkTagConfigDeleteRequest: MetricBulkTagConfigDeleteRequest,
-  MetricBulkTagConfigResponse: MetricBulkTagConfigResponse,
-  MetricBulkTagConfigStatus: MetricBulkTagConfigStatus,
-  MetricBulkTagConfigStatusAttributes: MetricBulkTagConfigStatusAttributes,
   MetricCustomAggregation: MetricCustomAggregation,
   MetricDashboardAsset: MetricDashboardAsset,
   MetricDashboardAttributes: MetricDashboardAttributes,
