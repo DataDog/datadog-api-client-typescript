@@ -225,6 +225,7 @@ export const TypingInfo: ModelTypingInfo = {
       "completed",
     ],
     CreateStatusPageRequestDataAttributesType: ["public", "internal"],
+    CreateStatusPageRequestDataAttributesVisualizationLayout: ["list", "grid"],
     CreateStatusPageRequestDataAttributesVisualizationType: [
       "bars_and_uptime_percentage",
       "bars_only",

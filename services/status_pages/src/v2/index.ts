@@ -91,6 +91,7 @@ export { CreateStatusPageRequestDataAttributes } from "./models/CreateStatusPage
 export { CreateStatusPageRequestDataAttributesComponentsItems } from "./models/CreateStatusPageRequestDataAttributesComponentsItems";
 export { CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems } from "./models/CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems";
 export { CreateStatusPageRequestDataAttributesType } from "./models/CreateStatusPageRequestDataAttributesType";
+export { CreateStatusPageRequestDataAttributesVisualizationLayout } from "./models/CreateStatusPageRequestDataAttributesVisualizationLayout";
 export { CreateStatusPageRequestDataAttributesVisualizationType } from "./models/CreateStatusPageRequestDataAttributesVisualizationType";
 export { Degradation } from "./models/Degradation";
 export { DegradationArray } from "./models/DegradationArray";

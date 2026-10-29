@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CreateStatusPageRequestDataAttributesType } from "./CreateStatusPageRequestDataAttributesType";
+import { CreateStatusPageRequestDataAttributesVisualizationLayout } from "./CreateStatusPageRequestDataAttributesVisualizationLayout";
 import { CreateStatusPageRequestDataAttributesVisualizationType } from "./CreateStatusPageRequestDataAttributesVisualizationType";
 import { StatusPageDataAttributesComponentsItems } from "./StatusPageDataAttributesComponentsItems";
 
@@ -72,6 +73,10 @@ export class StatusPageDataAttributes {
    * The type of the status page controlling how the status page is accessed.
    */
   "type"?: CreateStatusPageRequestDataAttributesType;
+  /**
+   * The layout of components on the status page. Defaults to `list`. `grid` requires `visualization_type` to be `component_name_only`; changing `visualization_type` to any other value resets the layout to `list`.
+   */
+  "visualizationLayout"?: CreateStatusPageRequestDataAttributesVisualizationLayout;
   /**
    * The visualization type of the status page.
    */
@@ -156,6 +161,10 @@ export class StatusPageDataAttributes {
     type: {
       baseName: "type",
       type: "CreateStatusPageRequestDataAttributesType",
+    },
+    visualizationLayout: {
+      baseName: "visualization_layout",
+      type: "CreateStatusPageRequestDataAttributesVisualizationLayout",
     },
     visualizationType: {
       baseName: "visualization_type",
