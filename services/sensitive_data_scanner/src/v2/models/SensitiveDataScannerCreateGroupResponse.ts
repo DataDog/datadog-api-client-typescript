@@ -1,7 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { SensitiveDataScannerGroupResponse } from "./SensitiveDataScannerGroupResponse";
-import { SensitiveDataScannerMetaVersionOnly } from "./SensitiveDataScannerMetaVersionOnly";
 
 /**
  * Create group response.
@@ -12,9 +11,9 @@ export class SensitiveDataScannerCreateGroupResponse {
    */
   "data"?: SensitiveDataScannerGroupResponse;
   /**
-   * Meta payload containing information about the API.
+   * Meta response. Always an empty object.
    */
-  "meta"?: SensitiveDataScannerMetaVersionOnly;
+  "meta"?: { [key: string]: any };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -36,7 +35,7 @@ export class SensitiveDataScannerCreateGroupResponse {
     },
     meta: {
       baseName: "meta",
-      type: "SensitiveDataScannerMetaVersionOnly",
+      type: "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",

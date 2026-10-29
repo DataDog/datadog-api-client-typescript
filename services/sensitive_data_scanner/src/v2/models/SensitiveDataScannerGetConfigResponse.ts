@@ -2,7 +2,6 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { SensitiveDataScannerGetConfigIncludedItem } from "./SensitiveDataScannerGetConfigIncludedItem";
 import { SensitiveDataScannerGetConfigResponseData } from "./SensitiveDataScannerGetConfigResponseData";
-import { SensitiveDataScannerMeta } from "./SensitiveDataScannerMeta";
 
 /**
  * Get all groups response.
@@ -17,9 +16,9 @@ export class SensitiveDataScannerGetConfigResponse {
    */
   "included"?: Array<SensitiveDataScannerGetConfigIncludedItem>;
   /**
-   * Meta response containing information about the API.
+   * Meta response. Always an empty object.
    */
-  "meta"?: SensitiveDataScannerMeta;
+  "meta"?: { [key: string]: any };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -45,7 +44,7 @@ export class SensitiveDataScannerGetConfigResponse {
     },
     meta: {
       baseName: "meta",
-      type: "SensitiveDataScannerMeta",
+      type: "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
