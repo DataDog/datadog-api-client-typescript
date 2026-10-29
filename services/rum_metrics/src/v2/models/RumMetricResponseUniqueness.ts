@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { RumMetricUniquenessWhen } from "./RumMetricUniquenessWhen";
 
 /**
- * The rule to count updatable events. Is only set if `event_type` is `session` or `view`.
+ * The rule to count updatable events. Only present if `event_type` is `session` or `view`, and absent on older metrics created before this setting existed.
  */
 export class RumMetricResponseUniqueness {
   /**
-   * When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+   * When to count updatable events. `match` when the event is first seen, or `end` when the event is complete. Sessions and views are updated over time, each one is counted once.
    */
   "when"?: RumMetricUniquenessWhen;
   /**

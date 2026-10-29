@@ -5,11 +5,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class RumMetricResponseGroupBy {
   /**
-   * The path to the value the RUM-based metric will be aggregated over.
+   * The path of the RUM event attribute the metric is grouped by.
    */
   "path"?: string;
   /**
-   * Eventual name of the tag that gets created. By default, `path` is used as the tag name.
+   * Name of the tag created on the metric. By default, `path` is used as the tag name.
    */
   "tagName"?: string;
   /**

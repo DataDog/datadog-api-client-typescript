@@ -13,10 +13,12 @@ export class RumMetricResponseData {
   "attributes"?: RumMetricResponseAttributes;
   /**
    * The name of the RUM-based metric.
+   * On creation, it must be 1 to 200 characters long, contain only ASCII letters, digits, underscores, and periods, start with a letter, and not start with `rum.measure` or `rum.investigate`.
+   * It cannot be changed after creation.
    */
   "id"?: string;
   /**
-   * The type of the resource. The value should always be rum_metrics.
+   * The type of the resource. The value must be `rum_metrics`.
    */
   "type"?: RumMetricType;
   /**
