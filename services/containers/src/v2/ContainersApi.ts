@@ -184,22 +184,31 @@ export class ContainersApiResponseProcessor {
 
 export interface ContainersApiListContainersRequest {
   /**
-   * Comma-separated list of tags to filter containers by.
+   * Comma-separated `key:value` tags. A container must match every tag. Wildcards, negation
+   * (`-key:value`), spaces, and `IN (...)` are not supported. To cover several hosts, make one
+   * request per host.
    * @type string
    */
   filterTags?: string;
   /**
-   * Comma-separated list of tags to group containers by.
+   * Comma-separated list of up to three tag keys to group containers by. Returns `container_group`
+   * objects with counts and tags. Grouped results ignore `sort` and do not support pagination.
+   * Containers with multiple values for a grouping tag can appear in multiple groups.
+   * Summing group counts can overcount distinct containers.
    * @type string
    */
   groupBy?: string;
   /**
-   * Attribute to sort containers by.
+   * Attribute to sort individual containers by: `name`, `created_at`, `started_at`, `state`,
+   * `container_id`, `host`, `image_name`, or `image_digest`. Defaults to `started_at` in ascending
+   * order. Prefix the attribute with `-` for descending order, such as `-started_at`.
+   * Ignored when `group_by` is specified.
    * @type string
    */
   sort?: string;
   /**
-   * Maximum number of results returned.
+   * Maximum number of results returned. For grouped results, defaults to `100` with a maximum
+   * of `1000` groups.
    * @type number
    */
   pageSize?: number;
@@ -231,7 +240,11 @@ export class ContainersApi {
   }
 
   /**
-   * Get all containers for your organization.
+   * Get all containers for your organization. Use `group_by` to return container groups with counts.
+   * Grouped results are limited by `page[size]` and do not support pagination.
+   *
+   * To get CPU or memory metrics, use a `container` data source query with `/api/v2/query/scalar`
+   * or `/api/v2/query/timeseries`.
    * @param param The request object
    */
   public listContainers(
