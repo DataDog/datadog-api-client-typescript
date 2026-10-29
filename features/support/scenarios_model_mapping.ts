@@ -15181,6 +15181,32 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListOnCallPages": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "OnCallPagesSort",
+            "format": "",
+            },
+        "operationResponseType": "OnCallPagesResponse",
+    },
+    "v2.GetOnCallPage": {
+        "pageId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OnCallPageResponse",
+    },
     "v2.ListOnCallSchedules": {
         "pageSize": {
             "type": "number",

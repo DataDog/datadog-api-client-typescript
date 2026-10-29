@@ -15,7 +15,7 @@ export class EscalationPolicyDataAttributes {
    */
   "name": string;
   /**
-   * Indicates whether the page is automatically resolved when the policy ends.
+   * Indicates whether the Page is automatically resolved when the policy ends.
    */
   "resolvePageOnPolicyEnd"?: boolean;
   /**

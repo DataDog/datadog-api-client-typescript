@@ -8,15 +8,15 @@ import { RoutingRuleRerouteToTeamActionType } from "./RoutingRuleRerouteToTeamAc
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Reroutes the page to another team, which then evaluates it against its own routing rules. Each routing rule can include this action only once. It can be combined only with `send_slack_message` and `send_teams_message` actions. It can't be used with `escalation_policy` or `workflow` actions, or when the routing rule sets `policy_id`.
+ * Reroutes the Page to another team, which then evaluates it against its own routing rules. Each routing rule can include this action only once. It can be combined only with `send_slack_message` and `send_teams_message` actions. It can't be used with `escalation_policy` or `workflow` actions, or when the routing rule sets `policy_id`.
  */
 export class RoutingRuleRerouteToTeamAction {
   /**
-   * The ID of the team to reroute the page to.
+   * The ID of the team to reroute the Page to.
    */
   "destinationTeamId": string;
   /**
-   * Indicates that the action reroutes the page to another team's routing rules.
+   * Indicates that the action reroutes the Page to another team's routing rules.
    */
   "type": RoutingRuleRerouteToTeamActionType;
 

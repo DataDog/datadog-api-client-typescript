@@ -16,7 +16,7 @@ export class OverrideRelationshipsScheduleData {
    */
   "id": string;
   /**
-   * Indicates that the related resource is of type 'schedules'.
+   * Indicates that the related resource is of type `schedules`.
    */
   "type": OverrideRelationshipsScheduleDataType;
 
