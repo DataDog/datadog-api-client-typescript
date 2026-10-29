@@ -4169,7 +4169,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
   public async searchCostRecommendations(
     body: RecommendationsFilterRequest,
-    pageSize?: string,
+    pageSize?: number,
     pageToken?: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -4220,7 +4220,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        serialize(pageSize, TypingInfo, "string", ""),
+        serialize(pageSize, TypingInfo, "number", "int32"),
         "",
       );
     }
@@ -8895,6 +8895,27 @@ export class CloudCostManagementApiResponseProcessor {
       ) as CostRecommendationArray;
       return body;
     }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
     if (response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
@@ -10543,10 +10564,10 @@ export interface CloudCostManagementApiSearchCostRecommendationsRequest {
    */
   body: RecommendationsFilterRequest;
   /**
-   * Number of results per page (1–10000).
-   * @type string
+   * Number of results per page, from 1 to 5000. Defaults to 50.
+   * @type number
    */
-  pageSize?: string;
+  pageSize?: number;
   /**
    * Pagination token from a previous response.
    * @type string

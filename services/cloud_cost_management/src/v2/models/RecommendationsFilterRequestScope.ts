@@ -1,7 +1,8 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations or `*` for both.
+ * Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations
+ * or `*` for both.
  */
 export type RecommendationsFilterRequestScope =
   | typeof CCM

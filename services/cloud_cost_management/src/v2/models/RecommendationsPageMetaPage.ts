@@ -13,7 +13,7 @@ export class RecommendationsPageMetaPage {
    */
   "nextPageToken"?: string;
   /**
-   * Number of items returned in this page (1–10000).
+   * Number of items returned in this page (1–5000).
    */
   "pageSize"?: number;
   /**
