@@ -13,11 +13,8 @@ const configuration = client.createConfiguration({
 });
 const apiInstance = new v2.CSMThreatsApi(configuration);
 
-// there is a valid "agent_rule" in the system
-const AGENT_RULE_DATA_ID = process.env.AGENT_RULE_DATA_ID as string;
-
 const params: v2.CSMThreatsApiDeleteCloudWorkloadSecurityAgentRuleRequest = {
-  agentRuleId: AGENT_RULE_DATA_ID,
+  agentRuleId: "agent_rule_id",
 };
 
 apiInstance
