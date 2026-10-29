@@ -2777,6 +2777,7 @@ export { AWSRegions } from "./models/AWSRegions";
 export { AWSRegionsIncludeAll } from "./models/AWSRegionsIncludeAll";
 export { AWSRegionsIncludeOnly } from "./models/AWSRegionsIncludeOnly";
 export { AWSResourcesConfig } from "./models/AWSResourcesConfig";
+export { AWSResourceTypeTagFilter } from "./models/AWSResourceTypeTagFilter";
 export { AwsScanOptionsAttributes } from "./models/AwsScanOptionsAttributes";
 export { AwsScanOptionsCreateAttributes } from "./models/AwsScanOptionsCreateAttributes";
 export { AwsScanOptionsCreateData } from "./models/AwsScanOptionsCreateData";

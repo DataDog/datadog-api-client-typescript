@@ -104,6 +104,7 @@ import { AWSNewExternalIDResponseAttributes } from "./AWSNewExternalIDResponseAt
 import { AWSNewExternalIDResponseData } from "./AWSNewExternalIDResponseData";
 import { AWSRegionsIncludeAll } from "./AWSRegionsIncludeAll";
 import { AWSRegionsIncludeOnly } from "./AWSRegionsIncludeOnly";
+import { AWSResourceTypeTagFilter } from "./AWSResourceTypeTagFilter";
 import { AWSResourcesConfig } from "./AWSResourcesConfig";
 import { AWSTracesConfig } from "./AWSTracesConfig";
 import { AccessTokenListItem } from "./AccessTokenListItem";
@@ -10604,6 +10605,7 @@ const typeMap: { [index: string]: any } = {
   AWSNewExternalIDResponseData: AWSNewExternalIDResponseData,
   AWSRegionsIncludeAll: AWSRegionsIncludeAll,
   AWSRegionsIncludeOnly: AWSRegionsIncludeOnly,
+  AWSResourceTypeTagFilter: AWSResourceTypeTagFilter,
   AWSResourcesConfig: AWSResourcesConfig,
   AWSTracesConfig: AWSTracesConfig,
   AccessTokenListItem: AccessTokenListItem,

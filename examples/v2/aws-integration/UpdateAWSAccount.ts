@@ -47,10 +47,11 @@ const params: v2.AWSIntegrationApiUpdateAWSAccountRequest = {
           collectCloudwatchAlarms: true,
           collectCustomMetrics: true,
           enabled: true,
-          tagFilters: [
+          resourceTypeTagFilters: [
             {
-              namespace: "AWS/EC2",
-              tags: ["key:value"],
+              service: "ec2",
+              resourceTypes: ["instance"],
+              expression: "env:staging",
             },
           ],
         },
