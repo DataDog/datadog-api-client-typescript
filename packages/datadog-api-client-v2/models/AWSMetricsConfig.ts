@@ -6,6 +6,7 @@
 import { AWSMetricNameFilters } from "./AWSMetricNameFilters";
 import { AWSNamespaceFilters } from "./AWSNamespaceFilters";
 import { AWSNamespaceTagFilter } from "./AWSNamespaceTagFilter";
+import { AWSResourceTypeTagFilter } from "./AWSResourceTypeTagFilter";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -43,7 +44,12 @@ export class AWSMetricsConfig {
    */
   "namespaceFilters"?: AWSNamespaceFilters;
   /**
+   * AWS Metrics collection resource type tag filters list. Defaults to `[]`.
+   */
+  "resourceTypeTagFilters"?: Array<AWSResourceTypeTagFilter>;
+  /**
    * AWS Metrics collection tag filters list. Defaults to `[]`.
+   * Deprecated in favor of `resource_type_tag_filters`. The two fields are mutually exclusive on an account.
    */
   "tagFilters"?: Array<AWSNamespaceTagFilter>;
 
@@ -90,6 +96,10 @@ export class AWSMetricsConfig {
     namespaceFilters: {
       baseName: "namespace_filters",
       type: "AWSNamespaceFilters",
+    },
+    resourceTypeTagFilters: {
+      baseName: "resource_type_tag_filters",
+      type: "Array<AWSResourceTypeTagFilter>",
     },
     tagFilters: {
       baseName: "tag_filters",
