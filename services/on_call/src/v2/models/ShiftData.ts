@@ -21,7 +21,7 @@ export class ShiftData {
    */
   "relationships"?: ShiftDataRelationships;
   /**
-   * Indicates that the resource is of type 'shifts'.
+   * Indicates that the resource is of type `shifts`.
    */
   "type": ShiftDataType;
   /**

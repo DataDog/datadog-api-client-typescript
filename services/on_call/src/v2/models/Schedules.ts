@@ -17,7 +17,7 @@ export class Schedules {
    */
   "included"?: Array<TeamReference>;
   /**
-   * Metadata that is included in the response when listing schedules.
+   * Metadata that is included in the response when listing On-Call resources.
    */
   "meta"?: SchedulesResponseMeta;
   /**

@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Indicates that the action reroutes the page to another team's routing rules.
+ * Indicates that the action reroutes the Page to another team's routing rules.
  */
 export type RoutingRuleRerouteToTeamActionType =
   | typeof REROUTE_TO_TEAM
