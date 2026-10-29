@@ -14209,20 +14209,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "MetricsAndMetricTagConfigurationsResponse",
   },
-  "MetricsApi.V2.CreateBulkTagsMetricsConfiguration": {
-    body: {
-      type: "MetricBulkTagConfigCreateRequest",
-      format: "",
-    },
-    operationResponseType: "MetricBulkTagConfigResponse",
-  },
-  "MetricsApi.V2.DeleteBulkTagsMetricsConfiguration": {
-    body: {
-      type: "MetricBulkTagConfigDeleteRequest",
-      format: "",
-    },
-    operationResponseType: "MetricBulkTagConfigResponse",
-  },
   "MetricsApi.V2.CreateDerivedMetric": {
     body: {
       type: "DerivedMetricCreateRequest",
