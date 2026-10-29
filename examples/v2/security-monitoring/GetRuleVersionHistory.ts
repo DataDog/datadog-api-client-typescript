@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.getRuleVersionHistory"] = true;
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 const params: v2.SecurityMonitoringApiGetRuleVersionHistoryRequest = {

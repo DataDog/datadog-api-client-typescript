@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.restoreSecurityMonitoringRule"] = true;
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 // there is a valid "security_rule" in the system
