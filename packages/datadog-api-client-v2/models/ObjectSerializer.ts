@@ -7293,6 +7293,7 @@ const enumsMap: { [key: string]: any[] } = {
   CreateSnapshotTimeseriesLegendType: ["compact", "expanded", "none"],
   CreateSnapshotType: ["create_snapshot"],
   CreateStatusPageRequestDataAttributesType: ["public", "internal"],
+  CreateStatusPageRequestDataAttributesVisualizationLayout: ["list", "grid"],
   CreateStatusPageRequestDataAttributesVisualizationType: [
     "bars_and_uptime_percentage",
     "bars_only",
