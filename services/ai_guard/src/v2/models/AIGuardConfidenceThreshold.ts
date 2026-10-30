@@ -1,0 +1,55 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+/**
+ * Request-level confidence threshold override. `flagging_global` is the global
+ * threshold applied to every threat category. Any other property is a
+ * per-category override keyed by an AI Guard threat tag; per-category values
+ * take precedence over `flagging_global`, and categories without an entry fall
+ * back to it. When this object omits flagging_global, the fallback is `0.5`.
+ * Recognized category keys include policy-evasion, indirect-prompt-injection,
+ * system-and-capability-discovery, credential-access, sensitive-data-collection,
+ * privilege-escalation, malicious-execution, private-network-target,
+ * destructive-or-resource-abuse, tool-abuse, poisoning-or-persistence, and
+ * `data-exfiltration`. Unknown category keys are ignored.
+ */
+export class AIGuardConfidenceThreshold {
+  /**
+   * The global confidence threshold applied to categories without a specific override.
+   */
+  "flaggingGlobal"?: number;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: number };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    flaggingGlobal: {
+      baseName: "flagging_global",
+      type: "number",
+      format: "double",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: number; }",
+      format: "double",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return AIGuardConfidenceThreshold.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
