@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Request to create a variant.
+ * Attributes for creating a variant.
  */
 export class CreateVariant {
   /**

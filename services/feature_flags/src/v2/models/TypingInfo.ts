@@ -20,6 +20,8 @@ import { CreateFeatureFlagAttributes } from "./CreateFeatureFlagAttributes";
 import { CreateFeatureFlagData } from "./CreateFeatureFlagData";
 import { CreateFeatureFlagRequest } from "./CreateFeatureFlagRequest";
 import { CreateVariant } from "./CreateVariant";
+import { CreateVariantData } from "./CreateVariantData";
+import { CreateVariantRequest } from "./CreateVariantRequest";
 import { Environment } from "./Environment";
 import { EnvironmentAttributes } from "./EnvironmentAttributes";
 import { EnvironmentResponse } from "./EnvironmentResponse";
@@ -78,9 +80,14 @@ import { UpdateEnvironmentRequest } from "./UpdateEnvironmentRequest";
 import { UpdateFeatureFlagAttributes } from "./UpdateFeatureFlagAttributes";
 import { UpdateFeatureFlagData } from "./UpdateFeatureFlagData";
 import { UpdateFeatureFlagRequest } from "./UpdateFeatureFlagRequest";
+import { UpdateVariantAttributes } from "./UpdateVariantAttributes";
+import { UpdateVariantData } from "./UpdateVariantData";
 import { UpdateVariantRequest } from "./UpdateVariantRequest";
 import { UpsertAllocationRequest } from "./UpsertAllocationRequest";
 import { Variant } from "./Variant";
+import { VariantResponse } from "./VariantResponse";
+import { VariantResponseAttributes } from "./VariantResponseAttributes";
+import { VariantResponseData } from "./VariantResponseData";
 import { VariantWeight } from "./VariantWeight";
 import { VariantWeightRequest } from "./VariantWeightRequest";
 
@@ -136,6 +143,7 @@ export const TypingInfo: ModelTypingInfo = {
     UpdateEnvironmentDataType: ["environments"],
     UpdateFeatureFlagDataType: ["feature-flags"],
     ValueType: ["BOOLEAN", "INTEGER", "NUMERIC", "STRING", "JSON"],
+    VariantDataType: ["variants"],
   },
   oneOfMap: {
     PatchSavedFilterConflictResponse: [
@@ -169,6 +177,8 @@ export const TypingInfo: ModelTypingInfo = {
     CreateFeatureFlagData: CreateFeatureFlagData,
     CreateFeatureFlagRequest: CreateFeatureFlagRequest,
     CreateVariant: CreateVariant,
+    CreateVariantData: CreateVariantData,
+    CreateVariantRequest: CreateVariantRequest,
     Environment: Environment,
     EnvironmentAttributes: EnvironmentAttributes,
     EnvironmentResponse: EnvironmentResponse,
@@ -230,9 +240,14 @@ export const TypingInfo: ModelTypingInfo = {
     UpdateFeatureFlagAttributes: UpdateFeatureFlagAttributes,
     UpdateFeatureFlagData: UpdateFeatureFlagData,
     UpdateFeatureFlagRequest: UpdateFeatureFlagRequest,
+    UpdateVariantAttributes: UpdateVariantAttributes,
+    UpdateVariantData: UpdateVariantData,
     UpdateVariantRequest: UpdateVariantRequest,
     UpsertAllocationRequest: UpsertAllocationRequest,
     Variant: Variant,
+    VariantResponse: VariantResponse,
+    VariantResponseAttributes: VariantResponseAttributes,
+    VariantResponseData: VariantResponseData,
     VariantWeight: VariantWeight,
     VariantWeightRequest: VariantWeightRequest,
   },

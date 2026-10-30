@@ -11161,10 +11161,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "uuid",
     },
     body: {
-      type: "CreateVariant",
+      type: "CreateVariantRequest",
       format: "",
     },
-    operationResponseType: "Variant",
+    operationResponseType: "VariantResponse",
   },
   "FeatureFlagsApi.V2.UpdateVariantForFeatureFlag": {
     featureFlagId: {
@@ -11179,7 +11179,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "UpdateVariantRequest",
       format: "",
     },
-    operationResponseType: "Variant",
+    operationResponseType: "{}",
   },
   "FeatureFlagsApi.V2.DeleteVariantFromFeatureFlag": {
     featureFlagId: {
