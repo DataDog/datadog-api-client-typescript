@@ -1,6 +1,13 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { AWSCloudAuthIntakeMappingAttributesResponse } from "./AWSCloudAuthIntakeMappingAttributesResponse";
+import { AWSCloudAuthIntakeMappingCreateAttributes } from "./AWSCloudAuthIntakeMappingCreateAttributes";
+import { AWSCloudAuthIntakeMappingCreateData } from "./AWSCloudAuthIntakeMappingCreateData";
+import { AWSCloudAuthIntakeMappingCreateRequest } from "./AWSCloudAuthIntakeMappingCreateRequest";
+import { AWSCloudAuthIntakeMappingDataResponse } from "./AWSCloudAuthIntakeMappingDataResponse";
+import { AWSCloudAuthIntakeMappingResponse } from "./AWSCloudAuthIntakeMappingResponse";
+import { AWSCloudAuthIntakeMappingsResponse } from "./AWSCloudAuthIntakeMappingsResponse";
 import { AWSCloudAuthPersonaMappingAttributesResponse } from "./AWSCloudAuthPersonaMappingAttributesResponse";
 import { AWSCloudAuthPersonaMappingCreateAttributes } from "./AWSCloudAuthPersonaMappingCreateAttributes";
 import { AWSCloudAuthPersonaMappingCreateData } from "./AWSCloudAuthPersonaMappingCreateData";
@@ -29,6 +36,7 @@ import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    AWSCloudAuthIntakeMappingType: ["aws_cloud_auth_intake_mapping"],
     AWSCloudAuthPersonaMappingType: ["aws_cloud_auth_config"],
     GitHubCloudAuthIntakeMappingType: ["github_oidc_auth_intake_mapping"],
     GitHubCloudAuthPersonaMappingType: ["github_oidc_auth_config"],
@@ -36,6 +44,17 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    AWSCloudAuthIntakeMappingAttributesResponse:
+      AWSCloudAuthIntakeMappingAttributesResponse,
+    AWSCloudAuthIntakeMappingCreateAttributes:
+      AWSCloudAuthIntakeMappingCreateAttributes,
+    AWSCloudAuthIntakeMappingCreateData: AWSCloudAuthIntakeMappingCreateData,
+    AWSCloudAuthIntakeMappingCreateRequest:
+      AWSCloudAuthIntakeMappingCreateRequest,
+    AWSCloudAuthIntakeMappingDataResponse:
+      AWSCloudAuthIntakeMappingDataResponse,
+    AWSCloudAuthIntakeMappingResponse: AWSCloudAuthIntakeMappingResponse,
+    AWSCloudAuthIntakeMappingsResponse: AWSCloudAuthIntakeMappingsResponse,
     AWSCloudAuthPersonaMappingAttributesResponse:
       AWSCloudAuthPersonaMappingAttributesResponse,
     AWSCloudAuthPersonaMappingCreateAttributes:

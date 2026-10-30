@@ -1,10 +1,13 @@
 export {
+  CloudAuthenticationApiCreateAWSCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiCreateAWSCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiCreateGitHubCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiCreateGitHubCloudAuthPersonaMappingRequest,
+  CloudAuthenticationApiDeleteAWSCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiDeleteAWSCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiDeleteGitHubCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiDeleteGitHubCloudAuthPersonaMappingRequest,
+  CloudAuthenticationApiGetAWSCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiGetAWSCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiGetGitHubCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiGetGitHubCloudAuthPersonaMappingRequest,
@@ -12,6 +15,14 @@ export {
 } from "./CloudAuthenticationApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { AWSCloudAuthIntakeMappingAttributesResponse } from "./models/AWSCloudAuthIntakeMappingAttributesResponse";
+export { AWSCloudAuthIntakeMappingCreateAttributes } from "./models/AWSCloudAuthIntakeMappingCreateAttributes";
+export { AWSCloudAuthIntakeMappingCreateData } from "./models/AWSCloudAuthIntakeMappingCreateData";
+export { AWSCloudAuthIntakeMappingCreateRequest } from "./models/AWSCloudAuthIntakeMappingCreateRequest";
+export { AWSCloudAuthIntakeMappingDataResponse } from "./models/AWSCloudAuthIntakeMappingDataResponse";
+export { AWSCloudAuthIntakeMappingResponse } from "./models/AWSCloudAuthIntakeMappingResponse";
+export { AWSCloudAuthIntakeMappingsResponse } from "./models/AWSCloudAuthIntakeMappingsResponse";
+export { AWSCloudAuthIntakeMappingType } from "./models/AWSCloudAuthIntakeMappingType";
 export { AWSCloudAuthPersonaMappingAttributesResponse } from "./models/AWSCloudAuthPersonaMappingAttributesResponse";
 export { AWSCloudAuthPersonaMappingCreateAttributes } from "./models/AWSCloudAuthPersonaMappingCreateAttributes";
 export { AWSCloudAuthPersonaMappingCreateData } from "./models/AWSCloudAuthPersonaMappingCreateData";
