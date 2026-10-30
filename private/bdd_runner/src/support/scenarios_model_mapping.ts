@@ -3996,6 +3996,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterHandle: {
+      type: "string",
+      format: "",
+    },
     operationResponseType: "UsersResponse",
   },
   "UsersApi.V2.CreateUser": {
