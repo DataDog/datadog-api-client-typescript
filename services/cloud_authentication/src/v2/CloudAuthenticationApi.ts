@@ -23,6 +23,9 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { AWSCloudAuthIntakeMappingCreateRequest } from "./models/AWSCloudAuthIntakeMappingCreateRequest";
+import { AWSCloudAuthIntakeMappingResponse } from "./models/AWSCloudAuthIntakeMappingResponse";
+import { AWSCloudAuthIntakeMappingsResponse } from "./models/AWSCloudAuthIntakeMappingsResponse";
 import { AWSCloudAuthPersonaMappingCreateRequest } from "./models/AWSCloudAuthPersonaMappingCreateRequest";
 import { AWSCloudAuthPersonaMappingResponse } from "./models/AWSCloudAuthPersonaMappingResponse";
 import { AWSCloudAuthPersonaMappingsResponse } from "./models/AWSCloudAuthPersonaMappingsResponse";
@@ -44,6 +47,72 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
       this.userAgent = buildUserAgent("cloud-authentication", version);
     }
   }
+  public async createAWSCloudAuthIntakeMapping(
+    body: AWSCloudAuthIntakeMappingCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudAuthenticationApi.v2.createAWSCloudAuthIntakeMapping"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createAWSCloudAuthIntakeMapping' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.createAWSCloudAuthIntakeMapping'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createAWSCloudAuthIntakeMapping");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/wif/aws/intake_mapping";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudAuthenticationApi.v2.createAWSCloudAuthIntakeMapping",
+      CloudAuthenticationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AWSCloudAuthIntakeMappingCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async createAWSCloudAuthPersonaMapping(
     body: AWSCloudAuthPersonaMappingCreateRequest,
     _options?: Configuration,
@@ -257,6 +326,70 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async deleteAWSCloudAuthIntakeMapping(
+    intakeMappingId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudAuthenticationApi.v2.deleteAWSCloudAuthIntakeMapping"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteAWSCloudAuthIntakeMapping' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.deleteAWSCloudAuthIntakeMapping'] = true`",
+      );
+    }
+
+    // verify required parameter 'intakeMappingId' is not null or undefined
+    if (intakeMappingId === null || intakeMappingId === undefined) {
+      throw new RequiredError(
+        "intakeMappingId",
+        "deleteAWSCloudAuthIntakeMapping",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/wif/aws/intake_mapping/{intake_mapping_id}".replace(
+        "{intake_mapping_id}",
+        encodeURIComponent(String(intakeMappingId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudAuthenticationApi.v2.deleteAWSCloudAuthIntakeMapping",
+      CloudAuthenticationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteAWSCloudAuthPersonaMapping(
     personaMappingId: string,
     _options?: Configuration,
@@ -427,6 +560,70 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
       overrides,
     );
     requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getAWSCloudAuthIntakeMapping(
+    intakeMappingId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudAuthenticationApi.v2.getAWSCloudAuthIntakeMapping"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getAWSCloudAuthIntakeMapping' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.getAWSCloudAuthIntakeMapping'] = true`",
+      );
+    }
+
+    // verify required parameter 'intakeMappingId' is not null or undefined
+    if (intakeMappingId === null || intakeMappingId === undefined) {
+      throw new RequiredError(
+        "intakeMappingId",
+        "getAWSCloudAuthIntakeMapping",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/wif/aws/intake_mapping/{intake_mapping_id}".replace(
+        "{intake_mapping_id}",
+        encodeURIComponent(String(intakeMappingId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudAuthenticationApi.v2.getAWSCloudAuthIntakeMapping",
+      CloudAuthenticationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -641,6 +838,57 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async listAWSCloudAuthIntakeMappings(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudAuthenticationApi.v2.listAWSCloudAuthIntakeMappings"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listAWSCloudAuthIntakeMappings' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.listAWSCloudAuthIntakeMappings'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/wif/aws/intake_mapping";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudAuthenticationApi.v2.listAWSCloudAuthIntakeMappings",
+      CloudAuthenticationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listAWSCloudAuthPersonaMappings(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -796,6 +1044,87 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class CloudAuthenticationApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createAWSCloudAuthIntakeMapping
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createAWSCloudAuthIntakeMapping(
+    response: ResponseContext,
+  ): Promise<AWSCloudAuthIntakeMappingResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: AWSCloudAuthIntakeMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AWSCloudAuthIntakeMappingResponse",
+      ) as AWSCloudAuthIntakeMappingResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AWSCloudAuthIntakeMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AWSCloudAuthIntakeMappingResponse",
+        "",
+      ) as AWSCloudAuthIntakeMappingResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1043,6 +1372,72 @@ export class CloudAuthenticationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteAWSCloudAuthIntakeMapping
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteAWSCloudAuthIntakeMapping(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteAWSCloudAuthPersonaMapping
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1228,6 +1623,83 @@ export class CloudAuthenticationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getAWSCloudAuthIntakeMapping
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getAWSCloudAuthIntakeMapping(
+    response: ResponseContext,
+  ): Promise<AWSCloudAuthIntakeMappingResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: AWSCloudAuthIntakeMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AWSCloudAuthIntakeMappingResponse",
+      ) as AWSCloudAuthIntakeMappingResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AWSCloudAuthIntakeMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AWSCloudAuthIntakeMappingResponse",
+        "",
+      ) as AWSCloudAuthIntakeMappingResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -1472,6 +1944,83 @@ export class CloudAuthenticationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listAWSCloudAuthIntakeMappings
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listAWSCloudAuthIntakeMappings(
+    response: ResponseContext,
+  ): Promise<AWSCloudAuthIntakeMappingsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: AWSCloudAuthIntakeMappingsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AWSCloudAuthIntakeMappingsResponse",
+      ) as AWSCloudAuthIntakeMappingsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AWSCloudAuthIntakeMappingsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AWSCloudAuthIntakeMappingsResponse",
+        "",
+      ) as AWSCloudAuthIntakeMappingsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAWSCloudAuthPersonaMappings
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1700,6 +2249,13 @@ export class CloudAuthenticationApiResponseProcessor {
   }
 }
 
+export interface CloudAuthenticationApiCreateAWSCloudAuthIntakeMappingRequest {
+  /**
+   * @type AWSCloudAuthIntakeMappingCreateRequest
+   */
+  body: AWSCloudAuthIntakeMappingCreateRequest;
+}
+
 export interface CloudAuthenticationApiCreateAWSCloudAuthPersonaMappingRequest {
   /**
    * @type AWSCloudAuthPersonaMappingCreateRequest
@@ -1719,6 +2275,14 @@ export interface CloudAuthenticationApiCreateGitHubCloudAuthPersonaMappingReques
    * @type GitHubCloudAuthPersonaMappingCreateRequest
    */
   body: GitHubCloudAuthPersonaMappingCreateRequest;
+}
+
+export interface CloudAuthenticationApiDeleteAWSCloudAuthIntakeMappingRequest {
+  /**
+   * The ID of the intake mapping
+   * @type string
+   */
+  intakeMappingId: string;
 }
 
 export interface CloudAuthenticationApiDeleteAWSCloudAuthPersonaMappingRequest {
@@ -1743,6 +2307,14 @@ export interface CloudAuthenticationApiDeleteGitHubCloudAuthPersonaMappingReques
    * @type string
    */
   personaMappingId: string;
+}
+
+export interface CloudAuthenticationApiGetAWSCloudAuthIntakeMappingRequest {
+  /**
+   * The ID of the intake mapping
+   * @type string
+   */
+  intakeMappingId: string;
 }
 
 export interface CloudAuthenticationApiGetAWSCloudAuthPersonaMappingRequest {
@@ -1787,6 +2359,27 @@ export class CloudAuthenticationApi {
       new CloudAuthenticationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CloudAuthenticationApiResponseProcessor();
+  }
+
+  /**
+   * Create an AWS cloud authentication intake mapping to authorize an AWS ARN pattern for Agent authentication. The AWS account must already be integrated with Datadog, and managed API key rotation must be enabled for the organization. Patterns that conflict with existing intake or persona mappings are rejected.
+   * @param param The request object
+   */
+  public createAWSCloudAuthIntakeMapping(
+    param: CloudAuthenticationApiCreateAWSCloudAuthIntakeMappingRequest,
+    options?: Configuration,
+  ): Promise<AWSCloudAuthIntakeMappingResponse> {
+    const requestContextPromise =
+      this.requestFactory.createAWSCloudAuthIntakeMapping(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createAWSCloudAuthIntakeMapping(
+            responseContext,
+          );
+        });
+    });
   }
 
   /**
@@ -1852,6 +2445,30 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createGitHubCloudAuthPersonaMapping(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete an AWS cloud authentication intake mapping by ID.
+   * @param param The request object
+   */
+  public deleteAWSCloudAuthIntakeMapping(
+    param: CloudAuthenticationApiDeleteAWSCloudAuthIntakeMappingRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteAWSCloudAuthIntakeMapping(
+        param.intakeMappingId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAWSCloudAuthIntakeMapping(
             responseContext,
           );
         });
@@ -1931,6 +2548,30 @@ export class CloudAuthenticationApi {
   }
 
   /**
+   * Get an AWS cloud authentication intake mapping by ID.
+   * @param param The request object
+   */
+  public getAWSCloudAuthIntakeMapping(
+    param: CloudAuthenticationApiGetAWSCloudAuthIntakeMappingRequest,
+    options?: Configuration,
+  ): Promise<AWSCloudAuthIntakeMappingResponse> {
+    const requestContextPromise =
+      this.requestFactory.getAWSCloudAuthIntakeMapping(
+        param.intakeMappingId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAWSCloudAuthIntakeMapping(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Get a specific AWS cloud authentication persona mapping by ID. This endpoint retrieves a single configured persona mapping that associates an AWS IAM principal with a Datadog user.
    * @param param The request object
    */
@@ -1996,6 +2637,26 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getGitHubCloudAuthPersonaMapping(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List AWS cloud authentication intake mappings configured for the organization.
+   * @param param The request object
+   */
+  public listAWSCloudAuthIntakeMappings(
+    options?: Configuration,
+  ): Promise<AWSCloudAuthIntakeMappingsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listAWSCloudAuthIntakeMappings(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAWSCloudAuthIntakeMappings(
             responseContext,
           );
         });
