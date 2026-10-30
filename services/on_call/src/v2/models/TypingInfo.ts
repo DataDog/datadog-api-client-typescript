@@ -176,6 +176,7 @@ import { Schedules } from "./Schedules";
 import { SchedulesResponseMeta } from "./SchedulesResponseMeta";
 import { SchedulesResponseMetaPage } from "./SchedulesResponseMetaPage";
 import { SendSlackMessageAction } from "./SendSlackMessageAction";
+import { SendSlackMessageActionCustomizableContent } from "./SendSlackMessageActionCustomizableContent";
 import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 import { Shift } from "./Shift";
 import { ShiftData } from "./ShiftData";
@@ -625,6 +626,8 @@ export const TypingInfo: ModelTypingInfo = {
     SchedulesResponseMeta: SchedulesResponseMeta,
     SchedulesResponseMetaPage: SchedulesResponseMetaPage,
     SendSlackMessageAction: SendSlackMessageAction,
+    SendSlackMessageActionCustomizableContent:
+      SendSlackMessageActionCustomizableContent,
     SendTeamsMessageAction: SendTeamsMessageAction,
     Shift: Shift,
     ShiftData: ShiftData,
