@@ -37,6 +37,7 @@ import { FeatureFlagStalenessStatus } from "./models/FeatureFlagStalenessStatus"
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { ListAllocationsResponse } from "./models/ListAllocationsResponse";
 import { ListEnvironmentsResponse } from "./models/ListEnvironmentsResponse";
+import { ListFeatureFlagHistoryResponse } from "./models/ListFeatureFlagHistoryResponse";
 import { ListFeatureFlagsResponse } from "./models/ListFeatureFlagsResponse";
 import { OverwriteAllocationsRequest } from "./models/OverwriteAllocationsRequest";
 import { PatchSavedFilterConflictResponse } from "./models/PatchSavedFilterConflictResponse";
@@ -587,6 +588,105 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async exportFeatureFlagHistory(
+    startDate?: Date,
+    endDate?: Date,
+    teams?: Array<string>,
+    tags?: Array<string>,
+    featureFlagId?: string,
+    environmentId?: string,
+    includeSuggestionEvents?: boolean,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/feature-flags/history/export";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FeatureFlagsApi.v2.exportFeatureFlagHistory",
+      FeatureFlagsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "text/csv, application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (startDate !== undefined) {
+      requestContext.setQueryParam(
+        "start_date",
+        serialize(startDate, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+    if (endDate !== undefined) {
+      requestContext.setQueryParam(
+        "end_date",
+        serialize(endDate, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+    if (teams !== undefined) {
+      requestContext.setQueryParam(
+        "teams",
+        serialize(teams, TypingInfo, "Array<string>", ""),
+        "multi",
+      );
+    }
+    if (tags !== undefined) {
+      requestContext.setQueryParam(
+        "tags",
+        serialize(tags, TypingInfo, "Array<string>", ""),
+        "multi",
+      );
+    }
+    if (featureFlagId !== undefined) {
+      requestContext.setQueryParam(
+        "feature_flag_id",
+        serialize(featureFlagId, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+    if (environmentId !== undefined) {
+      requestContext.setQueryParam(
+        "environment_id",
+        serialize(environmentId, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+    if (includeSuggestionEvents !== undefined) {
+      requestContext.setQueryParam(
+        "include_suggestion_events",
+        serialize(includeSuggestionEvents, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getFeatureFlag(
     featureFlagId: string,
     _options?: Configuration,
@@ -727,6 +827,121 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listFeatureFlagHistory(
+    startDate?: Date,
+    endDate?: Date,
+    teams?: Array<string>,
+    tags?: Array<string>,
+    featureFlagId?: string,
+    environmentId?: string,
+    includeSuggestionEvents?: boolean,
+    pageLimit?: number,
+    pageOffset?: number,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/feature-flags/history";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FeatureFlagsApi.v2.listFeatureFlagHistory",
+      FeatureFlagsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (startDate !== undefined) {
+      requestContext.setQueryParam(
+        "start_date",
+        serialize(startDate, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+    if (endDate !== undefined) {
+      requestContext.setQueryParam(
+        "end_date",
+        serialize(endDate, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+    if (teams !== undefined) {
+      requestContext.setQueryParam(
+        "teams",
+        serialize(teams, TypingInfo, "Array<string>", ""),
+        "multi",
+      );
+    }
+    if (tags !== undefined) {
+      requestContext.setQueryParam(
+        "tags",
+        serialize(tags, TypingInfo, "Array<string>", ""),
+        "multi",
+      );
+    }
+    if (featureFlagId !== undefined) {
+      requestContext.setQueryParam(
+        "feature_flag_id",
+        serialize(featureFlagId, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+    if (environmentId !== undefined) {
+      requestContext.setQueryParam(
+        "environment_id",
+        serialize(environmentId, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+    if (includeSuggestionEvents !== undefined) {
+      requestContext.setQueryParam(
+        "include_suggestion_events",
+        serialize(includeSuggestionEvents, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        serialize(pageLimit, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        serialize(pageOffset, TypingInfo, "number", "int64"),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -2130,6 +2345,83 @@ export class FeatureFlagsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to exportFeatureFlagHistory
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async exportFeatureFlagHistory(
+    response: ResponseContext,
+  ): Promise<string> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: string = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "string",
+      ) as string;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: string = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "string",
+        "",
+      ) as string;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getFeatureFlag
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2313,6 +2605,83 @@ export class FeatureFlagsApiResponseProcessor {
         "SavedFilterResponse",
         "",
       ) as SavedFilterResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listFeatureFlagHistory
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listFeatureFlagHistory(
+    response: ResponseContext,
+  ): Promise<ListFeatureFlagHistoryResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ListFeatureFlagHistoryResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListFeatureFlagHistoryResponse",
+      ) as ListFeatureFlagHistoryResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListFeatureFlagHistoryResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListFeatureFlagHistoryResponse",
+        "",
+      ) as ListFeatureFlagHistoryResponse;
       return body;
     }
 
@@ -3229,6 +3598,44 @@ export interface FeatureFlagsApiEnableFeatureFlagEnvironmentRequest {
   environmentId: string;
 }
 
+export interface FeatureFlagsApiExportFeatureFlagHistoryRequest {
+  /**
+   * Only include changes made after this time, for example `2026-01-01T00:00:00Z`. Omit for no lower bound.
+   * @type Date
+   */
+  startDate?: Date;
+  /**
+   * Only include changes made before this time, for example `2026-02-01T00:00:00Z`. Omit for no upper bound. Must be after `start_date` when both are set.
+   * @type Date
+   */
+  endDate?: Date;
+  /**
+   * Only include changes to flags that belong to at least one of these teams. Use team handles without the `team:` prefix, as repeated parameters, such as `teams=checkout&teams=payments`. Handles from `teams` and `team:<handle>` values from `tags` are treated as one set. Handles that are empty, have surrounding white space, or include the `team:` prefix return a `400 Bad Request` error.
+   * @type Array<string>
+   */
+  teams?: Array<string>;
+  /**
+   * Only include changes to flags that have all of these exact tags, as repeated parameters, such as `tags=env:prod&tags=tier:1`. Values of the form `team:<handle>` match any selected team and are combined with `teams`. Empty values are ignored.
+   * @type Array<string>
+   */
+  tags?: Array<string>;
+  /**
+   * Only include changes to this feature flag.
+   * @type string
+   */
+  featureFlagId?: string;
+  /**
+   * Only include changes to this environment. Changes to the flag itself, which have no environment, are always included.
+   * @type string
+   */
+  environmentId?: string;
+  /**
+   * Also include review events for change requests that needed approval: rejected requests and requests still pending review. Applies only to organizations with flag approvals enabled.
+   * @type boolean
+   */
+  includeSuggestionEvents?: boolean;
+}
+
 export interface FeatureFlagsApiGetFeatureFlagRequest {
   /**
    * The ID of the feature flag.
@@ -3251,6 +3658,54 @@ export interface FeatureFlagsApiGetSavedFilterRequest {
    * @type string
    */
   savedFilterId: string;
+}
+
+export interface FeatureFlagsApiListFeatureFlagHistoryRequest {
+  /**
+   * Only include changes made after this time, for example `2026-01-01T00:00:00Z`. Omit for no lower bound.
+   * @type Date
+   */
+  startDate?: Date;
+  /**
+   * Only include changes made before this time, for example `2026-02-01T00:00:00Z`. Omit for no upper bound. Must be after `start_date` when both are set.
+   * @type Date
+   */
+  endDate?: Date;
+  /**
+   * Only include changes to flags that belong to at least one of these teams. Use team handles without the `team:` prefix, as repeated parameters, such as `teams=checkout&teams=payments`. Handles from `teams` and `team:<handle>` values from `tags` are treated as one set. Handles that are empty, have surrounding white space, or include the `team:` prefix return a `400 Bad Request` error.
+   * @type Array<string>
+   */
+  teams?: Array<string>;
+  /**
+   * Only include changes to flags that have all of these exact tags, as repeated parameters, such as `tags=env:prod&tags=tier:1`. Values of the form `team:<handle>` match any selected team and are combined with `teams`. Empty values are ignored.
+   * @type Array<string>
+   */
+  tags?: Array<string>;
+  /**
+   * Only include changes to this feature flag.
+   * @type string
+   */
+  featureFlagId?: string;
+  /**
+   * Only include changes to this environment. Changes to the flag itself, which have no environment, are always included.
+   * @type string
+   */
+  environmentId?: string;
+  /**
+   * Also include review events for change requests that needed approval: rejected requests and requests still pending review. Applies only to organizations with flag approvals enabled.
+   * @type boolean
+   */
+  includeSuggestionEvents?: boolean;
+  /**
+   * Maximum number of events to return. Defaults to `25`. Values above `50` return `50` events. Non-positive or empty values use the default. A non-integer value returns a `400 Bad Request` error.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * Number of matching events to skip before returning results. Defaults to `0`. Negative or empty values are set to `0`. A non-integer value returns a `400 Bad Request` error.
+   * @type number
+   */
+  pageOffset?: number;
 }
 
 export interface FeatureFlagsApiListFeatureFlagsRequest {
@@ -3721,6 +4176,42 @@ export class FeatureFlagsApi {
   }
 
   /**
+   * Exports the organization's feature flag change events as a CSV file, newest first, without pagination.
+   * It accepts the same filters as the List feature flag change history endpoint, and its columns match the CSV export on the flag history page:
+   * Flag Version, Flag Name, Flag Key, Flag UUID, Action, User Name, User Email, User Type, Environment, and Timestamp.
+   *
+   * If an export fails before the file starts, the response is a JSON:API error. Large exports stream as they are read.
+   * If an export fails after streaming starts, the connection closes before the file ends, so the download fails instead of
+   * returning a file with missing rows. An export must finish within the 60-second request timeout. If an export times out,
+   * narrow the date range.
+   * @param param The request object
+   */
+  public exportFeatureFlagHistory(
+    param: FeatureFlagsApiExportFeatureFlagHistoryRequest = {},
+    options?: Configuration,
+  ): Promise<string> {
+    const requestContextPromise = this.requestFactory.exportFeatureFlagHistory(
+      param.startDate,
+      param.endDate,
+      param.teams,
+      param.tags,
+      param.featureFlagId,
+      param.environmentId,
+      param.includeSuggestionEvents,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.exportFeatureFlagHistory(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Returns the details of a specific feature flag
    * including variants and environment status.
    * @param param The request object
@@ -3787,6 +4278,38 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSavedFilter(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns the organization's feature flag change events, newest first.
+   * Each event includes a readable description of the change.
+   * All filters are optional, and events must match every filter you set. Without a date range, the whole history is listed.
+   * Results are paginated with `page[limit]` and `page[offset]`; follow `links.next` to read further back.
+   * @param param The request object
+   */
+  public listFeatureFlagHistory(
+    param: FeatureFlagsApiListFeatureFlagHistoryRequest = {},
+    options?: Configuration,
+  ): Promise<ListFeatureFlagHistoryResponse> {
+    const requestContextPromise = this.requestFactory.listFeatureFlagHistory(
+      param.startDate,
+      param.endDate,
+      param.teams,
+      param.tags,
+      param.featureFlagId,
+      param.environmentId,
+      param.includeSuggestionEvents,
+      param.pageLimit,
+      param.pageOffset,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listFeatureFlagHistory(responseContext);
         });
     });
   }

@@ -11046,6 +11046,76 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AllocationExposureScheduleResponse",
   },
+  "FeatureFlagsApi.V2.ListFeatureFlagHistory": {
+    startDate: {
+      type: "Date",
+      format: "date-time",
+    },
+    endDate: {
+      type: "Date",
+      format: "date-time",
+    },
+    teams: {
+      type: "Array<string>",
+      format: "",
+    },
+    tags: {
+      type: "Array<string>",
+      format: "",
+    },
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    environmentId: {
+      type: "string",
+      format: "uuid",
+    },
+    includeSuggestionEvents: {
+      type: "boolean",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "ListFeatureFlagHistoryResponse",
+  },
+  "FeatureFlagsApi.V2.ExportFeatureFlagHistory": {
+    startDate: {
+      type: "Date",
+      format: "date-time",
+    },
+    endDate: {
+      type: "Date",
+      format: "date-time",
+    },
+    teams: {
+      type: "Array<string>",
+      format: "",
+    },
+    tags: {
+      type: "Array<string>",
+      format: "",
+    },
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    environmentId: {
+      type: "string",
+      format: "uuid",
+    },
+    includeSuggestionEvents: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "string",
+  },
   "FeatureFlagsApi.V2.GetSavedFilter": {
     savedFilterId: {
       type: "string",
