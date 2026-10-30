@@ -6229,6 +6229,18 @@ import { TeamsResponse } from "./TeamsResponse";
 import { TeamsResponseLinks } from "./TeamsResponseLinks";
 import { TeamsResponseMeta } from "./TeamsResponseMeta";
 import { TeamsResponseMetaPagination } from "./TeamsResponseMetaPagination";
+import { TemporaryGrantRequestAttributes } from "./TemporaryGrantRequestAttributes";
+import { TemporaryGrantRequestCreateAttributes } from "./TemporaryGrantRequestCreateAttributes";
+import { TemporaryGrantRequestCreateData } from "./TemporaryGrantRequestCreateData";
+import { TemporaryGrantRequestCreateRequest } from "./TemporaryGrantRequestCreateRequest";
+import { TemporaryGrantRequestData } from "./TemporaryGrantRequestData";
+import { TemporaryGrantRequestDecisionAttributes } from "./TemporaryGrantRequestDecisionAttributes";
+import { TemporaryGrantRequestDecisionData } from "./TemporaryGrantRequestDecisionData";
+import { TemporaryGrantRequestDecisionRequest } from "./TemporaryGrantRequestDecisionRequest";
+import { TemporaryGrantRequestListMeta } from "./TemporaryGrantRequestListMeta";
+import { TemporaryGrantRequestListResponse } from "./TemporaryGrantRequestListResponse";
+import { TemporaryGrantRequestPage } from "./TemporaryGrantRequestPage";
+import { TemporaryGrantRequestResponse } from "./TemporaryGrantRequestResponse";
 import { TenancyConfig } from "./TenancyConfig";
 import { TenancyConfigData } from "./TenancyConfigData";
 import { TenancyConfigDataAttributes } from "./TenancyConfigDataAttributes";
@@ -10264,6 +10276,10 @@ const enumsMap: { [key: string]: any[] } = {
   TeamsOwnershipMappingType: ["teams_ownership_mappings"],
   TeamsOwnershipMatchType: ["exact", "prefix"],
   TeamsOwnershipRuleType: ["teams_ownership_grouped_mappings"],
+  TemporaryGrantRequestDecision: ["approved", "denied"],
+  TemporaryGrantRequestGrantState: ["active", "expired", "revoked", "replaced"],
+  TemporaryGrantRequestStatus: ["pending", "approved", "denied", "cancelled"],
+  TemporaryGrantRequestType: ["temporary_grant_requests"],
   TenancyProductsDataType: ["oci_tenancy_product"],
   TestOptimizationDeleteServiceSettingsRequestDataType: [
     "test_optimization_delete_service_settings_request",
@@ -18317,6 +18333,19 @@ const typeMap: { [index: string]: any } = {
   TeamsResponseLinks: TeamsResponseLinks,
   TeamsResponseMeta: TeamsResponseMeta,
   TeamsResponseMetaPagination: TeamsResponseMetaPagination,
+  TemporaryGrantRequestAttributes: TemporaryGrantRequestAttributes,
+  TemporaryGrantRequestCreateAttributes: TemporaryGrantRequestCreateAttributes,
+  TemporaryGrantRequestCreateData: TemporaryGrantRequestCreateData,
+  TemporaryGrantRequestCreateRequest: TemporaryGrantRequestCreateRequest,
+  TemporaryGrantRequestData: TemporaryGrantRequestData,
+  TemporaryGrantRequestDecisionAttributes:
+    TemporaryGrantRequestDecisionAttributes,
+  TemporaryGrantRequestDecisionData: TemporaryGrantRequestDecisionData,
+  TemporaryGrantRequestDecisionRequest: TemporaryGrantRequestDecisionRequest,
+  TemporaryGrantRequestListMeta: TemporaryGrantRequestListMeta,
+  TemporaryGrantRequestListResponse: TemporaryGrantRequestListResponse,
+  TemporaryGrantRequestPage: TemporaryGrantRequestPage,
+  TemporaryGrantRequestResponse: TemporaryGrantRequestResponse,
   TenancyConfig: TenancyConfig,
   TenancyConfigData: TenancyConfigData,
   TenancyConfigDataAttributes: TenancyConfigDataAttributes,

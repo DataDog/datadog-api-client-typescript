@@ -8991,6 +8991,50 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MonthlyCostAttributionResponse",
     },
+    "v2.ListTemporaryGrantRequests": {
+        "filterStatus": {
+            "type": "TemporaryGrantRequestStatus",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterRequestedByUserId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "TemporaryGrantRequestListResponse",
+    },
+    "v2.GetTemporaryGrantRequest": {
+        "requestId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "TemporaryGrantRequestResponse",
+    },
+    "v2.UpdateTemporaryGrantRequest": {
+        "requestId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "TemporaryGrantRequestDecisionRequest",
+            "format": "",
+            },
+        "operationResponseType": "TemporaryGrantRequestResponse",
+    },
+    "v2.DeleteRequestedTemporaryGrant": {
+        "requestId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetUsageApplicationSecurityMonitoring": {
         "startHr": {
             "type": "Date",
@@ -9219,6 +9263,42 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     },
     "v2.GetUsageSummaryAvailableFields": {
         "operationResponseType": "UsageSummaryAvailableFieldsResponse",
+    },
+    "v2.ListMyTemporaryGrantRequests": {
+        "filterStatus": {
+            "type": "TemporaryGrantRequestStatus",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "TemporaryGrantRequestListResponse",
+    },
+    "v2.CreateTemporaryGrantRequest": {
+        "body": {
+            "type": "TemporaryGrantRequestCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TemporaryGrantRequestResponse",
+    },
+    "v2.GetMyTemporaryGrantRequest": {
+        "requestId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "TemporaryGrantRequestResponse",
+    },
+    "v2.DeleteTemporaryGrantRequest": {
+        "requestId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
     },
     "v2.GetUsageAttributionTypes": {
         "operationResponseType": "UsageAttributionTypesResponse",
