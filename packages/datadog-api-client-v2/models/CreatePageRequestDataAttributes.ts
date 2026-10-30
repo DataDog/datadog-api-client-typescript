@@ -17,7 +17,7 @@ export class CreatePageRequestDataAttributes {
    */
   "description"?: string;
   /**
-   * Tags to help categorize or filter the page.
+   * Tags to help categorize or filter the Page.
    */
   "tags"?: Array<string>;
   /**
@@ -25,7 +25,7 @@ export class CreatePageRequestDataAttributes {
    */
   "target": CreatePageRequestDataAttributesTarget;
   /**
-   * The title of the page.
+   * The title of the Page.
    */
   "title": string;
   /**
