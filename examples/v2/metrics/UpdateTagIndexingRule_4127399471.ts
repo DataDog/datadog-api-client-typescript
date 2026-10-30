@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.updateTagIndexingRule"] = true;
 const apiInstance = new v2.MetricsApi(configuration);
 
 // there is a valid "tag_indexing_rule_exclude_mode" in the system

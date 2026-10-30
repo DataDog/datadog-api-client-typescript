@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.listTagIndexingRulesForMetric"] = true;
 const apiInstance = new v2.MetricsApi(configuration);
 
 const params: v2.MetricsApiListTagIndexingRulesForMetricRequest = {
