@@ -12714,6 +12714,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SnowflakeIntegrationAccountResponse",
     },
+    "v2.ListTemporalCloudOpenMetricsIntegrationAccounts": {
+        "operationResponseType": "TemporalCloudOpenMetricsIntegrationAccountsResponse",
+    },
+    "v2.CreateTemporalCloudOpenMetricsIntegrationAccount": {
+        "body": {
+            "type": "TemporalCloudOpenMetricsIntegrationAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TemporalCloudOpenMetricsIntegrationAccountResponse",
+    },
+    "v2.GetTemporalCloudOpenMetricsIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TemporalCloudOpenMetricsIntegrationAccountResponse",
+    },
+    "v2.DeleteTemporalCloudOpenMetricsIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTemporalCloudOpenMetricsIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TemporalCloudOpenMetricsIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TemporalCloudOpenMetricsIntegrationAccountResponse",
+    },
     "v2.ListTwilioIntegrationAccounts": {
         "operationResponseType": "TwilioIntegrationAccountsResponse",
     },
