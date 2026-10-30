@@ -2,7 +2,8 @@
 
 ## Description
 
-Retrieve segments for RUM replay sessions. Access session replay data stored in event platform or blob storage.
+Retrieve segments for RUM replay sessions.
+Access session replay data stored in event platform or blob storage.
 
 ## Navigation
 
