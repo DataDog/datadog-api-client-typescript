@@ -3736,6 +3736,7 @@ import { MonitorNotificationRuleData } from "./MonitorNotificationRuleData";
 import { MonitorNotificationRuleFilterScope } from "./MonitorNotificationRuleFilterScope";
 import { MonitorNotificationRuleFilterTags } from "./MonitorNotificationRuleFilterTags";
 import { MonitorNotificationRuleListResponse } from "./MonitorNotificationRuleListResponse";
+import { MonitorNotificationRuleOptions } from "./MonitorNotificationRuleOptions";
 import { MonitorNotificationRuleRelationships } from "./MonitorNotificationRuleRelationships";
 import { MonitorNotificationRuleRelationshipsCreatedBy } from "./MonitorNotificationRuleRelationshipsCreatedBy";
 import { MonitorNotificationRuleRelationshipsCreatedByData } from "./MonitorNotificationRuleRelationshipsCreatedByData";
@@ -15118,6 +15119,7 @@ const typeMap: { [index: string]: any } = {
   MonitorNotificationRuleFilterScope: MonitorNotificationRuleFilterScope,
   MonitorNotificationRuleFilterTags: MonitorNotificationRuleFilterTags,
   MonitorNotificationRuleListResponse: MonitorNotificationRuleListResponse,
+  MonitorNotificationRuleOptions: MonitorNotificationRuleOptions,
   MonitorNotificationRuleRelationships: MonitorNotificationRuleRelationships,
   MonitorNotificationRuleRelationshipsCreatedBy:
     MonitorNotificationRuleRelationshipsCreatedBy,
