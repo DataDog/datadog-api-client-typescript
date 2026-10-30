@@ -32,6 +32,12 @@ import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionResponse";
 import { ProjectedCostResponse } from "./models/ProjectedCostResponse";
 import { SortDirection } from "./models/SortDirection";
+import { TemporaryGrantRequestCreateRequest } from "./models/TemporaryGrantRequestCreateRequest";
+import { TemporaryGrantRequestData } from "./models/TemporaryGrantRequestData";
+import { TemporaryGrantRequestDecisionRequest } from "./models/TemporaryGrantRequestDecisionRequest";
+import { TemporaryGrantRequestListResponse } from "./models/TemporaryGrantRequestListResponse";
+import { TemporaryGrantRequestResponse } from "./models/TemporaryGrantRequestResponse";
+import { TemporaryGrantRequestStatus } from "./models/TemporaryGrantRequestStatus";
 import { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributionTypesResponse } from "./models/UsageAttributionTypesResponse";
 import { UsageLambdaTracedInvocationsResponse } from "./models/UsageLambdaTracedInvocationsResponse";
@@ -121,6 +127,72 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UsageQuotasCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createTemporaryGrantRequest(
+    body: TemporaryGrantRequestCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "UsageMeteringApi.v2.createTemporaryGrantRequest"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createTemporaryGrantRequest' is disabled. Enable it by setting `configuration.unstableOperations['UsageMeteringApi.v2.createTemporaryGrantRequest'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createTemporaryGrantRequest");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/temporary-grant-requests";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.createTemporaryGrantRequest",
+      UsageMeteringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "TemporaryGrantRequestCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -227,6 +299,128 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v2.deleteQuota",
+      UsageMeteringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteRequestedTemporaryGrant(
+    requestId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "UsageMeteringApi.v2.deleteRequestedTemporaryGrant"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteRequestedTemporaryGrant' is disabled. Enable it by setting `configuration.unstableOperations['UsageMeteringApi.v2.deleteRequestedTemporaryGrant'] = true`",
+      );
+    }
+
+    // verify required parameter 'requestId' is not null or undefined
+    if (requestId === null || requestId === undefined) {
+      throw new RequiredError("requestId", "deleteRequestedTemporaryGrant");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/usage/admin/temporary-grant-requests/{request_id}/grant".replace(
+        "{request_id}",
+        encodeURIComponent(String(requestId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.deleteRequestedTemporaryGrant",
+      UsageMeteringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteTemporaryGrantRequest(
+    requestId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "UsageMeteringApi.v2.deleteTemporaryGrantRequest"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteTemporaryGrantRequest' is disabled. Enable it by setting `configuration.unstableOperations['UsageMeteringApi.v2.deleteTemporaryGrantRequest'] = true`",
+      );
+    }
+
+    // verify required parameter 'requestId' is not null or undefined
+    if (requestId === null || requestId === undefined) {
+      throw new RequiredError("requestId", "deleteTemporaryGrantRequest");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/usage/temporary-grant-requests/{request_id}".replace(
+        "{request_id}",
+        encodeURIComponent(String(requestId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.deleteTemporaryGrantRequest",
       UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -863,6 +1057,67 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getMyTemporaryGrantRequest(
+    requestId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "UsageMeteringApi.v2.getMyTemporaryGrantRequest"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getMyTemporaryGrantRequest' is disabled. Enable it by setting `configuration.unstableOperations['UsageMeteringApi.v2.getMyTemporaryGrantRequest'] = true`",
+      );
+    }
+
+    // verify required parameter 'requestId' is not null or undefined
+    if (requestId === null || requestId === undefined) {
+      throw new RequiredError("requestId", "getMyTemporaryGrantRequest");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/usage/temporary-grant-requests/{request_id}".replace(
+        "{request_id}",
+        encodeURIComponent(String(requestId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getMyTemporaryGrantRequest",
+      UsageMeteringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getProjectedCost(
     view?: string,
     includeConnectedAccounts?: boolean,
@@ -913,6 +1168,67 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         serialize(includeConnectedAccounts, TypingInfo, "boolean", ""),
         "",
       );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getTemporaryGrantRequest(
+    requestId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "UsageMeteringApi.v2.getTemporaryGrantRequest"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getTemporaryGrantRequest' is disabled. Enable it by setting `configuration.unstableOperations['UsageMeteringApi.v2.getTemporaryGrantRequest'] = true`",
+      );
+    }
+
+    // verify required parameter 'requestId' is not null or undefined
+    if (requestId === null || requestId === undefined) {
+      throw new RequiredError("requestId", "getTemporaryGrantRequest");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/usage/admin/temporary-grant-requests/{request_id}".replace(
+        "{request_id}",
+        encodeURIComponent(String(requestId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getTemporaryGrantRequest",
+      UsageMeteringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -1217,6 +1533,83 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listMyTemporaryGrantRequests(
+    filterStatus?: TemporaryGrantRequestStatus,
+    pageLimit?: number,
+    pageCursor?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "UsageMeteringApi.v2.listMyTemporaryGrantRequests"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listMyTemporaryGrantRequests' is disabled. Enable it by setting `configuration.unstableOperations['UsageMeteringApi.v2.listMyTemporaryGrantRequests'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/temporary-grant-requests";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.listMyTemporaryGrantRequests",
+      UsageMeteringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterStatus !== undefined) {
+      requestContext.setQueryParam(
+        "filter[status]",
+        serialize(filterStatus, TypingInfo, "TemporaryGrantRequestStatus", ""),
+        "",
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        serialize(pageLimit, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        serialize(pageCursor, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listQuotas(
     quotaNamespace: string,
     includeDescendants?: boolean,
@@ -1299,6 +1692,91 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listTemporaryGrantRequests(
+    filterStatus?: TemporaryGrantRequestStatus,
+    pageLimit?: number,
+    pageCursor?: string,
+    filterRequestedByUserId?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "UsageMeteringApi.v2.listTemporaryGrantRequests"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listTemporaryGrantRequests' is disabled. Enable it by setting `configuration.unstableOperations['UsageMeteringApi.v2.listTemporaryGrantRequests'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/admin/temporary-grant-requests";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.listTemporaryGrantRequests",
+      UsageMeteringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterStatus !== undefined) {
+      requestContext.setQueryParam(
+        "filter[status]",
+        serialize(filterStatus, TypingInfo, "TemporaryGrantRequestStatus", ""),
+        "",
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        serialize(pageLimit, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        serialize(pageCursor, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+    if (filterRequestedByUserId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[requested_by_user_id]",
+        serialize(filterRequestedByUserId, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateQuota(
     quotaNamespace: string,
     id: string,
@@ -1361,6 +1839,82 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UsageQuotaUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateTemporaryGrantRequest(
+    requestId: string,
+    body: TemporaryGrantRequestDecisionRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "UsageMeteringApi.v2.updateTemporaryGrantRequest"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateTemporaryGrantRequest' is disabled. Enable it by setting `configuration.unstableOperations['UsageMeteringApi.v2.updateTemporaryGrantRequest'] = true`",
+      );
+    }
+
+    // verify required parameter 'requestId' is not null or undefined
+    if (requestId === null || requestId === undefined) {
+      throw new RequiredError("requestId", "updateTemporaryGrantRequest");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateTemporaryGrantRequest");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/usage/admin/temporary-grant-requests/{request_id}/decision".replace(
+        "{request_id}",
+        encodeURIComponent(String(requestId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.updateTemporaryGrantRequest",
+      UsageMeteringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "TemporaryGrantRequestDecisionRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1462,6 +2016,89 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createTemporaryGrantRequest
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createTemporaryGrantRequest(
+    response: ResponseContext,
+  ): Promise<TemporaryGrantRequestResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: TemporaryGrantRequestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TemporaryGrantRequestResponse",
+      ) as TemporaryGrantRequestResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TemporaryGrantRequestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TemporaryGrantRequestResponse",
+        "",
+      ) as TemporaryGrantRequestResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deletePendingQuota
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1539,6 +2176,150 @@ export class UsageMeteringApiResponseProcessor {
       return;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteRequestedTemporaryGrant
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteRequestedTemporaryGrant(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteTemporaryGrantRequest
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteTemporaryGrantRequest(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
@@ -2014,6 +2795,89 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getMyTemporaryGrantRequest
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getMyTemporaryGrantRequest(
+    response: ResponseContext,
+  ): Promise<TemporaryGrantRequestResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: TemporaryGrantRequestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TemporaryGrantRequestResponse",
+      ) as TemporaryGrantRequestResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TemporaryGrantRequestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TemporaryGrantRequestResponse",
+        "",
+      ) as TemporaryGrantRequestResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getProjectedCost
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2060,6 +2924,89 @@ export class UsageMeteringApiResponseProcessor {
         "ProjectedCostResponse",
         "",
       ) as ProjectedCostResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getTemporaryGrantRequest
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getTemporaryGrantRequest(
+    response: ResponseContext,
+  ): Promise<TemporaryGrantRequestResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: TemporaryGrantRequestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TemporaryGrantRequestResponse",
+      ) as TemporaryGrantRequestResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TemporaryGrantRequestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TemporaryGrantRequestResponse",
+        "",
+      ) as TemporaryGrantRequestResponse;
       return body;
     }
 
@@ -2366,6 +3313,89 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listMyTemporaryGrantRequests
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listMyTemporaryGrantRequests(
+    response: ResponseContext,
+  ): Promise<TemporaryGrantRequestListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: TemporaryGrantRequestListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TemporaryGrantRequestListResponse",
+      ) as TemporaryGrantRequestListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TemporaryGrantRequestListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TemporaryGrantRequestListResponse",
+        "",
+      ) as TemporaryGrantRequestListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listQuotas
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2429,6 +3459,89 @@ export class UsageMeteringApiResponseProcessor {
         "UsageQuotasListResponse",
         "",
       ) as UsageQuotasListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listTemporaryGrantRequests
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listTemporaryGrantRequests(
+    response: ResponseContext,
+  ): Promise<TemporaryGrantRequestListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: TemporaryGrantRequestListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TemporaryGrantRequestListResponse",
+      ) as TemporaryGrantRequestListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TemporaryGrantRequestListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TemporaryGrantRequestListResponse",
+        "",
+      ) as TemporaryGrantRequestListResponse;
       return body;
     }
 
@@ -2519,6 +3632,89 @@ export class UsageMeteringApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateTemporaryGrantRequest
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateTemporaryGrantRequest(
+    response: ResponseContext,
+  ): Promise<TemporaryGrantRequestResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: TemporaryGrantRequestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TemporaryGrantRequestResponse",
+      ) as TemporaryGrantRequestResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TemporaryGrantRequestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TemporaryGrantRequestResponse",
+        "",
+      ) as TemporaryGrantRequestResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface UsageMeteringApiCreateQuotasRequest {
@@ -2537,6 +3733,13 @@ export interface UsageMeteringApiCreateQuotasRequest {
    * @type boolean
    */
   includeDescendants?: boolean;
+}
+
+export interface UsageMeteringApiCreateTemporaryGrantRequestRequest {
+  /**
+   * @type TemporaryGrantRequestCreateRequest
+   */
+  body: TemporaryGrantRequestCreateRequest;
 }
 
 export interface UsageMeteringApiDeletePendingQuotaRequest {
@@ -2563,6 +3766,22 @@ export interface UsageMeteringApiDeleteQuotaRequest {
    * @type string
    */
   id: string;
+}
+
+export interface UsageMeteringApiDeleteRequestedTemporaryGrantRequest {
+  /**
+   * The temporary grant request UUID.
+   * @type string
+   */
+  requestId: string;
+}
+
+export interface UsageMeteringApiDeleteTemporaryGrantRequestRequest {
+  /**
+   * The temporary grant request UUID.
+   * @type string
+   */
+  requestId: string;
 }
 
 export interface UsageMeteringApiGetBillingDimensionMappingRequest {
@@ -2760,6 +3979,14 @@ export interface UsageMeteringApiGetMonthlyCostAttributionRequest {
   includeDescendants?: boolean;
 }
 
+export interface UsageMeteringApiGetMyTemporaryGrantRequestRequest {
+  /**
+   * The temporary grant request UUID.
+   * @type string
+   */
+  requestId: string;
+}
+
 export interface UsageMeteringApiGetProjectedCostRequest {
   /**
    * String to specify whether cost is broken down at a parent-org level or at the sub-org level. Available views are `summary` and `sub-org`. Defaults to `summary`.
@@ -2771,6 +3998,14 @@ export interface UsageMeteringApiGetProjectedCostRequest {
    * @type boolean
    */
   includeConnectedAccounts?: boolean;
+}
+
+export interface UsageMeteringApiGetTemporaryGrantRequestRequest {
+  /**
+   * The temporary grant request UUID.
+   * @type string
+   */
+  requestId: string;
 }
 
 export interface UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest {
@@ -2815,6 +4050,24 @@ export interface UsageMeteringApiGetUsageObservabilityPipelinesRequest {
   endHr?: Date;
 }
 
+export interface UsageMeteringApiListMyTemporaryGrantRequestsRequest {
+  /**
+   * Optional status. Defaults to all statuses.
+   * @type TemporaryGrantRequestStatus
+   */
+  filterStatus?: TemporaryGrantRequestStatus;
+  /**
+   * Page size, from 1 to 100.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * UUID cursor from meta.page.next_cursor.
+   * @type string
+   */
+  pageCursor?: string;
+}
+
 export interface UsageMeteringApiListQuotasRequest {
   /**
    * The product-specific namespace whose usage quotas are being managed.
@@ -2838,6 +4091,29 @@ export interface UsageMeteringApiListQuotasRequest {
   pageLimit?: number;
 }
 
+export interface UsageMeteringApiListTemporaryGrantRequestsRequest {
+  /**
+   * Optional status. Defaults to all statuses.
+   * @type TemporaryGrantRequestStatus
+   */
+  filterStatus?: TemporaryGrantRequestStatus;
+  /**
+   * Page size, from 1 to 100.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * UUID cursor from meta.page.next_cursor.
+   * @type string
+   */
+  pageCursor?: string;
+  /**
+   * Filter by requester UUID within the authenticated organization.
+   * @type string
+   */
+  filterRequestedByUserId?: string;
+}
+
 export interface UsageMeteringApiUpdateQuotaRequest {
   /**
    * The product-specific namespace whose usage quotas are being managed.
@@ -2854,6 +4130,18 @@ export interface UsageMeteringApiUpdateQuotaRequest {
    * @type UsageQuotaUpdateRequest
    */
   body: UsageQuotaUpdateRequest;
+}
+
+export interface UsageMeteringApiUpdateTemporaryGrantRequestRequest {
+  /**
+   * The temporary grant request UUID.
+   * @type string
+   */
+  requestId: string;
+  /**
+   * @type TemporaryGrantRequestDecisionRequest
+   */
+  body: TemporaryGrantRequestDecisionRequest;
 }
 
 export class UsageMeteringApi {
@@ -2903,6 +4191,27 @@ export class UsageMeteringApi {
   }
 
   /**
+   * Request a temporary increase to your monthly AI credit limit. Set `total` to the new monthly limit you need, in whole credits, not the number of credits to add. Include a justification and, optionally, an expiry. If you omit the expiry, the grant ends at the next UTC month boundary. A user with the Billing Edit permission approves or denies the request. Requires an authenticated human user. Service-account credentials are unsupported.
+   * @param param The request object
+   */
+  public createTemporaryGrantRequest(
+    param: UsageMeteringApiCreateTemporaryGrantRequestRequest,
+    options?: Configuration,
+  ): Promise<TemporaryGrantRequestResponse> {
+    const requestContextPromise =
+      this.requestFactory.createTemporaryGrantRequest(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createTemporaryGrantRequest(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Cancels the limit change scheduled to take effect at the start of the next usage period, leaving the usage quota and its current limit unchanged. Returns `404` when the quota does not exist, has no scheduled change, or its scheduled change has already taken effect; in every case the quota is left unchanged. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `billing_edit` permission.
    * @param param The request object
    */
@@ -2942,6 +4251,51 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteQuota(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Revoke only the grant that's still associated with this approved request. The request and audit history remain. A stale request can't revoke a replacement grant. Requires the Billing Edit permission. Requires an authenticated human user. Service-account credentials aren't supported. Request status remains approved after the grant's expiry, revocation, or replacement.
+   * @param param The request object
+   */
+  public deleteRequestedTemporaryGrant(
+    param: UsageMeteringApiDeleteRequestedTemporaryGrantRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteRequestedTemporaryGrant(
+        param.requestId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteRequestedTemporaryGrant(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Cancel a pending request that you own. The request history is kept, and no grant is created or revoked. Requires an authenticated human user. Service-account credentials are unsupported.
+   * @param param The request object
+   */
+  public deleteTemporaryGrantRequest(
+    param: UsageMeteringApiDeleteTemporaryGrantRequestRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteTemporaryGrantRequest(param.requestId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteTemporaryGrantRequest(
+            responseContext,
+          );
         });
     });
   }
@@ -3156,6 +4510,27 @@ export class UsageMeteringApi {
   }
 
   /**
+   * Read an owned request, its decision, and its linked grant state. Requires an authenticated human user. Service-account credentials are unsupported. Request status remains approved after expiry, revocation, or replacement.
+   * @param param The request object
+   */
+  public getMyTemporaryGrantRequest(
+    param: UsageMeteringApiGetMyTemporaryGrantRequestRequest,
+    options?: Configuration,
+  ): Promise<TemporaryGrantRequestResponse> {
+    const requestContextPromise =
+      this.requestFactory.getMyTemporaryGrantRequest(param.requestId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getMyTemporaryGrantRequest(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Get projected cost across multi-org and single root-org accounts.
    * Projected cost data is only available for the current month and becomes available around the 12th of the month.
    *
@@ -3176,6 +4551,29 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getProjectedCost(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Read an organization request, justification, decision, and linked grant state. Requires Billing Edit. Requires an authenticated human user. Service-account credentials are unsupported. Request status remains approved after expiry, revocation, or replacement.
+   * @param param The request object
+   */
+  public getTemporaryGrantRequest(
+    param: UsageMeteringApiGetTemporaryGrantRequestRequest,
+    options?: Configuration,
+  ): Promise<TemporaryGrantRequestResponse> {
+    const requestContextPromise = this.requestFactory.getTemporaryGrantRequest(
+      param.requestId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getTemporaryGrantRequest(
+            responseContext,
+          );
         });
     });
   }
@@ -3336,6 +4734,87 @@ export class UsageMeteringApi {
   }
 
   /**
+   * List the authenticated user's own requests, including decided requests. Other users' requests are never included. Requires an authenticated human user. Service-account credentials aren't supported. Request status remains approved after the grant's expiry, revocation, or replacement.
+   * @param param The request object
+   */
+  public listMyTemporaryGrantRequests(
+    param: UsageMeteringApiListMyTemporaryGrantRequestsRequest = {},
+    options?: Configuration,
+  ): Promise<TemporaryGrantRequestListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listMyTemporaryGrantRequests(
+        param.filterStatus,
+        param.pageLimit,
+        param.pageCursor,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listMyTemporaryGrantRequests(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listMyTemporaryGrantRequests returning a generator with all the items.
+   */
+  public async *listMyTemporaryGrantRequestsWithPagination(
+    param: UsageMeteringApiListMyTemporaryGrantRequestsRequest = {},
+    options?: Configuration,
+  ): AsyncGenerator<TemporaryGrantRequestData> {
+    let pageSize = 50;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext =
+        await this.requestFactory.listMyTemporaryGrantRequests(
+          param.filterStatus,
+          param.pageLimit,
+          param.pageCursor,
+          options,
+        );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
+
+      const response =
+        await this.responseProcessor.listMyTemporaryGrantRequests(
+          responseContext,
+        );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length === 0) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageNextCursor = cursorMetaPage.nextCursor;
+      if (cursorMetaPageNextCursor === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageNextCursor;
+    }
+  }
+
+  /**
    * Lists usage quotas for the caller's organization in a quota namespace. You can optionally include
    * descendant organizations in the same datacenter as the caller. Requires the `billing_read` or
    * `billing_edit` permission.
@@ -3414,6 +4893,89 @@ export class UsageMeteringApi {
   }
 
   /**
+   * List all request statuses within the authenticated organization. Filter by pending status for the review queue. Requires Billing Edit, including for reads. Requires an authenticated human user. Service-account credentials are unsupported. Request status remains approved after expiry, revocation, or replacement.
+   * @param param The request object
+   */
+  public listTemporaryGrantRequests(
+    param: UsageMeteringApiListTemporaryGrantRequestsRequest = {},
+    options?: Configuration,
+  ): Promise<TemporaryGrantRequestListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listTemporaryGrantRequests(
+        param.filterStatus,
+        param.pageLimit,
+        param.pageCursor,
+        param.filterRequestedByUserId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTemporaryGrantRequests(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listTemporaryGrantRequests returning a generator with all the items.
+   */
+  public async *listTemporaryGrantRequestsWithPagination(
+    param: UsageMeteringApiListTemporaryGrantRequestsRequest = {},
+    options?: Configuration,
+  ): AsyncGenerator<TemporaryGrantRequestData> {
+    let pageSize = 50;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext =
+        await this.requestFactory.listTemporaryGrantRequests(
+          param.filterStatus,
+          param.pageLimit,
+          param.pageCursor,
+          param.filterRequestedByUserId,
+          options,
+        );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
+
+      const response =
+        await this.responseProcessor.listTemporaryGrantRequests(
+          responseContext,
+        );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length === 0) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageNextCursor = cursorMetaPage.nextCursor;
+      if (cursorMetaPageNextCursor === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageNextCursor;
+    }
+  }
+
+  /**
    * Updates the supplied fields on a usage quota and leaves omitted fields unchanged. For an organization-wide quota, `pending_usage_limit` schedules a limit for the next usage period. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `billing_edit` permission.
    * @param param The request object
    */
@@ -3432,6 +4994,31 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateQuota(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Approve or deny the submitted terms, which are immutable. Approval atomically writes the grant, audit record, and request decision. An expired request can't be approved. Requires the Billing Edit permission. Requires an authenticated human user. Service-account credentials aren't supported. Request status remains approved after the grant's expiry, revocation, or replacement.
+   * @param param The request object
+   */
+  public updateTemporaryGrantRequest(
+    param: UsageMeteringApiUpdateTemporaryGrantRequestRequest,
+    options?: Configuration,
+  ): Promise<TemporaryGrantRequestResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateTemporaryGrantRequest(
+        param.requestId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateTemporaryGrantRequest(
+            responseContext,
+          );
         });
     });
   }
