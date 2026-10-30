@@ -1192,6 +1192,8 @@ import { CreateUploadResponseData } from "./CreateUploadResponseData";
 import { CreateUploadResponseDataAttributes } from "./CreateUploadResponseDataAttributes";
 import { CreateUserNotificationChannelRequest } from "./CreateUserNotificationChannelRequest";
 import { CreateVariant } from "./CreateVariant";
+import { CreateVariantData } from "./CreateVariantData";
+import { CreateVariantRequest } from "./CreateVariantRequest";
 import { CreateWorkflowRequest } from "./CreateWorkflowRequest";
 import { CreateWorkflowResponse } from "./CreateWorkflowResponse";
 import { Creator } from "./Creator";
@@ -6475,6 +6477,8 @@ import { UpdateTenancyConfigDataAttributesMetricsConfig } from "./UpdateTenancyC
 import { UpdateTenancyConfigDataAttributesRegionsConfig } from "./UpdateTenancyConfigDataAttributesRegionsConfig";
 import { UpdateTenancyConfigRequest } from "./UpdateTenancyConfigRequest";
 import { UpdateUserIdentityProvidersRequest } from "./UpdateUserIdentityProvidersRequest";
+import { UpdateVariantAttributes } from "./UpdateVariantAttributes";
+import { UpdateVariantData } from "./UpdateVariantData";
 import { UpdateVariantRequest } from "./UpdateVariantRequest";
 import { UpdateWorkflowRequest } from "./UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
@@ -6589,6 +6593,9 @@ import { ValidationError } from "./ValidationError";
 import { ValidationErrorMeta } from "./ValidationErrorMeta";
 import { ValidationResponse } from "./ValidationResponse";
 import { Variant } from "./Variant";
+import { VariantResponse } from "./VariantResponse";
+import { VariantResponseAttributes } from "./VariantResponseAttributes";
+import { VariantResponseData } from "./VariantResponseData";
 import { VariantWeight } from "./VariantWeight";
 import { VariantWeightRequest } from "./VariantWeightRequest";
 import { VersionHistoryUpdate } from "./VersionHistoryUpdate";
@@ -10357,6 +10364,7 @@ const enumsMap: { [key: string]: any[] } = {
   ValidateAPIKeyStatus: ["ok"],
   ValidateV2Type: ["validate_v2"],
   ValueType: ["BOOLEAN", "INTEGER", "NUMERIC", "STRING", "JSON"],
+  VariantDataType: ["variants"],
   VersionHistoryUpdateType: ["create", "update", "delete"],
   ViewershipHistorySessionDataType: ["rum_replay_session"],
   VirusTotalAPIKeyType: ["VirusTotalAPIKey"],
@@ -11920,6 +11928,8 @@ const typeMap: { [index: string]: any } = {
   CreateUploadResponseDataAttributes: CreateUploadResponseDataAttributes,
   CreateUserNotificationChannelRequest: CreateUserNotificationChannelRequest,
   CreateVariant: CreateVariant,
+  CreateVariantData: CreateVariantData,
+  CreateVariantRequest: CreateVariantRequest,
   CreateWorkflowRequest: CreateWorkflowRequest,
   CreateWorkflowResponse: CreateWorkflowResponse,
   Creator: Creator,
@@ -18653,6 +18663,8 @@ const typeMap: { [index: string]: any } = {
     UpdateTenancyConfigDataAttributesRegionsConfig,
   UpdateTenancyConfigRequest: UpdateTenancyConfigRequest,
   UpdateUserIdentityProvidersRequest: UpdateUserIdentityProvidersRequest,
+  UpdateVariantAttributes: UpdateVariantAttributes,
+  UpdateVariantData: UpdateVariantData,
   UpdateVariantRequest: UpdateVariantRequest,
   UpdateWorkflowRequest: UpdateWorkflowRequest,
   UpdateWorkflowResponse: UpdateWorkflowResponse,
@@ -18781,6 +18793,9 @@ const typeMap: { [index: string]: any } = {
   ValidationErrorMeta: ValidationErrorMeta,
   ValidationResponse: ValidationResponse,
   Variant: Variant,
+  VariantResponse: VariantResponse,
+  VariantResponseAttributes: VariantResponseAttributes,
+  VariantResponseData: VariantResponseData,
   VariantWeight: VariantWeight,
   VariantWeightRequest: VariantWeightRequest,
   VersionHistoryUpdate: VersionHistoryUpdate,

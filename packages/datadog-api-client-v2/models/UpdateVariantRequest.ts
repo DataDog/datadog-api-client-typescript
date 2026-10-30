@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { UpdateVariantData } from "./UpdateVariantData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -11,13 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class UpdateVariantRequest {
   /**
-   * The display name of the variant.
+   * Data for updating a variant.
    */
-  "name"?: string;
-  /**
-   * The value of the variant as a string.
-   */
-  "value"?: string;
+  "data": UpdateVariantData;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,13 +32,10 @@ export class UpdateVariantRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    value: {
-      baseName: "value",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "UpdateVariantData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
