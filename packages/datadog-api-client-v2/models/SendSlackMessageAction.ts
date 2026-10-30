@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SendSlackMessageActionCustomizableContent } from "./SendSlackMessageActionCustomizableContent";
 import { SendSlackMessageActionType } from "./SendSlackMessageActionType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -15,6 +16,10 @@ export class SendSlackMessageAction {
    * The channel ID.
    */
   "channel": string;
+  /**
+   * Options that customize the content of the Slack message sent for a Page.
+   */
+  "customizableContent"?: SendSlackMessageActionCustomizableContent;
   /**
    * Indicates that the action is a send Slack message action.
    */
@@ -44,6 +49,10 @@ export class SendSlackMessageAction {
       baseName: "channel",
       type: "string",
       required: true,
+    },
+    customizableContent: {
+      baseName: "customizable_content",
+      type: "SendSlackMessageActionCustomizableContent",
     },
     type: {
       baseName: "type",

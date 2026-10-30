@@ -9216,6 +9216,7 @@ export { SecurityTriggerWrapper } from "./models/SecurityTriggerWrapper";
 export { Selectors } from "./models/Selectors";
 export { SelfServiceTriggerWrapper } from "./models/SelfServiceTriggerWrapper";
 export { SendSlackMessageAction } from "./models/SendSlackMessageAction";
+export { SendSlackMessageActionCustomizableContent } from "./models/SendSlackMessageActionCustomizableContent";
 export { SendSlackMessageActionType } from "./models/SendSlackMessageActionType";
 export { SendTeamsMessageAction } from "./models/SendTeamsMessageAction";
 export { SendTeamsMessageActionType } from "./models/SendTeamsMessageActionType";

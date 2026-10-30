@@ -5442,6 +5442,7 @@ import { SecurityTriggerWrapper } from "./SecurityTriggerWrapper";
 import { Selectors } from "./Selectors";
 import { SelfServiceTriggerWrapper } from "./SelfServiceTriggerWrapper";
 import { SendSlackMessageAction } from "./SendSlackMessageAction";
+import { SendSlackMessageActionCustomizableContent } from "./SendSlackMessageActionCustomizableContent";
 import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 import { SensitiveDataScannerConfigRequest } from "./SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerConfiguration } from "./SensitiveDataScannerConfiguration";
@@ -17332,6 +17333,8 @@ const typeMap: { [index: string]: any } = {
   Selectors: Selectors,
   SelfServiceTriggerWrapper: SelfServiceTriggerWrapper,
   SendSlackMessageAction: SendSlackMessageAction,
+  SendSlackMessageActionCustomizableContent:
+    SendSlackMessageActionCustomizableContent,
   SendTeamsMessageAction: SendTeamsMessageAction,
   SensitiveDataScannerConfigRequest: SensitiveDataScannerConfigRequest,
   SensitiveDataScannerConfiguration: SensitiveDataScannerConfiguration,
