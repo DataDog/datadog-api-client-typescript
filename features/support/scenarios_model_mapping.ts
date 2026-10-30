@@ -11134,10 +11134,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "uuid",
             },
         "body": {
-            "type": "CreateVariant",
+            "type": "CreateVariantRequest",
             "format": "",
             },
-        "operationResponseType": "Variant",
+        "operationResponseType": "VariantResponse",
     },
     "v2.UpdateVariantForFeatureFlag": {
         "featureFlagId": {
@@ -11152,7 +11152,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "UpdateVariantRequest",
             "format": "",
             },
-        "operationResponseType": "Variant",
+        "operationResponseType": "{}",
     },
     "v2.DeleteVariantFromFeatureFlag": {
         "featureFlagId": {

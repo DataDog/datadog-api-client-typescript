@@ -3703,6 +3703,8 @@ export { CreateUploadResponseDataAttributes } from "./models/CreateUploadRespons
 export { CreateUploadResponseDataType } from "./models/CreateUploadResponseDataType";
 export { CreateUserNotificationChannelRequest } from "./models/CreateUserNotificationChannelRequest";
 export { CreateVariant } from "./models/CreateVariant";
+export { CreateVariantData } from "./models/CreateVariantData";
+export { CreateVariantRequest } from "./models/CreateVariantRequest";
 export { CreateWorkflowRequest } from "./models/CreateWorkflowRequest";
 export { CreateWorkflowResponse } from "./models/CreateWorkflowResponse";
 export { Creator } from "./models/Creator";
@@ -10557,6 +10559,8 @@ export { UpdateTenancyConfigDataAttributesRegionsConfig } from "./models/UpdateT
 export { UpdateTenancyConfigDataType } from "./models/UpdateTenancyConfigDataType";
 export { UpdateTenancyConfigRequest } from "./models/UpdateTenancyConfigRequest";
 export { UpdateUserIdentityProvidersRequest } from "./models/UpdateUserIdentityProvidersRequest";
+export { UpdateVariantAttributes } from "./models/UpdateVariantAttributes";
+export { UpdateVariantData } from "./models/UpdateVariantData";
 export { UpdateVariantRequest } from "./models/UpdateVariantRequest";
 export { UpdateWorkflowRequest } from "./models/UpdateWorkflowRequest";
 export { UpdateWorkflowResponse } from "./models/UpdateWorkflowResponse";
@@ -10696,6 +10700,10 @@ export { ValidationErrorMeta } from "./models/ValidationErrorMeta";
 export { ValidationResponse } from "./models/ValidationResponse";
 export { ValueType } from "./models/ValueType";
 export { Variant } from "./models/Variant";
+export { VariantDataType } from "./models/VariantDataType";
+export { VariantResponse } from "./models/VariantResponse";
+export { VariantResponseAttributes } from "./models/VariantResponseAttributes";
+export { VariantResponseData } from "./models/VariantResponseData";
 export { VariantWeight } from "./models/VariantWeight";
 export { VariantWeightRequest } from "./models/VariantWeightRequest";
 export { VersionHistoryUpdate } from "./models/VersionHistoryUpdate";
