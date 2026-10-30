@@ -28,7 +28,7 @@ import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CreateAllocationsRequest } from "./models/CreateAllocationsRequest";
 import { CreateEnvironmentRequest } from "./models/CreateEnvironmentRequest";
 import { CreateFeatureFlagRequest } from "./models/CreateFeatureFlagRequest";
-import { CreateVariant } from "./models/CreateVariant";
+import { CreateVariantRequest } from "./models/CreateVariantRequest";
 import { EnvironmentResponse } from "./models/EnvironmentResponse";
 import { FeatureFlagDistributionChannel } from "./models/FeatureFlagDistributionChannel";
 import { FeatureFlagProductionStatus } from "./models/FeatureFlagProductionStatus";
@@ -47,7 +47,7 @@ import { UpdateEnvironmentRequest } from "./models/UpdateEnvironmentRequest";
 import { UpdateFeatureFlagRequest } from "./models/UpdateFeatureFlagRequest";
 import { UpdateVariantRequest } from "./models/UpdateVariantRequest";
 import { ValueType } from "./models/ValueType";
-import { Variant } from "./models/Variant";
+import { VariantResponse } from "./models/VariantResponse";
 import { version } from "../version";
 
 export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
@@ -304,7 +304,7 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async createVariantForFeatureFlag(
     featureFlagId: string,
-    body: CreateVariant,
+    body: CreateVariantRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -353,7 +353,7 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(body, TypingInfo, "CreateVariant", ""),
+      serialize(body, TypingInfo, "CreateVariantRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1587,7 +1587,7 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
       HttpMethod.PUT,
       overrides,
     );
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -1875,14 +1875,14 @@ export class FeatureFlagsApiResponseProcessor {
    */
   public async createVariantForFeatureFlag(
     response: ResponseContext,
-  ): Promise<Variant> {
+  ): Promise<VariantResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: Variant = deserialize(
+      const body: VariantResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "Variant",
-      ) as Variant;
+        "VariantResponse",
+      ) as VariantResponse;
       return body;
     }
     if (
@@ -1912,12 +1912,12 @@ export class FeatureFlagsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: Variant = deserialize(
+      const body: VariantResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "Variant",
+        "VariantResponse",
         "",
-      ) as Variant;
+      ) as VariantResponse;
       return body;
     }
 
@@ -3077,15 +3077,10 @@ export class FeatureFlagsApiResponseProcessor {
    */
   public async updateVariantForFeatureFlag(
     response: ResponseContext,
-  ): Promise<Variant> {
+  ): Promise<void> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: Variant = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "Variant",
-      ) as Variant;
-      return body;
+      return;
     }
     if (
       response.httpStatusCode === 400 ||
@@ -3114,13 +3109,7 @@ export class FeatureFlagsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: Variant = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "Variant",
-        "",
-      ) as Variant;
-      return body;
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -3177,9 +3166,9 @@ export interface FeatureFlagsApiCreateVariantForFeatureFlagRequest {
    */
   featureFlagId: string;
   /**
-   * @type CreateVariant
+   * @type CreateVariantRequest
    */
-  body: CreateVariant;
+  body: CreateVariantRequest;
 }
 
 export interface FeatureFlagsApiDeleteFeatureFlagsEnvironmentRequest {
@@ -3601,7 +3590,7 @@ export class FeatureFlagsApi {
   public createVariantForFeatureFlag(
     param: FeatureFlagsApiCreateVariantForFeatureFlagRequest,
     options?: Configuration,
-  ): Promise<Variant> {
+  ): Promise<VariantResponse> {
     const requestContextPromise =
       this.requestFactory.createVariantForFeatureFlag(
         param.featureFlagId,
@@ -4087,7 +4076,7 @@ export class FeatureFlagsApi {
   public updateVariantForFeatureFlag(
     param: FeatureFlagsApiUpdateVariantForFeatureFlagRequest,
     options?: Configuration,
-  ): Promise<Variant> {
+  ): Promise<void> {
     const requestContextPromise =
       this.requestFactory.updateVariantForFeatureFlag(
         param.featureFlagId,

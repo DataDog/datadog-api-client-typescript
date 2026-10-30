@@ -1,17 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { UpdateVariantData } from "./UpdateVariantData";
+
 /**
  * Request to update an existing variant's name and value.
  */
 export class UpdateVariantRequest {
   /**
-   * The display name of the variant.
+   * Data for updating a variant.
    */
-  "name"?: string;
-  /**
-   * The value of the variant as a string.
-   */
-  "value"?: string;
+  "data": UpdateVariantData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,13 +25,10 @@ export class UpdateVariantRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    value: {
-      baseName: "value",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "UpdateVariantData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
