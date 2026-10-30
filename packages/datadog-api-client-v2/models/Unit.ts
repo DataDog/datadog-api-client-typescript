@@ -15,7 +15,11 @@ export class Unit {
    */
   "family"?: string;
   /**
-   * Unit name
+   * The identifier of the unit.
+   */
+  "id"?: number;
+  /**
+   * Unit name.
    */
   "name"?: string;
   /**
@@ -50,6 +54,11 @@ export class Unit {
     family: {
       baseName: "family",
       type: "string",
+    },
+    id: {
+      baseName: "id",
+      type: "number",
+      format: "int64",
     },
     name: {
       baseName: "name",
