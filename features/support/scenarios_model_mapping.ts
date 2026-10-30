@@ -20661,6 +20661,30 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListAWSCloudAuthIntakeMappings": {
+        "operationResponseType": "AWSCloudAuthIntakeMappingsResponse",
+    },
+    "v2.CreateAWSCloudAuthIntakeMapping": {
+        "body": {
+            "type": "AWSCloudAuthIntakeMappingCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSCloudAuthIntakeMappingResponse",
+    },
+    "v2.GetAWSCloudAuthIntakeMapping": {
+        "intakeMappingId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AWSCloudAuthIntakeMappingResponse",
+    },
+    "v2.DeleteAWSCloudAuthIntakeMapping": {
+        "intakeMappingId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListAWSCloudAuthPersonaMappings": {
         "operationResponseType": "AWSCloudAuthPersonaMappingsResponse",
     },
