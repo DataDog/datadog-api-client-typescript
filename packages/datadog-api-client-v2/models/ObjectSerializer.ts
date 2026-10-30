@@ -2121,8 +2121,15 @@ import { FastlyServiceResponse } from "./FastlyServiceResponse";
 import { FastlyServicesResponse } from "./FastlyServicesResponse";
 import { FeatureFlag } from "./FeatureFlag";
 import { FeatureFlagAttributes } from "./FeatureFlagAttributes";
+import { FeatureFlagChangeEvent } from "./FeatureFlagChangeEvent";
+import { FeatureFlagChangeEventAttributes } from "./FeatureFlagChangeEventAttributes";
+import { FeatureFlagChangeEventEnvironment } from "./FeatureFlagChangeEventEnvironment";
+import { FeatureFlagChangeEventFlag } from "./FeatureFlagChangeEventFlag";
+import { FeatureFlagChangeEventSuggestionReview } from "./FeatureFlagChangeEventSuggestionReview";
 import { FeatureFlagEnvironment } from "./FeatureFlagEnvironment";
 import { FeatureFlagEnvironmentListItem } from "./FeatureFlagEnvironmentListItem";
+import { FeatureFlagHistoryPaginationMeta } from "./FeatureFlagHistoryPaginationMeta";
+import { FeatureFlagHistoryPaginationMetaPage } from "./FeatureFlagHistoryPaginationMetaPage";
 import { FeatureFlagListItem } from "./FeatureFlagListItem";
 import { FeatureFlagListItemAttributes } from "./FeatureFlagListItemAttributes";
 import { FeatureFlagResponse } from "./FeatureFlagResponse";
@@ -3391,6 +3398,7 @@ import { ListDowntimesResponse } from "./ListDowntimesResponse";
 import { ListEntityCatalogResponse } from "./ListEntityCatalogResponse";
 import { ListEntityCatalogResponseLinks } from "./ListEntityCatalogResponseLinks";
 import { ListEnvironmentsResponse } from "./ListEnvironmentsResponse";
+import { ListFeatureFlagHistoryResponse } from "./ListFeatureFlagHistoryResponse";
 import { ListFeatureFlagsResponse } from "./ListFeatureFlagsResponse";
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
@@ -7801,6 +7809,46 @@ const enumsMap: { [key: string]: any[] } = {
   FastlyAccountType: ["fastly-accounts"],
   FastlyIntegrationType: ["Fastly"],
   FastlyServiceType: ["fastly-services"],
+  FeatureFlagChangeEventAction: [
+    "created",
+    "updated",
+    "deleted",
+    "archived",
+    "unarchived",
+    "scheduled",
+    "started",
+    "paused",
+    "unpaused",
+    "stopped",
+  ],
+  FeatureFlagChangeEventCreationSource: ["UI", "MCP"],
+  FeatureFlagChangeEventProperty: [
+    "FLAG",
+    "FLAG_NAME",
+    "FLAG_DESCRIPTION",
+    "JSON_SCHEMA",
+    "DISTRIBUTION_CHANNEL",
+    "REQUIRE_APPROVAL",
+    "VARIANT",
+    "VARIANT_NAME",
+    "VARIANT_VALUE",
+    "ALLOCATIONS",
+    "ROLLOUT",
+    "ENVIRONMENT_STATUS",
+    "DEFAULT_VARIANT",
+    "OVERRIDE_VARIANT",
+    "STALENESS_STATUS",
+    "SAVED_FILTER",
+  ],
+  FeatureFlagChangeEventSuggestionLifecycleStatus: [
+    "pending",
+    "approved",
+    "applied",
+    "rejected",
+    "discarded",
+  ],
+  FeatureFlagChangeEventSuggestionStatus: ["pending", "approved", "rejected"],
+  FeatureFlagChangeEventType: ["change-events"],
   FeatureFlagDistributionChannel: ["ALL", "CLIENT", "SERVER"],
   FeatureFlagProductionStatus: ["ENABLED", "DISABLED", "OVERRIDDEN"],
   FeatureFlagStalenessStatus: ["ACTIVE", "STALE", "PERMANENT"],
@@ -13139,8 +13187,16 @@ const typeMap: { [index: string]: any } = {
   FastlyServicesResponse: FastlyServicesResponse,
   FeatureFlag: FeatureFlag,
   FeatureFlagAttributes: FeatureFlagAttributes,
+  FeatureFlagChangeEvent: FeatureFlagChangeEvent,
+  FeatureFlagChangeEventAttributes: FeatureFlagChangeEventAttributes,
+  FeatureFlagChangeEventEnvironment: FeatureFlagChangeEventEnvironment,
+  FeatureFlagChangeEventFlag: FeatureFlagChangeEventFlag,
+  FeatureFlagChangeEventSuggestionReview:
+    FeatureFlagChangeEventSuggestionReview,
   FeatureFlagEnvironment: FeatureFlagEnvironment,
   FeatureFlagEnvironmentListItem: FeatureFlagEnvironmentListItem,
+  FeatureFlagHistoryPaginationMeta: FeatureFlagHistoryPaginationMeta,
+  FeatureFlagHistoryPaginationMetaPage: FeatureFlagHistoryPaginationMetaPage,
   FeatureFlagListItem: FeatureFlagListItem,
   FeatureFlagListItemAttributes: FeatureFlagListItemAttributes,
   FeatureFlagResponse: FeatureFlagResponse,
@@ -14655,6 +14711,7 @@ const typeMap: { [index: string]: any } = {
   ListEntityCatalogResponse: ListEntityCatalogResponse,
   ListEntityCatalogResponseLinks: ListEntityCatalogResponseLinks,
   ListEnvironmentsResponse: ListEnvironmentsResponse,
+  ListFeatureFlagHistoryResponse: ListFeatureFlagHistoryResponse,
   ListFeatureFlagsResponse: ListFeatureFlagsResponse,
   ListFindingsMeta: ListFindingsMeta,
   ListFindingsPage: ListFindingsPage,
