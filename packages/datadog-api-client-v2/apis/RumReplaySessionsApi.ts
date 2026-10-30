@@ -175,7 +175,8 @@ export interface RumReplaySessionsApiGetSegmentsRequest {
    */
   maxListSize?: number;
   /**
-   * Paging token for pagination.
+   * Token of the next page from the `X-Paging` header of the previous response.
+   * Send it without changes, URL-encoded in the query string. Omit it to get the first page.
    * @type string
    */
   paging?: string;
