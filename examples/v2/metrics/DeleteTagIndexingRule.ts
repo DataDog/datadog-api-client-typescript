@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.deleteTagIndexingRule"] = true;
 const apiInstance = new v2.MetricsApi(configuration);
 
 // there is a valid "tag_indexing_rule" in the system
