@@ -9323,7 +9323,7 @@ const enumsMap: { [key: string]: any[] } = {
   ReactNativeSourcemapMapKind: ["react"],
   ReadinessGateThresholdType: ["ANY", "ALL"],
   RecommendationsFilterRequestDataType: ["recommendations_filter"],
-  RecommendationsFilterRequestScope: ["ccm", "experiment", "*"],
+  RecommendationsFilterRequestScope: ["ccm", "experiment", "*", ""],
   ReferenceTableCreateSourceType: ["LOCAL_FILE", "S3", "GCS", "AZURE"],
   ReferenceTableSchemaFieldType: ["STRING", "INT32"],
   ReferenceTableSortType: [
