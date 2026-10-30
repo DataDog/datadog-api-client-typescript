@@ -47,6 +47,7 @@ export { MonitorNotificationRuleFilter } from "./models/MonitorNotificationRuleF
 export { MonitorNotificationRuleFilterScope } from "./models/MonitorNotificationRuleFilterScope";
 export { MonitorNotificationRuleFilterTags } from "./models/MonitorNotificationRuleFilterTags";
 export { MonitorNotificationRuleListResponse } from "./models/MonitorNotificationRuleListResponse";
+export { MonitorNotificationRuleOptions } from "./models/MonitorNotificationRuleOptions";
 export { MonitorNotificationRuleRelationships } from "./models/MonitorNotificationRuleRelationships";
 export { MonitorNotificationRuleRelationshipsCreatedBy } from "./models/MonitorNotificationRuleRelationshipsCreatedBy";
 export { MonitorNotificationRuleRelationshipsCreatedByData } from "./models/MonitorNotificationRuleRelationshipsCreatedByData";
