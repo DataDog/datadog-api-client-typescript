@@ -187,6 +187,12 @@ import { IPRanges } from "./IPRanges";
 import { IdpResponse } from "./IdpResponse";
 import { ImageWidgetDefinition } from "./ImageWidgetDefinition";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
+import { JourneyMapExpandedPrefix } from "./JourneyMapExpandedPrefix";
+import { JourneyMapGroupBy } from "./JourneyMapGroupBy";
+import { JourneyMapQuery } from "./JourneyMapQuery";
+import { JourneyMapTarget } from "./JourneyMapTarget";
+import { JourneyMapWidgetDefinition } from "./JourneyMapWidgetDefinition";
+import { JourneyMapWidgetRequest } from "./JourneyMapWidgetRequest";
 import { ListStreamColumn } from "./ListStreamColumn";
 import { ListStreamComputeItems } from "./ListStreamComputeItems";
 import { ListStreamGroupByItems } from "./ListStreamGroupByItems";
@@ -1158,6 +1164,14 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IFrameWidgetDefinitionType: ["iframe"],
   ImageWidgetDefinitionType: ["image"],
+  JourneyMapConversionType: ["conversion", "drop-off"],
+  JourneyMapCountingMethod: ["uniques", "totals"],
+  JourneyMapGroupByAudience: [
+    "product_analytics_audience_filters.users",
+    "product_analytics_audience_filters.accounts",
+  ],
+  JourneyMapRequestType: ["journey_map"],
+  JourneyMapWidgetDefinitionType: ["journey_map"],
   ListStreamColumnWidth: ["auto", "compact", "full"],
   ListStreamComputeAggregation: [
     "count",
@@ -2330,6 +2344,12 @@ const typeMap: { [index: string]: any } = {
   IdpResponse: IdpResponse,
   ImageWidgetDefinition: ImageWidgetDefinition,
   IntakePayloadAccepted: IntakePayloadAccepted,
+  JourneyMapExpandedPrefix: JourneyMapExpandedPrefix,
+  JourneyMapGroupBy: JourneyMapGroupBy,
+  JourneyMapQuery: JourneyMapQuery,
+  JourneyMapTarget: JourneyMapTarget,
+  JourneyMapWidgetDefinition: JourneyMapWidgetDefinition,
+  JourneyMapWidgetRequest: JourneyMapWidgetRequest,
   ListStreamColumn: ListStreamColumn,
   ListStreamComputeItems: ListStreamComputeItems,
   ListStreamGroupByItems: ListStreamGroupByItems,
@@ -3214,6 +3234,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "HostMapWidgetDefinition",
     "IFrameWidgetDefinition",
     "ImageWidgetDefinition",
+    "JourneyMapWidgetDefinition",
     "ListStreamWidgetDefinition",
     "LogStreamWidgetDefinition",
     "MonitorSummaryWidgetDefinition",
