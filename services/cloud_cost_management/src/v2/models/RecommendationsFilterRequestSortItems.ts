@@ -9,9 +9,9 @@ export class RecommendationsFilterRequestSortItems {
    */
   "expression"?: string;
   /**
-   * Sort direction, either `ASC` or `DESC`.
+   * Sort direction, either `ASC` or `DESC` (case-insensitive).
    */
-  "order"?: string;
+  "order": string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -34,6 +34,7 @@ export class RecommendationsFilterRequestSortItems {
     order: {
       baseName: "order",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
