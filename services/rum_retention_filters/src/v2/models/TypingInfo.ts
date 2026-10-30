@@ -1,6 +1,9 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { RumCrossProductSampling } from "./RumCrossProductSampling";
 import { RumCrossProductSamplingCreate } from "./RumCrossProductSamplingCreate";
 import { RumCrossProductSamplingUpdate } from "./RumCrossProductSamplingUpdate";
@@ -28,6 +31,7 @@ import { RumRetentionFilterCreateAttributes } from "./RumRetentionFilterCreateAt
 import { RumRetentionFilterCreateData } from "./RumRetentionFilterCreateData";
 import { RumRetentionFilterCreateRequest } from "./RumRetentionFilterCreateRequest";
 import { RumRetentionFilterData } from "./RumRetentionFilterData";
+import { RumRetentionFilterMeta } from "./RumRetentionFilterMeta";
 import { RumRetentionFilterResponse } from "./RumRetentionFilterResponse";
 import { RumRetentionFilterUpdateAttributes } from "./RumRetentionFilterUpdateAttributes";
 import { RumRetentionFilterUpdateData } from "./RumRetentionFilterUpdateData";
@@ -63,12 +67,20 @@ export const TypingInfo: ModelTypingInfo = {
       "resource",
       "long_task",
       "vital",
+      "operation",
+      "execution_context",
     ],
+    RumRetentionFilterMetaEditionMode: ["unknown", "complete", "limited"],
+    RumRetentionFilterMetaSource: ["default", "ui", "terraform", "unknown"],
+    RumRetentionFilterTrack: ["rum", "product_analytics"],
     RumRetentionFilterType: ["retention_filters"],
   },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     RumCrossProductSampling: RumCrossProductSampling,
     RumCrossProductSamplingCreate: RumCrossProductSamplingCreate,
     RumCrossProductSamplingUpdate: RumCrossProductSamplingUpdate,
@@ -101,6 +113,7 @@ export const TypingInfo: ModelTypingInfo = {
     RumRetentionFilterCreateData: RumRetentionFilterCreateData,
     RumRetentionFilterCreateRequest: RumRetentionFilterCreateRequest,
     RumRetentionFilterData: RumRetentionFilterData,
+    RumRetentionFilterMeta: RumRetentionFilterMeta,
     RumRetentionFilterResponse: RumRetentionFilterResponse,
     RumRetentionFilterUpdateAttributes: RumRetentionFilterUpdateAttributes,
     RumRetentionFilterUpdateData: RumRetentionFilterUpdateData,

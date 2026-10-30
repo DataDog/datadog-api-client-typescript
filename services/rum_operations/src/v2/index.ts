@@ -30,6 +30,7 @@ export { RUMOperationResponse } from "./models/RUMOperationResponse";
 export { RUMOperationResponseAttributes } from "./models/RUMOperationResponseAttributes";
 export { RUMOperationResponseData } from "./models/RUMOperationResponseData";
 export { RUMOperationsListResponse } from "./models/RUMOperationsListResponse";
+export { RUMOperationsListResponseLinks } from "./models/RUMOperationsListResponseLinks";
 export { RUMOperationsListResponseMeta } from "./models/RUMOperationsListResponseMeta";
 export { RUMOperationsListResponseMetaPage } from "./models/RUMOperationsListResponseMetaPage";
 export { RUMOperationStrongLinkCreateRequest } from "./models/RUMOperationStrongLinkCreateRequest";

@@ -30,6 +30,7 @@ import { RUMOperationUpdateRequest } from "./RUMOperationUpdateRequest";
 import { RUMOperationUpdateRequestData } from "./RUMOperationUpdateRequestData";
 import { RUMOperationUser } from "./RUMOperationUser";
 import { RUMOperationsListResponse } from "./RUMOperationsListResponse";
+import { RUMOperationsListResponseLinks } from "./RUMOperationsListResponseLinks";
 import { RUMOperationsListResponseMeta } from "./RUMOperationsListResponseMeta";
 import { RUMOperationsListResponseMetaPage } from "./RUMOperationsListResponseMetaPage";
 
@@ -86,6 +87,7 @@ export const TypingInfo: ModelTypingInfo = {
     RUMOperationUpdateRequestData: RUMOperationUpdateRequestData,
     RUMOperationUser: RUMOperationUser,
     RUMOperationsListResponse: RUMOperationsListResponse,
+    RUMOperationsListResponseLinks: RUMOperationsListResponseLinks,
     RUMOperationsListResponseMeta: RUMOperationsListResponseMeta,
     RUMOperationsListResponseMetaPage: RUMOperationsListResponseMetaPage,
   },
