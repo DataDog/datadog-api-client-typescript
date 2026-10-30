@@ -3786,6 +3786,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AwsOnDemandResponse",
   },
+  "AIGuardApi.V2.EvaluateAIGuardRequest": {
+    body: {
+      type: "AIGuardEvaluateRequest",
+      format: "",
+    },
+    operationResponseType: "AIGuardEvaluateResponse",
+  },
   "DeliveryPerformanceApi.V2.CreateAIImpactUserActivity": {
     body: {
       type: "AIImpactUserActivityRequest",
