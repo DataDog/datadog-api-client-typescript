@@ -3925,6 +3925,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
   public async uploadCustomCostsFile(
     body: Array<CustomCostsFileLineItem>,
+    aiProvider?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -3947,6 +3948,15 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (aiProvider !== undefined) {
+      requestContext.setQueryParam(
+        "ai_provider",
+        ObjectSerializer.serialize(aiProvider, "boolean", ""),
+        ""
+      );
     }
 
     // Body Params
@@ -10038,6 +10048,11 @@ export interface CloudCostManagementApiUploadCustomCostsFileRequest {
    * @type Array<CustomCostsFileLineItem>
    */
   body: Array<CustomCostsFileLineItem>;
+  /**
+   * Whether the uploaded file contains the costs of an AI provider.
+   * @type boolean
+   */
+  aiProvider?: boolean;
 }
 
 export interface CloudCostManagementApiUpsertBudgetRequest {
@@ -11752,6 +11767,7 @@ export class CloudCostManagementApi {
   ): Promise<CustomCostsFileUploadResponse> {
     const requestContextPromise = this.requestFactory.uploadCustomCostsFile(
       param.body,
+      param.aiProvider,
       options
     );
     return requestContextPromise.then((requestContext) => {
