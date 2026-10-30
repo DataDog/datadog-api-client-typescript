@@ -662,10 +662,23 @@ import { ToplistWidgetFlat } from "./ToplistWidgetFlat";
 import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
 import { ToplistWidgetStacked } from "./ToplistWidgetStacked";
 import { ToplistWidgetStyle } from "./ToplistWidgetStyle";
+import { TopologyMapInlineData } from "./TopologyMapInlineData";
+import { TopologyMapInlineEdgeColumn } from "./TopologyMapInlineEdgeColumn";
+import { TopologyMapInlineEdgesData } from "./TopologyMapInlineEdgesData";
+import { TopologyMapInlineNodeIdColumn } from "./TopologyMapInlineNodeIdColumn";
+import { TopologyMapInlineNodeStringColumn } from "./TopologyMapInlineNodeStringColumn";
+import { TopologyMapInlineNodeValueColumn } from "./TopologyMapInlineNodeValueColumn";
+import { TopologyMapInlineNodeValueColumnMeta } from "./TopologyMapInlineNodeValueColumnMeta";
+import { TopologyMapInlineNodesData } from "./TopologyMapInlineNodesData";
+import { TopologyMapLayout } from "./TopologyMapLayout";
+import { TopologyMapWidgetDefinitionCustom } from "./TopologyMapWidgetDefinitionCustom";
 import { TopologyMapWidgetDefinitionDataStreams } from "./TopologyMapWidgetDefinitionDataStreams";
 import { TopologyMapWidgetDefinitionServiceMap } from "./TopologyMapWidgetDefinitionServiceMap";
 import { TopologyQueryDataStreams } from "./TopologyQueryDataStreams";
 import { TopologyQueryServiceMap } from "./TopologyQueryServiceMap";
+import { TopologyRequestCustom } from "./TopologyRequestCustom";
+import { TopologyRequestCustomProjection } from "./TopologyRequestCustomProjection";
+import { TopologyRequestCustomProjectionDimension } from "./TopologyRequestCustomProjectionDimension";
 import { TopologyRequestDataStreams } from "./TopologyRequestDataStreams";
 import { TopologyRequestServiceMap } from "./TopologyRequestServiceMap";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
@@ -1985,9 +1998,23 @@ const enumsMap: { [key: string]: any[] } = {
   ToplistWidgetLegend: ["automatic", "inline", "none"],
   ToplistWidgetScaling: ["absolute", "relative"],
   ToplistWidgetStackedType: ["stacked"],
+  TopologyMapInlineColumnKindScalar: ["scalar"],
+  TopologyMapInlineColumnKindString: ["string"],
+  TopologyMapInlineEdgeColumnId: ["source", "target"],
+  TopologyMapInlineNodeIdColumnId: ["id"],
+  TopologyMapInlineNodeStringColumnId: ["title", "subtitle"],
+  TopologyMapLayoutDirection: [
+    "top-to-bottom",
+    "bottom-to-top",
+    "left-to-right",
+    "right-to-left",
+  ],
+  TopologyMapLayoutType: ["hierarchical"],
   TopologyMapWidgetDefinitionType: ["topology_map"],
   TopologyQueryDataStreamsDataSource: ["data_streams"],
   TopologyQueryServiceMapDataSource: ["service_map"],
+  TopologyRequestCustomProjectionType: ["custom_topology_map_node"],
+  TopologyRequestCustomResponseFormat: ["scalar"],
   TopologyRequestType: ["topology"],
   TreeMapColorBy: ["user"],
   TreeMapGroupBy: ["user", "family", "process"],
@@ -2865,11 +2892,25 @@ const typeMap: { [index: string]: any } = {
   ToplistWidgetRequest: ToplistWidgetRequest,
   ToplistWidgetStacked: ToplistWidgetStacked,
   ToplistWidgetStyle: ToplistWidgetStyle,
+  TopologyMapInlineData: TopologyMapInlineData,
+  TopologyMapInlineEdgeColumn: TopologyMapInlineEdgeColumn,
+  TopologyMapInlineEdgesData: TopologyMapInlineEdgesData,
+  TopologyMapInlineNodeIdColumn: TopologyMapInlineNodeIdColumn,
+  TopologyMapInlineNodeStringColumn: TopologyMapInlineNodeStringColumn,
+  TopologyMapInlineNodeValueColumn: TopologyMapInlineNodeValueColumn,
+  TopologyMapInlineNodeValueColumnMeta: TopologyMapInlineNodeValueColumnMeta,
+  TopologyMapInlineNodesData: TopologyMapInlineNodesData,
+  TopologyMapLayout: TopologyMapLayout,
+  TopologyMapWidgetDefinitionCustom: TopologyMapWidgetDefinitionCustom,
   TopologyMapWidgetDefinitionDataStreams:
     TopologyMapWidgetDefinitionDataStreams,
   TopologyMapWidgetDefinitionServiceMap: TopologyMapWidgetDefinitionServiceMap,
   TopologyQueryDataStreams: TopologyQueryDataStreams,
   TopologyQueryServiceMap: TopologyQueryServiceMap,
+  TopologyRequestCustom: TopologyRequestCustom,
+  TopologyRequestCustomProjection: TopologyRequestCustomProjection,
+  TopologyRequestCustomProjectionDimension:
+    TopologyRequestCustomProjectionDimension,
   TopologyRequestDataStreams: TopologyRequestDataStreams,
   TopologyRequestServiceMap: TopologyRequestServiceMap,
   TreeMapWidgetDefinition: TreeMapWidgetDefinition,
@@ -3189,9 +3230,15 @@ const oneOfMap: { [index: string]: string[] } = {
     "TableWidgetTextFormatReplaceSubstring",
   ],
   ToplistWidgetDisplay: ["ToplistWidgetStacked", "ToplistWidgetFlat"],
+  TopologyMapInlineNodeColumn: [
+    "TopologyMapInlineNodeIdColumn",
+    "TopologyMapInlineNodeStringColumn",
+    "TopologyMapInlineNodeValueColumn",
+  ],
   TopologyMapWidgetDefinition: [
     "TopologyMapWidgetDefinitionDataStreams",
     "TopologyMapWidgetDefinitionServiceMap",
+    "TopologyMapWidgetDefinitionCustom",
   ],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
