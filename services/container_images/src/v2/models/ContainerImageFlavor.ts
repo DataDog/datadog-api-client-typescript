@@ -21,7 +21,7 @@ export class ContainerImageFlavor {
    */
   "osVersion"?: string;
   /**
-   * Size of the platform-specific Container Image.
+   * Size of the platform-specific Container Image in bytes.
    */
   "size"?: number;
   /**

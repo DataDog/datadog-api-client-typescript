@@ -1,7 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Vulnerability counts associated with the Container Image.
+ * Vulnerability counts by severity, when available. An absent `vulnerability_count` does not mean
+ * the image has no vulnerabilities.
  */
 export class ContainerImageVulnerabilities {
   /**
