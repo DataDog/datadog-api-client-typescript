@@ -25,7 +25,7 @@ export class RUMOperationResponseAttributes {
    */
   "createdAt"?: Date;
   /**
-   * A Datadog user referenced by a RUM operation.
+   * A Datadog user referenced by a RUM operation. `null` when the user could not be resolved.
    */
   "createdBy"?: RUMOperationUser;
   /**
@@ -55,13 +55,13 @@ export class RUMOperationResponseAttributes {
   /**
    * A list of tags associated with the RUM operation.
    */
-  "tags": Array<string>;
+  "tags": Array<string> | null;
   /**
    * The timestamp when the RUM operation was last updated.
    */
   "updatedAt"?: Date;
   /**
-   * A Datadog user referenced by a RUM operation.
+   * A Datadog user referenced by a RUM operation. `null` when the user could not be resolved.
    */
   "updatedBy"?: RUMOperationUser;
 

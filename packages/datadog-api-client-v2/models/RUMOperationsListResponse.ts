@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { RUMOperationResponseData } from "./RUMOperationResponseData";
+import { RUMOperationsListResponseLinks } from "./RUMOperationsListResponseLinks";
 import { RUMOperationsListResponseMeta } from "./RUMOperationsListResponseMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -13,6 +14,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RUMOperationsListResponse {
   "data": Array<RUMOperationResponseData>;
+  /**
+   * Pagination links for a list of RUM operations.
+   */
+  "links"?: RUMOperationsListResponseLinks;
   /**
    * Metadata for a list of RUM operations.
    */
@@ -38,6 +43,10 @@ export class RUMOperationsListResponse {
       baseName: "data",
       type: "Array<RUMOperationResponseData>",
       required: true,
+    },
+    links: {
+      baseName: "links",
+      type: "RUMOperationsListResponseLinks",
     },
     meta: {
       baseName: "meta",
