@@ -3680,6 +3680,7 @@ export { CreateStatusPageRequestDataAttributes } from "./models/CreateStatusPage
 export { CreateStatusPageRequestDataAttributesComponentsItems } from "./models/CreateStatusPageRequestDataAttributesComponentsItems";
 export { CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems } from "./models/CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems";
 export { CreateStatusPageRequestDataAttributesType } from "./models/CreateStatusPageRequestDataAttributesType";
+export { CreateStatusPageRequestDataAttributesVisualizationLayout } from "./models/CreateStatusPageRequestDataAttributesVisualizationLayout";
 export { CreateStatusPageRequestDataAttributesVisualizationType } from "./models/CreateStatusPageRequestDataAttributesVisualizationType";
 export { CreateTableRequest } from "./models/CreateTableRequest";
 export { CreateTableRequestData } from "./models/CreateTableRequestData";
