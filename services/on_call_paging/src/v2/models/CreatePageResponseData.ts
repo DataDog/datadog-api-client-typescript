@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CreatePageResponseDataType } from "./CreatePageResponseDataType";
 
 /**
- * The information returned after successfully creating a page.
+ * The information returned after successfully creating a Page.
  */
 export class CreatePageResponseData {
   /**
-   * The unique ID of the created page.
+   * The unique ID of the created Page.
    */
   "id"?: string;
   /**
