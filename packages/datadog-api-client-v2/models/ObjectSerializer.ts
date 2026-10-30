@@ -63,6 +63,13 @@ import { AWSCcmConfigValidationRequestData } from "./AWSCcmConfigValidationReque
 import { AWSCcmConfigValidationResponse } from "./AWSCcmConfigValidationResponse";
 import { AWSCcmConfigValidationResponseAttributes } from "./AWSCcmConfigValidationResponseAttributes";
 import { AWSCcmConfigValidationResponseData } from "./AWSCcmConfigValidationResponseData";
+import { AWSCloudAuthIntakeMappingAttributesResponse } from "./AWSCloudAuthIntakeMappingAttributesResponse";
+import { AWSCloudAuthIntakeMappingCreateAttributes } from "./AWSCloudAuthIntakeMappingCreateAttributes";
+import { AWSCloudAuthIntakeMappingCreateData } from "./AWSCloudAuthIntakeMappingCreateData";
+import { AWSCloudAuthIntakeMappingCreateRequest } from "./AWSCloudAuthIntakeMappingCreateRequest";
+import { AWSCloudAuthIntakeMappingDataResponse } from "./AWSCloudAuthIntakeMappingDataResponse";
+import { AWSCloudAuthIntakeMappingResponse } from "./AWSCloudAuthIntakeMappingResponse";
+import { AWSCloudAuthIntakeMappingsResponse } from "./AWSCloudAuthIntakeMappingsResponse";
 import { AWSCloudAuthPersonaMappingAttributesResponse } from "./AWSCloudAuthPersonaMappingAttributesResponse";
 import { AWSCloudAuthPersonaMappingCreateAttributes } from "./AWSCloudAuthPersonaMappingCreateAttributes";
 import { AWSCloudAuthPersonaMappingCreateData } from "./AWSCloudAuthPersonaMappingCreateData";
@@ -6772,6 +6779,7 @@ const enumsMap: { [key: string]: any[] } = {
     "QUERY_STATEMENT_INVALID",
   ],
   AWSCcmConfigValidationType: ["ccm_config_validation"],
+  AWSCloudAuthIntakeMappingType: ["aws_cloud_auth_intake_mapping"],
   AWSCloudAuthPersonaMappingType: ["aws_cloud_auth_config"],
   AWSEventBridgeCreateStatus: ["created"],
   AWSEventBridgeDeleteStatus: ["empty"],
@@ -10601,6 +10609,16 @@ const typeMap: { [index: string]: any } = {
   AWSCcmConfigValidationResponseAttributes:
     AWSCcmConfigValidationResponseAttributes,
   AWSCcmConfigValidationResponseData: AWSCcmConfigValidationResponseData,
+  AWSCloudAuthIntakeMappingAttributesResponse:
+    AWSCloudAuthIntakeMappingAttributesResponse,
+  AWSCloudAuthIntakeMappingCreateAttributes:
+    AWSCloudAuthIntakeMappingCreateAttributes,
+  AWSCloudAuthIntakeMappingCreateData: AWSCloudAuthIntakeMappingCreateData,
+  AWSCloudAuthIntakeMappingCreateRequest:
+    AWSCloudAuthIntakeMappingCreateRequest,
+  AWSCloudAuthIntakeMappingDataResponse: AWSCloudAuthIntakeMappingDataResponse,
+  AWSCloudAuthIntakeMappingResponse: AWSCloudAuthIntakeMappingResponse,
+  AWSCloudAuthIntakeMappingsResponse: AWSCloudAuthIntakeMappingsResponse,
   AWSCloudAuthPersonaMappingAttributesResponse:
     AWSCloudAuthPersonaMappingAttributesResponse,
   AWSCloudAuthPersonaMappingCreateAttributes:
