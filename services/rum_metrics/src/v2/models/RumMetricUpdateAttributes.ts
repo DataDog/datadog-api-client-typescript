@@ -5,19 +5,19 @@ import { RumMetricGroupBy } from "./RumMetricGroupBy";
 import { RumMetricUpdateCompute } from "./RumMetricUpdateCompute";
 
 /**
- * The RUM-based metric properties that will be updated.
+ * The RUM-based metric properties that will be updated. Omitted properties keep their current value.
  */
 export class RumMetricUpdateAttributes {
   /**
-   * The compute rule to compute the RUM-based metric.
+   * The compute rule properties that can be updated. Only valid for metrics whose `aggregation_type` is `distribution`.
    */
   "compute"?: RumMetricUpdateCompute;
   /**
-   * The RUM-based metric filter. Events matching this filter will be aggregated in this metric.
+   * The RUM-based metric filter. Events matching this filter will be aggregated in this metric. The `event_type` filter is added automatically.
    */
   "filter"?: RumMetricFilter;
   /**
-   * The rules for the group by.
+   * The rules to group the metric by. When provided, replaces all the existing group by rules.
    */
   "groupBy"?: Array<RumMetricGroupBy>;
   /**
