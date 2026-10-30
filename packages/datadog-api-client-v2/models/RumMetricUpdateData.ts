@@ -9,19 +9,21 @@ import { RumMetricUpdateAttributes } from "./RumMetricUpdateAttributes";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The new RUM-based metric properties.
+ * The RUM-based metric properties to update. `id` is required by the API and must match the `metric_id` path parameter.
  */
 export class RumMetricUpdateData {
   /**
-   * The RUM-based metric properties that will be updated.
+   * The RUM-based metric properties that will be updated. Omitted properties keep their current value.
    */
   "attributes": RumMetricUpdateAttributes;
   /**
    * The name of the RUM-based metric.
+   * On creation, it must be 1 to 200 characters long, contain only ASCII letters, digits, underscores, and periods, start with a letter, and not start with `rum.measure` or `rum.investigate`.
+   * It cannot be changed after creation.
    */
   "id"?: string;
   /**
-   * The type of the resource. The value should always be rum_metrics.
+   * The type of the resource. The value must be `rum_metrics`.
    */
   "type": RumMetricType;
 
