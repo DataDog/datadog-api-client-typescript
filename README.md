@@ -138,6 +138,37 @@ The maximum number of retry attempts is 3 by default and can be modified with
 maxRetries
 ```
 
+### Preserve large integers
+
+JavaScript numbers lose precision above `Number.MAX_SAFE_INTEGER` (2^53 - 1), so large int64 values are rounded by default.
+To keep every digit, set the `preserveLargeIntegers` flag on your configuration object:
+
+```typescript
+import { client } from '@datadog/datadog-api-client';
+const configurationOpts = {
+  preserveLargeIntegers: true
+};
+
+const configuration = client.createConfiguration(configurationOpts);
+```
+
+With this flag, every int64 field in responses is returned as a `bigint`, and untyped values (`additionalProperties`) above `Number.MAX_SAFE_INTEGER` too.
+The flag applies to the whole client: passing it in the per-request configuration has no effect.
+
+To make the int64 field types `bigint` as well, declare the same option for the type checker once in your project:
+
+```typescript
+declare module '@datadog/datadog-api-client' {
+  interface CustomTypeOptions {
+    preserveLargeIntegers: true;
+  }
+}
+```
+
+The compiler then rejects code that mixes these values with numbers (`value + 1`); use `value + 1n`, or `Number(value)` when rounding is acceptable.
+int64 request parameters accept both `number` and `bigint`, and `bigint` values in request bodies are sent with all their digits.
+`bigint` literals require a TypeScript `target` of `ES2020` or later.
+
 ### Adding timeout to requests
 
 To add timeout or other mechanism to cancel requests, you need an abort
