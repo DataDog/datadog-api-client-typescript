@@ -10,11 +10,11 @@ import { ContainerImagesResponseLinks } from "./ContainerImagesResponseLinks";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * List of Container Images.
+ * List of Container Images or Container Image groups.
  */
 export class ContainerImagesResponse {
   /**
-   * Array of Container Image objects.
+   * Array of `container_image` objects, or `container_image_group` objects when `group_by` is specified.
    */
   "data"?: Array<ContainerImageItem>;
   /**

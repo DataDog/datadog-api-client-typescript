@@ -11,7 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ContainerImageGroupAttributes {
   /**
-   * Number of Container Images in the group.
+   * Number of images in the group. An image with multiple values for a grouping tag can appear
+   * in multiple groups. Images missing a grouping key are excluded. Summing group counts does
+   * not give a reliable inventory total.
    */
   "count"?: number;
   /**
