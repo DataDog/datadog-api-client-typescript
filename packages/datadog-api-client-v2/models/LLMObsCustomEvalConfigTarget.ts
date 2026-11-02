@@ -20,7 +20,7 @@ export class LLMObsCustomEvalConfigTarget {
    */
   "enabled": boolean;
   /**
-   * Scope at which to evaluate spans.
+   * Scope at which to evaluate spans. `trace_fan_out` requires `llm_judge_config.target_query`.
    */
   "evalScope"?: LLMObsCustomEvalConfigEvalScope;
   /**
