@@ -291,7 +291,7 @@ export const TypingInfo: ModelTypingInfo = {
     GeneratedCostTagDescriptionType: ["cost_generated_tag_description"],
     OCIConfigType: ["oci_config"],
     RecommendationsFilterRequestDataType: ["recommendations_filter"],
-    RecommendationsFilterRequestScope: ["ccm", "experiment", "*"],
+    RecommendationsFilterRequestScope: ["ccm", "experiment", "*", ""],
     ReorderRuleResourceDataType: ["arbitrary_rule"],
     ReorderRulesetResourceDataType: ["ruleset"],
     RulesValidateQueryRequestDataType: ["validate_query"],
