@@ -8646,6 +8646,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "CustomCostsFileListResponse",
   },
   "CloudCostManagementApi.V2.UploadCustomCostsFile": {
+    aiProvider: {
+      type: "boolean",
+      format: "",
+    },
     body: {
       type: "Array<CustomCostsFileLineItem>",
       format: "",
