@@ -154,6 +154,7 @@ const configuration = client.createConfiguration(configurationOpts);
 
 With this flag, every int64 field in responses is returned as a `bigint`, and untyped values (`additionalProperties`) above `Number.MAX_SAFE_INTEGER` too.
 The flag applies to the whole client: passing it in the per-request configuration has no effect.
+It requires Node.js 14 or later.
 
 To make the int64 field types `bigint` as well, declare the same option for the type checker once in your project:
 
