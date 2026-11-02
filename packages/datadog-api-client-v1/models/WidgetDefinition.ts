@@ -22,6 +22,7 @@ import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
 import { HostMapWidgetDefinition } from "./HostMapWidgetDefinition";
 import { IFrameWidgetDefinition } from "./IFrameWidgetDefinition";
 import { ImageWidgetDefinition } from "./ImageWidgetDefinition";
+import { JourneyMapWidgetDefinition } from "./JourneyMapWidgetDefinition";
 import { ListStreamWidgetDefinition } from "./ListStreamWidgetDefinition";
 import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
 import { MonitorSummaryWidgetDefinition } from "./MonitorSummaryWidgetDefinition";
@@ -74,6 +75,7 @@ export type WidgetDefinition =
   | HostMapWidgetDefinition
   | IFrameWidgetDefinition
   | ImageWidgetDefinition
+  | JourneyMapWidgetDefinition
   | ListStreamWidgetDefinition
   | LogStreamWidgetDefinition
   | MonitorSummaryWidgetDefinition
