@@ -5,7 +5,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class ContainerImageGroupRelationshipsLinks {
   /**
-   * Link to related Container Images.
+   * Link containing the original filters combined with the group tags, without `group_by`.
+   * Use its `filter[tags]` value in a new request to your site's API host. The tags must satisfy
+   * `filter[tags]` syntax restrictions.
    */
   "related"?: string;
   /**

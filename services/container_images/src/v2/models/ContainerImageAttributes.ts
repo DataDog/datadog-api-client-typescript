@@ -12,12 +12,13 @@ export class ContainerImageAttributes {
    */
   "containerCount"?: number;
   /**
-   * List of platform-specific images associated with the image record.
-   * The list contains more than 1 entry for multi-architecture images.
+   * Platform-specific image metadata, including size in bytes and available build and operating
+   * system details. Use these objects to associate sizes with platforms when platform information is available.
    */
   "imageFlavors"?: Array<ContainerImageFlavor>;
   /**
-   * List of image tags associated with the Container Image.
+   * Image version tags, such as `latest` or `v1.2.3`. Tags can change; use the returned `id` to
+   * identify an image record. The corresponding filter and grouping key is `image_tag`.
    */
   "imageTags"?: Array<string>;
   /**
@@ -46,15 +47,15 @@ export class ContainerImageAttributes {
    */
   "publishedAt"?: string;
   /**
-   * Registry the Container Image was pushed to.
+   * Registry where the image is stored. Use the `image_registry` tag key for filtering and grouping.
    */
   "registry"?: string;
   /**
-   * Digest of the compressed image manifest.
+   * Digest of the compressed image manifest. Use the `repo_digest` tag key to filter by this value.
    */
   "repoDigest"?: string;
   /**
-   * Repository where the Container Image is stored in.
+   * Repository where the image is stored. Use the `image_repository` tag key for filtering and grouping.
    */
   "repository"?: string;
   /**
@@ -62,20 +63,22 @@ export class ContainerImageAttributes {
    */
   "shortImage"?: string;
   /**
-   * List of size for each platform-specific image associated with the image record.
-   * The list contains more than 1 entry for multi-architecture images.
+   * Reported sizes in bytes of platform-specific images, with multiple values possible for multi-architecture images.
+   * Use `image_flavors` for available platform associations; use `size` as the sort key.
    */
   "sizes"?: Array<number>;
   /**
-   * List of sources where the Container Image was collected from.
+   * Collection sources, such as `live_containers`, `image_check`, `aws_ecr`, or `agentless_scanner`.
    */
   "sources"?: Array<string>;
   /**
-   * List of tags associated with the Container Image.
+   * Image tags in `key:value` form, such as `image_registry:docker.io` or `status:running`.
+   * Use tag keys in `group_by`. Tags used in `filter[tags]` must satisfy its syntax restrictions.
    */
   "tags"?: Array<string>;
   /**
-   * Vulnerability counts associated with the Container Image.
+   * Vulnerability counts by severity, when available. An absent `vulnerability_count` does not mean
+   * the image has no vulnerabilities.
    */
   "vulnerabilityCount"?: ContainerImageVulnerabilities;
   /**
