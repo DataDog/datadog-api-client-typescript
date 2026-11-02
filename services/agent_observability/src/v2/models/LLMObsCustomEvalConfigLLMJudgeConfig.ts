@@ -30,7 +30,7 @@ export class LLMObsCustomEvalConfigLLMJudgeConfig {
    */
   "modifiedLibraryPromptTemplate"?: boolean;
   /**
-   * JSON schema describing the expected output format of the LLM judge.
+   * JSON schema describing the expected output format of the LLM judge. Omit for a `deterministic` evaluator.
    */
   "outputSchema"?: { [key: string]: any };
   /**
@@ -38,7 +38,7 @@ export class LLMObsCustomEvalConfigLLMJudgeConfig {
    */
   "parsingType"?: LLMObsCustomEvalConfigParsingType;
   /**
-   * List of messages forming the LLM judge prompt template.
+   * List of messages forming the LLM judge prompt template. Omit for a `deterministic` evaluator.
    */
   "promptTemplate"?: Array<LLMObsCustomEvalConfigPromptMessage>;
   /**
@@ -46,7 +46,7 @@ export class LLMObsCustomEvalConfigLLMJudgeConfig {
    */
   "targetQuery"?: string;
   /**
-   * User-provided function applied to post-process the JSON output of the LLM judge.
+   * User-provided JavaScript function applied to post-process the JSON output of the LLM judge. For a `deterministic` evaluator it is the evaluator itself: it receives the evaluated span (span scope), `{spans}` (trace scope), or `{session_id, traces}` (session scope), and its return value sets the result. A boolean, number, string or object becomes a boolean, score, categorical or JSON metric; `null` skips the evaluation; and `{value, assessment, reasoning, metadata}` also sets pass or fail, reasoning, and metadata.
    */
   "userSpecifiedJsonPostProcessingFunction"?: string;
   /**

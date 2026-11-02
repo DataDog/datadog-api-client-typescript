@@ -17,11 +17,11 @@ export class LLMObsCustomEvalConfigLLMProvider {
    */
   "integrationAccountId"?: string;
   /**
-   * Name of the LLM integration provider.
+   * Name of the LLM integration provider. Use `deterministic` for a code evaluator, which runs `llm_judge_config.user_specified_json_post_processing_function` instead of calling an LLM. `insights_sponsored` is returned for evaluators that Datadog manages and cannot be set.
    */
   "integrationProvider"?: LLMObsCustomEvalConfigIntegrationProvider;
   /**
-   * Name of the LLM model.
+   * Name of the LLM model. Use `javascript` for a `deterministic` evaluator.
    */
   "modelName"?: string;
   /**
