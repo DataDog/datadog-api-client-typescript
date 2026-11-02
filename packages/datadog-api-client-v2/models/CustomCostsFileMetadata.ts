@@ -13,6 +13,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CustomCostsFileMetadata {
   /**
+   * Whether the Custom Costs file contains the costs of an AI provider.
+   */
+  "aiProvider"?: boolean;
+  /**
    * Total cost in the cost file.
    */
   "billedCost"?: number;
@@ -61,6 +65,10 @@ export class CustomCostsFileMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    aiProvider: {
+      baseName: "ai_provider",
+      type: "boolean",
+    },
     billedCost: {
       baseName: "billed_cost",
       type: "number",
