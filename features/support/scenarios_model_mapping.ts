@@ -8619,6 +8619,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "CustomCostsFileListResponse",
     },
     "v2.UploadCustomCostsFile": {
+        "aiProvider": {
+            "type": "boolean",
+            "format": "",
+            },
         "body": {
             "type": "Array<CustomCostsFileLineItem>",
             "format": "",
