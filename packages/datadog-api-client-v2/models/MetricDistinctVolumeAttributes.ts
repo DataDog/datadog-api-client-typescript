@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing the definition of a metric's distinct volume.
@@ -13,7 +13,7 @@ export class MetricDistinctVolumeAttributes {
   /**
    * Distinct volume for the given metric.
    */
-  "distinctVolume"?: number;
+  "distinctVolume"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

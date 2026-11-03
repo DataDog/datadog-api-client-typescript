@@ -81,7 +81,8 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
         "GoogleChatTargetAudienceCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -145,7 +146,8 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
         "GoogleChatCreateOrganizationHandleRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -772,7 +774,8 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
         "GoogleChatTargetAudienceUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -844,7 +847,8 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
         "GoogleChatUpdateOrganizationHandleRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -860,6 +864,12 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 }
 
 export class GoogleChatIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -876,8 +886,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: GoogleChatTargetAudienceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GoogleChatTargetAudienceResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "GoogleChatTargetAudienceResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatTargetAudienceResponse;
       return body;
     }
@@ -890,13 +906,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -912,9 +931,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GoogleChatTargetAudienceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "GoogleChatTargetAudienceResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatTargetAudienceResponse;
       return body;
     }
@@ -942,8 +966,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: GoogleChatOrganizationHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GoogleChatOrganizationHandleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "GoogleChatOrganizationHandleResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatOrganizationHandleResponse;
       return body;
     }
@@ -956,13 +986,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -978,9 +1011,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GoogleChatOrganizationHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "GoogleChatOrganizationHandleResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatOrganizationHandleResponse;
       return body;
     }
@@ -1015,13 +1053,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1068,13 +1109,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1121,13 +1165,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1174,13 +1221,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1220,8 +1270,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: GoogleChatDelegatedUserResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GoogleChatDelegatedUserResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "GoogleChatDelegatedUserResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatDelegatedUserResponse;
       return body;
     }
@@ -1232,13 +1288,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1254,9 +1313,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GoogleChatDelegatedUserResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "GoogleChatDelegatedUserResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatDelegatedUserResponse;
       return body;
     }
@@ -1283,8 +1347,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GoogleChatOrganizationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GoogleChatOrganizationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "GoogleChatOrganizationResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GoogleChatOrganizationResponse;
       return body;
     }
@@ -1295,13 +1365,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1316,9 +1389,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GoogleChatOrganizationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "GoogleChatOrganizationResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GoogleChatOrganizationResponse;
       return body;
     }
@@ -1346,8 +1424,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: GoogleChatTargetAudienceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GoogleChatTargetAudienceResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "GoogleChatTargetAudienceResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatTargetAudienceResponse;
       return body;
     }
@@ -1358,13 +1442,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1380,9 +1467,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GoogleChatTargetAudienceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "GoogleChatTargetAudienceResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatTargetAudienceResponse;
       return body;
     }
@@ -1410,8 +1502,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: GoogleChatOrganizationHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GoogleChatOrganizationHandleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "GoogleChatOrganizationHandleResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatOrganizationHandleResponse;
       return body;
     }
@@ -1423,13 +1521,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1445,9 +1546,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GoogleChatOrganizationHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "GoogleChatOrganizationHandleResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatOrganizationHandleResponse;
       return body;
     }
@@ -1475,8 +1581,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: GoogleChatAppNamedSpaceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GoogleChatAppNamedSpaceResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "GoogleChatAppNamedSpaceResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatAppNamedSpaceResponse;
       return body;
     }
@@ -1488,13 +1600,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1510,9 +1625,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GoogleChatAppNamedSpaceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "GoogleChatAppNamedSpaceResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatAppNamedSpaceResponse;
       return body;
     }
@@ -1540,21 +1660,30 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: GoogleChatOrganizationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GoogleChatOrganizationsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "GoogleChatOrganizationsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatOrganizationsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1570,9 +1699,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GoogleChatOrganizationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "GoogleChatOrganizationsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatOrganizationsResponse;
       return body;
     }
@@ -1600,8 +1734,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: GoogleChatTargetAudiencesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GoogleChatTargetAudiencesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "GoogleChatTargetAudiencesResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatTargetAudiencesResponse;
       return body;
     }
@@ -1612,13 +1752,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1634,9 +1777,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GoogleChatTargetAudiencesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "GoogleChatTargetAudiencesResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatTargetAudiencesResponse;
       return body;
     }
@@ -1664,8 +1812,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: GoogleChatOrganizationHandlesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GoogleChatOrganizationHandlesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "GoogleChatOrganizationHandlesResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatOrganizationHandlesResponse;
       return body;
     }
@@ -1677,13 +1831,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1699,9 +1856,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GoogleChatOrganizationHandlesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "GoogleChatOrganizationHandlesResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatOrganizationHandlesResponse;
       return body;
     }
@@ -1729,8 +1891,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: GoogleChatTargetAudienceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GoogleChatTargetAudienceResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "GoogleChatTargetAudienceResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatTargetAudienceResponse;
       return body;
     }
@@ -1742,13 +1910,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1764,9 +1935,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GoogleChatTargetAudienceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "GoogleChatTargetAudienceResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatTargetAudienceResponse;
       return body;
     }
@@ -1794,8 +1970,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: GoogleChatOrganizationHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GoogleChatOrganizationHandleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "GoogleChatOrganizationHandleResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatOrganizationHandleResponse;
       return body;
     }
@@ -1808,13 +1990,16 @@ export class GoogleChatIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1830,9 +2015,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GoogleChatOrganizationHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "GoogleChatOrganizationHandleResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GoogleChatOrganizationHandleResponse;
       return body;
     }
@@ -2035,7 +2225,8 @@ export class GoogleChatIntegrationApi {
       requestFactory ||
       new GoogleChatIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new GoogleChatIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new GoogleChatIntegrationApiResponseProcessor(configuration);
   }
 
   /**

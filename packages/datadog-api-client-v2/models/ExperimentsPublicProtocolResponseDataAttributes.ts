@@ -12,7 +12,7 @@ import { ExperimentsPublicProtocolResponseDataAttributesStatus } from "./Experim
 import { ExperimentsPublicProtocolResponseDataAttributesSubjectType } from "./ExperimentsPublicProtocolResponseDataAttributesSubjectType";
 import { ExperimentsPublicProtocolResponseDataAttributesTargetingRulesItems } from "./ExperimentsPublicProtocolResponseDataAttributesTargetingRulesItems";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Settings and defaults supplied by the protocol.
@@ -41,7 +41,7 @@ export class ExperimentsPublicProtocolResponseDataAttributes {
   /**
    * Default experiment duration supplied by the protocol, in days.
    */
-  "defaultDurationDays"?: number;
+  "defaultDurationDays"?: Int64;
   /**
    * Text that explains the protocol.
    */
@@ -57,7 +57,7 @@ export class ExperimentsPublicProtocolResponseDataAttributes {
   /**
    * Number of experiments in the organization that use this protocol, excluding deleted experiments. Omitted if the count cannot be retrieved. An omitted count does not mean zero.
    */
-  "experimentCount"?: number;
+  "experimentCount"?: Int64;
   /**
    * Schedule that controls traffic exposure for experiments created from the protocol.
    */
@@ -85,7 +85,7 @@ export class ExperimentsPublicProtocolResponseDataAttributes {
   /**
    * Maximum number of metrics allowed by the protocol.
    */
-  "metricLimit"?: number;
+  "metricLimit"?: Int64;
   /**
    * Metadata retained for resources imported from another system.
    */
@@ -97,7 +97,7 @@ export class ExperimentsPublicProtocolResponseDataAttributes {
   /**
    * Minimum experiment duration in the specified unit.
    */
-  "minimumDurationValue"?: number;
+  "minimumDurationValue"?: Int64;
   /**
    * Display name of the protocol.
    */

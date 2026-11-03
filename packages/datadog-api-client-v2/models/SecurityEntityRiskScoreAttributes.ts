@@ -7,7 +7,7 @@ import { SecurityEntityConfigRisks } from "./SecurityEntityConfigRisks";
 import { SecurityEntityMetadata } from "./SecurityEntityMetadata";
 import { SecurityEntityRiskScoreAttributesSeverity } from "./SecurityEntityRiskScoreAttributesSeverity";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an entity risk score.
@@ -52,7 +52,7 @@ export class SecurityEntityRiskScoreAttributes {
   /**
    * Timestamp when the entity was first detected (Unix milliseconds).
    */
-  "firstDetected": number;
+  "firstDetected": Int64;
   /**
    * Title of the most recent signal detected for this entity.
    */
@@ -60,15 +60,15 @@ export class SecurityEntityRiskScoreAttributes {
   /**
    * Timestamp when the entity was last detected (Unix milliseconds).
    */
-  "lastDetected": number;
+  "lastDetected": Int64;
   /**
    * Current risk score for the entity.
    */
-  "riskScore": number;
+  "riskScore": Int64;
   /**
    * Change in risk score compared to previous period.
    */
-  "riskScoreEvolution": number;
+  "riskScoreEvolution": Int64;
   /**
    * Severity level based on risk score
    */
@@ -76,7 +76,7 @@ export class SecurityEntityRiskScoreAttributes {
   /**
    * Number of risk-contributing security signals detected for this entity.
    */
-  "signalsDetected": number;
+  "signalsDetected": Int64;
 
   /**
    * A container for additional, undeclared properties.

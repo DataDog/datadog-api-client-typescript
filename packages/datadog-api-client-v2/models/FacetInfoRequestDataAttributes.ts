@@ -6,7 +6,7 @@
 import { FacetInfoRequestDataAttributesSearch } from "./FacetInfoRequestDataAttributesSearch";
 import { FacetInfoRequestDataAttributesTermSearch } from "./FacetInfoRequestDataAttributesTermSearch";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for the facet info request, specifying which facet to query and optional filters to apply.
@@ -19,7 +19,7 @@ export class FacetInfoRequestDataAttributes {
   /**
    * Maximum number of facet values to return in the response.
    */
-  "limit": number;
+  "limit": Int64;
   /**
    * Query-based search configuration for filtering the audience context when retrieving facet values.
    */

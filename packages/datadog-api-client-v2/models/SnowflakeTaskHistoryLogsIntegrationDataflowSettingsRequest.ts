@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Settings of the task history logs dataflow. Only the fields provided are changed.
@@ -13,7 +13,7 @@ export class SnowflakeTaskHistoryLogsIntegrationDataflowSettingsRequest {
   /**
    * How often task history logs are collected, in minutes. One of `5`, `15`, `30`, `60`, or `1440`. Defaults to `5`.
    */
-  "taskHistoryLogsIntervalMin"?: number;
+  "taskHistoryLogsIntervalMin"?: Int64;
 
   /**
    * @ignore

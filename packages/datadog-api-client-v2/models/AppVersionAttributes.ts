@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing an app version.
@@ -33,7 +33,7 @@ export class AppVersionAttributes {
   /**
    * The ID of the user who created the version.
    */
-  "userId"?: number;
+  "userId"?: Int64;
   /**
    * The name (or email) of the user who created the version.
    */
@@ -45,7 +45,7 @@ export class AppVersionAttributes {
   /**
    * The version number of the app, starting at 1.
    */
-  "version"?: number;
+  "version"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

@@ -6,7 +6,7 @@
 import { SyntheticsTestResultParentStep } from "./SyntheticsTestResultParentStep";
 import { SyntheticsTestResultParentTest } from "./SyntheticsTestResultParentTest";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Information about a sub-step in a nested test execution.
@@ -15,7 +15,7 @@ export class SyntheticsTestResultSubStep {
   /**
    * Depth of the sub-step in the execution tree.
    */
-  "level"?: number;
+  "level"?: Int64;
   /**
    * Reference to the parent step of a sub-step.
    */

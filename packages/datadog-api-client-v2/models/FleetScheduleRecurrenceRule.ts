@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Defines the recurrence pattern for the schedule. Specifies when deployments should be
@@ -19,7 +19,7 @@ export class FleetScheduleRecurrenceRule {
   /**
    * Duration of the maintenance window in minutes.
    */
-  "maintenanceWindowDuration": number;
+  "maintenanceWindowDuration": Int64;
   /**
    * Start time of the maintenance window in 24-hour clock format (HH:MM).
    * Deployments will be triggered at this time on the specified days.

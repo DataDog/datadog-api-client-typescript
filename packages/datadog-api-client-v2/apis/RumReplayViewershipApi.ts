@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ViewershipHistorySessionArray } from "../models/ViewershipHistorySessionArray";
@@ -65,7 +66,8 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Watch", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -121,8 +123,8 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
 
   public async listRumReplaySessionWatchers(
     sessionId: string,
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -178,12 +180,12 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async listRumReplayViewershipHistorySessions(
-    filterWatchedAtStart?: number,
-    pageNumber?: number,
+    filterWatchedAtStart?: Int64Input,
+    pageNumber?: Int64Input,
     filterCreatedBy?: string,
-    filterWatchedAtEnd?: number,
+    filterWatchedAtEnd?: Int64Input,
     filterSessionIds?: string,
-    pageSize?: number,
+    pageSize?: Int64Input,
     filterApplicationId?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -269,6 +271,12 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class RumReplayViewershipApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -284,21 +292,30 @@ export class RumReplayViewershipApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: Watch = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Watch"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "Watch",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Watch;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -313,9 +330,14 @@ export class RumReplayViewershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Watch = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "Watch",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Watch;
       return body;
     }
@@ -346,13 +368,16 @@ export class RumReplayViewershipApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -391,21 +416,30 @@ export class RumReplayViewershipApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: WatcherArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WatcherArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "WatcherArray",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as WatcherArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -420,9 +454,14 @@ export class RumReplayViewershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WatcherArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "WatcherArray",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as WatcherArray;
       return body;
     }
@@ -449,21 +488,30 @@ export class RumReplayViewershipApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ViewershipHistorySessionArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ViewershipHistorySessionArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ViewershipHistorySessionArray",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ViewershipHistorySessionArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -478,9 +526,14 @@ export class RumReplayViewershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ViewershipHistorySessionArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ViewershipHistorySessionArray",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ViewershipHistorySessionArray;
       return body;
     }
@@ -521,27 +574,27 @@ export interface RumReplayViewershipApiListRumReplaySessionWatchersRequest {
   sessionId: string;
   /**
    * Number of items per page.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Page number for pagination (0-indexed).
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
 }
 
 export interface RumReplayViewershipApiListRumReplayViewershipHistorySessionsRequest {
   /**
    * Start timestamp in milliseconds for watched_at filter.
-   * @type number
+   * @type Int64Input
    */
-  filterWatchedAtStart?: number;
+  filterWatchedAtStart?: Int64Input;
   /**
    * Page number for pagination (0-indexed).
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Filter by user UUID. Defaults to current user if not specified.
    * @type string
@@ -549,9 +602,9 @@ export interface RumReplayViewershipApiListRumReplayViewershipHistorySessionsReq
   filterCreatedBy?: string;
   /**
    * End timestamp in milliseconds for watched_at filter.
-   * @type number
+   * @type Int64Input
    */
-  filterWatchedAtEnd?: number;
+  filterWatchedAtEnd?: Int64Input;
   /**
    * Comma-separated list of session IDs to filter by.
    * @type string
@@ -559,9 +612,9 @@ export interface RumReplayViewershipApiListRumReplayViewershipHistorySessionsReq
   filterSessionIds?: string;
   /**
    * Number of items per page.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Filter by application ID.
    * @type string
@@ -583,7 +636,8 @@ export class RumReplayViewershipApi {
     this.requestFactory =
       requestFactory || new RumReplayViewershipApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RumReplayViewershipApiResponseProcessor();
+      responseProcessor ||
+      new RumReplayViewershipApiResponseProcessor(configuration);
   }
 
   /**

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing the metric unit family, scale factor, name, and short name.
@@ -17,7 +17,7 @@ export class MetricsQueryUnit {
   /**
    * Unit identifier.
    */
-  "id"?: number;
+  "id"?: Int64;
   /**
    * Unit name
    */

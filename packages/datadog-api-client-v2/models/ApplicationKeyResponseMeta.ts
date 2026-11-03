@@ -5,7 +5,7 @@
  */
 import { ApplicationKeyResponseMetaPage } from "./ApplicationKeyResponseMetaPage";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Additional information related to the application key response.
@@ -14,7 +14,7 @@ export class ApplicationKeyResponseMeta {
   /**
    * Max allowed number of application keys per user.
    */
-  "maxAllowedPerUser"?: number;
+  "maxAllowedPerUser"?: Int64;
   /**
    * Additional information related to the application key response.
    */

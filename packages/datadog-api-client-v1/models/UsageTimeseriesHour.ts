@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The hourly usage of timeseries.
@@ -17,15 +17,15 @@ export class UsageTimeseriesHour {
   /**
    * Contains the number of custom metrics that are inputs for aggregations (metric configured is custom).
    */
-  "numCustomInputTimeseries"?: number;
+  "numCustomInputTimeseries"?: Int64;
   /**
    * Contains the number of custom metrics that are outputs for aggregations (metric configured is custom).
    */
-  "numCustomOutputTimeseries"?: number;
+  "numCustomOutputTimeseries"?: Int64;
   /**
    * Contains sum of non-aggregation custom metrics and custom metrics that are outputs for aggregations.
    */
-  "numCustomTimeseries"?: number;
+  "numCustomTimeseries"?: Int64;
   /**
    * The organization name.
    */

@@ -5,7 +5,7 @@
  */
 import { SLOReportInterval } from "./SLOReportInterval";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes portion of the SLO report request.
@@ -14,7 +14,7 @@ export class SloReportCreateRequestAttributes {
   /**
    * The `from` timestamp for the report in epoch seconds.
    */
-  "fromTs": number;
+  "fromTs": Int64;
   /**
    * The frequency at which report data is to be generated.
    */
@@ -30,7 +30,7 @@ export class SloReportCreateRequestAttributes {
   /**
    * The `to` timestamp for the report in epoch seconds.
    */
-  "toTs": number;
+  "toTs": Int64;
 
   /**
    * A container for additional, undeclared properties.

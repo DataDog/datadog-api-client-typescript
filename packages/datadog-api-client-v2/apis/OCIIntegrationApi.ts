@@ -57,7 +57,8 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateTenancyConfigRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -269,7 +270,8 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateTenancyConfigRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -285,6 +287,12 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class OCIIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -300,21 +308,30 @@ export class OCIIntegrationApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: TenancyConfig = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TenancyConfig"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TenancyConfig",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TenancyConfig;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -329,9 +346,14 @@ export class OCIIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TenancyConfig = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TenancyConfig",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TenancyConfig;
       return body;
     }
@@ -360,13 +382,16 @@ export class OCIIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -405,21 +430,30 @@ export class OCIIntegrationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TenancyConfig = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TenancyConfig"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TenancyConfig",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TenancyConfig;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -434,9 +468,14 @@ export class OCIIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TenancyConfig = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TenancyConfig",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TenancyConfig;
       return body;
     }
@@ -463,21 +502,30 @@ export class OCIIntegrationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TenancyConfigList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TenancyConfigList"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TenancyConfigList",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TenancyConfigList;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -492,9 +540,14 @@ export class OCIIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TenancyConfigList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TenancyConfigList",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TenancyConfigList;
       return body;
     }
@@ -521,21 +574,30 @@ export class OCIIntegrationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TenancyProductsList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TenancyProductsList"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TenancyProductsList",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TenancyProductsList;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -550,9 +612,14 @@ export class OCIIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TenancyProductsList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TenancyProductsList",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TenancyProductsList;
       return body;
     }
@@ -579,21 +646,30 @@ export class OCIIntegrationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TenancyConfig = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TenancyConfig"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TenancyConfig",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TenancyConfig;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -608,9 +684,14 @@ export class OCIIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TenancyConfig = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TenancyConfig",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TenancyConfig;
       return body;
     }
@@ -680,7 +761,8 @@ export class OCIIntegrationApi {
     this.requestFactory =
       requestFactory || new OCIIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new OCIIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new OCIIntegrationApiResponseProcessor(configuration);
   }
 
   /**

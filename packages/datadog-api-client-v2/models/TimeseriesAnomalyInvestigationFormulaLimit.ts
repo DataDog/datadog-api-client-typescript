@@ -5,7 +5,7 @@
  */
 import { TimeseriesAnomalyInvestigationFormulaLimitOrder } from "./TimeseriesAnomalyInvestigationFormulaLimitOrder";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Optional formula limit accepted for compatibility with Timeseries API requests. Formula limits have no effect on timeseries queries.
@@ -14,7 +14,7 @@ export class TimeseriesAnomalyInvestigationFormulaLimit {
   /**
    * Requested result limit. This field has no effect on a timeseries anomaly investigation.
    */
-  "count"?: number;
+  "count"?: Int64;
   /**
    * Sort order used when applying a formula series limit.
    */

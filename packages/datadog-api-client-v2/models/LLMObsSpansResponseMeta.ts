@@ -5,7 +5,7 @@
  */
 import { LLMObsSpansResponsePage } from "./LLMObsSpansResponsePage";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata accompanying the spans response.
@@ -14,7 +14,7 @@ export class LLMObsSpansResponseMeta {
   /**
    * Time elapsed for the query in milliseconds.
    */
-  "elapsed": number;
+  "elapsed": Int64;
   /**
    * Pagination cursor for the spans response.
    */

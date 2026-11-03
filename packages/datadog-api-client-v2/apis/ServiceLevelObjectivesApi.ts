@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
@@ -62,7 +63,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SloReportCreateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -166,8 +168,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
   public async getSloStatus(
     sloId: string,
-    fromTs: number,
-    toTs: number,
+    fromTs: Int64Input,
+    toTs: Int64Input,
     disableCorrections?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -246,6 +248,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 }
 
 export class ServiceLevelObjectivesApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -261,8 +269,14 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SLOReportPostResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOReportPostResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SLOReportPostResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as SLOReportPostResponse;
       return body;
     }
@@ -273,13 +287,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -294,9 +311,14 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOReportPostResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "SLOReportPostResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as SLOReportPostResponse;
       return body;
     }
@@ -321,8 +343,14 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: string = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "string"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "string",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as string;
       return body;
     }
@@ -334,13 +362,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -355,9 +386,14 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: string = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "string",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as string;
       return body;
     }
@@ -384,8 +420,14 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SLOReportStatusGetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOReportStatusGetResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SLOReportStatusGetResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as SLOReportStatusGetResponse;
       return body;
     }
@@ -397,13 +439,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -418,9 +463,14 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOReportStatusGetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "SLOReportStatusGetResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as SLOReportStatusGetResponse;
       return body;
     }
@@ -447,8 +497,14 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SloStatusResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SloStatusResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SloStatusResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as SloStatusResponse;
       return body;
     }
@@ -459,13 +515,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -482,13 +541,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -503,9 +565,14 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SloStatusResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "SloStatusResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as SloStatusResponse;
       return body;
     }
@@ -550,14 +617,14 @@ export interface ServiceLevelObjectivesApiGetSloStatusRequest {
   sloId: string;
   /**
    * The starting timestamp for the SLO status query in epoch seconds.
-   * @type number
+   * @type Int64Input
    */
-  fromTs: number;
+  fromTs: Int64Input;
   /**
    * The ending timestamp for the SLO status query in epoch seconds.
-   * @type number
+   * @type Int64Input
    */
-  toTs: number;
+  toTs: Int64Input;
   /**
    * Whether to exclude correction windows from the SLO status calculation. Defaults to false.
    * @type boolean
@@ -580,7 +647,8 @@ export class ServiceLevelObjectivesApi {
       requestFactory ||
       new ServiceLevelObjectivesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ServiceLevelObjectivesApiResponseProcessor();
+      responseProcessor ||
+      new ServiceLevelObjectivesApiResponseProcessor(configuration);
   }
 
   /**

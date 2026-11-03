@@ -43,6 +43,12 @@ export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class AuthenticationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -59,21 +65,30 @@ export class AuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: AuthenticationValidationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "AuthenticationValidationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "AuthenticationValidationResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as AuthenticationValidationResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -89,9 +104,14 @@ export class AuthenticationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AuthenticationValidationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "AuthenticationValidationResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as AuthenticationValidationResponse;
       return body;
     }
@@ -118,7 +138,8 @@ export class AuthenticationApi {
     this.requestFactory =
       requestFactory || new AuthenticationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new AuthenticationApiResponseProcessor();
+      responseProcessor ||
+      new AuthenticationApiResponseProcessor(configuration);
   }
 
   /**

@@ -8,7 +8,7 @@ import { SBOMComponentDependency } from "./SBOMComponentDependency";
 import { SBOMMetadata } from "./SBOMMetadata";
 import { SpecVersion } from "./SpecVersion";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The JSON:API attributes of the SBOM.
@@ -41,7 +41,7 @@ export class SBOMAttributes {
   /**
    * It increments when a BOM is modified. The default value is 1.
    */
-  "version": number;
+  "version": Int64;
 
   /**
    * A container for additional, undeclared properties.

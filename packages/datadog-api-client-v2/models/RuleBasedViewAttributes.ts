@@ -5,7 +5,7 @@
  */
 import { RuleBasedViewRule } from "./RuleBasedViewRule";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of the rule-based view.
@@ -14,7 +14,7 @@ export class RuleBasedViewAttributes {
   /**
    * Total number of rules in the view.
    */
-  "count": number;
+  "count": Int64;
   /**
    * List of rules in the rule-based view.
    */

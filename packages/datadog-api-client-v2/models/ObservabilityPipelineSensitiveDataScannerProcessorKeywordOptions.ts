@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Configuration for keywords used to reinforce sensitive data pattern detection.
@@ -17,7 +17,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions {
   /**
    * Maximum number of tokens between a keyword and a sensitive value match.
    */
-  "proximity": number;
+  "proximity": Int64;
 
   /**
    * A container for additional, undeclared properties.

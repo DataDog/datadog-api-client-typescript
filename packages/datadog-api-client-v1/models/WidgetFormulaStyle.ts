@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Styling options for widget formulas.
@@ -17,7 +17,7 @@ export class WidgetFormulaStyle {
   /**
    * Index specifying which color to use within the palette.
    */
-  "paletteIndex"?: number;
+  "paletteIndex"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

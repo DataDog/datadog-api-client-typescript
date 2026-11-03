@@ -5,7 +5,7 @@
  */
 import { CommitmentsUnit } from "./CommitmentsUnit";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A timeseries metric containing timestamps, series values, and optional unit metadata.
@@ -18,7 +18,7 @@ export class CommitmentsTimeseriesMetric {
   /**
    * Unix timestamps in seconds for the timeseries data points.
    */
-  "times": Array<number>;
+  "times": Array<Int64>;
   /**
    * Unit metadata for a numeric metric.
    */
@@ -49,6 +49,7 @@ export class CommitmentsTimeseriesMetric {
       baseName: "times",
       type: "Array<number>",
       required: true,
+      format: "int64",
     },
     unit: {
       baseName: "unit",

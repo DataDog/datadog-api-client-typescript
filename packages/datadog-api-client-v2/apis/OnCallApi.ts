@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CreateOnCallNotificationRuleRequest } from "../models/CreateOnCallNotificationRuleRequest";
@@ -93,7 +94,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "EscalationPolicyCreateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -150,7 +152,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ScheduleCreateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -217,7 +220,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateOverridesRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -278,7 +282,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
         "CreateUserNotificationChannelRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -339,7 +344,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
         "CreateOnCallNotificationRuleRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1029,8 +1035,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listOnCallEscalationPolicies(
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     filterQuery?: string,
     filterTeamId?: string,
     filterUserId?: string,
@@ -1133,8 +1139,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listOnCallPages(
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     filterQuery?: string,
     sort?: OnCallPagesSort,
     _options?: Configuration
@@ -1197,8 +1203,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listOnCallSchedules(
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     filterQuery?: string,
     include?: string,
     _options?: Configuration
@@ -1265,8 +1271,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     filterStart: Date,
     filterEnd: Date,
     include?: string,
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -1495,7 +1501,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamRoutingRulesRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1562,7 +1569,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "EscalationPolicyUpdateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1628,7 +1636,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ScheduleUpdateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1704,7 +1713,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
         "UpdateOnCallNotificationRuleRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1720,6 +1730,12 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class OnCallApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1735,8 +1751,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: EscalationPolicy = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "EscalationPolicy"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "EscalationPolicy",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as EscalationPolicy;
       return body;
     }
@@ -1748,13 +1770,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1769,9 +1794,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EscalationPolicy = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "EscalationPolicy",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as EscalationPolicy;
       return body;
     }
@@ -1798,8 +1828,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: Schedule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Schedule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "Schedule",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Schedule;
       return body;
     }
@@ -1811,13 +1847,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1832,9 +1871,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Schedule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "Schedule",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Schedule;
       return body;
     }
@@ -1861,8 +1905,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: OverrideCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OverrideCreateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "OverrideCreateResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OverrideCreateResponse;
       return body;
     }
@@ -1875,13 +1925,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1896,9 +1949,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OverrideCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "OverrideCreateResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OverrideCreateResponse;
       return body;
     }
@@ -1925,8 +1983,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: NotificationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "NotificationChannel"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "NotificationChannel",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as NotificationChannel;
       return body;
     }
@@ -1939,13 +2003,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1960,9 +2027,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotificationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "NotificationChannel",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as NotificationChannel;
       return body;
     }
@@ -1989,8 +2061,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: OnCallNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OnCallNotificationRule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "OnCallNotificationRule",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OnCallNotificationRule;
       return body;
     }
@@ -2003,13 +2081,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2024,9 +2105,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OnCallNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "OnCallNotificationRule",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OnCallNotificationRule;
       return body;
     }
@@ -2062,13 +2148,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2114,13 +2203,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2169,13 +2261,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2224,13 +2319,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2279,13 +2377,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2324,8 +2425,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: EscalationPolicy = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "EscalationPolicy"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "EscalationPolicy",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as EscalationPolicy;
       return body;
     }
@@ -2338,13 +2445,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2359,9 +2469,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EscalationPolicy = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "EscalationPolicy",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as EscalationPolicy;
       return body;
     }
@@ -2388,8 +2503,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: OnCallPageResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OnCallPageResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "OnCallPageResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OnCallPageResponse;
       return body;
     }
@@ -2400,13 +2521,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2420,13 +2544,16 @@ export class OnCallApiResponseProcessor {
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2444,9 +2571,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OnCallPageResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "OnCallPageResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OnCallPageResponse;
       return body;
     }
@@ -2471,8 +2603,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: Schedule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Schedule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "Schedule",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Schedule;
       return body;
     }
@@ -2484,13 +2622,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2505,9 +2646,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Schedule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "Schedule",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Schedule;
       return body;
     }
@@ -2534,21 +2680,30 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TeamRoutingRules = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamRoutingRules"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TeamRoutingRules",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamRoutingRules;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2563,9 +2718,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamRoutingRules = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TeamRoutingRules",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamRoutingRules;
       return body;
     }
@@ -2592,8 +2752,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ScheduleOnCallResponders = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ScheduleOnCallResponders"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ScheduleOnCallResponders",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ScheduleOnCallResponders;
       return body;
     }
@@ -2606,13 +2772,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2627,9 +2796,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ScheduleOnCallResponders = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ScheduleOnCallResponders",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ScheduleOnCallResponders;
       return body;
     }
@@ -2656,8 +2830,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: Shift = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Shift"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "Shift",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Shift;
       return body;
     }
@@ -2670,13 +2850,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2691,9 +2874,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Shift = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "Shift",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Shift;
       return body;
     }
@@ -2720,8 +2908,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TeamOnCallResponders = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamOnCallResponders"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TeamOnCallResponders",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamOnCallResponders;
       return body;
     }
@@ -2734,13 +2928,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2755,9 +2952,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamOnCallResponders = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TeamOnCallResponders",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamOnCallResponders;
       return body;
     }
@@ -2784,8 +2986,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: NotificationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "NotificationChannel"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "NotificationChannel",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as NotificationChannel;
       return body;
     }
@@ -2798,13 +3006,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2819,9 +3030,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotificationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "NotificationChannel",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as NotificationChannel;
       return body;
     }
@@ -2848,8 +3064,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: OnCallNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OnCallNotificationRule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "OnCallNotificationRule",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OnCallNotificationRule;
       return body;
     }
@@ -2862,13 +3084,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2883,9 +3108,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OnCallNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "OnCallNotificationRule",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OnCallNotificationRule;
       return body;
     }
@@ -2912,8 +3142,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: EscalationPolicies = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "EscalationPolicies"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "EscalationPolicies",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as EscalationPolicies;
       return body;
     }
@@ -2925,13 +3161,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2946,9 +3185,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EscalationPolicies = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "EscalationPolicies",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as EscalationPolicies;
       return body;
     }
@@ -2975,21 +3219,30 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: OnCallPagesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OnCallPagesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "OnCallPagesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OnCallPagesResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3010,13 +3263,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3031,9 +3287,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OnCallPagesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "OnCallPagesResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OnCallPagesResponse;
       return body;
     }
@@ -3060,8 +3321,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: Schedules = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Schedules"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "Schedules",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Schedules;
       return body;
     }
@@ -3073,13 +3340,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3094,9 +3364,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Schedules = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "Schedules",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Schedules;
       return body;
     }
@@ -3123,8 +3398,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: Overrides = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Overrides"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "Overrides",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Overrides;
       return body;
     }
@@ -3137,13 +3418,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3158,9 +3442,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Overrides = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "Overrides",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Overrides;
       return body;
     }
@@ -3188,8 +3477,14 @@ export class OnCallApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ListNotificationChannelsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ListNotificationChannelsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ListNotificationChannelsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ListNotificationChannelsResponse;
       return body;
     }
@@ -3202,13 +3497,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3224,9 +3522,14 @@ export class OnCallApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListNotificationChannelsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ListNotificationChannelsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ListNotificationChannelsResponse;
       return body;
     }
@@ -3254,8 +3557,14 @@ export class OnCallApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ListOnCallNotificationRulesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ListOnCallNotificationRulesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ListOnCallNotificationRulesResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ListOnCallNotificationRulesResponse;
       return body;
     }
@@ -3268,13 +3577,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3290,9 +3602,14 @@ export class OnCallApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListOnCallNotificationRulesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ListOnCallNotificationRulesResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ListOnCallNotificationRulesResponse;
       return body;
     }
@@ -3319,21 +3636,30 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TeamRoutingRules = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamRoutingRules"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TeamRoutingRules",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamRoutingRules;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3348,9 +3674,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamRoutingRules = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TeamRoutingRules",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamRoutingRules;
       return body;
     }
@@ -3377,8 +3708,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: EscalationPolicy = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "EscalationPolicy"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "EscalationPolicy",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as EscalationPolicy;
       return body;
     }
@@ -3391,13 +3728,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3412,9 +3752,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EscalationPolicy = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "EscalationPolicy",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as EscalationPolicy;
       return body;
     }
@@ -3441,8 +3786,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: Schedule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Schedule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "Schedule",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Schedule;
       return body;
     }
@@ -3455,13 +3806,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3476,9 +3830,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Schedule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "Schedule",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Schedule;
       return body;
     }
@@ -3505,8 +3864,14 @@ export class OnCallApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: OnCallNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OnCallNotificationRule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "OnCallNotificationRule",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OnCallNotificationRule;
       return body;
     }
@@ -3519,13 +3884,16 @@ export class OnCallApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3540,9 +3908,14 @@ export class OnCallApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OnCallNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "OnCallNotificationRule",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OnCallNotificationRule;
       return body;
     }
@@ -3810,14 +4183,14 @@ export interface OnCallApiGetUserNotificationRuleRequest {
 export interface OnCallApiListOnCallEscalationPoliciesRequest {
   /**
    * Number of escalation policies to return per page. The maximum allowed value is 50.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Search query to filter escalation policies. Supports free-text search on the policy name (case-insensitive) and structured filters on `team.id` and `tags`. When set, `filter[team_id]`, `filter[user_id]`, and `filter[schedule_id]` are ignored. Can't be combined with `filter[tags]` or `filter[tags_any]`.
    * @type string
@@ -3858,14 +4231,14 @@ export interface OnCallApiListOnCallEscalationPoliciesRequest {
 export interface OnCallApiListOnCallPagesRequest {
   /**
    * Number of On-Call Pages to return per page of results. The maximum allowed value is 1000.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Page of results to return, starting at 0. `page[number]` multiplied by `page[size]` must be less than 50000.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Search query to filter Pages. Supports filters such as `status`, `urgency`, `team`, `service`, and `tags`, for example `status:triggered`.
    * @type string
@@ -3881,14 +4254,14 @@ export interface OnCallApiListOnCallPagesRequest {
 export interface OnCallApiListOnCallSchedulesRequest {
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Search query to filter schedules. Supports free-text search on schedule name (case-insensitive, `*` wildcards), and structured filters such as `team.id:<uuid>` and `user.id:<uuid>` (multiple values can be combined with `OR`, e.g. `user.id:(<uuid> OR <uuid>)`).
    * @type string
@@ -3924,14 +4297,14 @@ export interface OnCallApiListScheduleOverridesRequest {
   include?: string;
   /**
    * Number of overrides to return per page. The maximum allowed value is 50.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
 }
 
 export interface OnCallApiListUserNotificationChannelsRequest {
@@ -4042,7 +4415,7 @@ export class OnCallApi {
     this.requestFactory =
       requestFactory || new OnCallApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new OnCallApiResponseProcessor();
+      responseProcessor || new OnCallApiResponseProcessor(configuration);
   }
 
   /**
@@ -4535,7 +4908,7 @@ export class OnCallApi {
   ): AsyncGenerator<EscalationPolicyListItem> {
     let pageSize = 20;
     if (param.pageSize !== undefined) {
-      pageSize = param.pageSize;
+      pageSize = Number(param.pageSize);
     }
     param.pageSize = pageSize;
     param.pageNumber = 0;
@@ -4572,7 +4945,7 @@ export class OnCallApi {
       if (results.length < pageSize) {
         break;
       }
-      param.pageNumber = param.pageNumber + 1;
+      param.pageNumber = Number(param.pageNumber) + 1;
     }
   }
 
@@ -4609,7 +4982,7 @@ export class OnCallApi {
   ): AsyncGenerator<OnCallPageData> {
     let pageSize = 100;
     if (param.pageSize !== undefined) {
-      pageSize = param.pageSize;
+      pageSize = Number(param.pageSize);
     }
     param.pageSize = pageSize;
     param.pageNumber = 0;
@@ -4639,7 +5012,7 @@ export class OnCallApi {
       if (results.length < pageSize) {
         break;
       }
-      param.pageNumber = param.pageNumber + 1;
+      param.pageNumber = Number(param.pageNumber) + 1;
     }
   }
 
@@ -4676,7 +5049,7 @@ export class OnCallApi {
   ): AsyncGenerator<ScheduleListItem> {
     let pageSize = 10;
     if (param.pageSize !== undefined) {
-      pageSize = param.pageSize;
+      pageSize = Number(param.pageSize);
     }
     param.pageSize = pageSize;
     param.pageNumber = 0;
@@ -4706,7 +5079,7 @@ export class OnCallApi {
       if (results.length < pageSize) {
         break;
       }
-      param.pageNumber = param.pageNumber + 1;
+      param.pageNumber = Number(param.pageNumber) + 1;
     }
   }
 
@@ -4745,7 +5118,7 @@ export class OnCallApi {
   ): AsyncGenerator<OverrideData> {
     let pageSize = 10;
     if (param.pageSize !== undefined) {
-      pageSize = param.pageSize;
+      pageSize = Number(param.pageSize);
     }
     param.pageSize = pageSize;
     param.pageNumber = 0;
@@ -4777,7 +5150,7 @@ export class OnCallApi {
       if (results.length < pageSize) {
         break;
       }
-      param.pageNumber = param.pageNumber + 1;
+      param.pageNumber = Number(param.pageNumber) + 1;
     }
   }
 

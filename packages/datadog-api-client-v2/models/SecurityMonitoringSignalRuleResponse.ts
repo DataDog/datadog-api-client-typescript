@@ -9,7 +9,7 @@ import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringSignalRuleResponseQuery } from "./SecurityMonitoringSignalRuleResponseQuery";
 import { SecurityMonitoringSignalRuleType } from "./SecurityMonitoringSignalRuleType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Rule.
@@ -22,15 +22,15 @@ export class SecurityMonitoringSignalRuleResponse {
   /**
    * The version of the rule at which its detection logic last changed. Updates that only change the name, message, tags, or notifications do not change this value.
    */
-  "compatibleVersion"?: number;
+  "compatibleVersion"?: Int64;
   /**
    * When the rule was created, timestamp in milliseconds.
    */
-  "createdAt"?: number;
+  "createdAt"?: Int64;
   /**
    * User ID of the user who created the rule.
    */
-  "creationAuthorId"?: number;
+  "creationAuthorId"?: Int64;
   /**
    * Custom/Overridden message for generated signals (used in case of Default rule update).
    */
@@ -42,7 +42,7 @@ export class SecurityMonitoringSignalRuleResponse {
   /**
    * When the rule will be deprecated, timestamp in milliseconds.
    */
-  "deprecationDate"?: number;
+  "deprecationDate"?: Int64;
   /**
    * Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
    */
@@ -94,11 +94,11 @@ export class SecurityMonitoringSignalRuleResponse {
   /**
    * User ID of the user who updated the rule.
    */
-  "updateAuthorId"?: number;
+  "updateAuthorId"?: Int64;
   /**
    * The version of the rule.
    */
-  "version"?: number;
+  "version"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

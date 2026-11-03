@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Counters describing the result of the STIX ingestion request.
@@ -13,15 +13,15 @@ export class STIXIngestResponseAttributes {
   /**
    * The number of supported indicators accepted.
    */
-  "accepted": number;
+  "accepted": Int64;
   /**
    * The number of indicators with patterns that could not be parsed.
    */
-  "invalid": number;
+  "invalid": Int64;
   /**
    * The number of indicator objects with an unsupported STIX version or a pattern that produced no supported observable values.
    */
-  "unsupported": number;
+  "unsupported": Int64;
 
   /**
    * A container for additional, undeclared properties.

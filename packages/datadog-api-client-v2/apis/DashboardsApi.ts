@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { DashboardUsage } from "../models/DashboardUsage";
@@ -67,8 +68,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listDashboardsUsage(
-    pageLimit?: number,
-    pageOffset?: number,
+    pageLimit?: Int64Input,
+    pageOffset?: Int64Input,
     filterEditedBefore?: string,
     filterViewedBefore?: string,
     _options?: Configuration
@@ -137,6 +138,12 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class DashboardsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -152,8 +159,14 @@ export class DashboardsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DashboardUsageResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardUsageResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DashboardUsageResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DashboardUsageResponse;
       return body;
     }
@@ -165,13 +178,16 @@ export class DashboardsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -186,9 +202,14 @@ export class DashboardsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DashboardUsageResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DashboardUsageResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DashboardUsageResponse;
       return body;
     }
@@ -215,8 +236,14 @@ export class DashboardsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListDashboardsUsageResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListDashboardsUsageResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ListDashboardsUsageResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListDashboardsUsageResponse;
       return body;
     }
@@ -227,13 +254,16 @@ export class DashboardsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -248,9 +278,14 @@ export class DashboardsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListDashboardsUsageResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ListDashboardsUsageResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListDashboardsUsageResponse;
       return body;
     }
@@ -274,14 +309,14 @@ export interface DashboardsApiGetDashboardUsageRequest {
 export interface DashboardsApiListDashboardsUsageRequest {
   /**
    * Maximum number of dashboards to return per page. Server-side maximum is 500; values above 500 return a 400 Bad Request.
-   * @type number
+   * @type Int64Input
    */
-  pageLimit?: number;
+  pageLimit?: Int64Input;
   /**
    * Zero-based offset into the result set.
-   * @type number
+   * @type Int64Input
    */
-  pageOffset?: number;
+  pageOffset?: Int64Input;
   /**
    * Return only dashboards whose last edit (`edited_at`) is strictly before this ISO 8601 timestamp (`edited_at < value`; boundary matches are excluded). Must include a timezone offset (for example, `Z` or `+00:00`); naive timestamps return HTTP 400.
    * @type string
@@ -308,7 +343,7 @@ export class DashboardsApi {
     this.requestFactory =
       requestFactory || new DashboardsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new DashboardsApiResponseProcessor();
+      responseProcessor || new DashboardsApiResponseProcessor(configuration);
   }
 
   /**
@@ -365,7 +400,7 @@ export class DashboardsApi {
   ): AsyncGenerator<DashboardUsage> {
     let pageSize = 250;
     if (param.pageLimit !== undefined) {
-      pageSize = param.pageLimit;
+      pageSize = Number(param.pageLimit);
     }
     param.pageLimit = pageSize;
     while (true) {
@@ -397,7 +432,7 @@ export class DashboardsApi {
       if (param.pageOffset === undefined) {
         param.pageOffset = pageSize;
       } else {
-        param.pageOffset = param.pageOffset + pageSize;
+        param.pageOffset = Number(param.pageOffset) + pageSize;
       }
     }
   }

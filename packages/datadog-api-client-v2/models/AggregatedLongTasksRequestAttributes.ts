@@ -5,7 +5,7 @@
  */
 import { AggregatedWaterfallPerformanceCriteria } from "./AggregatedWaterfallPerformanceCriteria";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for an aggregated long tasks query.
@@ -26,7 +26,7 @@ export class AggregatedLongTasksRequestAttributes {
   /**
    * Start of the time range as a Unix timestamp in seconds.
    */
-  "from": number;
+  "from": Int64;
   /**
    * Number of view instances to sample, between 1 and 500.
    */
@@ -34,7 +34,7 @@ export class AggregatedLongTasksRequestAttributes {
   /**
    * End of the time range as a Unix timestamp in seconds.
    */
-  "to": number;
+  "to": Int64;
   /**
    * The RUM view name to analyze (for example, /account/login).
    */

@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
@@ -24,7 +25,7 @@ import { TraceResponse } from "../models/TraceResponse";
 export class APMTraceApiRequestFactory extends BaseAPIRequestFactory {
   public async getPrunedTraceByID(
     traceId: string,
-    expandSpanId?: number,
+    expandSpanId?: Int64Input,
     timeHint?: number,
     forceSource?: string,
     includePath?: Array<string>,
@@ -180,6 +181,12 @@ export class APMTraceApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class APMTraceApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -195,8 +202,14 @@ export class APMTraceApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: PrunedTraceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PrunedTraceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "PrunedTraceResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as PrunedTraceResponse;
       return body;
     }
@@ -208,13 +221,16 @@ export class APMTraceApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -231,13 +247,16 @@ export class APMTraceApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -252,9 +271,14 @@ export class APMTraceApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PrunedTraceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "PrunedTraceResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as PrunedTraceResponse;
       return body;
     }
@@ -279,8 +303,14 @@ export class APMTraceApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TraceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TraceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TraceResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TraceResponse;
       return body;
     }
@@ -292,13 +322,16 @@ export class APMTraceApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -315,13 +348,16 @@ export class APMTraceApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -336,9 +372,14 @@ export class APMTraceApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TraceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TraceResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TraceResponse;
       return body;
     }
@@ -365,9 +406,9 @@ export interface APMTraceApiGetPrunedTraceByIDRequest {
   /**
    * Span ID to expand and preserve in the pruned tree even when its branch would
    * normally be summarized.
-   * @type number
+   * @type Int64Input
    */
-  expandSpanId?: number;
+  expandSpanId?: Int64Input;
   /**
    * Optional Unix time hint, in seconds, used to optimize the lookup of the trace
    * in long-term storage.
@@ -438,7 +479,7 @@ export class APMTraceApi {
     this.requestFactory =
       requestFactory || new APMTraceApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new APMTraceApiResponseProcessor();
+      responseProcessor || new APMTraceApiResponseProcessor(configuration);
   }
 
   /**

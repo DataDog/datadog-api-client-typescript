@@ -6,7 +6,7 @@
 import { ProductAnalyticsInterval } from "./ProductAnalyticsInterval";
 import { ProductAnalyticsSerie } from "./ProductAnalyticsSerie";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a timeseries analytics response, containing series data, timestamps, and
@@ -24,7 +24,7 @@ export class ProductAnalyticsTimeseriesResponseAttributes {
   /**
    * Timestamps for each data point (epoch milliseconds).
    */
-  "times"?: Array<number>;
+  "times"?: Array<Int64>;
   /**
    * Values for each series at each time point.
    */
@@ -57,6 +57,7 @@ export class ProductAnalyticsTimeseriesResponseAttributes {
     times: {
       baseName: "times",
       type: "Array<number>",
+      format: "int64",
     },
     values: {
       baseName: "values",

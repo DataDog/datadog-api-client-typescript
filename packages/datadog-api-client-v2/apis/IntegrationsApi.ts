@@ -49,6 +49,12 @@ export class IntegrationsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class IntegrationsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -64,21 +70,30 @@ export class IntegrationsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListIntegrationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListIntegrationsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ListIntegrationsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListIntegrationsResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -93,9 +108,14 @@ export class IntegrationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListIntegrationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ListIntegrationsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListIntegrationsResponse;
       return body;
     }
@@ -122,7 +142,7 @@ export class IntegrationsApi {
     this.requestFactory =
       requestFactory || new IntegrationsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new IntegrationsApiResponseProcessor();
+      responseProcessor || new IntegrationsApiResponseProcessor(configuration);
   }
 
   /**

@@ -5,7 +5,7 @@
  */
 import { CustomForecastEntry } from "./CustomForecastEntry";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a custom forecast.
@@ -18,7 +18,7 @@ export class CustomForecastResponseDataAttributes {
   /**
    * Timestamp the custom forecast was created, in Unix milliseconds.
    */
-  "createdAt": number;
+  "createdAt": Int64;
   /**
    * The id of the user that created the custom forecast.
    */
@@ -30,7 +30,7 @@ export class CustomForecastResponseDataAttributes {
   /**
    * Timestamp the custom forecast was last updated, in Unix milliseconds.
    */
-  "updatedAt": number;
+  "updatedAt": Int64;
   /**
    * The id of the user that last updated the custom forecast.
    */

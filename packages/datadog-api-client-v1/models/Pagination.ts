@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination object.
@@ -13,11 +13,11 @@ export class Pagination {
   /**
    * Total count.
    */
-  "totalCount"?: number;
+  "totalCount"?: Int64;
   /**
    * Total count of elements matched by the filter.
    */
-  "totalFilteredCount"?: number;
+  "totalFilteredCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

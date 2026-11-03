@@ -5,7 +5,7 @@
  */
 import { ELFSourcemapMapKind } from "./ELFSourcemapMapKind";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an ELF symbol file.
@@ -50,7 +50,7 @@ export class ELFSourcemapAttributes {
   /**
    * The size of the ELF file in bytes.
    */
-  "size": number;
+  "size": Int64;
   /**
    * The source of the debug symbols.
    */

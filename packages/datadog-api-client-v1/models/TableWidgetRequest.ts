@@ -16,7 +16,7 @@ import { WidgetFormula } from "./WidgetFormula";
 import { WidgetSort } from "./WidgetSort";
 import { WidgetSortBy } from "./WidgetSortBy";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Updated table widget.
@@ -57,7 +57,7 @@ export class TableWidgetRequest {
   /**
    * For metric queries, the number of lines to show in the table. Only one request should have this property.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * The log query.
    */

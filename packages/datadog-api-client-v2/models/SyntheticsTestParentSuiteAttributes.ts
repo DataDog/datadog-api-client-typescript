@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing details about a parent suite of a Synthetic test.
@@ -21,7 +21,7 @@ export class SyntheticsTestParentSuiteAttributes {
   /**
    * The associated monitor ID.
    */
-  "monitorId"?: number;
+  "monitorId"?: Int64;
   /**
    * Name of the parent suite.
    */
@@ -29,7 +29,7 @@ export class SyntheticsTestParentSuiteAttributes {
   /**
    * The overall state of the parent suite.
    */
-  "overallState"?: number;
+  "overallState"?: Int64;
   /**
    * Timestamp of when the overall state was last modified.
    */

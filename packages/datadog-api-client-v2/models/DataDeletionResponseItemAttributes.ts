@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Deletion attribute for data deletion response.
@@ -25,7 +25,7 @@ export class DataDeletionResponseItemAttributes {
   /**
    * Total number of elements to be deleted as displayed to the user.
    */
-  "displayedTotal": number;
+  "displayedTotal": Int64;
   /**
    * The category of the error for the deletion request, if any.
    */
@@ -33,7 +33,7 @@ export class DataDeletionResponseItemAttributes {
   /**
    * Start of requested time window, milliseconds since Unix epoch.
    */
-  "fromTime": number;
+  "fromTime": Int64;
   /**
    * List of indexes for the search. If not provided, the search is performed in all indexes.
    */
@@ -45,7 +45,7 @@ export class DataDeletionResponseItemAttributes {
   /**
    * Organization ID.
    */
-  "orgId": number;
+  "orgId": Int64;
   /**
    * Product name.
    */
@@ -73,11 +73,11 @@ export class DataDeletionResponseItemAttributes {
   /**
    * End of requested time window, milliseconds since Unix epoch.
    */
-  "toTime": number;
+  "toTime": Int64;
   /**
    * Total number of elements to be deleted. Only the data accessible to the current user that matches the query and timeframe provided will be deleted.
    */
-  "totalUnrestricted": number;
+  "totalUnrestricted": Int64;
   /**
    * Update time of the deletion request.
    */

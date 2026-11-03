@@ -5,7 +5,7 @@
  */
 import { ExperimentsTrafficSummaryV2DTODataAttributesVariantsItems } from "./ExperimentsTrafficSummaryV2DTODataAttributesVariantsItems";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Details of the experiment traffic summary.
@@ -18,7 +18,7 @@ export class ExperimentsTrafficSummaryV2DTODataAttributes {
   /**
    * Total number of subjects included in the traffic summary.
    */
-  "totalSubjects"?: number;
+  "totalSubjects"?: Int64;
   /**
    * Exposure counts for each experiment variant.
    */

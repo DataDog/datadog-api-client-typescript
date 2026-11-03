@@ -8,7 +8,7 @@ import { OnCallPageReleaseOrigin } from "./OnCallPageReleaseOrigin";
 import { OnCallPageStatus } from "./OnCallPageStatus";
 import { PageUrgency } from "./PageUrgency";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of an On-Call Page.
@@ -25,7 +25,7 @@ export class OnCallPageDataAttributes {
   /**
    * The number of comments on the Page.
    */
-  "commentCount"?: number;
+  "commentCount"?: Int64;
   /**
    * The time when the Page was created.
    */

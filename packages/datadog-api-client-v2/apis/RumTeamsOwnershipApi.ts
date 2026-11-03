@@ -70,7 +70,8 @@ export class RumTeamsOwnershipApiRequestFactory extends BaseAPIRequestFactory {
         "TeamsOwnershipMappingCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -125,7 +126,8 @@ export class RumTeamsOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamsOwnershipMappingBatchRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -385,6 +387,12 @@ export class RumTeamsOwnershipApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class RumTeamsOwnershipApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -400,8 +408,14 @@ export class RumTeamsOwnershipApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: TeamsOwnershipMappingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamsOwnershipMappingResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TeamsOwnershipMappingResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamsOwnershipMappingResponse;
       return body;
     }
@@ -412,13 +426,16 @@ export class RumTeamsOwnershipApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -433,9 +450,14 @@ export class RumTeamsOwnershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamsOwnershipMappingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TeamsOwnershipMappingResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamsOwnershipMappingResponse;
       return body;
     }
@@ -463,8 +485,14 @@ export class RumTeamsOwnershipApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: TeamsOwnershipMappingBatchResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "TeamsOwnershipMappingBatchResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TeamsOwnershipMappingBatchResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TeamsOwnershipMappingBatchResponse;
       return body;
     }
@@ -475,13 +503,16 @@ export class RumTeamsOwnershipApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -498,13 +529,16 @@ export class RumTeamsOwnershipApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -520,9 +554,14 @@ export class RumTeamsOwnershipApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamsOwnershipMappingBatchResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "TeamsOwnershipMappingBatchResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TeamsOwnershipMappingBatchResponse;
       return body;
     }
@@ -557,13 +596,16 @@ export class RumTeamsOwnershipApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -602,8 +644,14 @@ export class RumTeamsOwnershipApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TeamsOwnershipMappingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamsOwnershipMappingResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TeamsOwnershipMappingResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamsOwnershipMappingResponse;
       return body;
     }
@@ -614,13 +662,16 @@ export class RumTeamsOwnershipApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -635,9 +686,14 @@ export class RumTeamsOwnershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamsOwnershipMappingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TeamsOwnershipMappingResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamsOwnershipMappingResponse;
       return body;
     }
@@ -664,8 +720,14 @@ export class RumTeamsOwnershipApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TeamsOwnershipMappingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamsOwnershipMappingsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TeamsOwnershipMappingsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamsOwnershipMappingsResponse;
       return body;
     }
@@ -676,13 +738,16 @@ export class RumTeamsOwnershipApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -697,9 +762,14 @@ export class RumTeamsOwnershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamsOwnershipMappingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TeamsOwnershipMappingsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamsOwnershipMappingsResponse;
       return body;
     }
@@ -726,8 +796,14 @@ export class RumTeamsOwnershipApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TeamsOwnershipRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamsOwnershipRulesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TeamsOwnershipRulesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamsOwnershipRulesResponse;
       return body;
     }
@@ -738,13 +814,16 @@ export class RumTeamsOwnershipApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -759,9 +838,14 @@ export class RumTeamsOwnershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamsOwnershipRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TeamsOwnershipRulesResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TeamsOwnershipRulesResponse;
       return body;
     }
@@ -866,7 +950,8 @@ export class RumTeamsOwnershipApi {
     this.requestFactory =
       requestFactory || new RumTeamsOwnershipApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RumTeamsOwnershipApiResponseProcessor();
+      responseProcessor ||
+      new RumTeamsOwnershipApiResponseProcessor(configuration);
   }
 
   /**

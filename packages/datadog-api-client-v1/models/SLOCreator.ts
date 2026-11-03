@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The creator of the SLO
@@ -17,7 +17,7 @@ export class SLOCreator {
   /**
    * User ID of the creator.
    */
-  "id"?: number;
+  "id"?: Int64;
   /**
    * Name of the creator.
    */

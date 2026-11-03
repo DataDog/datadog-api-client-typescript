@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A metric name filter pattern and how many metrics it matched.
@@ -13,7 +13,7 @@ export class AWSMetricNameFilterPreviewFilterMatch {
   /**
    * The number of Datadog metric names matched by this pattern.
    */
-  "matchCount": number;
+  "matchCount": Int64;
   /**
    * The metric name filter pattern.
    */

@@ -5,7 +5,7 @@
  */
 import { TicketCreationTarget } from "./TicketCreationTarget";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The action to take when the ticket creation rule matches a finding.
@@ -26,7 +26,7 @@ export class TicketCreationRuleAction {
   /**
    * The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule.
    */
-  "maxTicketsPerDay": number;
+  "maxTicketsPerDay": Int64;
   /**
    * The UUID of the case management project.
    */

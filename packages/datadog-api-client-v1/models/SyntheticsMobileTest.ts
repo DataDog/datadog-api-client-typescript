@@ -9,7 +9,7 @@ import { SyntheticsMobileTestOptions } from "./SyntheticsMobileTestOptions";
 import { SyntheticsMobileTestType } from "./SyntheticsMobileTestType";
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing details about a Synthetic mobile test.
@@ -30,7 +30,7 @@ export class SyntheticsMobileTest {
   /**
    * The associated monitor ID.
    */
-  "monitorId"?: number;
+  "monitorId"?: Int64;
   /**
    * Name of the test.
    */

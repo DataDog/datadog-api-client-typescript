@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Element locator updates produced during a step.
@@ -21,7 +21,7 @@ export class SyntheticsTestResultStepElementUpdates {
   /**
    * Version of the element locator definition.
    */
-  "version"?: number;
+  "version"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

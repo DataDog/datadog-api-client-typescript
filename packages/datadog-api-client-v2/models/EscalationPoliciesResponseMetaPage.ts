@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata included in the response when listing escalation policies.
@@ -13,31 +13,31 @@ export class EscalationPoliciesResponseMetaPage {
   /**
    * First page number.
    */
-  "firstNumber"?: number;
+  "firstNumber"?: Int64;
   /**
    * Last page number.
    */
-  "lastNumber"?: number;
+  "lastNumber"?: Int64;
   /**
    * Next page number.
    */
-  "nextNumber"?: number;
+  "nextNumber"?: Int64;
   /**
    * Page number.
    */
-  "number"?: number;
+  "number"?: Int64;
   /**
    * Previous page number.
    */
-  "prevNumber"?: number;
+  "prevNumber"?: Int64;
   /**
    * Page size.
    */
-  "size"?: number;
+  "size"?: Int64;
   /**
    * Total number of results.
    */
-  "total"?: number;
+  "total"?: Int64;
   /**
    * Pagination type.
    */

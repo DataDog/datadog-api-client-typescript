@@ -22,7 +22,7 @@ import { SyntheticsTestResultVariables } from "./SyntheticsTestResultVariables";
 import { SyntheticsTestResultVitalsMetrics } from "./SyntheticsTestResultVitalsMetrics";
 import { SyntheticsTestResultWarning } from "./SyntheticsTestResultWarning";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A step result from a browser, mobile, or multistep API test.
@@ -139,7 +139,7 @@ export class SyntheticsTestResultStep {
   /**
    * Number of times this step was retried.
    */
-  "retryCount"?: number;
+  "retryCount"?: Int64;
   /**
    * RUM application context associated with a step or sub-test.
    */
@@ -147,7 +147,7 @@ export class SyntheticsTestResultStep {
   /**
    * Unix timestamp (ms) of when the step started.
    */
-  "startedAt"?: number;
+  "startedAt"?: Int64;
   /**
    * Status of the step (for example, `passed`, `failed`).
    */

@@ -5,7 +5,7 @@
  */
 import { ObservabilityPipelineClickhouseDestinationCompressionAlgorithm } from "./ObservabilityPipelineClickhouseDestinationCompressionAlgorithm";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Structured compression configuration for the ClickHouse destination.
@@ -19,7 +19,7 @@ export class ObservabilityPipelineClickhouseDestinationCompressionObject {
   /**
    * Compression level (1–9). Only applicable when `algorithm` is `gzip`.
    */
-  "level"?: number;
+  "level"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

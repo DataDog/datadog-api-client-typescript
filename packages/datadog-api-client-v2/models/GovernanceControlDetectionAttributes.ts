@@ -6,7 +6,7 @@
 import { GovernanceControlDetectionAssignmentSource } from "./GovernanceControlDetectionAssignmentSource";
 import { GovernanceControlDetectionState } from "./GovernanceControlDetectionState";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a governance control detection.
@@ -64,7 +64,7 @@ export class GovernanceControlDetectionAttributes {
   /**
    * The priority of the detection, if set.
    */
-  "priority": number;
+  "priority": Int64;
   /**
    * The identifier of the resource the detection applies to.
    */

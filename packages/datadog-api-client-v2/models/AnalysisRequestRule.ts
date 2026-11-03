@@ -6,7 +6,7 @@
 import { AnalysisRequestRuleArgument } from "./AnalysisRequestRuleArgument";
 import { AnalysisRequestRuleTest } from "./AnalysisRequestRuleTest";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A static analysis rule to apply during code analysis. Clients forward complete rule
@@ -129,7 +129,7 @@ export class AnalysisRequestRule {
   /**
    * The custom rule revision version. Forwarded from the custom rulesets endpoints; ignored by this operation.
    */
-  "versionId"?: number;
+  "versionId"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

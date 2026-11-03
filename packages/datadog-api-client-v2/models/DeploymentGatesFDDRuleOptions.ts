@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Options for a `faulty_deployment_detection` rule.
@@ -17,7 +17,7 @@ export class DeploymentGatesFDDRuleOptions {
   /**
    * Evaluation window in seconds. Maximum 7200 (2 hours).
    */
-  "duration"?: number;
+  "duration"?: Int64;
   /**
    * APM resource names to exclude from analysis.
    */

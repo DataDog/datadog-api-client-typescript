@@ -7,7 +7,7 @@ import { CsmAgentlessHostResourceType } from "./CsmAgentlessHostResourceType";
 import { CsmCloudProvider } from "./CsmCloudProvider";
 import { CsmUnifiedHostSource } from "./CsmUnifiedHostSource";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a unified host, combining data from agent and agentless sources.
@@ -64,7 +64,7 @@ export class CsmUnifiedHostAttributes {
   /**
    * The internal Datadog host identifier. Present only for agent-sourced hosts.
    */
-  "hostId"?: number;
+  "hostId"?: Int64;
   /**
    * The tool used to install the Datadog Agent on this host.
    */

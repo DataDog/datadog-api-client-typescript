@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CreateDeploymentGateParams } from "../models/CreateDeploymentGateParams";
@@ -79,7 +80,8 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateDeploymentGateParams", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -140,7 +142,8 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateDeploymentRuleParams", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -445,7 +448,7 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     filterEvaluationId?: string,
     filterGateId?: string,
     filterVersion?: Array<string>,
-    pageSize?: number,
+    pageSize?: Int64Input,
     pageCursor?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -579,7 +582,7 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     filterIdentifier?: string,
     filterDryRun?: boolean,
     pageCursor?: string,
-    pageSize?: number,
+    pageSize?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -674,7 +677,7 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     filterDryRun?: boolean,
     filterGateDryRun?: boolean,
     filterName?: Array<string>,
-    pageSize?: number,
+    pageSize?: Int64Input,
     pageCursor?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -881,7 +884,8 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DeploymentGatesEvaluationRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -942,7 +946,8 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateDeploymentGateParams", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1008,7 +1013,8 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateDeploymentRuleParams", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1024,6 +1030,12 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class DeploymentGatesApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1039,21 +1051,30 @@ export class DeploymentGatesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DeploymentGateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DeploymentGateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DeploymentGateResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentGateResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesBadRequestResponse"
+          "HTTPCDGatesBadRequestResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1074,13 +1095,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1094,13 +1118,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCIAppErrors"
+          "HTTPCIAppErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1115,9 +1142,14 @@ export class DeploymentGatesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DeploymentGateResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentGateResponse;
       return body;
     }
@@ -1144,21 +1176,30 @@ export class DeploymentGatesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DeploymentRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DeploymentRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DeploymentRuleResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesBadRequestResponse"
+          "HTTPCDGatesBadRequestResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1179,13 +1220,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1199,13 +1243,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCIAppErrors"
+          "HTTPCIAppErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1220,9 +1267,14 @@ export class DeploymentGatesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DeploymentRuleResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentRuleResponse;
       return body;
     }
@@ -1251,13 +1303,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesBadRequestResponse"
+          "HTTPCDGatesBadRequestResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1278,13 +1333,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1298,13 +1356,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesNotFoundResponse"
+          "HTTPCDGatesNotFoundResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1321,13 +1382,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCIAppErrors"
+          "HTTPCIAppErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1368,13 +1432,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesBadRequestResponse"
+          "HTTPCDGatesBadRequestResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1395,13 +1462,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1415,13 +1485,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesNotFoundResponse"
+          "HTTPCDGatesNotFoundResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1438,13 +1511,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCIAppErrors"
+          "HTTPCIAppErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1483,21 +1559,30 @@ export class DeploymentGatesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DeploymentGateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DeploymentGateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DeploymentGateResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentGateResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesBadRequestResponse"
+          "HTTPCDGatesBadRequestResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1518,13 +1603,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1538,13 +1626,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesNotFoundResponse"
+          "HTTPCDGatesNotFoundResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1561,13 +1652,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCIAppErrors"
+          "HTTPCIAppErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1582,9 +1676,14 @@ export class DeploymentGatesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DeploymentGateResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentGateResponse;
       return body;
     }
@@ -1611,21 +1710,30 @@ export class DeploymentGatesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DeploymentGateRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DeploymentGateRulesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DeploymentGateRulesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentGateRulesResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesBadRequestResponse"
+          "HTTPCDGatesBadRequestResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1646,13 +1754,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1666,13 +1777,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCIAppErrors"
+          "HTTPCIAppErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1687,9 +1801,14 @@ export class DeploymentGatesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGateRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DeploymentGateRulesResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentGateRulesResponse;
       return body;
     }
@@ -1717,21 +1836,30 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: DeploymentGatesEvaluationResultResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DeploymentGatesEvaluationResultResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "DeploymentGatesEvaluationResultResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DeploymentGatesEvaluationResultResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesBadRequestResponse"
+          "HTTPCDGatesBadRequestResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1752,13 +1880,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1772,13 +1903,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesNotFoundResponse"
+          "HTTPCDGatesNotFoundResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1795,13 +1929,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCIAppErrors"
+          "HTTPCIAppErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1817,9 +1954,14 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGatesEvaluationResultResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "DeploymentGatesEvaluationResultResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DeploymentGatesEvaluationResultResponse;
       return body;
     }
@@ -1846,21 +1988,30 @@ export class DeploymentGatesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DeploymentRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DeploymentRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DeploymentRuleResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesBadRequestResponse"
+          "HTTPCDGatesBadRequestResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1881,13 +2032,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1901,13 +2055,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDRulesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDRulesNotFoundResponse"
+          "HTTPCDRulesNotFoundResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDRulesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1924,13 +2081,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCIAppErrors"
+          "HTTPCIAppErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1945,9 +2105,14 @@ export class DeploymentGatesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DeploymentRuleResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentRuleResponse;
       return body;
     }
@@ -1975,21 +2140,30 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: DeploymentGateEvaluationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DeploymentGateEvaluationsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "DeploymentGateEvaluationsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DeploymentGateEvaluationsResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2010,13 +2184,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2032,9 +2209,14 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGateEvaluationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "DeploymentGateEvaluationsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DeploymentGateEvaluationsResponse;
       return body;
     }
@@ -2061,21 +2243,30 @@ export class DeploymentGatesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DeploymentGatesListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DeploymentGatesListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DeploymentGatesListResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentGatesListResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesBadRequestResponse"
+          "HTTPCDGatesBadRequestResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2096,13 +2287,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2116,13 +2310,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCIAppErrors"
+          "HTTPCIAppErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2137,9 +2334,14 @@ export class DeploymentGatesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGatesListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DeploymentGatesListResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentGatesListResponse;
       return body;
     }
@@ -2167,21 +2369,30 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: DeploymentGateRuleEvaluationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DeploymentGateRuleEvaluationsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "DeploymentGateRuleEvaluationsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DeploymentGateRuleEvaluationsResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2202,13 +2413,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2224,9 +2438,14 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGateRuleEvaluationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "DeploymentGateRuleEvaluationsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DeploymentGateRuleEvaluationsResponse;
       return body;
     }
@@ -2254,21 +2473,30 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 202) {
       const body: DeploymentGatesEvaluationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DeploymentGatesEvaluationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "DeploymentGatesEvaluationResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DeploymentGatesEvaluationResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesBadRequestResponse"
+          "HTTPCDGatesBadRequestResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2289,13 +2517,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2309,13 +2540,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesNotFoundResponse"
+          "HTTPCDGatesNotFoundResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2332,13 +2566,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCIAppErrors"
+          "HTTPCIAppErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2354,9 +2591,14 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGatesEvaluationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "DeploymentGatesEvaluationResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DeploymentGatesEvaluationResponse;
       return body;
     }
@@ -2383,21 +2625,30 @@ export class DeploymentGatesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DeploymentGateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DeploymentGateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DeploymentGateResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentGateResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesBadRequestResponse"
+          "HTTPCDGatesBadRequestResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2418,13 +2669,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2438,13 +2692,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesNotFoundResponse"
+          "HTTPCDGatesNotFoundResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2461,13 +2718,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCIAppErrors"
+          "HTTPCIAppErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2482,9 +2742,14 @@ export class DeploymentGatesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DeploymentGateResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentGateResponse;
       return body;
     }
@@ -2511,21 +2776,30 @@ export class DeploymentGatesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DeploymentRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DeploymentRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DeploymentRuleResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDGatesBadRequestResponse"
+          "HTTPCDGatesBadRequestResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2546,13 +2820,16 @@ export class DeploymentGatesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2566,13 +2843,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCDRulesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCDRulesNotFoundResponse"
+          "HTTPCDRulesNotFoundResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCDRulesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2589,13 +2869,16 @@ export class DeploymentGatesApiResponseProcessor {
     if (response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCIAppErrors"
+          "HTTPCIAppErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2610,9 +2893,14 @@ export class DeploymentGatesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DeploymentRuleResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DeploymentRuleResponse;
       return body;
     }
@@ -2755,9 +3043,9 @@ export interface DeploymentGatesApiListDeploymentGateEvaluationsRequest {
   filterVersion?: Array<string>;
   /**
    * Maximum evaluations returned.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Opaque cursor returned in `meta.page.next_cursor` by the previous page. Invalid cursors return 400.
    * @type string
@@ -2793,9 +3081,9 @@ export interface DeploymentGatesApiListDeploymentGatesRequest {
   pageCursor?: string;
   /**
    * Number of results per page. Defaults to 50. Must be between 1 and 1000.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
 }
 
 export interface DeploymentGatesApiListDeploymentRuleEvaluationsRequest {
@@ -2877,9 +3165,9 @@ export interface DeploymentGatesApiListDeploymentRuleEvaluationsRequest {
   filterName?: Array<string>;
   /**
    * Maximum rule evaluations returned.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Opaque cursor returned in `meta.page.next_cursor` by the previous page. Invalid cursors return 400.
    * @type string
@@ -2937,7 +3225,8 @@ export class DeploymentGatesApi {
     this.requestFactory =
       requestFactory || new DeploymentGatesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new DeploymentGatesApiResponseProcessor();
+      responseProcessor ||
+      new DeploymentGatesApiResponseProcessor(configuration);
   }
 
   /**
@@ -3161,7 +3450,7 @@ export class DeploymentGatesApi {
   ): AsyncGenerator<DeploymentGateEvaluationData> {
     let pageSize = 20;
     if (param.pageSize !== undefined) {
-      pageSize = param.pageSize;
+      pageSize = Number(param.pageSize);
     }
     param.pageSize = pageSize;
     while (true) {
@@ -3298,7 +3587,7 @@ export class DeploymentGatesApi {
   ): AsyncGenerator<DeploymentGateRuleEvaluationData> {
     let pageSize = 50;
     if (param.pageSize !== undefined) {
-      pageSize = param.pageSize;
+      pageSize = Number(param.pageSize);
     }
     param.pageSize = pageSize;
     while (true) {

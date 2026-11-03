@@ -5,7 +5,7 @@
  */
 import { SecurityMonitoringDatasetVersionEntry } from "./SecurityMonitoringDatasetVersionEntry";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a dataset version history response.
@@ -14,7 +14,7 @@ export class SecurityMonitoringDatasetVersionHistoryAttributes {
   /**
    * The total number of versions available for this dataset.
    */
-  "count": number;
+  "count": Int64;
   /**
    * A map from version number (as a string) to the dataset state at that version.
    */

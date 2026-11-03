@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Vulnerability counts by severity, when available. An absent `vulnerability_count` does not mean
@@ -18,27 +18,27 @@ export class ContainerImageVulnerabilities {
   /**
    * Number of vulnerabilities with CVSS Critical severity.
    */
-  "critical"?: number;
+  "critical"?: Int64;
   /**
    * Number of vulnerabilities with CVSS High severity.
    */
-  "high"?: number;
+  "high"?: Int64;
   /**
    * Number of vulnerabilities with CVSS Low severity.
    */
-  "low"?: number;
+  "low"?: Int64;
   /**
    * Number of vulnerabilities with CVSS Medium severity.
    */
-  "medium"?: number;
+  "medium"?: Int64;
   /**
    * Number of vulnerabilities with CVSS None severity.
    */
-  "none"?: number;
+  "none"?: Int64;
   /**
    * Number of vulnerabilities with an unknown CVSS severity.
    */
-  "unknown"?: number;
+  "unknown"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing a file to be used as part of the request in the test.
@@ -33,7 +33,7 @@ export class SyntheticsTestRequestBodyFile {
   /**
    * Size of the file.
    */
-  "size"?: number;
+  "size"?: Int64;
   /**
    * Type of the file.
    */

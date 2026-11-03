@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Page information for the source maps list response.
@@ -25,7 +25,7 @@ export class SourcemapsListMetaPage {
    * Cursor-based listings do not compute a total; this field may be zero
    * even when records are returned. Use `has_more_results` to continue.
    */
-  "totalFilteredCount": number;
+  "totalFilteredCount": Int64;
 
   /**
    * A container for additional, undeclared properties.

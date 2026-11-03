@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination settings for a span search request.
@@ -17,7 +17,7 @@ export class LLMObsSpanPageQuery {
   /**
    * Maximum number of spans to return. Defaults to `10`.
    */
-  "limit"?: number;
+  "limit"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

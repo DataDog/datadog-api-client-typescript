@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing array of IDs of canceled downtimes.
@@ -13,7 +13,7 @@ export class CanceledDowntimesIds {
   /**
    * ID of downtimes that were canceled.
    */
-  "cancelledIds"?: Array<number>;
+  "cancelledIds"?: Array<Int64>;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,6 +34,7 @@ export class CanceledDowntimesIds {
     cancelledIds: {
       baseName: "cancelled_ids",
       type: "Array<number>",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

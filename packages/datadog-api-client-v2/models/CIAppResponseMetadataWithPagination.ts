@@ -7,7 +7,7 @@ import { CIAppResponsePage } from "./CIAppResponsePage";
 import { CIAppResponseStatus } from "./CIAppResponseStatus";
 import { CIAppWarning } from "./CIAppWarning";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The metadata associated with a request.
@@ -16,7 +16,7 @@ export class CIAppResponseMetadataWithPagination {
   /**
    * The time elapsed in milliseconds.
    */
-  "elapsed"?: number;
+  "elapsed"?: Int64;
   /**
    * Paging attributes.
    */

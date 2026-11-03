@@ -5,7 +5,7 @@
  */
 import { QueryUsersRequestDataAttributesSort } from "./QueryUsersRequestDataAttributesSort";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for filtering and shaping the user query results.
@@ -14,7 +14,7 @@ export class QueryUsersRequestDataAttributes {
   /**
    * Maximum number of user records to return in the response.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * Filter expression using user attribute conditions to narrow results.
    */

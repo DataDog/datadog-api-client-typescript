@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * IoT usage for a given organization for a given hour.
@@ -17,7 +17,7 @@ export class UsageIoTHour {
   /**
    * The total number of IoT devices during a given hour.
    */
-  "iotDeviceCount"?: number;
+  "iotDeviceCount"?: Int64;
   /**
    * The organization name.
    */

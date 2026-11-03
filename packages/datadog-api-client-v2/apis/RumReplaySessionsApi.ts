@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 
@@ -23,8 +24,8 @@ export class RumReplaySessionsApiRequestFactory extends BaseAPIRequestFactory {
     viewId: string,
     sessionId: string,
     source?: string,
-    ts?: number,
-    maxListSize?: number,
+    ts?: Int64Input,
+    maxListSize?: Int64Input,
     paging?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -100,6 +101,12 @@ export class RumReplaySessionsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class RumReplaySessionsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -117,13 +124,16 @@ export class RumReplaySessionsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -166,14 +176,14 @@ export interface RumReplaySessionsApiGetSegmentsRequest {
   source?: string;
   /**
    * Server-side timestamp in milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  ts?: number;
+  ts?: Int64Input;
   /**
    * Maximum size in bytes for the segment list.
-   * @type number
+   * @type Int64Input
    */
-  maxListSize?: number;
+  maxListSize?: Int64Input;
   /**
    * Token of the next page from the `X-Paging` header of the previous response.
    * Send it without changes, URL-encoded in the query string. Omit it to get the first page.
@@ -196,7 +206,8 @@ export class RumReplaySessionsApi {
     this.requestFactory =
       requestFactory || new RumReplaySessionsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RumReplaySessionsApiResponseProcessor();
+      responseProcessor ||
+      new RumReplaySessionsApiResponseProcessor(configuration);
   }
 
   /**

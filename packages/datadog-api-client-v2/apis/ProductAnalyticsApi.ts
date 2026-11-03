@@ -87,7 +87,8 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
         "ProductAnalyticsJourneyFunnelRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -145,7 +146,8 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
         "ProductAnalyticsJourneyListRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -205,7 +207,8 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
         "ProductAnalyticsJourneyScalarRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -269,7 +272,8 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
         "ProductAnalyticsFormulaJourneyRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -327,7 +331,8 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
         "ProductAnalyticsAnalyticsListRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -387,7 +392,8 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
         "ProductAnalyticsRetentionGridRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -447,7 +453,8 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
         "ProductAnalyticsRetentionListRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -509,7 +516,8 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
         "ProductAnalyticsFormulaRetentionRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -576,7 +584,8 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
         "ProductAnalyticsFormulaRetentionRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -630,7 +639,8 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ProductAnalyticsSankeyRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -677,7 +687,8 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ProductAnalyticsAnalyticsRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -724,7 +735,8 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ProductAnalyticsAnalyticsRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -775,7 +787,8 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
         "ProductAnalyticsServerSideEventItem",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -787,6 +800,12 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ProductAnalyticsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -803,8 +822,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ProductAnalyticsJourneyFunnelResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ProductAnalyticsJourneyFunnelResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsJourneyFunnelResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsJourneyFunnelResponse;
       return body;
     }
@@ -815,13 +840,16 @@ export class ProductAnalyticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -837,9 +865,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProductAnalyticsJourneyFunnelResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ProductAnalyticsJourneyFunnelResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsJourneyFunnelResponse;
       return body;
     }
@@ -867,8 +900,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ProductAnalyticsJourneyListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ProductAnalyticsJourneyListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsJourneyListResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsJourneyListResponse;
       return body;
     }
@@ -879,13 +918,16 @@ export class ProductAnalyticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -901,9 +943,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProductAnalyticsJourneyListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ProductAnalyticsJourneyListResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsJourneyListResponse;
       return body;
     }
@@ -931,8 +978,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ProductAnalyticsJourneyScalarResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ProductAnalyticsJourneyScalarResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsJourneyScalarResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsJourneyScalarResponse;
       return body;
     }
@@ -943,13 +996,16 @@ export class ProductAnalyticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -965,9 +1021,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProductAnalyticsJourneyScalarResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ProductAnalyticsJourneyScalarResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsJourneyScalarResponse;
       return body;
     }
@@ -995,8 +1056,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ProductAnalyticsJourneyTimeseriesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ProductAnalyticsJourneyTimeseriesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsJourneyTimeseriesResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsJourneyTimeseriesResponse;
       return body;
     }
@@ -1007,13 +1074,16 @@ export class ProductAnalyticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1029,9 +1099,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProductAnalyticsJourneyTimeseriesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ProductAnalyticsJourneyTimeseriesResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsJourneyTimeseriesResponse;
       return body;
     }
@@ -1059,8 +1134,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ProductAnalyticsAnalyticsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ProductAnalyticsAnalyticsListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsAnalyticsListResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsAnalyticsListResponse;
       return body;
     }
@@ -1071,13 +1152,16 @@ export class ProductAnalyticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1093,9 +1177,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProductAnalyticsAnalyticsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ProductAnalyticsAnalyticsListResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsAnalyticsListResponse;
       return body;
     }
@@ -1123,8 +1212,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ProductAnalyticsRetentionGridResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ProductAnalyticsRetentionGridResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsRetentionGridResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsRetentionGridResponse;
       return body;
     }
@@ -1135,13 +1230,16 @@ export class ProductAnalyticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1157,9 +1255,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProductAnalyticsRetentionGridResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ProductAnalyticsRetentionGridResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsRetentionGridResponse;
       return body;
     }
@@ -1187,8 +1290,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ProductAnalyticsRetentionListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ProductAnalyticsRetentionListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsRetentionListResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsRetentionListResponse;
       return body;
     }
@@ -1199,13 +1308,16 @@ export class ProductAnalyticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1221,9 +1333,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProductAnalyticsRetentionListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ProductAnalyticsRetentionListResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsRetentionListResponse;
       return body;
     }
@@ -1250,8 +1367,14 @@ export class ProductAnalyticsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ProductAnalyticsScalarResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ProductAnalyticsScalarResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ProductAnalyticsScalarResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ProductAnalyticsScalarResponse;
       return body;
     }
@@ -1262,13 +1385,16 @@ export class ProductAnalyticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1283,9 +1409,14 @@ export class ProductAnalyticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProductAnalyticsScalarResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ProductAnalyticsScalarResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ProductAnalyticsScalarResponse;
       return body;
     }
@@ -1313,8 +1444,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ProductAnalyticsTimeseriesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ProductAnalyticsTimeseriesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsTimeseriesResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsTimeseriesResponse;
       return body;
     }
@@ -1325,13 +1462,16 @@ export class ProductAnalyticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1347,9 +1487,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProductAnalyticsTimeseriesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ProductAnalyticsTimeseriesResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsTimeseriesResponse;
       return body;
     }
@@ -1376,8 +1521,14 @@ export class ProductAnalyticsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ProductAnalyticsSankeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ProductAnalyticsSankeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ProductAnalyticsSankeyResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ProductAnalyticsSankeyResponse;
       return body;
     }
@@ -1388,13 +1539,16 @@ export class ProductAnalyticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1409,9 +1563,14 @@ export class ProductAnalyticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProductAnalyticsSankeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ProductAnalyticsSankeyResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ProductAnalyticsSankeyResponse;
       return body;
     }
@@ -1438,8 +1597,14 @@ export class ProductAnalyticsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ProductAnalyticsScalarResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ProductAnalyticsScalarResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ProductAnalyticsScalarResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ProductAnalyticsScalarResponse;
       return body;
     }
@@ -1450,13 +1615,16 @@ export class ProductAnalyticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1471,9 +1639,14 @@ export class ProductAnalyticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProductAnalyticsScalarResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ProductAnalyticsScalarResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ProductAnalyticsScalarResponse;
       return body;
     }
@@ -1501,8 +1674,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ProductAnalyticsTimeseriesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ProductAnalyticsTimeseriesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsTimeseriesResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsTimeseriesResponse;
       return body;
     }
@@ -1513,13 +1692,16 @@ export class ProductAnalyticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1535,9 +1717,14 @@ export class ProductAnalyticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProductAnalyticsTimeseriesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ProductAnalyticsTimeseriesResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsTimeseriesResponse;
       return body;
     }
@@ -1564,8 +1751,14 @@ export class ProductAnalyticsApiResponseProcessor {
     );
     if (response.httpStatusCode === 202) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "any"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "any",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -1581,13 +1774,16 @@ export class ProductAnalyticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: ProductAnalyticsServerSideEventErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "ProductAnalyticsServerSideEventErrors"
+          "ProductAnalyticsServerSideEventErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ProductAnalyticsServerSideEventErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1605,9 +1801,14 @@ export class ProductAnalyticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "any",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -1731,7 +1932,8 @@ export class ProductAnalyticsApi {
     this.requestFactory =
       requestFactory || new ProductAnalyticsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ProductAnalyticsApiResponseProcessor();
+      responseProcessor ||
+      new ProductAnalyticsApiResponseProcessor(configuration);
   }
 
   /**

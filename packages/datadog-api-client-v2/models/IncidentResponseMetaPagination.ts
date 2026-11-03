@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination properties.
@@ -13,15 +13,15 @@ export class IncidentResponseMetaPagination {
   /**
    * The index of the first element in the next page of results. Equal to page size added to the current offset.
    */
-  "nextOffset"?: number;
+  "nextOffset"?: Int64;
   /**
    * The index of the first element in the results.
    */
-  "offset"?: number;
+  "offset"?: Int64;
   /**
    * Maximum size of pages to return.
    */
-  "size"?: number;
+  "size"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

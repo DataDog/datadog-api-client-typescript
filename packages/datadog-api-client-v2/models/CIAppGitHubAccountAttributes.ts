@@ -5,7 +5,7 @@
  */
 import { CIAppGitHubAccountRepository } from "./CIAppGitHubAccountRepository";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing a GitHub account's CI Visibility opt-in status.
@@ -26,7 +26,7 @@ export class CIAppGitHubAccountAttributes {
   /**
    * The number of repositories known for this account.
    */
-  "repoCount"?: number;
+  "repoCount"?: Int64;
   /**
    * The repositories belonging to this account, with their individual opt-in status.
    */

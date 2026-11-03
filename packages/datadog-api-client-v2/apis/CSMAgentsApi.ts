@@ -148,6 +148,12 @@ export class CSMAgentsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class CSMAgentsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -163,21 +169,30 @@ export class CSMAgentsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CsmAgentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CsmAgentsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CsmAgentsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CsmAgentsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -192,9 +207,14 @@ export class CSMAgentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CsmAgentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CsmAgentsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CsmAgentsResponse;
       return body;
     }
@@ -221,21 +241,30 @@ export class CSMAgentsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CsmAgentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CsmAgentsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CsmAgentsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CsmAgentsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -250,9 +279,14 @@ export class CSMAgentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CsmAgentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CsmAgentsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CsmAgentsResponse;
       return body;
     }
@@ -325,7 +359,7 @@ export class CSMAgentsApi {
     this.requestFactory =
       requestFactory || new CSMAgentsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CSMAgentsApiResponseProcessor();
+      responseProcessor || new CSMAgentsApiResponseProcessor(configuration);
   }
 
   /**

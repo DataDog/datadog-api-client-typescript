@@ -6,7 +6,7 @@
 import { TagRuleSource } from "./TagRuleSource";
 import { TagRuleType } from "./TagRuleType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a tag rule resource.
@@ -76,7 +76,7 @@ export class TagRuleAttributes {
   /**
    * A monotonically increasing version counter that is incremented on each update.
    */
-  "version": number;
+  "version": Int64;
 
   /**
    * A container for additional, undeclared properties.

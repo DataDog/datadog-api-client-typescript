@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination details for the list of hosts in a deployment.
@@ -13,19 +13,19 @@ export class FleetDeploymentHostsPage {
   /**
    * Current page index (zero-based).
    */
-  "currentPage"?: number;
+  "currentPage"?: Int64;
   /**
    * Number of hosts returned per page.
    */
-  "pageSize"?: number;
+  "pageSize"?: Int64;
   /**
    * Total number of hosts in this deployment.
    */
-  "totalHosts"?: number;
+  "totalHosts"?: Int64;
   /**
    * Total number of pages available.
    */
-  "totalPages"?: number;
+  "totalPages"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

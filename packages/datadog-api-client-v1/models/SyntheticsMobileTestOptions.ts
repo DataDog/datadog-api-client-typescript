@@ -10,7 +10,7 @@ import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestOptionsScheduling } from "./SyntheticsTestOptionsScheduling";
 import { SyntheticsTestRestrictionPolicyBinding } from "./SyntheticsTestRestrictionPolicyBinding";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the extra options for a Synthetic test.
@@ -47,7 +47,7 @@ export class SyntheticsMobileTestOptions {
   /**
    * Minimum amount of time in failure required to trigger an alert.
    */
-  "minFailureDuration"?: number;
+  "minFailureDuration"?: Int64;
   /**
    * Mobile application for mobile synthetics test.
    */
@@ -84,7 +84,7 @@ export class SyntheticsMobileTestOptions {
   /**
    * The frequency at which to run the Synthetic test (in seconds).
    */
-  "tickEvery": number;
+  "tickEvery": Int64;
   /**
    * The level of verbosity for the mobile test. This field can not be set by a user.
    */

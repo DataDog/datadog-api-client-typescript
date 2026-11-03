@@ -5,7 +5,7 @@
  */
 import { MetricsQueryUnit } from "./MetricsQueryUnit";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing all metric names returned and their associated metadata.
@@ -26,7 +26,7 @@ export class MetricsQueryMetadata {
   /**
    * End of the time window, milliseconds since Unix epoch.
    */
-  "end"?: number;
+  "end"?: Int64;
   /**
    * Metric expression.
    */
@@ -34,11 +34,11 @@ export class MetricsQueryMetadata {
   /**
    * Number of milliseconds between data samples.
    */
-  "interval"?: number;
+  "interval"?: Int64;
   /**
    * Number of data samples.
    */
-  "length"?: number;
+  "length"?: Int64;
   /**
    * Metric name.
    */
@@ -50,7 +50,7 @@ export class MetricsQueryMetadata {
   /**
    * The index of the series' query within the request.
    */
-  "queryIndex"?: number;
+  "queryIndex"?: Int64;
   /**
    * Metric scope, comma separated list of tags.
    */
@@ -58,7 +58,7 @@ export class MetricsQueryMetadata {
   /**
    * Start of the time window, milliseconds since Unix epoch.
    */
-  "start"?: number;
+  "start"?: Int64;
   /**
    * Unique tags identifying this series.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * An object defining the recurrence of the downtime.
@@ -32,7 +32,7 @@ export class DowntimeRecurrence {
    * The date at which the recurrence should end as a POSIX timestamp.
    * `until_occurences` and `until_date` are mutually exclusive.
    */
-  "untilDate"?: number;
+  "untilDate"?: Int64;
   /**
    * How many times the downtime is rescheduled.
    * `until_occurences` and `until_date` are mutually exclusive.

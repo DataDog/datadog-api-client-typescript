@@ -5,7 +5,7 @@
  */
 import { DORAGitInfo } from "./DORAGitInfo";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes to create a DORA deployment event.
@@ -22,7 +22,7 @@ export class DORADeploymentRequestAttributes {
   /**
    * Unix timestamp when the deployment finished. It must be in nanoseconds, milliseconds, or seconds.
    */
-  "finishedAt": number;
+  "finishedAt": Int64;
   /**
    * Git info for DORA Metrics events.
    */
@@ -38,7 +38,7 @@ export class DORADeploymentRequestAttributes {
   /**
    * Unix timestamp when the deployment started. It must be in nanoseconds, milliseconds, or seconds.
    */
-  "startedAt": number;
+  "startedAt": Int64;
   /**
    * Name of the team owning the deployed service. If not provided, this is automatically populated with the team associated with the service in the Service Catalog.
    */

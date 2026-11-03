@@ -6,3 +6,4 @@ export { setServerVariables } from "./configuration";
 export { Configuration } from "./configuration";
 export * from "./exception";
 export * from "./servers";
+export { CustomTypeOptions, Int64, Int64Input } from "./util";

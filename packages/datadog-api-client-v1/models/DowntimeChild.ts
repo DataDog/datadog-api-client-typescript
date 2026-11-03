@@ -7,7 +7,7 @@ import { DowntimeRecurrence } from "./DowntimeRecurrence";
 import { NotifyEndState } from "./NotifyEndState";
 import { NotifyEndType } from "./NotifyEndType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The downtime object definition of the active child for the original parent recurring downtime. This
@@ -21,7 +21,7 @@ export class DowntimeChild {
   /**
    * If a scheduled downtime is canceled.
    */
-  "canceled"?: number;
+  "canceled"?: Int64;
   /**
    * User ID of the downtime creator.
    */
@@ -40,11 +40,11 @@ export class DowntimeChild {
    * POSIX timestamp to end the downtime. If not provided,
    * the downtime is in effect indefinitely until you cancel it.
    */
-  "end"?: number;
+  "end"?: Int64;
   /**
    * The downtime ID.
    */
-  "id"?: number;
+  "id"?: Int64;
   /**
    * A message to include with notifications for this downtime.
    * Email notifications can be sent to specific users by using the same `@username` notation as events.
@@ -54,7 +54,7 @@ export class DowntimeChild {
    * A single monitor to which the downtime applies.
    * If not provided, the downtime applies to all monitors.
    */
-  "monitorId"?: number;
+  "monitorId"?: Int64;
   /**
    * A comma-separated list of monitor tags. For example, tags that are applied directly to monitors,
    * not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies.
@@ -80,7 +80,7 @@ export class DowntimeChild {
   /**
    * ID of the parent Downtime.
    */
-  "parentId"?: number;
+  "parentId"?: Int64;
   /**
    * An object defining the recurrence of the downtime.
    */
@@ -95,7 +95,7 @@ export class DowntimeChild {
    * POSIX timestamp to start the downtime.
    * If not provided, the downtime starts the moment it is created.
    */
-  "start"?: number;
+  "start"?: Int64;
   /**
    * The timezone in which to display the downtime's start and end times in Datadog applications.
    */

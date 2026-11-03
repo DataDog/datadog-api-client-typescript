@@ -6,7 +6,7 @@
 import { AlertValueWidgetDefinitionType } from "./AlertValueWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Alert values are query values showing the current value of the metric in any monitor defined on your system.
@@ -23,7 +23,7 @@ export class AlertValueWidgetDefinition {
   /**
    * Number of decimal to show. If not defined, will use the raw value.
    */
-  "precision"?: number;
+  "precision"?: Int64;
   /**
    * How to align the text on the widget.
    */

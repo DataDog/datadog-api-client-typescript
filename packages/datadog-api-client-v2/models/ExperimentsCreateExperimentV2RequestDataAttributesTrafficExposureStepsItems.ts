@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Configured exposure plan rather than wall-clock history. At least two steps must have strictly increasing fractions and no gaps. Warehouse steps start at assignments_start_date and can use different durations. New Datadog plans have at most five steps and a first fraction above zero. Their nonfinal durations must be equal and exclude time paused. Datadog steps start with the experiment. Running warehouse experiments can replace step fractions, durations, and the exposure mode. After start, Datadog exposure plans cannot change through the public API. The final duration is null and its fraction holds until assignment ends.
@@ -13,7 +13,7 @@ export class ExperimentsCreateExperimentV2RequestDataAttributesTrafficExposureSt
   /**
    * Positive step duration in milliseconds. Datadog durations exclude pauses. Send null for the final step.
    */
-  "durationMs": number | null;
+  "durationMs": Int64 | null;
   /**
    * Fraction of traffic exposed during this step.
    */

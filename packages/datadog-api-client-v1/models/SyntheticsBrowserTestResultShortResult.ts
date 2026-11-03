@@ -5,7 +5,7 @@
  */
 import { SyntheticsDevice } from "./SyntheticsDevice";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object with the result of the last browser test run.
@@ -22,15 +22,15 @@ export class SyntheticsBrowserTestResultShortResult {
   /**
    * Amount of errors collected for a single browser test run.
    */
-  "errorCount"?: number;
+  "errorCount"?: Int64;
   /**
    * Amount of browser test steps completed before failing.
    */
-  "stepCountCompleted"?: number;
+  "stepCountCompleted"?: Int64;
   /**
    * Total amount of browser test steps.
    */
-  "stepCountTotal"?: number;
+  "stepCountTotal"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

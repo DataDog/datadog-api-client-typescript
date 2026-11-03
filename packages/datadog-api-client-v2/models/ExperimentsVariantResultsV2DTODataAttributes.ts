@@ -5,7 +5,7 @@
  */
 import { ExperimentsVariantResultsV2DTODataAttributesMetricsItems } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItems";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Details of the variant result.
@@ -14,7 +14,7 @@ export class ExperimentsVariantResultsV2DTODataAttributes {
   /**
    * Number of subjects assigned to this variant.
    */
-  "assignmentCount"?: number;
+  "assignmentCount"?: Int64;
   /**
    * ID of the experiment associated with this result.
    */

@@ -5,7 +5,7 @@
  */
 import { TestOptimizationFlakyTestsManagementPoliciesDisabledStatus } from "./TestOptimizationFlakyTestsManagementPoliciesDisabledStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Automatic disable triggering rule based on a time window and test status.
@@ -23,7 +23,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule {
   /**
    * Time window in seconds over which flakiness is evaluated. Must be greater than 0.
    */
-  "windowSeconds"?: number;
+  "windowSeconds"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

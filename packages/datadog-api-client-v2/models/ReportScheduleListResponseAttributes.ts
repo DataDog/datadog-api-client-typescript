@@ -8,7 +8,7 @@ import { ReportScheduleResponseAttributesDeliveryFormat } from "./ReportSchedule
 import { ReportScheduleStatus } from "./ReportScheduleStatus";
 import { ReportScheduleTemplateVariable } from "./ReportScheduleTemplateVariable";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The configuration and derived state of a report schedule in a list response.
@@ -25,7 +25,7 @@ export class ReportScheduleListResponseAttributes {
   /**
    * The Unix timestamp, in milliseconds, of the next scheduled delivery, or `null` if none is scheduled.
    */
-  "nextRecurrence": number | null;
+  "nextRecurrence": Int64 | null;
   /**
    * The recipients of the report (email addresses, Slack channel references, or Microsoft Teams channel references).
    */

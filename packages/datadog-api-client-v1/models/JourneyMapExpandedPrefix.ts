@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A path expanded to show the events that follow it.
@@ -17,7 +17,7 @@ export class JourneyMapExpandedPrefix {
   /**
    * Maximum number of paths shown after the expanded path.
    */
-  "pathLimit"?: number;
+  "pathLimit"?: Int64;
 
   /**
    * @ignore

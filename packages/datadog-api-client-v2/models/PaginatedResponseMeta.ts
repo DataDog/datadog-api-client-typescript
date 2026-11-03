@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata for scores response.
@@ -13,19 +13,19 @@ export class PaginatedResponseMeta {
   /**
    * Number of entities in this response.
    */
-  "count": number;
+  "count": Int64;
   /**
    * Pagination limit.
    */
-  "limit": number;
+  "limit": Int64;
   /**
    * Pagination offset.
    */
-  "offset": number;
+  "offset": Int64;
   /**
    * Total number of entities available.
    */
-  "total": number;
+  "total": Int64;
 
   /**
    * A container for additional, undeclared properties.

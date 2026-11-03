@@ -6,7 +6,7 @@
 import { ExperimentsAnalysisPlanV2DTODataAttributesConfidenceIntervalMethod } from "./ExperimentsAnalysisPlanV2DTODataAttributesConfidenceIntervalMethod";
 import { ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior } from "./ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Statistical settings and duration targets to apply to the experiment.
@@ -27,19 +27,19 @@ export class ExperimentsAnalysisPlanWriteV2RequestDataAttributes {
   /**
    * Only a 30-day CUPED lookback is supported.
    */
-  "cupedLookbackPeriodDays"?: number;
+  "cupedLookbackPeriodDays"?: Int64;
   /**
    * Number of days configured for the experiment to end automatically.
    */
-  "experimentAutoEndDays"?: number;
+  "experimentAutoEndDays"?: Int64;
   /**
    * Minimum experiment duration in days configured in the analysis plan.
    */
-  "experimentMinDuration"?: number;
+  "experimentMinDuration"?: Int64;
   /**
    * Minimum sample size configured in the analysis plan.
    */
-  "experimentMinSampleSize"?: number;
+  "experimentMinSampleSize"?: Int64;
   /**
    * Whether CUPED uses pre-experiment data to reduce variance in the analysis.
    */
@@ -55,7 +55,7 @@ export class ExperimentsAnalysisPlanWriteV2RequestDataAttributes {
   /**
    * Planned experiment duration in days.
    */
-  "targetDurationDays"?: number;
+  "targetDurationDays"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

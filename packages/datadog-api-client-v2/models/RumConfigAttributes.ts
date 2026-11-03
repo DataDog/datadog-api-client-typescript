@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of the RUM configuration.
@@ -29,7 +29,7 @@ export class RumConfigAttributes {
   /**
    * Version of the out-of-the-box metrics installed for the organization.
    */
-  "ootbMetricsVersion"?: number;
+  "ootbMetricsVersion"?: Int64;
   /**
    * Timestamp of when the out-of-the-box metrics version was installed.
    */

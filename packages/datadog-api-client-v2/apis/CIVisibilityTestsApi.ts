@@ -59,7 +59,8 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppTestsAggregateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -181,7 +182,8 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppTestEventsRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -197,6 +199,12 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class CIVisibilityTestsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -213,8 +221,14 @@ export class CIVisibilityTestsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: CIAppTestsAnalyticsAggregateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CIAppTestsAnalyticsAggregateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "CIAppTestsAnalyticsAggregateResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CIAppTestsAnalyticsAggregateResponse;
       return body;
     }
@@ -225,13 +239,16 @@ export class CIVisibilityTestsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -247,9 +264,14 @@ export class CIVisibilityTestsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppTestsAnalyticsAggregateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "CIAppTestsAnalyticsAggregateResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CIAppTestsAnalyticsAggregateResponse;
       return body;
     }
@@ -276,8 +298,14 @@ export class CIVisibilityTestsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppTestEventsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CIAppTestEventsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CIAppTestEventsResponse;
       return body;
     }
@@ -288,13 +316,16 @@ export class CIVisibilityTestsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -309,9 +340,14 @@ export class CIVisibilityTestsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CIAppTestEventsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CIAppTestEventsResponse;
       return body;
     }
@@ -338,8 +374,14 @@ export class CIVisibilityTestsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppTestEventsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CIAppTestEventsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CIAppTestEventsResponse;
       return body;
     }
@@ -350,13 +392,16 @@ export class CIVisibilityTestsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -371,9 +416,14 @@ export class CIVisibilityTestsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CIAppTestEventsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CIAppTestEventsResponse;
       return body;
     }
@@ -447,7 +497,8 @@ export class CIVisibilityTestsApi {
     this.requestFactory =
       requestFactory || new CIVisibilityTestsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CIVisibilityTestsApiResponseProcessor();
+      responseProcessor ||
+      new CIVisibilityTestsApiResponseProcessor(configuration);
   }
 
   /**
@@ -511,7 +562,7 @@ export class CIVisibilityTestsApi {
   ): AsyncGenerator<CIAppTestEvent> {
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
-      pageSize = param.pageLimit;
+      pageSize = Number(param.pageLimit);
     }
     param.pageLimit = pageSize;
     while (true) {
@@ -598,7 +649,7 @@ export class CIVisibilityTestsApi {
       param.body.page = new CIAppQueryPageOptions();
     }
     if (param.body.page.limit !== undefined) {
-      pageSize = param.body.page.limit;
+      pageSize = Number(param.body.page.limit);
     }
     param.body.page.limit = pageSize;
     while (true) {

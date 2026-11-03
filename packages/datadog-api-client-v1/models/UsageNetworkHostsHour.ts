@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Number of active NPM hosts for each hour for a given organization.
@@ -13,7 +13,7 @@ export class UsageNetworkHostsHour {
   /**
    * Contains the number of active NPM hosts.
    */
-  "hostCount"?: number;
+  "hostCount"?: Int64;
   /**
    * The hour for the usage.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Options for the operator of this condition.
@@ -17,7 +17,7 @@ export class ApplicationSecurityWafCustomRuleConditionOptions {
   /**
    * Only evaluate this condition if the value has a minimum amount of characters.
    */
-  "minLength"?: number;
+  "minLength"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

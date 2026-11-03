@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The definition of `GcpUcConfigResponseDataAttributes` object.
@@ -41,7 +41,7 @@ export class GcpUcConfigResponseDataAttributes {
   /**
    * The `attributes` `months`.
    */
-  "months"?: number;
+  "months"?: Int64;
   /**
    * The `attributes` `project_id`.
    */

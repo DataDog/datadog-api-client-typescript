@@ -5,7 +5,7 @@
  */
 import { UserJourneySearchTarget } from "./UserJourneySearchTarget";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Graph filter for user journey search.
@@ -26,7 +26,7 @@ export class UserJourneySearchGraphFilter {
   /**
    * Filter value.
    */
-  "value"?: number;
+  "value"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

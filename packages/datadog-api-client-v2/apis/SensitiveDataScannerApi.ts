@@ -72,7 +72,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
         "SensitiveDataScannerGroupCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -123,7 +124,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
         "SensitiveDataScannerRuleCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -184,7 +186,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
         "SensitiveDataScannerGroupDeleteRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -245,7 +248,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
         "SensitiveDataScannerRuleDeleteRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -353,7 +357,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SensitiveDataScannerConfigRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -414,7 +419,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
         "SensitiveDataScannerGroupUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -475,7 +481,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
         "SensitiveDataScannerRuleUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -491,6 +498,12 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
 }
 
 export class SensitiveDataScannerApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -507,8 +520,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: SensitiveDataScannerCreateGroupResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerCreateGroupResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerCreateGroupResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerCreateGroupResponse;
       return body;
     }
@@ -519,13 +538,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -541,9 +563,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerCreateGroupResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerCreateGroupResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerCreateGroupResponse;
       return body;
     }
@@ -571,8 +598,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: SensitiveDataScannerCreateRuleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerCreateRuleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerCreateRuleResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerCreateRuleResponse;
       return body;
     }
@@ -583,13 +616,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -605,9 +641,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerCreateRuleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerCreateRuleResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerCreateRuleResponse;
       return body;
     }
@@ -635,8 +676,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerGroupDeleteResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGroupDeleteResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerGroupDeleteResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerGroupDeleteResponse;
       return body;
     }
@@ -648,13 +695,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -670,9 +720,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerGroupDeleteResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerGroupDeleteResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerGroupDeleteResponse;
       return body;
     }
@@ -700,8 +755,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerRuleDeleteResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerRuleDeleteResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerRuleDeleteResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerRuleDeleteResponse;
       return body;
     }
@@ -713,13 +774,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -735,9 +799,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerRuleDeleteResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerRuleDeleteResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerRuleDeleteResponse;
       return body;
     }
@@ -765,8 +834,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerGetConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGetConfigResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerGetConfigResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerGetConfigResponse;
       return body;
     }
@@ -777,13 +852,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -799,9 +877,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerGetConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerGetConfigResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerGetConfigResponse;
       return body;
     }
@@ -829,8 +912,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerStandardPatternsResponseData =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerStandardPatternsResponseData"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerStandardPatternsResponseData",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerStandardPatternsResponseData;
       return body;
     }
@@ -841,13 +930,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -863,9 +955,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerStandardPatternsResponseData =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerStandardPatternsResponseData",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerStandardPatternsResponseData;
       return body;
     }
@@ -893,8 +990,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerReorderGroupsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerReorderGroupsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerReorderGroupsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerReorderGroupsResponse;
       return body;
     }
@@ -905,13 +1008,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -927,9 +1033,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerReorderGroupsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerReorderGroupsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerReorderGroupsResponse;
       return body;
     }
@@ -957,8 +1068,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerGroupUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGroupUpdateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerGroupUpdateResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerGroupUpdateResponse;
       return body;
     }
@@ -970,13 +1087,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -992,9 +1112,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerGroupUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerGroupUpdateResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerGroupUpdateResponse;
       return body;
     }
@@ -1022,8 +1147,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerRuleUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerRuleUpdateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerRuleUpdateResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerRuleUpdateResponse;
       return body;
     }
@@ -1035,13 +1166,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1057,9 +1191,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerRuleUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerRuleUpdateResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SensitiveDataScannerRuleUpdateResponse;
       return body;
     }
@@ -1156,7 +1295,8 @@ export class SensitiveDataScannerApi {
       requestFactory ||
       new SensitiveDataScannerApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new SensitiveDataScannerApiResponseProcessor();
+      responseProcessor ||
+      new SensitiveDataScannerApiResponseProcessor(configuration);
   }
 
   /**

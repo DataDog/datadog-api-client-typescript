@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Details of the subject type.
@@ -17,11 +17,11 @@ export class ExperimentsSubjectTypeV2DTODataAttributes {
   /**
    * Number of experiments that reference this resource.
    */
-  "experimentCount"?: number;
+  "experimentCount"?: Int64;
   /**
    * Number of exposure sources that reference this subject type.
    */
-  "exposureSourceCount"?: number;
+  "exposureSourceCount"?: Int64;
   /**
    * Whether this is the organization's default subject type.
    */
@@ -29,7 +29,7 @@ export class ExperimentsSubjectTypeV2DTODataAttributes {
   /**
    * Number of metric SQL models that reference this subject type.
    */
-  "metricSqlModelCount"?: number;
+  "metricSqlModelCount"?: Int64;
   /**
    * Metadata retained for resources imported from another system.
    */
@@ -45,7 +45,7 @@ export class ExperimentsSubjectTypeV2DTODataAttributes {
   /**
    * Number of protocols that reference this subject type.
    */
-  "protocolCount"?: number;
+  "protocolCount"?: Int64;
   /**
    * Time when this resource was last updated.
    */

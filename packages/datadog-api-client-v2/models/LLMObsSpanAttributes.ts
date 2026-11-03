@@ -7,7 +7,7 @@ import { LLMObsSpanEvaluationMetric } from "./LLMObsSpanEvaluationMetric";
 import { LLMObsSpanIO } from "./LLMObsSpanIO";
 import { LLMObsSpanToolDefinition } from "./LLMObsSpanToolDefinition";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an Agent Observability span.
@@ -72,7 +72,7 @@ export class LLMObsSpanAttributes {
   /**
    * Start time of the span in nanoseconds since Unix epoch.
    */
-  "startNs": number;
+  "startNs": Int64;
   /**
    * Status of the span (e.g., ok, error).
    */

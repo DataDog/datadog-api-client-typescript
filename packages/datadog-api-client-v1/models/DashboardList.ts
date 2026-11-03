@@ -5,7 +5,7 @@
  */
 import { Creator } from "./Creator";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Your Datadog Dashboards.
@@ -22,11 +22,11 @@ export class DashboardList {
   /**
    * The number of dashboards in the list.
    */
-  "dashboardCount"?: number;
+  "dashboardCount"?: Int64;
   /**
    * The ID of the dashboard list.
    */
-  "id"?: number;
+  "id"?: Int64;
   /**
    * Whether or not the list is in the favorites.
    */

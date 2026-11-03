@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata for a version history response.
@@ -14,11 +14,11 @@ export class SyntheticsTestVersionHistoryMeta {
    * The version number to use as the `last_version_number` query parameter
    * to fetch the next page. `null` indicates there are no more pages.
    */
-  "nextLastVersionNumber"?: number;
+  "nextLastVersionNumber"?: Int64;
   /**
    * The number of days that version history is retained.
    */
-  "retentionPeriodInDays"?: number;
+  "retentionPeriodInDays"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

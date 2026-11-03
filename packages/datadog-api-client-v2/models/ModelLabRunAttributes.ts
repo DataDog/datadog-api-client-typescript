@@ -8,7 +8,7 @@ import { ModelLabRunParam } from "./ModelLabRunParam";
 import { ModelLabRunStatus } from "./ModelLabRunStatus";
 import { ModelLabTag } from "./ModelLabTag";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a Model Lab run.
@@ -73,7 +73,7 @@ export class ModelLabRunAttributes {
   /**
    * The ID of the project this run belongs to.
    */
-  "projectId": number;
+  "projectId": Int64;
   /**
    * The date and time the run started.
    */

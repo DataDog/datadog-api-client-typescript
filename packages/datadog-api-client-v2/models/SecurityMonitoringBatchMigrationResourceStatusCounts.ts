@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The number of resources of a batch migration in each status.
@@ -13,35 +13,35 @@ export class SecurityMonitoringBatchMigrationResourceStatusCounts {
   /**
    * Number of resources whose translation was canceled.
    */
-  "canceled": number;
+  "canceled": Int64;
   /**
    * Number of resources translated and ready to be published.
    */
-  "completed": number;
+  "completed": Int64;
   /**
    * Number of resources identified as duplicates of an existing rule. Reserved for future use.
    */
-  "duplicate": number;
+  "duplicate": Int64;
   /**
    * Number of resources whose translation failed.
    */
-  "failed": number;
+  "failed": Int64;
   /**
    * Number of resources being translated.
    */
-  "inProgress": number;
+  "inProgress": Int64;
   /**
    * Number of resources waiting to be translated.
    */
-  "pending": number;
+  "pending": Int64;
   /**
    * Number of resources published as Cloud SIEM detection rules.
    */
-  "published": number;
+  "published": Int64;
   /**
    * Number of resources being published.
    */
-  "publishing": number;
+  "publishing": Int64;
 
   /**
    * A container for additional, undeclared properties.

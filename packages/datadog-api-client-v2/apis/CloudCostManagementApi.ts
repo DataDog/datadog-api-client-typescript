@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { AccountFiltersPatchRequest } from "../models/AccountFiltersPatchRequest";
 import { AccountFiltersResponse } from "../models/AccountFiltersResponse";
@@ -127,7 +128,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AwsCURConfigPostRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -174,7 +176,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AzureUCConfigPostRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -221,7 +224,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "GCPUsageCostConfigPostRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -268,7 +272,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ArbitraryCostUpsertRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -315,7 +320,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateRulesetRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -367,7 +373,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UnitCostCreateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -421,7 +428,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async deleteCostAWSCURConfig(
-    cloudAccountId: number,
+    cloudAccountId: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -461,7 +468,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async deleteCostAzureUCConfig(
-    cloudAccountId: number,
+    cloudAccountId: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -501,7 +508,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async deleteCostGCPUsageCostConfig(
-    cloudAccountId: number,
+    cloudAccountId: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -590,7 +597,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async deleteCustomAllocationRule(
-    ruleId: number,
+    ruleId: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -834,8 +841,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     budgetId: string,
     actual?: boolean,
     forecast?: boolean,
-    start?: number,
-    end?: number,
+    start?: Int64Input,
+    end?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -906,8 +913,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   public async getCommitmentsCommitmentList(
     provider: CommitmentsProvider,
     product: string,
-    start: number,
-    end: number,
+    start: Int64Input,
+    end: Int64Input,
     filterBy?: string,
     commitmentType?: CommitmentsCommitmentType,
     _options?: Configuration
@@ -1017,8 +1024,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   public async getCommitmentsCoverageScalar(
     provider: CommitmentsProvider,
     product: string,
-    start: number,
-    end: number,
+    start: Int64Input,
+    end: Int64Input,
     filterBy?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -1116,8 +1123,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   public async getCommitmentsCoverageTimeseries(
     provider: CommitmentsProvider,
     product: string,
-    start: number,
-    end: number,
+    start: Int64Input,
+    end: Int64Input,
     filterBy?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -1215,8 +1222,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   public async getCommitmentsOnDemandHotspotsScalar(
     provider: CommitmentsProvider,
     product: string,
-    start: number,
-    end: number,
+    start: Int64Input,
+    end: Int64Input,
     filterBy?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -1326,8 +1333,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   public async getCommitmentsSavingsScalar(
     provider: CommitmentsProvider,
     product: string,
-    start: number,
-    end: number,
+    start: Int64Input,
+    end: Int64Input,
     filterBy?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -1425,8 +1432,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   public async getCommitmentsSavingsTimeseries(
     provider: CommitmentsProvider,
     product: string,
-    start: number,
-    end: number,
+    start: Int64Input,
+    end: Int64Input,
     filterBy?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -1524,8 +1531,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   public async getCommitmentsUtilizationScalar(
     provider: CommitmentsProvider,
     product: string,
-    start: number,
-    end: number,
+    start: Int64Input,
+    end: Int64Input,
     filterBy?: string,
     commitmentType?: CommitmentsCommitmentType,
     _options?: Configuration
@@ -1635,8 +1642,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   public async getCommitmentsUtilizationTimeseries(
     provider: CommitmentsProvider,
     product: string,
-    start: number,
-    end: number,
+    start: Int64Input,
+    end: Int64Input,
     filterBy?: string,
     commitmentType?: CommitmentsCommitmentType,
     _options?: Configuration
@@ -1751,7 +1758,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async getCostAccountFilters(
-    cloudAccountId: number,
+    cloudAccountId: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -1835,7 +1842,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async getCostAWSCURConfig(
-    cloudAccountId: number,
+    cloudAccountId: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -1875,7 +1882,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async getCostAzureUCConfig(
-    cloudAccountId: number,
+    cloudAccountId: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -1915,7 +1922,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async getCostGCPUsageCostConfig(
-    cloudAccountId: number,
+    cloudAccountId: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -2121,7 +2128,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async getCustomAllocationRule(
-    ruleId: number,
+    ruleId: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -2350,16 +2357,16 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async listCostAnomalies(
-    start?: number,
-    end?: number,
+    start?: Int64Input,
+    end?: Int64Input,
     filter?: string,
     minAnomalousThreshold?: string,
     minCostThreshold?: string,
     dismissalCause?: string,
     orderBy?: string,
     order?: string,
-    limit?: number,
-    offset?: number,
+    limit?: Int64Input,
+    offset?: Int64Input,
     providerIds?: Array<string>,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -3182,8 +3189,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async listCustomCostsFiles(
-    pageNumber?: number,
-    pageSize?: number,
+    pageNumber?: Int64Input,
+    pageSize?: Int64Input,
     filterStatus?: string,
     filterName?: string,
     filterProvider?: Array<string>,
@@ -3389,7 +3396,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ReorderRuleResourceArray", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3436,7 +3444,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ReorderRulesetResourceArray", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3508,7 +3517,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RecommendationsFilterRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3523,7 +3533,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async updateCostAccountFilters(
-    cloudAccountId: number,
+    cloudAccountId: Int64Input,
     body: AccountFiltersPatchRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -3565,7 +3575,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AccountFiltersPatchRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3580,7 +3591,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async updateCostAWSCURConfig(
-    cloudAccountId: number,
+    cloudAccountId: Int64Input,
     body: AwsCURConfigPatchRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -3622,7 +3633,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AwsCURConfigPatchRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3637,7 +3649,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async updateCostAzureUCConfigs(
-    cloudAccountId: number,
+    cloudAccountId: Int64Input,
     body: AzureUCConfigPatchRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -3679,7 +3691,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AzureUCConfigPatchRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3694,7 +3707,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async updateCostGCPUsageCostConfig(
-    cloudAccountId: number,
+    cloudAccountId: Int64Input,
     body: GCPUsageCostConfigPatchRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -3736,7 +3749,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "GCPUsageCostConfigPatchRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3751,7 +3765,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async updateCustomAllocationRule(
-    ruleId: number,
+    ruleId: Int64Input,
     body: ArbitraryCostUpsertRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -3792,7 +3806,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ArbitraryCostUpsertRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3848,7 +3863,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateRulesetRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3909,7 +3925,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UnitCostUpdateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3966,7 +3983,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Array<CustomCostsFileLineItem>", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4013,7 +4031,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "BudgetWithEntries", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4069,7 +4088,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CostTagDescriptionUpsertRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4116,7 +4136,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CustomForecastUpsertRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4163,7 +4184,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "BudgetValidationRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4233,7 +4255,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RulesValidateQueryRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4249,6 +4272,12 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class CloudCostManagementApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -4264,8 +4293,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: AwsCurConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AwsCurConfigResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "AwsCurConfigResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AwsCurConfigResponse;
       return body;
     }
@@ -4276,13 +4311,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4297,9 +4335,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AwsCurConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "AwsCurConfigResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AwsCurConfigResponse;
       return body;
     }
@@ -4326,8 +4369,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: AzureUCConfigPairsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AzureUCConfigPairsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "AzureUCConfigPairsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AzureUCConfigPairsResponse;
       return body;
     }
@@ -4338,13 +4387,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4359,9 +4411,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AzureUCConfigPairsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "AzureUCConfigPairsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AzureUCConfigPairsResponse;
       return body;
     }
@@ -4388,8 +4445,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GCPUsageCostConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GCPUsageCostConfigResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "GCPUsageCostConfigResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GCPUsageCostConfigResponse;
       return body;
     }
@@ -4400,13 +4463,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4421,9 +4487,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GCPUsageCostConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "GCPUsageCostConfigResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GCPUsageCostConfigResponse;
       return body;
     }
@@ -4450,21 +4521,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ArbitraryRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ArbitraryRuleResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ArbitraryRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4479,9 +4559,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ArbitraryRuleResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ArbitraryRuleResponse;
       return body;
     }
@@ -4508,21 +4593,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: RulesetResp = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RulesetResp"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RulesetResp",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RulesetResp;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4537,9 +4631,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RulesetResp = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "RulesetResp",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RulesetResp;
       return body;
     }
@@ -4566,21 +4665,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: UnitCostResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UnitCostResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "UnitCostResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UnitCostResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4597,13 +4705,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4618,9 +4729,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UnitCostResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "UnitCostResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UnitCostResponse;
       return body;
     }
@@ -4649,13 +4765,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4702,13 +4821,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4755,13 +4877,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4808,13 +4933,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4861,13 +4989,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4910,13 +5041,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4961,13 +5095,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5012,13 +5149,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5061,13 +5201,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5112,13 +5255,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5135,13 +5281,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5181,8 +5330,14 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: GenerateCostTagDescriptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GenerateCostTagDescriptionResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "GenerateCostTagDescriptionResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GenerateCostTagDescriptionResponse;
       return body;
     }
@@ -5193,13 +5348,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5215,9 +5373,14 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GenerateCostTagDescriptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "GenerateCostTagDescriptionResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as GenerateCostTagDescriptionResponse;
       return body;
     }
@@ -5244,8 +5407,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: BudgetWithEntries = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "BudgetWithEntries"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "BudgetWithEntries",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as BudgetWithEntries;
       return body;
     }
@@ -5256,13 +5425,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5277,9 +5449,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: BudgetWithEntries = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "BudgetWithEntries",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as BudgetWithEntries;
       return body;
     }
@@ -5306,21 +5483,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CommitmentsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CommitmentsListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CommitmentsListResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CommitmentsListResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5337,13 +5523,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5358,9 +5547,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CommitmentsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CommitmentsListResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CommitmentsListResponse;
       return body;
     }
@@ -5388,21 +5582,30 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: CommitmentsCoverageScalarResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CommitmentsCoverageScalarResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "CommitmentsCoverageScalarResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsCoverageScalarResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5419,13 +5622,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5441,9 +5647,14 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CommitmentsCoverageScalarResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "CommitmentsCoverageScalarResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsCoverageScalarResponse;
       return body;
     }
@@ -5471,21 +5682,30 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: CommitmentsCoverageTimeseriesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CommitmentsCoverageTimeseriesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "CommitmentsCoverageTimeseriesResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsCoverageTimeseriesResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5502,13 +5722,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5524,9 +5747,14 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CommitmentsCoverageTimeseriesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "CommitmentsCoverageTimeseriesResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsCoverageTimeseriesResponse;
       return body;
     }
@@ -5554,21 +5782,30 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: CommitmentsOnDemandHotspotsScalarResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CommitmentsOnDemandHotspotsScalarResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "CommitmentsOnDemandHotspotsScalarResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsOnDemandHotspotsScalarResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5585,13 +5822,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5607,9 +5847,14 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CommitmentsOnDemandHotspotsScalarResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "CommitmentsOnDemandHotspotsScalarResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsOnDemandHotspotsScalarResponse;
       return body;
     }
@@ -5637,21 +5882,30 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: CommitmentsSavingsScalarResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CommitmentsSavingsScalarResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "CommitmentsSavingsScalarResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsSavingsScalarResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5668,13 +5922,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5690,9 +5947,14 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CommitmentsSavingsScalarResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "CommitmentsSavingsScalarResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsSavingsScalarResponse;
       return body;
     }
@@ -5720,21 +5982,30 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: CommitmentsSavingsTimeseriesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CommitmentsSavingsTimeseriesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "CommitmentsSavingsTimeseriesResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsSavingsTimeseriesResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5751,13 +6022,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5773,9 +6047,14 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CommitmentsSavingsTimeseriesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "CommitmentsSavingsTimeseriesResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsSavingsTimeseriesResponse;
       return body;
     }
@@ -5803,21 +6082,30 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: CommitmentsUtilizationScalarResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CommitmentsUtilizationScalarResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "CommitmentsUtilizationScalarResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsUtilizationScalarResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5834,13 +6122,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5856,9 +6147,14 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CommitmentsUtilizationScalarResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "CommitmentsUtilizationScalarResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsUtilizationScalarResponse;
       return body;
     }
@@ -5886,21 +6182,30 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: CommitmentsUtilizationTimeseriesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CommitmentsUtilizationTimeseriesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "CommitmentsUtilizationTimeseriesResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsUtilizationTimeseriesResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5917,13 +6222,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5939,9 +6247,14 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CommitmentsUtilizationTimeseriesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "CommitmentsUtilizationTimeseriesResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CommitmentsUtilizationTimeseriesResponse;
       return body;
     }
@@ -5968,8 +6281,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: AccountFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AccountFiltersResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "AccountFiltersResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AccountFiltersResponse;
       return body;
     }
@@ -5981,13 +6300,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6002,9 +6324,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AccountFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "AccountFiltersResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AccountFiltersResponse;
       return body;
     }
@@ -6031,8 +6358,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostAnomalyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostAnomalyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostAnomalyResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostAnomalyResponse;
       return body;
     }
@@ -6044,13 +6377,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6065,9 +6401,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostAnomalyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostAnomalyResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostAnomalyResponse;
       return body;
     }
@@ -6094,21 +6435,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: AwsCurConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AwsCurConfigResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "AwsCurConfigResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AwsCurConfigResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6123,9 +6473,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AwsCurConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "AwsCurConfigResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AwsCurConfigResponse;
       return body;
     }
@@ -6152,21 +6507,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: UCConfigPair = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UCConfigPair"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "UCConfigPair",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UCConfigPair;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6181,9 +6545,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UCConfigPair = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "UCConfigPair",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UCConfigPair;
       return body;
     }
@@ -6210,21 +6579,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GcpUcConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GcpUcConfigResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "GcpUcConfigResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GcpUcConfigResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6239,9 +6617,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GcpUcConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "GcpUcConfigResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GcpUcConfigResponse;
       return body;
     }
@@ -6268,8 +6651,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostTagDescriptionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostTagDescriptionResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostTagDescriptionResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagDescriptionResponse;
       return body;
     }
@@ -6281,13 +6670,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6302,9 +6694,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostTagDescriptionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostTagDescriptionResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagDescriptionResponse;
       return body;
     }
@@ -6331,8 +6728,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostTagKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostTagKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostTagKeyResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagKeyResponse;
       return body;
     }
@@ -6343,13 +6746,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6366,13 +6772,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6387,9 +6796,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostTagKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostTagKeyResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagKeyResponse;
       return body;
     }
@@ -6416,8 +6830,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostCurrencyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostCurrencyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostCurrencyResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostCurrencyResponse;
       return body;
     }
@@ -6428,13 +6848,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6449,9 +6872,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostCurrencyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostCurrencyResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostCurrencyResponse;
       return body;
     }
@@ -6478,21 +6906,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ArbitraryRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ArbitraryRuleResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ArbitraryRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6507,9 +6944,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ArbitraryRuleResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ArbitraryRuleResponse;
       return body;
     }
@@ -6536,8 +6978,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CustomCostsFileGetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomCostsFileGetResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CustomCostsFileGetResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CustomCostsFileGetResponse;
       return body;
     }
@@ -6548,13 +6996,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6569,9 +7020,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomCostsFileGetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CustomCostsFileGetResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CustomCostsFileGetResponse;
       return body;
     }
@@ -6598,8 +7054,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CustomForecastResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomForecastResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CustomForecastResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CustomForecastResponse;
       return body;
     }
@@ -6610,13 +7072,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6631,9 +7096,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomForecastResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CustomForecastResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CustomForecastResponse;
       return body;
     }
@@ -6660,21 +7130,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: RulesetResp = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RulesetResp"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RulesetResp",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RulesetResp;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6689,9 +7168,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RulesetResp = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "RulesetResp",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RulesetResp;
       return body;
     }
@@ -6718,8 +7202,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: UnitCostResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UnitCostResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "UnitCostResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UnitCostResponse;
       return body;
     }
@@ -6730,13 +7220,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6753,13 +7246,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6774,9 +7270,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UnitCostResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "UnitCostResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UnitCostResponse;
       return body;
     }
@@ -6801,21 +7302,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: BudgetArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "BudgetArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "BudgetArray",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as BudgetArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6830,9 +7340,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: BudgetArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "BudgetArray",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as BudgetArray;
       return body;
     }
@@ -6859,8 +7374,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostAnomaliesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostAnomaliesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostAnomaliesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostAnomaliesResponse;
       return body;
     }
@@ -6871,13 +7392,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6892,9 +7416,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostAnomaliesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostAnomaliesResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostAnomaliesResponse;
       return body;
     }
@@ -6921,21 +7450,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: AwsCURConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AwsCURConfigsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "AwsCURConfigsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AwsCURConfigsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6950,9 +7488,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AwsCURConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "AwsCURConfigsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AwsCURConfigsResponse;
       return body;
     }
@@ -6979,21 +7522,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: AzureUCConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AzureUCConfigsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "AzureUCConfigsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AzureUCConfigsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7008,9 +7560,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AzureUCConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "AzureUCConfigsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AzureUCConfigsResponse;
       return body;
     }
@@ -7037,21 +7594,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CloudCostAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CloudCostAccountsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CloudCostAccountsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CloudCostAccountsResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7068,13 +7634,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7089,9 +7658,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CloudCostAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CloudCostAccountsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CloudCostAccountsResponse;
       return body;
     }
@@ -7118,21 +7692,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GCPUsageCostConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GCPUsageCostConfigsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "GCPUsageCostConfigsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GCPUsageCostConfigsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7147,9 +7730,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GCPUsageCostConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "GCPUsageCostConfigsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GCPUsageCostConfigsResponse;
       return body;
     }
@@ -7176,21 +7764,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: OCIConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OCIConfigsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "OCIConfigsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OCIConfigsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7205,9 +7802,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OCIConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "OCIConfigsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OCIConfigsResponse;
       return body;
     }
@@ -7234,21 +7836,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostTagDescriptionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostTagDescriptionsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostTagDescriptionsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagDescriptionsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7263,9 +7874,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostTagDescriptionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostTagDescriptionsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagDescriptionsResponse;
       return body;
     }
@@ -7292,21 +7908,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostTagKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostTagKeysResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostTagKeysResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagKeysResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7323,13 +7948,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7344,9 +7972,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostTagKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostTagKeysResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagKeysResponse;
       return body;
     }
@@ -7373,8 +8006,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostTagKeySourcesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostTagKeySourcesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostTagKeySourcesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagKeySourcesResponse;
       return body;
     }
@@ -7385,13 +8024,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7406,9 +8048,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostTagKeySourcesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostTagKeySourcesResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagKeySourcesResponse;
       return body;
     }
@@ -7435,8 +8082,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostTagKeyMetadataResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostTagKeyMetadataResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostTagKeyMetadataResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagKeyMetadataResponse;
       return body;
     }
@@ -7447,13 +8100,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7468,9 +8124,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostTagKeyMetadataResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostTagKeyMetadataResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagKeyMetadataResponse;
       return body;
     }
@@ -7497,8 +8158,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostMetricsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostMetricsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostMetricsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostMetricsResponse;
       return body;
     }
@@ -7509,13 +8176,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7530,9 +8200,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostMetricsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostMetricsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostMetricsResponse;
       return body;
     }
@@ -7559,8 +8234,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostTagMetadataMonthsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostTagMetadataMonthsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostTagMetadataMonthsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagMetadataMonthsResponse;
       return body;
     }
@@ -7571,13 +8252,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7592,9 +8276,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostTagMetadataMonthsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostTagMetadataMonthsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagMetadataMonthsResponse;
       return body;
     }
@@ -7621,8 +8310,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostOrchestratorsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostOrchestratorsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostOrchestratorsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostOrchestratorsResponse;
       return body;
     }
@@ -7633,13 +8328,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7654,9 +8352,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostOrchestratorsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostOrchestratorsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostOrchestratorsResponse;
       return body;
     }
@@ -7683,21 +8386,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostTagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostTagsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostTagsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7714,13 +8426,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7735,9 +8450,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostTagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostTagsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostTagsResponse;
       return body;
     }
@@ -7764,21 +8484,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ArbitraryRuleResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ArbitraryRuleResponseArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ArbitraryRuleResponseArray",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ArbitraryRuleResponseArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7793,9 +8522,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ArbitraryRuleResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ArbitraryRuleResponseArray",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ArbitraryRuleResponseArray;
       return body;
     }
@@ -7823,21 +8557,30 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ArbitraryRuleStatusResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ArbitraryRuleStatusResponseArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ArbitraryRuleStatusResponseArray",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ArbitraryRuleStatusResponseArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7853,9 +8596,14 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ArbitraryRuleStatusResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ArbitraryRuleStatusResponseArray",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ArbitraryRuleStatusResponseArray;
       return body;
     }
@@ -7882,8 +8630,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CustomCostsFileListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomCostsFileListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CustomCostsFileListResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CustomCostsFileListResponse;
       return body;
     }
@@ -7894,13 +8648,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7915,9 +8672,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomCostsFileListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CustomCostsFileListResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CustomCostsFileListResponse;
       return body;
     }
@@ -7944,21 +8706,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: RulesetRespArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RulesetRespArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RulesetRespArray",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RulesetRespArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7973,9 +8744,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RulesetRespArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "RulesetRespArray",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RulesetRespArray;
       return body;
     }
@@ -8002,21 +8778,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: RulesetStatusRespArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RulesetStatusRespArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RulesetStatusRespArray",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RulesetStatusRespArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8031,9 +8816,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RulesetStatusRespArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "RulesetStatusRespArray",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RulesetStatusRespArray;
       return body;
     }
@@ -8060,21 +8850,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: UnitCostsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UnitCostsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "UnitCostsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UnitCostsResponse;
       return body;
     }
     if (response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8091,13 +8890,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8112,9 +8914,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UnitCostsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "UnitCostsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UnitCostsResponse;
       return body;
     }
@@ -8145,13 +8952,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8194,13 +9004,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8239,21 +9052,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CostRecommendationArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostRecommendationArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CostRecommendationArray",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostRecommendationArray;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8270,13 +9092,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8291,9 +9116,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostRecommendationArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CostRecommendationArray",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CostRecommendationArray;
       return body;
     }
@@ -8320,8 +9150,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: AccountFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AccountFiltersResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "AccountFiltersResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AccountFiltersResponse;
       return body;
     }
@@ -8333,13 +9169,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8354,9 +9193,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AccountFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "AccountFiltersResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AccountFiltersResponse;
       return body;
     }
@@ -8383,8 +9227,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: AwsCURConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AwsCURConfigsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "AwsCURConfigsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AwsCURConfigsResponse;
       return body;
     }
@@ -8395,13 +9245,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8416,9 +9269,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AwsCURConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "AwsCURConfigsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AwsCURConfigsResponse;
       return body;
     }
@@ -8445,8 +9303,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: AzureUCConfigPairsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AzureUCConfigPairsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "AzureUCConfigPairsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AzureUCConfigPairsResponse;
       return body;
     }
@@ -8458,13 +9322,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8479,9 +9346,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AzureUCConfigPairsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "AzureUCConfigPairsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as AzureUCConfigPairsResponse;
       return body;
     }
@@ -8508,8 +9380,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GCPUsageCostConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GCPUsageCostConfigResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "GCPUsageCostConfigResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GCPUsageCostConfigResponse;
       return body;
     }
@@ -8521,13 +9399,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8542,9 +9423,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GCPUsageCostConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "GCPUsageCostConfigResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GCPUsageCostConfigResponse;
       return body;
     }
@@ -8571,21 +9457,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ArbitraryRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ArbitraryRuleResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ArbitraryRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8600,9 +9495,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ArbitraryRuleResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ArbitraryRuleResponse;
       return body;
     }
@@ -8629,21 +9529,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: RulesetResp = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RulesetResp"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RulesetResp",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RulesetResp;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8658,9 +9567,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RulesetResp = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "RulesetResp",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RulesetResp;
       return body;
     }
@@ -8687,8 +9601,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: UnitCostResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UnitCostResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "UnitCostResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UnitCostResponse;
       return body;
     }
@@ -8699,13 +9619,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8722,13 +9645,16 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8743,9 +9669,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UnitCostResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "UnitCostResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UnitCostResponse;
       return body;
     }
@@ -8772,8 +9703,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 202) {
       const body: CustomCostsFileUploadResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomCostsFileUploadResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CustomCostsFileUploadResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CustomCostsFileUploadResponse;
       return body;
     }
@@ -8784,13 +9721,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8805,9 +9745,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomCostsFileUploadResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CustomCostsFileUploadResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CustomCostsFileUploadResponse;
       return body;
     }
@@ -8834,8 +9779,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: BudgetWithEntries = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "BudgetWithEntries"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "BudgetWithEntries",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as BudgetWithEntries;
       return body;
     }
@@ -8846,13 +9797,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8867,9 +9821,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: BudgetWithEntries = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "BudgetWithEntries",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as BudgetWithEntries;
       return body;
     }
@@ -8904,13 +9863,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8949,8 +9911,14 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CustomForecastResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomForecastResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CustomForecastResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CustomForecastResponse;
       return body;
     }
@@ -8961,13 +9929,16 @@ export class CloudCostManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8982,9 +9953,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomForecastResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CustomForecastResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CustomForecastResponse;
       return body;
     }
@@ -9011,21 +9987,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: BudgetValidationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "BudgetValidationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "BudgetValidationResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as BudgetValidationResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9040,9 +10025,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: BudgetValidationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "BudgetValidationResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as BudgetValidationResponse;
       return body;
     }
@@ -9069,21 +10059,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ValidationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ValidationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ValidationResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ValidationResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9098,9 +10097,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ValidationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ValidationResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ValidationResponse;
       return body;
     }
@@ -9127,21 +10131,30 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: RulesValidateQueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RulesValidateQueryResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RulesValidateQueryResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RulesValidateQueryResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9156,9 +10169,14 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RulesValidateQueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "RulesValidateQueryResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RulesValidateQueryResponse;
       return body;
     }
@@ -9224,25 +10242,25 @@ export interface CloudCostManagementApiDeleteBudgetRequest {
 export interface CloudCostManagementApiDeleteCostAWSCURConfigRequest {
   /**
    * Cloud Account id.
-   * @type number
+   * @type Int64Input
    */
-  cloudAccountId: number;
+  cloudAccountId: Int64Input;
 }
 
 export interface CloudCostManagementApiDeleteCostAzureUCConfigRequest {
   /**
    * Cloud Account id.
-   * @type number
+   * @type Int64Input
    */
-  cloudAccountId: number;
+  cloudAccountId: Int64Input;
 }
 
 export interface CloudCostManagementApiDeleteCostGCPUsageCostConfigRequest {
   /**
    * Cloud Account id.
-   * @type number
+   * @type Int64Input
    */
-  cloudAccountId: number;
+  cloudAccountId: Int64Input;
 }
 
 export interface CloudCostManagementApiDeleteCostTagDescriptionByKeyRequest {
@@ -9261,9 +10279,9 @@ export interface CloudCostManagementApiDeleteCostTagDescriptionByKeyRequest {
 export interface CloudCostManagementApiDeleteCustomAllocationRuleRequest {
   /**
    * The unique identifier of the custom allocation rule
-   * @type number
+   * @type Int64Input
    */
-  ruleId: number;
+  ruleId: Int64Input;
 }
 
 export interface CloudCostManagementApiDeleteCustomCostsFileRequest {
@@ -9324,14 +10342,14 @@ export interface CloudCostManagementApiGetBudgetRequest {
   forecast?: boolean;
   /**
    * Start of the cost window in milliseconds since epoch. Must be used together with `end`.
-   * @type number
+   * @type Int64Input
    */
-  start?: number;
+  start?: Int64Input;
   /**
    * End of the cost window in milliseconds since epoch. Must be used together with `start`.
-   * @type number
+   * @type Int64Input
    */
-  end?: number;
+  end?: Int64Input;
 }
 
 export interface CloudCostManagementApiGetCommitmentsCommitmentListRequest {
@@ -9347,14 +10365,14 @@ export interface CloudCostManagementApiGetCommitmentsCommitmentListRequest {
   product: string;
   /**
    * Start of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  start: number;
+  start: Int64Input;
   /**
    * End of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  end: number;
+  end: Int64Input;
   /**
    * Optional filter expression to narrow down results.
    * @type string
@@ -9380,14 +10398,14 @@ export interface CloudCostManagementApiGetCommitmentsCoverageScalarRequest {
   product: string;
   /**
    * Start of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  start: number;
+  start: Int64Input;
   /**
    * End of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  end: number;
+  end: Int64Input;
   /**
    * Optional filter expression to narrow down results.
    * @type string
@@ -9408,14 +10426,14 @@ export interface CloudCostManagementApiGetCommitmentsCoverageTimeseriesRequest {
   product: string;
   /**
    * Start of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  start: number;
+  start: Int64Input;
   /**
    * End of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  end: number;
+  end: Int64Input;
   /**
    * Optional filter expression to narrow down results.
    * @type string
@@ -9436,14 +10454,14 @@ export interface CloudCostManagementApiGetCommitmentsOnDemandHotspotsScalarReque
   product: string;
   /**
    * Start of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  start: number;
+  start: Int64Input;
   /**
    * End of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  end: number;
+  end: Int64Input;
   /**
    * Optional filter expression to narrow down results.
    * @type string
@@ -9464,14 +10482,14 @@ export interface CloudCostManagementApiGetCommitmentsSavingsScalarRequest {
   product: string;
   /**
    * Start of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  start: number;
+  start: Int64Input;
   /**
    * End of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  end: number;
+  end: Int64Input;
   /**
    * Optional filter expression to narrow down results.
    * @type string
@@ -9492,14 +10510,14 @@ export interface CloudCostManagementApiGetCommitmentsSavingsTimeseriesRequest {
   product: string;
   /**
    * Start of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  start: number;
+  start: Int64Input;
   /**
    * End of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  end: number;
+  end: Int64Input;
   /**
    * Optional filter expression to narrow down results.
    * @type string
@@ -9520,14 +10538,14 @@ export interface CloudCostManagementApiGetCommitmentsUtilizationScalarRequest {
   product: string;
   /**
    * Start of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  start: number;
+  start: Int64Input;
   /**
    * End of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  end: number;
+  end: Int64Input;
   /**
    * Optional filter expression to narrow down results.
    * @type string
@@ -9553,14 +10571,14 @@ export interface CloudCostManagementApiGetCommitmentsUtilizationTimeseriesReques
   product: string;
   /**
    * Start of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  start: number;
+  start: Int64Input;
   /**
    * End of the query time range in Unix milliseconds.
-   * @type number
+   * @type Int64Input
    */
-  end: number;
+  end: Int64Input;
   /**
    * Optional filter expression to narrow down results.
    * @type string
@@ -9576,9 +10594,9 @@ export interface CloudCostManagementApiGetCommitmentsUtilizationTimeseriesReques
 export interface CloudCostManagementApiGetCostAccountFiltersRequest {
   /**
    * Cloud Account id.
-   * @type number
+   * @type Int64Input
    */
-  cloudAccountId: number;
+  cloudAccountId: Int64Input;
 }
 
 export interface CloudCostManagementApiGetCostAnomalyRequest {
@@ -9592,25 +10610,25 @@ export interface CloudCostManagementApiGetCostAnomalyRequest {
 export interface CloudCostManagementApiGetCostAWSCURConfigRequest {
   /**
    * The unique identifier of the cloud account
-   * @type number
+   * @type Int64Input
    */
-  cloudAccountId: number;
+  cloudAccountId: Int64Input;
 }
 
 export interface CloudCostManagementApiGetCostAzureUCConfigRequest {
   /**
    * The unique identifier of the cloud account
-   * @type number
+   * @type Int64Input
    */
-  cloudAccountId: number;
+  cloudAccountId: Int64Input;
 }
 
 export interface CloudCostManagementApiGetCostGCPUsageCostConfigRequest {
   /**
    * The unique identifier of the cloud account
-   * @type number
+   * @type Int64Input
    */
-  cloudAccountId: number;
+  cloudAccountId: Int64Input;
 }
 
 export interface CloudCostManagementApiGetCostTagDescriptionByKeyRequest {
@@ -9660,9 +10678,9 @@ export interface CloudCostManagementApiGetCostTagMetadataCurrencyRequest {
 export interface CloudCostManagementApiGetCustomAllocationRuleRequest {
   /**
    * The unique identifier of the custom allocation rule
-   * @type number
+   * @type Int64Input
    */
-  ruleId: number;
+  ruleId: Int64Input;
 }
 
 export interface CloudCostManagementApiGetCustomCostsFileRequest {
@@ -9700,14 +10718,14 @@ export interface CloudCostManagementApiGetUnitCostRequest {
 export interface CloudCostManagementApiListCostAnomaliesRequest {
   /**
    * Start time as Unix milliseconds. Defaults to the start of the latest stable seven-day window.
-   * @type number
+   * @type Int64Input
    */
-  start?: number;
+  start?: Int64Input;
   /**
    * End time as Unix milliseconds. Defaults to the end of the latest stable seven-day window.
-   * @type number
+   * @type Int64Input
    */
-  end?: number;
+  end?: Int64Input;
   /**
    * Optional JSON object mapping cost tag keys to allowed values, for example `{"team":["payments"],"env":["prod"]}`. Filters match anomaly dimensions or correlated tags.
    * @type string
@@ -9740,14 +10758,14 @@ export interface CloudCostManagementApiListCostAnomaliesRequest {
   order?: string;
   /**
    * Maximum number of anomalies to return. Defaults to `200`.
-   * @type number
+   * @type Int64Input
    */
-  limit?: number;
+  limit?: Int64Input;
   /**
    * Pagination offset. Defaults to `0`.
-   * @type number
+   * @type Int64Input
    */
-  offset?: number;
+  offset?: Int64Input;
   /**
    * Optional repeated cloud or SaaS provider filters, such as `aws`, `gcp`, `azure`, `Oracle`, `datadog`, `OpenAI`, or `Anthropic`.
    * @type Array<string>
@@ -9898,14 +10916,14 @@ export interface CloudCostManagementApiListCostTagsRequest {
 export interface CloudCostManagementApiListCustomCostsFilesRequest {
   /**
    * Page number for pagination
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Page size for pagination
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Filter by file status
    * @type string
@@ -9962,9 +10980,9 @@ export interface CloudCostManagementApiSearchCostRecommendationsRequest {
 export interface CloudCostManagementApiUpdateCostAccountFiltersRequest {
   /**
    * Cloud Account id.
-   * @type number
+   * @type Int64Input
    */
-  cloudAccountId: number;
+  cloudAccountId: Int64Input;
   /**
    * @type AccountFiltersPatchRequest
    */
@@ -9974,9 +10992,9 @@ export interface CloudCostManagementApiUpdateCostAccountFiltersRequest {
 export interface CloudCostManagementApiUpdateCostAWSCURConfigRequest {
   /**
    * Cloud Account id.
-   * @type number
+   * @type Int64Input
    */
-  cloudAccountId: number;
+  cloudAccountId: Int64Input;
   /**
    * @type AwsCURConfigPatchRequest
    */
@@ -9986,9 +11004,9 @@ export interface CloudCostManagementApiUpdateCostAWSCURConfigRequest {
 export interface CloudCostManagementApiUpdateCostAzureUCConfigsRequest {
   /**
    * Cloud Account id.
-   * @type number
+   * @type Int64Input
    */
-  cloudAccountId: number;
+  cloudAccountId: Int64Input;
   /**
    * @type AzureUCConfigPatchRequest
    */
@@ -9998,9 +11016,9 @@ export interface CloudCostManagementApiUpdateCostAzureUCConfigsRequest {
 export interface CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest {
   /**
    * Cloud Account id.
-   * @type number
+   * @type Int64Input
    */
-  cloudAccountId: number;
+  cloudAccountId: Int64Input;
   /**
    * @type GCPUsageCostConfigPatchRequest
    */
@@ -10010,9 +11028,9 @@ export interface CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest {
 export interface CloudCostManagementApiUpdateCustomAllocationRuleRequest {
   /**
    * The unique identifier of the custom allocation rule
-   * @type number
+   * @type Int64Input
    */
-  ruleId: number;
+  ruleId: Int64Input;
   /**
    * @type ArbitraryCostUpsertRequest
    */
@@ -10109,7 +11127,8 @@ export class CloudCostManagementApi {
     this.requestFactory =
       requestFactory || new CloudCostManagementApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CloudCostManagementApiResponseProcessor();
+      responseProcessor ||
+      new CloudCostManagementApiResponseProcessor(configuration);
   }
 
   /**

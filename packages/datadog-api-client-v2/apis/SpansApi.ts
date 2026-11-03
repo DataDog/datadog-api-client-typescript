@@ -62,7 +62,8 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SpansAggregateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -109,7 +110,8 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SpansListRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -205,6 +207,12 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class SpansApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -220,8 +228,14 @@ export class SpansApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SpansAggregateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SpansAggregateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SpansAggregateResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as SpansAggregateResponse;
       return body;
     }
@@ -232,13 +246,16 @@ export class SpansApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -253,9 +270,14 @@ export class SpansApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SpansAggregateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "SpansAggregateResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as SpansAggregateResponse;
       return body;
     }
@@ -282,8 +304,14 @@ export class SpansApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SpansListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SpansListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SpansListResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as SpansListResponse;
       return body;
     }
@@ -295,13 +323,16 @@ export class SpansApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -319,9 +350,14 @@ export class SpansApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SpansListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "SpansListResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as SpansListResponse;
       return body;
     }
@@ -348,8 +384,14 @@ export class SpansApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SpansListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SpansListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SpansListResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as SpansListResponse;
       return body;
     }
@@ -361,13 +403,16 @@ export class SpansApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -385,9 +430,14 @@ export class SpansApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SpansListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "SpansListResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as SpansListResponse;
       return body;
     }
@@ -461,7 +511,7 @@ export class SpansApi {
     this.requestFactory =
       requestFactory || new SpansApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new SpansApiResponseProcessor();
+      responseProcessor || new SpansApiResponseProcessor(configuration);
   }
 
   /**
@@ -538,7 +588,7 @@ export class SpansApi {
     if (param.body.data.attributes.page.limit === undefined) {
       param.body.data.attributes.page.limit = pageSize;
     } else {
-      pageSize = param.body.data.attributes.page.limit;
+      pageSize = Number(param.body.data.attributes.page.limit);
     }
     while (true) {
       const requestContext = await this.requestFactory.listSpans(
@@ -619,7 +669,7 @@ export class SpansApi {
   ): AsyncGenerator<Span> {
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
-      pageSize = param.pageLimit;
+      pageSize = Number(param.pageLimit);
     }
     param.pageLimit = pageSize;
     while (true) {

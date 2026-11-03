@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Number of Fargate tasks run and hourly usage.
@@ -13,15 +13,15 @@ export class UsageFargateHour {
   /**
    * The high-water mark of APM ECS Fargate tasks during the given hour.
    */
-  "apmFargateCount"?: number;
+  "apmFargateCount"?: Int64;
   /**
    * The Application Security Monitoring ECS Fargate tasks during the given hour.
    */
-  "appsecFargateCount"?: number;
+  "appsecFargateCount"?: Int64;
   /**
    * The average profiled task count for Fargate Profiling.
    */
-  "avgProfiledFargateTasks"?: number;
+  "avgProfiledFargateTasks"?: Int64;
   /**
    * The hour for the usage.
    */
@@ -37,7 +37,7 @@ export class UsageFargateHour {
   /**
    * The number of Fargate tasks run.
    */
-  "tasksCount"?: number;
+  "tasksCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Health check information returned from a gRPC health check call.
@@ -17,7 +17,7 @@ export class SyntheticsTestResultHealthCheck {
   /**
    * Health check status code.
    */
-  "status"?: number;
+  "status"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

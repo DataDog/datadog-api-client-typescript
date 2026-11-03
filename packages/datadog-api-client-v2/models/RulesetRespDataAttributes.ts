@@ -7,7 +7,7 @@ import { RulesetRespDataAttributesCreated } from "./RulesetRespDataAttributesCre
 import { RulesetRespDataAttributesModified } from "./RulesetRespDataAttributesModified";
 import { RulesetRespDataAttributesRulesItems } from "./RulesetRespDataAttributesRulesItems";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The definition of `RulesetRespDataAttributes` object.
@@ -48,7 +48,7 @@ export class RulesetRespDataAttributes {
   /**
    * The `attributes` `version`.
    */
-  "version": number;
+  "version": Int64;
 
   /**
    * A container for additional, undeclared properties.

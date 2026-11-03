@@ -5,7 +5,7 @@
  */
 import { HostMetaInstallMethod } from "./HostMetaInstallMethod";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata associated with your host.
@@ -22,7 +22,7 @@ export class HostMeta {
   /**
    * The number of cores.
    */
-  "cpuCores"?: number;
+  "cpuCores"?: Int64;
   /**
    * An array of Mac versions.
    */

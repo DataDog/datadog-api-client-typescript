@@ -10,7 +10,7 @@ import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceT
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Definition of a historical job.
@@ -27,7 +27,7 @@ export class JobDefinition {
   /**
    * Starting time of data analyzed by the job.
    */
-  "from": number;
+  "from": Int64;
   /**
    * Additional grouping to perform on top of the existing groups in the query section. Must be a subset of the existing groups.
    */
@@ -67,7 +67,7 @@ export class JobDefinition {
   /**
    * Ending time of data analyzed by the job.
    */
-  "to": number;
+  "to": Int64;
   /**
    * Job type.
    */

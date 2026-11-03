@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Powerpack group widget layout.
@@ -13,19 +13,19 @@ export class PowerpackGroupWidgetLayout {
   /**
    * The height of the widget. Should be a non-negative integer.
    */
-  "height": number;
+  "height": Int64;
   /**
    * The width of the widget. Should be a non-negative integer.
    */
-  "width": number;
+  "width": Int64;
   /**
    * The position of the widget on the x (horizontal) axis. Should be a non-negative integer.
    */
-  "x": number;
+  "x": Int64;
   /**
    * The position of the widget on the y (vertical) axis. Should be a non-negative integer.
    */
-  "y": number;
+  "y": Int64;
 
   /**
    * A container for additional, undeclared properties.

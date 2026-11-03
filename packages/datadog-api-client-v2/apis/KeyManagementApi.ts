@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { APIKeyCreateRequest } from "../models/APIKeyCreateRequest";
@@ -73,7 +74,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "APIKeyCreateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -120,7 +122,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ApplicationKeyCreateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -167,7 +170,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "PersonalAccessTokenCreateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -491,8 +495,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listAPIKeys(
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     sort?: APIKeysSort,
     filter?: string,
     filterCreatedAtStart?: string,
@@ -615,8 +619,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listApplicationKeys(
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     sort?: ApplicationKeysSort,
     filter?: string,
     filterCreatedAtStart?: string,
@@ -711,8 +715,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listCurrentUserApplicationKeys(
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     sort?: ApplicationKeysSort,
     filter?: string,
     filterCreatedAtStart?: string,
@@ -799,8 +803,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listPersonalAccessTokens(
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     sort?: PersonalAccessTokensSort,
     filter?: string,
     filterOwnedBy?: Array<string>,
@@ -971,7 +975,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "APIKeyUpdateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1027,7 +1032,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ApplicationKeyUpdateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1084,7 +1090,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ApplicationKeyUpdateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1140,7 +1147,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "PersonalAccessTokenUpdateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1215,6 +1223,12 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class KeyManagementApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1230,8 +1244,14 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: APIKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "APIKeyResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as APIKeyResponse;
       return body;
     }
@@ -1242,13 +1262,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1263,9 +1286,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: APIKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "APIKeyResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as APIKeyResponse;
       return body;
     }
@@ -1292,8 +1320,14 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ApplicationKeyResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ApplicationKeyResponse;
       return body;
     }
@@ -1304,13 +1338,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1325,9 +1362,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ApplicationKeyResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ApplicationKeyResponse;
       return body;
     }
@@ -1355,8 +1397,14 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: PersonalAccessTokenCreateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "PersonalAccessTokenCreateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "PersonalAccessTokenCreateResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as PersonalAccessTokenCreateResponse;
       return body;
     }
@@ -1367,13 +1415,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1389,9 +1440,14 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PersonalAccessTokenCreateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "PersonalAccessTokenCreateResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as PersonalAccessTokenCreateResponse;
       return body;
     }
@@ -1424,13 +1480,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1475,13 +1534,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1528,13 +1590,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1571,8 +1636,14 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: APIKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "APIKeyResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as APIKeyResponse;
       return body;
     }
@@ -1583,13 +1654,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1604,9 +1678,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: APIKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "APIKeyResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as APIKeyResponse;
       return body;
     }
@@ -1633,8 +1712,14 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ApplicationKeyResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ApplicationKeyResponse;
       return body;
     }
@@ -1646,13 +1731,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1667,9 +1755,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ApplicationKeyResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ApplicationKeyResponse;
       return body;
     }
@@ -1696,8 +1789,14 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ApplicationKeyResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ApplicationKeyResponse;
       return body;
     }
@@ -1708,13 +1807,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1729,9 +1831,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ApplicationKeyResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ApplicationKeyResponse;
       return body;
     }
@@ -1758,8 +1865,14 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: PersonalAccessTokenResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PersonalAccessTokenResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "PersonalAccessTokenResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as PersonalAccessTokenResponse;
       return body;
     }
@@ -1770,13 +1883,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1791,9 +1907,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PersonalAccessTokenResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "PersonalAccessTokenResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as PersonalAccessTokenResponse;
       return body;
     }
@@ -1820,8 +1941,14 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: APIKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIKeysResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "APIKeysResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as APIKeysResponse;
       return body;
     }
@@ -1832,13 +1959,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1853,9 +1983,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: APIKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "APIKeysResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as APIKeysResponse;
       return body;
     }
@@ -1882,8 +2017,14 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListApplicationKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListApplicationKeysResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ListApplicationKeysResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListApplicationKeysResponse;
       return body;
     }
@@ -1895,13 +2036,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1916,9 +2060,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListApplicationKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ListApplicationKeysResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListApplicationKeysResponse;
       return body;
     }
@@ -1945,8 +2094,14 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListApplicationKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListApplicationKeysResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ListApplicationKeysResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListApplicationKeysResponse;
       return body;
     }
@@ -1958,13 +2113,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1979,9 +2137,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListApplicationKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ListApplicationKeysResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListApplicationKeysResponse;
       return body;
     }
@@ -2009,8 +2172,14 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ListPersonalAccessTokensResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ListPersonalAccessTokensResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ListPersonalAccessTokensResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ListPersonalAccessTokensResponse;
       return body;
     }
@@ -2021,13 +2190,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2043,9 +2215,14 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListPersonalAccessTokensResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ListPersonalAccessTokensResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ListPersonalAccessTokensResponse;
       return body;
     }
@@ -2080,13 +2257,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2125,8 +2305,14 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: APIKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "APIKeyResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as APIKeyResponse;
       return body;
     }
@@ -2138,13 +2324,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2159,9 +2348,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: APIKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "APIKeyResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as APIKeyResponse;
       return body;
     }
@@ -2188,8 +2382,14 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ApplicationKeyResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ApplicationKeyResponse;
       return body;
     }
@@ -2201,13 +2401,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2222,9 +2425,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ApplicationKeyResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ApplicationKeyResponse;
       return body;
     }
@@ -2251,8 +2459,14 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ApplicationKeyResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ApplicationKeyResponse;
       return body;
     }
@@ -2264,13 +2478,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2285,9 +2502,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ApplicationKeyResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ApplicationKeyResponse;
       return body;
     }
@@ -2315,8 +2537,14 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: UpdatedPersonalAccessTokenResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "UpdatedPersonalAccessTokenResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "UpdatedPersonalAccessTokenResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as UpdatedPersonalAccessTokenResponse;
       return body;
     }
@@ -2328,13 +2556,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2350,9 +2581,14 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdatedPersonalAccessTokenResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "UpdatedPersonalAccessTokenResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as UpdatedPersonalAccessTokenResponse;
       return body;
     }
@@ -2379,21 +2615,30 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ValidateV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ValidateV2Response"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ValidateV2Response",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ValidateV2Response;
       return body;
     }
     if (response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2410,13 +2655,16 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2431,9 +2679,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ValidateV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ValidateV2Response",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ValidateV2Response;
       return body;
     }
@@ -2460,8 +2713,14 @@ export class KeyManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ValidateAPIKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ValidateAPIKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ValidateAPIKeyResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ValidateAPIKeyResponse;
       return body;
     }
@@ -2472,13 +2731,16 @@ export class KeyManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2493,9 +2755,14 @@ export class KeyManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ValidateAPIKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ValidateAPIKeyResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ValidateAPIKeyResponse;
       return body;
     }
@@ -2603,14 +2870,14 @@ export interface KeyManagementApiGetPersonalAccessTokenRequest {
 export interface KeyManagementApiListAPIKeysRequest {
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * API key attribute used to sort results. Sort order is ascending
    * by default. In order to specify a descending sort, prefix the
@@ -2663,14 +2930,14 @@ export interface KeyManagementApiListAPIKeysRequest {
 export interface KeyManagementApiListApplicationKeysRequest {
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Application key attribute used to sort results. Sort order is ascending
    * by default. In order to specify a descending sort, prefix the
@@ -2708,14 +2975,14 @@ export interface KeyManagementApiListApplicationKeysRequest {
 export interface KeyManagementApiListCurrentUserApplicationKeysRequest {
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Application key attribute used to sort results. Sort order is ascending
    * by default. In order to specify a descending sort, prefix the
@@ -2748,14 +3015,14 @@ export interface KeyManagementApiListCurrentUserApplicationKeysRequest {
 export interface KeyManagementApiListPersonalAccessTokensRequest {
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Access token attribute used to sort results. Sort order is ascending
    * by default. In order to specify a descending sort, prefix the
@@ -2855,7 +3122,7 @@ export class KeyManagementApi {
     this.requestFactory =
       requestFactory || new KeyManagementApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new KeyManagementApiResponseProcessor();
+      responseProcessor || new KeyManagementApiResponseProcessor(configuration);
   }
 
   /**

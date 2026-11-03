@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Response from the delete monitor call.
@@ -13,7 +13,7 @@ export class DeletedMonitor {
   /**
    * ID of the deleted monitor.
    */
-  "deletedMonitorId"?: number;
+  "deletedMonitorId"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

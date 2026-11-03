@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The global query options that are used. Either provide a timezone or a time offset but not both,
@@ -14,7 +14,7 @@ export class EventsQueryOptions {
   /**
    * The time offset to apply to the query in seconds.
    */
-  "timeOffset"?: number;
+  "timeOffset"?: Int64;
   /**
    * The timezone can be specified as GMT, UTC, an offset from UTC (like UTC+1), or as a Timezone Database identifier (like America/New_York).
    */

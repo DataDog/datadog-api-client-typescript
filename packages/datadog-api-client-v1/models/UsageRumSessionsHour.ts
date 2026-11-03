@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Number of RUM sessions recorded for each hour for a given organization.
@@ -25,27 +25,27 @@ export class UsageRumSessionsHour {
   /**
    * Contains the number of RUM Session Replay counts (data available beginning November 1, 2021).
    */
-  "replaySessionCount"?: number;
+  "replaySessionCount"?: Int64;
   /**
    * Contains the number of browser RUM lite Sessions.
    */
-  "sessionCount"?: number;
+  "sessionCount"?: Int64;
   /**
    * Contains the number of mobile RUM sessions on Android (data available beginning December 1, 2020).
    */
-  "sessionCountAndroid"?: number;
+  "sessionCountAndroid"?: Int64;
   /**
    * Contains the number of mobile RUM sessions on Flutter (data available beginning March 1, 2023).
    */
-  "sessionCountFlutter"?: number;
+  "sessionCountFlutter"?: Int64;
   /**
    * Contains the number of mobile RUM sessions on iOS (data available beginning December 1, 2020).
    */
-  "sessionCountIos"?: number;
+  "sessionCountIos"?: Int64;
   /**
    * Contains the number of mobile RUM sessions on React Native (data available beginning May 1, 2022).
    */
-  "sessionCountReactnative"?: number;
+  "sessionCountReactnative"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

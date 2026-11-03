@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for the maximum session duration update request.
@@ -13,7 +13,7 @@ export class MaxSessionDurationUpdateAttributes {
   /**
    * The maximum session duration, in seconds.
    */
-  "maxSessionDuration": number;
+  "maxSessionDuration": Int64;
 
   /**
    * A container for additional, undeclared properties.

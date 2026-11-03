@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The time window defining the start and end of the event query period as Unix timestamps.
@@ -13,11 +13,11 @@ export class QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame {
   /**
    * End of the time frame as a Unix timestamp in seconds.
    */
-  "end"?: number;
+  "end"?: Int64;
   /**
    * Start of the time frame as a Unix timestamp in seconds.
    */
-  "start"?: number;
+  "start"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

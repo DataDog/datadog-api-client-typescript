@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Team attributes
@@ -17,7 +17,7 @@ export class TeamAttributes {
   /**
    * Banner selection for the team
    */
-  "banner"?: number;
+  "banner"?: Int64;
   /**
    * Creation date of the team
    */

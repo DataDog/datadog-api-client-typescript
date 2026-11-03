@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Certificate details returned in an OCSP response.
@@ -17,7 +17,7 @@ export class SyntheticsTestResultOCSPCertificate {
   /**
    * Unix timestamp (ms) of the revocation.
    */
-  "revocationTime"?: number;
+  "revocationTime"?: Int64;
   /**
    * Serial number of the certificate.
    */

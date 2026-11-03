@@ -85,7 +85,8 @@ export class CIVisibilityGitHubAccountsApiRequestFactory extends BaseAPIRequestF
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppGitHubAccountUpdateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -101,6 +102,12 @@ export class CIVisibilityGitHubAccountsApiRequestFactory extends BaseAPIRequestF
 }
 
 export class CIVisibilityGitHubAccountsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -116,8 +123,14 @@ export class CIVisibilityGitHubAccountsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CIAppGitHubAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppGitHubAccountsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CIAppGitHubAccountsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CIAppGitHubAccountsResponse;
       return body;
     }
@@ -129,13 +142,16 @@ export class CIVisibilityGitHubAccountsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -150,9 +166,14 @@ export class CIVisibilityGitHubAccountsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppGitHubAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CIAppGitHubAccountsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CIAppGitHubAccountsResponse;
       return body;
     }
@@ -179,8 +200,14 @@ export class CIVisibilityGitHubAccountsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CIAppGitHubAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppGitHubAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CIAppGitHubAccountResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CIAppGitHubAccountResponse;
       return body;
     }
@@ -193,13 +220,16 @@ export class CIVisibilityGitHubAccountsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -214,9 +244,14 @@ export class CIVisibilityGitHubAccountsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppGitHubAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CIAppGitHubAccountResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CIAppGitHubAccountResponse;
       return body;
     }
@@ -251,7 +286,8 @@ export class CIVisibilityGitHubAccountsApi {
       requestFactory ||
       new CIVisibilityGitHubAccountsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CIVisibilityGitHubAccountsApiResponseProcessor();
+      responseProcessor ||
+      new CIVisibilityGitHubAccountsApiResponseProcessor(configuration);
   }
 
   /**

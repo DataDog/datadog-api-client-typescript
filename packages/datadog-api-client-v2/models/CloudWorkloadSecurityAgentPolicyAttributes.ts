@@ -6,7 +6,7 @@
 import { CloudWorkloadSecurityAgentPolicyUpdaterAttributes } from "./CloudWorkloadSecurityAgentPolicyUpdaterAttributes";
 import { CloudWorkloadSecurityAgentPolicyVersion } from "./CloudWorkloadSecurityAgentPolicyVersion";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A Cloud Workload Security Agent policy returned by the API
@@ -67,7 +67,7 @@ export class CloudWorkloadSecurityAgentPolicyAttributes {
   /**
    * The priority of the policy
    */
-  "priority"?: number;
+  "priority"?: Int64;
   /**
    * The number of rules in this policy
    */
@@ -79,11 +79,11 @@ export class CloudWorkloadSecurityAgentPolicyAttributes {
   /**
    * Timestamp in milliseconds when the policy was last updated
    */
-  "updateDate"?: number;
+  "updateDate"?: Int64;
   /**
    * When the policy was last updated, timestamp in milliseconds
    */
-  "updatedAt"?: number;
+  "updatedAt"?: Int64;
   /**
    * The attributes of the user who last updated the policy
    */

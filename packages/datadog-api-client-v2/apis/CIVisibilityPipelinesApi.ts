@@ -61,7 +61,8 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppPipelinesAggregateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -108,7 +109,8 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppCreatePipelineEventRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -226,7 +228,8 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppPipelineEventsRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -242,6 +245,12 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 }
 
 export class CIVisibilityPipelinesApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -258,8 +267,14 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: CIAppPipelinesAnalyticsAggregateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CIAppPipelinesAnalyticsAggregateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "CIAppPipelinesAnalyticsAggregateResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CIAppPipelinesAnalyticsAggregateResponse;
       return body;
     }
@@ -270,13 +285,16 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -292,9 +310,14 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppPipelinesAnalyticsAggregateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "CIAppPipelinesAnalyticsAggregateResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as CIAppPipelinesAnalyticsAggregateResponse;
       return body;
     }
@@ -321,8 +344,14 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     );
     if (response.httpStatusCode === 202) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "any"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "any",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -338,13 +367,16 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "HTTPCIAppErrors"
+          "HTTPCIAppErrors",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -359,9 +391,14 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "any",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -388,8 +425,14 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CIAppPipelineEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppPipelineEventsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CIAppPipelineEventsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CIAppPipelineEventsResponse;
       return body;
     }
@@ -400,13 +443,16 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -421,9 +467,14 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppPipelineEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CIAppPipelineEventsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CIAppPipelineEventsResponse;
       return body;
     }
@@ -450,8 +501,14 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CIAppPipelineEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppPipelineEventsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CIAppPipelineEventsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CIAppPipelineEventsResponse;
       return body;
     }
@@ -462,13 +519,16 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -483,9 +543,14 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppPipelineEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CIAppPipelineEventsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CIAppPipelineEventsResponse;
       return body;
     }
@@ -567,7 +632,8 @@ export class CIVisibilityPipelinesApi {
       requestFactory ||
       new CIVisibilityPipelinesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CIVisibilityPipelinesApiResponseProcessor();
+      responseProcessor ||
+      new CIVisibilityPipelinesApiResponseProcessor(configuration);
   }
 
   /**
@@ -659,7 +725,7 @@ export class CIVisibilityPipelinesApi {
   ): AsyncGenerator<CIAppPipelineEvent> {
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
-      pageSize = param.pageLimit;
+      pageSize = Number(param.pageLimit);
     }
     param.pageLimit = pageSize;
     while (true) {
@@ -748,7 +814,7 @@ export class CIVisibilityPipelinesApi {
       param.body.page = new CIAppQueryPageOptions();
     }
     if (param.body.page.limit !== undefined) {
-      pageSize = param.body.page.limit;
+      pageSize = Number(param.body.page.limit);
     }
     param.body.page.limit = pageSize;
     while (true) {

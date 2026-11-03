@@ -5,7 +5,7 @@
  */
 import { ObservabilityPipelineQuotaProcessorLimitEnforceType } from "./ObservabilityPipelineQuotaProcessorLimitEnforceType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The maximum amount of data or number of events allowed before the quota is enforced. Can be specified in bytes or events.
@@ -18,7 +18,7 @@ export class ObservabilityPipelineQuotaProcessorLimit {
   /**
    * The limit for quota enforcement.
    */
-  "limit": number;
+  "limit": Int64;
 
   /**
    * A container for additional, undeclared properties.

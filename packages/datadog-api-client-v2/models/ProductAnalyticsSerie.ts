@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsUnit } from "./ProductAnalyticsUnit";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A series in a timeseries response.
@@ -18,7 +18,7 @@ export class ProductAnalyticsSerie {
   /**
    * The index of the query that produced this series.
    */
-  "queryIndex"?: number;
+  "queryIndex"?: Int64;
   /**
    * Unit definitions for the series values.
    */

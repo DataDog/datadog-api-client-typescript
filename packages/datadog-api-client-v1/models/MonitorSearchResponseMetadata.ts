@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata about the response.
@@ -13,19 +13,19 @@ export class MonitorSearchResponseMetadata {
   /**
    * The page to start paginating from.
    */
-  "page"?: number;
+  "page"?: Int64;
   /**
    * The number of pages.
    */
-  "pageCount"?: number;
+  "pageCount"?: Int64;
   /**
    * The number of monitors to return per page.
    */
-  "perPage"?: number;
+  "perPage"?: Int64;
   /**
    * The total number of monitors.
    */
-  "totalCount"?: number;
+  "totalCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

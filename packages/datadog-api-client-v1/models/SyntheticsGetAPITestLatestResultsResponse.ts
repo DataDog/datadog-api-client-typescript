@@ -5,7 +5,7 @@
  */
 import { SyntheticsAPITestResultShort } from "./SyntheticsAPITestResultShort";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object with the latest Synthetic API test run.
@@ -14,7 +14,7 @@ export class SyntheticsGetAPITestLatestResultsResponse {
   /**
    * Timestamp of the latest API test run.
    */
-  "lastTimestampFetched"?: number;
+  "lastTimestampFetched"?: Int64;
   /**
    * Result of the latest API test run.
    */

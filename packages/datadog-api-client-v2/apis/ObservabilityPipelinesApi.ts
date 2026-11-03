@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ListPipelinesResponse } from "../models/ListPipelinesResponse";
@@ -56,7 +57,8 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ObservabilityPipelineSpec", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -151,8 +153,8 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
   }
 
   public async listPipelines(
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -241,7 +243,8 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ObservabilityPipeline", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -288,7 +291,8 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ObservabilityPipelineSpec", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -304,6 +308,12 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
 }
 
 export class ObservabilityPipelinesApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -319,8 +329,14 @@ export class ObservabilityPipelinesApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: ObservabilityPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ObservabilityPipeline"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ObservabilityPipeline",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ObservabilityPipeline;
       return body;
     }
@@ -332,13 +348,16 @@ export class ObservabilityPipelinesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -353,9 +372,14 @@ export class ObservabilityPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ObservabilityPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ObservabilityPipeline",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ObservabilityPipeline;
       return body;
     }
@@ -389,13 +413,16 @@ export class ObservabilityPipelinesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -434,21 +461,30 @@ export class ObservabilityPipelinesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ObservabilityPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ObservabilityPipeline"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ObservabilityPipeline",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ObservabilityPipeline;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -463,9 +499,14 @@ export class ObservabilityPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ObservabilityPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ObservabilityPipeline",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ObservabilityPipeline;
       return body;
     }
@@ -492,8 +533,14 @@ export class ObservabilityPipelinesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListPipelinesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListPipelinesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ListPipelinesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListPipelinesResponse;
       return body;
     }
@@ -504,13 +551,16 @@ export class ObservabilityPipelinesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -525,9 +575,14 @@ export class ObservabilityPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListPipelinesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ListPipelinesResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListPipelinesResponse;
       return body;
     }
@@ -554,8 +609,14 @@ export class ObservabilityPipelinesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ObservabilityPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ObservabilityPipeline"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ObservabilityPipeline",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ObservabilityPipeline;
       return body;
     }
@@ -568,13 +629,16 @@ export class ObservabilityPipelinesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -589,9 +653,14 @@ export class ObservabilityPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ObservabilityPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ObservabilityPipeline",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ObservabilityPipeline;
       return body;
     }
@@ -618,8 +687,14 @@ export class ObservabilityPipelinesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ValidationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ValidationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ValidationResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ValidationResponse;
       return body;
     }
@@ -630,13 +705,16 @@ export class ObservabilityPipelinesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -651,9 +729,14 @@ export class ObservabilityPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ValidationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ValidationResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ValidationResponse;
       return body;
     }
@@ -692,14 +775,14 @@ export interface ObservabilityPipelinesApiGetPipelineRequest {
 export interface ObservabilityPipelinesApiListPipelinesRequest {
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
 }
 
 export interface ObservabilityPipelinesApiUpdatePipelineRequest {
@@ -736,7 +819,8 @@ export class ObservabilityPipelinesApi {
       requestFactory ||
       new ObservabilityPipelinesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ObservabilityPipelinesApiResponseProcessor();
+      responseProcessor ||
+      new ObservabilityPipelinesApiResponseProcessor(configuration);
   }
 
   /**

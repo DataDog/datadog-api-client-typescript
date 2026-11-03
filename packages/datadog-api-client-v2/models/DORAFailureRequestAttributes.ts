@@ -5,7 +5,7 @@
  */
 import { DORAGitInfo } from "./DORAGitInfo";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes to create a DORA incident event.
@@ -22,7 +22,7 @@ export class DORAFailureRequestAttributes {
   /**
    * Unix timestamp when the incident finished. It must be in nanoseconds, milliseconds, or seconds.
    */
-  "finishedAt"?: number;
+  "finishedAt"?: Int64;
   /**
    * Git info for DORA Metrics events.
    */
@@ -46,7 +46,7 @@ export class DORAFailureRequestAttributes {
   /**
    * Unix timestamp when the incident started. It must be in nanoseconds, milliseconds, or seconds.
    */
-  "startedAt": number;
+  "startedAt": Int64;
   /**
    * Name of the team owning the services impacted. If possible, use team handles registered in Datadog. Required when the services field is not provided.
    */

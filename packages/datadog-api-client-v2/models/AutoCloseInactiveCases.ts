@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Auto-close inactive work items settings.
@@ -17,7 +17,7 @@ export class AutoCloseInactiveCases {
   /**
    * Maximum inactive time in seconds before auto-closing.
    */
-  "maxInactiveTimeInSecs"?: number;
+  "maxInactiveTimeInSecs"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

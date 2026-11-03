@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * CI pipeline related statistics for the flaky test. This information is only available if test runs are associated with CI pipeline events from CI Visibility.
@@ -13,11 +13,11 @@ export class FlakyTestPipelineStats {
   /**
    * The number of pipelines that failed due to this test for the past 7 days. This is computed as the sum of failed CI pipeline events associated with test runs where the flaky test failed.
    */
-  "failedPipelines"?: number;
+  "failedPipelines"?: Int64;
   /**
    * The total time lost by CI pipelines due to this flaky test in milliseconds. This is computed as the sum of the duration of failed CI pipeline events associated with test runs where the flaky test failed.
    */
-  "totalLostTimeMs"?: number;
+  "totalLostTimeMs"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

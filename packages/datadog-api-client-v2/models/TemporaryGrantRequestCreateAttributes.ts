@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Immutable terms and justification for a temporary grant request.
@@ -21,7 +21,7 @@ export class TemporaryGrantRequestCreateAttributes {
   /**
    * Target monthly AI credit limit in positive whole credits, not additional credits. Fractional credits are not accepted.
    */
-  "total": number;
+  "total": Int64;
 
   /**
    * @ignore

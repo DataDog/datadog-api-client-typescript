@@ -5,7 +5,7 @@
  */
 import { CostAnomalyDismissal } from "./CostAnomalyDismissal";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A single detected Cloud Cost Management anomaly.
@@ -22,11 +22,11 @@ export class CostAnomaly {
   /**
    * Anomaly end timestamp in Unix milliseconds.
    */
-  "anomalyEnd": number;
+  "anomalyEnd": Int64;
   /**
    * Anomaly start timestamp in Unix milliseconds.
    */
-  "anomalyStart": number;
+  "anomalyStart": Int64;
   /**
    * Map of correlated tag keys to the list of correlated tag values.
    */

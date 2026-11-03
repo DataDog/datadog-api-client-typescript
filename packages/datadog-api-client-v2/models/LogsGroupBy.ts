@@ -8,7 +8,7 @@ import { LogsGroupByHistogram } from "./LogsGroupByHistogram";
 import { LogsGroupByMissing } from "./LogsGroupByMissing";
 import { LogsGroupByTotal } from "./LogsGroupByTotal";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A group by rule
@@ -27,7 +27,7 @@ export class LogsGroupBy {
    * The maximum buckets to return for this group by. Note: at most 10000 buckets are allowed.
    * If grouping by multiple facets, the product of limits must not exceed 10000.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * The value to use for logs that don't have the facet used to group by
    */

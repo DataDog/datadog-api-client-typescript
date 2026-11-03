@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Configuration for the attempt-to-fix Flaky Tests Management policy.
@@ -13,7 +13,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
   /**
    * Number of retries when attempting to fix a flaky test. Must be greater than 0.
    */
-  "retries"?: number;
+  "retries"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

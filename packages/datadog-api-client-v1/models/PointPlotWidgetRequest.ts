@@ -7,7 +7,7 @@ import { DataProjectionQuery } from "./DataProjectionQuery";
 import { DataProjectionRequestType } from "./DataProjectionRequestType";
 import { PointPlotProjection } from "./PointPlotProjection";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Request configuration for the point plot widget.
@@ -16,7 +16,7 @@ export class PointPlotWidgetRequest {
   /**
    * Maximum number of data points to return.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * Projection configuration for the point plot widget.
    */

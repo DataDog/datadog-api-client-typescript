@@ -5,7 +5,7 @@
  */
 import { ServiceCheckStatus } from "./ServiceCheckStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * An object containing service check and status.
@@ -34,7 +34,7 @@ export class ServiceCheck {
   /**
    * Time of check.
    */
-  "timestamp"?: number;
+  "timestamp"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

@@ -5,7 +5,7 @@
  */
 import { ArchiveSearchRehydrationTier } from "./ArchiveSearchRehydrationTier";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Rehydration settings. Include this object to index the matched logs into a retained historical view.
@@ -16,11 +16,11 @@ export class ArchiveSearchCreateRehydration {
    * Maximum number of events to rehydrate. The organization's reindexing limit is configured
    * in millions, so this value is at least 1,000,000.
    */
-  "maxRehydratedEvents": number;
+  "maxRehydratedEvents": Int64;
   /**
    * Number of days the rehydrated logs are retained for.
    */
-  "retentionDays": number;
+  "retentionDays": Int64;
   /**
    * Storage tier the matched logs are rehydrated into.
    */

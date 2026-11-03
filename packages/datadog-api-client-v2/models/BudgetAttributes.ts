@@ -7,7 +7,7 @@ import { BudgetAttributesCosts } from "./BudgetAttributesCosts";
 import { BudgetAttributesCostsUnit } from "./BudgetAttributesCostsUnit";
 import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a budget.
@@ -20,11 +20,11 @@ export class BudgetAttributes {
   /**
    * The end of the period used to compute cost data, in milliseconds since epoch.
    */
-  "costsPeriodEnd"?: number;
+  "costsPeriodEnd"?: Int64;
   /**
    * The start of the period used to compute cost data, in milliseconds since epoch.
    */
-  "costsPeriodStart"?: number;
+  "costsPeriodStart"?: Int64;
   /**
    * The unit used for all cost values in the response.
    */
@@ -32,7 +32,7 @@ export class BudgetAttributes {
   /**
    * The timestamp when the budget was created.
    */
-  "createdAt"?: number;
+  "createdAt"?: Int64;
   /**
    * The id of the user that created the budget.
    */
@@ -40,7 +40,7 @@ export class BudgetAttributes {
   /**
    * The month when the budget ends.
    */
-  "endMonth"?: number;
+  "endMonth"?: Int64;
   /**
    * The list of monthly budget entries.
    */
@@ -56,11 +56,11 @@ export class BudgetAttributes {
   /**
    * The id of the org the budget belongs to.
    */
-  "orgId"?: number;
+  "orgId"?: Int64;
   /**
    * The month when the budget starts.
    */
-  "startMonth"?: number;
+  "startMonth"?: Int64;
   /**
    * The tag keys used to group costs for the budget.
    */
@@ -72,7 +72,7 @@ export class BudgetAttributes {
   /**
    * The timestamp when the budget was last updated.
    */
-  "updatedAt"?: number;
+  "updatedAt"?: Int64;
   /**
    * The id of the user that created the budget.
    */

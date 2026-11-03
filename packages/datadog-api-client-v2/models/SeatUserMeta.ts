@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata for the seat users list response.
@@ -17,7 +17,7 @@ export class SeatUserMeta {
   /**
    * The limit for the seat users.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * The next cursor for the seat users.
    */

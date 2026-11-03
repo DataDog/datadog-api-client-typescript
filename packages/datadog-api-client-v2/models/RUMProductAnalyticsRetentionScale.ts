@@ -5,7 +5,7 @@
  */
 import { RUMProductAnalyticsRetentionState } from "./RUMProductAnalyticsRetentionState";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Product Analytics retention scale configuration.
@@ -14,7 +14,7 @@ export class RUMProductAnalyticsRetentionScale {
   /**
    * Timestamp in milliseconds when this scale was last modified.
    */
-  "lastModifiedAt"?: number;
+  "lastModifiedAt"?: Int64;
   /**
    * Controls the retention policy for Product Analytics data derived from RUM events.
    */

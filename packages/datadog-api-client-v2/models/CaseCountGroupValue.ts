@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A single value within a count group, representing the number of work items with that specific field value.
@@ -13,7 +13,7 @@ export class CaseCountGroupValue {
   /**
    * Count of work items for this value.
    */
-  "count": number;
+  "count": Int64;
   /**
    * The group value.
    */

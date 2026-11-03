@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A compute rule for aggregating data.
@@ -18,7 +18,7 @@ export class ProductAnalyticsCompute {
    * Time bucket size in milliseconds. Required for timeseries queries; ignored by the
    * scalar endpoint, which returns a single value.
    */
-  "interval"?: number;
+  "interval"?: Int64;
   /**
    * The metric to aggregate on. Required for non-count aggregations.
    */

@@ -5,7 +5,7 @@
  */
 import { UsageBillableSummaryKeys } from "./UsageBillableSummaryKeys";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Response with monthly summary of data billed by Datadog.
@@ -30,7 +30,7 @@ export class UsageBillableSummaryHour {
   /**
    * The number of organizations.
    */
-  "numOrgs"?: number;
+  "numOrgs"?: Int64;
   /**
    * The organization name.
    */

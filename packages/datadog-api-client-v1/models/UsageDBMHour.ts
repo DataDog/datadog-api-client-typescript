@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Database Monitoring usage for a given organization for a given hour.
@@ -13,11 +13,11 @@ export class UsageDBMHour {
   /**
    * The total number of Database Monitoring host hours from the start of the given hour’s month until the given hour.
    */
-  "dbmHostCount"?: number;
+  "dbmHostCount"?: Int64;
   /**
    * The total number of normalized Database Monitoring queries from the start of the given hour’s month until the given hour.
    */
-  "dbmQueriesCount"?: number;
+  "dbmQueriesCount"?: Int64;
   /**
    * The hour for the usage.
    */

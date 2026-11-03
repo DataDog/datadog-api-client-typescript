@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for a container group.
@@ -13,7 +13,7 @@ export class ContainerGroupAttributes {
   /**
    * Number of containers in the group. A container with multiple values for a grouping tag can appear in multiple groups. Summing group counts can overcount distinct containers.
    */
-  "count"?: number;
+  "count"?: Int64;
   /**
    * Tags from the group name parsed in key/value format.
    */

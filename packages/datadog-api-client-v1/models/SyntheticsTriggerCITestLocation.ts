@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Synthetic location.
@@ -13,7 +13,7 @@ export class SyntheticsTriggerCITestLocation {
   /**
    * Unique identifier of the location.
    */
-  "id"?: number;
+  "id"?: Int64;
   /**
    * Name of the location.
    */

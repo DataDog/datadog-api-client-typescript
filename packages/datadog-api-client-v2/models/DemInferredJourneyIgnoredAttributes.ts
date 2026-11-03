@@ -7,7 +7,7 @@ import { DemJourneyRum } from "./DemJourneyRum";
 import { DemTestSuiteNested } from "./DemTestSuiteNested";
 import { DemVariant } from "./DemVariant";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an ignored inferred journey.
@@ -36,7 +36,7 @@ export class DemInferredJourneyIgnoredAttributes {
   /**
    * The organization ID that owns this inferred journey.
    */
-  "orgId": number;
+  "orgId": Int64;
   /**
    * List of tags associated with a DEM resource.
    */

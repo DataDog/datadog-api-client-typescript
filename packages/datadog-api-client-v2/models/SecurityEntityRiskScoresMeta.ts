@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata for pagination
@@ -13,11 +13,11 @@ export class SecurityEntityRiskScoresMeta {
   /**
    * Current page number (1-indexed)
    */
-  "pageNumber": number;
+  "pageNumber": Int64;
   /**
    * Number of items per page
    */
-  "pageSize": number;
+  "pageSize": Int64;
   /**
    * Query ID for pagination consistency
    */
@@ -25,7 +25,7 @@ export class SecurityEntityRiskScoresMeta {
   /**
    * Total number of entities matching the query
    */
-  "totalRowCount": number;
+  "totalRowCount": Int64;
 
   /**
    * A container for additional, undeclared properties.

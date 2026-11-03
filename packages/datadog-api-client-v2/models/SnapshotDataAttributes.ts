@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a heatmap snapshot, including view context, device information, and audit metadata.
@@ -29,7 +29,7 @@ export class SnapshotDataAttributes {
   /**
    * Numeric identifier of the user who created the snapshot.
    */
-  "createdByUserId"?: number;
+  "createdByUserId"?: Int64;
   /**
    * Device type used when capturing the snapshot (e.g., desktop, mobile, tablet).
    */
@@ -49,7 +49,7 @@ export class SnapshotDataAttributes {
   /**
    * Numeric identifier of the organization that owns the snapshot.
    */
-  "orgId"?: number;
+  "orgId"?: Int64;
   /**
    * Unique identifier of the RUM session associated with the snapshot.
    */
@@ -61,7 +61,7 @@ export class SnapshotDataAttributes {
   /**
    * Offset in milliseconds from the start of the session at which the snapshot was captured.
    */
-  "start"?: number;
+  "start"?: Int64;
   /**
    * Unique identifier of the RUM view associated with the snapshot.
    */

@@ -8,7 +8,7 @@ import { MetricMetadata } from "./MetricMetadata";
 import { MetricPoint } from "./MetricPoint";
 import { MetricResource } from "./MetricResource";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A metric to submit to Datadog.
@@ -18,7 +18,7 @@ export class MetricSeries {
   /**
    * If the type of the metric is rate or count, define the corresponding interval in seconds.
    */
-  "interval"?: number;
+  "interval"?: Int64;
   /**
    * Metadata for the metric.
    */

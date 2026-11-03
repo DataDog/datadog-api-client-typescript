@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata of an app.
@@ -21,7 +21,7 @@ export class AppMeta {
   /**
    * The Datadog organization ID that owns the app.
    */
-  "orgId"?: number;
+  "orgId"?: Int64;
   /**
    * Timestamp of when the app was last updated.
    */
@@ -33,7 +33,7 @@ export class AppMeta {
   /**
    * The ID of the user who created the app.
    */
-  "userId"?: number;
+  "userId"?: Int64;
   /**
    * The name (or email address) of the user who created the app.
    */
@@ -45,7 +45,7 @@ export class AppMeta {
   /**
    * The version number of the app. This starts at 1 and increments with each update.
    */
-  "version"?: number;
+  "version"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

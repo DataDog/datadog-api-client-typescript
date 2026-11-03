@@ -6,7 +6,7 @@
 import { FleetScheduleRecurrenceRule } from "./FleetScheduleRecurrenceRule";
 import { FleetScheduleStatus } from "./FleetScheduleStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for partially updating a schedule. All fields are optional.
@@ -38,7 +38,7 @@ export class FleetSchedulePatchAttributes {
    * - 2: Upgrade to latest minus 2 major versions
    * Maximum value is 2.
    */
-  "versionToLatest"?: number;
+  "versionToLatest"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

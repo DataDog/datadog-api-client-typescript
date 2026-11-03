@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * An interval definition in a timeseries response.
@@ -13,15 +13,15 @@ export class ProductAnalyticsInterval {
   /**
    * The duration of each time bucket in milliseconds.
    */
-  "milliseconds"?: number;
+  "milliseconds"?: Int64;
   /**
    * The start of this interval as an epoch timestamp in milliseconds.
    */
-  "startTime"?: number;
+  "startTime"?: Int64;
   /**
    * Epoch timestamps (in milliseconds) for each bucket in this interval.
    */
-  "times"?: Array<number>;
+  "times"?: Array<Int64>;
   /**
    * The interval type (e.g., fixed or auto-computed bucket size).
    */
@@ -56,6 +56,7 @@ export class ProductAnalyticsInterval {
     times: {
       baseName: "times",
       type: "Array<number>",
+      format: "int64",
     },
     type: {
       baseName: "type",

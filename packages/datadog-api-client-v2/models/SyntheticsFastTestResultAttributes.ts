@@ -9,7 +9,7 @@ import { SyntheticsFastTestType } from "./SyntheticsFastTestType";
 import { SyntheticsTestResultDevice } from "./SyntheticsTestResultDevice";
 import { SyntheticsTestResultLocation } from "./SyntheticsTestResultLocation";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of the fast test result.
@@ -39,7 +39,7 @@ export class SyntheticsFastTestResultAttributes {
   /**
    * Version of the test at the time the fast test was triggered.
    */
-  "testVersion"?: number;
+  "testVersion"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

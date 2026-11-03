@@ -7,7 +7,7 @@ import { ObservabilityPipelineAggregateProcessorAggregationTiming } from "./Obse
 import { ObservabilityPipelineAggregateProcessorMode } from "./ObservabilityPipelineAggregateProcessorMode";
 import { ObservabilityPipelineAggregateProcessorType } from "./ObservabilityPipelineAggregateProcessorType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The `aggregate` processor combines metrics that share the same name and tags into a single metric over a configurable interval.
@@ -38,7 +38,7 @@ export class ObservabilityPipelineAggregateProcessor {
   /**
    * The interval, in seconds, over which metrics are aggregated.
    */
-  "intervalSecs": number;
+  "intervalSecs": Int64;
   /**
    * The aggregation mode applied to metrics that share the same name and tags within the interval.
    */

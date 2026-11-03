@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing the new assignees for a bulk signal update.
@@ -17,7 +17,7 @@ export class SecurityMonitoringSignalsBulkAssigneeUpdateAttributes {
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
    */
-  "version"?: number;
+  "version"?: Int64;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,6 +43,7 @@ export class SecurityMonitoringSignalsBulkAssigneeUpdateAttributes {
     version: {
       baseName: "version",
       type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

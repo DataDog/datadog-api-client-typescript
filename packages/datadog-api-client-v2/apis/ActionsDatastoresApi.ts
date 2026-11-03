@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { BulkDeleteAppsDatastoreItemsRequest } from "../models/BulkDeleteAppsDatastoreItemsRequest";
@@ -81,7 +82,8 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
         "BulkDeleteAppsDatastoreItemsRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -138,7 +140,8 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "BulkPutAppsDatastoreItemsRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -185,7 +188,8 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateAppsDatastoreRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -281,7 +285,8 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DeleteAppsDatastoreItemRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -338,8 +343,8 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     datastoreId: string,
     filter?: string,
     itemKey?: string,
-    pageLimit?: number,
-    pageOffset?: number,
+    pageLimit?: Int64Input,
+    pageOffset?: Int64Input,
     sort?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -488,7 +493,8 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateAppsDatastoreRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -545,7 +551,8 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateAppsDatastoreItemRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -561,6 +568,12 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ActionsDatastoresApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -577,8 +590,14 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: DeleteAppsDatastoreItemResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DeleteAppsDatastoreItemResponseArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "DeleteAppsDatastoreItemResponseArray",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DeleteAppsDatastoreItemResponseArray;
       return body;
     }
@@ -589,13 +608,16 @@ export class ActionsDatastoresApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -612,13 +634,16 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -634,9 +659,14 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeleteAppsDatastoreItemResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "DeleteAppsDatastoreItemResponseArray",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DeleteAppsDatastoreItemResponseArray;
       return body;
     }
@@ -664,21 +694,30 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: PutAppsDatastoreItemResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "PutAppsDatastoreItemResponseArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "PutAppsDatastoreItemResponseArray",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as PutAppsDatastoreItemResponseArray;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -695,13 +734,16 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -717,9 +759,14 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PutAppsDatastoreItemResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "PutAppsDatastoreItemResponseArray",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as PutAppsDatastoreItemResponseArray;
       return body;
     }
@@ -746,21 +793,30 @@ export class ActionsDatastoresApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CreateAppsDatastoreResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CreateAppsDatastoreResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CreateAppsDatastoreResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CreateAppsDatastoreResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -777,13 +833,16 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -798,9 +857,14 @@ export class ActionsDatastoresApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CreateAppsDatastoreResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CreateAppsDatastoreResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CreateAppsDatastoreResponse;
       return body;
     }
@@ -829,13 +893,16 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -852,13 +919,16 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -898,21 +968,30 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: DeleteAppsDatastoreItemResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DeleteAppsDatastoreItemResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "DeleteAppsDatastoreItemResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DeleteAppsDatastoreItemResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -929,13 +1008,16 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -951,9 +1033,14 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeleteAppsDatastoreItemResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "DeleteAppsDatastoreItemResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DeleteAppsDatastoreItemResponse;
       return body;
     }
@@ -978,21 +1065,30 @@ export class ActionsDatastoresApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: Datastore = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Datastore"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "Datastore",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Datastore;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1009,13 +1105,16 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1030,9 +1129,14 @@ export class ActionsDatastoresApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Datastore = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "Datastore",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Datastore;
       return body;
     }
@@ -1059,21 +1163,30 @@ export class ActionsDatastoresApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ItemApiPayloadArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ItemApiPayloadArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ItemApiPayloadArray",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ItemApiPayloadArray;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1090,13 +1203,16 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1111,9 +1227,14 @@ export class ActionsDatastoresApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ItemApiPayloadArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ItemApiPayloadArray",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ItemApiPayloadArray;
       return body;
     }
@@ -1140,21 +1261,30 @@ export class ActionsDatastoresApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DatastoreArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DatastoreArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DatastoreArray",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DatastoreArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1169,9 +1299,14 @@ export class ActionsDatastoresApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DatastoreArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DatastoreArray",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DatastoreArray;
       return body;
     }
@@ -1196,21 +1331,30 @@ export class ActionsDatastoresApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: Datastore = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Datastore"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "Datastore",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Datastore;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1227,13 +1371,16 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1248,9 +1395,14 @@ export class ActionsDatastoresApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Datastore = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "Datastore",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as Datastore;
       return body;
     }
@@ -1277,21 +1429,30 @@ export class ActionsDatastoresApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ItemApiPayload = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ItemApiPayload"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ItemApiPayload",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ItemApiPayload;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1308,13 +1469,16 @@ export class ActionsDatastoresApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1329,9 +1493,14 @@ export class ActionsDatastoresApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ItemApiPayload = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ItemApiPayload",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ItemApiPayload;
       return body;
     }
@@ -1421,14 +1590,14 @@ export interface ActionsDatastoresApiListDatastoreItemsRequest {
   itemKey?: string;
   /**
    * Optional field to limit the number of items to return per page for pagination. Up to 100 items can be returned per page.
-   * @type number
+   * @type Int64Input
    */
-  pageLimit?: number;
+  pageLimit?: Int64Input;
   /**
    * Optional field to offset the number of items to skip from the beginning of the result set for pagination.
-   * @type number
+   * @type Int64Input
    */
-  pageOffset?: number;
+  pageOffset?: Int64Input;
   /**
    * Optional field to sort results by. Prefix with '-' for descending order (e.g., '-created_at').
    * @type string
@@ -1474,7 +1643,8 @@ export class ActionsDatastoresApi {
     this.requestFactory =
       requestFactory || new ActionsDatastoresApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ActionsDatastoresApiResponseProcessor();
+      responseProcessor ||
+      new ActionsDatastoresApiResponseProcessor(configuration);
   }
 
   /**

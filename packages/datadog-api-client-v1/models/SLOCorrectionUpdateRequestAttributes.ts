@@ -5,7 +5,7 @@
  */
 import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The attribute object associated with the SLO correction to be updated.
@@ -22,11 +22,11 @@ export class SLOCorrectionUpdateRequestAttributes {
   /**
    * Length of time (in seconds) for a specified `rrule` recurring SLO correction.
    */
-  "duration"?: number;
+  "duration"?: Int64;
   /**
    * Ending time of the correction in epoch seconds.
    */
-  "end"?: number;
+  "end"?: Int64;
   /**
    * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections
    * are `FREQ`, `INTERVAL`, `COUNT`, `UNTIL` and `BYDAY`.
@@ -41,7 +41,7 @@ export class SLOCorrectionUpdateRequestAttributes {
   /**
    * Starting time of the correction in epoch seconds.
    */
-  "start"?: number;
+  "start"?: Int64;
   /**
    * The timezone to display in the UI for the correction times (defaults to "UTC").
    */

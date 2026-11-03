@@ -5,7 +5,7 @@
  */
 import { FileCoverageLines } from "./FileCoverageLines";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of the per-file code coverage response.
@@ -18,7 +18,7 @@ export class FilesCoverageAttributes {
   /**
    * Unix timestamp (milliseconds) of the coverage event.
    */
-  "eventTimestamp"?: number;
+  "eventTimestamp"?: Int64;
   /**
    * Map of file paths to per-file coverage line data.
    */
@@ -30,7 +30,7 @@ export class FilesCoverageAttributes {
   /**
    * Number of coverage reports evaluated.
    */
-  "reportCount"?: number;
+  "reportCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

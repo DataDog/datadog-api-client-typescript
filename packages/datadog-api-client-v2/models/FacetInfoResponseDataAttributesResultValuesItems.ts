@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A single facet value with its occurrence count in the dataset.
@@ -13,7 +13,7 @@ export class FacetInfoResponseDataAttributesResultValuesItems {
   /**
    * The number of records that have this facet value.
    */
-  "count"?: number;
+  "count"?: Int64;
   /**
    * The facet value (for example, a browser name or country code).
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * WebSocket close frame information for WebSocket test responses.
@@ -17,7 +17,7 @@ export class SyntheticsTestResultWebSocketClose {
   /**
    * Status code received in the close frame.
    */
-  "statusCode"?: number;
+  "statusCode"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

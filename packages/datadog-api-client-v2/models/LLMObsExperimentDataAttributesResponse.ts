@@ -6,7 +6,7 @@
 import { LLMObsExperimentStatus } from "./LLMObsExperimentStatus";
 import { LLMObsExperimentUser } from "./LLMObsExperimentUser";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an Agent Observability experiment.
@@ -40,7 +40,7 @@ export class LLMObsExperimentDataAttributesResponse {
   /**
    * Version of the dataset used in this experiment.
    */
-  "datasetVersion"?: number;
+  "datasetVersion"?: Int64;
   /**
    * Timestamp when the experiment was soft-deleted, if applicable.
    */

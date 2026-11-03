@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Unit metadata for a numeric metric.
@@ -17,7 +17,7 @@ export class CommitmentsUnit {
   /**
    * The unit identifier.
    */
-  "id": number;
+  "id": Int64;
   /**
    * The unit name (for example, percent or dollar).
    */

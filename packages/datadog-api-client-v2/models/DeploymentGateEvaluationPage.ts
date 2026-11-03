@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Cursor pagination information.
@@ -17,7 +17,7 @@ export class DeploymentGateEvaluationPage {
   /**
    * Requested maximum number of resources in this page.
    */
-  "size": number;
+  "size": Int64;
 
   /**
    * A container for additional, undeclared properties.

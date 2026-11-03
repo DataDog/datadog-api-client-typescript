@@ -10,7 +10,7 @@ import { SyntheticsMobileStepParamsPositionsItems } from "./SyntheticsMobileStep
 import { SyntheticsMobileStepParamsValue } from "./SyntheticsMobileStepParamsValue";
 import { SyntheticsMobileStepParamsVariable } from "./SyntheticsMobileStepParamsVariable";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The parameters of a mobile step.
@@ -23,7 +23,7 @@ export class SyntheticsMobileStepParams {
   /**
    * Number of milliseconds to wait between inputs in a `typeText` step type.
    */
-  "delay"?: number;
+  "delay"?: Int64;
   /**
    * The direction of the scroll for a `scrollToElement` step type.
    */
@@ -39,7 +39,7 @@ export class SyntheticsMobileStepParams {
   /**
    * Maximum number of scrolls to do for a `scrollToElement` step type.
    */
-  "maxScrolls"?: number;
+  "maxScrolls"?: Int64;
   /**
    * List of positions for the `flick` step type. The maximum is 10 flicks per step
    */

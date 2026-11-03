@@ -5,7 +5,7 @@
  */
 import { SyntheticsTestVersionDiffPatchDiff } from "./SyntheticsTestVersionDiffPatchDiff";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing a patch in the diff.
@@ -18,19 +18,19 @@ export class SyntheticsTestVersionDiffPatches {
   /**
    * Length of the original text segment.
    */
-  "length1"?: number;
+  "length1"?: Int64;
   /**
    * Length of the modified text segment.
    */
-  "length2"?: number;
+  "length2"?: Int64;
   /**
    * Start position in the original text.
    */
-  "start1"?: number;
+  "start1"?: Int64;
   /**
    * Start position in the modified text.
    */
-  "start2"?: number;
+  "start2"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

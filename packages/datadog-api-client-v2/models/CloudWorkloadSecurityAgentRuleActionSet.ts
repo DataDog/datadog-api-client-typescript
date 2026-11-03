@@ -5,7 +5,7 @@
  */
 import { CloudWorkloadSecurityAgentRuleActionSetValue } from "./CloudWorkloadSecurityAgentRuleActionSetValue";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The set action applied on the scope matching the rule
@@ -50,11 +50,11 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
   /**
    * The size of the set action.
    */
-  "size"?: number;
+  "size"?: Int64;
   /**
    * The time to live of the set action.
    */
-  "ttl"?: number;
+  "ttl"?: Int64;
   /**
    * The value of the set action
    */

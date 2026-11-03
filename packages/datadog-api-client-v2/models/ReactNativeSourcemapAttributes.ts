@@ -5,7 +5,7 @@
  */
 import { ReactNativeSourcemapMapKind } from "./ReactNativeSourcemapMapKind";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a React Native source map.
@@ -46,7 +46,7 @@ export class ReactNativeSourcemapAttributes {
   /**
    * The size of the source map file in bytes.
    */
-  "size": number;
+  "size": Int64;
   /**
    * The version of the service associated with the source map.
    */

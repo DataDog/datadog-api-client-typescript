@@ -6,7 +6,7 @@
 import { ContainerDataSource } from "./ContainerDataSource";
 import { QuerySortOrder } from "./QuerySortOrder";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A query for container-level metrics such as CPU and memory usage.
@@ -27,7 +27,7 @@ export class ContainerTimeseriesQuery {
   /**
    * Maximum number of results to return.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * The container metric to query.
    */

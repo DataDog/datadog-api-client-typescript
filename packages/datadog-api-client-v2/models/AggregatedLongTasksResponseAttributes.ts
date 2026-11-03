@@ -6,7 +6,7 @@
 import { AggregatedLongTasksByInvokerType } from "./AggregatedLongTasksByInvokerType";
 import { AggregatedLongTasksResponseAttributesCriteria } from "./AggregatedLongTasksResponseAttributesCriteria";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an aggregated long tasks response.
@@ -23,7 +23,7 @@ export class AggregatedLongTasksResponseAttributes {
   /**
    * Start of the analyzed time range as a Unix timestamp in seconds.
    */
-  "from": number;
+  "from": Int64;
   /**
    * Long task statistics grouped by invoker type, sorted by impact score descending.
    */
@@ -35,7 +35,7 @@ export class AggregatedLongTasksResponseAttributes {
   /**
    * End of the analyzed time range as a Unix timestamp in seconds.
    */
-  "to": number;
+  "to": Int64;
   /**
    * Number of view instances included in the analysis.
    */

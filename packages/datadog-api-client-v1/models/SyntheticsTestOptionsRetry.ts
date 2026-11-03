@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the retry strategy to apply to a Synthetic test.
@@ -14,7 +14,7 @@ export class SyntheticsTestOptionsRetry {
    * Number of times a test needs to be retried before marking a
    * location as failed. Defaults to 0.
    */
-  "count"?: number;
+  "count"?: Int64;
   /**
    * Time interval between retries (in milliseconds). Defaults to
    * 300ms.

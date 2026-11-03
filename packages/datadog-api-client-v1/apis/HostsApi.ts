@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { HostListResponse } from "../models/HostListResponse";
@@ -24,7 +25,7 @@ import { HostTotals } from "../models/HostTotals";
 
 export class HostsApiRequestFactory extends BaseAPIRequestFactory {
   public async getHostTotals(
-    from?: number,
+    from?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -67,9 +68,9 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     filter?: string,
     sortField?: string,
     sortDir?: string,
-    start?: number,
-    count?: number,
-    from?: number,
+    start?: Int64Input,
+    count?: Int64Input,
+    from?: Int64Input,
     includeMutedHostsData?: boolean,
     includeHostsMetadata?: boolean,
     _options?: Configuration
@@ -201,7 +202,8 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "HostMuteSettings", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -256,6 +258,12 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class HostsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -269,8 +277,14 @@ export class HostsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: HostTotals = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "HostTotals"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "HostTotals",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as HostTotals;
       return body;
     }
@@ -281,13 +295,16 @@ export class HostsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -302,9 +319,14 @@ export class HostsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostTotals = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "HostTotals",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as HostTotals;
       return body;
     }
@@ -329,8 +351,14 @@ export class HostsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: HostListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "HostListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "HostListResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as HostListResponse;
       return body;
     }
@@ -341,13 +369,16 @@ export class HostsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -362,9 +393,14 @@ export class HostsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "HostListResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as HostListResponse;
       return body;
     }
@@ -389,8 +425,14 @@ export class HostsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: HostMuteResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "HostMuteResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "HostMuteResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as HostMuteResponse;
       return body;
     }
@@ -401,13 +443,16 @@ export class HostsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -422,9 +467,14 @@ export class HostsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostMuteResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "HostMuteResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as HostMuteResponse;
       return body;
     }
@@ -451,8 +501,14 @@ export class HostsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: HostMuteResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "HostMuteResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "HostMuteResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as HostMuteResponse;
       return body;
     }
@@ -463,13 +519,16 @@ export class HostsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -484,9 +543,14 @@ export class HostsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostMuteResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "HostMuteResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as HostMuteResponse;
       return body;
     }
@@ -502,9 +566,9 @@ export class HostsApiResponseProcessor {
 export interface HostsApiGetHostTotalsRequest {
   /**
    * Number of seconds from which you want to get total number of active hosts.
-   * @type number
+   * @type Int64Input
    */
-  from?: number;
+  from?: Int64Input;
 }
 
 export interface HostsApiListHostsRequest {
@@ -525,19 +589,19 @@ export interface HostsApiListHostsRequest {
   sortDir?: string;
   /**
    * Specify the starting point for the host search results. For example, if you set `count` to 100 and the first 100 results have already been returned, you can set `start` to `101` to get the next 100 results.
-   * @type number
+   * @type Int64Input
    */
-  start?: number;
+  start?: Int64Input;
   /**
    * Number of hosts to return. Max 1000.
-   * @type number
+   * @type Int64Input
    */
-  count?: number;
+  count?: Int64Input;
   /**
    * Number of seconds since UNIX epoch from which you want to search your hosts.
-   * @type number
+   * @type Int64Input
    */
-  from?: number;
+  from?: Int64Input;
   /**
    * Include information on the muted status of hosts and when the mute expires.
    * @type boolean
@@ -585,7 +649,7 @@ export class HostsApi {
     this.requestFactory =
       requestFactory || new HostsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new HostsApiResponseProcessor();
+      responseProcessor || new HostsApiResponseProcessor(configuration);
   }
 
   /**

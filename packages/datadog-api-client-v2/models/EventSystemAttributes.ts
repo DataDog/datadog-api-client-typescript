@@ -6,7 +6,7 @@
 import { EventSystemAttributesCategory } from "./EventSystemAttributesCategory";
 import { EventSystemAttributesIntegrationId } from "./EventSystemAttributesIntegrationId";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * JSON object of event system attributes.
@@ -27,7 +27,7 @@ export class EventSystemAttributes {
   /**
    * The source type ID of the event.
    */
-  "sourceId"?: number;
+  "sourceId"?: Int64;
   /**
    * A unique identifier for the event. You can use this identifier to query or reference the event.
    */

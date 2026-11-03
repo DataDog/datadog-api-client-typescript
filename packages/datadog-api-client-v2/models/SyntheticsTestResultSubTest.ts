@@ -5,7 +5,7 @@
  */
 import { SyntheticsTestResultRumContext } from "./SyntheticsTestResultRumContext";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Information about a sub-test played from a parent browser test.
@@ -18,7 +18,7 @@ export class SyntheticsTestResultSubTest {
   /**
    * Index of the browser tab playing the sub-test.
    */
-  "playingTab"?: number;
+  "playingTab"?: Int64;
   /**
    * RUM application context associated with a step or sub-test.
    */

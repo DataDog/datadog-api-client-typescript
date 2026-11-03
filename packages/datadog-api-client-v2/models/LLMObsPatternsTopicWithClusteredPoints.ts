@@ -5,7 +5,7 @@
  */
 import { LLMObsPatternsClusteredPointRef } from "./LLMObsPatternsClusteredPointRef";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A topic discovered by an Agent Observability patterns run, including the
@@ -31,7 +31,7 @@ export class LLMObsPatternsTopicWithClusteredPoints {
   /**
    * Level of the topic in the hierarchy. Level 0 is a leaf topic.
    */
-  "hierarchyLevel": number;
+  "hierarchyLevel": Int64;
   /**
    * Unique identifier of the topic.
    */
@@ -51,7 +51,7 @@ export class LLMObsPatternsTopicWithClusteredPoints {
   /**
    * Number of data points assigned to the topic.
    */
-  "pointCount": number;
+  "pointCount": Int64;
   /**
    * Identifier of the run that produced the topic.
    */

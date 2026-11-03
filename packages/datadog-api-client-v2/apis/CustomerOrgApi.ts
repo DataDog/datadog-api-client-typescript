@@ -60,7 +60,8 @@ export class CustomerOrgApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CustomerOrgDisableRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -76,6 +77,12 @@ export class CustomerOrgApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class CustomerOrgApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -91,8 +98,14 @@ export class CustomerOrgApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CustomerOrgDisableResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomerOrgDisableResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CustomerOrgDisableResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CustomerOrgDisableResponse;
       return body;
     }
@@ -105,13 +118,16 @@ export class CustomerOrgApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -128,13 +144,16 @@ export class CustomerOrgApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -149,9 +168,14 @@ export class CustomerOrgApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomerOrgDisableResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CustomerOrgDisableResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CustomerOrgDisableResponse;
       return body;
     }
@@ -185,7 +209,7 @@ export class CustomerOrgApi {
     this.requestFactory =
       requestFactory || new CustomerOrgApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CustomerOrgApiResponseProcessor();
+      responseProcessor || new CustomerOrgApiResponseProcessor(configuration);
   }
 
   /**

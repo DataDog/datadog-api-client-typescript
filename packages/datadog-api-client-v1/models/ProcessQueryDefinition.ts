@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The process query to use in the widget.
@@ -17,7 +17,7 @@ export class ProcessQueryDefinition {
   /**
    * Max number of items in the filter list.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * Your chosen metric.
    */

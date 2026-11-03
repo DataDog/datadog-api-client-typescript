@@ -6,7 +6,7 @@
 import { ArbitraryRuleResponseDataAttributesCostsToAllocateItems } from "./ArbitraryRuleResponseDataAttributesCostsToAllocateItems";
 import { ArbitraryRuleResponseDataAttributesStrategy } from "./ArbitraryRuleResponseDataAttributesStrategy";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The definition of `ArbitraryRuleResponseDataAttributes` object.
@@ -31,7 +31,7 @@ export class ArbitraryRuleResponseDataAttributes {
   /**
    * The `attributes` `order_id`.
    */
-  "orderId": number;
+  "orderId": Int64;
   /**
    * The `attributes` `processing_status`.
    */

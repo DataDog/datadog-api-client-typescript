@@ -5,7 +5,7 @@
  */
 import { UpdateRulesetRequestDataAttributesRulesItems } from "./UpdateRulesetRequestDataAttributesRulesItems";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The definition of `UpdateRulesetRequestDataAttributes` object.
@@ -18,7 +18,7 @@ export class UpdateRulesetRequestDataAttributes {
   /**
    * The `attributes` `last_version`.
    */
-  "lastVersion"?: number;
+  "lastVersion"?: Int64;
   /**
    * The `attributes` `rules`.
    */

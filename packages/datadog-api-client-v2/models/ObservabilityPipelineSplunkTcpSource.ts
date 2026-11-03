@@ -6,7 +6,7 @@
 import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
 import { ObservabilityPipelineSplunkTcpSourceType } from "./ObservabilityPipelineSplunkTcpSourceType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP.
@@ -26,7 +26,7 @@ export class ObservabilityPipelineSplunkTcpSource {
   /**
    * Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
    */
-  "maxConnectionDurationSecs"?: number;
+  "maxConnectionDurationSecs"?: Int64;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
    */

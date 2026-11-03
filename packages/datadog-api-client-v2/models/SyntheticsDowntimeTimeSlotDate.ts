@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A specific date and time used to define the start or end of a Synthetics downtime time slot.
@@ -13,23 +13,23 @@ export class SyntheticsDowntimeTimeSlotDate {
   /**
    * The day component of the date (1-31).
    */
-  "day": number;
+  "day": Int64;
   /**
    * The hour component of the time (0-23).
    */
-  "hour": number;
+  "hour": Int64;
   /**
    * The minute component of the time (0-59).
    */
-  "minute": number;
+  "minute": Int64;
   /**
    * The month component of the date (1-12).
    */
-  "month": number;
+  "month": Int64;
   /**
    * The year component of the date.
    */
-  "year": number;
+  "year": Int64;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Number of indexed logs for each hour and index for a given organization.
@@ -13,7 +13,7 @@ export class UsageLogsByIndexHour {
   /**
    * The total number of indexed logs for the queried hour.
    */
-  "eventCount"?: number;
+  "eventCount"?: Int64;
   /**
    * The hour for the usage.
    */
@@ -37,7 +37,7 @@ export class UsageLogsByIndexHour {
   /**
    * The retention period (in days) for this index ID.
    */
-  "retention"?: number;
+  "retention"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

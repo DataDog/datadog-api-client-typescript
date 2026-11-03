@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Unix-millisecond time range for filtering analytics data.
@@ -13,11 +13,11 @@ export class LLMObsExperimentationAnalyticsTimeRange {
   /**
    * Start of the time range in milliseconds since Unix epoch.
    */
-  "from": number;
+  "from": Int64;
   /**
    * End of the time range in milliseconds since Unix epoch.
    */
-  "to": number;
+  "to": Int64;
 
   /**
    * A container for additional, undeclared properties.

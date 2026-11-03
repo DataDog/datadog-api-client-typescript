@@ -6,7 +6,7 @@
 import { SecurityMonitoringSignalArchiveReason } from "./SecurityMonitoringSignalArchiveReason";
 import { SecurityMonitoringSignalState } from "./SecurityMonitoringSignalState";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing the change of state of a security signal.
@@ -27,7 +27,7 @@ export class SecurityMonitoringSignalStateUpdateAttributes {
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
    */
-  "version"?: number;
+  "version"?: Int64;
 
   /**
    * A container for additional, undeclared properties.
@@ -61,6 +61,7 @@ export class SecurityMonitoringSignalStateUpdateAttributes {
     version: {
       baseName: "version",
       type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

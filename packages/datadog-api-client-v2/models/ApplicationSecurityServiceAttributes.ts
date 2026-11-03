@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Application Security details describing a service in a given environment.
@@ -25,7 +25,7 @@ export class ApplicationSecurityServiceAttributes {
   /**
    * The number of backend WAF events detected for the service.
    */
-  "backendWafEventCount": number;
+  "backendWafEventCount": Int64;
   /**
    * The enabled business logic detection rules for the service.
    */
@@ -41,11 +41,11 @@ export class ApplicationSecurityServiceAttributes {
   /**
    * The number of Application Security events detected for the service.
    */
-  "eventCount": number;
+  "eventCount": Int64;
   /**
    * Deprecated: the trend of Application Security events over time.
    */
-  "eventTrend": Array<number>;
+  "eventTrend": Array<Int64>;
   /**
    * Whether Application Security Management (Threats) is enabled for the service.
    */
@@ -53,7 +53,7 @@ export class ApplicationSecurityServiceAttributes {
   /**
    * Deprecated: the number of hits for the service.
    */
-  "hits": number;
+  "hits": Int64;
   /**
    * Whether Interactive Application Security Testing (IAST) is enabled for the service.
    */
@@ -73,7 +73,7 @@ export class ApplicationSecurityServiceAttributes {
   /**
    * The Unix timestamp, in seconds, of the last ingested span for the service.
    */
-  "lastIngestedSpans": number;
+  "lastIngestedSpans": Int64;
   /**
    * The Remote Configuration capabilities reported by the service.
    */
@@ -105,11 +105,11 @@ export class ApplicationSecurityServiceAttributes {
   /**
    * Deprecated: the number of security signals for the service.
    */
-  "signalCount": number;
+  "signalCount": Int64;
   /**
    * Deprecated: the trend of security signals over time.
    */
-  "signalTrend": Array<number>;
+  "signalTrend": Array<Int64>;
   /**
    * The data sources that contributed information about the service.
    */
@@ -129,15 +129,15 @@ export class ApplicationSecurityServiceAttributes {
   /**
    * Deprecated: the number of critical-severity vulnerabilities for the service.
    */
-  "vulnCriticalCount": number;
+  "vulnCriticalCount": Int64;
   /**
    * Deprecated: the number of high-severity vulnerabilities for the service.
    */
-  "vulnHighCount": number;
+  "vulnHighCount": Int64;
   /**
    * The total number of services available without applying the service filter.
    */
-  "withoutFilterServices": number;
+  "withoutFilterServices": Int64;
 
   /**
    * A container for additional, undeclared properties.
@@ -201,6 +201,7 @@ export class ApplicationSecurityServiceAttributes {
       baseName: "event_trend",
       type: "Array<number>",
       required: true,
+      format: "int64",
     },
     hasAppsecEnabled: {
       baseName: "has_appsec_enabled",
@@ -284,6 +285,7 @@ export class ApplicationSecurityServiceAttributes {
       baseName: "signal_trend",
       type: "Array<number>",
       required: true,
+      format: "int64",
     },
     source: {
       baseName: "source",

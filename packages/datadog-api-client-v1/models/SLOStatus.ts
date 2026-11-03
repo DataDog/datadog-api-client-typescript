@@ -6,7 +6,7 @@
 import { SLORawErrorBudgetRemaining } from "./SLORawErrorBudgetRemaining";
 import { SLOState } from "./SLOState";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Status of the SLO's primary timeframe.
@@ -24,7 +24,7 @@ export class SLOStatus {
    * timestamp (UNIX time in seconds) of when the SLO status and error budget
    * were calculated.
    */
-  "indexedAt"?: number;
+  "indexedAt"?: Int64;
   /**
    * Error budget remaining for an SLO.
    */
@@ -36,7 +36,7 @@ export class SLOStatus {
   /**
    * The number of decimal places the SLI value is accurate to.
    */
-  "spanPrecision"?: number;
+  "spanPrecision"?: Int64;
   /**
    * State of the SLO.
    */

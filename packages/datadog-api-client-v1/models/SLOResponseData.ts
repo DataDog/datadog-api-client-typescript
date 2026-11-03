@@ -10,7 +10,7 @@ import { SLOThreshold } from "./SLOThreshold";
 import { SLOTimeframe } from "./SLOTimeframe";
 import { SLOType } from "./SLOType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A service level objective object includes a service level indicator, thresholds
@@ -20,13 +20,13 @@ export class SLOResponseData {
   /**
    * A list of SLO monitors IDs that reference this SLO. This field is returned only when `with_configured_alert_ids` parameter is true in query.
    */
-  "configuredAlertIds"?: Array<number>;
+  "configuredAlertIds"?: Array<Int64>;
   /**
    * Creation timestamp (UNIX time in seconds)
    *
    * Always included in service level objective responses.
    */
-  "createdAt"?: number;
+  "createdAt"?: Int64;
   /**
    * Object describing the creator of the shared element.
    */
@@ -57,12 +57,12 @@ export class SLOResponseData {
    *
    * Always included in service level objective responses.
    */
-  "modifiedAt"?: number;
+  "modifiedAt"?: Int64;
   /**
    * A list of monitor ids that defines the scope of a monitor service level
    * objective. **Required if type is `monitor`**.
    */
-  "monitorIds"?: Array<number>;
+  "monitorIds"?: Array<Int64>;
   /**
    * The union of monitor tags for all monitors referenced by the `monitor_ids`
    * field.
@@ -138,6 +138,7 @@ export class SLOResponseData {
     configuredAlertIds: {
       baseName: "configured_alert_ids",
       type: "Array<number>",
+      format: "int64",
     },
     createdAt: {
       baseName: "created_at",
@@ -168,6 +169,7 @@ export class SLOResponseData {
     monitorIds: {
       baseName: "monitor_ids",
       type: "Array<number>",
+      format: "int64",
     },
     monitorTags: {
       baseName: "monitor_tags",

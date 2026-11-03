@@ -7,7 +7,7 @@ import { ProductAnalyticsRetentionGridCohortCell } from "./ProductAnalyticsReten
 import { ProductAnalyticsRetentionGridCohortType } from "./ProductAnalyticsRetentionGridCohortType";
 import { ProductAnalyticsUnit } from "./ProductAnalyticsUnit";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * One row of the retention grid, holding the results for a single cohort.
@@ -20,19 +20,19 @@ export class ProductAnalyticsRetentionGridCohort {
   /**
    * End of the cohort window, in epoch milliseconds.
    */
-  "cohortEndTime"?: number;
+  "cohortEndTime"?: Int64;
   /**
    * Zero-based index of the cohort in the grid.
    */
-  "cohortIndex"?: number;
+  "cohortIndex"?: Int64;
   /**
    * Number of entities in the cohort.
    */
-  "cohortSize"?: number;
+  "cohortSize"?: Int64;
   /**
    * Start of the cohort window, in epoch milliseconds.
    */
-  "cohortStartTime"?: number;
+  "cohortStartTime"?: Int64;
   /**
    * The group-by facet values that identify this row.
    */

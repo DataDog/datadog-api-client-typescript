@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The RUM data collection settings for the Synthetic browser test.
@@ -27,7 +27,7 @@ export class SyntheticsBrowserTestRumSettings {
   /**
    * RUM application API key ID used to collect RUM data for the browser test.
    */
-  "clientTokenId"?: number;
+  "clientTokenId"?: Int64;
   /**
    * Determines whether RUM data is collected during test runs.
    */

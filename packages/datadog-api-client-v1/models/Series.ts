@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A metric to submit to Datadog.
@@ -18,7 +18,7 @@ export class Series {
   /**
    * If the type of the metric is rate or count, define the corresponding interval in seconds.
    */
-  "interval"?: number;
+  "interval"?: Int64;
   /**
    * The name of the timeseries.
    */

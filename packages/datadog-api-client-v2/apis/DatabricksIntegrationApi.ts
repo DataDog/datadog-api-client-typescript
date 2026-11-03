@@ -72,7 +72,8 @@ export class DatabricksIntegrationApiRequestFactory extends BaseAPIRequestFactor
         "DatabricksIntegrationAccountCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -287,7 +288,8 @@ export class DatabricksIntegrationApiRequestFactory extends BaseAPIRequestFactor
         "DatabricksIntegrationAccountUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -303,6 +305,12 @@ export class DatabricksIntegrationApiRequestFactory extends BaseAPIRequestFactor
 }
 
 export class DatabricksIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -319,8 +327,14 @@ export class DatabricksIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: DatabricksIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DatabricksIntegrationAccountResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "DatabricksIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DatabricksIntegrationAccountResponse;
       return body;
     }
@@ -332,13 +346,16 @@ export class DatabricksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -352,13 +369,16 @@ export class DatabricksIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -377,9 +397,14 @@ export class DatabricksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DatabricksIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "DatabricksIntegrationAccountResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DatabricksIntegrationAccountResponse;
       return body;
     }
@@ -415,13 +440,16 @@ export class DatabricksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -461,8 +489,14 @@ export class DatabricksIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: DatabricksIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DatabricksIntegrationAccountResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "DatabricksIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DatabricksIntegrationAccountResponse;
       return body;
     }
@@ -474,13 +508,16 @@ export class DatabricksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -496,9 +533,14 @@ export class DatabricksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DatabricksIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "DatabricksIntegrationAccountResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DatabricksIntegrationAccountResponse;
       return body;
     }
@@ -526,8 +568,14 @@ export class DatabricksIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: DatabricksIntegrationAccountsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DatabricksIntegrationAccountsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "DatabricksIntegrationAccountsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DatabricksIntegrationAccountsResponse;
       return body;
     }
@@ -539,13 +587,16 @@ export class DatabricksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -561,9 +612,14 @@ export class DatabricksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DatabricksIntegrationAccountsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "DatabricksIntegrationAccountsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DatabricksIntegrationAccountsResponse;
       return body;
     }
@@ -591,8 +647,14 @@ export class DatabricksIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: DatabricksIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DatabricksIntegrationAccountResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "DatabricksIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DatabricksIntegrationAccountResponse;
       return body;
     }
@@ -604,13 +666,16 @@ export class DatabricksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -624,13 +689,16 @@ export class DatabricksIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -649,9 +717,14 @@ export class DatabricksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DatabricksIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "DatabricksIntegrationAccountResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as DatabricksIntegrationAccountResponse;
       return body;
     }
@@ -714,7 +787,8 @@ export class DatabricksIntegrationApi {
       requestFactory ||
       new DatabricksIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new DatabricksIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new DatabricksIntegrationApiResponseProcessor(configuration);
   }
 
   /**

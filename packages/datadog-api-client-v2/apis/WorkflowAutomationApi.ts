@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CreateWorkflowRequest } from "../models/CreateWorkflowRequest";
@@ -110,7 +111,8 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateWorkflowRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -166,7 +168,8 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "WorkflowInstanceCreateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -305,8 +308,8 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listWorkflowInstances(
     workflowId: string,
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -361,8 +364,8 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listWorkflows(
-    limit?: number,
-    page?: number,
+    limit?: Int64Input,
+    page?: Int64Input,
     sort?: string,
     filterQuery?: string,
     filterTriggerIds?: Array<string>,
@@ -490,7 +493,8 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateWorkflowRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -506,6 +510,12 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class WorkflowAutomationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -522,8 +532,14 @@ export class WorkflowAutomationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: WorklflowCancelInstanceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "WorklflowCancelInstanceResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "WorklflowCancelInstanceResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as WorklflowCancelInstanceResponse;
       return body;
     }
@@ -535,13 +551,16 @@ export class WorkflowAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -557,9 +576,14 @@ export class WorkflowAutomationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WorklflowCancelInstanceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "WorklflowCancelInstanceResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as WorklflowCancelInstanceResponse;
       return body;
     }
@@ -586,8 +610,14 @@ export class WorkflowAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: CreateWorkflowResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CreateWorkflowResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CreateWorkflowResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CreateWorkflowResponse;
       return body;
     }
@@ -598,13 +628,16 @@ export class WorkflowAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -622,9 +655,14 @@ export class WorkflowAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CreateWorkflowResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CreateWorkflowResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CreateWorkflowResponse;
       return body;
     }
@@ -651,8 +689,14 @@ export class WorkflowAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: WorkflowInstanceCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WorkflowInstanceCreateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "WorkflowInstanceCreateResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as WorkflowInstanceCreateResponse;
       return body;
     }
@@ -663,13 +707,16 @@ export class WorkflowAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -684,9 +731,14 @@ export class WorkflowAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WorkflowInstanceCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "WorkflowInstanceCreateResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as WorkflowInstanceCreateResponse;
       return body;
     }
@@ -719,13 +771,16 @@ export class WorkflowAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -767,8 +822,14 @@ export class WorkflowAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GetWorkflowResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GetWorkflowResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "GetWorkflowResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GetWorkflowResponse;
       return body;
     }
@@ -780,13 +841,16 @@ export class WorkflowAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -804,9 +868,14 @@ export class WorkflowAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetWorkflowResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "GetWorkflowResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GetWorkflowResponse;
       return body;
     }
@@ -833,8 +902,14 @@ export class WorkflowAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: WorklflowGetInstanceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WorklflowGetInstanceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "WorklflowGetInstanceResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as WorklflowGetInstanceResponse;
       return body;
     }
@@ -846,13 +921,16 @@ export class WorkflowAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -867,9 +945,14 @@ export class WorkflowAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WorklflowGetInstanceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "WorklflowGetInstanceResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as WorklflowGetInstanceResponse;
       return body;
     }
@@ -896,8 +979,14 @@ export class WorkflowAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: WorkflowListInstancesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WorkflowListInstancesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "WorkflowListInstancesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as WorkflowListInstancesResponse;
       return body;
     }
@@ -908,13 +997,16 @@ export class WorkflowAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -929,9 +1021,14 @@ export class WorkflowAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WorkflowListInstancesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "WorkflowListInstancesResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as WorkflowListInstancesResponse;
       return body;
     }
@@ -958,8 +1055,14 @@ export class WorkflowAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListWorkflowsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListWorkflowsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ListWorkflowsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListWorkflowsResponse;
       return body;
     }
@@ -970,13 +1073,16 @@ export class WorkflowAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -991,9 +1097,14 @@ export class WorkflowAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListWorkflowsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ListWorkflowsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListWorkflowsResponse;
       return body;
     }
@@ -1020,8 +1131,14 @@ export class WorkflowAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: UpdateWorkflowResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UpdateWorkflowResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "UpdateWorkflowResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UpdateWorkflowResponse;
       return body;
     }
@@ -1033,13 +1150,16 @@ export class WorkflowAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1057,9 +1177,14 @@ export class WorkflowAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdateWorkflowResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "UpdateWorkflowResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UpdateWorkflowResponse;
       return body;
     }
@@ -1141,27 +1266,27 @@ export interface WorkflowAutomationApiListWorkflowInstancesRequest {
   workflowId: string;
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
 }
 
 export interface WorkflowAutomationApiListWorkflowsRequest {
   /**
    * The maximum number of workflows to return per page.
-   * @type number
+   * @type Int64Input
    */
-  limit?: number;
+  limit?: Int64Input;
   /**
    * The page number to return, starting from 0.
-   * @type number
+   * @type Int64Input
    */
-  page?: number;
+  page?: Int64Input;
   /**
    * The sort order for the returned workflows. Provide a comma-separated list of fields, each optionally prefixed with `-` for descending order. Supported fields are `name`, `createdAt`, `updatedAt`, `creatorName`, `ownerName`, and `lastExecutedAt`.
    * @type string
@@ -1215,7 +1340,8 @@ export class WorkflowAutomationApi {
     this.requestFactory =
       requestFactory || new WorkflowAutomationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new WorkflowAutomationApiResponseProcessor();
+      responseProcessor ||
+      new WorkflowAutomationApiResponseProcessor(configuration);
   }
 
   /**
@@ -1406,7 +1532,7 @@ export class WorkflowAutomationApi {
   ): AsyncGenerator<WorkflowListItem> {
     let pageSize = 50;
     if (param.limit !== undefined) {
-      pageSize = param.limit;
+      pageSize = Number(param.limit);
     }
     param.limit = pageSize;
     param.page = 0;
@@ -1439,7 +1565,7 @@ export class WorkflowAutomationApi {
       if (results.length < pageSize) {
         break;
       }
-      param.page = param.page + 1;
+      param.page = Number(param.page) + 1;
     }
   }
 

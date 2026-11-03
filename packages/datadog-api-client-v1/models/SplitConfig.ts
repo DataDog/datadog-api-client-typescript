@@ -7,7 +7,7 @@ import { SplitDimension } from "./SplitDimension";
 import { SplitSort } from "./SplitSort";
 import { SplitVectorEntryItem } from "./SplitVectorEntryItem";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Encapsulates all user choices about how to split a graph.
@@ -16,7 +16,7 @@ export class SplitConfig {
   /**
    * Maximum number of graphs to display in the widget.
    */
-  "limit": number;
+  "limit": Int64;
   /**
    * Controls the order in which graphs appear in the split.
    */
