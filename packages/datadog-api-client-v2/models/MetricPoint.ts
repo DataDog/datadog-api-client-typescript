@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A point object is of the form `{POSIX_timestamp, numeric_value}`.
@@ -14,7 +14,7 @@ export class MetricPoint {
    * The timestamp should be in seconds and current.
    * Current is defined as not more than 10 minutes in the future or more than 1 hour in the past.
    */
-  "timestamp"?: Int64;
+  "timestamp"?: number;
   /**
    * The numeric value format should be a 64bit float gauge-type value.
    */

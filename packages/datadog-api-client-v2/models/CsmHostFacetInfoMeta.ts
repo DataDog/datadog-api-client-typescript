@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata for the facet info response.
@@ -13,7 +13,7 @@ export class CsmHostFacetInfoMeta {
   /**
    * The total number of distinct values for this facet.
    */
-  "totalCount": Int64;
+  "totalCount": number;
 
   /**
    * A container for additional, undeclared properties.

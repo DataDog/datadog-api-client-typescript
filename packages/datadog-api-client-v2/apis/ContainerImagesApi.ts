@@ -92,12 +92,6 @@ export class ContainerImagesApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ContainerImagesApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -113,14 +107,8 @@ export class ContainerImagesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ContainerImagesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ContainerImagesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ContainerImagesResponse"
       ) as ContainerImagesResponse;
       return body;
     }
@@ -131,16 +119,13 @@ export class ContainerImagesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -155,14 +140,9 @@ export class ContainerImagesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ContainerImagesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ContainerImagesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ContainerImagesResponse;
       return body;
     }
@@ -230,8 +210,7 @@ export class ContainerImagesApi {
     this.requestFactory =
       requestFactory || new ContainerImagesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new ContainerImagesApiResponseProcessor(configuration);
+      responseProcessor || new ContainerImagesApiResponseProcessor();
   }
 
   /**
@@ -274,7 +253,7 @@ export class ContainerImagesApi {
   ): AsyncGenerator<ContainerImageItem> {
     let pageSize = 1000;
     if (param.pageSize !== undefined) {
-      pageSize = Number(param.pageSize);
+      pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {

@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { BatchDeleteRowsRequestArray } from "../models/BatchDeleteRowsRequestArray";
@@ -66,8 +65,7 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "BatchRowsQueryRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -114,8 +112,7 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateTableRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -162,8 +159,7 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateUploadRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -219,8 +215,7 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "BatchDeleteRowsRequestArray", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -368,7 +363,7 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listReferenceTableRows(
     id: string,
-    pageLimit?: Int64Input,
+    pageLimit?: number,
     pageContinuationToken?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -425,8 +420,8 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listTables(
-    pageLimit?: Int64Input,
-    pageOffset?: Int64Input,
+    pageLimit?: number,
+    pageOffset?: number,
     sort?: ReferenceTableSortType,
     filterStatus?: string,
     filterTableNameExact?: string,
@@ -546,8 +541,7 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "PatchTableRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -603,8 +597,7 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "BatchUpsertRowsRequestArray", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -620,12 +613,6 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ReferenceTablesApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -641,14 +628,8 @@ export class ReferenceTablesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: BatchRowsQueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "BatchRowsQueryResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "BatchRowsQueryResponse"
       ) as BatchRowsQueryResponse;
       return body;
     }
@@ -661,16 +642,13 @@ export class ReferenceTablesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -685,14 +663,9 @@ export class ReferenceTablesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: BatchRowsQueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "BatchRowsQueryResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as BatchRowsQueryResponse;
       return body;
     }
@@ -719,14 +692,8 @@ export class ReferenceTablesApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: TableResultV2 = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "TableResultV2",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TableResultV2"
       ) as TableResultV2;
       return body;
     }
@@ -737,16 +704,13 @@ export class ReferenceTablesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -761,14 +725,9 @@ export class ReferenceTablesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TableResultV2 = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "TableResultV2",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as TableResultV2;
       return body;
     }
@@ -795,14 +754,8 @@ export class ReferenceTablesApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: CreateUploadResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "CreateUploadResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CreateUploadResponse"
       ) as CreateUploadResponse;
       return body;
     }
@@ -813,16 +766,13 @@ export class ReferenceTablesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -837,14 +787,9 @@ export class ReferenceTablesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CreateUploadResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "CreateUploadResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as CreateUploadResponse;
       return body;
     }
@@ -881,16 +826,13 @@ export class ReferenceTablesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -935,16 +877,13 @@ export class ReferenceTablesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -983,14 +922,8 @@ export class ReferenceTablesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TableRowResourceArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "TableRowResourceArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TableRowResourceArray"
       ) as TableRowResourceArray;
       return body;
     }
@@ -1001,16 +934,13 @@ export class ReferenceTablesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1025,14 +955,9 @@ export class ReferenceTablesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TableRowResourceArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "TableRowResourceArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as TableRowResourceArray;
       return body;
     }
@@ -1057,14 +982,8 @@ export class ReferenceTablesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TableResultV2 = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "TableResultV2",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TableResultV2"
       ) as TableResultV2;
       return body;
     }
@@ -1075,16 +994,13 @@ export class ReferenceTablesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1099,14 +1015,9 @@ export class ReferenceTablesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TableResultV2 = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "TableResultV2",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as TableResultV2;
       return body;
     }
@@ -1133,14 +1044,8 @@ export class ReferenceTablesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListRowsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ListRowsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListRowsResponse"
       ) as ListRowsResponse;
       return body;
     }
@@ -1152,16 +1057,13 @@ export class ReferenceTablesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1176,14 +1078,9 @@ export class ReferenceTablesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListRowsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ListRowsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ListRowsResponse;
       return body;
     }
@@ -1210,30 +1107,21 @@ export class ReferenceTablesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TableResultV2Array = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "TableResultV2Array",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TableResultV2Array"
       ) as TableResultV2Array;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1248,14 +1136,9 @@ export class ReferenceTablesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TableResultV2Array = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "TableResultV2Array",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as TableResultV2Array;
       return body;
     }
@@ -1288,16 +1171,13 @@ export class ReferenceTablesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1346,16 +1226,13 @@ export class ReferenceTablesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1450,9 +1327,9 @@ export interface ReferenceTablesApiListReferenceTableRowsRequest {
   id: string;
   /**
    * Number of rows to return per page. Defaults to 100, maximum is 1000.
-   * @type Int64Input
+   * @type number
    */
-  pageLimit?: Int64Input;
+  pageLimit?: number;
   /**
    * Opaque cursor from the previous response's next link. Pass this to retrieve the next page on the same consistent snapshot.
    * @type string
@@ -1463,14 +1340,14 @@ export interface ReferenceTablesApiListReferenceTableRowsRequest {
 export interface ReferenceTablesApiListTablesRequest {
   /**
    * Number of tables to return.
-   * @type Int64Input
+   * @type number
    */
-  pageLimit?: Int64Input;
+  pageLimit?: number;
   /**
    * Number of tables to skip for pagination.
-   * @type Int64Input
+   * @type number
    */
-  pageOffset?: Int64Input;
+  pageOffset?: number;
   /**
    * Sort field and direction for the list of reference tables. Use field name for ascending, prefix with "-" for descending.
    * @type ReferenceTableSortType
@@ -1531,8 +1408,7 @@ export class ReferenceTablesApi {
     this.requestFactory =
       requestFactory || new ReferenceTablesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new ReferenceTablesApiResponseProcessor(configuration);
+      responseProcessor || new ReferenceTablesApiResponseProcessor();
   }
 
   /**

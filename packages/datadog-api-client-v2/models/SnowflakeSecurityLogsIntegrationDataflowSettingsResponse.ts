@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Settings of the security logs dataflow.
@@ -13,7 +13,7 @@ export class SnowflakeSecurityLogsIntegrationDataflowSettingsResponse {
   /**
    * How often security logs are collected, in minutes.
    */
-  "securityLogsIntervalMin"?: Int64;
+  "securityLogsIntervalMin"?: number;
 
   /**
    * A container for additional, undeclared properties.

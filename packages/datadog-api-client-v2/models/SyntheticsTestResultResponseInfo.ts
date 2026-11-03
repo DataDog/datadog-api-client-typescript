@@ -9,7 +9,7 @@ import { SyntheticsTestResultHealthCheck } from "./SyntheticsTestResultHealthChe
 import { SyntheticsTestResultRedirect } from "./SyntheticsTestResultRedirect";
 import { SyntheticsTestResultWebSocketClose } from "./SyntheticsTestResultWebSocketClose";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Details of the response received during the test execution.
@@ -30,7 +30,7 @@ export class SyntheticsTestResultResponseInfo {
   /**
    * Size of the response body in bytes.
    */
-  "bodySize"?: Int64;
+  "bodySize"?: number;
   /**
    * Cache-related response headers.
    */
@@ -86,7 +86,7 @@ export class SyntheticsTestResultResponseInfo {
   /**
    * HTTP status code of the response.
    */
-  "statusCode"?: Int64;
+  "statusCode"?: number;
 
   /**
    * A container for additional, undeclared properties.

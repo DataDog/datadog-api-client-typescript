@@ -6,7 +6,7 @@
 import { SyntheticsTestResultBucketKeys } from "./SyntheticsTestResultBucketKeys";
 import { SyntheticsTestResultTurnStep } from "./SyntheticsTestResultTurnStep";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A turn in a goal-based browser test, grouping steps and reasoning.
@@ -35,11 +35,11 @@ export class SyntheticsTestResultTurn {
   /**
    * Unix timestamp (ms) of when the turn finished.
    */
-  "turnFinishedAt"?: Int64;
+  "turnFinishedAt"?: number;
   /**
    * Unix timestamp (ms) of when the turn started.
    */
-  "turnStartedAt"?: Int64;
+  "turnStartedAt"?: number;
 
   /**
    * A container for additional, undeclared properties.

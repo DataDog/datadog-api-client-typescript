@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination information.
@@ -13,7 +13,7 @@ export class IoCExplorerListResponsePaging {
   /**
    * Current pagination offset.
    */
-  "offset"?: Int64;
+  "offset"?: number;
 
   /**
    * A container for additional, undeclared properties.

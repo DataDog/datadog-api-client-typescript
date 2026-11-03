@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Automatic quarantine triggering rule based on a time window.
@@ -17,7 +17,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
   /**
    * Time window in seconds over which flakiness is evaluated. Must be greater than 0.
    */
-  "windowSeconds"?: Int64;
+  "windowSeconds"?: number;
 
   /**
    * A container for additional, undeclared properties.

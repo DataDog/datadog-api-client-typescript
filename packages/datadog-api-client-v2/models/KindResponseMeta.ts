@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Kind response metadata.
@@ -13,7 +13,7 @@ export class KindResponseMeta {
   /**
    * Total kinds count.
    */
-  "count"?: Int64;
+  "count"?: number;
 
   /**
    * A container for additional, undeclared properties.

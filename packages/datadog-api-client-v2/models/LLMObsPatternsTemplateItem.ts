@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A single Agent Observability patterns template in a list response.
@@ -45,7 +45,7 @@ export class LLMObsPatternsTemplateItem {
   /**
    * Default lookback window, in milliseconds, for configurations linked to this template.
    */
-  "timeFrameDurationMs": Int64;
+  "timeFrameDurationMs": number;
 
   /**
    * A container for additional, undeclared properties.

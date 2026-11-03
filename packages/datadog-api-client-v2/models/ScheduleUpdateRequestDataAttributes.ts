@@ -5,7 +5,7 @@
  */
 import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdateRequestDataAttributesLayersItems";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Defines the updatable attributes for a schedule, such as name, time zone, and layers.
@@ -19,7 +19,7 @@ export class ScheduleUpdateRequestDataAttributes {
    * Maximum number of users who can be on call at the same time.
    * The value must be between 1 and the number of layers, and no greater than 10.
    */
-  "maxResponders"?: Int64;
+  "maxResponders"?: number;
   /**
    * A short name for the schedule.
    */

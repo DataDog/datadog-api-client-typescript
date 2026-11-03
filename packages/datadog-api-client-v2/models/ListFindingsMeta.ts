@@ -5,7 +5,7 @@
  */
 import { ListFindingsPage } from "./ListFindingsPage";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata for pagination.
@@ -18,7 +18,7 @@ export class ListFindingsMeta {
   /**
    * The point in time corresponding to the listed findings.
    */
-  "snapshotTimestamp"?: Int64;
+  "snapshotTimestamp"?: number;
 
   /**
    * @ignore

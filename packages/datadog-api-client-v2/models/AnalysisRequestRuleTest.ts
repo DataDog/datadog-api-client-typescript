@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A test case of a forwarded static analysis rule.
@@ -13,7 +13,7 @@ export class AnalysisRequestRuleTest {
   /**
    * The expected number of findings the rule should produce against the test code.
    */
-  "annotationCount"?: Int64;
+  "annotationCount"?: number;
   /**
    * The source code snippet used as input for the rule test.
    */

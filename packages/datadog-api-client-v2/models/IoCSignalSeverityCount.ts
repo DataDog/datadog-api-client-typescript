@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Count of security signals by severity level.
@@ -13,7 +13,7 @@ export class IoCSignalSeverityCount {
   /**
    * Number of signals at this severity level.
    */
-  "count"?: Int64;
+  "count"?: number;
   /**
    * Severity level (for example, critical, high, medium, low, info).
    */

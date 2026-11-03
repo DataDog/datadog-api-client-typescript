@@ -8,7 +8,7 @@ import { AutomationRuleModifiedBy } from "./AutomationRuleModifiedBy";
 import { AutomationRuleScope } from "./AutomationRuleScope";
 import { TicketCreationRuleActionResponse } from "./TicketCreationRuleActionResponse";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a ticket creation rule returned by the API.
@@ -21,7 +21,7 @@ export class TicketCreationRuleAttributesResponse {
   /**
    * The Unix timestamp in milliseconds when the rule was created.
    */
-  "createdAt": Int64;
+  "createdAt": number;
   /**
    * The user or Datadog system who created the rule.
    */
@@ -33,7 +33,7 @@ export class TicketCreationRuleAttributesResponse {
   /**
    * The Unix timestamp in milliseconds when the rule was last modified.
    */
-  "modifiedAt": Int64;
+  "modifiedAt": number;
   /**
    * The user or Datadog system who last modified the rule.
    */

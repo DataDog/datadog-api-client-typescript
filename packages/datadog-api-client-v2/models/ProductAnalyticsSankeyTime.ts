@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The time window a Sankey query covers.
@@ -13,11 +13,11 @@ export class ProductAnalyticsSankeyTime {
   /**
    * Start of the query window, in epoch milliseconds.
    */
-  "from": Int64;
+  "from": number;
   /**
    * End of the query window, in epoch milliseconds.
    */
-  "to": Int64;
+  "to": number;
 
   /**
    * A container for additional, undeclared properties.

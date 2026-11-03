@@ -5,7 +5,7 @@
  */
 import { LogQueryDefinitionGroupBySort } from "./LogQueryDefinitionGroupBySort";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Defined items in the group.
@@ -18,7 +18,7 @@ export class LogQueryDefinitionGroupBy {
   /**
    * Maximum number of items in the group.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Define a sorting method.
    */

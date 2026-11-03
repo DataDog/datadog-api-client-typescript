@@ -6,7 +6,7 @@
 import { SecurityMonitoringCriticalAssetSeverity } from "./SecurityMonitoringCriticalAssetSeverity";
 import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of the critical asset.
@@ -15,11 +15,11 @@ export class SecurityMonitoringCriticalAssetAttributes {
   /**
    * ID of user who created the critical asset.
    */
-  "creationAuthorId"?: Int64;
+  "creationAuthorId"?: number;
   /**
    * A Unix millisecond timestamp given the creation date of the critical asset.
    */
-  "creationDate"?: Int64;
+  "creationDate"?: number;
   /**
    * A user.
    */
@@ -55,11 +55,11 @@ export class SecurityMonitoringCriticalAssetAttributes {
   /**
    * ID of user who updated the critical asset.
    */
-  "updateAuthorId"?: Int64;
+  "updateAuthorId"?: number;
   /**
    * A Unix millisecond timestamp given the update date of the critical asset.
    */
-  "updateDate"?: Int64;
+  "updateDate"?: number;
   /**
    * A user.
    */

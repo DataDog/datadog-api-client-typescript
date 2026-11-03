@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The object containing information about the pages of the list of SLOs.
@@ -13,11 +13,11 @@ export class SLOListResponseMetadataPage {
   /**
    * The total number of resources that could be retrieved ignoring the parameters and filters in the request.
    */
-  "totalCount"?: Int64;
+  "totalCount"?: number;
   /**
    * The total number of resources that match the parameters and filters in the request. This attribute can be used by a client to determine the total number of pages.
    */
-  "totalFilteredCount"?: Int64;
+  "totalFilteredCount"?: number;
 
   /**
    * A container for additional, undeclared properties.

@@ -10,7 +10,7 @@ import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Query values display the current value of a given metric, APM, or log query.
@@ -35,7 +35,7 @@ export class QueryValueWidgetDefinition {
   /**
    * Number of decimals to show. If not defined, the widget uses the raw value.
    */
-  "precision"?: Int64;
+  "precision"?: number;
   /**
    * Widget definition.
    */

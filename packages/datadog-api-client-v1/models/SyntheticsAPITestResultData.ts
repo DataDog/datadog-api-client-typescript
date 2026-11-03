@@ -8,7 +8,7 @@ import { SyntheticsSSLCertificate } from "./SyntheticsSSLCertificate";
 import { SyntheticsTestProcessStatus } from "./SyntheticsTestProcessStatus";
 import { SyntheticsTiming } from "./SyntheticsTiming";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing results for your Synthetic API test.
@@ -29,7 +29,7 @@ export class SyntheticsAPITestResultData {
   /**
    * The API test HTTP status code.
    */
-  "httpStatusCode"?: Int64;
+  "httpStatusCode"?: number;
   /**
    * Request header object used for the API test.
    */
@@ -45,7 +45,7 @@ export class SyntheticsAPITestResultData {
   /**
    * Global size in byte of the API test response.
    */
-  "responseSize"?: Int64;
+  "responseSize"?: number;
   /**
    * Object containing all metrics and their values collected for a Synthetic API test.
    * See the [Synthetic Monitoring Metrics documentation](https://docs.datadoghq.com/synthetics/metrics/).

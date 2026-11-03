@@ -5,7 +5,7 @@
  */
 import { FlutterSourcemapMapKind } from "./FlutterSourcemapMapKind";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a Flutter symbol file.
@@ -30,7 +30,7 @@ export class FlutterSourcemapAttributes {
   /**
    * The size of the symbol file in bytes.
    */
-  "size": Int64;
+  "size": number;
   /**
    * The build variant.
    */

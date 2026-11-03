@@ -5,7 +5,7 @@
  */
 import { ScorecardScoresAggregation } from "./ScorecardScoresAggregation";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a scorecard score.
@@ -18,15 +18,15 @@ export class ScorecardScoreAttributes {
   /**
    * The denominator used to compute the score ratio.
    */
-  "denominator"?: Int64;
+  "denominator"?: number;
   /**
    * The maturity level of the associated rule.
    */
-  "level"?: Int64;
+  "level"?: number;
   /**
    * The numerator used to compute the score ratio.
    */
-  "numerator"?: Int64;
+  "numerator"?: number;
   /**
    * The computed score ratio (numerator/denominator), from 0 to 1.
    */
@@ -34,23 +34,23 @@ export class ScorecardScoreAttributes {
   /**
    * The total number of entities evaluated.
    */
-  "totalEntities"?: Int64;
+  "totalEntities"?: number;
   /**
    * The number of rules that failed.
    */
-  "totalFail"?: Int64;
+  "totalFail"?: number;
   /**
    * The number of rules with no data.
    */
-  "totalNoData"?: Int64;
+  "totalNoData"?: number;
   /**
    * The number of rules that passed.
    */
-  "totalPass"?: Int64;
+  "totalPass"?: number;
   /**
    * The number of rules that were skipped.
    */
-  "totalSkip"?: Int64;
+  "totalSkip"?: number;
 
   /**
    * A container for additional, undeclared properties.

@@ -5,7 +5,7 @@
  */
 import { ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm } from "./ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Compression configuration for the Elasticsearch destination.
@@ -18,7 +18,7 @@ export class ObservabilityPipelineElasticsearchDestinationCompression {
   /**
    * The compression level. Only applicable for `gzip`, `zlib`, and `zstd` algorithms.
    */
-  "level"?: Int64;
+  "level"?: number;
 
   /**
    * A container for additional, undeclared properties.

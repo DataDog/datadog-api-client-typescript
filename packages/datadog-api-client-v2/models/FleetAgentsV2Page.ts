@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination details for the v2 list of agents.
@@ -13,11 +13,11 @@ export class FleetAgentsV2Page {
   /**
    * Total number of agents in the fleet, regardless of any filter.
    */
-  "totalCount"?: Int64;
+  "totalCount"?: number;
   /**
    * Total number of agents matching the current filter criteria.
    */
-  "totalFilteredCount"?: Int64;
+  "totalFilteredCount"?: number;
 
   /**
    * A container for additional, undeclared properties.

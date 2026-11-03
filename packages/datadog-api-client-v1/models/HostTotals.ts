@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Total number of host currently monitored by Datadog.
@@ -13,11 +13,11 @@ export class HostTotals {
   /**
    * Total number of active host (UP and ???) reporting to Datadog.
    */
-  "totalActive"?: Int64;
+  "totalActive"?: number;
   /**
    * Number of host that are UP and reporting to Datadog.
    */
-  "totalUp"?: Int64;
+  "totalUp"?: number;
 
   /**
    * A container for additional, undeclared properties.

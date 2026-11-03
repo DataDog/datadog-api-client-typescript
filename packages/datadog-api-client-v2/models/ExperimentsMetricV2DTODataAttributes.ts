@@ -9,7 +9,7 @@ import { ExperimentsMetricV2DTODataAttributesMetricType } from "./ExperimentsMet
 import { ExperimentsMetricV2DTODataAttributesNumeratorAggregation } from "./ExperimentsMetricV2DTODataAttributesNumeratorAggregation";
 import { ExperimentsMetricV2DTODataAttributesPercentileAggregation } from "./ExperimentsMetricV2DTODataAttributesPercentileAggregation";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Details of the metric.
@@ -42,7 +42,7 @@ export class ExperimentsMetricV2DTODataAttributes {
   /**
    * Number of experiments that reference this resource.
    */
-  "experimentCount"?: Int64;
+  "experimentCount"?: number;
   /**
    * Whether to display the metric value as a percentage.
    */

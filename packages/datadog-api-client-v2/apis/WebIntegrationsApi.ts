@@ -78,8 +78,7 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
         "WebIntegrationAccountCreateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -312,8 +311,7 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
         "WebIntegrationAccountUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -329,12 +327,6 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class WebIntegrationsApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -350,14 +342,8 @@ export class WebIntegrationsApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: WebIntegrationAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "WebIntegrationAccountResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WebIntegrationAccountResponse"
       ) as WebIntegrationAccountResponse;
       return body;
     }
@@ -369,16 +355,13 @@ export class WebIntegrationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -392,16 +375,13 @@ export class WebIntegrationsApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -419,14 +399,9 @@ export class WebIntegrationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebIntegrationAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "WebIntegrationAccountResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as WebIntegrationAccountResponse;
       return body;
     }
@@ -462,16 +437,13 @@ export class WebIntegrationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -510,14 +482,8 @@ export class WebIntegrationsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: WebIntegrationAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "WebIntegrationAccountResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WebIntegrationAccountResponse"
       ) as WebIntegrationAccountResponse;
       return body;
     }
@@ -529,16 +495,13 @@ export class WebIntegrationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -553,14 +516,9 @@ export class WebIntegrationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebIntegrationAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "WebIntegrationAccountResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as WebIntegrationAccountResponse;
       return body;
     }
@@ -587,14 +545,8 @@ export class WebIntegrationsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: WebIntegrationAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "WebIntegrationAccountsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WebIntegrationAccountsResponse"
       ) as WebIntegrationAccountsResponse;
       return body;
     }
@@ -606,16 +558,13 @@ export class WebIntegrationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -630,14 +579,9 @@ export class WebIntegrationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebIntegrationAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "WebIntegrationAccountsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as WebIntegrationAccountsResponse;
       return body;
     }
@@ -664,14 +608,8 @@ export class WebIntegrationsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: WebIntegrationAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "WebIntegrationAccountResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WebIntegrationAccountResponse"
       ) as WebIntegrationAccountResponse;
       return body;
     }
@@ -683,16 +621,13 @@ export class WebIntegrationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -706,16 +641,13 @@ export class WebIntegrationsApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -733,14 +665,9 @@ export class WebIntegrationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebIntegrationAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "WebIntegrationAccountResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as WebIntegrationAccountResponse;
       return body;
     }
@@ -830,8 +757,7 @@ export class WebIntegrationsApi {
     this.requestFactory =
       requestFactory || new WebIntegrationsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new WebIntegrationsApiResponseProcessor(configuration);
+      responseProcessor || new WebIntegrationsApiResponseProcessor();
   }
 
   /**

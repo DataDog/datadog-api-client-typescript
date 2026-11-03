@@ -5,7 +5,7 @@
  */
 import { DueDateSeverity } from "./DueDateSeverity";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A mapping of a severity level to the number of days until a finding is due.
@@ -14,7 +14,7 @@ export class DueDatePerSeverityItem {
   /**
    * The number of days from the reference point until the finding is due.
    */
-  "dueInDays": Int64;
+  "dueInDays": number;
   /**
    * A severity level used to configure due date thresholds.
    */

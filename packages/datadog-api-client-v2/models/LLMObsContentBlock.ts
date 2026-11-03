@@ -8,7 +8,7 @@ import { LLMObsContentBlockLLMObsTraceInteractionType } from "./LLMObsContentBlo
 import { LLMObsContentBlockTimeFrame } from "./LLMObsContentBlockTimeFrame";
 import { LLMObsContentBlockType } from "./LLMObsContentBlockType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A single content block rendered inside a `display_block` interaction.
@@ -42,7 +42,7 @@ export class LLMObsContentBlock {
   /**
    * Optional rendered height. Must be positive when set.
    */
-  "height"?: Int64;
+  "height"?: number;
   /**
    * Upstream interaction type referenced by an `llmobs_trace` block.
    * Restricted to `trace` or `experiment_trace`.

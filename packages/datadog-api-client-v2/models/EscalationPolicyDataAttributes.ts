@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Defines the main attributes of an escalation policy, such as its name and behavior on policy end.
@@ -21,7 +21,7 @@ export class EscalationPolicyDataAttributes {
   /**
    * Specifies how many times the escalation sequence is retried if there is no response.
    */
-  "retries"?: Int64;
+  "retries"?: number;
   /**
    * A list of tags attached to the escalation policy, in `key:value` format.
    */

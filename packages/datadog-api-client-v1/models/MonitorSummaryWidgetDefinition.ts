@@ -10,7 +10,7 @@ import { WidgetMonitorSummarySort } from "./WidgetMonitorSummarySort";
 import { WidgetSummaryType } from "./WidgetSummaryType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query.
@@ -23,7 +23,7 @@ export class MonitorSummaryWidgetDefinition {
   /**
    * The number of monitors to display.
    */
-  "count"?: Int64;
+  "count"?: number;
   /**
    * The description of the widget.
    */
@@ -55,7 +55,7 @@ export class MonitorSummaryWidgetDefinition {
   /**
    * The start of the list. Typically 0.
    */
-  "start"?: Int64;
+  "start"?: number;
   /**
    * Which summary type should be used.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Statistics about the number of hops for a network test.
@@ -17,11 +17,11 @@ export class SyntheticsTestResultNetstatsHops {
   /**
    * Maximum number of hops.
    */
-  "max"?: Int64;
+  "max"?: number;
   /**
    * Minimum number of hops.
    */
-  "min"?: Int64;
+  "min"?: number;
 
   /**
    * A container for additional, undeclared properties.

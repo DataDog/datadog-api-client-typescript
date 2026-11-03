@@ -5,7 +5,7 @@
  */
 import { Host } from "./Host";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response with Host information from Datadog.
@@ -18,11 +18,11 @@ export class HostListResponse {
   /**
    * Number of host matching the query.
    */
-  "totalMatching"?: Int64;
+  "totalMatching"?: number;
   /**
    * Number of host returned.
    */
-  "totalReturned"?: Int64;
+  "totalReturned"?: number;
 
   /**
    * A container for additional, undeclared properties.

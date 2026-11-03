@@ -7,7 +7,7 @@ import { FleetScheduleStatus } from "./FleetScheduleStatus";
 import { FleetScheduleV2NotificationRule } from "./FleetScheduleV2NotificationRule";
 import { FleetScheduleV2RecurrenceRule } from "./FleetScheduleV2RecurrenceRule";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a fleet schedule in the v2 API response.
@@ -70,7 +70,7 @@ export class FleetScheduleV2Attributes {
    * - 1: Upgrade to latest minus 1 major version.
    * - 2: Upgrade to latest minus 2 major versions.
    */
-  "versionToLatest"?: Int64;
+  "versionToLatest"?: number;
 
   /**
    * A container for additional, undeclared properties.

@@ -5,7 +5,7 @@
  */
 import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Additional information related to api keys response.
@@ -14,7 +14,7 @@ export class APIKeysResponseMeta {
   /**
    * Max allowed number of API keys.
    */
-  "maxAllowed"?: Int64;
+  "maxAllowed"?: number;
   /**
    * Additional information related to the API keys response.
    */

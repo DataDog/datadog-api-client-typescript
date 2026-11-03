@@ -6,7 +6,7 @@
 import { NotificationRuleRouting } from "./NotificationRuleRouting";
 import { Selectors } from "./Selectors";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of the notification rule create request.
@@ -43,7 +43,7 @@ export class CreateNotificationRuleParametersDataAttributes {
    * Time aggregation is only available for vulnerability-based notification rules. When omitted or set to 0, no aggregation
    * is done.
    */
-  "timeAggregation"?: Int64;
+  "timeAggregation"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -87,7 +87,6 @@ export class CreateNotificationRuleParametersDataAttributes {
     timeAggregation: {
       baseName: "time_aggregation",
       type: "number",
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -9,7 +9,7 @@ import { SankeyJoinKeys } from "./SankeyJoinKeys";
 import { SankeyRumDataSource } from "./SankeyRumDataSource";
 import { SankeyRumQueryMode } from "./SankeyRumQueryMode";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Query configuration for Product Analytics or RUM Sankey widget.
@@ -26,7 +26,7 @@ export class SankeyRumQuery {
   /**
    * Entries per step.
    */
-  "entriesPerStep"?: Int64;
+  "entriesPerStep"?: number;
   /**
    * Join keys.
    */
@@ -38,7 +38,7 @@ export class SankeyRumQuery {
   /**
    * Number of steps.
    */
-  "numberOfSteps"?: Int64;
+  "numberOfSteps"?: number;
   /**
    * Filter applied to occurrence counts when building a Product Analytics audience.
    */

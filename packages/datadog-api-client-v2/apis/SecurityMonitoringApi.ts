@@ -16,7 +16,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { AnalysisRequest } from "../models/AnalysisRequest";
 import { AnalysisResponse } from "../models/AnalysisResponse";
@@ -322,8 +321,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringIntegrationActivateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -379,8 +377,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AttachCaseRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -427,8 +424,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AttachJiraIssueRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -475,8 +471,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AttachLinearIssueRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -523,8 +518,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AttachServiceNowTicketRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -593,8 +587,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringDatasetDependenciesRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -653,8 +646,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringRuleConvertBulkPayload",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -724,8 +716,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SampleLogGenerationBulkSubscriptionRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -776,8 +767,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringRuleBulkDeletePayload",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -828,8 +818,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringSignalsBulkUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -885,8 +874,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringSignalsBulkAssigneeUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -939,8 +927,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringSignalsBulkStateUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -994,8 +981,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringRuleBulkExportPayload",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1080,8 +1066,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringTerraformBulkExportRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1282,8 +1267,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ConvertJobResultsToSignalsRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1339,8 +1323,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringRuleConvertPayload",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1422,8 +1405,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringTerraformConvertRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1470,8 +1452,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateCaseRequestArray", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1518,8 +1499,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateCustomFrameworkRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1571,8 +1551,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IoCTriageWriteRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1619,8 +1598,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateJiraIssueRequestArray", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1667,8 +1645,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateLinearIssueRequestArray", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1733,8 +1710,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SampleLogGenerationSubscriptionCreateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1782,8 +1758,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SecurityFilterCreateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1848,8 +1823,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DueDateRuleCreateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1914,8 +1888,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "InboxRuleCreateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -1978,8 +1951,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MuteRuleCreateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2045,8 +2017,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SeverityModifierRuleCreateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2112,8 +2083,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TicketCreationRuleCreateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2177,8 +2147,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringBatchMigrationCreateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2260,8 +2229,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringBatchMigrationResourcesCreateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2315,8 +2283,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringCriticalAssetCreateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2374,8 +2341,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringDatasetCreateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2445,8 +2411,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringIntegrationConfigCreateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2497,8 +2462,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringRuleCreatePayload",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2550,8 +2514,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringSuppressionCreateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2602,8 +2565,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "CreateServiceNowTicketRequestArray",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2650,8 +2612,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateNotificationRuleParameters", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2706,8 +2667,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "GetAstRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2764,8 +2724,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AnalysisRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -2812,8 +2771,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateNotificationRuleParameters", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -3515,8 +3473,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringBatchMigrationResourcesDeleteRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -3875,8 +3832,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DetachCaseRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -3995,8 +3951,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringSignalUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -4062,8 +4017,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringSignalAssigneeUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -4129,8 +4083,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringSignalIncidentsUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -4191,8 +4144,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringSignalStateUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -4456,7 +4408,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     from?: string,
     to?: string,
     asOf?: string,
-    limit?: Int64Input,
+    limit?: number,
     pageToken?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -4548,7 +4500,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     entityType?: EntityContextEntityType,
     from?: string,
     to?: string,
-    limit?: Int64Input,
+    limit?: number,
     revisions?: EntityContextRevisionsMode,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -4671,7 +4623,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getFinding(
     findingId: string,
-    snapshotTimestamp?: Int64Input,
+    snapshotTimestamp?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -5016,8 +4968,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getRuleVersionHistory(
     ruleId: string,
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -5651,7 +5603,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getSecurityMonitoringDatasetByVersion(
     datasetId: string,
-    version: Int64Input,
+    version: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -5715,8 +5667,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getSecurityMonitoringDatasetVersionHistory(
     datasetId: string,
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -6666,8 +6618,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringRuleCreatePayload",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -6723,8 +6674,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getSuppressionVersionHistory(
     suppressionId: string,
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -6889,8 +6840,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CycloneDXBom", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -6906,7 +6856,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listAssetsSBOMs(
     pageToken?: string,
-    pageNumber?: Int64Input,
+    pageNumber?: number,
     filterAssetType?: AssetType,
     filterAssetName?: string,
     filterPackageName?: string,
@@ -7005,8 +6955,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listFindings(
-    pageLimit?: Int64Input,
-    snapshotTimestamp?: Int64Input,
+    pageLimit?: number,
+    snapshotTimestamp?: number,
     pageCursor?: string,
     filterTags?: string,
     filterEvaluationChangedAt?: string,
@@ -7166,8 +7116,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listHistoricalJobs(
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     sort?: string,
     filterQuery?: string,
     _options?: Configuration
@@ -7375,8 +7325,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "GetMultipleRulesetsRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -7466,7 +7415,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listScannedAssetsMetadata(
     pageToken?: string,
-    pageNumber?: Int64Input,
+    pageNumber?: number,
     filterAssetType?: CloudAssetType,
     filterAssetName?: string,
     filterLastSuccessOrigin?: string,
@@ -7616,7 +7565,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   public async listSecurityFindings(
     filterQuery?: string,
     pageCursor?: string,
-    pageLimit?: Int64Input,
+    pageLimit?: number,
     sort?: SecurityFindingsSort,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -7724,8 +7673,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listSecurityFindingsAutomationDueDateRules(
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -7787,8 +7736,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listSecurityFindingsAutomationInboxRules(
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -7848,8 +7797,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listSecurityFindingsAutomationMuteRules(
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -7909,8 +7858,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listSecurityFindingsAutomationSeverityModifierRules(
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -7973,8 +7922,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listSecurityFindingsAutomationTicketCreationRules(
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -8038,8 +7987,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listSecurityMonitoringBatchMigrationResources(
     batchId: string,
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     filterQuery?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -8121,8 +8070,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listSecurityMonitoringBatchMigrations(
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     filterQuery?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -8223,8 +8172,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listSecurityMonitoringDatasets(
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     sort?: string,
     filterQuery?: string,
     _options?: Configuration
@@ -8439,8 +8388,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listSecurityMonitoringRules(
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     query?: string,
     sort?: SecurityMonitoringRuleSort,
     _options?: Configuration
@@ -8585,8 +8534,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   public async listSecurityMonitoringSuppressions(
     query?: string,
     sort?: SecurityMonitoringSuppressionSort,
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    pageSize?: number,
+    pageNumber?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -8690,7 +8639,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listVulnerabilities(
     pageToken?: string,
-    pageNumber?: Int64Input,
+    pageNumber?: number,
     filterType?: VulnerabilityType,
     filterCvssBaseScoreOp?: number,
     filterCvssBaseSeverity?: VulnerabilitySeverity,
@@ -9119,7 +9068,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listVulnerableAssets(
     pageToken?: string,
-    pageNumber?: Int64Input,
+    pageNumber?: number,
     filterName?: string,
     filterType?: AssetType,
     filterVersionFirst?: string,
@@ -9335,8 +9284,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MuteFindingsRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -9393,8 +9341,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "PatchNotificationRuleParameters", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -9451,8 +9398,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "PatchNotificationRuleParameters", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -9532,8 +9478,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringBatchMigrationPublishRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -9599,8 +9544,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DueDateRuleReorderRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -9666,8 +9610,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "InboxRuleReorderRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -9733,8 +9676,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MuteRuleReorderRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -9804,8 +9746,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SeverityModifierRuleReorderRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -9871,8 +9812,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TicketCreationRuleReorderRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -9888,7 +9828,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async restoreSecurityMonitoringRule(
     ruleId: string,
-    version: Int64Input,
+    version: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -9969,8 +9909,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RunHistoricalJobRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10017,8 +9956,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SecurityFindingsSearchRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10074,8 +10012,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringSignalListRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10121,8 +10058,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringSignalListRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10175,8 +10111,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateNotificationRuleParameters", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10292,8 +10227,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringRuleProposalStartRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10350,8 +10284,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SecurityMonitoringRuleTestRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10398,8 +10331,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SecurityMonitoringRuleTestRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10461,8 +10393,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateCustomFrameworkRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10516,8 +10447,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AssigneeRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10571,8 +10501,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SeverityOverrideRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10623,8 +10552,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "UpdateResourceEvaluationFiltersRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10681,8 +10609,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SecurityFilterUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10760,8 +10687,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DueDateRuleUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10839,8 +10765,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "InboxRuleUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10916,8 +10841,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MuteRuleUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -10995,8 +10919,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SeverityModifierRuleUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -11074,8 +10997,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TicketCreationRuleUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -11152,8 +11074,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringBatchMigrationUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -11243,8 +11164,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringBatchMigrationResourceUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -11310,8 +11230,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringCriticalAssetUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -11379,8 +11298,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringDatasetUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -11462,8 +11380,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringIntegrationConfigUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -11523,8 +11440,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringRuleUpdatePayload",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -11588,8 +11504,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringSuppressionUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -11717,8 +11632,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringIntegrationCredentialsValidateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -11769,8 +11683,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringRuleValidatePayload",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -11824,8 +11737,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringSuppressionCreateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -11841,12 +11753,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class SecurityMonitoringApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -11864,16 +11770,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11890,16 +11793,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11939,14 +11839,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringIntegrationConfigResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse"
         ) as SecurityMonitoringIntegrationConfigResponse;
       return body;
     }
@@ -11958,16 +11852,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11983,14 +11874,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringIntegrationConfigResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringIntegrationConfigResponse;
       return body;
     }
@@ -12017,14 +11903,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FindingCaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "FindingCaseResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponse"
       ) as FindingCaseResponse;
       return body;
     }
@@ -12035,16 +11915,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12059,14 +11936,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FindingCaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "FindingCaseResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as FindingCaseResponse;
       return body;
     }
@@ -12093,14 +11965,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FindingCaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "FindingCaseResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponse"
       ) as FindingCaseResponse;
       return body;
     }
@@ -12111,16 +11977,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12135,14 +11998,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FindingCaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "FindingCaseResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as FindingCaseResponse;
       return body;
     }
@@ -12169,14 +12027,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FindingCaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "FindingCaseResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponse"
       ) as FindingCaseResponse;
       return body;
     }
@@ -12187,16 +12039,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12211,14 +12060,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FindingCaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "FindingCaseResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as FindingCaseResponse;
       return body;
     }
@@ -12245,14 +12089,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FindingCaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "FindingCaseResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponse"
       ) as FindingCaseResponse;
       return body;
     }
@@ -12263,16 +12101,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12287,14 +12122,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FindingCaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "FindingCaseResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as FindingCaseResponse;
       return body;
     }
@@ -12322,30 +12152,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringDatasetDependenciesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringDatasetDependenciesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringDatasetDependenciesResponse"
         ) as SecurityMonitoringDatasetDependenciesResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12362,16 +12183,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12387,14 +12205,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringDatasetDependenciesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringDatasetDependenciesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringDatasetDependenciesResponse;
       return body;
     }
@@ -12431,16 +12244,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12482,14 +12292,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SampleLogGenerationBulkSubscriptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SampleLogGenerationBulkSubscriptionResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SampleLogGenerationBulkSubscriptionResponse"
         ) as SampleLogGenerationBulkSubscriptionResponse;
       return body;
     }
@@ -12500,16 +12304,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12525,14 +12326,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SampleLogGenerationBulkSubscriptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SampleLogGenerationBulkSubscriptionResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SampleLogGenerationBulkSubscriptionResponse;
       return body;
     }
@@ -12560,14 +12356,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringRuleBulkDeleteResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringRuleBulkDeleteResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleBulkDeleteResponse"
         ) as SecurityMonitoringRuleBulkDeleteResponse;
       return body;
     }
@@ -12579,16 +12369,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12604,14 +12391,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringRuleBulkDeleteResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringRuleBulkDeleteResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringRuleBulkDeleteResponse;
       return body;
     }
@@ -12639,30 +12421,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalsBulkTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalsBulkTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsBulkTriageUpdateResponse"
         ) as SecurityMonitoringSignalsBulkTriageUpdateResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12679,16 +12452,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12704,14 +12474,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalsBulkTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalsBulkTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalsBulkTriageUpdateResponse;
       return body;
     }
@@ -12739,30 +12504,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalsBulkTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalsBulkTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsBulkTriageUpdateResponse"
         ) as SecurityMonitoringSignalsBulkTriageUpdateResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12779,16 +12535,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12804,14 +12557,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalsBulkTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalsBulkTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalsBulkTriageUpdateResponse;
       return body;
     }
@@ -12839,30 +12587,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalsBulkTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalsBulkTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsBulkTriageUpdateResponse"
         ) as SecurityMonitoringSignalsBulkTriageUpdateResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12879,16 +12618,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -12904,14 +12640,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalsBulkTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalsBulkTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalsBulkTriageUpdateResponse;
       return body;
     }
@@ -12948,16 +12679,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13008,16 +12736,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13067,16 +12792,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13125,16 +12847,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13151,16 +12870,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13200,14 +12916,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringRuleConvertResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringRuleConvertResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleConvertResponse"
         ) as SecurityMonitoringRuleConvertResponse;
       return body;
     }
@@ -13219,16 +12929,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13244,14 +12951,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringRuleConvertResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringRuleConvertResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringRuleConvertResponse;
       return body;
     }
@@ -13288,16 +12990,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13337,14 +13036,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringRuleConvertResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringRuleConvertResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleConvertResponse"
         ) as SecurityMonitoringRuleConvertResponse;
       return body;
     }
@@ -13357,16 +13050,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13382,14 +13072,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringRuleConvertResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringRuleConvertResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringRuleConvertResponse;
       return body;
     }
@@ -13417,14 +13102,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringTerraformExportResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringTerraformExportResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringTerraformExportResponse"
         ) as SecurityMonitoringTerraformExportResponse;
       return body;
     }
@@ -13435,16 +13114,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13460,14 +13136,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringTerraformExportResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringTerraformExportResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringTerraformExportResponse;
       return body;
     }
@@ -13494,14 +13165,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: FindingCaseResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "FindingCaseResponseArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponseArray"
       ) as FindingCaseResponseArray;
       return body;
     }
@@ -13512,16 +13177,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13536,14 +13198,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FindingCaseResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "FindingCaseResponseArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as FindingCaseResponseArray;
       return body;
     }
@@ -13570,14 +13227,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CreateCustomFrameworkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "CreateCustomFrameworkResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CreateCustomFrameworkResponse"
       ) as CreateCustomFrameworkResponse;
       return body;
     }
@@ -13589,16 +13240,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13613,14 +13261,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CreateCustomFrameworkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "CreateCustomFrameworkResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as CreateCustomFrameworkResponse;
       return body;
     }
@@ -13647,14 +13290,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: IoCTriageWriteResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "IoCTriageWriteResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IoCTriageWriteResponse"
       ) as IoCTriageWriteResponse;
       return body;
     }
@@ -13665,16 +13302,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13689,14 +13323,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IoCTriageWriteResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "IoCTriageWriteResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as IoCTriageWriteResponse;
       return body;
     }
@@ -13723,14 +13352,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: FindingCaseResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "FindingCaseResponseArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponseArray"
       ) as FindingCaseResponseArray;
       return body;
     }
@@ -13741,16 +13364,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13765,14 +13385,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FindingCaseResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "FindingCaseResponseArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as FindingCaseResponseArray;
       return body;
     }
@@ -13799,14 +13414,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: FindingCaseResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "FindingCaseResponseArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponseArray"
       ) as FindingCaseResponseArray;
       return body;
     }
@@ -13817,16 +13426,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13841,14 +13447,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FindingCaseResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "FindingCaseResponseArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as FindingCaseResponseArray;
       return body;
     }
@@ -13876,14 +13477,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SampleLogGenerationSubscriptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SampleLogGenerationSubscriptionResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SampleLogGenerationSubscriptionResponse"
         ) as SampleLogGenerationSubscriptionResponse;
       return body;
     }
@@ -13894,16 +13489,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13919,14 +13511,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SampleLogGenerationSubscriptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SampleLogGenerationSubscriptionResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SampleLogGenerationSubscriptionResponse;
       return body;
     }
@@ -13953,14 +13540,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SecurityFilterResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityFilterResponse"
       ) as SecurityFilterResponse;
       return body;
     }
@@ -13972,16 +13553,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -13996,14 +13574,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SecurityFilterResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SecurityFilterResponse;
       return body;
     }
@@ -14030,30 +13603,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: DueDateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DueDateRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRuleResponse"
       ) as DueDateRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14070,16 +13634,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14094,14 +13655,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DueDateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DueDateRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DueDateRuleResponse;
       return body;
     }
@@ -14128,30 +13684,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: InboxRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "InboxRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse"
       ) as InboxRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14168,16 +13715,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14192,14 +13736,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: InboxRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "InboxRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as InboxRuleResponse;
       return body;
     }
@@ -14226,30 +13765,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: MuteRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "MuteRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse"
       ) as MuteRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14266,16 +13796,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14290,14 +13817,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MuteRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "MuteRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as MuteRuleResponse;
       return body;
     }
@@ -14324,30 +13846,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: SeverityModifierRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SeverityModifierRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeverityModifierRuleResponse"
       ) as SeverityModifierRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14364,16 +13877,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14388,14 +13898,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SeverityModifierRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SeverityModifierRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SeverityModifierRuleResponse;
       return body;
     }
@@ -14422,30 +13927,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: TicketCreationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "TicketCreationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TicketCreationRuleResponse"
       ) as TicketCreationRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14462,16 +13958,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14486,14 +13979,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TicketCreationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "TicketCreationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as TicketCreationRuleResponse;
       return body;
     }
@@ -14521,14 +14009,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: SecurityMonitoringBatchMigrationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringBatchMigrationResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringBatchMigrationResponse"
         ) as SecurityMonitoringBatchMigrationResponse;
       return body;
     }
@@ -14539,16 +14021,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14565,16 +14044,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14590,14 +14066,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringBatchMigrationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringBatchMigrationResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringBatchMigrationResponse;
       return body;
     }
@@ -14625,14 +14096,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: SecurityMonitoringBatchMigrationResourcesCreateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringBatchMigrationResourcesCreateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringBatchMigrationResourcesCreateResponse"
         ) as SecurityMonitoringBatchMigrationResourcesCreateResponse;
       return body;
     }
@@ -14645,16 +14110,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14671,16 +14133,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14696,14 +14155,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringBatchMigrationResourcesCreateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringBatchMigrationResourcesCreateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringBatchMigrationResourcesCreateResponse;
       return body;
     }
@@ -14731,14 +14185,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringCriticalAssetResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringCriticalAssetResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetResponse"
         ) as SecurityMonitoringCriticalAssetResponse;
       return body;
     }
@@ -14750,16 +14198,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14775,14 +14220,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringCriticalAssetResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringCriticalAssetResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringCriticalAssetResponse;
       return body;
     }
@@ -14810,14 +14250,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: SecurityMonitoringDatasetCreateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringDatasetCreateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringDatasetCreateResponse"
         ) as SecurityMonitoringDatasetCreateResponse;
       return body;
     }
@@ -14828,16 +14262,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14854,16 +14285,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14879,14 +14307,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringDatasetCreateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringDatasetCreateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringDatasetCreateResponse;
       return body;
     }
@@ -14914,14 +14337,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringIntegrationConfigResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse"
         ) as SecurityMonitoringIntegrationConfigResponse;
       return body;
     }
@@ -14932,16 +14349,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -14957,14 +14371,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringIntegrationConfigResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringIntegrationConfigResponse;
       return body;
     }
@@ -14991,14 +14400,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SecurityMonitoringRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityMonitoringRuleResponse"
       ) as SecurityMonitoringRuleResponse;
       return body;
     }
@@ -15009,16 +14412,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15033,14 +14433,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SecurityMonitoringRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SecurityMonitoringRuleResponse;
       return body;
     }
@@ -15068,14 +14463,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSuppressionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSuppressionResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionResponse"
         ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
@@ -15087,16 +14476,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15112,14 +14498,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSuppressionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSuppressionResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
@@ -15146,14 +14527,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: FindingCaseResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "FindingCaseResponseArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponseArray"
       ) as FindingCaseResponseArray;
       return body;
     }
@@ -15164,16 +14539,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15188,14 +14560,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FindingCaseResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "FindingCaseResponseArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as FindingCaseResponseArray;
       return body;
     }
@@ -15222,14 +14589,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "NotificationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse"
       ) as NotificationRuleResponse;
       return body;
     }
@@ -15240,16 +14601,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15264,14 +14622,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "NotificationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as NotificationRuleResponse;
       return body;
     }
@@ -15298,30 +14651,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GetAstResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "GetAstResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetAstResponse"
       ) as GetAstResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15338,16 +14682,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15362,14 +14703,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetAstResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "GetAstResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as GetAstResponse;
       return body;
     }
@@ -15396,30 +14732,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: AnalysisResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "AnalysisResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AnalysisResponse"
       ) as AnalysisResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15436,16 +14763,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15460,14 +14784,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AnalysisResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "AnalysisResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as AnalysisResponse;
       return body;
     }
@@ -15494,14 +14813,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "NotificationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse"
       ) as NotificationRuleResponse;
       return body;
     }
@@ -15512,16 +14825,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15536,14 +14846,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "NotificationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as NotificationRuleResponse;
       return body;
     }
@@ -15572,16 +14877,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15598,16 +14900,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15647,14 +14946,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringIntegrationConfigResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse"
         ) as SecurityMonitoringIntegrationConfigResponse;
       return body;
     }
@@ -15665,16 +14958,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15690,14 +14980,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringIntegrationConfigResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringIntegrationConfigResponse;
       return body;
     }
@@ -15724,14 +15009,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DeleteCustomFrameworkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DeleteCustomFrameworkResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DeleteCustomFrameworkResponse"
       ) as DeleteCustomFrameworkResponse;
       return body;
     }
@@ -15742,16 +15021,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15766,14 +15042,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeleteCustomFrameworkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DeleteCustomFrameworkResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DeleteCustomFrameworkResponse;
       return body;
     }
@@ -15809,16 +15080,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15858,14 +15126,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SampleLogGenerationSubscriptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SampleLogGenerationSubscriptionResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SampleLogGenerationSubscriptionResponse"
         ) as SampleLogGenerationSubscriptionResponse;
       return body;
     }
@@ -15876,16 +15138,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15901,14 +15160,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SampleLogGenerationSubscriptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SampleLogGenerationSubscriptionResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SampleLogGenerationSubscriptionResponse;
       return body;
     }
@@ -15941,16 +15195,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -15997,16 +15248,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16053,16 +15301,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16109,16 +15354,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16165,16 +15407,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16188,16 +15427,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16247,16 +15483,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16305,16 +15538,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16331,16 +15561,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16389,16 +15616,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16415,16 +15639,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16471,16 +15692,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16527,16 +15745,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16553,16 +15768,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16609,16 +15821,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16665,16 +15874,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16721,16 +15927,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16777,16 +15980,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16833,16 +16033,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16887,16 +16084,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16935,14 +16129,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DefaultInboxRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DefaultInboxRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DefaultInboxRuleResponse"
       ) as DefaultInboxRuleResponse;
       return body;
     }
@@ -16953,16 +16141,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -16977,14 +16162,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DefaultInboxRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DefaultInboxRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DefaultInboxRuleResponse;
       return body;
     }
@@ -17012,14 +16192,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse"
         ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
@@ -17030,16 +16204,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17056,16 +16227,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17081,14 +16249,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
@@ -17116,14 +16279,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse"
         ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
@@ -17135,16 +16292,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17160,14 +16314,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
@@ -17195,14 +16344,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse"
         ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
@@ -17214,16 +16357,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17239,14 +16379,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
@@ -17274,14 +16409,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse"
         ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
@@ -17293,16 +16422,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17318,14 +16444,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalTriageUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalTriageUpdateResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
@@ -17352,14 +16473,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DefaultInboxRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DefaultInboxRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DefaultInboxRuleResponse"
       ) as DefaultInboxRuleResponse;
       return body;
     }
@@ -17370,16 +16485,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17394,14 +16506,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DefaultInboxRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DefaultInboxRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DefaultInboxRuleResponse;
       return body;
     }
@@ -17429,14 +16536,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringTerraformExportResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringTerraformExportResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringTerraformExportResponse"
         ) as SecurityMonitoringTerraformExportResponse;
       return body;
     }
@@ -17447,16 +16548,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17472,14 +16570,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringTerraformExportResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringTerraformExportResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringTerraformExportResponse;
       return body;
     }
@@ -17507,30 +16600,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringContentPackStatesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringContentPackStatesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringContentPackStatesResponse"
         ) as SecurityMonitoringContentPackStatesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17547,16 +16631,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17572,14 +16653,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringContentPackStatesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringContentPackStatesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringContentPackStatesResponse;
       return body;
     }
@@ -17607,14 +16683,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringCriticalAssetsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringCriticalAssetsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetsResponse"
         ) as SecurityMonitoringCriticalAssetsResponse;
       return body;
     }
@@ -17625,16 +16695,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17650,14 +16717,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringCriticalAssetsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringCriticalAssetsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringCriticalAssetsResponse;
       return body;
     }
@@ -17684,14 +16746,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GetCustomFrameworkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "GetCustomFrameworkResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetCustomFrameworkResponse"
       ) as GetCustomFrameworkResponse;
       return body;
     }
@@ -17702,16 +16758,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17726,14 +16779,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetCustomFrameworkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "GetCustomFrameworkResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as GetCustomFrameworkResponse;
       return body;
     }
@@ -17760,14 +16808,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: EntityContextResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "EntityContextResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EntityContextResponse"
       ) as EntityContextResponse;
       return body;
     }
@@ -17778,16 +16820,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17802,14 +16841,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EntityContextResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "EntityContextResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as EntityContextResponse;
       return body;
     }
@@ -17837,14 +16871,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: RecentlyUpdatedEntitiesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "RecentlyUpdatedEntitiesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "RecentlyUpdatedEntitiesResponse"
         ) as RecentlyUpdatedEntitiesResponse;
       return body;
     }
@@ -17855,16 +16883,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17880,14 +16905,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RecentlyUpdatedEntitiesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "RecentlyUpdatedEntitiesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as RecentlyUpdatedEntitiesResponse;
       return body;
     }
@@ -17915,30 +16935,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringEntraIdAzureAppRegistrationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringEntraIdAzureAppRegistrationsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringEntraIdAzureAppRegistrationsResponse"
         ) as SecurityMonitoringEntraIdAzureAppRegistrationsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -17954,14 +16965,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringEntraIdAzureAppRegistrationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringEntraIdAzureAppRegistrationsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringEntraIdAzureAppRegistrationsResponse;
       return body;
     }
@@ -17988,14 +16994,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GetFindingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "GetFindingResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetFindingResponse"
       ) as GetFindingResponse;
       return body;
     }
@@ -18007,16 +17007,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18034,14 +17031,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetFindingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "GetFindingResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as GetFindingResponse;
       return body;
     }
@@ -18068,14 +17060,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: HistoricalJobResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "HistoricalJobResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "HistoricalJobResponse"
       ) as HistoricalJobResponse;
       return body;
     }
@@ -18087,16 +17073,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18111,14 +17094,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HistoricalJobResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "HistoricalJobResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as HistoricalJobResponse;
       return body;
     }
@@ -18145,14 +17123,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GetIoCIndicatorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "GetIoCIndicatorResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetIoCIndicatorResponse"
       ) as GetIoCIndicatorResponse;
       return body;
     }
@@ -18164,16 +17136,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18188,14 +17157,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetIoCIndicatorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "GetIoCIndicatorResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as GetIoCIndicatorResponse;
       return body;
     }
@@ -18223,14 +17187,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalSuggestedActionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalSuggestedActionsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalSuggestedActionsResponse"
         ) as SecurityMonitoringSignalSuggestedActionsResponse;
       return body;
     }
@@ -18241,16 +17199,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18266,14 +17221,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalSuggestedActionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalSuggestedActionsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalSuggestedActionsResponse;
       return body;
     }
@@ -18300,14 +17250,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: MatchingSignalsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "MatchingSignalsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MatchingSignalsResponse"
       ) as MatchingSignalsResponse;
       return body;
     }
@@ -18319,16 +17263,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18343,14 +17284,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MatchingSignalsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "MatchingSignalsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as MatchingSignalsResponse;
       return body;
     }
@@ -18378,14 +17314,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: GetResourceEvaluationFiltersResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "GetResourceEvaluationFiltersResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GetResourceEvaluationFiltersResponse"
         ) as GetResourceEvaluationFiltersResponse;
       return body;
     }
@@ -18396,16 +17326,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18421,14 +17348,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetResourceEvaluationFiltersResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "GetResourceEvaluationFiltersResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as GetResourceEvaluationFiltersResponse;
       return body;
     }
@@ -18455,14 +17377,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GetRuleVersionHistoryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "GetRuleVersionHistoryResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetRuleVersionHistoryResponse"
       ) as GetRuleVersionHistoryResponse;
       return body;
     }
@@ -18474,16 +17390,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18498,14 +17411,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetRuleVersionHistoryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "GetRuleVersionHistoryResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as GetRuleVersionHistoryResponse;
       return body;
     }
@@ -18530,14 +17438,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GetSBOMResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "GetSBOMResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetSBOMResponse"
       ) as GetSBOMResponse;
       return body;
     }
@@ -18548,16 +17450,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18574,16 +17473,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18598,14 +17494,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetSBOMResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "GetSBOMResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as GetSBOMResponse;
       return body;
     }
@@ -18632,30 +17523,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SecretRuleArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SecretRuleArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecretRuleArray"
       ) as SecretRuleArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18670,14 +17552,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecretRuleArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SecretRuleArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SecretRuleArray;
       return body;
     }
@@ -18704,14 +17581,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SecurityFilterResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityFilterResponse"
       ) as SecurityFilterResponse;
       return body;
     }
@@ -18722,16 +17593,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18746,14 +17614,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SecurityFilterResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SecurityFilterResponse;
       return body;
     }
@@ -18780,14 +17643,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DefaultInboxRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DefaultInboxRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DefaultInboxRuleResponse"
       ) as DefaultInboxRuleResponse;
       return body;
     }
@@ -18798,16 +17655,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18822,14 +17676,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DefaultInboxRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DefaultInboxRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DefaultInboxRuleResponse;
       return body;
     }
@@ -18856,14 +17705,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DueDateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DueDateRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRuleResponse"
       ) as DueDateRuleResponse;
       return body;
     }
@@ -18874,16 +17717,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18898,14 +17738,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DueDateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DueDateRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DueDateRuleResponse;
       return body;
     }
@@ -18932,14 +17767,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: InboxRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "InboxRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse"
       ) as InboxRuleResponse;
       return body;
     }
@@ -18950,16 +17779,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -18974,14 +17800,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: InboxRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "InboxRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as InboxRuleResponse;
       return body;
     }
@@ -19008,14 +17829,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: MuteRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "MuteRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse"
       ) as MuteRuleResponse;
       return body;
     }
@@ -19026,16 +17841,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19050,14 +17862,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MuteRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "MuteRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as MuteRuleResponse;
       return body;
     }
@@ -19084,14 +17891,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SeverityModifierRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SeverityModifierRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeverityModifierRuleResponse"
       ) as SeverityModifierRuleResponse;
       return body;
     }
@@ -19102,16 +17903,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19125,16 +17923,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19152,14 +17947,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SeverityModifierRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SeverityModifierRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SeverityModifierRuleResponse;
       return body;
     }
@@ -19186,14 +17976,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TicketCreationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "TicketCreationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TicketCreationRuleResponse"
       ) as TicketCreationRuleResponse;
       return body;
     }
@@ -19204,16 +17988,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19228,14 +18009,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TicketCreationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "TicketCreationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as TicketCreationRuleResponse;
       return body;
     }
@@ -19263,14 +18039,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringCriticalAssetResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringCriticalAssetResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetResponse"
         ) as SecurityMonitoringCriticalAssetResponse;
       return body;
     }
@@ -19281,16 +18051,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19306,14 +18073,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringCriticalAssetResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringCriticalAssetResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringCriticalAssetResponse;
       return body;
     }
@@ -19341,14 +18103,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringDatasetResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringDatasetResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringDatasetResponse"
         ) as SecurityMonitoringDatasetResponse;
       return body;
     }
@@ -19359,16 +18115,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19385,16 +18138,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19410,14 +18160,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringDatasetResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringDatasetResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringDatasetResponse;
       return body;
     }
@@ -19445,14 +18190,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringDatasetResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringDatasetResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringDatasetResponse"
         ) as SecurityMonitoringDatasetResponse;
       return body;
     }
@@ -19463,16 +18202,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19489,16 +18225,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19514,14 +18247,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringDatasetResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringDatasetResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringDatasetResponse;
       return body;
     }
@@ -19549,14 +18277,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringDatasetVersionHistoryResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringDatasetVersionHistoryResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringDatasetVersionHistoryResponse"
         ) as SecurityMonitoringDatasetVersionHistoryResponse;
       return body;
     }
@@ -19567,16 +18289,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19593,16 +18312,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19618,14 +18334,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringDatasetVersionHistoryResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringDatasetVersionHistoryResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringDatasetVersionHistoryResponse;
       return body;
     }
@@ -19653,14 +18364,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalResponse"
         ) as SecurityMonitoringSignalResponse;
       return body;
     }
@@ -19672,16 +18377,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19697,14 +18399,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalResponse;
       return body;
     }
@@ -19732,14 +18429,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsListResponse"
         ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
@@ -19751,16 +18442,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19776,14 +18464,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
@@ -19811,14 +18494,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringIntegrationConfigResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse"
         ) as SecurityMonitoringIntegrationConfigResponse;
       return body;
     }
@@ -19829,16 +18506,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19854,14 +18528,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringIntegrationConfigResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringIntegrationConfigResponse;
       return body;
     }
@@ -19888,30 +18557,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SecurityMonitoringRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityMonitoringRuleResponse"
       ) as SecurityMonitoringRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -19926,14 +18586,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SecurityMonitoringRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SecurityMonitoringRuleResponse;
       return body;
     }
@@ -19961,14 +18616,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringRuleProposalResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringRuleProposalResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleProposalResponse"
         ) as SecurityMonitoringRuleProposalResponse;
       return body;
     }
@@ -19980,16 +18629,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20006,16 +18652,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20031,14 +18674,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringRuleProposalResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringRuleProposalResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringRuleProposalResponse;
       return body;
     }
@@ -20066,14 +18704,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalResponse"
         ) as SecurityMonitoringSignalResponse;
       return body;
     }
@@ -20084,16 +18716,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20109,14 +18738,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalResponse;
       return body;
     }
@@ -20144,14 +18768,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSuppressionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSuppressionResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionResponse"
         ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
@@ -20162,16 +18780,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20187,14 +18802,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSuppressionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSuppressionResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
@@ -20221,14 +18831,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SignalEntitiesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SignalEntitiesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SignalEntitiesResponse"
       ) as SignalEntitiesResponse;
       return body;
     }
@@ -20240,16 +18844,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20264,14 +18865,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SignalEntitiesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SignalEntitiesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SignalEntitiesResponse;
       return body;
     }
@@ -20298,14 +18894,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "NotificationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse"
       ) as NotificationRuleResponse;
       return body;
     }
@@ -20317,16 +18907,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20341,14 +18928,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "NotificationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as NotificationRuleResponse;
       return body;
     }
@@ -20375,30 +18957,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: NotificationRulesListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "NotificationRulesListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRulesListResponse"
       ) as NotificationRulesListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20413,14 +18986,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotificationRulesListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "NotificationRulesListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as NotificationRulesListResponse;
       return body;
     }
@@ -20447,14 +19015,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SingleEntityContextResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SingleEntityContextResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SingleEntityContextResponse"
       ) as SingleEntityContextResponse;
       return body;
     }
@@ -20466,16 +19028,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20490,14 +19049,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SingleEntityContextResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SingleEntityContextResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SingleEntityContextResponse;
       return body;
     }
@@ -20525,30 +19079,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: DefaultRulesetsPerLanguageResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "DefaultRulesetsPerLanguageResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DefaultRulesetsPerLanguageResponse"
         ) as DefaultRulesetsPerLanguageResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20565,16 +19110,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20590,14 +19132,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DefaultRulesetsPerLanguageResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "DefaultRulesetsPerLanguageResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as DefaultRulesetsPerLanguageResponse;
       return body;
     }
@@ -20624,30 +19161,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: NodeTypesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "NodeTypesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NodeTypesResponse"
       ) as NodeTypesResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20664,16 +19192,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20688,14 +19213,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NodeTypesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "NodeTypesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as NodeTypesResponse;
       return body;
     }
@@ -20722,30 +19242,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SastRulesetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SastRulesetResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SastRulesetResponse"
       ) as SastRulesetResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20762,16 +19273,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20786,14 +19294,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SastRulesetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SastRulesetResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SastRulesetResponse;
       return body;
     }
@@ -20825,16 +19328,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20851,16 +19351,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20902,14 +19399,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalSuggestedActionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalSuggestedActionsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalSuggestedActionsResponse"
         ) as SecurityMonitoringSignalSuggestedActionsResponse;
       return body;
     }
@@ -20920,16 +19411,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -20945,14 +19433,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalSuggestedActionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalSuggestedActionsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalSuggestedActionsResponse;
       return body;
     }
@@ -20980,14 +19463,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSuppressionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSuppressionsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionsResponse"
         ) as SecurityMonitoringSuppressionsResponse;
       return body;
     }
@@ -20998,16 +19475,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21023,14 +19497,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSuppressionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSuppressionsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSuppressionsResponse;
       return body;
     }
@@ -21058,14 +19527,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSuppressionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSuppressionsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionsResponse"
         ) as SecurityMonitoringSuppressionsResponse;
       return body;
     }
@@ -21076,16 +19539,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21101,14 +19561,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSuppressionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSuppressionsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSuppressionsResponse;
       return body;
     }
@@ -21136,14 +19591,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: GetSuppressionVersionHistoryResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "GetSuppressionVersionHistoryResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GetSuppressionVersionHistoryResponse"
         ) as GetSuppressionVersionHistoryResponse;
       return body;
     }
@@ -21154,16 +19603,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21179,14 +19625,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetSuppressionVersionHistoryResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "GetSuppressionVersionHistoryResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as GetSuppressionVersionHistoryResponse;
       return body;
     }
@@ -21213,14 +19654,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "NotificationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse"
       ) as NotificationRuleResponse;
       return body;
     }
@@ -21232,16 +19667,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21256,14 +19688,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "NotificationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as NotificationRuleResponse;
       return body;
     }
@@ -21290,30 +19717,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: NotificationRulesListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "NotificationRulesListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRulesListResponse"
       ) as NotificationRulesListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21328,14 +19746,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotificationRulesListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "NotificationRulesListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as NotificationRulesListResponse;
       return body;
     }
@@ -21371,16 +19784,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21419,14 +19829,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListAssetsSBOMsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ListAssetsSBOMsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListAssetsSBOMsResponse"
       ) as ListAssetsSBOMsResponse;
       return body;
     }
@@ -21437,16 +19841,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21463,16 +19864,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21487,14 +19885,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListAssetsSBOMsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ListAssetsSBOMsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ListAssetsSBOMsResponse;
       return body;
     }
@@ -21521,14 +19914,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListFindingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ListFindingsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListFindingsResponse"
       ) as ListFindingsResponse;
       return body;
     }
@@ -21540,16 +19927,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21567,14 +19951,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListFindingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ListFindingsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ListFindingsResponse;
       return body;
     }
@@ -21601,14 +19980,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListHistoricalJobsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ListHistoricalJobsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListHistoricalJobsResponse"
       ) as ListHistoricalJobsResponse;
       return body;
     }
@@ -21619,16 +19992,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21643,14 +20013,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListHistoricalJobsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ListHistoricalJobsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ListHistoricalJobsResponse;
       return body;
     }
@@ -21677,14 +20042,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: IoCExplorerListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "IoCExplorerListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IoCExplorerListResponse"
       ) as IoCExplorerListResponse;
       return body;
     }
@@ -21695,16 +20054,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21719,14 +20075,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IoCExplorerListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "IoCExplorerListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as IoCExplorerListResponse;
       return body;
     }
@@ -21753,30 +20104,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GetMultipleRulesetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "GetMultipleRulesetsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetMultipleRulesetsResponse"
       ) as GetMultipleRulesetsResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21791,14 +20133,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetMultipleRulesetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "GetMultipleRulesetsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as GetMultipleRulesetsResponse;
       return body;
     }
@@ -21826,14 +20163,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SampleLogGenerationSubscriptionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SampleLogGenerationSubscriptionsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SampleLogGenerationSubscriptionsResponse"
         ) as SampleLogGenerationSubscriptionsResponse;
       return body;
     }
@@ -21844,16 +20175,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21869,14 +20197,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SampleLogGenerationSubscriptionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SampleLogGenerationSubscriptionsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SampleLogGenerationSubscriptionsResponse;
       return body;
     }
@@ -21903,14 +20226,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ScannedAssetsMetadata = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ScannedAssetsMetadata",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ScannedAssetsMetadata"
       ) as ScannedAssetsMetadata;
       return body;
     }
@@ -21921,16 +20238,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21947,16 +20261,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -21971,14 +20282,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ScannedAssetsMetadata = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ScannedAssetsMetadata",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ScannedAssetsMetadata;
       return body;
     }
@@ -22005,30 +20311,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SecurityFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SecurityFiltersResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityFiltersResponse"
       ) as SecurityFiltersResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22043,14 +20340,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SecurityFiltersResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SecurityFiltersResponse;
       return body;
     }
@@ -22077,30 +20369,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SecurityFilterVersionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SecurityFilterVersionsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityFilterVersionsResponse"
       ) as SecurityFilterVersionsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22115,14 +20398,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityFilterVersionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SecurityFilterVersionsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SecurityFilterVersionsResponse;
       return body;
     }
@@ -22149,14 +20427,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListSecurityFindingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ListSecurityFindingsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListSecurityFindingsResponse"
       ) as ListSecurityFindingsResponse;
       return body;
     }
@@ -22167,16 +20439,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22191,14 +20460,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListSecurityFindingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ListSecurityFindingsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ListSecurityFindingsResponse;
       return body;
     }
@@ -22225,30 +20489,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DefaultInboxRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DefaultInboxRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DefaultInboxRulesResponse"
       ) as DefaultInboxRulesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22263,14 +20518,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DefaultInboxRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DefaultInboxRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DefaultInboxRulesResponse;
       return body;
     }
@@ -22297,30 +20547,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DueDateRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DueDateRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRulesResponse"
       ) as DueDateRulesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22335,14 +20576,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DueDateRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DueDateRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DueDateRulesResponse;
       return body;
     }
@@ -22369,30 +20605,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: InboxRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "InboxRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRulesResponse"
       ) as InboxRulesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22407,14 +20634,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: InboxRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "InboxRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as InboxRulesResponse;
       return body;
     }
@@ -22441,30 +20663,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: MuteRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "MuteRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRulesResponse"
       ) as MuteRulesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22479,14 +20692,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MuteRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "MuteRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as MuteRulesResponse;
       return body;
     }
@@ -22513,14 +20721,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SeverityModifierRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SeverityModifierRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeverityModifierRulesResponse"
       ) as SeverityModifierRulesResponse;
       return body;
     }
@@ -22531,16 +20733,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22555,14 +20754,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SeverityModifierRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SeverityModifierRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SeverityModifierRulesResponse;
       return body;
     }
@@ -22589,30 +20783,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TicketCreationRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "TicketCreationRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TicketCreationRulesResponse"
       ) as TicketCreationRulesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22627,14 +20812,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TicketCreationRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "TicketCreationRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as TicketCreationRulesResponse;
       return body;
     }
@@ -22662,14 +20842,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringBatchMigrationResourcesListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringBatchMigrationResourcesListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringBatchMigrationResourcesListResponse"
         ) as SecurityMonitoringBatchMigrationResourcesListResponse;
       return body;
     }
@@ -22681,16 +20855,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22707,16 +20878,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22732,14 +20900,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringBatchMigrationResourcesListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringBatchMigrationResourcesListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringBatchMigrationResourcesListResponse;
       return body;
     }
@@ -22767,14 +20930,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringBatchMigrationsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringBatchMigrationsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringBatchMigrationsListResponse"
         ) as SecurityMonitoringBatchMigrationsListResponse;
       return body;
     }
@@ -22785,16 +20942,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22811,16 +20965,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22836,14 +20987,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringBatchMigrationsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringBatchMigrationsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringBatchMigrationsListResponse;
       return body;
     }
@@ -22871,30 +21017,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringCriticalAssetsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringCriticalAssetsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetsResponse"
         ) as SecurityMonitoringCriticalAssetsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22910,14 +21047,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringCriticalAssetsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringCriticalAssetsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringCriticalAssetsResponse;
       return body;
     }
@@ -22945,30 +21077,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringDatasetsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringDatasetsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringDatasetsListResponse"
         ) as SecurityMonitoringDatasetsListResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -22985,16 +21108,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23010,14 +21130,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringDatasetsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringDatasetsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringDatasetsListResponse;
       return body;
     }
@@ -23045,14 +21160,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsListResponse"
         ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
@@ -23064,16 +21173,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23089,14 +21195,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
@@ -23124,30 +21225,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringIntegrationConfigsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringIntegrationConfigsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigsResponse"
         ) as SecurityMonitoringIntegrationConfigsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23163,14 +21255,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringIntegrationConfigsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringIntegrationConfigsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringIntegrationConfigsResponse;
       return body;
     }
@@ -23198,30 +21285,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringListRulesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringListRulesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringListRulesResponse"
         ) as SecurityMonitoringListRulesResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23237,14 +21315,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringListRulesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringListRulesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringListRulesResponse;
       return body;
     }
@@ -23272,14 +21345,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsListResponse"
         ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
@@ -23290,16 +21357,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23315,14 +21379,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
@@ -23350,30 +21409,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringPaginatedSuppressionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringPaginatedSuppressionsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringPaginatedSuppressionsResponse"
         ) as SecurityMonitoringPaginatedSuppressionsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23389,14 +21439,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringPaginatedSuppressionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringPaginatedSuppressionsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringPaginatedSuppressionsResponse;
       return body;
     }
@@ -23423,30 +21468,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SastRulesetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SastRulesetsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SastRulesetsResponse"
       ) as SastRulesetsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23463,16 +21499,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23487,14 +21520,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SastRulesetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SastRulesetsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SastRulesetsResponse;
       return body;
     }
@@ -23521,14 +21549,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListVulnerabilitiesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ListVulnerabilitiesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListVulnerabilitiesResponse"
       ) as ListVulnerabilitiesResponse;
       return body;
     }
@@ -23539,16 +21561,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23565,16 +21584,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23589,14 +21605,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListVulnerabilitiesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ListVulnerabilitiesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ListVulnerabilitiesResponse;
       return body;
     }
@@ -23623,14 +21634,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListVulnerableAssetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ListVulnerableAssetsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListVulnerableAssetsResponse"
       ) as ListVulnerableAssetsResponse;
       return body;
     }
@@ -23641,16 +21646,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23667,16 +21669,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23691,14 +21690,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListVulnerableAssetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ListVulnerableAssetsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ListVulnerableAssetsResponse;
       return body;
     }
@@ -23725,14 +21719,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 202) {
       const body: MuteFindingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "MuteFindingsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteFindingsResponse"
       ) as MuteFindingsResponse;
       return body;
     }
@@ -23744,16 +21732,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23767,16 +21752,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23794,14 +21776,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MuteFindingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "MuteFindingsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as MuteFindingsResponse;
       return body;
     }
@@ -23828,14 +21805,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "NotificationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse"
       ) as NotificationRuleResponse;
       return body;
     }
@@ -23847,16 +21818,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23870,16 +21838,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23897,14 +21862,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "NotificationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as NotificationRuleResponse;
       return body;
     }
@@ -23931,14 +21891,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "NotificationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse"
       ) as NotificationRuleResponse;
       return body;
     }
@@ -23950,16 +21904,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -23973,16 +21924,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24000,14 +21948,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "NotificationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as NotificationRuleResponse;
       return body;
     }
@@ -24035,14 +21978,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringBatchMigrationPublishResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringBatchMigrationPublishResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringBatchMigrationPublishResponse"
         ) as SecurityMonitoringBatchMigrationPublishResponse;
       return body;
     }
@@ -24055,16 +21992,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24081,16 +22015,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24106,14 +22037,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringBatchMigrationPublishResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringBatchMigrationPublishResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringBatchMigrationPublishResponse;
       return body;
     }
@@ -24140,30 +22066,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DueDateRuleReorderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DueDateRuleReorderResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRuleReorderResponse"
       ) as DueDateRuleReorderResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24180,16 +22097,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24204,14 +22118,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DueDateRuleReorderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DueDateRuleReorderResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DueDateRuleReorderResponse;
       return body;
     }
@@ -24238,30 +22147,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: InboxRuleReorderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "InboxRuleReorderResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleReorderResponse"
       ) as InboxRuleReorderResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24278,16 +22178,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24302,14 +22199,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: InboxRuleReorderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "InboxRuleReorderResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as InboxRuleReorderResponse;
       return body;
     }
@@ -24336,30 +22228,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: MuteRuleReorderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "MuteRuleReorderResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleReorderResponse"
       ) as MuteRuleReorderResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24376,16 +22259,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24400,14 +22280,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MuteRuleReorderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "MuteRuleReorderResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as MuteRuleReorderResponse;
       return body;
     }
@@ -24435,30 +22310,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SeverityModifierRuleReorderResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SeverityModifierRuleReorderResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SeverityModifierRuleReorderResponse"
         ) as SeverityModifierRuleReorderResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24475,16 +22341,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24500,14 +22363,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SeverityModifierRuleReorderResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SeverityModifierRuleReorderResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SeverityModifierRuleReorderResponse;
       return body;
     }
@@ -24535,30 +22393,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: TicketCreationRuleReorderResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "TicketCreationRuleReorderResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "TicketCreationRuleReorderResponse"
         ) as TicketCreationRuleReorderResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24575,16 +22424,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24600,14 +22446,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TicketCreationRuleReorderResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "TicketCreationRuleReorderResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as TicketCreationRuleReorderResponse;
       return body;
     }
@@ -24634,14 +22475,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SecurityMonitoringRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityMonitoringRuleResponse"
       ) as SecurityMonitoringRuleResponse;
       return body;
     }
@@ -24654,16 +22489,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24678,14 +22510,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SecurityMonitoringRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SecurityMonitoringRuleResponse;
       return body;
     }
@@ -24712,14 +22539,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: JobCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "JobCreateResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "JobCreateResponse"
       ) as JobCreateResponse;
       return body;
     }
@@ -24732,16 +22553,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24756,14 +22574,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: JobCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "JobCreateResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as JobCreateResponse;
       return body;
     }
@@ -24790,14 +22603,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListSecurityFindingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ListSecurityFindingsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListSecurityFindingsResponse"
       ) as ListSecurityFindingsResponse;
       return body;
     }
@@ -24808,16 +22615,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24832,14 +22636,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListSecurityFindingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ListSecurityFindingsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ListSecurityFindingsResponse;
       return body;
     }
@@ -24867,14 +22666,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsListResponse"
         ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
@@ -24886,16 +22679,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24911,14 +22701,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
@@ -24946,14 +22731,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSignalsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSignalsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsListResponse"
         ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
@@ -24964,16 +22743,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -24989,14 +22765,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSignalsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSignalsListResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
@@ -25024,30 +22795,21 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: NotificationRulePreviewResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "NotificationRulePreviewResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "NotificationRulePreviewResponse"
         ) as NotificationRulePreviewResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25064,16 +22826,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25089,14 +22848,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotificationRulePreviewResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "NotificationRulePreviewResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as NotificationRulePreviewResponse;
       return body;
     }
@@ -25134,16 +22888,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25160,16 +22911,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25209,14 +22957,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 202) {
       const body: SecurityMonitoringRuleProposalStartResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringRuleProposalStartResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleProposalStartResponse"
         ) as SecurityMonitoringRuleProposalStartResponse;
       return body;
     }
@@ -25227,16 +22969,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25253,16 +22992,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25278,14 +23014,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringRuleProposalStartResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringRuleProposalStartResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringRuleProposalStartResponse;
       return body;
     }
@@ -25313,14 +23044,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringRuleTestResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringRuleTestResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleTestResponse"
         ) as SecurityMonitoringRuleTestResponse;
       return body;
     }
@@ -25333,16 +23058,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25358,14 +23080,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringRuleTestResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringRuleTestResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringRuleTestResponse;
       return body;
     }
@@ -25393,14 +23110,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringRuleTestResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringRuleTestResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleTestResponse"
         ) as SecurityMonitoringRuleTestResponse;
       return body;
     }
@@ -25413,16 +23124,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25438,14 +23146,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringRuleTestResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringRuleTestResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringRuleTestResponse;
       return body;
     }
@@ -25472,14 +23175,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: UpdateCustomFrameworkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "UpdateCustomFrameworkResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UpdateCustomFrameworkResponse"
       ) as UpdateCustomFrameworkResponse;
       return body;
     }
@@ -25490,16 +23187,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25514,14 +23208,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdateCustomFrameworkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "UpdateCustomFrameworkResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as UpdateCustomFrameworkResponse;
       return body;
     }
@@ -25548,14 +23237,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 202) {
       const body: AssigneeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "AssigneeResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AssigneeResponse"
       ) as AssigneeResponse;
       return body;
     }
@@ -25566,16 +23249,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25590,14 +23270,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AssigneeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "AssigneeResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as AssigneeResponse;
       return body;
     }
@@ -25624,14 +23299,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 202) {
       const body: SeverityOverrideResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SeverityOverrideResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeverityOverrideResponse"
       ) as SeverityOverrideResponse;
       return body;
     }
@@ -25642,16 +23311,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25672,16 +23338,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25696,14 +23359,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SeverityOverrideResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SeverityOverrideResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SeverityOverrideResponse;
       return body;
     }
@@ -25731,14 +23389,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: UpdateResourceEvaluationFiltersResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "UpdateResourceEvaluationFiltersResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UpdateResourceEvaluationFiltersResponse"
         ) as UpdateResourceEvaluationFiltersResponse;
       return body;
     }
@@ -25749,16 +23401,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25774,14 +23423,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdateResourceEvaluationFiltersResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "UpdateResourceEvaluationFiltersResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as UpdateResourceEvaluationFiltersResponse;
       return body;
     }
@@ -25808,14 +23452,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SecurityFilterResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityFilterResponse"
       ) as SecurityFilterResponse;
       return body;
     }
@@ -25828,16 +23466,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25852,14 +23487,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SecurityFilterResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SecurityFilterResponse;
       return body;
     }
@@ -25886,30 +23516,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DueDateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DueDateRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRuleResponse"
       ) as DueDateRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25930,16 +23551,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -25954,14 +23572,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DueDateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DueDateRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DueDateRuleResponse;
       return body;
     }
@@ -25988,30 +23601,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: InboxRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "InboxRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse"
       ) as InboxRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26032,16 +23636,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26056,14 +23657,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: InboxRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "InboxRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as InboxRuleResponse;
       return body;
     }
@@ -26090,30 +23686,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: MuteRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "MuteRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse"
       ) as MuteRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26134,16 +23721,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26158,14 +23742,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MuteRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "MuteRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as MuteRuleResponse;
       return body;
     }
@@ -26192,30 +23771,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SeverityModifierRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SeverityModifierRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeverityModifierRuleResponse"
       ) as SeverityModifierRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26236,16 +23806,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26260,14 +23827,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SeverityModifierRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SeverityModifierRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SeverityModifierRuleResponse;
       return body;
     }
@@ -26294,30 +23856,21 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TicketCreationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "TicketCreationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TicketCreationRuleResponse"
       ) as TicketCreationRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26338,16 +23891,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26362,14 +23912,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TicketCreationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "TicketCreationRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as TicketCreationRuleResponse;
       return body;
     }
@@ -26397,14 +23942,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringBatchMigrationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringBatchMigrationResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringBatchMigrationResponse"
         ) as SecurityMonitoringBatchMigrationResponse;
       return body;
     }
@@ -26416,16 +23955,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26442,16 +23978,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26467,14 +24000,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringBatchMigrationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringBatchMigrationResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringBatchMigrationResponse;
       return body;
     }
@@ -26502,14 +24030,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringBatchMigrationResourceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringBatchMigrationResourceResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringBatchMigrationResourceResponse"
         ) as SecurityMonitoringBatchMigrationResourceResponse;
       return body;
     }
@@ -26522,16 +24044,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26548,16 +24067,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26573,14 +24089,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringBatchMigrationResourceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringBatchMigrationResourceResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringBatchMigrationResourceResponse;
       return body;
     }
@@ -26608,14 +24119,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringCriticalAssetResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringCriticalAssetResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetResponse"
         ) as SecurityMonitoringCriticalAssetResponse;
       return body;
     }
@@ -26628,16 +24133,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26653,14 +24155,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringCriticalAssetResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringCriticalAssetResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringCriticalAssetResponse;
       return body;
     }
@@ -26696,16 +24193,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26722,16 +24216,13 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26771,14 +24262,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringIntegrationConfigResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse"
         ) as SecurityMonitoringIntegrationConfigResponse;
       return body;
     }
@@ -26790,16 +24275,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26815,14 +24297,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringIntegrationConfigResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringIntegrationConfigResponse;
       return body;
     }
@@ -26849,14 +24326,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SecurityMonitoringRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityMonitoringRuleResponse"
       ) as SecurityMonitoringRuleResponse;
       return body;
     }
@@ -26869,16 +24340,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26893,14 +24361,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SecurityMonitoringRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SecurityMonitoringRuleResponse;
       return body;
     }
@@ -26928,14 +24391,8 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityMonitoringSuppressionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityMonitoringSuppressionResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionResponse"
         ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
@@ -26948,16 +24405,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -26973,14 +24427,9 @@ export class SecurityMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityMonitoringSuppressionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityMonitoringSuppressionResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
@@ -27016,16 +24465,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -27072,16 +24518,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -27128,16 +24571,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -27184,16 +24624,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -27902,9 +25339,9 @@ export interface SecurityMonitoringApiGetEntityContextRequest {
   asOf?: string;
   /**
    * The maximum number of entities to return.
-   * @type Int64Input
+   * @type number
    */
-  limit?: Int64Input;
+  limit?: number;
   /**
    * An opaque token used to fetch the next page of results, as returned in `meta.page.next_token` of a previous response.
    * @type string
@@ -27938,9 +25375,9 @@ export interface SecurityMonitoringApiGetEntityContextRecentlyUpdatedRequest {
   to?: string;
   /**
    * The number of entities to return. Must be between 1 and 100.
-   * @type Int64Input
+   * @type number
    */
-  limit?: Int64Input;
+  limit?: number;
   /**
    * Which revisions to return for each entity: `latest` returns only the latest revision of each entity as of `to`,
    * and `all` returns every revision in the requested time range.
@@ -27957,9 +25394,9 @@ export interface SecurityMonitoringApiGetFindingRequest {
   findingId: string;
   /**
    * Return the finding for a given snapshot of time (Unix ms).
-   * @type Int64Input
+   * @type number
    */
-  snapshotTimestamp?: Int64Input;
+  snapshotTimestamp?: number;
 }
 
 export interface SecurityMonitoringApiGetHistoricalJobRequest {
@@ -28045,14 +25482,14 @@ export interface SecurityMonitoringApiGetRuleVersionHistoryRequest {
   ruleId: string;
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * Specific page number to return.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
 }
 
 export interface SecurityMonitoringApiGetSBOMRequest {
@@ -28164,9 +25601,9 @@ export interface SecurityMonitoringApiGetSecurityMonitoringDatasetByVersionReque
   datasetId: string;
   /**
    * The version number of the dataset to retrieve.
-   * @type Int64Input
+   * @type number
    */
-  version: Int64Input;
+  version: number;
 }
 
 export interface SecurityMonitoringApiGetSecurityMonitoringDatasetVersionHistoryRequest {
@@ -28177,14 +25614,14 @@ export interface SecurityMonitoringApiGetSecurityMonitoringDatasetVersionHistory
   datasetId: string;
   /**
    * Size for a given page. The maximum allowed value is 100.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * Specific page number to return.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
 }
 
 export interface SecurityMonitoringApiGetSecurityMonitoringHistsignalRequest {
@@ -28400,14 +25837,14 @@ export interface SecurityMonitoringApiGetSuppressionVersionHistoryRequest {
   suppressionId: string;
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * Specific page number to return.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
 }
 
 export interface SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest {
@@ -28433,9 +25870,9 @@ export interface SecurityMonitoringApiListAssetsSBOMsRequest {
   pageToken?: string;
   /**
    * The page number to be retrieved. It should be equal to or greater than 1.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
   /**
    * The type of the assets for the SBOM request. Required for initial requests (when no `page[token]` is provided). Infrastructure types (`Host`, `HostImage`, `Image`, `ServerlessFunction`) and code types (`Repository`, `Service`) cannot be mixed in the same request.
    * @type AssetType
@@ -28471,14 +25908,14 @@ export interface SecurityMonitoringApiListAssetsSBOMsRequest {
 export interface SecurityMonitoringApiListFindingsRequest {
   /**
    * Limit the number of findings returned. Must be <= 1000.
-   * @type Int64Input
+   * @type number
    */
-  pageLimit?: Int64Input;
+  pageLimit?: number;
   /**
    * Return findings for a given snapshot of time (Unix ms).
-   * @type Int64Input
+   * @type number
    */
-  snapshotTimestamp?: Int64Input;
+  snapshotTimestamp?: number;
   /**
    * Return the next page of findings pointed to by the cursor.
    * @type string
@@ -28549,14 +25986,14 @@ export interface SecurityMonitoringApiListFindingsRequest {
 export interface SecurityMonitoringApiListHistoricalJobsRequest {
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * Specific page number to return.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
   /**
    * The order of the jobs in results.
    * @type string
@@ -28650,9 +26087,9 @@ export interface SecurityMonitoringApiListScannedAssetsMetadataRequest {
   pageToken?: string;
   /**
    * The page number to be retrieved. It should be equal to or greater than 1.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
   /**
    * The type of the scanned asset.
    * @type CloudAssetType
@@ -28688,9 +26125,9 @@ export interface SecurityMonitoringApiListSecurityFindingsRequest {
   pageCursor?: string;
   /**
    * The maximum number of findings in the response.
-   * @type Int64Input
+   * @type number
    */
-  pageLimit?: Int64Input;
+  pageLimit?: number;
   /**
    * Sorts by @detection_changed_at.
    * @type SecurityFindingsSort
@@ -28701,66 +26138,66 @@ export interface SecurityMonitoringApiListSecurityFindingsRequest {
 export interface SecurityMonitoringApiListSecurityFindingsAutomationDueDateRulesRequest {
   /**
    * The number of rules per page. Maximum is 1000.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * The page number to return.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
 }
 
 export interface SecurityMonitoringApiListSecurityFindingsAutomationInboxRulesRequest {
   /**
    * The number of rules per page. Maximum is 1000.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * The page number to return.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
 }
 
 export interface SecurityMonitoringApiListSecurityFindingsAutomationMuteRulesRequest {
   /**
    * The number of rules per page. Maximum is 1000.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * The page number to return.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
 }
 
 export interface SecurityMonitoringApiListSecurityFindingsAutomationSeverityModifierRulesRequest {
   /**
    * The number of rules per page. Maximum is 1000.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * The page number to return.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
 }
 
 export interface SecurityMonitoringApiListSecurityFindingsAutomationTicketCreationRulesRequest {
   /**
    * The number of rules per page. Maximum is 1000.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * The page number to return.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
 }
 
 export interface SecurityMonitoringApiListSecurityMonitoringBatchMigrationResourcesRequest {
@@ -28771,14 +26208,14 @@ export interface SecurityMonitoringApiListSecurityMonitoringBatchMigrationResour
   batchId: string;
   /**
    * Size for a given page. The maximum allowed value is 500.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * Specific page number to return, starting at 1.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
   /**
    * A search query in Datadog search syntax to filter resources, such as
    * `status:completed`. Filterable attributes are `id`, `name`, `description`, `inputType`,
@@ -28791,14 +26228,14 @@ export interface SecurityMonitoringApiListSecurityMonitoringBatchMigrationResour
 export interface SecurityMonitoringApiListSecurityMonitoringBatchMigrationsRequest {
   /**
    * Size for a given page. The maximum allowed value is 500.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * Specific page number to return, starting at 1.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
   /**
    * A search query in Datadog search syntax to filter batch migrations, such as
    * `status:completed`. Filterable attributes are `id`, `name`, `description`, `status`,
@@ -28811,14 +26248,14 @@ export interface SecurityMonitoringApiListSecurityMonitoringBatchMigrationsReque
 export interface SecurityMonitoringApiListSecurityMonitoringDatasetsRequest {
   /**
    * Size for a given page. The maximum allowed value is 100.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * Specific page number to return.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
   /**
    * Attribute used to sort datasets. Prefix with `-` to sort in descending order.
    * @type string
@@ -28875,14 +26312,14 @@ export interface SecurityMonitoringApiListSecurityMonitoringIntegrationConfigsRe
 export interface SecurityMonitoringApiListSecurityMonitoringRulesRequest {
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * Specific page number to return.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
   /**
    * A search query to filter security rules. You can filter by attributes such as `type`, `source`, `tags`.
    * @type string
@@ -28941,14 +26378,14 @@ export interface SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest 
   sort?: SecurityMonitoringSuppressionSort;
   /**
    * Size for a given page. Use `-1` to return all items.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * Specific page number to return.
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
 }
 
 export interface SecurityMonitoringApiListVulnerabilitiesRequest {
@@ -28959,9 +26396,9 @@ export interface SecurityMonitoringApiListVulnerabilitiesRequest {
   pageToken?: string;
   /**
    * The page number to be retrieved. It should be equal or greater than `1`
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
   /**
    * Filter by vulnerability type.
    * @type VulnerabilityType
@@ -29177,9 +26614,9 @@ export interface SecurityMonitoringApiListVulnerableAssetsRequest {
   pageToken?: string;
   /**
    * The page number to be retrieved. It should be equal or greater than `1`
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
   /**
    * Filter by name. This field supports the usage of wildcards (*).
    * @type string
@@ -29343,9 +26780,9 @@ export interface SecurityMonitoringApiRestoreSecurityMonitoringRuleRequest {
   ruleId: string;
   /**
    * The historical version number of the rule.
-   * @type Int64Input
+   * @type number
    */
-  version: Int64Input;
+  version: number;
 }
 
 export interface SecurityMonitoringApiRunHistoricalJobRequest {
@@ -29664,8 +27101,7 @@ export class SecurityMonitoringApi {
     this.requestFactory =
       requestFactory || new SecurityMonitoringApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new SecurityMonitoringApiResponseProcessor(configuration);
+      responseProcessor || new SecurityMonitoringApiResponseProcessor();
   }
 
   /**
@@ -32728,7 +30164,7 @@ export class SecurityMonitoringApi {
   ): AsyncGenerator<Finding> {
     let pageSize = 100;
     if (param.pageLimit !== undefined) {
-      pageSize = Number(param.pageLimit);
+      pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
@@ -33043,7 +30479,7 @@ export class SecurityMonitoringApi {
   ): AsyncGenerator<SecurityFindingsData> {
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
-      pageSize = Number(param.pageLimit);
+      pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
@@ -33466,7 +30902,7 @@ export class SecurityMonitoringApi {
   ): AsyncGenerator<SecurityMonitoringSignal> {
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
-      pageSize = Number(param.pageLimit);
+      pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
@@ -34090,7 +31526,7 @@ export class SecurityMonitoringApi {
     if (param.body.data.attributes.page.limit === undefined) {
       param.body.data.attributes.page.limit = pageSize;
     } else {
-      pageSize = Number(param.body.data.attributes.page.limit);
+      pageSize = param.body.data.attributes.page.limit;
     }
     while (true) {
       const requestContext = await this.requestFactory.searchSecurityFindings(
@@ -34194,7 +31630,7 @@ export class SecurityMonitoringApi {
       param.body.page = new SecurityMonitoringSignalListRequestPage();
     }
     if (param.body.page.limit !== undefined) {
-      pageSize = Number(param.body.page.limit);
+      pageSize = param.body.page.limit;
     }
     param.body.page.limit = pageSize;
     while (true) {

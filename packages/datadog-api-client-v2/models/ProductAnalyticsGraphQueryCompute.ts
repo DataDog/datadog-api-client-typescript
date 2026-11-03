@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsJourneyTarget } from "./ProductAnalyticsJourneyTarget";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Defines the metric computed over the journey.
@@ -19,7 +19,7 @@ export class ProductAnalyticsGraphQueryCompute {
   /**
    * Time bucket interval in milliseconds, used by timeseries queries.
    */
-  "interval"?: Int64;
+  "interval"?: number;
   /**
    * Metric to aggregate on. Use a facet path such as `@view.time_spent`, or one of the
    * journey metrics `__dd.conversion`, `__dd.conversion_rate`, `__dd.time_to_convert`,

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Team attributes.
@@ -17,7 +17,7 @@ export class AuthNMappingTeamAttributes {
   /**
    * Banner selection for the team
    */
-  "banner"?: Int64;
+  "banner"?: number;
   /**
    * The team's identifier
    */

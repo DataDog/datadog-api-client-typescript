@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Details of the CI pipeline.
@@ -21,7 +21,7 @@ export class SyntheticsTestResultCIPipeline {
   /**
    * Pipeline number.
    */
-  "number"?: Int64;
+  "number"?: number;
   /**
    * Pipeline URL.
    */

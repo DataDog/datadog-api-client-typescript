@@ -6,7 +6,7 @@
 import { MonitorUserTemplateTemplateVariablesItems } from "./MonitorUserTemplateTemplateVariablesItems";
 import { SimpleMonitorUserTemplate } from "./SimpleMonitorUserTemplate";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A monitor user template object.
@@ -43,7 +43,7 @@ export class MonitorUserTemplate {
   /**
    * The version of the monitor user template.
    */
-  "version"?: Int64;
+  "version"?: number;
   /**
    * All versions of the monitor user template.
    */
@@ -96,7 +96,6 @@ export class MonitorUserTemplate {
     version: {
       baseName: "version",
       type: "number",
-      format: "int64",
     },
     versions: {
       baseName: "versions",

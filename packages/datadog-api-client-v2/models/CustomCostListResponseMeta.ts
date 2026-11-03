@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Meta for the response from the List Custom Costs endpoints.
@@ -13,7 +13,7 @@ export class CustomCostListResponseMeta {
   /**
    * Number of Custom Costs files per status.
    */
-  "countByStatus"?: { [key: string]: Int64 };
+  "countByStatus"?: { [key: string]: number };
   /**
    * List of available providers.
    */
@@ -21,7 +21,7 @@ export class CustomCostListResponseMeta {
   /**
    * Number of Custom Costs files returned by the List Custom Costs endpoint
    */
-  "totalFilteredCount"?: Int64;
+  "totalFilteredCount"?: number;
   /**
    * Version of Custom Costs file
    */
@@ -46,7 +46,6 @@ export class CustomCostListResponseMeta {
     countByStatus: {
       baseName: "count_by_status",
       type: "{ [key: string]: number; }",
-      format: "int64",
     },
     providers: {
       baseName: "providers",

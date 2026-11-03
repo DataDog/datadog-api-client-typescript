@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The metadata related to this request.
@@ -13,7 +13,7 @@ export class Metadata {
   /**
    * Number of entities included in the response.
    */
-  "count": Int64;
+  "count": number;
   /**
    * The token that identifies the request.
    */
@@ -21,7 +21,7 @@ export class Metadata {
   /**
    * Total number of entities across all pages.
    */
-  "total": Int64;
+  "total": number;
 
   /**
    * A container for additional, undeclared properties.

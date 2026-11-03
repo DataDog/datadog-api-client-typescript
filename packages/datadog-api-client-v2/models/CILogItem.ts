@@ -5,7 +5,7 @@
  */
 import { CILogAttributeValue } from "./CILogAttributeValue";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A CI job log line.
@@ -22,7 +22,7 @@ export class CILogItem {
   /**
    * The line number in the job log. Use 0 or 1 for the first line.
    */
-  "lineNumber"?: Int64;
+  "lineNumber"?: number;
   /**
    * The non-empty log line message.
    */

@@ -6,7 +6,7 @@
 import { QueryFormula } from "./QueryFormula";
 import { TimeseriesQuery } from "./TimeseriesQuery";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The object describing a timeseries formula request.
@@ -19,14 +19,14 @@ export class TimeseriesFormulaRequestAttributes {
   /**
    * Start date (inclusive) of the query in milliseconds since the Unix epoch.
    */
-  "from": Int64;
+  "from": number;
   /**
    * A time interval in milliseconds.
    * May be overridden by a larger interval if the query would result in
    * too many points for the specified timeframe.
    * Defaults to a reasonable interval for the given timeframe.
    */
-  "interval"?: Int64;
+  "interval"?: number;
   /**
    * List of queries to be run and used as inputs to the formulas.
    */
@@ -34,7 +34,7 @@ export class TimeseriesFormulaRequestAttributes {
   /**
    * End date (exclusive) of the query in milliseconds since the Unix epoch.
    */
-  "to": Int64;
+  "to": number;
 
   /**
    * A container for additional, undeclared properties.

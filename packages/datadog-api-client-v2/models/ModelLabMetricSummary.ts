@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Summary statistics for a metric recorded during a Model Lab run.
@@ -13,11 +13,11 @@ export class ModelLabMetricSummary {
   /**
    * The total number of recorded values.
    */
-  "count": Int64;
+  "count": number;
   /**
    * The first step at which the metric was recorded.
    */
-  "firstStep"?: Int64;
+  "firstStep"?: number;
   /**
    * The metric name.
    */
@@ -25,7 +25,7 @@ export class ModelLabMetricSummary {
   /**
    * The last step at which the metric was recorded.
    */
-  "lastStep"?: Int64;
+  "lastStep"?: number;
   /**
    * The most recently recorded value.
    */

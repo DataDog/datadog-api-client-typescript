@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Result counts and offsets for a page of results.
@@ -13,31 +13,31 @@ export class ExperimentsOffsetMetaPage {
   /**
    * Offset of the first page of results.
    */
-  "firstOffset"?: Int64;
+  "firstOffset"?: number;
   /**
    * Offset of the last page of results.
    */
-  "lastOffset"?: Int64;
+  "lastOffset"?: number;
   /**
    * Maximum number of results returned in one page.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Offset of the next page of results.
    */
-  "nextOffset"?: Int64;
+  "nextOffset"?: number;
   /**
    * Number of results skipped before this page.
    */
-  "offset"?: Int64;
+  "offset"?: number;
   /**
    * Offset of the previous page of results.
    */
-  "prevOffset"?: Int64;
+  "prevOffset"?: number;
   /**
    * Total number of matching results across all pages.
    */
-  "total"?: Int64;
+  "total"?: number;
   /**
    * Pagination method used for this result set.
    */

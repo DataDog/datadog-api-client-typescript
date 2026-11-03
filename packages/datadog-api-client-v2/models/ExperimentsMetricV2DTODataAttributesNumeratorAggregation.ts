@@ -7,7 +7,7 @@ import { ExperimentsMetricPropertyFilter } from "./ExperimentsMetricPropertyFilt
 import { ExperimentsMetricV2DTODataAttributesPercentileAggregationDatadogMetricMeasure } from "./ExperimentsMetricV2DTODataAttributesPercentileAggregationDatadogMetricMeasure";
 import { ExperimentsMetricV2DTODataAttributesPercentileAggregationWarehouseMetricMeasure } from "./ExperimentsMetricV2DTODataAttributesPercentileAggregationWarehouseMetricMeasure";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Source measure and aggregation settings for a metric value.
@@ -16,7 +16,7 @@ export class ExperimentsMetricV2DTODataAttributesNumeratorAggregation {
   /**
    * Stored aging threshold in days. The subject aging filter uses the aggregation window end and unit.
    */
-  "agingThresholdDays"?: Int64;
+  "agingThresholdDays"?: number;
   /**
    * Datadog source and query that supply values for the metric.
    */

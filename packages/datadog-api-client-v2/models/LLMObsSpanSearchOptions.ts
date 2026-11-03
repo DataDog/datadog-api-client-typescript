@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Additional options for a span search request.
@@ -17,7 +17,7 @@ export class LLMObsSpanSearchOptions {
   /**
    * Offset in seconds applied to both `from` and `to` timestamps.
    */
-  "timeOffset"?: Int64;
+  "timeOffset"?: number;
 
   /**
    * A container for additional, undeclared properties.

@@ -15,21 +15,20 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { GraphSnapshot } from "../models/GraphSnapshot";
 
 export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
   public async getGraphSnapshot(
-    start: Int64Input,
-    end: Int64Input,
+    start: number,
+    end: number,
     metricQuery?: string,
     eventQuery?: string,
     graphDef?: string,
     title?: string,
-    height?: Int64Input,
-    width?: Int64Input,
+    height?: number,
+    width?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -129,12 +128,6 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class SnapshotsApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -150,14 +143,8 @@ export class SnapshotsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GraphSnapshot = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "GraphSnapshot",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GraphSnapshot"
       ) as GraphSnapshot;
       return body;
     }
@@ -168,16 +155,13 @@ export class SnapshotsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -192,14 +176,9 @@ export class SnapshotsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GraphSnapshot = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "GraphSnapshot",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as GraphSnapshot;
       return body;
     }
@@ -215,14 +194,14 @@ export class SnapshotsApiResponseProcessor {
 export interface SnapshotsApiGetGraphSnapshotRequest {
   /**
    * The POSIX timestamp of the start of the query in seconds.
-   * @type Int64Input
+   * @type number
    */
-  start: Int64Input;
+  start: number;
   /**
    * The POSIX timestamp of the end of the query in seconds.
-   * @type Int64Input
+   * @type number
    */
-  end: Int64Input;
+  end: number;
   /**
    * The metric query.
    * @type string
@@ -247,14 +226,14 @@ export interface SnapshotsApiGetGraphSnapshotRequest {
   title?: string;
   /**
    * The height of the graph. If no height is specified, the graph's original height is used.
-   * @type Int64Input
+   * @type number
    */
-  height?: Int64Input;
+  height?: number;
   /**
    * The width of the graph. If no width is specified, the graph's original width is used.
-   * @type Int64Input
+   * @type number
    */
-  width?: Int64Input;
+  width?: number;
 }
 
 export class SnapshotsApi {
@@ -271,7 +250,7 @@ export class SnapshotsApi {
     this.requestFactory =
       requestFactory || new SnapshotsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new SnapshotsApiResponseProcessor(configuration);
+      responseProcessor || new SnapshotsApiResponseProcessor();
   }
 
   /**

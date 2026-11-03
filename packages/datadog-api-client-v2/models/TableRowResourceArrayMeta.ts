@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata about the rows requested, including which ones were not found.
@@ -13,7 +13,7 @@ export class TableRowResourceArrayMeta {
   /**
    * Number of requested rows that were found and returned in `data`.
    */
-  "foundCount": Int64;
+  "foundCount": number;
   /**
    * Row IDs from the request that do not exist in the reference table. Empty when every requested row was found.
    */
@@ -21,7 +21,7 @@ export class TableRowResourceArrayMeta {
   /**
    * Number of row IDs supplied in the `row_id` query parameter.
    */
-  "requestedCount": Int64;
+  "requestedCount": number;
 
   /**
    * A container for additional, undeclared properties.

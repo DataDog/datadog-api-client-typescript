@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsGroupBySort } from "./ProductAnalyticsGroupBySort";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A group-by rule for segmenting results by facet values.
@@ -18,7 +18,7 @@ export class ProductAnalyticsGroupBy {
   /**
    * Maximum number of groups to return.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Exclude results with missing facet values.
    */

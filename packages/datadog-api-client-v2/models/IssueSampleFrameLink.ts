@@ -5,7 +5,7 @@
  */
 import { IssueSampleGitFileLocation } from "./IssueSampleGitFileLocation";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Source code location of a stack frame.
@@ -18,7 +18,7 @@ export class IssueSampleFrameLink {
   /**
    * Index of the frame in the stack trace, starting at 0.
    */
-  "frameId": Int64;
+  "frameId": number;
 
   /**
    * A container for additional, undeclared properties.

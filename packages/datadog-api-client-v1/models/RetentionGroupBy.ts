@@ -6,7 +6,7 @@
 import { RetentionGroupBySort } from "./RetentionGroupBySort";
 import { RetentionGroupByTarget } from "./RetentionGroupByTarget";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Group by configuration for retention queries.
@@ -19,7 +19,7 @@ export class RetentionGroupBy {
   /**
    * Maximum number of groups.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Whether to exclude missing values.
    */

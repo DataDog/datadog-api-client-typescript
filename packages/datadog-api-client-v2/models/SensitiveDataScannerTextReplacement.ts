@@ -5,7 +5,7 @@
  */
 import { SensitiveDataScannerTextReplacementType } from "./SensitiveDataScannerTextReplacementType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing how the scanned event will be replaced.
@@ -15,7 +15,7 @@ export class SensitiveDataScannerTextReplacement {
    * Required if type == 'partial_replacement_from_beginning'
    * or 'partial_replacement_from_end'. It must be > 0.
    */
-  "numberOfChars"?: Int64;
+  "numberOfChars"?: number;
   /**
    * Required if type == 'replacement_string'.
    */

@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { OrgConnectionCreateRequest } from "../models/OrgConnectionCreateRequest";
@@ -57,8 +56,7 @@ export class OrgConnectionsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OrgConnectionCreateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -114,8 +112,8 @@ export class OrgConnectionsApiRequestFactory extends BaseAPIRequestFactory {
   public async listOrgConnections(
     sinkOrgId?: string,
     sourceOrgId?: string,
-    limit?: Int64Input,
-    offset?: Int64Input,
+    limit?: number,
+    offset?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -217,8 +215,7 @@ export class OrgConnectionsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OrgConnectionUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -234,12 +231,6 @@ export class OrgConnectionsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class OrgConnectionsApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -255,14 +246,8 @@ export class OrgConnectionsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: OrgConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "OrgConnectionResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OrgConnectionResponse"
       ) as OrgConnectionResponse;
       return body;
     }
@@ -276,16 +261,13 @@ export class OrgConnectionsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -300,14 +282,9 @@ export class OrgConnectionsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "OrgConnectionResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as OrgConnectionResponse;
       return body;
     }
@@ -342,16 +319,13 @@ export class OrgConnectionsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -390,14 +364,8 @@ export class OrgConnectionsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: OrgConnectionListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "OrgConnectionListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OrgConnectionListResponse"
       ) as OrgConnectionListResponse;
       return body;
     }
@@ -408,16 +376,13 @@ export class OrgConnectionsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -432,14 +397,9 @@ export class OrgConnectionsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgConnectionListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "OrgConnectionListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as OrgConnectionListResponse;
       return body;
     }
@@ -466,14 +426,8 @@ export class OrgConnectionsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: OrgConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "OrgConnectionResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OrgConnectionResponse"
       ) as OrgConnectionResponse;
       return body;
     }
@@ -486,16 +440,13 @@ export class OrgConnectionsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -510,14 +461,9 @@ export class OrgConnectionsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "OrgConnectionResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as OrgConnectionResponse;
       return body;
     }
@@ -558,14 +504,14 @@ export interface OrgConnectionsApiListOrgConnectionsRequest {
   sourceOrgId?: string;
   /**
    * The limit of number of entries you want to return. Default is 1000.
-   * @type Int64Input
+   * @type number
    */
-  limit?: Int64Input;
+  limit?: number;
   /**
    * The pagination offset which you want to query from. Default is 0.
-   * @type Int64Input
+   * @type number
    */
-  offset?: Int64Input;
+  offset?: number;
 }
 
 export interface OrgConnectionsApiUpdateOrgConnectionsRequest {
@@ -594,8 +540,7 @@ export class OrgConnectionsApi {
     this.requestFactory =
       requestFactory || new OrgConnectionsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new OrgConnectionsApiResponseProcessor(configuration);
+      responseProcessor || new OrgConnectionsApiResponseProcessor();
   }
 
   /**

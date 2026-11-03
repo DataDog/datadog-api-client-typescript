@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata for a list of tag indexing rules.
@@ -13,7 +13,7 @@ export class TagIndexingRulesResponseMeta {
   /**
    * Total number of tag indexing rules in the org.
    */
-  "total"?: Int64;
+  "total"?: number;
 
   /**
    * A container for additional, undeclared properties.

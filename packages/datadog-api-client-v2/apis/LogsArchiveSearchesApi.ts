@@ -107,8 +107,7 @@ export class LogsArchiveSearchesApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ArchiveSearchCreateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -252,8 +251,7 @@ export class LogsArchiveSearchesApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ArchiveSearchRehydrateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -269,12 +267,6 @@ export class LogsArchiveSearchesApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class LogsArchiveSearchesApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -290,14 +282,8 @@ export class LogsArchiveSearchesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ArchiveSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ArchiveSearchResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ArchiveSearchResponse"
       ) as ArchiveSearchResponse;
       return body;
     }
@@ -308,16 +294,13 @@ export class LogsArchiveSearchesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -334,16 +317,13 @@ export class LogsArchiveSearchesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -358,14 +338,9 @@ export class LogsArchiveSearchesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ArchiveSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ArchiveSearchResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ArchiveSearchResponse;
       return body;
     }
@@ -392,14 +367,8 @@ export class LogsArchiveSearchesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ArchiveSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ArchiveSearchResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ArchiveSearchResponse"
       ) as ArchiveSearchResponse;
       return body;
     }
@@ -410,16 +379,13 @@ export class LogsArchiveSearchesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -436,16 +402,13 @@ export class LogsArchiveSearchesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -460,14 +423,9 @@ export class LogsArchiveSearchesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ArchiveSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ArchiveSearchResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ArchiveSearchResponse;
       return body;
     }
@@ -494,14 +452,8 @@ export class LogsArchiveSearchesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ArchiveSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ArchiveSearchResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ArchiveSearchResponse"
       ) as ArchiveSearchResponse;
       return body;
     }
@@ -512,16 +464,13 @@ export class LogsArchiveSearchesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -538,16 +487,13 @@ export class LogsArchiveSearchesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -562,14 +508,9 @@ export class LogsArchiveSearchesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ArchiveSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ArchiveSearchResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ArchiveSearchResponse;
       return body;
     }
@@ -596,30 +537,21 @@ export class LogsArchiveSearchesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ArchiveSearchListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ArchiveSearchListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ArchiveSearchListResponse"
       ) as ArchiveSearchListResponse;
       return body;
     }
     if (response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -636,16 +568,13 @@ export class LogsArchiveSearchesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -660,14 +589,9 @@ export class LogsArchiveSearchesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ArchiveSearchListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ArchiveSearchListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ArchiveSearchListResponse;
       return body;
     }
@@ -694,14 +618,8 @@ export class LogsArchiveSearchesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ArchiveSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ArchiveSearchResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ArchiveSearchResponse"
       ) as ArchiveSearchResponse;
       return body;
     }
@@ -713,16 +631,13 @@ export class LogsArchiveSearchesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -739,16 +654,13 @@ export class LogsArchiveSearchesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -763,14 +675,9 @@ export class LogsArchiveSearchesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ArchiveSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ArchiveSearchResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ArchiveSearchResponse;
       return body;
     }
@@ -832,8 +739,7 @@ export class LogsArchiveSearchesApi {
     this.requestFactory =
       requestFactory || new LogsArchiveSearchesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new LogsArchiveSearchesApiResponseProcessor(configuration);
+      responseProcessor || new LogsArchiveSearchesApiResponseProcessor();
   }
 
   /**

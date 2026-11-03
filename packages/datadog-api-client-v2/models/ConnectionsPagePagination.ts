@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Page-based pagination metadata.
@@ -13,55 +13,55 @@ export class ConnectionsPagePagination {
   /**
    * The first page number.
    */
-  "firstNumber"?: Int64;
+  "firstNumber"?: number;
   /**
    * The first offset.
    */
-  "firstOffset"?: Int64;
+  "firstOffset"?: number;
   /**
    * The last page number.
    */
-  "lastNumber"?: Int64;
+  "lastNumber"?: number;
   /**
    * The last offset.
    */
-  "lastOffset"?: Int64;
+  "lastOffset"?: number;
   /**
    * The page limit, when offset pagination is used.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * The next page number.
    */
-  "nextNumber"?: Int64;
+  "nextNumber"?: number;
   /**
    * The next offset.
    */
-  "nextOffset"?: Int64;
+  "nextOffset"?: number;
   /**
    * The current page number.
    */
-  "number"?: Int64;
+  "number"?: number;
   /**
    * The current offset, when offset pagination is used.
    */
-  "offset"?: Int64;
+  "offset"?: number;
   /**
    * The previous page number.
    */
-  "prevNumber"?: Int64;
+  "prevNumber"?: number;
   /**
    * The previous offset.
    */
-  "prevOffset"?: Int64;
+  "prevOffset"?: number;
   /**
    * The page size.
    */
-  "size"?: Int64;
+  "size"?: number;
   /**
    * Total connections matching request.
    */
-  "total"?: Int64;
+  "total"?: number;
   /**
    * Pagination type.
    */

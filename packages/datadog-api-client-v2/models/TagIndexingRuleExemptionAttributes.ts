@@ -5,7 +5,7 @@
  */
 import { TagIndexingRuleExemptionVolumeStatus } from "./TagIndexingRuleExemptionVolumeStatus";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a tag indexing rule exemption.
@@ -24,7 +24,7 @@ export class TagIndexingRuleExemptionAttributes {
    * rule applies to the metric. A negative value indicates a reduction in indexed volume, a positive value
    * indicates an increase, and zero indicates no change. A `null` value indicates that the estimate is unavailable.
    */
-  "estimatedChangeInVolume"?: Int64;
+  "estimatedChangeInVolume"?: number;
   /**
    * Discriminates between an explicit exemption (`exemption`) and a pre-existing legacy tag configuration acting as an implicit exclusion (`legacy_tag_configuration`).
    */

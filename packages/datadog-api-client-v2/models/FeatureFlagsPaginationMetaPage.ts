@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata for feature flags list responses.
@@ -13,39 +13,39 @@ export class FeatureFlagsPaginationMetaPage {
   /**
    * Offset of the first page.
    */
-  "firstOffset"?: Int64;
+  "firstOffset"?: number;
   /**
    * Offset of the last page.
    */
-  "lastOffset"?: Int64;
+  "lastOffset"?: number;
   /**
    * Maximum number of flags returned on this page.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Offset of the next page, or null when there is no next page.
    */
-  "nextOffset"?: Int64;
+  "nextOffset"?: number;
   /**
    * Number of matching flags skipped before this page.
    */
-  "offset"?: Int64;
+  "offset"?: number;
   /**
    * Offset of the previous page, or null when there is no previous page.
    */
-  "prevOffset"?: Int64;
+  "prevOffset"?: number;
   /**
    * Total number of flags matching the filters, independent of the page size.
    */
-  "total"?: Int64;
+  "total"?: number;
   /**
    * Legacy count field. Use `total` for the number of matching flags.
    */
-  "totalCount"?: Int64;
+  "totalCount"?: number;
   /**
    * Legacy filtered count field. Use `total` for the number of matching flags.
    */
-  "totalFilteredCount"?: Int64;
+  "totalFilteredCount"?: number;
   /**
    * The pagination method. Always `offset_limit`.
    */

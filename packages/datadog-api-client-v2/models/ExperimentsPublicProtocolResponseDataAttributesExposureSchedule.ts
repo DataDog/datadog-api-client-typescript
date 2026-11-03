@@ -5,7 +5,7 @@
  */
 import { ExperimentsPublicProtocolResponseDataAttributesExposureScheduleRolloutStepsItems } from "./ExperimentsPublicProtocolResponseDataAttributesExposureScheduleRolloutStepsItems";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Schedule that controls traffic exposure for experiments created from the protocol.
@@ -26,7 +26,7 @@ export class ExperimentsPublicProtocolResponseDataAttributesExposureSchedule {
   /**
    * Interval between traffic selections, in milliseconds.
    */
-  "selectionIntervalMs"?: Int64;
+  "selectionIntervalMs"?: number;
   /**
    * Method used to increase traffic exposure over the schedule.
    */

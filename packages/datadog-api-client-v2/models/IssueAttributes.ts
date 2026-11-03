@@ -8,7 +8,7 @@ import { IssuePlatform } from "./IssuePlatform";
 import { IssueRegression } from "./IssueRegression";
 import { IssueState } from "./IssueState";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing the information of an issue.
@@ -29,7 +29,7 @@ export class IssueAttributes {
   /**
    * Timestamp of the first seen error in milliseconds since the Unix epoch.
    */
-  "firstSeen"?: Int64;
+  "firstSeen"?: number;
   /**
    * The application version (for example, git commit hash) where the issue was first observed.
    */
@@ -49,7 +49,7 @@ export class IssueAttributes {
   /**
    * Timestamp of the last seen error in milliseconds since the Unix epoch.
    */
-  "lastSeen"?: Int64;
+  "lastSeen"?: number;
   /**
    * The application version (for example, git commit hash) where the issue was last observed.
    */

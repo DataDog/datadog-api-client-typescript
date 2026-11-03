@@ -5,7 +5,7 @@
  */
 import { ReportScheduleListResponsePaginationType } from "./ReportScheduleListResponsePaginationType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Offset and limit pagination metadata for a report schedule list response.
@@ -14,31 +14,31 @@ export class ReportScheduleListResponsePagination {
   /**
    * The first offset.
    */
-  "firstOffset"?: Int64;
+  "firstOffset"?: number;
   /**
    * The last offset when the total count is known, or `null` if it is unavailable.
    */
-  "lastOffset"?: Int64;
+  "lastOffset"?: number;
   /**
    * The maximum number of schedules returned.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * The next offset.
    */
-  "nextOffset"?: Int64;
+  "nextOffset"?: number;
   /**
    * The current offset.
    */
-  "offset"?: Int64;
+  "offset"?: number;
   /**
    * The previous offset.
    */
-  "prevOffset"?: Int64;
+  "prevOffset"?: number;
   /**
    * The total number of matching schedules.
    */
-  "total"?: Int64;
+  "total"?: number;
   /**
    * The pagination type.
    */

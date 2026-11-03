@@ -5,7 +5,7 @@
  */
 import { FleetDeploymentConfigureV2DryRunResult } from "./FleetDeploymentConfigureV2DryRunResult";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a configuration deployment dry-run response.
@@ -22,7 +22,7 @@ export class FleetDeploymentConfigureV2DryRunAttributes {
   /**
    * Total number of hosts targeted by this deployment.
    */
-  "totalHosts"?: Int64;
+  "totalHosts"?: number;
 
   /**
    * A container for additional, undeclared properties.

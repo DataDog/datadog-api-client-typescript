@@ -11,7 +11,7 @@ import { CIAppPipelineEventPipelineInProgressStatus } from "./CIAppPipelineEvent
 import { CIAppPipelineEventPipelineLevel } from "./CIAppPipelineEventPipelineLevel";
 import { CIAppPipelineEventPreviousPipeline } from "./CIAppPipelineEventPreviousPipeline";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Details of a running pipeline.
@@ -75,7 +75,7 @@ export class CIAppPipelineEventInProgressPipeline {
   /**
    * The queue time in milliseconds, if applicable.
    */
-  "queueTime"?: Int64;
+  "queueTime"?: number;
   /**
    * Time when the pipeline run started (it should not include any queue time). The time format must be RFC3339.
    */

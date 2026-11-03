@@ -70,8 +70,7 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
         "CustomAttributeConfigCreateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -269,8 +268,7 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
         "CustomAttributeConfigUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -286,12 +284,6 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
 }
 
 export class CaseManagementAttributeApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -307,14 +299,8 @@ export class CaseManagementAttributeApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: CustomAttributeConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "CustomAttributeConfigResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomAttributeConfigResponse"
       ) as CustomAttributeConfigResponse;
       return body;
     }
@@ -327,16 +313,13 @@ export class CaseManagementAttributeApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -351,14 +334,9 @@ export class CaseManagementAttributeApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomAttributeConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "CustomAttributeConfigResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as CustomAttributeConfigResponse;
       return body;
     }
@@ -394,16 +372,13 @@ export class CaseManagementAttributeApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -442,14 +417,8 @@ export class CaseManagementAttributeApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CustomAttributeConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "CustomAttributeConfigsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomAttributeConfigsResponse"
       ) as CustomAttributeConfigsResponse;
       return body;
     }
@@ -461,16 +430,13 @@ export class CaseManagementAttributeApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -485,14 +451,9 @@ export class CaseManagementAttributeApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomAttributeConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "CustomAttributeConfigsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as CustomAttributeConfigsResponse;
       return body;
     }
@@ -519,14 +480,8 @@ export class CaseManagementAttributeApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CustomAttributeConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "CustomAttributeConfigsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomAttributeConfigsResponse"
       ) as CustomAttributeConfigsResponse;
       return body;
     }
@@ -537,16 +492,13 @@ export class CaseManagementAttributeApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -561,14 +513,9 @@ export class CaseManagementAttributeApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomAttributeConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "CustomAttributeConfigsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as CustomAttributeConfigsResponse;
       return body;
     }
@@ -595,14 +542,8 @@ export class CaseManagementAttributeApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CustomAttributeConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "CustomAttributeConfigResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomAttributeConfigResponse"
       ) as CustomAttributeConfigResponse;
       return body;
     }
@@ -615,16 +556,13 @@ export class CaseManagementAttributeApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -639,14 +577,9 @@ export class CaseManagementAttributeApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomAttributeConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "CustomAttributeConfigResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as CustomAttributeConfigResponse;
       return body;
     }
@@ -726,8 +659,7 @@ export class CaseManagementAttributeApi {
       requestFactory ||
       new CaseManagementAttributeApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new CaseManagementAttributeApiResponseProcessor(configuration);
+      responseProcessor || new CaseManagementAttributeApiResponseProcessor();
   }
 
   /**

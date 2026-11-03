@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The unit used for all cost values in the response.
@@ -17,7 +17,7 @@ export class BudgetAttributesCostsUnit {
   /**
    * The unique identifier for the unit.
    */
-  "id"?: Int64;
+  "id"?: number;
   /**
    * The full name of the unit.
    */

@@ -5,7 +5,7 @@
  */
 import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEventQueryGroupBySort";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * List of objects used to group by.
@@ -18,7 +18,7 @@ export class FormulaAndFunctionEventQueryGroupBy {
   /**
    * Number of groups to return.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Options for sorting group by results.
    */

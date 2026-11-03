@@ -10,7 +10,7 @@ import { ExperimentsProtocolMetricGroupInput } from "./ExperimentsProtocolMetric
 import { ExperimentsProtocolTargetingRuleInput } from "./ExperimentsProtocolTargetingRuleInput";
 import { ExperimentsPublicProtocolResponseDataAttributesAssignmentSourceDefaultPropertiesItems } from "./ExperimentsPublicProtocolResponseDataAttributesAssignmentSourceDefaultPropertiesItems";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Partial protocol update. Omitted attributes remain unchanged. Published protocols accept only name, description, and migration_metadata; archived protocols reject updates.
@@ -31,7 +31,7 @@ export class ExperimentsPatchExperimentProtocolRequestDataAttributes {
   /**
    * Default experiment duration supplied by the protocol, in days. Omission preserves it; null clears it. Sets analysis_plan.target_duration_days on experiments created from this protocol.
    */
-  "defaultDurationDays"?: Int64;
+  "defaultDurationDays"?: number;
   /**
    * Description. Empty string clears it; omission or null preserves it.
    */
@@ -71,7 +71,7 @@ export class ExperimentsPatchExperimentProtocolRequestDataAttributes {
   /**
    * Maximum number of metrics allowed by the protocol. Omission preserves it; null clears it.
    */
-  "metricLimit"?: Int64;
+  "metricLimit"?: number;
   /**
    * Metadata for imported resources. Must encode to at most 4096 bytes. Null clears it; omission preserves it on update.
    */
@@ -83,7 +83,7 @@ export class ExperimentsPatchExperimentProtocolRequestDataAttributes {
   /**
    * Minimum experiment duration in the specified unit. Omission preserves it; null clears it.
    */
-  "minimumDurationValue"?: Int64;
+  "minimumDurationValue"?: number;
   /**
    * Protocol name. Leading and trailing spaces are removed. The trimmed name must contain 1 to 255 characters.
    */

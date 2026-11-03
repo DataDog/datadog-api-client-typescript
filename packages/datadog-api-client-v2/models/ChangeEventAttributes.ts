@@ -8,7 +8,7 @@ import { ChangeEventAttributesChangedResource } from "./ChangeEventAttributesCha
 import { ChangeEventAttributesImpactedResourcesItem } from "./ChangeEventAttributesImpactedResourcesItem";
 import { EventSystemAttributes } from "./EventSystemAttributes";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Change event attributes.
@@ -53,7 +53,7 @@ export class ChangeEventAttributes {
   /**
    * POSIX timestamp of the event.
    */
-  "timestamp"?: Int64;
+  "timestamp"?: number;
   /**
    * The title of the event.
    */
@@ -114,7 +114,6 @@ export class ChangeEventAttributes {
     timestamp: {
       baseName: "timestamp",
       type: "number",
-      format: "int64",
     },
     title: {
       baseName: "title",

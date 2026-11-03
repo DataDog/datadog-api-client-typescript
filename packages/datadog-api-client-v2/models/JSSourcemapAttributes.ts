@@ -5,7 +5,7 @@
  */
 import { JSSourcemapMapKind } from "./JSSourcemapMapKind";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a JavaScript source map.
@@ -51,7 +51,7 @@ export class JSSourcemapAttributes {
   /**
    * The size of the source map file in bytes.
    */
-  "size": Int64;
+  "size": number;
   /**
    * The source map variant.
    */

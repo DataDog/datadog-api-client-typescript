@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Elapsed time statistics (min/max/avg in milliseconds).
@@ -13,15 +13,15 @@ export class ProductAnalyticsElapsedTime {
   /**
    * Average elapsed time to reach the next step, in milliseconds.
    */
-  "avg": Int64;
+  "avg": number;
   /**
    * Maximum elapsed time to reach the next step, in milliseconds.
    */
-  "max": Int64;
+  "max": number;
   /**
    * Minimum elapsed time to reach the next step, in milliseconds.
    */
-  "min": Int64;
+  "min": number;
 
   /**
    * A container for additional, undeclared properties.

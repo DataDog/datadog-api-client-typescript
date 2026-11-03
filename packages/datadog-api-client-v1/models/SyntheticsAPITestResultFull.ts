@@ -7,7 +7,7 @@ import { SyntheticsAPITestResultData } from "./SyntheticsAPITestResultData";
 import { SyntheticsAPITestResultFullCheck } from "./SyntheticsAPITestResultFullCheck";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object returned describing a API test result.
@@ -24,7 +24,7 @@ export class SyntheticsAPITestResultFull {
   /**
    * Version of the API test used.
    */
-  "checkVersion"?: Int64;
+  "checkVersion"?: number;
   /**
    * Locations for which to query the API test results.
    */

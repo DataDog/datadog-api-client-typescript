@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Project notification settings.
@@ -13,7 +13,7 @@ export class ProjectNotificationSettings {
   /**
    * Notification destinations (1=email, 2=slack, 3=in-app).
    */
-  "destinations"?: Array<Int64>;
+  "destinations"?: Array<number>;
   /**
    * Whether notifications are enabled.
    */
@@ -66,7 +66,6 @@ export class ProjectNotificationSettings {
     destinations: {
       baseName: "destinations",
       type: "Array<number>",
-      format: "int64",
     },
     enabled: {
       baseName: "enabled",

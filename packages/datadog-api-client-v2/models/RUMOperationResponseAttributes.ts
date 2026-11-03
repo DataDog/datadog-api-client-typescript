@@ -6,7 +6,7 @@
 import { RUMOperationJourneyRum } from "./RUMOperationJourneyRum";
 import { RUMOperationUser } from "./RUMOperationUser";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a RUM operation response.
@@ -51,7 +51,7 @@ export class RUMOperationResponseAttributes {
   /**
    * The ID of the organization the RUM operation belongs to.
    */
-  "orgId"?: Int64;
+  "orgId"?: number;
   /**
    * A list of tags associated with the RUM operation.
    */

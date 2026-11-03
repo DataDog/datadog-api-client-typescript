@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Sensitive Data Scanner usage for a given organization for a given hour.
@@ -13,11 +13,11 @@ export class UsageSDSHour {
   /**
    * The total number of bytes scanned of APM usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
    */
-  "apmScannedBytes"?: Int64;
+  "apmScannedBytes"?: number;
   /**
    * The total number of bytes scanned of Events usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
    */
-  "eventsScannedBytes"?: Int64;
+  "eventsScannedBytes"?: number;
   /**
    * The hour for the usage.
    */
@@ -25,7 +25,7 @@ export class UsageSDSHour {
   /**
    * The total number of bytes scanned of logs usage by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
    */
-  "logsScannedBytes"?: Int64;
+  "logsScannedBytes"?: number;
   /**
    * The organization name.
    */
@@ -37,11 +37,11 @@ export class UsageSDSHour {
   /**
    * The total number of bytes scanned of RUM usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
    */
-  "rumScannedBytes"?: Int64;
+  "rumScannedBytes"?: number;
   /**
    * The total number of bytes scanned across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
    */
-  "totalScannedBytes"?: Int64;
+  "totalScannedBytes"?: number;
 
   /**
    * A container for additional, undeclared properties.

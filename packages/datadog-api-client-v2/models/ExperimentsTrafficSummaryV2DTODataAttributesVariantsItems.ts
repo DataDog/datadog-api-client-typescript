@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Exposure count and identity of one experiment variant.
@@ -13,7 +13,7 @@ export class ExperimentsTrafficSummaryV2DTODataAttributesVariantsItems {
   /**
    * Number of recorded exposures for this variant.
    */
-  "exposureCount"?: Int64;
+  "exposureCount"?: number;
   /**
    * Key that identifies the experiment variant.
    */

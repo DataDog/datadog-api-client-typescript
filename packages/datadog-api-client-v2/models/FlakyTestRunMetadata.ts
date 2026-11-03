@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata about the latest failed test run of the flaky test.
@@ -13,7 +13,7 @@ export class FlakyTestRunMetadata {
   /**
    * The duration of the test run in milliseconds.
    */
-  "durationMs"?: Int64;
+  "durationMs"?: number;
   /**
    * The error message from the test failure.
    */
@@ -25,7 +25,7 @@ export class FlakyTestRunMetadata {
   /**
    * The line number where the test ends in the source file.
    */
-  "sourceEnd"?: Int64;
+  "sourceEnd"?: number;
   /**
    * The source file where the test is defined.
    */
@@ -33,7 +33,7 @@ export class FlakyTestRunMetadata {
   /**
    * The line number where the test starts in the source file.
    */
-  "sourceStart"?: Int64;
+  "sourceStart"?: number;
 
   /**
    * A container for additional, undeclared properties.

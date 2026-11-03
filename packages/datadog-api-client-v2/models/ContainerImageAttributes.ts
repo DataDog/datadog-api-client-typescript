@@ -6,7 +6,7 @@
 import { ContainerImageFlavor } from "./ContainerImageFlavor";
 import { ContainerImageVulnerabilities } from "./ContainerImageVulnerabilities";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for a Container Image.
@@ -15,7 +15,7 @@ export class ContainerImageAttributes {
   /**
    * Number of containers running the image.
    */
-  "containerCount"?: Int64;
+  "containerCount"?: number;
   /**
    * Platform-specific image metadata, including size in bytes and available build and operating
    * system details. Use these objects to associate sizes with platforms when platform information is available.
@@ -71,7 +71,7 @@ export class ContainerImageAttributes {
    * Reported sizes in bytes of platform-specific images, with multiple values possible for multi-architecture images.
    * Use `image_flavors` for available platform associations; use `size` as the sort key.
    */
-  "sizes"?: Array<Int64>;
+  "sizes"?: Array<number>;
   /**
    * Collection sources, such as `live_containers`, `image_check`, `aws_ecr`, or `agentless_scanner`.
    */
@@ -159,7 +159,6 @@ export class ContainerImageAttributes {
     sizes: {
       baseName: "sizes",
       type: "Array<number>",
-      format: "int64",
     },
     sources: {
       baseName: "sources",

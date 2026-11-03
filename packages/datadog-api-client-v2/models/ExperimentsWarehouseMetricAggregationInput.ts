@@ -7,7 +7,7 @@ import { ExperimentsNullableDatadogMetricMeasureInput } from "./ExperimentsNulla
 import { ExperimentsWarehouseFilterInput } from "./ExperimentsWarehouseFilterInput";
 import { ExperimentsWarehouseMetricMeasure } from "./ExperimentsWarehouseMetricMeasure";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Settings for a metric aggregation that uses a Warehouse measure. The other measure must be omitted or null.
@@ -16,7 +16,7 @@ export class ExperimentsWarehouseMetricAggregationInput {
   /**
    * Stored aging threshold in days. The subject aging filter uses the aggregation window end and unit.
    */
-  "agingThresholdDays"?: Int64;
+  "agingThresholdDays"?: number;
   /**
    * Optional Datadog measure. Use null when the other measure is selected.
    */

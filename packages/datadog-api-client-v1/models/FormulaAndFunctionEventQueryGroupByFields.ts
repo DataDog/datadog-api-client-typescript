@@ -5,7 +5,7 @@
  */
 import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEventQueryGroupBySort";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Flat group by configuration using multiple event facet fields.
@@ -18,7 +18,7 @@ export class FormulaAndFunctionEventQueryGroupByFields {
   /**
    * Number of groups to return.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Options for sorting group by results.
    */

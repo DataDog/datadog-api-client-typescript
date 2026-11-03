@@ -12,7 +12,7 @@ import { SyntheticsTestResultRunType } from "./SyntheticsTestResultRunType";
 import { SyntheticsTestResultStep } from "./SyntheticsTestResultStep";
 import { SyntheticsTestResultTracerouteHop } from "./SyntheticsTestResultTracerouteHop";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Detailed result data for the fast test run. The exact shape of nested fields
@@ -42,7 +42,7 @@ export class SyntheticsFastTestResultDetail {
   /**
    * Unix timestamp (ms) of when the test finished.
    */
-  "finishedAt"?: Int64;
+  "finishedAt"?: number;
   /**
    * The result ID. Set to the fast test UUID because no persistent result ID exists for fast tests.
    */
@@ -70,7 +70,7 @@ export class SyntheticsFastTestResultDetail {
   /**
    * Unix timestamp (ms) of when the test started.
    */
-  "startedAt"?: Int64;
+  "startedAt"?: number;
   /**
    * Status of the test result (`passed` or `failed`).
    */
@@ -90,7 +90,7 @@ export class SyntheticsFastTestResultDetail {
   /**
    * Unix timestamp (ms) of when the test was triggered.
    */
-  "triggeredAt"?: Int64;
+  "triggeredAt"?: number;
   /**
    * Whether the test was run through a Synthetics tunnel.
    */

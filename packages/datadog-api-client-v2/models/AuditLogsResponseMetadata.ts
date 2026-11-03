@@ -7,7 +7,7 @@ import { AuditLogsResponsePage } from "./AuditLogsResponsePage";
 import { AuditLogsResponseStatus } from "./AuditLogsResponseStatus";
 import { AuditLogsWarning } from "./AuditLogsWarning";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The metadata associated with a request.
@@ -16,7 +16,7 @@ export class AuditLogsResponseMetadata {
   /**
    * Time elapsed in milliseconds.
    */
-  "elapsed"?: Int64;
+  "elapsed"?: number;
   /**
    * Paging attributes.
    */

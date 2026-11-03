@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsRetentionIndexTargetType } from "./ProductAnalyticsRetentionIndexTargetType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Selects a cohort or return period by its zero-based position in the grid.
@@ -18,7 +18,7 @@ export class ProductAnalyticsRetentionIndexTarget {
   /**
    * Zero-based index of the targeted cohort or return period.
    */
-  "value": Int64;
+  "value": number;
 
   /**
    * A container for additional, undeclared properties.

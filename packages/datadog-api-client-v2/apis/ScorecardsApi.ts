@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CampaignResponse } from "../models/CampaignResponse";
@@ -72,8 +71,7 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateCampaignRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -127,8 +125,7 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OutcomesBatchRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -175,8 +172,7 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateRuleRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -326,8 +322,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listScorecardCampaigns(
-    pageLimit?: Int64Input,
-    pageOffset?: Int64Input,
+    pageLimit?: number,
+    pageOffset?: number,
     filterCampaignName?: string,
     filterCampaignStatus?: string,
     filterCampaignOwner?: string,
@@ -398,8 +394,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listScorecardOutcomes(
-    pageSize?: Int64Input,
-    pageOffset?: Int64Input,
+    pageSize?: number,
+    pageOffset?: number,
     include?: string,
     fieldsOutcome?: string,
     fieldsRule?: string,
@@ -510,8 +506,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listScorecardRules(
-    pageSize?: Int64Input,
-    pageOffset?: Int64Input,
+    pageSize?: number,
+    pageOffset?: number,
     include?: string,
     filterRuleId?: string,
     filterRuleEnabled?: boolean,
@@ -622,8 +618,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listScorecards(
-    pageOffset?: Int64Input,
-    pageSize?: Int64Input,
+    pageOffset?: number,
+    pageSize?: number,
     filterScorecardId?: string,
     filterScorecardName?: string,
     filterScorecardDescription?: string,
@@ -702,8 +698,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     filterRuleIsCustom?: boolean,
     filterRuleIsEnabled?: boolean,
     sort?: string,
-    pageOffset?: Int64Input,
-    pageLimit?: Int64Input,
+    pageOffset?: number,
+    pageLimit?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -848,8 +844,7 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateCampaignRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -896,8 +891,7 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateOutcomesAsyncRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -953,8 +947,7 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateRuleRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -970,12 +963,6 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ScorecardsApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -991,30 +978,21 @@ export class ScorecardsApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: CampaignResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "CampaignResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CampaignResponse"
       ) as CampaignResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1031,16 +1009,13 @@ export class ScorecardsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1055,14 +1030,9 @@ export class ScorecardsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CampaignResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "CampaignResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as CampaignResponse;
       return body;
     }
@@ -1089,14 +1059,8 @@ export class ScorecardsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: OutcomesBatchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "OutcomesBatchResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OutcomesBatchResponse"
       ) as OutcomesBatchResponse;
       return body;
     }
@@ -1107,16 +1071,13 @@ export class ScorecardsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1131,14 +1092,9 @@ export class ScorecardsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OutcomesBatchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "OutcomesBatchResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as OutcomesBatchResponse;
       return body;
     }
@@ -1165,14 +1121,8 @@ export class ScorecardsApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: CreateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "CreateRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CreateRuleResponse"
       ) as CreateRuleResponse;
       return body;
     }
@@ -1183,16 +1133,13 @@ export class ScorecardsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1207,14 +1154,9 @@ export class ScorecardsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CreateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "CreateRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as CreateRuleResponse;
       return body;
     }
@@ -1249,16 +1191,13 @@ export class ScorecardsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1275,16 +1214,13 @@ export class ScorecardsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1330,16 +1266,13 @@ export class ScorecardsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1378,14 +1311,8 @@ export class ScorecardsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CampaignResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "CampaignResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CampaignResponse"
       ) as CampaignResponse;
       return body;
     }
@@ -1396,16 +1323,13 @@ export class ScorecardsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1422,16 +1346,13 @@ export class ScorecardsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1446,14 +1367,9 @@ export class ScorecardsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CampaignResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "CampaignResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as CampaignResponse;
       return body;
     }
@@ -1480,30 +1396,21 @@ export class ScorecardsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListCampaignsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ListCampaignsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListCampaignsResponse"
       ) as ListCampaignsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1520,16 +1427,13 @@ export class ScorecardsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1544,14 +1448,9 @@ export class ScorecardsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListCampaignsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ListCampaignsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ListCampaignsResponse;
       return body;
     }
@@ -1578,14 +1477,8 @@ export class ScorecardsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: OutcomesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "OutcomesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OutcomesResponse"
       ) as OutcomesResponse;
       return body;
     }
@@ -1596,16 +1489,13 @@ export class ScorecardsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1620,14 +1510,9 @@ export class ScorecardsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OutcomesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "OutcomesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as OutcomesResponse;
       return body;
     }
@@ -1654,14 +1539,8 @@ export class ScorecardsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ListRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListRulesResponse"
       ) as ListRulesResponse;
       return body;
     }
@@ -1672,16 +1551,13 @@ export class ScorecardsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1696,14 +1572,9 @@ export class ScorecardsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ListRulesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ListRulesResponse;
       return body;
     }
@@ -1730,30 +1601,21 @@ export class ScorecardsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListScorecardsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ListScorecardsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListScorecardsResponse"
       ) as ListScorecardsResponse;
       return body;
     }
     if (response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1770,16 +1632,13 @@ export class ScorecardsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1794,14 +1653,9 @@ export class ScorecardsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListScorecardsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ListScorecardsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ListScorecardsResponse;
       return body;
     }
@@ -1828,14 +1682,8 @@ export class ScorecardsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListScorecardScoresResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ListScorecardScoresResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListScorecardScoresResponse"
       ) as ListScorecardScoresResponse;
       return body;
     }
@@ -1846,16 +1694,13 @@ export class ScorecardsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1870,14 +1715,9 @@ export class ScorecardsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListScorecardScoresResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ListScorecardScoresResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ListScorecardScoresResponse;
       return body;
     }
@@ -1904,14 +1744,8 @@ export class ScorecardsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CampaignResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "CampaignResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CampaignResponse"
       ) as CampaignResponse;
       return body;
     }
@@ -1922,16 +1756,13 @@ export class ScorecardsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1948,16 +1779,13 @@ export class ScorecardsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1972,14 +1800,9 @@ export class ScorecardsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CampaignResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "CampaignResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as CampaignResponse;
       return body;
     }
@@ -2015,16 +1838,13 @@ export class ScorecardsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2063,14 +1883,8 @@ export class ScorecardsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: UpdateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "UpdateRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UpdateRuleResponse"
       ) as UpdateRuleResponse;
       return body;
     }
@@ -2081,16 +1895,13 @@ export class ScorecardsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2105,14 +1916,9 @@ export class ScorecardsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "UpdateRuleResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as UpdateRuleResponse;
       return body;
     }
@@ -2186,14 +1992,14 @@ export interface ScorecardsApiGetScorecardCampaignRequest {
 export interface ScorecardsApiListScorecardCampaignsRequest {
   /**
    * Maximum number of campaigns to return.
-   * @type Int64Input
+   * @type number
    */
-  pageLimit?: Int64Input;
+  pageLimit?: number;
   /**
    * Offset for pagination.
-   * @type Int64Input
+   * @type number
    */
-  pageOffset?: Int64Input;
+  pageOffset?: number;
   /**
    * Filter campaigns by name (full-text search).
    * @type string
@@ -2214,14 +2020,14 @@ export interface ScorecardsApiListScorecardCampaignsRequest {
 export interface ScorecardsApiListScorecardOutcomesRequest {
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * Specific offset to use as the beginning of the returned page.
-   * @type Int64Input
+   * @type number
    */
-  pageOffset?: Int64Input;
+  pageOffset?: number;
   /**
    * Include related rule details in the response.
    * @type string
@@ -2267,14 +2073,14 @@ export interface ScorecardsApiListScorecardOutcomesRequest {
 export interface ScorecardsApiListScorecardRulesRequest {
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * Specific offset to use as the beginning of the returned page.
-   * @type Int64Input
+   * @type number
    */
-  pageOffset?: Int64Input;
+  pageOffset?: number;
   /**
    * Include related scorecard details in the response.
    * @type string
@@ -2320,14 +2126,14 @@ export interface ScorecardsApiListScorecardRulesRequest {
 export interface ScorecardsApiListScorecardsRequest {
   /**
    * Offset for pagination.
-   * @type Int64Input
+   * @type number
    */
-  pageOffset?: Int64Input;
+  pageOffset?: number;
   /**
    * Maximum number of scorecards to return.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * Filter by scorecard ID.
    * @type string
@@ -2388,14 +2194,14 @@ export interface ScorecardsApiListScorecardScoresRequest {
   sort?: string;
   /**
    * Offset for pagination.
-   * @type Int64Input
+   * @type number
    */
-  pageOffset?: Int64Input;
+  pageOffset?: number;
   /**
    * Number of scores to return. Max is 1000.
-   * @type Int64Input
+   * @type number
    */
-  pageLimit?: Int64Input;
+  pageLimit?: number;
 }
 
 export interface ScorecardsApiUpdateScorecardCampaignRequest {
@@ -2446,7 +2252,7 @@ export class ScorecardsApi {
     this.requestFactory =
       requestFactory || new ScorecardsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ScorecardsApiResponseProcessor(configuration);
+      responseProcessor || new ScorecardsApiResponseProcessor();
   }
 
   /**
@@ -2645,7 +2451,7 @@ export class ScorecardsApi {
   ): AsyncGenerator<OutcomesResponseDataItem> {
     let pageSize = 10;
     if (param.pageSize !== undefined) {
-      pageSize = Number(param.pageSize);
+      pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
@@ -2683,7 +2489,7 @@ export class ScorecardsApi {
       if (param.pageOffset === undefined) {
         param.pageOffset = pageSize;
       } else {
-        param.pageOffset = Number(param.pageOffset) + pageSize;
+        param.pageOffset = param.pageOffset + pageSize;
       }
     }
   }
@@ -2727,7 +2533,7 @@ export class ScorecardsApi {
   ): AsyncGenerator<ListRulesResponseDataItem> {
     let pageSize = 10;
     if (param.pageSize !== undefined) {
-      pageSize = Number(param.pageSize);
+      pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
@@ -2765,7 +2571,7 @@ export class ScorecardsApi {
       if (param.pageOffset === undefined) {
         param.pageOffset = pageSize;
       } else {
-        param.pageOffset = Number(param.pageOffset) + pageSize;
+        param.pageOffset = param.pageOffset + pageSize;
       }
     }
   }

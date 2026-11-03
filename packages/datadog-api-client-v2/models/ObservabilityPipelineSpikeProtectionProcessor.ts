@@ -8,7 +8,7 @@ import { ObservabilityPipelineSpikeProtectionProcessorSpikeAction } from "./Obse
 import { ObservabilityPipelineSpikeProtectionProcessorThresholdOverride } from "./ObservabilityPipelineSpikeProtectionProcessorThresholdOverride";
 import { ObservabilityPipelineSpikeProtectionProcessorType } from "./ObservabilityPipelineSpikeProtectionProcessorType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `spike_protection` processor learns the normal ingestion volume for the logs that match a specified filter and takes action when the volume spikes unexpectedly.
@@ -41,7 +41,7 @@ export class ObservabilityPipelineSpikeProtectionProcessor {
   /**
    * The minimum volume, in bytes, that must be observed within 24 hours before spike protection can activate. Defaults to 100 GiB.
    */
-  "minimalThreshold"?: Int64;
+  "minimalThreshold"?: number;
   /**
    * A list of per-partition overrides for the minimal threshold, identified by matching field values. Requires `partition_fields` to be set.
    */

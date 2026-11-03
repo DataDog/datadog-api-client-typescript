@@ -7,7 +7,7 @@ import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMResponseStatus } from "./RUMResponseStatus";
 import { RUMWarning } from "./RUMWarning";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The metadata associated with a request.
@@ -16,7 +16,7 @@ export class RUMResponseMetadata {
   /**
    * The time elapsed in milliseconds.
    */
-  "elapsed"?: Int64;
+  "elapsed"?: number;
   /**
    * Paging attributes.
    */

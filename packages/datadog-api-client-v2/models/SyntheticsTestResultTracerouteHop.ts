@@ -6,7 +6,7 @@
 import { SyntheticsTestResultNetworkLatency } from "./SyntheticsTestResultNetworkLatency";
 import { SyntheticsTestResultRouter } from "./SyntheticsTestResultRouter";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A network probe result, used for traceroute hops and ping summaries.
@@ -27,15 +27,15 @@ export class SyntheticsTestResultTracerouteHop {
   /**
    * Size of each probe packet in bytes.
    */
-  "packetSize"?: Int64;
+  "packetSize"?: number;
   /**
    * Number of probe packets received.
    */
-  "packetsReceived"?: Int64;
+  "packetsReceived"?: number;
   /**
    * Number of probe packets sent.
    */
-  "packetsSent"?: Int64;
+  "packetsSent"?: number;
   /**
    * Resolved IP address for the target.
    */

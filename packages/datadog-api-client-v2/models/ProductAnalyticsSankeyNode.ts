@@ -6,7 +6,7 @@
 import { ProductAnalyticsSankeyAggregatedNode } from "./ProductAnalyticsSankeyAggregatedNode";
 import { ProductAnalyticsSankeyNodeType } from "./ProductAnalyticsSankeyNodeType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A node of the Sankey diagram, representing one facet value in one column.
@@ -19,11 +19,11 @@ export class ProductAnalyticsSankeyNode {
   /**
    * Zero-based index of the column the node sits in.
    */
-  "column"?: Int64;
+  "column"?: number;
   /**
    * Number of sessions that ended at the node.
    */
-  "dropoffValue"?: Int64;
+  "dropoffValue"?: number;
   /**
    * Unique identifier for the node.
    */
@@ -31,7 +31,7 @@ export class ProductAnalyticsSankeyNode {
   /**
    * Number of sessions entering the node.
    */
-  "incomingValue"?: Int64;
+  "incomingValue"?: number;
   /**
    * The facet value the node represents.
    */
@@ -39,7 +39,7 @@ export class ProductAnalyticsSankeyNode {
   /**
    * Number of sessions leaving the node.
    */
-  "outgoingValue"?: Int64;
+  "outgoingValue"?: number;
   /**
    * The kind of node. `regular` is a single facet value, `other` rolls up the values that did not
    * fit within `entries_per_step`, and `dropoff` collects the sessions that ended at this column.
@@ -48,7 +48,7 @@ export class ProductAnalyticsSankeyNode {
   /**
    * Number of sessions passing through the node.
    */
-  "value"?: Int64;
+  "value"?: number;
 
   /**
    * A container for additional, undeclared properties.

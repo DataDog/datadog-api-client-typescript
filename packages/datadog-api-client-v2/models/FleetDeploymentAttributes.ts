@@ -7,7 +7,7 @@ import { FleetDeploymentHost } from "./FleetDeploymentHost";
 import { FleetDeploymentOperation } from "./FleetDeploymentOperation";
 import { FleetDeploymentPackage } from "./FleetDeploymentPackage";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a deployment in the response.
@@ -20,7 +20,7 @@ export class FleetDeploymentAttributes {
   /**
    * Estimated completion time of the deployment as a Unix timestamp (seconds since epoch).
    */
-  "estimatedEndTimeUnix"?: Int64;
+  "estimatedEndTimeUnix"?: number;
   /**
    * Query used to filter and select target hosts for the deployment. Uses the Datadog query syntax.
    */
@@ -43,7 +43,7 @@ export class FleetDeploymentAttributes {
   /**
    * Total number of hosts targeted by this deployment.
    */
-  "totalHosts"?: Int64;
+  "totalHosts"?: number;
 
   /**
    * A container for additional, undeclared properties.

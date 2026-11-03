@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The number of SNMP devices for each hour for a given organization.
@@ -25,7 +25,7 @@ export class UsageSNMPHour {
   /**
    * Contains the number of SNMP devices.
    */
-  "snmpDevices"?: Int64;
+  "snmpDevices"?: number;
 
   /**
    * A container for additional, undeclared properties.

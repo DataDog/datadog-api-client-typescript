@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A browser error captured during a browser test step.
@@ -25,7 +25,7 @@ export class SyntheticsTestResultBrowserError {
   /**
    * HTTP status code associated with the error (for network errors).
    */
-  "status"?: Int64;
+  "status"?: number;
   /**
    * Type of the browser error.
    */

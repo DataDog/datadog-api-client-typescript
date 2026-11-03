@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing IDs of Synthetic tests and a timeframe.
@@ -13,7 +13,7 @@ export class SyntheticsFetchUptimesPayload {
   /**
    * Timestamp in seconds (Unix epoch) for the start of uptime.
    */
-  "fromTs": Int64;
+  "fromTs": number;
   /**
    * An array of Synthetic test IDs you want uptimes for.
    */
@@ -21,7 +21,7 @@ export class SyntheticsFetchUptimesPayload {
   /**
    * Timestamp in seconds (Unix epoch) for the end of uptime.
    */
-  "toTs": Int64;
+  "toTs": number;
 
   /**
    * A container for additional, undeclared properties.

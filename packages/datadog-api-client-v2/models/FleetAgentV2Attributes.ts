@@ -6,7 +6,7 @@
 import { FleetAgentAttributesTagsItems } from "./FleetAgentAttributesTagsItems";
 import { FleetAgentV2AttributesInstrumentationStatus } from "./FleetAgentV2AttributesInstrumentationStatus";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a Datadog Agent in the v2 list response.
@@ -55,7 +55,7 @@ export class FleetAgentV2Attributes {
   /**
    * Unix timestamp when the agent was first seen.
    */
-  "firstSeenAt"?: Int64;
+  "firstSeenAt"?: number;
   /**
    * Identifiers of fleet policies applied to the agent.
    */
@@ -67,7 +67,7 @@ export class FleetAgentV2Attributes {
   /**
    * Number of instrumentation errors on the agent. Absent from the response when the count is zero.
    */
-  "instrumentationErrorCounts"?: Int64;
+  "instrumentationErrorCounts"?: number;
   /**
    * The single-step instrumentation status of the Agent.
    */
@@ -87,7 +87,7 @@ export class FleetAgentV2Attributes {
   /**
    * Unix timestamp of the last agent restart.
    */
-  "lastRestartAt"?: Int64;
+  "lastRestartAt"?: number;
   /**
    * The operating system of the host.
    */

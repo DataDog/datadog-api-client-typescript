@@ -5,7 +5,7 @@
  */
 import { TeamsOwnershipMatchType } from "./TeamsOwnershipMatchType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a teams ownership mapping.
@@ -32,7 +32,7 @@ export class TeamsOwnershipMappingResponseAttributes {
   /**
    * The ID of the organization that owns this mapping.
    */
-  "orgId": Int64;
+  "orgId": number;
   /**
    * The RUM application's service name. For browser applications, may be empty. For mobile applications, this is the service that scopes the ownership.
    */

@@ -70,12 +70,6 @@ export class StegadographyApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class StegadographyApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -92,14 +86,8 @@ export class StegadographyApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: StegadographyGetWidgetsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "StegadographyGetWidgetsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "StegadographyGetWidgetsResponse"
         ) as StegadographyGetWidgetsResponse;
       return body;
     }
@@ -111,16 +99,13 @@ export class StegadographyApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -137,16 +122,13 @@ export class StegadographyApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -162,14 +144,9 @@ export class StegadographyApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: StegadographyGetWidgetsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "StegadographyGetWidgetsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as StegadographyGetWidgetsResponse;
       return body;
     }
@@ -204,7 +181,7 @@ export class StegadographyApi {
     this.requestFactory =
       requestFactory || new StegadographyApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new StegadographyApiResponseProcessor(configuration);
+      responseProcessor || new StegadographyApiResponseProcessor();
   }
 
   /**

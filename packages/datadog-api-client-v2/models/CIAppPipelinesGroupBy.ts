@@ -8,7 +8,7 @@ import { CIAppGroupByHistogram } from "./CIAppGroupByHistogram";
 import { CIAppGroupByMissing } from "./CIAppGroupByMissing";
 import { CIAppGroupByTotal } from "./CIAppGroupByTotal";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A group-by rule.
@@ -26,7 +26,7 @@ export class CIAppPipelinesGroupBy {
   /**
    * The maximum buckets to return for this group-by.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * The value to use for logs that don't have the facet used to group-by.
    */

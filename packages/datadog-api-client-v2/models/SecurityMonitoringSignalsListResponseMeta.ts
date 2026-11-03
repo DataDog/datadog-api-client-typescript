@@ -5,7 +5,7 @@
  */
 import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitoringSignalsListResponseMetaPage";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Meta attributes.
@@ -14,7 +14,7 @@ export class SecurityMonitoringSignalsListResponseMeta {
   /**
    * The time elapsed in milliseconds.
    */
-  "elapsed"?: Int64;
+  "elapsed"?: number;
   /**
    * Paging attributes.
    */

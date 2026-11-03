@@ -5,7 +5,7 @@
  */
 import { LLMObsExperimentationAnalyticsResult } from "./LLMObsExperimentationAnalyticsResult";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an analytics response.
@@ -14,7 +14,7 @@ export class LLMObsExperimentationAnalyticsDataAttributesResponse {
   /**
    * Total number of events matched by the query before grouping.
    */
-  "hitCount": Int64;
+  "hitCount": number;
   /**
    * Analytics query result containing all buckets.
    */

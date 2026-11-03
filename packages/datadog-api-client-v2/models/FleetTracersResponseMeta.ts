@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata for the list of tracers response.
@@ -13,7 +13,7 @@ export class FleetTracersResponseMeta {
   /**
    * Total number of tracers matching the filter criteria across all pages.
    */
-  "totalFilteredCount"?: Int64;
+  "totalFilteredCount"?: number;
 
   /**
    * A container for additional, undeclared properties.

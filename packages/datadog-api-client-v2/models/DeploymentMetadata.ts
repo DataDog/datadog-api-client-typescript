@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata object containing the publication creation information.
@@ -17,7 +17,7 @@ export class DeploymentMetadata {
   /**
    * The ID of the user who published the app.
    */
-  "userId"?: Int64;
+  "userId"?: number;
   /**
    * The name (or email address) of the user who published the app.
    */

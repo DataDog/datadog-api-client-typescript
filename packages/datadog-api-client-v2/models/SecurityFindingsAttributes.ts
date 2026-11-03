@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The JSON object containing all attributes of the security finding.
@@ -21,7 +21,7 @@ export class SecurityFindingsAttributes {
   /**
    * The Unix timestamp at which the detection changed for the resource. Same value as @detection_changed_at.
    */
-  "timestamp"?: Int64;
+  "timestamp"?: number;
 
   /**
    * A container for additional, undeclared properties.

@@ -11,7 +11,7 @@ import { LLMObsInferenceTool } from "./LLMObsInferenceTool";
 import { LLMObsOpenAIMetadata } from "./LLMObsOpenAIMetadata";
 import { LLMObsVertexAIMetadata } from "./LLMObsVertexAIMetadata";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Parameters for an LLM inference request.
@@ -40,11 +40,11 @@ export class LLMObsIntegrationInferenceRequest {
   /**
    * Maximum number of completion tokens to generate (alternative to max_tokens for some providers).
    */
-  "maxCompletionTokens"?: Int64;
+  "maxCompletionTokens"?: number;
   /**
    * Maximum number of tokens to generate.
    */
-  "maxTokens"?: Int64;
+  "maxTokens"?: number;
   /**
    * List of messages in an inference conversation.
    */
@@ -72,7 +72,7 @@ export class LLMObsIntegrationInferenceRequest {
   /**
    * Top-K sampling parameter.
    */
-  "topK"?: Int64;
+  "topK"?: number;
   /**
    * Nucleus sampling probability mass.
    */

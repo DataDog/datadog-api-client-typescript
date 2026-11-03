@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An optional time window that overrides the default query time range.
@@ -13,11 +13,11 @@ export class SecurityMonitoringDatasetTimeWindow {
   /**
    * Inclusive start of the time window, in milliseconds since the Unix epoch.
    */
-  "from"?: Int64;
+  "from"?: number;
   /**
    * Exclusive end of the time window, in milliseconds since the Unix epoch.
    */
-  "to"?: Int64;
+  "to"?: number;
 
   /**
    * A container for additional, undeclared properties.

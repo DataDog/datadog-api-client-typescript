@@ -6,7 +6,7 @@
 import { DashboardLiveTimeframeType } from "./DashboardLiveTimeframeType";
 import { WidgetLiveSpanUnit } from "./WidgetLiveSpanUnit";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A live dashboard timeframe.
@@ -23,7 +23,7 @@ export class DashboardLiveTimeframe {
   /**
    * Value of the live timeframe span.
    */
-  "value": Int64;
+  "value": number;
 
   /**
    * A container for additional, undeclared properties.

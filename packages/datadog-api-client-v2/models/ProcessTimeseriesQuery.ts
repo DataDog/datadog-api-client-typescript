@@ -6,7 +6,7 @@
 import { ProcessDataSource } from "./ProcessDataSource";
 import { QuerySortOrder } from "./QuerySortOrder";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Per-process metrics from Live Processes over time, such as CPU and memory usage. To scope to one
@@ -29,7 +29,7 @@ export class ProcessTimeseriesQuery {
    * Maximum number of processes or groups to return. Large values can fail with an `Unprocessable
    * Content` error. If so, retry with a smaller limit.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * The process metric to query, such as `process.stat.cpu.total_pct`, `process.stat.memory.rss`, or
    * `process.stat.memory.vms`.

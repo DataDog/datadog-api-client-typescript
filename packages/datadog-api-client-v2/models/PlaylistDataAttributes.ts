@@ -5,7 +5,7 @@
  */
 import { PlaylistDataAttributesCreatedBy } from "./PlaylistDataAttributesCreatedBy";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a RUM replay playlist, including its name, description, session count, and audit timestamps.
@@ -30,7 +30,7 @@ export class PlaylistDataAttributes {
   /**
    * Number of replay sessions in the playlist.
    */
-  "sessionCount"?: Int64;
+  "sessionCount"?: number;
   /**
    * Timestamp when the playlist was last updated.
    */

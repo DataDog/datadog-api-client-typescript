@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Additional information related to the application key response.
@@ -13,7 +13,7 @@ export class ApplicationKeyResponseMetaPage {
   /**
    * Total filtered application key count.
    */
-  "totalFilteredCount"?: Int64;
+  "totalFilteredCount"?: number;
 
   /**
    * A container for additional, undeclared properties.

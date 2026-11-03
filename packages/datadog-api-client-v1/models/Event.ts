@@ -6,7 +6,7 @@
 import { EventAlertType } from "./EventAlertType";
 import { EventPriority } from "./EventPriority";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object representing an event.
@@ -22,7 +22,7 @@ export class Event {
    * POSIX timestamp of the event. Must be sent as an integer (that is no quotes).
    * Limited to events up to 18 hours in the past and two hours in the future.
    */
-  "dateHappened"?: Int64;
+  "dateHappened"?: number;
   /**
    * A device name.
    */
@@ -35,7 +35,7 @@ export class Event {
   /**
    * Integer ID of the event.
    */
-  "id"?: Int64;
+  "id"?: number;
   /**
    * Handling IDs as large 64-bit numbers can cause loss of accuracy issues with some programming languages.
    * Instead, use the string representation of the Event ID to avoid losing accuracy.

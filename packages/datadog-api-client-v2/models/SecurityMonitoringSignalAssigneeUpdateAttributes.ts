@@ -5,7 +5,7 @@
  */
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing the new assignee of a security signal.
@@ -18,7 +18,7 @@ export class SecurityMonitoringSignalAssigneeUpdateAttributes {
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
    */
-  "version"?: Int64;
+  "version"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,7 +44,6 @@ export class SecurityMonitoringSignalAssigneeUpdateAttributes {
     version: {
       baseName: "version",
       type: "number",
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

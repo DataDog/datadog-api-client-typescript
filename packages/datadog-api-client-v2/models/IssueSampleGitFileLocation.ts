@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Location of a stack frame in a repository file. Empty when the source code is unavailable.
@@ -13,7 +13,7 @@ export class IssueSampleGitFileLocation {
   /**
    * Column of the location, starting at 1.
    */
-  "column"?: Int64;
+  "column"?: number;
   /**
    * Path of the file in the repository.
    */
@@ -21,11 +21,11 @@ export class IssueSampleGitFileLocation {
   /**
    * First line of the location, starting at 1.
    */
-  "firstLine"?: Int64;
+  "firstLine"?: number;
   /**
    * Last line of the location, starting at 1.
    */
-  "lastLine"?: Int64;
+  "lastLine"?: number;
   /**
    * Git reference of the file, usually a commit SHA.
    */

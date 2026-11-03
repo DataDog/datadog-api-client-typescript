@@ -5,7 +5,7 @@
  */
 import { SyntheticsUptime } from "./SyntheticsUptime";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing the uptime for a Synthetic test ID.
@@ -14,7 +14,7 @@ export class SyntheticsTestUptime {
   /**
    * Timestamp in seconds for the start of uptime.
    */
-  "fromTs"?: Int64;
+  "fromTs"?: number;
   /**
    * Object containing the uptime information.
    */
@@ -26,7 +26,7 @@ export class SyntheticsTestUptime {
   /**
    * Timestamp in seconds for the end of uptime.
    */
-  "toTs"?: Int64;
+  "toTs"?: number;
 
   /**
    * A container for additional, undeclared properties.

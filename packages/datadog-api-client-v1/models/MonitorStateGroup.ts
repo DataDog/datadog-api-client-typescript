@@ -5,7 +5,7 @@
  */
 import { MonitorOverallStates } from "./MonitorOverallStates";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Monitor state for a single group.
@@ -14,19 +14,19 @@ export class MonitorStateGroup {
   /**
    * Latest timestamp the monitor was in NO_DATA state.
    */
-  "lastNodataTs"?: Int64;
+  "lastNodataTs"?: number;
   /**
    * Latest timestamp of the notification sent for this monitor group.
    */
-  "lastNotifiedTs"?: Int64;
+  "lastNotifiedTs"?: number;
   /**
    * Latest timestamp the monitor group was resolved.
    */
-  "lastResolvedTs"?: Int64;
+  "lastResolvedTs"?: number;
   /**
    * Latest timestamp the monitor group triggered.
    */
-  "lastTriggeredTs"?: Int64;
+  "lastTriggeredTs"?: number;
   /**
    * The name of the monitor.
    */

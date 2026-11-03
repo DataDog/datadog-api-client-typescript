@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An Object of metric units.
@@ -17,7 +17,7 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
   /**
    * The ID of the metric unit.
    */
-  "id"?: Int64;
+  "id"?: number;
   /**
    * The unit of the metric, for instance `byte`.
    */

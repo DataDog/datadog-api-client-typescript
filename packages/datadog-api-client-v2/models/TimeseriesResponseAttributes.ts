@@ -5,7 +5,7 @@
  */
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The object describing a timeseries response.
@@ -18,7 +18,7 @@ export class TimeseriesResponseAttributes {
   /**
    * Array of times, 1-1 match with individual values arrays.
    */
-  "times"?: Array<Int64>;
+  "times"?: Array<number>;
   /**
    * Array of value-arrays. The index here corresponds to the index in the `formulas` or `queries` array from the request.
    */
@@ -47,7 +47,6 @@ export class TimeseriesResponseAttributes {
     times: {
       baseName: "times",
       type: "Array<number>",
-      format: "int64",
     },
     values: {
       baseName: "values",

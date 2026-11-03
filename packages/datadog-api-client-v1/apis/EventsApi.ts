@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { EventCreateRequest } from "../models/EventCreateRequest";
@@ -58,8 +57,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "EventCreateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -70,7 +68,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async getEvent(
-    eventId: Int64Input,
+    eventId: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -109,8 +107,8 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listEvents(
-    start: Int64Input,
-    end: Int64Input,
+    start: number,
+    end: number,
     priority?: EventPriority,
     sources?: string,
     tags?: string,
@@ -216,12 +214,6 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class EventsApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -237,30 +229,21 @@ export class EventsApiResponseProcessor {
     );
     if (response.httpStatusCode === 202) {
       const body: EventCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "EventCreateResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EventCreateResponse"
       ) as EventCreateResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -275,14 +258,9 @@ export class EventsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EventCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "EventCreateResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as EventCreateResponse;
       return body;
     }
@@ -307,14 +285,8 @@ export class EventsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: EventResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "EventResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EventResponse"
       ) as EventResponse;
       return body;
     }
@@ -325,16 +297,13 @@ export class EventsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -349,14 +318,9 @@ export class EventsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EventResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "EventResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as EventResponse;
       return body;
     }
@@ -383,14 +347,8 @@ export class EventsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: EventListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "EventListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EventListResponse"
       ) as EventListResponse;
       return body;
     }
@@ -401,16 +359,13 @@ export class EventsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -425,14 +380,9 @@ export class EventsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EventListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "EventListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as EventListResponse;
       return body;
     }
@@ -456,22 +406,22 @@ export interface EventsApiCreateEventRequest {
 export interface EventsApiGetEventRequest {
   /**
    * The ID of the event.
-   * @type Int64Input
+   * @type number
    */
-  eventId: Int64Input;
+  eventId: number;
 }
 
 export interface EventsApiListEventsRequest {
   /**
    * POSIX timestamp.
-   * @type Int64Input
+   * @type number
    */
-  start: Int64Input;
+  start: number;
   /**
    * POSIX timestamp.
-   * @type Int64Input
+   * @type number
    */
-  end: Int64Input;
+  end: number;
   /**
    * Priority of your events, either `low` or `normal`.
    * @type EventPriority
@@ -522,7 +472,7 @@ export class EventsApi {
     this.requestFactory =
       requestFactory || new EventsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new EventsApiResponseProcessor(configuration);
+      responseProcessor || new EventsApiResponseProcessor();
   }
 
   /**

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a dataset dependents entry.
@@ -13,7 +13,7 @@ export class SecurityMonitoringDatasetDependentsAttributes {
   /**
    * The number of resources that depend on the dataset.
    */
-  "count": Int64;
+  "count": number;
   /**
    * The UUID of the dataset whose dependencies are being reported.
    */

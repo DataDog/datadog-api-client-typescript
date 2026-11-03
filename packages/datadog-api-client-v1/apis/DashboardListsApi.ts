@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { DashboardList } from "../models/DashboardList";
@@ -56,8 +55,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DashboardList", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -72,7 +70,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async deleteDashboardList(
-    listId: Int64Input,
+    listId: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -111,7 +109,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async getDashboardList(
-    listId: Int64Input,
+    listId: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -180,7 +178,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async updateDashboardList(
-    listId: Int64Input,
+    listId: number,
     body: DashboardList,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -221,8 +219,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DashboardList", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -238,12 +235,6 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class DashboardListsApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -259,14 +250,8 @@ export class DashboardListsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DashboardList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DashboardList",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DashboardList"
       ) as DashboardList;
       return body;
     }
@@ -277,16 +262,13 @@ export class DashboardListsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -301,14 +283,9 @@ export class DashboardListsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DashboardList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DashboardList",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DashboardList;
       return body;
     }
@@ -335,14 +312,8 @@ export class DashboardListsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DashboardListDeleteResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DashboardListDeleteResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DashboardListDeleteResponse"
       ) as DashboardListDeleteResponse;
       return body;
     }
@@ -353,16 +324,13 @@ export class DashboardListsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -377,14 +345,9 @@ export class DashboardListsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DashboardListDeleteResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DashboardListDeleteResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DashboardListDeleteResponse;
       return body;
     }
@@ -411,14 +374,8 @@ export class DashboardListsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DashboardList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DashboardList",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DashboardList"
       ) as DashboardList;
       return body;
     }
@@ -429,16 +386,13 @@ export class DashboardListsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -453,14 +407,9 @@ export class DashboardListsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DashboardList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DashboardList",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DashboardList;
       return body;
     }
@@ -487,30 +436,21 @@ export class DashboardListsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DashboardListListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DashboardListListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DashboardListListResponse"
       ) as DashboardListListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -525,14 +465,9 @@ export class DashboardListsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DashboardListListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DashboardListListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DashboardListListResponse;
       return body;
     }
@@ -559,14 +494,8 @@ export class DashboardListsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DashboardList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "DashboardList",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DashboardList"
       ) as DashboardList;
       return body;
     }
@@ -578,16 +507,13 @@ export class DashboardListsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -602,14 +528,9 @@ export class DashboardListsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DashboardList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "DashboardList",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as DashboardList;
       return body;
     }
@@ -633,25 +554,25 @@ export interface DashboardListsApiCreateDashboardListRequest {
 export interface DashboardListsApiDeleteDashboardListRequest {
   /**
    * ID of the dashboard list to delete.
-   * @type Int64Input
+   * @type number
    */
-  listId: Int64Input;
+  listId: number;
 }
 
 export interface DashboardListsApiGetDashboardListRequest {
   /**
    * ID of the dashboard list to fetch.
-   * @type Int64Input
+   * @type number
    */
-  listId: Int64Input;
+  listId: number;
 }
 
 export interface DashboardListsApiUpdateDashboardListRequest {
   /**
    * ID of the dashboard list to update.
-   * @type Int64Input
+   * @type number
    */
-  listId: Int64Input;
+  listId: number;
   /**
    * Update a dashboard list request body.
    * @type DashboardList
@@ -673,8 +594,7 @@ export class DashboardListsApi {
     this.requestFactory =
       requestFactory || new DashboardListsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new DashboardListsApiResponseProcessor(configuration);
+      responseProcessor || new DashboardListsApiResponseProcessor();
   }
 
   /**

@@ -5,7 +5,7 @@
  */
 import { TimeseriesAnomalyInvestigationTagAnalysisStatus } from "./TimeseriesAnomalyInvestigationTagAnalysisStatus";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Summary of optional influential-tag enrichment. Count and key fields are present only when analysis completes; enrichment availability does not affect completion of the investigation result.
@@ -22,11 +22,11 @@ export class TimeseriesAnomalyInvestigationTagAnalysis {
   /**
    * Number of tag keys analyzed. Present only when analysis completes.
    */
-  "tagKeysAnalyzed"?: Int64;
+  "tagKeysAnalyzed"?: number;
   /**
    * Number of tag values analyzed. Present only when analysis completes.
    */
-  "tagValuesAnalyzed"?: Int64;
+  "tagValuesAnalyzed"?: number;
 
   /**
    * A container for additional, undeclared properties.

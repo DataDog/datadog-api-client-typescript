@@ -12,7 +12,7 @@ import { SyntheticsTestResultStepsInfo } from "./SyntheticsTestResultStepsInfo";
 import { SyntheticsTestSubType } from "./SyntheticsTestSubType";
 import { SyntheticsTestType } from "./SyntheticsTestType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a Synthetic test result summary.
@@ -29,7 +29,7 @@ export class SyntheticsTestResultSummaryAttributes {
   /**
    * Timestamp of when the test finished (in milliseconds).
    */
-  "finishedAt"?: Int64;
+  "finishedAt"?: number;
   /**
    * Location information for a Synthetic test result.
    */
@@ -41,7 +41,7 @@ export class SyntheticsTestResultSummaryAttributes {
   /**
    * Timestamp of when the test started (in milliseconds).
    */
-  "startedAt"?: Int64;
+  "startedAt"?: number;
   /**
    * Status of a Synthetic test result.
    */

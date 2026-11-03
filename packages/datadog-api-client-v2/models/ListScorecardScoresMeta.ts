@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata for scores.
@@ -13,19 +13,19 @@ export class ListScorecardScoresMeta {
   /**
    * The number of results returned in this page.
    */
-  "count"?: Int64;
+  "count"?: number;
   /**
    * The page limit.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * The page offset.
    */
-  "offset"?: Int64;
+  "offset"?: number;
   /**
    * The total number of results.
    */
-  "total"?: Int64;
+  "total"?: number;
 
   /**
    * A container for additional, undeclared properties.

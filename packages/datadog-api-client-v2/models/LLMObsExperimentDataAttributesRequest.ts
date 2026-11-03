@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for creating an Agent Observability experiment.
@@ -21,7 +21,7 @@ export class LLMObsExperimentDataAttributesRequest {
   /**
    * Version of the dataset to use. Defaults to the current version if not specified.
    */
-  "datasetVersion"?: Int64;
+  "datasetVersion"?: number;
   /**
    * Description of the experiment.
    */

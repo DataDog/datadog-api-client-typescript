@@ -5,7 +5,7 @@
  */
 import { QueryEventFilteredUsersRequestDataAttributesEventQuery } from "./QueryEventFilteredUsersRequestDataAttributesEventQuery";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for filtering users by both user properties and event platform activity.
@@ -22,7 +22,7 @@ export class QueryEventFilteredUsersRequestDataAttributes {
   /**
    * Maximum number of user records to return in the response.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Filter expression using user attribute conditions to narrow results.
    */

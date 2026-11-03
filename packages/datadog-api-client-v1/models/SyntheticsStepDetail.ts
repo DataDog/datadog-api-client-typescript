@@ -11,7 +11,7 @@ import { SyntheticsPlayingTab } from "./SyntheticsPlayingTab";
 import { SyntheticsStepDetailWarning } from "./SyntheticsStepDetailWarning";
 import { SyntheticsStepType } from "./SyntheticsStepType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing a step for a Synthetic test.
@@ -64,7 +64,7 @@ export class SyntheticsStepDetail {
   /**
    * The step ID.
    */
-  "stepId"?: Int64;
+  "stepId"?: number;
   /**
    * If this step includes a sub-test.
    * [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).

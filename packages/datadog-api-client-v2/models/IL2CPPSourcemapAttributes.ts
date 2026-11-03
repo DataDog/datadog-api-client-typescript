@@ -5,7 +5,7 @@
  */
 import { IL2CPPSourcemapMapKind } from "./IL2CPPSourcemapMapKind";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an IL2CPP mapping file.
@@ -26,7 +26,7 @@ export class IL2CPPSourcemapAttributes {
   /**
    * The size of the mapping file in bytes.
    */
-  "size": Int64;
+  "size": number;
 
   /**
    * A container for additional, undeclared properties.

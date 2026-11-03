@@ -5,7 +5,7 @@
  */
 import { StatusPagesComponentGroupAttributesComponentsItemsType } from "./StatusPagesComponentGroupAttributesComponentsItemsType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A component to be created within a group.
@@ -18,7 +18,7 @@ export class CreateComponentRequestDataAttributesComponentsItems {
   /**
    * The zero-indexed position of the grouped component relative to the other components in the group.
    */
-  "position": Int64;
+  "position": number;
   /**
    * The type of the component.
    */

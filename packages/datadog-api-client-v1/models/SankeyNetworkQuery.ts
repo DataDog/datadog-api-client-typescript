@@ -8,7 +8,7 @@ import { SankeyNetworkQueryCompute } from "./SankeyNetworkQueryCompute";
 import { SankeyNetworkQueryMode } from "./SankeyNetworkQueryMode";
 import { SankeyNetworkQuerySort } from "./SankeyNetworkQuerySort";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Query configuration for Sankey network widget.
@@ -29,7 +29,7 @@ export class SankeyNetworkQuery {
   /**
    * Maximum number of results.
    */
-  "limit": Int64;
+  "limit": number;
   /**
    * Sankey mode for network queries.
    */

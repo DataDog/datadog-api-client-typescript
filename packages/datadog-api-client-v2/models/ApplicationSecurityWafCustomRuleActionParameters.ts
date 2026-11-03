@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The definition of `ApplicationSecurityWafCustomRuleActionParameters` object.
@@ -17,7 +17,7 @@ export class ApplicationSecurityWafCustomRuleActionParameters {
   /**
    * The status code to return when the WAF custom rule triggers.
    */
-  "statusCode"?: Int64;
+  "statusCode"?: number;
 
   /**
    * A container for additional, undeclared properties.

@@ -5,7 +5,7 @@
  */
 import { ProductCatalogSKUPricingUnitType } from "./ProductCatalogSKUPricingUnitType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A usage range and the price that applies to usage falling inside it.
@@ -15,11 +15,11 @@ export class ProductCatalogSKUPricingTier {
    * The exclusive upper bound of the usage range the tier prices. `null` on the final
    * tier, which is unbounded.
    */
-  "maxUsageQuantity": Int64 | null;
+  "maxUsageQuantity": number | null;
   /**
    * The inclusive lower bound of the usage range the tier prices.
    */
-  "minUsageQuantity": Int64;
+  "minUsageQuantity": number;
   /**
    * The price applied to usage in the tier, as a decimal string. The number of decimal
    * places is not normalized, so free tiers appear as either `0` or `0.00`.

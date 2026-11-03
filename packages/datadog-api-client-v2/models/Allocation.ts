@@ -9,7 +9,7 @@ import { GuardrailMetric } from "./GuardrailMetric";
 import { TargetingRule } from "./TargetingRule";
 import { VariantWeight } from "./VariantWeight";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Targeting rule (allocation) details for a feature flag environment.
@@ -50,7 +50,7 @@ export class Allocation {
   /**
    * Sort order position within the environment.
    */
-  "orderPosition": Int64;
+  "orderPosition": number;
   /**
    * Conditions associated with this targeting rule allocation.
    */

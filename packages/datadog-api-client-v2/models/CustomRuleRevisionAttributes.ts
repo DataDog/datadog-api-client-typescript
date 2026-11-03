@@ -9,7 +9,7 @@ import { CustomRuleRevisionAttributesSeverity } from "./CustomRuleRevisionAttrib
 import { CustomRuleRevisionTest } from "./CustomRuleRevisionTest";
 import { Language } from "./Language";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a custom rule revision, including code, metadata, and test cases.
@@ -98,7 +98,7 @@ export class CustomRuleRevisionAttributes {
   /**
    * Monotonically increasing version number of the revision.
    */
-  "versionId": Int64;
+  "versionId": number;
 
   /**
    * A container for additional, undeclared properties.

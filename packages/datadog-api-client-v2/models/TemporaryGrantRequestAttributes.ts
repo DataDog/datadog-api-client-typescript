@@ -6,7 +6,7 @@
 import { TemporaryGrantRequestGrantState } from "./TemporaryGrantRequestGrantState";
 import { TemporaryGrantRequestStatus } from "./TemporaryGrantRequestStatus";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Request history and the linked grant state. List and detail reads include grant_state for approved requests. Decision responses record the decision. Read the request for current grant state.
@@ -55,7 +55,7 @@ export class TemporaryGrantRequestAttributes {
   /**
    * Target monthly AI credit limit in positive whole credits, not additional credits. Fractional credits are not accepted.
    */
-  "total": Int64;
+  "total": number;
 
   /**
    * A container for additional, undeclared properties.

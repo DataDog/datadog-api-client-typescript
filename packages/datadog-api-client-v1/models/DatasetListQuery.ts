@@ -7,7 +7,7 @@ import { DatasetListQueryDataSourceType } from "./DatasetListQueryDataSourceType
 import { DatasetListQuerySort } from "./DatasetListQuerySort";
 import { PublishedDatasetProvider } from "./PublishedDatasetProvider";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Query that lists the rows of a published dataset (a DDSQL query) without aggregation.
@@ -32,7 +32,7 @@ export class DatasetListQuery {
   /**
    * Maximum number of rows to return from the dataset query.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Sort configuration for a `DatasetListQuery`.
    */

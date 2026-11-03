@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * CI visibility usage in a given hour.
@@ -13,23 +13,23 @@ export class UsageCIVisibilityHour {
   /**
    * The number of spans for pipelines in the queried hour.
    */
-  "ciPipelineIndexedSpans"?: Int64;
+  "ciPipelineIndexedSpans"?: number;
   /**
    * The number of spans for tests in the queried hour.
    */
-  "ciTestIndexedSpans"?: Int64;
+  "ciTestIndexedSpans"?: number;
   /**
    * Shows the total count of all active Git committers for Intelligent Test Runner in the current month. A committer is active if they commit at least 3 times in a given month.
    */
-  "ciVisibilityItrCommitters"?: Int64;
+  "ciVisibilityItrCommitters"?: number;
   /**
    * Shows the total count of all active Git committers for Pipelines in the current month. A committer is active if they commit at least 3 times in a given month.
    */
-  "ciVisibilityPipelineCommitters"?: Int64;
+  "ciVisibilityPipelineCommitters"?: number;
   /**
    * The total count of all active Git committers for tests in the current month. A committer is active if they commit at least 3 times in a given month.
    */
-  "ciVisibilityTestCommitters"?: Int64;
+  "ciVisibilityTestCommitters"?: number;
   /**
    * The organization name.
    */

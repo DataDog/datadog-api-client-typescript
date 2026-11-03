@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Cursor-based pagination parameters.
@@ -17,7 +17,7 @@ export class LLMObsExperimentationCursorPage {
   /**
    * Maximum number of results per page.
    */
-  "limit"?: Int64;
+  "limit"?: number;
 
   /**
    * A container for additional, undeclared properties.

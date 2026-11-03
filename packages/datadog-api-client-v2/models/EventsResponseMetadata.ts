@@ -6,7 +6,7 @@
 import { EventsResponseMetadataPage } from "./EventsResponseMetadataPage";
 import { EventsWarning } from "./EventsWarning";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The metadata associated with a request.
@@ -15,7 +15,7 @@ export class EventsResponseMetadata {
   /**
    * The time elapsed in milliseconds.
    */
-  "elapsed"?: Int64;
+  "elapsed"?: number;
   /**
    * Pagination attributes.
    */

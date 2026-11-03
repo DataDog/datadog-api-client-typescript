@@ -8,7 +8,7 @@ import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
 import { FindingStatus } from "./FindingStatus";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The JSON:API attributes of the detailed finding.
@@ -21,7 +21,7 @@ export class DetailedFindingAttributes {
   /**
    * The date on which the evaluation for this finding changed (Unix ms).
    */
-  "evaluationChangedAt"?: Int64;
+  "evaluationChangedAt"?: number;
   /**
    * The remediation message for this finding.
    */
@@ -41,7 +41,7 @@ export class DetailedFindingAttributes {
   /**
    * The date on which the resource was discovered (Unix ms).
    */
-  "resourceDiscoveryDate"?: Int64;
+  "resourceDiscoveryDate"?: number;
   /**
    * The resource type of this finding.
    */
@@ -82,7 +82,6 @@ export class DetailedFindingAttributes {
     evaluationChangedAt: {
       baseName: "evaluation_changed_at",
       type: "number",
-      format: "int64",
     },
     message: {
       baseName: "message",
@@ -103,7 +102,6 @@ export class DetailedFindingAttributes {
     resourceDiscoveryDate: {
       baseName: "resource_discovery_date",
       type: "number",
-      format: "int64",
     },
     resourceType: {
       baseName: "resource_type",

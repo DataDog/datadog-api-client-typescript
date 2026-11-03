@@ -71,8 +71,7 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
         "TestOptimizationDeleteServiceSettingsRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -123,8 +122,7 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
         "TestOptimizationFlakyTestsManagementPoliciesGetRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -175,8 +173,7 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
         "TestOptimizationGetServiceSettingsRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -218,8 +215,7 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "FlakyTestsSearchRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -266,8 +262,7 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateFlakyTestsRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -318,8 +313,7 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
         "TestOptimizationFlakyTestsManagementPoliciesUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -370,8 +364,7 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
         "TestOptimizationUpdateServiceSettingsRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -387,12 +380,6 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class TestOptimizationApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -417,16 +404,13 @@ export class TestOptimizationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -466,14 +450,8 @@ export class TestOptimizationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: TestOptimizationFlakyTestsManagementPoliciesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "TestOptimizationFlakyTestsManagementPoliciesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "TestOptimizationFlakyTestsManagementPoliciesResponse"
         ) as TestOptimizationFlakyTestsManagementPoliciesResponse;
       return body;
     }
@@ -485,16 +463,13 @@ export class TestOptimizationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -510,14 +485,9 @@ export class TestOptimizationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TestOptimizationFlakyTestsManagementPoliciesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "TestOptimizationFlakyTestsManagementPoliciesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as TestOptimizationFlakyTestsManagementPoliciesResponse;
       return body;
     }
@@ -545,14 +515,8 @@ export class TestOptimizationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: TestOptimizationServiceSettingsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "TestOptimizationServiceSettingsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "TestOptimizationServiceSettingsResponse"
         ) as TestOptimizationServiceSettingsResponse;
       return body;
     }
@@ -564,16 +528,13 @@ export class TestOptimizationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -589,14 +550,9 @@ export class TestOptimizationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TestOptimizationServiceSettingsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "TestOptimizationServiceSettingsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as TestOptimizationServiceSettingsResponse;
       return body;
     }
@@ -623,14 +579,8 @@ export class TestOptimizationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FlakyTestsSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "FlakyTestsSearchResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FlakyTestsSearchResponse"
       ) as FlakyTestsSearchResponse;
       return body;
     }
@@ -641,16 +591,13 @@ export class TestOptimizationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -665,14 +612,9 @@ export class TestOptimizationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FlakyTestsSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "FlakyTestsSearchResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as FlakyTestsSearchResponse;
       return body;
     }
@@ -699,14 +641,8 @@ export class TestOptimizationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: UpdateFlakyTestsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "UpdateFlakyTestsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UpdateFlakyTestsResponse"
       ) as UpdateFlakyTestsResponse;
       return body;
     }
@@ -717,16 +653,13 @@ export class TestOptimizationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -741,14 +674,9 @@ export class TestOptimizationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdateFlakyTestsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "UpdateFlakyTestsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as UpdateFlakyTestsResponse;
       return body;
     }
@@ -776,14 +704,8 @@ export class TestOptimizationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: TestOptimizationFlakyTestsManagementPoliciesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "TestOptimizationFlakyTestsManagementPoliciesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "TestOptimizationFlakyTestsManagementPoliciesResponse"
         ) as TestOptimizationFlakyTestsManagementPoliciesResponse;
       return body;
     }
@@ -795,16 +717,13 @@ export class TestOptimizationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -820,14 +739,9 @@ export class TestOptimizationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TestOptimizationFlakyTestsManagementPoliciesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "TestOptimizationFlakyTestsManagementPoliciesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as TestOptimizationFlakyTestsManagementPoliciesResponse;
       return body;
     }
@@ -855,14 +769,8 @@ export class TestOptimizationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: TestOptimizationServiceSettingsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "TestOptimizationServiceSettingsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "TestOptimizationServiceSettingsResponse"
         ) as TestOptimizationServiceSettingsResponse;
       return body;
     }
@@ -874,16 +782,13 @@ export class TestOptimizationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -899,14 +804,9 @@ export class TestOptimizationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TestOptimizationServiceSettingsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "TestOptimizationServiceSettingsResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as TestOptimizationServiceSettingsResponse;
       return body;
     }
@@ -982,8 +882,7 @@ export class TestOptimizationApi {
     this.requestFactory =
       requestFactory || new TestOptimizationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new TestOptimizationApiResponseProcessor(configuration);
+      responseProcessor || new TestOptimizationApiResponseProcessor();
   }
 
   /**
@@ -1110,7 +1009,7 @@ export class TestOptimizationApi {
       param.body.data.attributes.page = new FlakyTestsSearchPageOptions();
     }
     if (param.body.data.attributes.page.limit !== undefined) {
-      pageSize = Number(param.body.data.attributes.page.limit);
+      pageSize = param.body.data.attributes.page.limit;
     }
     param.body.data.attributes.page.limit = pageSize;
     while (true) {

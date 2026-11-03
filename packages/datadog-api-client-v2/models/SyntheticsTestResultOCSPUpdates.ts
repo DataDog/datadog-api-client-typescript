@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * OCSP response update timestamps.
@@ -13,15 +13,15 @@ export class SyntheticsTestResultOCSPUpdates {
   /**
    * Unix timestamp (ms) of the next expected OCSP update.
    */
-  "nextUpdate"?: Int64;
+  "nextUpdate"?: number;
   /**
    * Unix timestamp (ms) of when the OCSP response was produced.
    */
-  "producedAt"?: Int64;
+  "producedAt"?: number;
   /**
    * Unix timestamp (ms) of this OCSP update.
    */
-  "thisUpdate"?: Int64;
+  "thisUpdate"?: number;
 
   /**
    * A container for additional, undeclared properties.

@@ -6,7 +6,7 @@
 import { ExperimentsAnalysisPlanV2DTODataAttributesConfidenceIntervalMethod } from "./ExperimentsAnalysisPlanV2DTODataAttributesConfidenceIntervalMethod";
 import { ExperimentsAnalysisPlanV2MutationResponseDataAttributesBayesianPrior } from "./ExperimentsAnalysisPlanV2MutationResponseDataAttributesBayesianPrior";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Statistical settings and duration targets in the saved analysis plan.
@@ -27,19 +27,19 @@ export class ExperimentsAnalysisPlanV2MutationResponseDataAttributes {
   /**
    * Number of days of pre-experiment data used for CUPED variance reduction.
    */
-  "cupedLookbackPeriodDays"?: Int64;
+  "cupedLookbackPeriodDays"?: number;
   /**
    * Number of days configured for the experiment to end automatically.
    */
-  "experimentAutoEndDays"?: Int64;
+  "experimentAutoEndDays"?: number;
   /**
    * Minimum experiment duration in days configured in the analysis plan.
    */
-  "experimentMinDuration"?: Int64;
+  "experimentMinDuration"?: number;
   /**
    * Minimum sample size configured in the analysis plan.
    */
-  "experimentMinSampleSize"?: Int64;
+  "experimentMinSampleSize"?: number;
   /**
    * Whether the experiment has custom analysis settings.
    */
@@ -59,7 +59,7 @@ export class ExperimentsAnalysisPlanV2MutationResponseDataAttributes {
   /**
    * Planned experiment duration in days.
    */
-  "targetDurationDays"?: Int64;
+  "targetDurationDays"?: number;
 
   /**
    * A container for additional, undeclared properties.

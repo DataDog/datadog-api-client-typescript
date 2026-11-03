@@ -61,8 +61,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "EventCreateRequestPayload", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -222,8 +221,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "EventsListRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -239,12 +237,6 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class EventsApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -260,30 +252,21 @@ export class EventsApiResponseProcessor {
     );
     if (response.httpStatusCode === 202) {
       const body: EventCreateResponsePayload = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "EventCreateResponsePayload",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EventCreateResponsePayload"
       ) as EventCreateResponsePayload;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -300,16 +283,13 @@ export class EventsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -324,14 +304,9 @@ export class EventsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EventCreateResponsePayload = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "EventCreateResponsePayload",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as EventCreateResponsePayload;
       return body;
     }
@@ -356,14 +331,8 @@ export class EventsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: V2EventResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "V2EventResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "V2EventResponse"
       ) as V2EventResponse;
       return body;
     }
@@ -376,16 +345,13 @@ export class EventsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -400,14 +366,9 @@ export class EventsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: V2EventResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "V2EventResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as V2EventResponse;
       return body;
     }
@@ -434,14 +395,8 @@ export class EventsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: EventsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "EventsListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EventsListResponse"
       ) as EventsListResponse;
       return body;
     }
@@ -452,16 +407,13 @@ export class EventsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -476,14 +428,9 @@ export class EventsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EventsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "EventsListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as EventsListResponse;
       return body;
     }
@@ -510,14 +457,8 @@ export class EventsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: EventsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "EventsListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EventsListResponse"
       ) as EventsListResponse;
       return body;
     }
@@ -528,16 +469,13 @@ export class EventsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -552,14 +490,9 @@ export class EventsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EventsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "EventsListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as EventsListResponse;
       return body;
     }
@@ -642,7 +575,7 @@ export class EventsApi {
     this.requestFactory =
       requestFactory || new EventsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new EventsApiResponseProcessor(configuration);
+      responseProcessor || new EventsApiResponseProcessor();
   }
 
   /**
@@ -731,7 +664,7 @@ export class EventsApi {
   ): AsyncGenerator<EventResponse> {
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
-      pageSize = Number(param.pageLimit);
+      pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
@@ -816,7 +749,7 @@ export class EventsApi {
       param.body.page = new EventsRequestPage();
     }
     if (param.body.page.limit !== undefined) {
-      pageSize = Number(param.body.page.limit);
+      pageSize = param.body.page.limit;
     }
     param.body.page.limit = pageSize;
     while (true) {

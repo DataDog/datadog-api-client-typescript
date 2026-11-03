@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Criteria for matching metrics based on query state.
@@ -25,7 +25,7 @@ export class TagIndexingRuleMetricMatch {
   /**
    * Window in seconds for evaluating query state.
    */
-  "queriedWindowSeconds"?: Int64;
+  "queriedWindowSeconds"?: number;
   /**
    * Match metrics used in dashboards or monitors.
    */

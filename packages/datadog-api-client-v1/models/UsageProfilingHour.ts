@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The number of profiled hosts for each hour for a given organization.
@@ -13,15 +13,15 @@ export class UsageProfilingHour {
   /**
    * Contains the total number of profiled Azure app services reporting during a given hour.
    */
-  "aasCount"?: Int64;
+  "aasCount"?: number;
   /**
    * Get average number of container agents for that hour.
    */
-  "avgContainerAgentCount"?: Int64;
+  "avgContainerAgentCount"?: number;
   /**
    * Contains the total number of profiled hosts reporting during a given hour.
    */
-  "hostCount"?: Int64;
+  "hostCount"?: number;
   /**
    * The hour for the usage.
    */

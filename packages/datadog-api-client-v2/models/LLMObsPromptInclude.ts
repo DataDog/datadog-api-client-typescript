@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Includes messages from a specific version of another prompt. Omitting `items` includes every message from that version in its original order. When `items` is present, messages are included in the specified order, including repetitions.
@@ -13,7 +13,7 @@ export class LLMObsPromptInclude {
   /**
    * Zero-based indexes of messages from the included prompt. For example, `[2, 0, 0]` includes the third message, followed by the first message twice. Omit this field to include all messages in their original order.
    */
-  "items"?: Array<Int64>;
+  "items"?: Array<number>;
   /**
    * Customer-provided identifier of the included prompt.
    */
@@ -21,7 +21,7 @@ export class LLMObsPromptInclude {
   /**
    * Positive sequential version number of the included prompt.
    */
-  "version": Int64;
+  "version": number;
 
   /**
    * @ignore
@@ -35,7 +35,6 @@ export class LLMObsPromptInclude {
     items: {
       baseName: "items",
       type: "Array<number>",
-      format: "int64",
     },
     promptId: {
       baseName: "prompt_id",

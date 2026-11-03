@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The model's internal reasoning or thinking output, if available.
@@ -13,7 +13,7 @@ export class LLMObsInternalReasoning {
   /**
    * Number of tokens used for internal reasoning.
    */
-  "reasoningTokens"?: Int64;
+  "reasoningTokens"?: number;
   /**
    * The reasoning text produced by the model.
    */

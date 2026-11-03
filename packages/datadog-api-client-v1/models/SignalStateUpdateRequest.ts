@@ -6,7 +6,7 @@
 import { SignalArchiveReason } from "./SignalArchiveReason";
 import { SignalTriageState } from "./SignalTriageState";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing the change of state for a given state.
@@ -27,7 +27,7 @@ export class SignalStateUpdateRequest {
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
    */
-  "version"?: Int64;
+  "version"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -61,7 +61,6 @@ export class SignalStateUpdateRequest {
     version: {
       baseName: "version",
       type: "number",
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

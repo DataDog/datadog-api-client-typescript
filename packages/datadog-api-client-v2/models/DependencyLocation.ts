@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Static library vulnerability location.
@@ -13,11 +13,11 @@ export class DependencyLocation {
   /**
    * Location column end.
    */
-  "columnEnd": Int64;
+  "columnEnd": number;
   /**
    * Location column start.
    */
-  "columnStart": Int64;
+  "columnStart": number;
   /**
    * Location file name.
    */
@@ -25,11 +25,11 @@ export class DependencyLocation {
   /**
    * Location line end.
    */
-  "lineEnd": Int64;
+  "lineEnd": number;
   /**
    * Location line start.
    */
-  "lineStart": Int64;
+  "lineStart": number;
 
   /**
    * A container for additional, undeclared properties.

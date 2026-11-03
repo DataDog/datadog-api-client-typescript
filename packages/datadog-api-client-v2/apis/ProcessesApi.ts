@@ -12,7 +12,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ProcessSummariesResponse } from "../models/ProcessSummariesResponse";
@@ -22,8 +21,8 @@ export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
   public async listProcesses(
     search?: string,
     tags?: string,
-    from?: Int64Input,
-    to?: Int64Input,
+    from?: number,
+    to?: number,
     pageLimit?: number,
     pageCursor?: string,
     _options?: Configuration
@@ -101,12 +100,6 @@ export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ProcessesApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -122,14 +115,8 @@ export class ProcessesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ProcessSummariesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "ProcessSummariesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ProcessSummariesResponse"
       ) as ProcessSummariesResponse;
       return body;
     }
@@ -140,16 +127,13 @@ export class ProcessesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -164,14 +148,9 @@ export class ProcessesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProcessSummariesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "ProcessSummariesResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as ProcessSummariesResponse;
       return body;
     }
@@ -202,16 +181,16 @@ export interface ProcessesApiListProcessesRequest {
    * Start of the query window, in Unix seconds. Must be within the past 36 hours and at most 1 hour
    * before `to`. If not provided, the start of the query window is 15 minutes before the `to` timestamp.
    * If neither `from` nor `to` is provided, the query window is `[now - 15m, now]`.
-   * @type Int64Input
+   * @type number
    */
-  from?: Int64Input;
+  from?: number;
   /**
    * End of the query window, in Unix seconds. Must be at most 1 hour after `from`. If not provided, the
    * end of the query window is 15 minutes after the `from` timestamp. If neither `from` nor `to` is
    * provided, the query window is `[now - 15m, now]`.
-   * @type Int64Input
+   * @type number
    */
-  to?: Int64Input;
+  to?: number;
   /**
    * Maximum number of results returned.
    * @type number
@@ -239,7 +218,7 @@ export class ProcessesApi {
     this.requestFactory =
       requestFactory || new ProcessesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ProcessesApiResponseProcessor(configuration);
+      responseProcessor || new ProcessesApiResponseProcessor();
   }
 
   /**
@@ -283,7 +262,7 @@ export class ProcessesApi {
   ): AsyncGenerator<ProcessSummary> {
     let pageSize = 1000;
     if (param.pageLimit !== undefined) {
-      pageSize = Number(param.pageLimit);
+      pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {

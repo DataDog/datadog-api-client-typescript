@@ -9,7 +9,7 @@ import { IncidentRuleQueryCondition } from "./IncidentRuleQueryCondition";
 import { IncidentRuleTaskIDType } from "./IncidentRuleTaskIDType";
 import { IncidentRuleTriggerType } from "./IncidentRuleTriggerType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for creating an incident rule.
@@ -22,7 +22,7 @@ export class IncidentRuleDataAttributesRequest {
   /**
    * The condition table type. 1 = raw query.
    */
-  "conditionTableType": Int64;
+  "conditionTableType": number;
   /**
    * List of field-based conditions.
    */

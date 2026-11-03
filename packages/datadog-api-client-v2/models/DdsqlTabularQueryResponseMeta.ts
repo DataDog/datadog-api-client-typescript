@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Top-level JSON:API meta block accompanying every DDSQL tabular query response.
@@ -14,7 +14,7 @@ export class DdsqlTabularQueryResponseMeta {
   /**
    * Server-side time spent serving this request, in milliseconds.
    */
-  "elapsed": Int64;
+  "elapsed": number;
   /**
    * Echo of the `DD-Request-ID` header assigned by Datadog's edge to this request,
    * for support correlation.

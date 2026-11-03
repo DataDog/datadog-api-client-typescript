@@ -5,7 +5,7 @@
  */
 import { MetricsQueryMetadata } from "./MetricsQueryMetadata";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response Object that includes your query and the list of metrics retrieved.
@@ -18,7 +18,7 @@ export class MetricsQueryResponse {
   /**
    * Start of requested time window, milliseconds since Unix epoch.
    */
-  "fromDate"?: Int64;
+  "fromDate"?: number;
   /**
    * List of tag keys on which to group.
    */
@@ -38,7 +38,7 @@ export class MetricsQueryResponse {
   /**
    * Version of the response format.
    */
-  "respVersion"?: Int64;
+  "respVersion"?: number;
   /**
    * List of timeseries queried.
    */
@@ -55,7 +55,7 @@ export class MetricsQueryResponse {
   /**
    * End of requested time window, milliseconds since Unix epoch.
    */
-  "toDate"?: Int64;
+  "toDate"?: number;
   /**
    * Legacy field, always returned as an empty list. Timeseries values are
    * returned in the `pointlist` of each entry of `series`.

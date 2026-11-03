@@ -5,7 +5,7 @@
  */
 import { HeatgridColor } from "./HeatgridColor";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A position and color in a continuous gradient.
@@ -18,7 +18,7 @@ export class HeatgridColorStop {
   /**
    * Position in the gradient, from 0 to 100.
    */
-  "position": Int64;
+  "position": number;
 
   /**
    * @ignore

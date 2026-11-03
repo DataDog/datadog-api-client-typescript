@@ -8,7 +8,7 @@ import { DowntimeRecurrence } from "./DowntimeRecurrence";
 import { NotifyEndState } from "./NotifyEndState";
 import { NotifyEndType } from "./NotifyEndType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Downtiming gives you greater control over monitor notifications by
@@ -29,7 +29,7 @@ export class Downtime {
   /**
    * If a scheduled downtime is canceled.
    */
-  "canceled"?: Int64;
+  "canceled"?: number;
   /**
    * User ID of the downtime creator.
    */
@@ -48,11 +48,11 @@ export class Downtime {
    * POSIX timestamp to end the downtime. If not provided,
    * the downtime is in effect indefinitely until you cancel it.
    */
-  "end"?: Int64;
+  "end"?: number;
   /**
    * The downtime ID.
    */
-  "id"?: Int64;
+  "id"?: number;
   /**
    * A message to include with notifications for this downtime.
    * Email notifications can be sent to specific users by using the same `@username` notation as events.
@@ -62,7 +62,7 @@ export class Downtime {
    * A single monitor to which the downtime applies.
    * If not provided, the downtime applies to all monitors.
    */
-  "monitorId"?: Int64;
+  "monitorId"?: number;
   /**
    * A comma-separated list of monitor tags. For example, tags that are applied directly to monitors,
    * not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies.
@@ -88,7 +88,7 @@ export class Downtime {
   /**
    * ID of the parent Downtime.
    */
-  "parentId"?: Int64;
+  "parentId"?: number;
   /**
    * An object defining the recurrence of the downtime.
    */
@@ -103,7 +103,7 @@ export class Downtime {
    * POSIX timestamp to start the downtime.
    * If not provided, the downtime starts the moment it is created.
    */
-  "start"?: Int64;
+  "start"?: number;
   /**
    * The timezone in which to display the downtime's start and end times in Datadog applications.
    */

@@ -5,7 +5,7 @@
  */
 import { EscalationPolicyUpdateRequestDataAttributesStepsItems } from "./EscalationPolicyUpdateRequestDataAttributesStepsItems";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Defines the attributes that can be updated for an escalation policy, such as description, name, resolution behavior, retries, and steps.
@@ -22,7 +22,7 @@ export class EscalationPolicyUpdateRequestDataAttributes {
   /**
    * Specifies how many times the escalation sequence is retried if there is no response.
    */
-  "retries"?: Int64;
+  "retries"?: number;
   /**
    * A list of escalation steps, each defining assignment, escalation timeout, and targets.
    */

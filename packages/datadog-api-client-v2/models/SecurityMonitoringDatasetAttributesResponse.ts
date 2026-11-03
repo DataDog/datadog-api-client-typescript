@@ -5,7 +5,7 @@
  */
 import { SecurityMonitoringDatasetDefinition } from "./SecurityMonitoringDatasetDefinition";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a Cloud SIEM dataset.
@@ -65,7 +65,7 @@ export class SecurityMonitoringDatasetAttributesResponse {
   /**
    * The current version of the dataset.
    */
-  "version": Int64;
+  "version": number;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A topic discovered by an Agent Observability patterns run.
@@ -25,7 +25,7 @@ export class LLMObsPatternsTopic {
   /**
    * Level of the topic in the hierarchy. Level 0 is a leaf topic.
    */
-  "hierarchyLevel": Int64;
+  "hierarchyLevel": number;
   /**
    * Unique identifier of the topic.
    */
@@ -45,7 +45,7 @@ export class LLMObsPatternsTopic {
   /**
    * Number of data points assigned to the topic.
    */
-  "pointCount": Int64;
+  "pointCount": number;
   /**
    * Identifier of the run that produced the topic.
    */

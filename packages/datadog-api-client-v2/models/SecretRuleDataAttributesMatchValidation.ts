@@ -6,7 +6,7 @@
 import { SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems } from "./SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems";
 import { SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems } from "./SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Configuration for validating whether a detected secret is active by making an HTTP request and inspecting the response.
@@ -35,7 +35,7 @@ export class SecretRuleDataAttributesMatchValidation {
   /**
    * The maximum number of seconds to wait for a response during validation before timing out.
    */
-  "timeoutSeconds"?: Int64;
+  "timeoutSeconds"?: number;
   /**
    * The type of match validation to perform (e.g., http).
    */

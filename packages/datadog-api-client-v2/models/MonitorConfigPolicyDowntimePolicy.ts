@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Downtime duration attributes of a monitor configuration policy.
@@ -13,7 +13,7 @@ export class MonitorConfigPolicyDowntimePolicy {
   /**
    * The maximum allowed downtime duration, in milliseconds.
    */
-  "maxDurationMs": Int64;
+  "maxDurationMs": number;
 
   /**
    * @ignore

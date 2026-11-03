@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Monitor query options for deployment rules.
@@ -13,7 +13,7 @@ export class DeploymentRuleOptionsMonitor {
   /**
    * Seconds the monitor needs to stay in OK status for the rule to pass.
    */
-  "duration"?: Int64;
+  "duration"?: number;
   /**
    * Whether the rule should fail if a matching monitor group is in a NO DATA state.
    */
@@ -29,7 +29,7 @@ export class DeploymentRuleOptionsMonitor {
   /**
    * Seconds to wait after a deployment starts before evaluating the monitor's status.
    */
-  "warmup"?: Int64;
+  "warmup"?: number;
 
   /**
    * @ignore

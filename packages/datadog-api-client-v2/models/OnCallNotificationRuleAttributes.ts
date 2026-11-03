@@ -6,7 +6,7 @@
 import { OnCallNotificationRuleCategory } from "./OnCallNotificationRuleCategory";
 import { OnCallNotificationRuleChannelSettings } from "./OnCallNotificationRuleChannelSettings";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for an on-call notification rule.
@@ -23,7 +23,7 @@ export class OnCallNotificationRuleAttributes {
   /**
    * The number of minutes that will elapse before this rule is evaluated.  0 indicates immediate evaluation
    */
-  "delayMinutes"?: Int64;
+  "delayMinutes"?: number;
 
   /**
    * A container for additional, undeclared properties.

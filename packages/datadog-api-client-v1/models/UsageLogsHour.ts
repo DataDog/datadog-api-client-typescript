@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Hour usage for logs.
@@ -13,7 +13,7 @@ export class UsageLogsHour {
   /**
    * Contains the number of billable log bytes ingested.
    */
-  "billableIngestedBytes"?: Int64;
+  "billableIngestedBytes"?: number;
   /**
    * The hour for the usage.
    */
@@ -21,31 +21,31 @@ export class UsageLogsHour {
   /**
    * Contains the number of log events indexed.
    */
-  "indexedEventsCount"?: Int64;
+  "indexedEventsCount"?: number;
   /**
    * Contains the number of log bytes ingested.
    */
-  "ingestedEventsBytes"?: Int64;
+  "ingestedEventsBytes"?: number;
   /**
    * Contains the number of logs forwarded bytes (data available as of April 1st 2023)
    */
-  "logsForwardingEventsBytes"?: Int64;
+  "logsForwardingEventsBytes"?: number;
   /**
    * Contains the number of live log events indexed (data available as of December 1, 2020).
    */
-  "logsLiveIndexedCount"?: Int64;
+  "logsLiveIndexedCount"?: number;
   /**
    * Contains the number of live log bytes ingested (data available as of December 1, 2020).
    */
-  "logsLiveIngestedBytes"?: Int64;
+  "logsLiveIngestedBytes"?: number;
   /**
    * Contains the number of rehydrated log events indexed (data available as of December 1, 2020).
    */
-  "logsRehydratedIndexedCount"?: Int64;
+  "logsRehydratedIndexedCount"?: number;
   /**
    * Contains the number of rehydrated log bytes ingested (data available as of December 1, 2020).
    */
-  "logsRehydratedIngestedBytes"?: Int64;
+  "logsRehydratedIngestedBytes"?: number;
   /**
    * The organization name.
    */

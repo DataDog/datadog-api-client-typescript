@@ -5,7 +5,7 @@
  */
 import { InterfaceAttributesStatus } from "./InterfaceAttributesStatus";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The interface attributes
@@ -22,7 +22,7 @@ export class InterfaceAttributes {
   /**
    * The interface index
    */
-  "index"?: Int64;
+  "index"?: number;
   /**
    * The interface IP addresses
    */

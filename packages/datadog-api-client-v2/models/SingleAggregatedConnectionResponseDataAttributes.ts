@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for an aggregated connection.
@@ -13,11 +13,11 @@ export class SingleAggregatedConnectionResponseDataAttributes {
   /**
    * The total number of bytes sent by the client over the given period.
    */
-  "bytesSentByClient"?: Int64;
+  "bytesSentByClient"?: number;
   /**
    * The total number of bytes sent by the server over the given period.
    */
-  "bytesSentByServer"?: Int64;
+  "bytesSentByServer"?: number;
   /**
    * The key, value pairs for each group by.
    */
@@ -25,63 +25,63 @@ export class SingleAggregatedConnectionResponseDataAttributes {
   /**
    * The total number of packets sent by the client over the given period.
    */
-  "packetsSentByClient"?: Int64;
+  "packetsSentByClient"?: number;
   /**
    * The total number of packets sent by the server over the given period.
    */
-  "packetsSentByServer"?: Int64;
+  "packetsSentByServer"?: number;
   /**
    * Measured as TCP smoothed round trip time in microseconds (the time between a TCP frame being sent and acknowledged).
    */
-  "rttMicroSeconds"?: Int64;
+  "rttMicroSeconds"?: number;
   /**
    * The number of TCP connections in a closed state. Measured in connections per second from the client.
    */
-  "tcpClosedConnections"?: Int64;
+  "tcpClosedConnections"?: number;
   /**
    * The number of TCP segments acknowledged with the ECN Congestion Experienced (CE) mark, indicating that an upstream router marked packets as experiencing congestion.
    */
-  "tcpDeliveredCe"?: Int64;
+  "tcpDeliveredCe"?: number;
   /**
    * The number of TCP connections in an established state. Measured in connections per second from the client.
    */
-  "tcpEstablishedConnections"?: Int64;
+  "tcpEstablishedConnections"?: number;
   /**
    * The number of TCP zero-window probes sent. These probes are sent when the receiver advertises a zero receive window, indicating it cannot accept more data.
    */
-  "tcpProbe0Count"?: Int64;
+  "tcpProbe0Count"?: number;
   /**
    * The number of TCP packets received out of order. This indicates network-level packet reordering, which can degrade TCP performance by triggering spurious retransmissions and reducing throughput.
    */
-  "tcpRcvOooPack"?: Int64;
+  "tcpRcvOooPack"?: number;
   /**
    * The number of TCP fast recovery events. Fast recovery retransmits lost segments detected through duplicate ACKs or selective acknowledgment (SACK) without waiting for a retransmission timeout.
    */
-  "tcpRecoveryCount"?: Int64;
+  "tcpRecoveryCount"?: number;
   /**
    * The number of TCP connections that were refused by the server. Typically this indicates an attempt to connect to an IP/port that is not receiving connections, or a firewall/security misconfiguration.
    */
-  "tcpRefusals"?: Int64;
+  "tcpRefusals"?: number;
   /**
    * The number of times reordering of sent packets was detected. Reordering detection adjusts the duplicate ACK threshold, preventing spurious retransmissions caused by out-of-order delivery.
    */
-  "tcpReordSeen"?: Int64;
+  "tcpReordSeen"?: number;
   /**
    * The number of TCP connections that were reset by the server.
    */
-  "tcpResets"?: Int64;
+  "tcpResets"?: number;
   /**
    * TCP Retransmits represent detected failures that are retransmitted to ensure delivery. Measured in count of retransmits from the client.
    */
-  "tcpRetransmits"?: Int64;
+  "tcpRetransmits"?: number;
   /**
    * The number of TCP retransmission timeouts (RTOs). An RTO occurs when an ACK is not received within the estimated round-trip time, forcing the sender to retransmit and halve its congestion window.
    */
-  "tcpRtoCount"?: Int64;
+  "tcpRtoCount"?: number;
   /**
    * The number of TCP connections that timed out from the perspective of the operating system. This can indicate general connectivity and latency issues.
    */
-  "tcpTimeouts"?: Int64;
+  "tcpTimeouts"?: number;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The supported attributes for updating a component.
@@ -17,7 +17,7 @@ export class PatchComponentRequestDataAttributes {
   /**
    * The position of the component. If the component belongs to a group, the position is relative to the other components in the group.
    */
-  "position"?: Int64;
+  "position"?: number;
 
   /**
    * A container for additional, undeclared properties.

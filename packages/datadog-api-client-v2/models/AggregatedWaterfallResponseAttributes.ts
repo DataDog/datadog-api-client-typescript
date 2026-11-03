@@ -6,7 +6,7 @@
 import { AggregatedResource } from "./AggregatedResource";
 import { AggregatedWaterfallResponseAttributesCriteria } from "./AggregatedWaterfallResponseAttributesCriteria";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an aggregated waterfall response.
@@ -23,7 +23,7 @@ export class AggregatedWaterfallResponseAttributes {
   /**
    * Start of the analyzed time range as a Unix timestamp in seconds.
    */
-  "from": Int64;
+  "from": number;
   /**
    * Network resources in chronological waterfall order.
    */
@@ -35,7 +35,7 @@ export class AggregatedWaterfallResponseAttributes {
   /**
    * End of the analyzed time range as a Unix timestamp in seconds.
    */
-  "to": Int64;
+  "to": number;
   /**
    * Overall cache hit rate across all sampled views.
    */

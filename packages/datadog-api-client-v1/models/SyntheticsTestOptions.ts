@@ -10,7 +10,7 @@ import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMoni
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestOptionsScheduling } from "./SyntheticsTestOptionsScheduling";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the extra options for a Synthetic test.
@@ -88,16 +88,16 @@ export class SyntheticsTestOptions {
   /**
    * Timeout before declaring the initial step as failed (in seconds) for browser tests.
    */
-  "initialNavigationTimeout"?: Int64;
+  "initialNavigationTimeout"?: number;
   /**
    * Minimum amount of time in failure required to trigger an alert.
    */
-  "minFailureDuration"?: Int64;
+  "minFailureDuration"?: number;
   /**
    * Minimum number of locations in failure required to trigger
    * an alert.
    */
-  "minLocationFailed"?: Int64;
+  "minLocationFailed"?: number;
   /**
    * The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
    */
@@ -144,7 +144,7 @@ export class SyntheticsTestOptions {
   /**
    * The frequency at which to run the Synthetic test (in seconds).
    */
-  "tickEvery"?: Int64;
+  "tickEvery"?: number;
 
   /**
    * A container for additional, undeclared properties.

@@ -5,7 +5,7 @@
  */
 import { ObservabilityPipelineAmazonS3GenericCompressionGzipType } from "./ObservabilityPipelineAmazonS3GenericCompressionGzipType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Gzip compression.
@@ -18,7 +18,7 @@ export class ObservabilityPipelineAmazonS3GenericCompressionGzip {
   /**
    * Gzip compression level.
    */
-  "level": Int64;
+  "level": number;
 
   /**
    * A container for additional, undeclared properties.

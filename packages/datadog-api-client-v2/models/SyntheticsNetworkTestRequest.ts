@@ -5,7 +5,7 @@
  */
 import { SyntheticsNetworkTestRequestTCPMethod } from "./SyntheticsNetworkTestRequestTCPMethod";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the request for a Network Path test.
@@ -18,7 +18,7 @@ export class SyntheticsNetworkTestRequest {
   /**
    * The number of packets sent to probe the destination to measure packet loss, latency and jitter.
    */
-  "e2eQueries": Int64;
+  "e2eQueries": number;
   /**
    * Host name to query.
    */
@@ -26,12 +26,12 @@ export class SyntheticsNetworkTestRequest {
   /**
    * The maximum time-to-live (max number of hops) used in outgoing probe packets.
    */
-  "maxTtl": Int64;
+  "maxTtl": number;
   /**
    * For TCP or UDP tests, the port to use when performing the test.
    * If not set on a UDP test, a random port is assigned, which may affect the results.
    */
-  "port"?: Int64;
+  "port"?: number;
   /**
    * An optional label displayed for the source host in the Network Path visualization.
    */
@@ -43,11 +43,11 @@ export class SyntheticsNetworkTestRequest {
   /**
    * Timeout in seconds.
    */
-  "timeout"?: Int64;
+  "timeout"?: number;
   /**
    * The number of traceroute path tracings.
    */
-  "tracerouteQueries": Int64;
+  "tracerouteQueries": number;
 
   /**
    * A container for additional, undeclared properties.

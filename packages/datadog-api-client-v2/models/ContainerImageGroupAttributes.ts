@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for a Container Image Group.
@@ -15,7 +15,7 @@ export class ContainerImageGroupAttributes {
    * in multiple groups. Images missing a grouping key are excluded. Summing group counts does
    * not give a reliable inventory total.
    */
-  "count"?: Int64;
+  "count"?: number;
   /**
    * Name of the Container Image group.
    */

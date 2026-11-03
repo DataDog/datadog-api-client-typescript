@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The metadata associated with a request.
@@ -25,7 +25,7 @@ export class Event {
   /**
    * Event source ID.
    */
-  "sourceId"?: Int64;
+  "sourceId"?: number;
   /**
    * Event type.
    */

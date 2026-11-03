@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsRetentionGridQuery } from "./ProductAnalyticsRetentionGridQuery";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a retention grid request.
@@ -18,7 +18,7 @@ export class ProductAnalyticsRetentionGridRequestAttributes {
   /**
    * Start of the query window, in epoch milliseconds.
    */
-  "from": Int64;
+  "from": number;
   /**
    * Query definition for a retention grid or retention metadata request.
    */
@@ -26,7 +26,7 @@ export class ProductAnalyticsRetentionGridRequestAttributes {
   /**
    * End of the query window, in epoch milliseconds.
    */
-  "to": Int64;
+  "to": number;
 
   /**
    * A container for additional, undeclared properties.

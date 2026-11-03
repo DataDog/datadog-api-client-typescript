@@ -6,7 +6,7 @@
 import { RetentionFilterType } from "./RetentionFilterType";
 import { SpansFilter } from "./SpansFilter";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of the retention filter.
@@ -15,7 +15,7 @@ export class RetentionFilterAttributes {
   /**
    * The creation timestamp of the retention filter.
    */
-  "createdAt"?: Int64;
+  "createdAt"?: number;
   /**
    * The creator of the retention filter.
    */
@@ -31,7 +31,7 @@ export class RetentionFilterAttributes {
   /**
    * The execution order of the retention filter.
    */
-  "executionOrder"?: Int64;
+  "executionOrder"?: number;
   /**
    * The spans filter used to index spans.
    */
@@ -43,7 +43,7 @@ export class RetentionFilterAttributes {
   /**
    * The modification timestamp of the retention filter.
    */
-  "modifiedAt"?: Int64;
+  "modifiedAt"?: number;
   /**
    * The modifier of the retention filter.
    */

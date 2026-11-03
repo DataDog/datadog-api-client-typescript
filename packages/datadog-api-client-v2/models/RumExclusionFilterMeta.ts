@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata about the exclusion filter.
@@ -13,11 +13,11 @@ export class RumExclusionFilterMeta {
   /**
    * Unix epoch (in milliseconds) when the exclusion filter was last enabled.
    */
-  "enabledAt"?: Int64;
+  "enabledAt"?: number;
   /**
    * Unix epoch (in milliseconds) of the last update.
    */
-  "updatedAt"?: Int64;
+  "updatedAt"?: number;
   /**
    * Handle of the user who last updated the exclusion filter.
    */

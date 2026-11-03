@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
@@ -23,7 +22,7 @@ import { RuleBasedViewResponse } from "../models/RuleBasedViewResponse";
 
 export class ComplianceApiRequestFactory extends BaseAPIRequestFactory {
   public async getRuleBasedView(
-    to: Int64Input,
+    to: number,
     framework?: string,
     version?: string,
     queryFindingsWithoutFrameworkVersion?: boolean,
@@ -126,12 +125,6 @@ export class ComplianceApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ComplianceApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -147,30 +140,21 @@ export class ComplianceApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: RuleBasedViewResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "RuleBasedViewResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RuleBasedViewResponse"
       ) as RuleBasedViewResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 503) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -187,16 +171,13 @@ export class ComplianceApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -211,14 +192,9 @@ export class ComplianceApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RuleBasedViewResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "RuleBasedViewResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as RuleBasedViewResponse;
       return body;
     }
@@ -234,9 +210,9 @@ export class ComplianceApiResponseProcessor {
 export interface ComplianceApiGetRuleBasedViewRequest {
   /**
    * Timestamp of the query end, in milliseconds since the Unix epoch.
-   * @type Int64Input
+   * @type number
    */
-  to: Int64Input;
+  to: number;
   /**
    * Compliance framework handle to filter rules and findings by.
    * @type string
@@ -283,7 +259,7 @@ export class ComplianceApi {
     this.requestFactory =
       requestFactory || new ComplianceApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ComplianceApiResponseProcessor(configuration);
+      responseProcessor || new ComplianceApiResponseProcessor();
   }
 
   /**

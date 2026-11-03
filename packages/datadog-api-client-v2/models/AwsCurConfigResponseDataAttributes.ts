@@ -5,7 +5,7 @@
  */
 import { AwsCurConfigResponseDataAttributesAccountFilters } from "./AwsCurConfigResponseDataAttributesAccountFilters";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The definition of `AwsCurConfigResponseDataAttributes` object.
@@ -38,7 +38,7 @@ export class AwsCurConfigResponseDataAttributes {
   /**
    * The `attributes` `months`.
    */
-  "months"?: Int64;
+  "months"?: number;
   /**
    * The `attributes` `report_name`.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata information for `ListAPIsResponse`.
@@ -13,15 +13,15 @@ export class ListAPIsResponseMetaPagination {
   /**
    * Number of items in the current page.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Offset for pagination.
    */
-  "offset"?: Int64;
+  "offset"?: number;
   /**
    * Total number of items.
    */
-  "totalCount"?: Int64;
+  "totalCount"?: number;
 
   /**
    * A container for additional, undeclared properties.

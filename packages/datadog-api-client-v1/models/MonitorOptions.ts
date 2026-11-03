@@ -13,7 +13,7 @@ import { MonitorThresholds } from "./MonitorThresholds";
 import { MonitorThresholdWindowOptions } from "./MonitorThresholdWindowOptions";
 import { OnMissingDataOption } from "./OnMissingDataOption";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * List of options associated with your monitor.
@@ -47,7 +47,7 @@ export class MonitorOptions {
    * the timeframe is set to `last_5m` and the time is 7:00, the monitor evaluates data from 6:50 to 6:55.
    * This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.
    */
-  "evaluationDelay"?: Int64;
+  "evaluationDelay"?: number;
   /**
    * The time span after which groups with missing data are dropped from the monitor state.
    * The minimum value is one hour, and the maximum value is 72 hours.
@@ -74,13 +74,13 @@ export class MonitorOptions {
   /**
    * How long the test should be in failure before alerting (integer, number of seconds, max 7200).
    */
-  "minFailureDuration"?: Int64;
+  "minFailureDuration"?: number;
   /**
    * The minimum number of locations in failure at the same time during
    * at least one moment in the `min_failure_duration` period (`min_location_failed` and `min_failure_duration`
    * are part of the advanced alerting rules - integer, >= 1).
    */
-  "minLocationFailed"?: Int64;
+  "minLocationFailed"?: number;
   /**
    * Time (in seconds) to skip evaluations for new groups.
    *
@@ -88,7 +88,7 @@ export class MonitorOptions {
    *
    * Must be a non negative integer.
    */
-  "newGroupDelay"?: Int64;
+  "newGroupDelay"?: number;
   /**
    * Time (in seconds) to allow a host to boot and applications
    * to fully start before starting the evaluation of monitor results.
@@ -96,13 +96,13 @@ export class MonitorOptions {
    *
    * Use new_group_delay instead.
    */
-  "newHostDelay"?: Int64;
+  "newHostDelay"?: number;
   /**
    * The number of minutes before a monitor notifies after data stops reporting.
    * Datadog recommends at least 2x the monitor timeframe for query alerts or 2 minutes for service checks.
    * If omitted, 2x the evaluation timeframe is used for query alerts, and 24 hours is used for service checks.
    */
-  "noDataTimeframe"?: Int64;
+  "noDataTimeframe"?: number;
   /**
    * Toggles the display of additional content sent in the monitor notification.
    */
@@ -137,11 +137,11 @@ export class MonitorOptions {
    * The number of minutes after the last notification before a monitor re-notifies on the current status.
    * It only re-notifies if it’s not resolved.
    */
-  "renotifyInterval"?: Int64;
+  "renotifyInterval"?: number;
   /**
    * The number of times re-notification messages should be sent on the current status at the provided re-notification interval.
    */
-  "renotifyOccurrences"?: Int64;
+  "renotifyOccurrences"?: number;
   /**
    * The types of monitor statuses for which re-notification messages are sent.
    * Default: **null** if `renotify_interval` is **null**.
@@ -162,7 +162,7 @@ export class MonitorOptions {
   /**
    * Information about the downtime applied to the monitor. Only shows v1 downtimes.
    */
-  "silenced"?: { [key: string]: Int64 };
+  "silenced"?: { [key: string]: number };
   /**
    * ID of the corresponding Synthetic check.
    */
@@ -178,7 +178,7 @@ export class MonitorOptions {
   /**
    * The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
    */
-  "timeoutH"?: Int64;
+  "timeoutH"?: number;
   /**
    * List of requests that can be used in the monitor query. **This feature is currently in beta.**
    */
@@ -311,7 +311,6 @@ export class MonitorOptions {
     silenced: {
       baseName: "silenced",
       type: "{ [key: string]: number; }",
-      format: "int64",
     },
     syntheticsCheckId: {
       baseName: "synthetics_check_id",

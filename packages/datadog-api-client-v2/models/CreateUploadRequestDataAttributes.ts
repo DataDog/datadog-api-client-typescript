@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Upload configuration specifying how data is uploaded by the user, and properties of the table to associate the upload with.
@@ -21,7 +21,7 @@ export class CreateUploadRequestDataAttributes {
   /**
    * The size of each part in the upload in bytes. All parts except the last one must be at least 5,000,000 bytes.
    */
-  "partSize": Int64;
+  "partSize": number;
   /**
    * Name of the table to associate with this upload.
    */

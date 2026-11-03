@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata returned by the API.
@@ -13,11 +13,11 @@ export class NotebooksResponsePage {
   /**
    * The total number of notebooks that would be returned if the request was not filtered by `start` and `count` parameters.
    */
-  "totalCount"?: Int64;
+  "totalCount"?: number;
   /**
    * The total number of notebooks returned.
    */
-  "totalFilteredCount"?: Int64;
+  "totalFilteredCount"?: number;
 
   /**
    * A container for additional, undeclared properties.

@@ -9,7 +9,7 @@ import { FindingRule } from "./FindingRule";
 import { FindingStatus } from "./FindingStatus";
 import { FindingVulnerabilityType } from "./FindingVulnerabilityType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The JSON:API attributes of the finding.
@@ -30,7 +30,7 @@ export class FindingAttributes {
   /**
    * The date on which the evaluation for this finding changed (Unix ms).
    */
-  "evaluationChangedAt"?: Int64;
+  "evaluationChangedAt"?: number;
   /**
    * The cloud-based ID for the resource related to the finding.
    */
@@ -46,7 +46,7 @@ export class FindingAttributes {
   /**
    * The date on which the resource was discovered (Unix ms).
    */
-  "resourceDiscoveryDate"?: Int64;
+  "resourceDiscoveryDate"?: number;
   /**
    * The resource type of this finding.
    */
@@ -99,7 +99,6 @@ export class FindingAttributes {
     evaluationChangedAt: {
       baseName: "evaluation_changed_at",
       type: "number",
-      format: "int64",
     },
     externalId: {
       baseName: "external_id",
@@ -116,7 +115,6 @@ export class FindingAttributes {
     resourceDiscoveryDate: {
       baseName: "resource_discovery_date",
       type: "number",
-      format: "int64",
     },
     resourceType: {
       baseName: "resource_type",

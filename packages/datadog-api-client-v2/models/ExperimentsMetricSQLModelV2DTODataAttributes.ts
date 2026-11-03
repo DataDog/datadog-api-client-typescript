@@ -6,7 +6,7 @@
 import { ExperimentsMetricSQLModelV2DTODataAttributesMeasuresItems } from "./ExperimentsMetricSQLModelV2DTODataAttributesMeasuresItems";
 import { ExperimentsMetricSQLModelV2DTODataAttributesSubjectTypesItems } from "./ExperimentsMetricSQLModelV2DTODataAttributesSubjectTypesItems";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Details of the metric SQL model.
@@ -35,7 +35,7 @@ export class ExperimentsMetricSQLModelV2DTODataAttributes {
   /**
    * Number of experiments that reference this resource.
    */
-  "experimentCount"?: Int64;
+  "experimentCount"?: number;
   /**
    * Whether this resource has been certified.
    */
@@ -47,7 +47,7 @@ export class ExperimentsMetricSQLModelV2DTODataAttributes {
   /**
    * Number of metrics that use this SQL model.
    */
-  "metricCount"?: Int64;
+  "metricCount"?: number;
   /**
    * Metadata retained for resources imported from another system.
    */

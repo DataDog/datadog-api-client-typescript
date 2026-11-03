@@ -7,7 +7,7 @@ import { RoutingRuleEscalationPolicyActionSupportHours } from "./RoutingRuleEsca
 import { RoutingRuleEscalationPolicyActionType } from "./RoutingRuleEscalationPolicyActionType";
 import { Urgency } from "./Urgency";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Triggers an escalation policy.
@@ -16,7 +16,7 @@ export class RoutingRuleEscalationPolicyAction {
   /**
    * The number of minutes before an acknowledged Page is re-triggered.
    */
-  "ackTimeoutMinutes"?: Int64;
+  "ackTimeoutMinutes"?: number;
   /**
    * The ID of the escalation policy to route to.
    */

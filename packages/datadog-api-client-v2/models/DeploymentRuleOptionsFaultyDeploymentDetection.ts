@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Faulty deployment detection options for deployment rules.
@@ -17,7 +17,7 @@ export class DeploymentRuleOptionsFaultyDeploymentDetection {
   /**
    * The duration for faulty deployment detection.
    */
-  "duration"?: Int64;
+  "duration"?: number;
   /**
    * Resources to exclude from faulty deployment detection.
    */

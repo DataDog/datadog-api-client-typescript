@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Event batching settings for Azure Data Explorer ingestion.
@@ -13,15 +13,15 @@ export class ObservabilityPipelineAzureDataExplorerDestinationBatch {
   /**
    * Maximum batch size in bytes.
    */
-  "maxBytes"?: Int64;
+  "maxBytes"?: number;
   /**
    * Maximum number of events per batch before it is flushed.
    */
-  "maxEvents"?: Int64;
+  "maxEvents"?: number;
   /**
    * Maximum number of seconds to wait before flushing a partial batch.
    */
-  "timeoutSecs"?: Int64;
+  "timeoutSecs"?: number;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing the total count of invitations across all pages
@@ -13,7 +13,7 @@ export class SharedDashboardInvitesMetaPage {
   /**
    * The total number of invitations on this shared board, across all pages.
    */
-  "totalCount"?: Int64;
+  "totalCount"?: number;
 
   /**
    * A container for additional, undeclared properties.

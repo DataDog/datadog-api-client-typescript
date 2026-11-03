@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an analytics list response, containing the matching event rows.
@@ -17,7 +17,7 @@ export class ProductAnalyticsAnalyticsListResponseAttributes {
   /**
    * Total number of records matching the query, before the row limit is applied.
    */
-  "totalCount"?: Int64;
+  "totalCount"?: number;
 
   /**
    * A container for additional, undeclared properties.

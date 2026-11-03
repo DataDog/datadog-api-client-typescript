@@ -5,7 +5,7 @@
  */
 import { APMSpanErrorFlag } from "./APMSpanErrorFlag";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A node in the pruned trace tree.
@@ -46,7 +46,7 @@ export class SummarizedSpan {
   /**
    * The ID of the parent span, or `0` when the span is the trace root.
    */
-  "parentId": Int64;
+  "parentId": number;
   /**
    * The resource that the span describes.
    */
@@ -58,7 +58,7 @@ export class SummarizedSpan {
   /**
    * The span ID, as an unsigned 64-bit integer.
    */
-  "spanId": Int64;
+  "spanId": number;
   /**
    * The OpenTelemetry span kind, for example `INTERNAL`, `SERVER`, `CLIENT`,
    * `PRODUCER`, or `CONSUMER`.

@@ -7,7 +7,7 @@ import { SecurityMonitoringSignalArchiveReason } from "./SecurityMonitoringSigna
 import { SecurityMonitoringSignalState } from "./SecurityMonitoringSignalState";
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing a triage state update operation over a security signal.
@@ -20,7 +20,7 @@ export class SecurityMonitoringSignalTriageAttributes {
   /**
    * Timestamp of the last edit to the comment.
    */
-  "archiveCommentTimestamp"?: Int64;
+  "archiveCommentTimestamp"?: number;
   /**
    * Object representing a given user entity.
    */
@@ -36,7 +36,7 @@ export class SecurityMonitoringSignalTriageAttributes {
   /**
    * Array of incidents that are associated with this signal.
    */
-  "incidentIds": Array<Int64>;
+  "incidentIds": Array<number>;
   /**
    * The new triage state of the signal.
    */
@@ -44,7 +44,7 @@ export class SecurityMonitoringSignalTriageAttributes {
   /**
    * Timestamp of the last update to the signal state.
    */
-  "stateUpdateTimestamp"?: Int64;
+  "stateUpdateTimestamp"?: number;
   /**
    * Object representing a given user entity.
    */
@@ -92,7 +92,6 @@ export class SecurityMonitoringSignalTriageAttributes {
       baseName: "incident_ids",
       type: "Array<number>",
       required: true,
-      format: "int64",
     },
     state: {
       baseName: "state",

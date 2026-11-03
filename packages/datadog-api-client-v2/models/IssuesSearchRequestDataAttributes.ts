@@ -8,7 +8,7 @@ import { IssuesSearchRequestDataAttributesPersona } from "./IssuesSearchRequestD
 import { IssuesSearchRequestDataAttributesTrack } from "./IssuesSearchRequestDataAttributesTrack";
 import { IssueState } from "./IssueState";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing a search issue request.
@@ -21,7 +21,7 @@ export class IssuesSearchRequestDataAttributes {
   /**
    * Start date (inclusive) of the query in milliseconds since the Unix epoch.
    */
-  "from": Int64;
+  "from": number;
   /**
    * The attribute to sort the search results by.
    */
@@ -45,7 +45,7 @@ export class IssuesSearchRequestDataAttributes {
   /**
    * End date (exclusive) of the query in milliseconds since the Unix epoch.
    */
-  "to": Int64;
+  "to": number;
   /**
    * Track of the events to query. Either track(s) or persona(s) must be specified.
    */

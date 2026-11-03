@@ -14,7 +14,7 @@ import { HostMapWidgetProjection } from "./HostMapWidgetProjection";
 import { HostMapWidgetScalarRequest } from "./HostMapWidgetScalarRequest";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Query definition for the host map widget. Supports three mutually exclusive formats distinguished by `request_type`: the deprecated legacy metric-based format (`fill`/`size`, no `request_type`), the infrastructure-backed format (`request_type: infrastructure_hostmap`), and the DDSQL published-dataset format (`request_type: data_projection`).
@@ -50,7 +50,7 @@ export class HostMapWidgetDefinitionRequests {
   /**
    * Maximum number of rows to return from the dataset query. Only used by the DDSQL format.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Whether to hide entities that have no group assignment.
    */

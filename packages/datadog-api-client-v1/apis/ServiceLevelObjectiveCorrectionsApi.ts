@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { SLOCorrection } from "../models/SLOCorrection";
@@ -58,8 +57,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SLOCorrectionCreateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -152,8 +150,8 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   }
 
   public async listSLOCorrection(
-    offset?: Int64Input,
-    limit?: Int64Input,
+    offset?: number,
+    limit?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -241,8 +239,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SLOCorrectionUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -258,12 +255,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 }
 
 export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -279,14 +270,8 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SLOCorrectionResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SLOCorrectionResponse"
       ) as SLOCorrectionResponse;
       return body;
     }
@@ -298,16 +283,13 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -322,14 +304,9 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOCorrectionResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SLOCorrectionResponse;
       return body;
     }
@@ -362,16 +339,13 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -410,14 +384,8 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SLOCorrectionResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SLOCorrectionResponse"
       ) as SLOCorrectionResponse;
       return body;
     }
@@ -428,16 +396,13 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -452,14 +417,9 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOCorrectionResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SLOCorrectionResponse;
       return body;
     }
@@ -486,30 +446,21 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SLOCorrectionListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SLOCorrectionListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SLOCorrectionListResponse"
       ) as SLOCorrectionListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -524,14 +475,9 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOCorrectionListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOCorrectionListResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SLOCorrectionListResponse;
       return body;
     }
@@ -558,14 +504,8 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SLOCorrectionResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SLOCorrectionResponse"
       ) as SLOCorrectionResponse;
       return body;
     }
@@ -577,16 +517,13 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -601,14 +538,9 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOCorrectionResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SLOCorrectionResponse;
       return body;
     }
@@ -648,14 +580,14 @@ export interface ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest {
 export interface ServiceLevelObjectiveCorrectionsApiListSLOCorrectionRequest {
   /**
    * The specific offset to use as the beginning of the returned response.
-   * @type Int64Input
+   * @type number
    */
-  offset?: Int64Input;
+  offset?: number;
   /**
    * The number of SLO corrections to return in the response. Default is 25.
-   * @type Int64Input
+   * @type number
    */
-  limit?: Int64Input;
+  limit?: number;
 }
 
 export interface ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest {
@@ -687,7 +619,7 @@ export class ServiceLevelObjectiveCorrectionsApi {
       new ServiceLevelObjectiveCorrectionsApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor ||
-      new ServiceLevelObjectiveCorrectionsApiResponseProcessor(configuration);
+      new ServiceLevelObjectiveCorrectionsApiResponseProcessor();
   }
 
   /**
@@ -785,7 +717,7 @@ export class ServiceLevelObjectiveCorrectionsApi {
   ): AsyncGenerator<SLOCorrection> {
     let pageSize = 25;
     if (param.limit !== undefined) {
-      pageSize = Number(param.limit);
+      pageSize = param.limit;
     }
     param.limit = pageSize;
     while (true) {
@@ -815,7 +747,7 @@ export class ServiceLevelObjectiveCorrectionsApi {
       if (param.offset === undefined) {
         param.offset = pageSize;
       } else {
-        param.offset = Number(param.offset) + pageSize;
+        param.offset = param.offset + pageSize;
       }
     }
   }

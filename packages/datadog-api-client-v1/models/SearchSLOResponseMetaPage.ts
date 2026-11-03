@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata returned by the API.
@@ -13,31 +13,31 @@ export class SearchSLOResponseMetaPage {
   /**
    * The first number.
    */
-  "firstNumber"?: Int64;
+  "firstNumber"?: number;
   /**
    * The last number.
    */
-  "lastNumber"?: Int64;
+  "lastNumber"?: number;
   /**
    * The next number.
    */
-  "nextNumber"?: Int64;
+  "nextNumber"?: number;
   /**
    * The page number.
    */
-  "number"?: Int64;
+  "number"?: number;
   /**
    * The previous page number.
    */
-  "prevNumber"?: Int64;
+  "prevNumber"?: number;
   /**
    * The size of the response.
    */
-  "size"?: Int64;
+  "size"?: number;
   /**
    * The total number of SLOs in the response.
    */
-  "total"?: Int64;
+  "total"?: number;
   /**
    * Type of pagination.
    */

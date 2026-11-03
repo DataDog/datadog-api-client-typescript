@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata for a unified hosts list response.
@@ -13,19 +13,19 @@ export class CsmUnifiedHostsMeta {
   /**
    * The current page index (zero-based).
    */
-  "pageIndex": Int64;
+  "pageIndex": number;
   /**
    * The number of hosts returned per page.
    */
-  "pageSize": Int64;
+  "pageSize": number;
   /**
    * The total number of hosts matching the filter criteria.
    */
-  "totalFiltered": Int64;
+  "totalFiltered": number;
   /**
    * The total number of pages available.
    */
-  "totalPages": Int64;
+  "totalPages": number;
 
   /**
    * A container for additional, undeclared properties.

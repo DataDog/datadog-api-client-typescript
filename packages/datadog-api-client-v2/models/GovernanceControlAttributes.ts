@@ -6,7 +6,7 @@
 import { GovernanceControlMitigationDefinition } from "./GovernanceControlMitigationDefinition";
 import { GovernanceControlParameterDefinition } from "./GovernanceControlParameterDefinition";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a governance control.
@@ -15,7 +15,7 @@ export class GovernanceControlAttributes {
   /**
    * The number of active detections for the control.
    */
-  "activeDetectionsCount": Int64;
+  "activeDetectionsCount": number;
   /**
    * The value driver the control is grouped under, such as `security` or `cost`.
    */
@@ -47,7 +47,7 @@ export class GovernanceControlAttributes {
   /**
    * The number of mitigated detections for the control.
    */
-  "mitigatedDetectionsCount": Int64;
+  "mitigatedDetectionsCount": number;
   /**
    * A free-form map of parameter names to their configured values.
    */

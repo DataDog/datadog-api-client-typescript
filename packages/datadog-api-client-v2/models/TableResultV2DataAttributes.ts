@@ -7,7 +7,7 @@ import { ReferenceTableSourceType } from "./ReferenceTableSourceType";
 import { TableResultV2DataAttributesFileMetadata } from "./TableResultV2DataAttributesFileMetadata";
 import { TableResultV2DataAttributesSchema } from "./TableResultV2DataAttributesSchema";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes that define the reference table's configuration and properties.
@@ -40,7 +40,7 @@ export class TableResultV2DataAttributes {
   /**
    * The number of successfully processed rows in the reference table.
    */
-  "rowCount"?: Int64;
+  "rowCount"?: number;
   /**
    * Schema defining the structure and columns of the reference table.
    */

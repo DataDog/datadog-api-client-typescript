@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { Snapshot } from "../models/Snapshot";
@@ -57,8 +56,7 @@ export class RumReplayHeatmapsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SnapshotCreateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -115,7 +113,7 @@ export class RumReplayHeatmapsApiRequestFactory extends BaseAPIRequestFactory {
   public async listReplayHeatmapSnapshots(
     filterViewName: string,
     filterDeviceType?: string,
-    pageLimit?: Int64Input,
+    pageLimit?: number,
     filterApplicationId?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -224,8 +222,7 @@ export class RumReplayHeatmapsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SnapshotUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -241,12 +238,6 @@ export class RumReplayHeatmapsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class RumReplayHeatmapsApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -262,30 +253,21 @@ export class RumReplayHeatmapsApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: Snapshot = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "Snapshot",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Snapshot"
       ) as Snapshot;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -300,14 +282,9 @@ export class RumReplayHeatmapsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Snapshot = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "Snapshot",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as Snapshot;
       return body;
     }
@@ -338,16 +315,13 @@ export class RumReplayHeatmapsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -386,30 +360,21 @@ export class RumReplayHeatmapsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SnapshotArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SnapshotArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SnapshotArray"
       ) as SnapshotArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -424,14 +389,9 @@ export class RumReplayHeatmapsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SnapshotArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SnapshotArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SnapshotArray;
       return body;
     }
@@ -458,30 +418,21 @@ export class RumReplayHeatmapsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: Snapshot = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "Snapshot",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Snapshot"
       ) as Snapshot;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -496,14 +447,9 @@ export class RumReplayHeatmapsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Snapshot = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "Snapshot",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as Snapshot;
       return body;
     }
@@ -544,9 +490,9 @@ export interface RumReplayHeatmapsApiListReplayHeatmapSnapshotsRequest {
   filterDeviceType?: string;
   /**
    * Maximum number of snapshots to return.
-   * @type Int64Input
+   * @type number
    */
-  pageLimit?: Int64Input;
+  pageLimit?: number;
   /**
    * Filter by application ID.
    * @type string
@@ -580,8 +526,7 @@ export class RumReplayHeatmapsApi {
     this.requestFactory =
       requestFactory || new RumReplayHeatmapsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new RumReplayHeatmapsApiResponseProcessor(configuration);
+      responseProcessor || new RumReplayHeatmapsApiResponseProcessor();
   }
 
   /**

@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { NotebookCreateRequest } from "../models/NotebookCreateRequest";
@@ -58,8 +57,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "NotebookCreateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -74,7 +72,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async deleteNotebook(
-    notebookId: Int64Input,
+    notebookId: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -113,7 +111,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async getNotebook(
-    notebookId: Int64Input,
+    notebookId: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -154,8 +152,8 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
   public async listNotebooks(
     authorHandle?: string,
     excludeAuthorHandle?: string,
-    start?: Int64Input,
-    count?: Int64Input,
+    start?: number,
+    count?: number,
     sortField?: string,
     sortDir?: string,
     query?: string,
@@ -264,7 +262,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async updateNotebook(
-    notebookId: Int64Input,
+    notebookId: number,
     body: NotebookUpdateRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -305,8 +303,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "NotebookUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -322,12 +319,6 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class NotebooksApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -343,14 +334,8 @@ export class NotebooksApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: NotebookResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "NotebookResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotebookResponse"
       ) as NotebookResponse;
       return body;
     }
@@ -361,16 +346,13 @@ export class NotebooksApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -385,14 +367,9 @@ export class NotebooksApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotebookResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "NotebookResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as NotebookResponse;
       return body;
     }
@@ -426,16 +403,13 @@ export class NotebooksApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -474,14 +448,8 @@ export class NotebooksApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: NotebookResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "NotebookResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotebookResponse"
       ) as NotebookResponse;
       return body;
     }
@@ -493,16 +461,13 @@ export class NotebooksApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -517,14 +482,9 @@ export class NotebooksApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotebookResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "NotebookResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as NotebookResponse;
       return body;
     }
@@ -551,14 +511,8 @@ export class NotebooksApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: NotebooksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "NotebooksResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotebooksResponse"
       ) as NotebooksResponse;
       return body;
     }
@@ -569,16 +523,13 @@ export class NotebooksApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -593,14 +544,9 @@ export class NotebooksApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotebooksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "NotebooksResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as NotebooksResponse;
       return body;
     }
@@ -627,14 +573,8 @@ export class NotebooksApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: NotebookResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "NotebookResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotebookResponse"
       ) as NotebookResponse;
       return body;
     }
@@ -647,16 +587,13 @@ export class NotebooksApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -671,14 +608,9 @@ export class NotebooksApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotebookResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "NotebookResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as NotebookResponse;
       return body;
     }
@@ -702,17 +634,17 @@ export interface NotebooksApiCreateNotebookRequest {
 export interface NotebooksApiDeleteNotebookRequest {
   /**
    * Unique ID, assigned when you create the notebook.
-   * @type Int64Input
+   * @type number
    */
-  notebookId: Int64Input;
+  notebookId: number;
 }
 
 export interface NotebooksApiGetNotebookRequest {
   /**
    * Unique ID, assigned when you create the notebook.
-   * @type Int64Input
+   * @type number
    */
-  notebookId: Int64Input;
+  notebookId: number;
 }
 
 export interface NotebooksApiListNotebooksRequest {
@@ -728,14 +660,14 @@ export interface NotebooksApiListNotebooksRequest {
   excludeAuthorHandle?: string;
   /**
    * The index of the first notebook you want returned.
-   * @type Int64Input
+   * @type number
    */
-  start?: Int64Input;
+  start?: number;
   /**
    * The number of notebooks to be returned.
-   * @type Int64Input
+   * @type number
    */
-  count?: Int64Input;
+  count?: number;
   /**
    * Sort by field `modified`, `name`, or `created`.
    * @type string
@@ -771,9 +703,9 @@ export interface NotebooksApiListNotebooksRequest {
 export interface NotebooksApiUpdateNotebookRequest {
   /**
    * Unique ID, assigned when you create the notebook.
-   * @type Int64Input
+   * @type number
    */
-  notebookId: Int64Input;
+  notebookId: number;
   /**
    * Update notebook request body.
    * @type NotebookUpdateRequest
@@ -795,7 +727,7 @@ export class NotebooksApi {
     this.requestFactory =
       requestFactory || new NotebooksApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new NotebooksApiResponseProcessor(configuration);
+      responseProcessor || new NotebooksApiResponseProcessor();
   }
 
   /**
@@ -901,7 +833,7 @@ export class NotebooksApi {
   ): AsyncGenerator<NotebooksResponseData> {
     let pageSize = 100;
     if (param.count !== undefined) {
-      pageSize = Number(param.count);
+      pageSize = param.count;
     }
     param.count = pageSize;
     while (true) {
@@ -939,7 +871,7 @@ export class NotebooksApi {
       if (param.start === undefined) {
         param.start = pageSize;
       } else {
-        param.start = Number(param.start) + pageSize;
+        param.start = param.start + pageSize;
       }
     }
   }

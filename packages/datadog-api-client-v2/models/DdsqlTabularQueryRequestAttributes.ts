@@ -5,7 +5,7 @@
  */
 import { DdsqlTabularQueryTimeWindow } from "./DdsqlTabularQueryTimeWindow";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing the DDSQL query to execute.
@@ -20,7 +20,7 @@ export class DdsqlTabularQueryRequestAttributes {
    * Cap on the number of rows returned. Defaults to 5,000 when omitted. Must be
    * between 1 and 10,000 inclusive; values outside this range are rejected with 400.
    */
-  "rowLimit"?: Int64;
+  "rowLimit"?: number;
   /**
    * Time window scoping the underlying data sources, expressed in Unix milliseconds
    * since the epoch. Inclusive on `from_timestamp`, exclusive on `to_timestamp`.

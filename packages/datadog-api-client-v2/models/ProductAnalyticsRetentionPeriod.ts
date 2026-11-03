@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A return period definition, such as "1 week".
@@ -17,7 +17,7 @@ export class ProductAnalyticsRetentionPeriod {
   /**
    * Length of the period, expressed in `unit`.
    */
-  "value"?: Int64;
+  "value"?: number;
 
   /**
    * A container for additional, undeclared properties.

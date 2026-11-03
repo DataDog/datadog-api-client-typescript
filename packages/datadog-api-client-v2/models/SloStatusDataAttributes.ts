@@ -5,7 +5,7 @@
  */
 import { RawErrorBudgetRemaining } from "./RawErrorBudgetRemaining";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of the SLO status.
@@ -26,7 +26,7 @@ export class SloStatusDataAttributes {
   /**
    * The precision of the time span in seconds.
    */
-  "spanPrecision": Int64;
+  "spanPrecision": number;
   /**
    * The current state of the SLO (for example, `breached`, `warning`, `ok`).
    */

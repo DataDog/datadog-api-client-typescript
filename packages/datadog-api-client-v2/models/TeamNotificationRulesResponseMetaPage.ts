@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata related to paging information that is included in the response when querying the team notification rules
@@ -13,31 +13,31 @@ export class TeamNotificationRulesResponseMetaPage {
   /**
    * The first offset.
    */
-  "firstOffset"?: Int64;
+  "firstOffset"?: number;
   /**
    * The last offset.
    */
-  "lastOffset"?: Int64;
+  "lastOffset"?: number;
   /**
    * Pagination limit.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * The next offset.
    */
-  "nextOffset"?: Int64;
+  "nextOffset"?: number;
   /**
    * The offset.
    */
-  "offset"?: Int64;
+  "offset"?: number;
   /**
    * The previous offset.
    */
-  "prevOffset"?: Int64;
+  "prevOffset"?: number;
   /**
    * Total results.
    */
-  "total"?: Int64;
+  "total"?: number;
   /**
    * Offset type.
    */

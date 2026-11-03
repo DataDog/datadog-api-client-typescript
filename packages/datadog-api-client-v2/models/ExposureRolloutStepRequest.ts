@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Rollout step request payload.
@@ -17,7 +17,7 @@ export class ExposureRolloutStepRequest {
   /**
    * Logical index grouping related steps.
    */
-  "groupedStepIndex": Int64;
+  "groupedStepIndex": number;
   /**
    * The unique identifier of the progression step.
    */
@@ -25,7 +25,7 @@ export class ExposureRolloutStepRequest {
   /**
    * Step duration in milliseconds.
    */
-  "intervalMs"?: Int64;
+  "intervalMs"?: number;
   /**
    * Whether this step represents a pause record.
    */

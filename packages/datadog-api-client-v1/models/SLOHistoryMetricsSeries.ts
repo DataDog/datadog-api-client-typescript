@@ -5,7 +5,7 @@
  */
 import { SLOHistoryMetricsSeriesMetadata } from "./SLOHistoryMetricsSeriesMetadata";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A representation of `metric` based SLO timeseries for the provided queries.
@@ -15,7 +15,7 @@ export class SLOHistoryMetricsSeries {
   /**
    * Count of submitted metrics.
    */
-  "count": Int64;
+  "count": number;
   /**
    * Query metadata.
    */

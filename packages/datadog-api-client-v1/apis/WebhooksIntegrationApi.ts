@@ -57,8 +57,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "WebhooksIntegration", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -111,8 +110,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "WebhooksIntegrationCustomVariable", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -339,8 +337,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "WebhooksIntegrationUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -409,8 +406,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
         "WebhooksIntegrationCustomVariableUpdateRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -426,12 +422,6 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class WebhooksIntegrationApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -447,14 +437,8 @@ export class WebhooksIntegrationApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "WebhooksIntegration",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WebhooksIntegration"
       ) as WebhooksIntegration;
       return body;
     }
@@ -465,16 +449,13 @@ export class WebhooksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -489,14 +470,9 @@ export class WebhooksIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "WebhooksIntegration",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as WebhooksIntegration;
       return body;
     }
@@ -524,14 +500,8 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: WebhooksIntegrationCustomVariableResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "WebhooksIntegrationCustomVariableResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "WebhooksIntegrationCustomVariableResponse"
         ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
@@ -542,16 +512,13 @@ export class WebhooksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -567,14 +534,9 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegrationCustomVariableResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "WebhooksIntegrationCustomVariableResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
@@ -609,16 +571,13 @@ export class WebhooksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -665,16 +624,13 @@ export class WebhooksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -713,14 +669,8 @@ export class WebhooksIntegrationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "WebhooksIntegration",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WebhooksIntegration"
       ) as WebhooksIntegration;
       return body;
     }
@@ -732,16 +682,13 @@ export class WebhooksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -756,14 +703,9 @@ export class WebhooksIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "WebhooksIntegration",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as WebhooksIntegration;
       return body;
     }
@@ -791,14 +733,8 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: WebhooksIntegrationCustomVariableResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "WebhooksIntegrationCustomVariableResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "WebhooksIntegrationCustomVariableResponse"
         ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
@@ -810,16 +746,13 @@ export class WebhooksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -835,14 +768,9 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegrationCustomVariableResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "WebhooksIntegrationCustomVariableResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
@@ -869,14 +797,8 @@ export class WebhooksIntegrationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "WebhooksIntegration",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WebhooksIntegration"
       ) as WebhooksIntegration;
       return body;
     }
@@ -888,16 +810,13 @@ export class WebhooksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -912,14 +831,9 @@ export class WebhooksIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "WebhooksIntegration",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as WebhooksIntegration;
       return body;
     }
@@ -947,14 +861,8 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: WebhooksIntegrationCustomVariableResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "WebhooksIntegrationCustomVariableResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "WebhooksIntegrationCustomVariableResponse"
         ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
@@ -966,16 +874,13 @@ export class WebhooksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -991,14 +896,9 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegrationCustomVariableResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "WebhooksIntegrationCustomVariableResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
@@ -1099,8 +999,7 @@ export class WebhooksIntegrationApi {
     this.requestFactory =
       requestFactory || new WebhooksIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new WebhooksIntegrationApiResponseProcessor(configuration);
+      responseProcessor || new WebhooksIntegrationApiResponseProcessor();
   }
 
   /**

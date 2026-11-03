@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Coverage statistics for a specific service.
@@ -13,11 +13,11 @@ export class CoverageSummaryServiceStats {
   /**
    * Number of coverage flags evaluated for the service.
    */
-  "evaluatedFlagsCount"?: Int64;
+  "evaluatedFlagsCount"?: number;
   /**
    * Number of coverage reports evaluated for the service.
    */
-  "evaluatedReportsCount"?: Int64;
+  "evaluatedReportsCount"?: number;
   /**
    * Patch coverage percentage for the service.
    */

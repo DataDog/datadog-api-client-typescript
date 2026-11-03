@@ -6,7 +6,7 @@
 import { RUMOperationJourneyCompositeRuleKind } from "./RUMOperationJourneyCompositeRuleKind";
 import { RUMOperationJourneyPredicate } from "./RUMOperationJourneyPredicate";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A composite rule combining several predicates. Used as an alternative to `nodes` on a journey
@@ -29,7 +29,7 @@ export class RUMOperationJourneyCompositeRule {
   /**
    * The maximum time window, in milliseconds, in which all predicates must match.
    */
-  "maxWindowMs"?: Int64;
+  "maxWindowMs"?: number;
   /**
    * The list of predicates that must be matched by RUM events.
    */

@@ -6,7 +6,7 @@
 import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
 import { LLMObsPromptTemplate } from "./LLMObsPromptTemplate";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a specific version of an Agent Observability prompt. For a composed version, `authoring_template` contains its pinned include-bearing source; ordinary versions omit that attribute. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
@@ -81,7 +81,7 @@ export class LLMObsPromptVersionDataAttributes {
   /**
    * Sequential version number.
    */
-  "version": Int64;
+  "version": number;
   /**
    * Timestamp when this version was created.
    */

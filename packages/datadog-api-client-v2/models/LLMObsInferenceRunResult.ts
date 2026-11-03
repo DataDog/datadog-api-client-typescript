@@ -7,7 +7,7 @@ import { LLMObsInferenceCode } from "./LLMObsInferenceCode";
 import { LLMObsInferenceTool } from "./LLMObsInferenceTool";
 import { LLMObsInternalReasoning } from "./LLMObsInternalReasoning";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The output of a completed LLM inference call.
@@ -32,7 +32,7 @@ export class LLMObsInferenceRunResult {
   /**
    * Number of input tokens consumed.
    */
-  "inputTokens": Int64;
+  "inputTokens": number;
   /**
    * The model's internal reasoning or thinking output, if available.
    */
@@ -40,11 +40,11 @@ export class LLMObsInferenceRunResult {
   /**
    * Request latency in milliseconds.
    */
-  "latency": Int64;
+  "latency": number;
   /**
    * Number of output tokens generated.
    */
-  "outputTokens": Int64;
+  "outputTokens": number;
   /**
    * List of tools available to the model.
    */
@@ -52,7 +52,7 @@ export class LLMObsInferenceRunResult {
   /**
    * Total tokens used (input plus output).
    */
-  "totalTokens": Int64;
+  "totalTokens": number;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination information for a collection of datastore items.
@@ -17,11 +17,11 @@ export class ItemApiPayloadMetaPage {
   /**
    * The total number of items in the datastore, ignoring any filters.
    */
-  "totalCount"?: Int64;
+  "totalCount"?: number;
   /**
    * The total number of items that match the current filter criteria.
    */
-  "totalFilteredCount"?: Int64;
+  "totalFilteredCount"?: number;
 
   /**
    * A container for additional, undeclared properties.

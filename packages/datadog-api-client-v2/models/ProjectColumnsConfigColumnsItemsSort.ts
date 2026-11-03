@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Sort configuration for a project board column.
@@ -17,7 +17,7 @@ export class ProjectColumnsConfigColumnsItemsSort {
   /**
    * The sort priority order for this column.
    */
-  "priority"?: Int64;
+  "priority"?: number;
 
   /**
    * A container for additional, undeclared properties.

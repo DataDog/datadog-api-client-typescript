@@ -10,7 +10,7 @@ import { SLOOverallStatuses } from "./SLOOverallStatuses";
 import { SLOStatus } from "./SLOStatus";
 import { SLOType } from "./SLOType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A service level objective object includes a service level indicator, thresholds
@@ -27,7 +27,7 @@ export class SearchServiceLevelObjectiveAttributes {
    *
    * Always included in service level objective responses.
    */
-  "createdAt"?: Int64;
+  "createdAt"?: number;
   /**
    * The creator of the SLO
    */
@@ -53,12 +53,12 @@ export class SearchServiceLevelObjectiveAttributes {
    *
    * Always included in service level objective responses.
    */
-  "modifiedAt"?: Int64;
+  "modifiedAt"?: number;
   /**
    * A list of monitor ids that defines the scope of a monitor service level
    * objective.
    */
-  "monitorIds"?: Array<Int64>;
+  "monitorIds"?: Array<number>;
   /**
    * The name of the service level objective object.
    */
@@ -144,7 +144,6 @@ export class SearchServiceLevelObjectiveAttributes {
     monitorIds: {
       baseName: "monitor_ids",
       type: "Array<number>",
-      format: "int64",
     },
     name: {
       baseName: "name",

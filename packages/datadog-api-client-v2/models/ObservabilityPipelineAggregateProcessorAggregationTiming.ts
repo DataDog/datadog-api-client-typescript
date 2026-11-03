@@ -5,7 +5,7 @@
  */
 import { ObservabilityPipelineAggregateProcessorAggregationTimingType } from "./ObservabilityPipelineAggregateProcessorAggregationTimingType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
@@ -14,7 +14,7 @@ export class ObservabilityPipelineAggregateProcessorAggregationTiming {
   /**
    * Grace period, in seconds, for late-arriving metrics when using event time. Defaults to 10 seconds when omitted.
    */
-  "allowedLatenessSecs"?: Int64;
+  "allowedLatenessSecs"?: number;
   /**
    * Determines whether metrics are assigned to aggregation windows based on when they are processed or their timestamps.
    */

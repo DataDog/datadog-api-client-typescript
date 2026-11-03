@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of the role.
@@ -37,7 +37,7 @@ export class RoleUpdateAttributes {
   /**
    * Number of teams with that role.
    */
-  "teamCount"?: Int64;
+  "teamCount"?: number;
   /**
    * The user count.
    */

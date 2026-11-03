@@ -5,7 +5,7 @@
  */
 import { PortablePdbSourcemapMapKind } from "./PortablePdbSourcemapMapKind";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a Portable PDB file.
@@ -30,7 +30,7 @@ export class PortablePdbSourcemapAttributes {
   /**
    * The size of the symbol file in bytes.
    */
-  "size"?: Int64;
+  "size"?: number;
 
   /**
    * A container for additional, undeclared properties.

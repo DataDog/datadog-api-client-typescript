@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Usage amount for a given usage type.
@@ -17,7 +17,7 @@ export class HourlyUsageMeasurement {
   /**
    * Contains the number measured for the given usage_type during the hour.
    */
-  "value"?: Int64;
+  "value"?: number;
 
   /**
    * A container for additional, undeclared properties.

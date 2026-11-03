@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { AnnotationCreateRequest } from "../models/AnnotationCreateRequest";
 import { AnnotationResponse } from "../models/AnnotationResponse";
@@ -64,8 +63,7 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AnnotationCreateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -125,8 +123,8 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getPageAnnotations(
     pageId: string,
-    startTime: Int64Input,
-    endTime: Int64Input,
+    startTime: number,
+    endTime: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -197,8 +195,8 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listAnnotations(
     pageId: string,
-    startTime: Int64Input,
-    endTime: Int64Input,
+    startTime: number,
+    endTime: number,
     widgetId?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -326,8 +324,7 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AnnotationUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -343,12 +340,6 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class AnnotationsApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -364,14 +355,8 @@ export class AnnotationsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: AnnotationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "AnnotationResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AnnotationResponse"
       ) as AnnotationResponse;
       return body;
     }
@@ -382,16 +367,13 @@ export class AnnotationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -408,16 +390,13 @@ export class AnnotationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -432,14 +411,9 @@ export class AnnotationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AnnotationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "AnnotationResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as AnnotationResponse;
       return body;
     }
@@ -472,16 +446,13 @@ export class AnnotationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -498,16 +469,13 @@ export class AnnotationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -546,14 +514,8 @@ export class AnnotationsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: PageAnnotationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "PageAnnotationsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "PageAnnotationsResponse"
       ) as PageAnnotationsResponse;
       return body;
     }
@@ -564,16 +526,13 @@ export class AnnotationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -590,16 +549,13 @@ export class AnnotationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -614,14 +570,9 @@ export class AnnotationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PageAnnotationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "PageAnnotationsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as PageAnnotationsResponse;
       return body;
     }
@@ -648,14 +599,8 @@ export class AnnotationsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: AnnotationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "AnnotationsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AnnotationsResponse"
       ) as AnnotationsResponse;
       return body;
     }
@@ -666,16 +611,13 @@ export class AnnotationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -692,16 +634,13 @@ export class AnnotationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -716,14 +655,9 @@ export class AnnotationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AnnotationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "AnnotationsResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as AnnotationsResponse;
       return body;
     }
@@ -750,14 +684,8 @@ export class AnnotationsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: AnnotationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "AnnotationResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AnnotationResponse"
       ) as AnnotationResponse;
       return body;
     }
@@ -769,16 +697,13 @@ export class AnnotationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -795,16 +720,13 @@ export class AnnotationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -819,14 +741,9 @@ export class AnnotationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AnnotationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "AnnotationResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as AnnotationResponse;
       return body;
     }
@@ -864,14 +781,14 @@ export interface AnnotationsApiGetPageAnnotationsRequest {
   pageId: string;
   /**
    * Start of the time window in milliseconds since the Unix epoch.
-   * @type Int64Input
+   * @type number
    */
-  startTime: Int64Input;
+  startTime: number;
   /**
    * End of the time window in milliseconds since the Unix epoch.
-   * @type Int64Input
+   * @type number
    */
-  endTime: Int64Input;
+  endTime: number;
 }
 
 export interface AnnotationsApiListAnnotationsRequest {
@@ -883,14 +800,14 @@ export interface AnnotationsApiListAnnotationsRequest {
   pageId: string;
   /**
    * Start of the time window in milliseconds since the Unix epoch.
-   * @type Int64Input
+   * @type number
    */
-  startTime: Int64Input;
+  startTime: number;
   /**
    * End of the time window in milliseconds since the Unix epoch.
-   * @type Int64Input
+   * @type number
    */
-  endTime: Int64Input;
+  endTime: number;
   /**
    * Optional widget ID to restrict results to annotations on a specific widget.
    * @type string
@@ -925,7 +842,7 @@ export class AnnotationsApi {
     this.requestFactory =
       requestFactory || new AnnotationsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new AnnotationsApiResponseProcessor(configuration);
+      responseProcessor || new AnnotationsApiResponseProcessor();
   }
 
   /**

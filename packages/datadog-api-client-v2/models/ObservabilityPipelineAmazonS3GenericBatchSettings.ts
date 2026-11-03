@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Event batching settings
@@ -13,11 +13,11 @@ export class ObservabilityPipelineAmazonS3GenericBatchSettings {
   /**
    * Maximum batch size in bytes.
    */
-  "batchSize"?: Int64;
+  "batchSize"?: number;
   /**
    * Maximum number of seconds to wait before flushing the batch.
    */
-  "timeoutSecs"?: Int64;
+  "timeoutSecs"?: number;
 
   /**
    * A container for additional, undeclared properties.

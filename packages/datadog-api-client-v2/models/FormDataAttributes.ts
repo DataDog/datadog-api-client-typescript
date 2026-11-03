@@ -7,7 +7,7 @@ import { FormDatastoreConfigAttributes } from "./FormDatastoreConfigAttributes";
 import { FormPublicationAttributes } from "./FormPublicationAttributes";
 import { FormVersionAttributes } from "./FormVersionAttributes";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a form.
@@ -56,7 +56,7 @@ export class FormDataAttributes {
   /**
    * The ID of the organization that owns this form.
    */
-  "orgId": Int64;
+  "orgId": number;
   /**
    * The attributes of a form publication.
    */
@@ -72,7 +72,7 @@ export class FormDataAttributes {
   /**
    * The ID of the user who created this form.
    */
-  "userId": Int64;
+  "userId": number;
   /**
    * The UUID of the user who created this form.
    */

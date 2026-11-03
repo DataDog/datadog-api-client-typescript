@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing a downtime that matches this monitor.
@@ -13,11 +13,11 @@ export class MatchingDowntime {
   /**
    * POSIX timestamp to end the downtime.
    */
-  "end"?: Int64;
+  "end"?: number;
   /**
    * The downtime ID.
    */
-  "id": Int64;
+  "id": number;
   /**
    * The scope(s) to which the downtime applies. Must be in `key:value` format. For example, `host:app2`.
    * Provide multiple scopes as a comma-separated list like `env:dev,env:prod`.
@@ -27,7 +27,7 @@ export class MatchingDowntime {
   /**
    * POSIX timestamp to start the downtime.
    */
-  "start"?: Int64;
+  "start"?: number;
 
   /**
    * A container for additional, undeclared properties.

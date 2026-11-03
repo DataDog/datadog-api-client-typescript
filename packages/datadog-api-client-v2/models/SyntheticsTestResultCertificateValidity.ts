@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Validity window of a certificate.
@@ -13,11 +13,11 @@ export class SyntheticsTestResultCertificateValidity {
   /**
    * Unix timestamp (ms) of when the certificate became valid.
    */
-  "from"?: Int64;
+  "from"?: number;
   /**
    * Unix timestamp (ms) of when the certificate expires.
    */
-  "to"?: Int64;
+  "to"?: number;
 
   /**
    * A container for additional, undeclared properties.

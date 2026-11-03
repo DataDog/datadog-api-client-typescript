@@ -8,7 +8,7 @@ import { EventPriority } from "./EventPriority";
 import { EventStatusType } from "./EventStatusType";
 import { MonitorType } from "./MonitorType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object description of attributes from your event.
@@ -22,7 +22,7 @@ export class EventAttributes {
    * POSIX timestamp of the event. Must be sent as an integer (no quotation marks).
    * Limited to events no older than 18 hours.
    */
-  "dateHappened"?: Int64;
+  "dateHappened"?: number;
   /**
    * A device name.
    */
@@ -30,7 +30,7 @@ export class EventAttributes {
   /**
    * The duration between the triggering of the event and its recovery in nanoseconds.
    */
-  "duration"?: Int64;
+  "duration"?: number;
   /**
    * The event title.
    */
@@ -55,7 +55,7 @@ export class EventAttributes {
   /**
    * ID of the monitor that triggered the event. When an event isn't related to a monitor, this field is empty.
    */
-  "monitorId"?: Int64;
+  "monitorId"?: number;
   /**
    * The priority of the event alert. Legacy events use `normal` or `low`.
    * Alert events use `1` (highest priority) through `5` (lowest priority).
@@ -64,7 +64,7 @@ export class EventAttributes {
   /**
    * Related event ID.
    */
-  "relatedEventId"?: Int64;
+  "relatedEventId"?: number;
   /**
    * Service that triggered the event.
    */
@@ -92,7 +92,7 @@ export class EventAttributes {
   /**
    * POSIX timestamp of your event in milliseconds.
    */
-  "timestamp"?: Int64;
+  "timestamp"?: number;
   /**
    * The event title.
    */

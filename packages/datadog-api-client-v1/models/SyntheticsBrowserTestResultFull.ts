@@ -7,7 +7,7 @@ import { SyntheticsBrowserTestResultData } from "./SyntheticsBrowserTestResultDa
 import { SyntheticsBrowserTestResultFullCheck } from "./SyntheticsBrowserTestResultFullCheck";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object returned describing a browser test result.
@@ -24,7 +24,7 @@ export class SyntheticsBrowserTestResultFull {
   /**
    * Version of the browser test used.
    */
-  "checkVersion"?: Int64;
+  "checkVersion"?: number;
   /**
    * Location from which the browser test was performed.
    */

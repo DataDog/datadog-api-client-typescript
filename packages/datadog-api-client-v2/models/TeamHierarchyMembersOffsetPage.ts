@@ -5,7 +5,7 @@
  */
 import { TeamHierarchyMembersOffsetPageType } from "./TeamHierarchyMembersOffsetPageType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata using offset and limit.
@@ -14,31 +14,31 @@ export class TeamHierarchyMembersOffsetPage {
   /**
    * First offset.
    */
-  "firstOffset": Int64;
+  "firstOffset": number;
   /**
    * Last offset. Null when unavailable.
    */
-  "lastOffset": Int64 | null;
+  "lastOffset": number | null;
   /**
    * Maximum number of members per page.
    */
-  "limit": Int64;
+  "limit": number;
   /**
    * Next offset. Null when unavailable.
    */
-  "nextOffset": Int64 | null;
+  "nextOffset": number | null;
   /**
    * Current offset.
    */
-  "offset": Int64;
+  "offset": number;
   /**
    * Previous offset. Null when unavailable.
    */
-  "prevOffset": Int64 | null;
+  "prevOffset": number | null;
   /**
    * Total number of members matching the filters.
    */
-  "total": Int64;
+  "total": number;
   /**
    * Pagination mode.
    */

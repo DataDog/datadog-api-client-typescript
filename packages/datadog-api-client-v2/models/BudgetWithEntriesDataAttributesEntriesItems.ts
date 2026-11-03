@@ -6,7 +6,7 @@
 import { BudgetWithEntriesDataAttributesEntriesItemsCosts } from "./BudgetWithEntriesDataAttributesEntriesItemsCosts";
 import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A single monthly budget entry defining the allocated amount and optional tag filters for a specific month.
@@ -23,7 +23,7 @@ export class BudgetWithEntriesDataAttributesEntriesItems {
   /**
    * The month this budget entry applies to, in YYYYMM format.
    */
-  "month"?: Int64;
+  "month"?: number;
   /**
    * The list of tag filters that scope this budget entry to specific resources.
    */

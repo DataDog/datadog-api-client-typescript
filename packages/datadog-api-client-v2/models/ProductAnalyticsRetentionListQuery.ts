@@ -7,7 +7,7 @@ import { ProductAnalyticsRetentionCellScope } from "./ProductAnalyticsRetentionC
 import { ProductAnalyticsRetentionListColumn } from "./ProductAnalyticsRetentionListColumn";
 import { ProductAnalyticsRetentionSearch } from "./ProductAnalyticsRetentionSearch";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Query definition for a retention list request.
@@ -24,7 +24,7 @@ export class ProductAnalyticsRetentionListQuery {
   /**
    * Maximum number of rows to return. Use `0` for no limit.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Defines the cohort and return criteria that make up a retention query.
    */

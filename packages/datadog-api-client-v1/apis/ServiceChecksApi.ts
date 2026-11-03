@@ -54,8 +54,7 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Array<ServiceCheck>", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -67,12 +66,6 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ServiceChecksApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -88,14 +81,8 @@ export class ServiceChecksApiResponseProcessor {
     );
     if (response.httpStatusCode === 202) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "IntakePayloadAccepted",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IntakePayloadAccepted"
       ) as IntakePayloadAccepted;
       return body;
     }
@@ -108,16 +95,13 @@ export class ServiceChecksApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -132,14 +116,9 @@ export class ServiceChecksApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "IntakePayloadAccepted",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as IntakePayloadAccepted;
       return body;
     }
@@ -174,7 +153,7 @@ export class ServiceChecksApi {
     this.requestFactory =
       requestFactory || new ServiceChecksApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ServiceChecksApiResponseProcessor(configuration);
+      responseProcessor || new ServiceChecksApiResponseProcessor();
   }
 
   /**

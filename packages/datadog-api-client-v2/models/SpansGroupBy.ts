@@ -8,7 +8,7 @@ import { SpansGroupByHistogram } from "./SpansGroupByHistogram";
 import { SpansGroupByMissing } from "./SpansGroupByMissing";
 import { SpansGroupByTotal } from "./SpansGroupByTotal";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A group by rule.
@@ -30,7 +30,7 @@ export class SpansGroupBy {
    * produce up to 10,000 groups. With a `timeseries` compute, the number of groups multiplied by
    * the number of time buckets must not exceed 400,000.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * The value to use for spans that don't have the facet used to group by.
    */

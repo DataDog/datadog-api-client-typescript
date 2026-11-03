@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Source code around a stack frame. Empty when the source code is unavailable.
@@ -17,7 +17,7 @@ export class IssueSampleCodeSnippet {
   /**
    * Line number of the first line of the snippet, starting at 1.
    */
-  "offset"?: Int64;
+  "offset"?: number;
 
   /**
    * A container for additional, undeclared properties.

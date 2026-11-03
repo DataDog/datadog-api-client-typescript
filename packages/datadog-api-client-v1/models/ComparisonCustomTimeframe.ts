@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Fixed time range for a `custom_timeframe` comparison.
@@ -13,11 +13,11 @@ export class ComparisonCustomTimeframe {
   /**
    * Start time in milliseconds since epoch.
    */
-  "from": Int64;
+  "from": number;
   /**
    * End time in milliseconds since epoch.
    */
-  "to": Int64;
+  "to": number;
 
   /**
    * A container for additional, undeclared properties.

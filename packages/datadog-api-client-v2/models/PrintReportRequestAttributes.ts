@@ -6,7 +6,7 @@
 import { ReportScheduleResourceType } from "./ReportScheduleResourceType";
 import { ReportScheduleTemplateVariable } from "./ReportScheduleTemplateVariable";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The configuration for a print-only report. Specify exactly one of `timeframe` (for a
@@ -17,7 +17,7 @@ export class PrintReportRequestAttributes {
    * The start of an absolute time range, as a Unix timestamp in milliseconds.
    * Required when `timeframe` is omitted.
    */
-  "fromTs"?: Int64;
+  "fromTs"?: number;
   /**
    * The identifier of the dashboard or integration dashboard to render.
    */
@@ -43,7 +43,7 @@ export class PrintReportRequestAttributes {
    * The end of an absolute time range, as a Unix timestamp in milliseconds.
    * Required when `timeframe` is omitted.
    */
-  "toTs"?: Int64;
+  "toTs"?: number;
 
   /**
    * A container for additional, undeclared properties.

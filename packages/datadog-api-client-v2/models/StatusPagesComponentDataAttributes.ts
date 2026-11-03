@@ -7,7 +7,7 @@ import { CreateComponentRequestDataAttributesType } from "./CreateComponentReque
 import { StatusPagesComponentDataAttributesComponentsItems } from "./StatusPagesComponentDataAttributesComponentsItems";
 import { StatusPagesComponentDataAttributesStatus } from "./StatusPagesComponentDataAttributesStatus";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a component.
@@ -32,7 +32,7 @@ export class StatusPagesComponentDataAttributes {
   /**
    * The zero-indexed position of the component.
    */
-  "position"?: Int64;
+  "position"?: number;
   /**
    * The status of the component.
    */

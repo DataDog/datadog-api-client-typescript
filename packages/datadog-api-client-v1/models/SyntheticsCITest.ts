@@ -7,7 +7,7 @@ import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Configuration for Continuous Testing.
@@ -72,7 +72,7 @@ export class SyntheticsCITest {
   /**
    * The version number of the Synthetic test version to trigger.
    */
-  "version"?: Int64;
+  "version"?: number;
 
   /**
    * A container for additional, undeclared properties.

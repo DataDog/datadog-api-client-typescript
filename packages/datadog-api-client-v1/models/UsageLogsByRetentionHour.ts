@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The number of indexed logs for each hour for a given organization broken down by retention period.
@@ -13,11 +13,11 @@ export class UsageLogsByRetentionHour {
   /**
    * Total logs indexed with this retention period during a given hour.
    */
-  "indexedEventsCount"?: Int64;
+  "indexedEventsCount"?: number;
   /**
    * Live logs indexed with this retention period during a given hour.
    */
-  "liveIndexedEventsCount"?: Int64;
+  "liveIndexedEventsCount"?: number;
   /**
    * The organization name.
    */
@@ -29,7 +29,7 @@ export class UsageLogsByRetentionHour {
   /**
    * Rehydrated logs indexed with this retention period during a given hour.
    */
-  "rehydratedIndexedEventsCount"?: Int64;
+  "rehydratedIndexedEventsCount"?: number;
   /**
    * The retention period in days or "custom" for all custom retention usage.
    */

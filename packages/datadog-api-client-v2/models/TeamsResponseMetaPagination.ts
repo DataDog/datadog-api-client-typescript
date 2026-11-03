@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Teams response metadata.
@@ -13,55 +13,55 @@ export class TeamsResponseMetaPagination {
   /**
    * The first page number.
    */
-  "firstNumber"?: Int64;
+  "firstNumber"?: number;
   /**
    * The first offset.
    */
-  "firstOffset"?: Int64;
+  "firstOffset"?: number;
   /**
    * The last page number.
    */
-  "lastNumber"?: Int64;
+  "lastNumber"?: number;
   /**
    * The last offset.
    */
-  "lastOffset"?: Int64;
+  "lastOffset"?: number;
   /**
    * Pagination limit.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * The next page number.
    */
-  "nextNumber"?: Int64;
+  "nextNumber"?: number;
   /**
    * The next offset.
    */
-  "nextOffset"?: Int64;
+  "nextOffset"?: number;
   /**
    * The current page number, when page-number pagination is used.
    */
-  "number"?: Int64;
+  "number"?: number;
   /**
    * The offset.
    */
-  "offset"?: Int64;
+  "offset"?: number;
   /**
    * The previous page number.
    */
-  "prevNumber"?: Int64;
+  "prevNumber"?: number;
   /**
    * The previous offset.
    */
-  "prevOffset"?: Int64;
+  "prevOffset"?: number;
   /**
    * The page size, when page-number pagination is used.
    */
-  "size"?: Int64;
+  "size"?: number;
   /**
    * Total results.
    */
-  "total"?: Int64;
+  "total"?: number;
   /**
    * Pagination type. One of `offset_limit` or `number_size`.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Hash file specified by the field attribute
@@ -17,7 +17,7 @@ export class CloudWorkloadSecurityAgentRuleActionHash {
   /**
    * The maximum size of the files to hash, in bytes.
    */
-  "maxFileSize"?: Int64;
+  "maxFileSize"?: number;
 
   /**
    * A container for additional, undeclared properties.

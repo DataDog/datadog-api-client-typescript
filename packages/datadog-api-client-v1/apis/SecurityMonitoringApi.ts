@@ -71,8 +71,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AddSignalToIncidentRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -134,8 +133,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SignalAssigneeUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -192,8 +190,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SignalStateUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -209,12 +206,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class SecurityMonitoringApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -230,14 +221,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SuccessfulSignalUpdateResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SuccessfulSignalUpdateResponse"
       ) as SuccessfulSignalUpdateResponse;
       return body;
     }
@@ -249,16 +234,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -273,14 +255,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SuccessfulSignalUpdateResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SuccessfulSignalUpdateResponse;
       return body;
     }
@@ -307,14 +284,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SuccessfulSignalUpdateResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SuccessfulSignalUpdateResponse"
       ) as SuccessfulSignalUpdateResponse;
       return body;
     }
@@ -326,16 +297,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -350,14 +318,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SuccessfulSignalUpdateResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SuccessfulSignalUpdateResponse;
       return body;
     }
@@ -384,14 +347,8 @@ export class SecurityMonitoringApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SuccessfulSignalUpdateResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SuccessfulSignalUpdateResponse"
       ) as SuccessfulSignalUpdateResponse;
       return body;
     }
@@ -403,16 +360,13 @@ export class SecurityMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -427,14 +381,9 @@ export class SecurityMonitoringApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SuccessfulSignalUpdateResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SuccessfulSignalUpdateResponse;
       return body;
     }
@@ -500,8 +449,7 @@ export class SecurityMonitoringApi {
     this.requestFactory =
       requestFactory || new SecurityMonitoringApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new SecurityMonitoringApiResponseProcessor(configuration);
+      responseProcessor || new SecurityMonitoringApiResponseProcessor();
   }
 
   /**

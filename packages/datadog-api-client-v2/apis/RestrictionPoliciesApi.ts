@@ -151,8 +151,7 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RestrictionPolicyUpdateRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -168,12 +167,6 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class RestrictionPoliciesApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -197,16 +190,13 @@ export class RestrictionPoliciesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -245,14 +235,8 @@ export class RestrictionPoliciesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: RestrictionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "RestrictionPolicyResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RestrictionPolicyResponse"
       ) as RestrictionPolicyResponse;
       return body;
     }
@@ -263,16 +247,13 @@ export class RestrictionPoliciesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -287,14 +268,9 @@ export class RestrictionPoliciesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RestrictionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "RestrictionPolicyResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as RestrictionPolicyResponse;
       return body;
     }
@@ -321,14 +297,8 @@ export class RestrictionPoliciesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: RestrictionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "RestrictionPolicyResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RestrictionPolicyResponse"
       ) as RestrictionPolicyResponse;
       return body;
     }
@@ -339,16 +309,13 @@ export class RestrictionPoliciesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -363,14 +330,9 @@ export class RestrictionPoliciesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RestrictionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "RestrictionPolicyResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as RestrictionPolicyResponse;
       return body;
     }
@@ -431,8 +393,7 @@ export class RestrictionPoliciesApi {
     this.requestFactory =
       requestFactory || new RestrictionPoliciesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new RestrictionPoliciesApiResponseProcessor(configuration);
+      responseProcessor || new RestrictionPoliciesApiResponseProcessor();
   }
 
   /**

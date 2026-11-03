@@ -6,7 +6,7 @@
 import { SyntheticsMobileStepParams } from "./SyntheticsMobileStepParams";
 import { SyntheticsMobileStepType } from "./SyntheticsMobileStepType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The steps used in a Synthetic mobile test.
@@ -43,7 +43,7 @@ export class SyntheticsMobileStep {
   /**
    * The time before declaring a step failed.
    */
-  "timeout"?: Int64;
+  "timeout"?: number;
   /**
    * Step type used in your mobile Synthetic test.
    */

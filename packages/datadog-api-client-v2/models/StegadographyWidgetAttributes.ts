@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a watermarked widget recovered from an image.
@@ -13,11 +13,11 @@ export class StegadographyWidgetAttributes {
   /**
    * Horizontal pixel coordinate where the watermark was found in the image.
    */
-  "locationx": Int64;
+  "locationx": number;
   /**
    * Vertical pixel coordinate where the watermark was found in the image.
    */
-  "locationy": Int64;
+  "locationy": number;
   /**
    * JSON-encoded string representing the widget state.
    */

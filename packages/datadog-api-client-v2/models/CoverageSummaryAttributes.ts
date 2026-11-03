@@ -6,7 +6,7 @@
 import { CoverageSummaryCodeownerStats } from "./CoverageSummaryCodeownerStats";
 import { CoverageSummaryServiceStats } from "./CoverageSummaryServiceStats";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes object for code coverage summary response.
@@ -19,11 +19,11 @@ export class CoverageSummaryAttributes {
   /**
    * Total number of coverage flags evaluated.
    */
-  "evaluatedFlagsCount"?: Int64;
+  "evaluatedFlagsCount"?: number;
   /**
    * Total number of coverage reports evaluated.
    */
-  "evaluatedReportsCount"?: Int64;
+  "evaluatedReportsCount"?: number;
   /**
    * Overall patch coverage percentage.
    */

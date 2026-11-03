@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Oncall escalation.
@@ -17,7 +17,7 @@ export class EntityResponseIncludedRelatedOncallEscalationItem {
   /**
    * Oncall level.
    */
-  "escalationLevel"?: Int64;
+  "escalationLevel"?: number;
   /**
    * Oncall name.
    */

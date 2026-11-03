@@ -5,7 +5,7 @@
  */
 import { FleetDeploymentOperation } from "./FleetDeploymentOperation";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a deployment in the v2 API response.
@@ -24,7 +24,7 @@ export class FleetDeploymentV2Attributes {
    * Duration of the deployment in seconds, computed as `finished_at - started_at`.
    * Zero if the deployment has not finished.
    */
-  "durationSeconds"?: Int64;
+  "durationSeconds"?: number;
   /**
    * Top-level error message for the deployment. Populated only when the deployment has failed.
    */
@@ -32,11 +32,11 @@ export class FleetDeploymentV2Attributes {
   /**
    * Estimated completion time of the deployment as a Unix timestamp. Zero if not available.
    */
-  "estimatedFinishedAt"?: Int64;
+  "estimatedFinishedAt"?: number;
   /**
    * Time the deployment finished as a Unix timestamp. Zero if not yet finished.
    */
-  "finishedAt"?: Int64;
+  "finishedAt"?: number;
   /**
    * Whether this deployment was triggered by a schedule (`schedule_id` is non-empty).
    */
@@ -52,7 +52,7 @@ export class FleetDeploymentV2Attributes {
   /**
    * Time the deployment started as a Unix timestamp. Zero if not yet started.
    */
-  "startedAt"?: Int64;
+  "startedAt"?: number;
   /**
    * Current high-level status of the deployment (for example, "pending", "running",
    * "completed", "failed").
@@ -65,7 +65,7 @@ export class FleetDeploymentV2Attributes {
   /**
    * Total number of hosts targeted by this deployment.
    */
-  "totalHosts"?: Int64;
+  "totalHosts"?: number;
   /**
    * Type of update operation performed by this deployment
    * (for example, "update_config_operations", "update_package").

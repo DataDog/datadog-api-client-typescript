@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The metadata of the data deletion response.
@@ -13,19 +13,19 @@ export class DataDeletionResponseMeta {
   /**
    * Number of additional deletion requests the current organization can create before reaching the concurrency limit. Requests with a `pending`, `in_progress`, or `deleting` status count toward the limit. This field is returned only when listing deletion requests, and is omitted if the value cannot be determined.
    */
-  "availableSlots"?: Int64;
+  "availableSlots"?: number;
   /**
    * The total deletion requests created by product.
    */
-  "countProduct"?: { [key: string]: Int64 };
+  "countProduct"?: { [key: string]: number };
   /**
    * The total deletion requests created by status.
    */
-  "countStatus"?: { [key: string]: Int64 };
+  "countStatus"?: { [key: string]: number };
   /**
    * Maximum number of deletion requests with a `pending`, `in_progress`, or `deleting` status that the current organization can have at the same time. This field is returned only when listing deletion requests, and is omitted if the value cannot be determined.
    */
-  "maxConcurrentRequests"?: Int64;
+  "maxConcurrentRequests"?: number;
   /**
    * The next page when searching deletion requests created in the current organization.
    */
@@ -63,12 +63,10 @@ export class DataDeletionResponseMeta {
     countProduct: {
       baseName: "count_product",
       type: "{ [key: string]: number; }",
-      format: "int64",
     },
     countStatus: {
       baseName: "count_status",
       type: "{ [key: string]: number; }",
-      format: "int64",
     },
     maxConcurrentRequests: {
       baseName: "max_concurrent_requests",

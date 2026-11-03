@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object representing a given user entity.
@@ -21,7 +21,7 @@ export class SecurityMonitoringTriageUser {
   /**
    * Numerical ID assigned by Datadog to this user account.
    */
-  "id"?: Int64;
+  "id"?: number;
   /**
    * The name for this user account.
    */

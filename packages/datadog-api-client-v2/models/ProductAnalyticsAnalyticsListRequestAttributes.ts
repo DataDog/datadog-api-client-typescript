@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsAnalyticsListQuery } from "./ProductAnalyticsAnalyticsListQuery";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for an analytics list request.
@@ -14,7 +14,7 @@ export class ProductAnalyticsAnalyticsListRequestAttributes {
   /**
    * Start time in epoch milliseconds. Must be less than `to`.
    */
-  "from": Int64;
+  "from": number;
   /**
    * The analytics list query definition. It selects the events to return with `query`, then
    * chooses the columns on each event row, the sort applied to those rows, and a row limit.
@@ -25,7 +25,7 @@ export class ProductAnalyticsAnalyticsListRequestAttributes {
   /**
    * End time in epoch milliseconds.
    */
-  "to": Int64;
+  "to": number;
 
   /**
    * A container for additional, undeclared properties.

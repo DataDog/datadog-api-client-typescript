@@ -7,7 +7,7 @@ import { SyntheticsSuiteOptions } from "./SyntheticsSuiteOptions";
 import { SyntheticsSuiteTest } from "./SyntheticsSuiteTest";
 import { SyntheticsSuiteType } from "./SyntheticsSuiteType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing details about a Synthetic suite.
@@ -20,7 +20,7 @@ export class SyntheticsSuite {
   /**
    * The associated monitor ID.
    */
-  "monitorId"?: Int64;
+  "monitorId"?: number;
   /**
    * Name of the suite.
    */

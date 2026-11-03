@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata.
@@ -13,11 +13,11 @@ export class IncidentNotificationTemplateArrayMetaPage {
   /**
    * Total number of notification templates.
    */
-  "totalCount"?: Int64;
+  "totalCount"?: number;
   /**
    * Total number of notification templates matching the filter.
    */
-  "totalFilteredCount"?: Int64;
+  "totalFilteredCount"?: number;
 
   /**
    * A container for additional, undeclared properties.

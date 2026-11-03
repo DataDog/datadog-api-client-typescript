@@ -5,7 +5,7 @@
  */
 import { SyntheticsTestResultCertificateValidity } from "./SyntheticsTestResultCertificateValidity";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * SSL/TLS certificate information returned from an SSL test.
@@ -18,7 +18,7 @@ export class SyntheticsTestResultCertificate {
   /**
    * RSA exponent of the certificate.
    */
-  "exponent"?: Int64;
+  "exponent"?: number;
   /**
    * Extended key usage extensions for the certificate.
    */

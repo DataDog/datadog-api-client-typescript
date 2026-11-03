@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Per-file line coverage data including executable, covered, and added lines.
@@ -13,15 +13,15 @@ export class FileCoverageLines {
   /**
    * Line numbers that were added in the specified scope (for example, in a PR diff).
    */
-  "addedLines"?: Array<Int64>;
+  "addedLines"?: Array<number>;
   /**
    * Line numbers that were covered by tests.
    */
-  "coveredLines"?: Array<Int64>;
+  "coveredLines"?: Array<number>;
   /**
    * Line numbers that are executable (can be covered).
    */
-  "executableLines"?: Array<Int64>;
+  "executableLines"?: Array<number>;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,17 +42,14 @@ export class FileCoverageLines {
     addedLines: {
       baseName: "added_lines",
       type: "Array<number>",
-      format: "int64",
     },
     coveredLines: {
       baseName: "covered_lines",
       type: "Array<number>",
-      format: "int64",
     },
     executableLines: {
       baseName: "executable_lines",
       type: "Array<number>",
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

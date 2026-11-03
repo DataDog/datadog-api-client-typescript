@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing the attributes of the suppression rule to be created.
@@ -25,7 +25,7 @@ export class SecurityMonitoringSuppressionCreateAttributes {
   /**
    * A Unix millisecond timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
    */
-  "expirationDate"?: Int64;
+  "expirationDate"?: number;
   /**
    * The name of the suppression rule.
    */
@@ -37,7 +37,7 @@ export class SecurityMonitoringSuppressionCreateAttributes {
   /**
    * A Unix millisecond timestamp giving the start date for the suppression rule. After this date, it starts suppressing signals.
    */
-  "startDate"?: Int64;
+  "startDate"?: number;
   /**
    * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
    */

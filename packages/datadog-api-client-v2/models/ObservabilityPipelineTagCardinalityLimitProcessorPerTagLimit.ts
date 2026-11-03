@@ -5,7 +5,7 @@
  */
 import { ObservabilityPipelineTagCardinalityLimitProcessorOverrideType } from "./ObservabilityPipelineTagCardinalityLimitProcessorOverrideType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A cardinality override for a specific tag key within a per-metric limit.
@@ -22,7 +22,7 @@ export class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit {
   /**
    * The maximum number of distinct values allowed for this tag. Required when `override_type` is `limit_override`. Must be omitted when `override_type` is `excluded`.
    */
-  "valueLimit"?: Int64;
+  "valueLimit"?: number;
 
   /**
    * A container for additional, undeclared properties.

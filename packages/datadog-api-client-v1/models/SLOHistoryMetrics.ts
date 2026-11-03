@@ -5,7 +5,7 @@
  */
 import { SLOHistoryMetricsSeries } from "./SLOHistoryMetricsSeries";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A `metric` based SLO history response.
@@ -21,7 +21,7 @@ export class SLOHistoryMetrics {
   /**
    * The aggregated query interval for the series data. It's implicit based on the query time window.
    */
-  "interval": Int64;
+  "interval": number;
   /**
    * Optional message if there are specific query issues/warnings.
    */
@@ -42,7 +42,7 @@ export class SLOHistoryMetrics {
   /**
    * The series response version type. This mimics `batch_query` response type.
    */
-  "respVersion": Int64;
+  "respVersion": number;
   /**
    * An array of query timestamps in EPOCH milliseconds.
    */

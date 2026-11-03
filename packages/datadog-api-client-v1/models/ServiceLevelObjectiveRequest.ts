@@ -9,7 +9,7 @@ import { SLOThreshold } from "./SLOThreshold";
 import { SLOTimeframe } from "./SLOTimeframe";
 import { SLOType } from "./SLOType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A service level objective object includes a service level indicator, thresholds
@@ -35,7 +35,7 @@ export class ServiceLevelObjectiveRequest {
    * A list of monitor IDs that defines the scope of a monitor service level
    * objective. **Required if type is `monitor`**.
    */
-  "monitorIds"?: Array<Int64>;
+  "monitorIds"?: Array<number>;
   /**
    * The name of the service level objective object.
    */
@@ -110,7 +110,6 @@ export class ServiceLevelObjectiveRequest {
     monitorIds: {
       baseName: "monitor_ids",
       type: "Array<number>",
-      format: "int64",
     },
     name: {
       baseName: "name",

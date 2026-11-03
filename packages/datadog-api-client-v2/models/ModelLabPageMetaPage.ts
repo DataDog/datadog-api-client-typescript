@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination details for a list response.
@@ -13,31 +13,31 @@ export class ModelLabPageMetaPage {
   /**
    * The first page number.
    */
-  "firstNumber"?: Int64;
+  "firstNumber"?: number;
   /**
    * The last page number.
    */
-  "lastNumber"?: Int64;
+  "lastNumber"?: number;
   /**
    * The next page number.
    */
-  "nextNumber"?: Int64;
+  "nextNumber"?: number;
   /**
    * The current page number.
    */
-  "number": Int64;
+  "number": number;
   /**
    * The previous page number.
    */
-  "prevNumber"?: Int64;
+  "prevNumber"?: number;
   /**
    * The number of items per page.
    */
-  "size": Int64;
+  "size": number;
   /**
    * The total number of items.
    */
-  "total": Int64;
+  "total": number;
   /**
    * The pagination type.
    */

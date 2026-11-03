@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response with properties for each aggregated usage type.
@@ -13,19 +13,19 @@ export class UsageBillableSummaryBody {
   /**
    * The total account usage.
    */
-  "accountBillableUsage"?: Int64;
+  "accountBillableUsage"?: number;
   /**
    * The total account committed usage.
    */
-  "accountCommittedUsage"?: Int64;
+  "accountCommittedUsage"?: number;
   /**
    * The total account on-demand usage.
    */
-  "accountOnDemandUsage"?: Int64;
+  "accountOnDemandUsage"?: number;
   /**
    * Elapsed usage hours for some billable product.
    */
-  "elapsedUsageHours"?: Int64;
+  "elapsedUsageHours"?: number;
   /**
    * The first billable hour for the org.
    */
@@ -37,7 +37,7 @@ export class UsageBillableSummaryBody {
   /**
    * The number of units used within the billable timeframe.
    */
-  "orgBillableUsage"?: Int64;
+  "orgBillableUsage"?: number;
   /**
    * The percentage of account usage the org represents.
    */

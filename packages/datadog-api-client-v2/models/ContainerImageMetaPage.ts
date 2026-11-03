@@ -5,7 +5,7 @@
  */
 import { ContainerImageMetaPageType } from "./ContainerImageMetaPageType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Paging attributes.
@@ -32,7 +32,7 @@ export class ContainerImageMetaPage {
   /**
    * Total number of images that match the query. Always `0` for grouped results.
    */
-  "total"?: Int64;
+  "total"?: number;
   /**
    * Type of Container Image pagination.
    */

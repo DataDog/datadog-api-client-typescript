@@ -11,7 +11,7 @@ import { ObservabilityPipelineKafkaLibrdkafkaOption } from "./ObservabilityPipel
 import { ObservabilityPipelineKafkaSasl } from "./ObservabilityPipelineKafkaSasl";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `kafka` destination sends logs to Apache Kafka topics.
@@ -58,15 +58,15 @@ export class ObservabilityPipelineKafkaDestination {
   /**
    * Maximum time in milliseconds to wait for message delivery confirmation.
    */
-  "messageTimeoutMs"?: Int64;
+  "messageTimeoutMs"?: number;
   /**
    * Duration in seconds for the rate limit window.
    */
-  "rateLimitDurationSecs"?: Int64;
+  "rateLimitDurationSecs"?: number;
   /**
    * Maximum number of messages allowed per rate limit duration.
    */
-  "rateLimitNum"?: Int64;
+  "rateLimitNum"?: number;
   /**
    * Specifies the SASL mechanism for authenticating with a Kafka cluster.
    */
@@ -74,7 +74,7 @@ export class ObservabilityPipelineKafkaDestination {
   /**
    * Socket timeout in milliseconds for network requests.
    */
-  "socketTimeoutMs"?: Int64;
+  "socketTimeoutMs"?: number;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */

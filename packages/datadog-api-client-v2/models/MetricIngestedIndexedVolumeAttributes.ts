@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing the definition of a metric's ingested and indexed volume.
@@ -13,11 +13,11 @@ export class MetricIngestedIndexedVolumeAttributes {
   /**
    * Estimated average hourly number of indexed time series for the given metric over the last hour. For organizations on Metric Name Pricing, this represents the estimated sum of indexed data points over the last hour.
    */
-  "indexedVolume"?: Int64;
+  "indexedVolume"?: number;
   /**
    * Estimated average hourly number of ingested time series for the given metric over the last hour. This value is `0` for metrics not configured with Metrics Without Limits. For organizations on Metric Name Pricing, this represents the estimated sum of ingested data points over the last hour.
    */
-  "ingestedVolume"?: Int64;
+  "ingestedVolume"?: number;
 
   /**
    * A container for additional, undeclared properties.

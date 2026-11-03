@@ -5,7 +5,7 @@
  */
 import { OwnershipConfidenceLevel } from "./OwnershipConfidenceLevel";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of the ownership settings response.
@@ -22,7 +22,7 @@ export class OwnershipSettingsAttributes {
   /**
    * The current version of the ownership settings.
    */
-  "version": Int64;
+  "version": number;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for a general investigation with an explicit time window.
@@ -17,11 +17,11 @@ export class GeneralInvestigationAttributesWithTimeBounds {
   /**
    * The end of the investigation window, in Unix milliseconds.
    */
-  "endTime": Int64;
+  "endTime": number;
   /**
    * The start of the investigation window, in Unix milliseconds.
    */
-  "startTime": Int64;
+  "startTime": number;
   /**
    * Tags that scope the investigation.
    */

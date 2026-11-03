@@ -8,7 +8,7 @@ import { RumSdkConfigDynamicOptionPair } from "./RumSdkConfigDynamicOptionPair";
 import { RumSdkConfigMatchOption } from "./RumSdkConfigMatchOption";
 import { RumSdkConfigTracingUrlConfig } from "./RumSdkConfigTracingUrlConfig";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The RUM SDK settings for a configuration.
@@ -49,15 +49,15 @@ export class RumSdkConfigRumAttributes {
   /**
    * The percentage of collected sessions for which a replay is captured (0–100).
    */
-  "sessionReplaySampleRate": Int64;
+  "sessionReplaySampleRate": number;
   /**
    * The percentage of user sessions to collect (0–100).
    */
-  "sessionSampleRate": Int64;
+  "sessionSampleRate": number;
   /**
    * The percentage of requests to forward as APM traces (0–100).
    */
-  "traceSampleRate"?: Int64;
+  "traceSampleRate"?: number;
   /**
    * Whether to share a session across subdomains of the same site.
    */

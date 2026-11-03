@@ -8,7 +8,7 @@ import { ObservabilityPipelineDecoding } from "./ObservabilityPipelineDecoding";
 import { ObservabilityPipelineHttpClientSourceAuthStrategy } from "./ObservabilityPipelineHttpClientSourceAuthStrategy";
 import { ObservabilityPipelineHttpClientSourceType } from "./ObservabilityPipelineHttpClientSourceType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
@@ -43,11 +43,11 @@ export class ObservabilityPipelineHttpClientSource {
   /**
    * The interval (in seconds) between HTTP scrape requests.
    */
-  "scrapeIntervalSecs"?: Int64;
+  "scrapeIntervalSecs"?: number;
   /**
    * The timeout (in seconds) for each scrape request.
    */
-  "scrapeTimeoutSecs"?: Int64;
+  "scrapeTimeoutSecs"?: number;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * One step in the protocol's traffic exposure schedule.
@@ -17,11 +17,11 @@ export class ExperimentsPublicProtocolResponseDataAttributesExposureScheduleRoll
   /**
    * Index of the group that contains this rollout step.
    */
-  "groupedStepIndex"?: Int64;
+  "groupedStepIndex"?: number;
   /**
    * Duration of this rollout step, in milliseconds.
    */
-  "intervalMs"?: Int64;
+  "intervalMs"?: number;
   /**
    * Whether this schedule entry represents a pause.
    */
@@ -29,7 +29,7 @@ export class ExperimentsPublicProtocolResponseDataAttributesExposureScheduleRoll
   /**
    * Position of this entry in the ordered configuration.
    */
-  "orderPosition"?: Int64;
+  "orderPosition"?: number;
 
   /**
    * A container for additional, undeclared properties.

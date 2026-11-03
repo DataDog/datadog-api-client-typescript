@@ -8,7 +8,7 @@ import { IoCScoreEffect } from "./IoCScoreEffect";
 import { IoCSource } from "./IoCSource";
 import { IoCTriageState } from "./IoCTriageState";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An indicator of compromise with threat intelligence data.
@@ -53,7 +53,7 @@ export class IoCIndicator {
   /**
    * Number of logs that matched this indicator.
    */
-  "logMatches"?: Int64;
+  "logMatches"?: number;
   /**
    * Effect of a scoring factor on the indicator's threat score.
    */
@@ -85,11 +85,11 @@ export class IoCIndicator {
   /**
    * Number of security signals that matched this indicator.
    */
-  "signalMatches"?: Int64;
+  "signalMatches"?: number;
   /**
    * Signal tier level.
    */
-  "signalTier"?: Int64;
+  "signalTier"?: number;
   /**
    * Threat intelligence sources that flagged this indicator as suspicious.
    */

@@ -5,7 +5,7 @@
  */
 import { QueryAccountRequestDataAttributesSort } from "./QueryAccountRequestDataAttributesSort";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for filtering and shaping the account query results.
@@ -14,7 +14,7 @@ export class QueryAccountRequestDataAttributes {
   /**
    * Maximum number of account records to return in the response.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Filter expression using account attribute conditions to narrow results.
    */

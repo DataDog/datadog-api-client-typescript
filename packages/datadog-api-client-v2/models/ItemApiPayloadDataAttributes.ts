@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata and content of a datastore item.
@@ -21,7 +21,7 @@ export class ItemApiPayloadDataAttributes {
   /**
    * The ID of the organization that owns this item.
    */
-  "orgId"?: Int64;
+  "orgId"?: number;
   /**
    * The name of the primary key column for this datastore. Primary column names:
    *   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)

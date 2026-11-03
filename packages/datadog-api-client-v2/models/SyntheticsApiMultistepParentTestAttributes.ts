@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a parent API multistep test.
@@ -21,7 +21,7 @@ export class SyntheticsApiMultistepParentTestAttributes {
   /**
    * The associated monitor ID.
    */
-  "monitorId"?: Int64;
+  "monitorId"?: number;
   /**
    * Name of the parent test.
    */
@@ -29,7 +29,7 @@ export class SyntheticsApiMultistepParentTestAttributes {
   /**
    * The overall state of the parent test.
    */
-  "overallState"?: Int64;
+  "overallState"?: number;
   /**
    * Timestamp of when the overall state was last modified.
    */

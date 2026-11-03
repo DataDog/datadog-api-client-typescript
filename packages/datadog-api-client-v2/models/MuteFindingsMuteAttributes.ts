@@ -5,7 +5,7 @@
  */
 import { MuteFindingsReason } from "./MuteFindingsReason";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Mute properties to apply to the findings.
@@ -18,7 +18,7 @@ export class MuteFindingsMuteAttributes {
   /**
    * The expiration date of the mute action (Unix ms). It must be set to a value greater than the current timestamp. If this field is not provided, the findings remain muted indefinitely.
    */
-  "expireAt"?: Int64;
+  "expireAt"?: number;
   /**
    * Whether the findings should be muted or unmuted.
    */

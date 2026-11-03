@@ -5,7 +5,7 @@
  */
 import { SensitiveDataScannerSuppressions } from "./SensitiveDataScannerSuppressions";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of the Sensitive Data Scanner standard pattern.
@@ -30,7 +30,7 @@ export class SensitiveDataScannerStandardPatternAttributes {
   /**
    * Integer from 1 (high) to 5 (low) indicating standard pattern issue severity.
    */
-  "priority"?: Int64;
+  "priority"?: number;
   /**
    * Object describing suppressions for a rule, or the recommended suppression lists published by a standard pattern.
    * There are three types of suppressions, `starts_with`, `ends_with`, and `exact_match`.

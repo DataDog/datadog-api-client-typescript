@@ -5,7 +5,7 @@
  */
 import { DnsMetricKey } from "./DnsMetricKey";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metrics associated with an aggregated DNS flow.
@@ -18,7 +18,7 @@ export class SingleAggregatedDnsResponseDataAttributesMetricsItems {
   /**
    * The metric value.
    */
-  "value"?: Int64;
+  "value"?: number;
 
   /**
    * A container for additional, undeclared properties.

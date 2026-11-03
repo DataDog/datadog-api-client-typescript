@@ -5,7 +5,7 @@
  */
 import { PaginationMetaPageType } from "./PaginationMetaPageType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Offset-based pagination schema.
@@ -14,31 +14,31 @@ export class PaginationMetaPage {
   /**
    * Integer representing the offset to fetch the first page of results.
    */
-  "firstOffset"?: Int64;
+  "firstOffset"?: number;
   /**
    * Integer representing the offset to fetch the last page of results.
    */
-  "lastOffset"?: Int64;
+  "lastOffset"?: number;
   /**
    * Integer representing the number of elements to be returned in the results.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Integer representing the index of the first element in the next page of results. Equal to page size added to the current offset.
    */
-  "nextOffset"?: Int64;
+  "nextOffset"?: number;
   /**
    * Integer representing the index of the first element in the results.
    */
-  "offset"?: Int64;
+  "offset"?: number;
   /**
    * Integer representing the index of the first element in the previous page of results.
    */
-  "prevOffset"?: Int64;
+  "prevOffset"?: number;
   /**
    * Integer representing the total number of elements available.
    */
-  "total"?: Int64;
+  "total"?: number;
   /**
    * The pagination type used for offset-based pagination.
    */

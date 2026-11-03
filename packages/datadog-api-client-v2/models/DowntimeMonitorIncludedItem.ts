@@ -6,7 +6,7 @@
 import { DowntimeIncludedMonitorType } from "./DowntimeIncludedMonitorType";
 import { DowntimeMonitorIncludedAttributes } from "./DowntimeMonitorIncludedAttributes";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Information about the monitor identified by the downtime.
@@ -19,7 +19,7 @@ export class DowntimeMonitorIncludedItem {
   /**
    * ID of the monitor identified by the downtime.
    */
-  "id"?: Int64;
+  "id"?: number;
   /**
    * Monitor resource type.
    */

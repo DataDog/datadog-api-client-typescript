@@ -5,7 +5,7 @@
  */
 import { SecurityFilterVersionEntry } from "./SecurityFilterVersionEntry";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes describing a single security filter configuration version.
@@ -14,7 +14,7 @@ export class SecurityFilterVersionAttributes {
   /**
    * The Unix timestamp in milliseconds at which this configuration version was applied.
    */
-  "date": Int64;
+  "date": number;
   /**
    * The set of security filters at this configuration version.
    */

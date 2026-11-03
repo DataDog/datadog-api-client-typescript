@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for requesting code coverage summary for a pull request.
@@ -13,7 +13,7 @@ export class PRCoverageSummaryRequestAttributes {
   /**
    * The pull request number. Must be a positive integer.
    */
-  "prNumber": Int64;
+  "prNumber": number;
   /**
    * The repository URL. Accepts a full URL with or without a scheme (for example, `https://github.com/org/repo` or `github.com/org/repo`).
    */

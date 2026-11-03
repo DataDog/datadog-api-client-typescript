@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata for a list of RUM operation links.
@@ -13,15 +13,15 @@ export class RUMOperationStrongLinksListResponseMeta {
   /**
    * The pagination limit.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * The current offset.
    */
-  "offset"?: Int64;
+  "offset"?: number;
   /**
    * The total number of links matching the request.
    */
-  "total"?: Int64;
+  "total"?: number;
 
   /**
    * A container for additional, undeclared properties.

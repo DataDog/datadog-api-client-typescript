@@ -7,7 +7,7 @@ import { LogsDailyLimitReset } from "./LogsDailyLimitReset";
 import { LogsExclusion } from "./LogsExclusion";
 import { LogsFilter } from "./LogsFilter";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object for updating a Datadog Log index.
@@ -16,7 +16,7 @@ export class LogsIndexUpdateRequest {
   /**
    * The number of log events you can send in this index per day before you are rate-limited.
    */
-  "dailyLimit"?: Int64;
+  "dailyLimit"?: number;
   /**
    * Object containing options to override the default daily limit reset time.
    */
@@ -49,14 +49,14 @@ export class LogsIndexUpdateRequest {
    *
    * **Note**: Changing this value affects all logs already in this index. It may also affect billing.
    */
-  "numFlexLogsRetentionDays"?: Int64;
+  "numFlexLogsRetentionDays"?: number;
   /**
    * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
    * The available values depend on retention plans specified in your organization's contract/subscriptions.
    *
    * **Note**: Changing this value affects all logs already in this index. It may also affect billing.
    */
-  "numRetentionDays"?: Int64;
+  "numRetentionDays"?: number;
   /**
    * A list of tags associated with the index. Tags must be in `key:value` format.
    */

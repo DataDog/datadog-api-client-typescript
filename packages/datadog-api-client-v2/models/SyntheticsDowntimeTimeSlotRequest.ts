@@ -6,7 +6,7 @@
 import { SyntheticsDowntimeTimeSlotDate } from "./SyntheticsDowntimeTimeSlotDate";
 import { SyntheticsDowntimeTimeSlotRecurrenceRequest } from "./SyntheticsDowntimeTimeSlotRecurrenceRequest";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A time slot for a Synthetics downtime create or update request.
@@ -15,7 +15,7 @@ export class SyntheticsDowntimeTimeSlotRequest {
   /**
    * The duration of the time slot in seconds, between 60 and 604800.
    */
-  "duration": Int64;
+  "duration": number;
   /**
    * An optional label for the time slot.
    */

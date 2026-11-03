@@ -5,7 +5,7 @@
  */
 import { RUMProductScales } from "./RUMProductScales";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * RUM application list attributes.
@@ -30,7 +30,7 @@ export class RUMApplicationListAttributes {
   /**
    * Timestamp in ms of the creation date.
    */
-  "createdAt": Int64;
+  "createdAt": number;
   /**
    * Handle of the creator user.
    */
@@ -38,7 +38,7 @@ export class RUMApplicationListAttributes {
   /**
    * Timestamp in ms of the date the RUM application was disabled. Only present if the application was disabled.
    */
-  "disabledAt"?: Int64;
+  "disabledAt"?: number;
   /**
    * Handle of the user who disabled the RUM application. Only present if the application was disabled.
    */
@@ -102,7 +102,7 @@ export class RUMApplicationListAttributes {
   /**
    * Timestamp in ms of the last update date.
    */
-  "updatedAt": Int64;
+  "updatedAt": number;
   /**
    * Handle of the updater user.
    */

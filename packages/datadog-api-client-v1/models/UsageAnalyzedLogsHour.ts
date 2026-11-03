@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The number of analyzed logs for each hour for a given organization.
@@ -13,7 +13,7 @@ export class UsageAnalyzedLogsHour {
   /**
    * Contains the number of analyzed logs.
    */
-  "analyzedLogs"?: Int64;
+  "analyzedLogs"?: number;
   /**
    * The hour for the usage.
    */

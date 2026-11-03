@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A facet item.
@@ -13,7 +13,7 @@ export class MonitorSearchCountItem {
   /**
    * The number of found monitors with the listed value.
    */
-  "count"?: Int64;
+  "count"?: number;
   /**
    * The facet value.
    */

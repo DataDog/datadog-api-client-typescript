@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for a process summary.
@@ -30,11 +30,11 @@ export class ProcessSummaryAttributes {
   /**
    * Process ID.
    */
-  "pid"?: Int64;
+  "pid"?: number;
   /**
    * Parent process ID.
    */
-  "ppid"?: Int64;
+  "ppid"?: number;
   /**
    * Time the process was started.
    */

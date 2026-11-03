@@ -6,7 +6,7 @@
 import { TableResultV2DataAttributesFileMetadataCloudStorageErrorType } from "./TableResultV2DataAttributesFileMetadataCloudStorageErrorType";
 import { TableResultV2DataAttributesFileMetadataOneOfAccessDetails } from "./TableResultV2DataAttributesFileMetadataOneOfAccessDetails";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata specifying where and how to access the reference table's data file.
@@ -31,7 +31,7 @@ export class TableResultV2DataAttributesFileMetadata {
   /**
    * The number of rows that failed to process.
    */
-  "errorRowCount"?: Int64;
+  "errorRowCount"?: number;
   /**
    * The type of error that occurred during file processing. This field provides high-level error categories for easier troubleshooting and is only present when there are errors.
    */

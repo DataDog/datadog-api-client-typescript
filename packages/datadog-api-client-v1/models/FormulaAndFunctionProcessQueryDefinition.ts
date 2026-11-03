@@ -7,7 +7,7 @@ import { FormulaAndFunctionMetricAggregation } from "./FormulaAndFunctionMetricA
 import { FormulaAndFunctionProcessQueryDataSource } from "./FormulaAndFunctionProcessQueryDataSource";
 import { QuerySortOrder } from "./QuerySortOrder";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Process query using formulas and functions.
@@ -32,7 +32,7 @@ export class FormulaAndFunctionProcessQueryDefinition {
   /**
    * Number of hits to return.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Process metric name.
    */

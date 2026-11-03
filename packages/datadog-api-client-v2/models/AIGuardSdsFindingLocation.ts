@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The location of a sensitive data match within the request.
@@ -13,7 +13,7 @@ export class AIGuardSdsFindingLocation {
   /**
    * The exclusive end index of the match within the located content.
    */
-  "endIndexExclusive": Int64;
+  "endIndexExclusive": number;
   /**
    * The path of the match relative to the request attributes.
    */
@@ -21,7 +21,7 @@ export class AIGuardSdsFindingLocation {
   /**
    * The start index of the match within the located content.
    */
-  "startIndex": Int64;
+  "startIndex": number;
 
   /**
    * A container for additional, undeclared properties.

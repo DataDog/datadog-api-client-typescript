@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a form publication.
@@ -21,7 +21,7 @@ export class FormPublicationAttributes {
   /**
    * The version number that was published.
    */
-  "formVersion": Int64;
+  "formVersion": number;
   /**
    * The ID of the form publication.
    */
@@ -33,15 +33,15 @@ export class FormPublicationAttributes {
   /**
    * The ID of the organization that owns this publication.
    */
-  "orgId": Int64;
+  "orgId": number;
   /**
    * The sequential publication number for this form.
    */
-  "publishSeq": Int64;
+  "publishSeq": number;
   /**
    * The ID of the user who created this publication.
    */
-  "userId": Int64;
+  "userId": number;
   /**
    * The UUID of the user who created this publication.
    */

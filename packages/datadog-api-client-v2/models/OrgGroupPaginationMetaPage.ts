@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Page-based pagination details for org group list responses.
@@ -13,31 +13,31 @@ export class OrgGroupPaginationMetaPage {
   /**
    * First page number.
    */
-  "firstNumber"?: Int64;
+  "firstNumber"?: number;
   /**
    * Last page number.
    */
-  "lastNumber"?: Int64;
+  "lastNumber"?: number;
   /**
    * Next page number.
    */
-  "nextNumber"?: Int64;
+  "nextNumber"?: number;
   /**
    * Page number.
    */
-  "number"?: Int64;
+  "number"?: number;
   /**
    * Previous page number.
    */
-  "prevNumber"?: Int64;
+  "prevNumber"?: number;
   /**
    * Page size.
    */
-  "size"?: Int64;
+  "size"?: number;
   /**
    * Total number of results.
    */
-  "total"?: Int64;
+  "total"?: number;
   /**
    * Pagination type.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The definition of `RulesetRespDataAttributesModified` object.
@@ -17,7 +17,7 @@ export class RulesetRespDataAttributesModified {
   /**
    * The `modified` `seconds`.
    */
-  "seconds"?: Int64;
+  "seconds"?: number;
 
   /**
    * A container for additional, undeclared properties.

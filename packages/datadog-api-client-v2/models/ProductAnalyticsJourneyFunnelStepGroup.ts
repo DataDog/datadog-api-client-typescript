@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsElapsedTime } from "./ProductAnalyticsElapsedTime";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Breakdown of a funnel step for one combination of group-by values.
@@ -14,7 +14,7 @@ export class ProductAnalyticsJourneyFunnelStepGroup {
   /**
    * Number of entities in this group that reached the next step.
    */
-  "conversionCount": Int64;
+  "conversionCount": number;
   /**
    * Elapsed time statistics (min/max/avg in milliseconds).
    */

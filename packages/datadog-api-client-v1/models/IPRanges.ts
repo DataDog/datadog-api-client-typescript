@@ -15,7 +15,7 @@ import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
 import { IPPrefixesSyntheticsPrivateLocations } from "./IPPrefixesSyntheticsPrivateLocations";
 import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * IP ranges.
@@ -68,7 +68,7 @@ export class IPRanges {
   /**
    * Version of the IP list.
    */
-  "version"?: Int64;
+  "version"?: number;
   /**
    * Available prefix information for the Webhook endpoints.
    */

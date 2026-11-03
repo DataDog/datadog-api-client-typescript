@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Configuration of the schema data to use.
@@ -17,7 +17,7 @@ export class LogsSchemaData {
   /**
    * Class UID of the schema to use.
    */
-  "classUid": Int64;
+  "classUid": number;
   /**
    * Optional list of profiles to modify the schema.
    */

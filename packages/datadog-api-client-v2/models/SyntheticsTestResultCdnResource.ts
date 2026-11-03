@@ -5,7 +5,7 @@
  */
 import { SyntheticsTestResultCdnProviderInfo } from "./SyntheticsTestResultCdnProviderInfo";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A CDN resource encountered while executing a browser step.
@@ -22,7 +22,7 @@ export class SyntheticsTestResultCdnResource {
   /**
    * Unix timestamp (ms) of when the resource was fetched.
    */
-  "timestamp"?: Int64;
+  "timestamp"?: number;
   /**
    * Timing breakdown for fetching the CDN resource.
    */

@@ -5,7 +5,7 @@
  */
 import { ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytesType } from "./ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytesType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Sets a specific byte threshold for the matching partition.
@@ -14,7 +14,7 @@ export class ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes 
   /**
    * The minimal threshold, in bytes, for the matching partition.
    */
-  "bytes": Int64;
+  "bytes": number;
   /**
    * The minimal threshold type. The value should always be `threshold`.
    */

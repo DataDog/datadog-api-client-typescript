@@ -6,7 +6,7 @@
 import { ExperimentsPublicProtocolResponseDataAttributesStatus } from "./ExperimentsPublicProtocolResponseDataAttributesStatus";
 import { ExperimentsPublicProtocolResponseDataAttributesSubjectType } from "./ExperimentsPublicProtocolResponseDataAttributesSubjectType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Summary of the protocol and its selected subject type and primary metric.
@@ -19,7 +19,7 @@ export class ExperimentsPublicProtocolListResponseDataAttributes {
   /**
    * Number of experiments in the organization that use this protocol, excluding deleted experiments.
    */
-  "experimentCount": Int64;
+  "experimentCount": number;
   /**
    * Display name of the protocol.
    */

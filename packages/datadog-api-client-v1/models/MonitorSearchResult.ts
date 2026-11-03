@@ -8,7 +8,7 @@ import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorSearchResultNotification } from "./MonitorSearchResultNotification";
 import { MonitorType } from "./MonitorType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Holds search results.
@@ -25,11 +25,11 @@ export class MonitorSearchResult {
   /**
    * ID of the monitor.
    */
-  "id"?: Int64;
+  "id"?: number;
   /**
    * Latest timestamp the monitor triggered.
    */
-  "lastTriggeredTs"?: Int64;
+  "lastTriggeredTs"?: number;
   /**
    * Metrics used by the monitor.
    */
@@ -45,7 +45,7 @@ export class MonitorSearchResult {
   /**
    * The ID of the organization.
    */
-  "orgId"?: Int64;
+  "orgId"?: number;
   /**
    * Quality issues detected with the monitor.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Global query options that are used during the query.
@@ -14,7 +14,7 @@ export class RUMQueryOptions {
   /**
    * The time offset (in seconds) to apply to the query.
    */
-  "timeOffset"?: Int64;
+  "timeOffset"?: number;
   /**
    * The timezone can be specified as GMT, UTC, an offset from UTC (like UTC+1), or as a Timezone Database identifier (like America/New_York).
    */

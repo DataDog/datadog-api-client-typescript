@@ -5,7 +5,7 @@
  */
 import { SecurityMonitoringDatasetDefinition } from "./SecurityMonitoringDatasetDefinition";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a dataset create or update request.
@@ -26,7 +26,7 @@ export class SecurityMonitoringDatasetAttributesRequest {
    * The expected current version of the dataset for optimistic concurrency control on updates.
    * If the dataset's current version does not match, the request is rejected with a 409 Conflict.
    */
-  "version"?: Int64;
+  "version"?: number;
 
   /**
    * A container for additional, undeclared properties.

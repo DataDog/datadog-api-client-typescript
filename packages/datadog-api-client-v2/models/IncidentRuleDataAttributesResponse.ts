@@ -6,7 +6,7 @@
 import { IncidentRuleCondition } from "./IncidentRuleCondition";
 import { IncidentRuleQueryCondition } from "./IncidentRuleQueryCondition";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an incident rule in a response.
@@ -19,7 +19,7 @@ export class IncidentRuleDataAttributesResponse {
   /**
    * The condition table type.
    */
-  "conditionTableType"?: Int64;
+  "conditionTableType"?: number;
   /**
    * List of field-based conditions.
    */
@@ -43,7 +43,7 @@ export class IncidentRuleDataAttributesResponse {
   /**
    * The execution type of the rule.
    */
-  "executionType"?: Int64;
+  "executionType"?: number;
   /**
    * The incident settings association UUID.
    */
@@ -63,7 +63,7 @@ export class IncidentRuleDataAttributesResponse {
   /**
    * The organization ID.
    */
-  "orgId"?: Int64;
+  "orgId"?: number;
   /**
    * The task ID.
    */

@@ -5,7 +5,7 @@
  */
 import { WidgetFieldSort } from "./WidgetFieldSort";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Updated SLO List widget.
@@ -14,7 +14,7 @@ export class SLOListWidgetQuery {
   /**
    * Maximum number of results to display in the table.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Widget query.
    */

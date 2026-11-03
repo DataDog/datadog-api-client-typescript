@@ -6,7 +6,7 @@
 import { CreateComponentRequestDataAttributesComponentsItems } from "./CreateComponentRequestDataAttributesComponentsItems";
 import { CreateComponentRequestDataAttributesType } from "./CreateComponentRequestDataAttributesType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The supported attributes for creating a component.
@@ -23,7 +23,7 @@ export class CreateComponentRequestDataAttributes {
   /**
    * The zero-indexed position of the component.
    */
-  "position": Int64;
+  "position": number;
   /**
    * The type of the component.
    */

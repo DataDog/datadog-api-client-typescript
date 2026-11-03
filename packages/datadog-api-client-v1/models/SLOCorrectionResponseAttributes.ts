@@ -7,7 +7,7 @@ import { Creator } from "./Creator";
 import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
 import { SLOCorrectionResponseAttributesModifier } from "./SLOCorrectionResponseAttributesModifier";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attribute object associated with the SLO correction.
@@ -20,7 +20,7 @@ export class SLOCorrectionResponseAttributes {
   /**
    * The epoch timestamp of when the correction was created at.
    */
-  "createdAt"?: Int64;
+  "createdAt"?: number;
   /**
    * Object describing the creator of the shared element.
    */
@@ -32,15 +32,15 @@ export class SLOCorrectionResponseAttributes {
   /**
    * Length of time (in seconds) for a specified `rrule` recurring SLO correction.
    */
-  "duration"?: Int64;
+  "duration"?: number;
   /**
    * Ending time of the correction in epoch seconds.
    */
-  "end"?: Int64;
+  "end"?: number;
   /**
    * The epoch timestamp of when the correction was modified at.
    */
-  "modifiedAt"?: Int64;
+  "modifiedAt"?: number;
   /**
    * Modifier of the object.
    */
@@ -61,7 +61,7 @@ export class SLOCorrectionResponseAttributes {
   /**
    * Starting time of the correction in epoch seconds.
    */
-  "start"?: Int64;
+  "start"?: number;
   /**
    * The timezone to display in the UI for the correction times (defaults to "UTC").
    */

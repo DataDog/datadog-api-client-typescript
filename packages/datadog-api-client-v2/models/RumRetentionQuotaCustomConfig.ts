@@ -6,7 +6,7 @@
 import { RumRetentionQuotaReachedAction } from "./RumRetentionQuotaReachedAction";
 import { RumRetentionQuotaWindowType } from "./RumRetentionQuotaWindowType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The configuration used when `mode` is `custom`.
@@ -27,7 +27,7 @@ export class RumRetentionQuotaCustomConfig {
   /**
    * The maximum number of sessions allowed within the window. Must be at least `1000`.
    */
-  "sessionLimit": Int64;
+  "sessionLimit": number;
   /**
    * The window type over which the session limit is enforced.
    */

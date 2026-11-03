@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A quantity of one SKU that is included with, and consumed before, the billable usage of
@@ -23,7 +23,7 @@ export class ProductCatalogSKUAllotment {
   /**
    * The quantity allotted per month.
    */
-  "monthlyQuantity": Int64;
+  "monthlyQuantity": number;
   /**
    * The code of the SKU that provides the allotment. Always the code of the SKU the
    * allotment is returned under.

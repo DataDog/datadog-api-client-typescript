@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata for a CSM settings list response.
@@ -13,15 +13,15 @@ export class CsmSettingsMeta {
   /**
    * The current page index (zero-based).
    */
-  "pageIndex": Int64;
+  "pageIndex": number;
   /**
    * The number of resources returned per page.
    */
-  "pageSize": Int64;
+  "pageSize": number;
   /**
    * The total number of resources matching the filter criteria.
    */
-  "totalFiltered": Int64;
+  "totalFiltered": number;
 
   /**
    * A container for additional, undeclared properties.

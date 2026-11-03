@@ -7,7 +7,7 @@ import { AiCustomRuleRevisionExecutionMode } from "./AiCustomRuleRevisionExecuti
 import { CustomRuleRevisionAttributesCategory } from "./CustomRuleRevisionAttributesCategory";
 import { CustomRuleRevisionAttributesSeverity } from "./CustomRuleRevisionAttributesSeverity";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response attributes of an AI custom rule revision.
@@ -76,7 +76,7 @@ export class AiCustomRuleRevisionResponseAttributes {
   /**
    * The version identifier for this revision.
    */
-  "versionId": Int64;
+  "versionId": number;
 
   /**
    * A container for additional, undeclared properties.

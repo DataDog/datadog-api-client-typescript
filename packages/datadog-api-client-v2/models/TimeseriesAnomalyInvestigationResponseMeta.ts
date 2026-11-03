@@ -7,7 +7,7 @@ import { TimeseriesAnomalyInvestigationMetaType } from "./TimeseriesAnomalyInves
 import { TimeseriesAnomalyInvestigationQueryStatus } from "./TimeseriesAnomalyInvestigationQueryStatus";
 import { TimeseriesAnomalyInvestigationResultsWarning } from "./TimeseriesAnomalyInvestigationResultsWarning";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Timeseries execution metadata for the single request accepted by this API version.
@@ -16,11 +16,11 @@ export class TimeseriesAnomalyInvestigationResponseMeta {
   /**
    * Effective start of the timeseries query in milliseconds since the Unix epoch.
    */
-  "fromDate": Int64;
+  "fromDate": number;
   /**
    * Effective timeseries interval in milliseconds.
    */
-  "interval": Int64;
+  "interval": number;
   /**
    * Execution status for the request's queries.
    */
@@ -36,7 +36,7 @@ export class TimeseriesAnomalyInvestigationResponseMeta {
   /**
    * Effective end of the timeseries query in milliseconds since the Unix epoch.
    */
-  "toDate": Int64;
+  "toDate": number;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A test case associated with a custom rule revision, used to validate rule behavior.
@@ -13,7 +13,7 @@ export class CustomRuleRevisionTest {
   /**
    * Expected violation count
    */
-  "annotationCount": Int64;
+  "annotationCount": number;
   /**
    * Test code
    */

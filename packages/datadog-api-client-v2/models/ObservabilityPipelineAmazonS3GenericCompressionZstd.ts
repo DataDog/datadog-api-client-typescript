@@ -5,7 +5,7 @@
  */
 import { ObservabilityPipelineAmazonS3GenericCompressionZstdType } from "./ObservabilityPipelineAmazonS3GenericCompressionZstdType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Zstd compression.
@@ -18,7 +18,7 @@ export class ObservabilityPipelineAmazonS3GenericCompressionZstd {
   /**
    * Zstd compression level.
    */
-  "level": Int64;
+  "level": number;
 
   /**
    * A container for additional, undeclared properties.

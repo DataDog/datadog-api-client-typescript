@@ -6,7 +6,7 @@
 import { RuleUser } from "./RuleUser";
 import { Selectors } from "./Selectors";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of the notification rule.
@@ -15,7 +15,7 @@ export class NotificationRuleAttributes {
   /**
    * Date as Unix timestamp in milliseconds.
    */
-  "createdAt": Int64;
+  "createdAt": number;
   /**
    * User creating or modifying a rule.
    */
@@ -27,7 +27,7 @@ export class NotificationRuleAttributes {
   /**
    * Date as Unix timestamp in milliseconds.
    */
-  "modifiedAt": Int64;
+  "modifiedAt": number;
   /**
    * User creating or modifying a rule.
    */
@@ -55,11 +55,11 @@ export class NotificationRuleAttributes {
    * Time aggregation is only available for vulnerability-based notification rules. When omitted or set to 0, no aggregation
    * is done.
    */
-  "timeAggregation"?: Int64;
+  "timeAggregation"?: number;
   /**
    * Version of the notification rule. It is updated when the rule is modified.
    */
-  "version": Int64;
+  "version": number;
 
   /**
    * A container for additional, undeclared properties.
@@ -81,7 +81,6 @@ export class NotificationRuleAttributes {
       baseName: "created_at",
       type: "number",
       required: true,
-      format: "int64",
     },
     createdBy: {
       baseName: "created_by",
@@ -97,7 +96,6 @@ export class NotificationRuleAttributes {
       baseName: "modified_at",
       type: "number",
       required: true,
-      format: "int64",
     },
     modifiedBy: {
       baseName: "modified_by",
@@ -122,13 +120,11 @@ export class NotificationRuleAttributes {
     timeAggregation: {
       baseName: "time_aggregation",
       type: "number",
-      format: "int64",
     },
     version: {
       baseName: "version",
       type: "number",
       required: true,
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

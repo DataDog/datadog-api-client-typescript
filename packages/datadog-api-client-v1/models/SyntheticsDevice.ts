@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the device used to perform the Synthetic test.
@@ -13,7 +13,7 @@ export class SyntheticsDevice {
   /**
    * Screen height of the device.
    */
-  "height": Int64;
+  "height": number;
   /**
    * The device ID.
    */
@@ -29,7 +29,7 @@ export class SyntheticsDevice {
   /**
    * Screen width of the device.
    */
-  "width": Int64;
+  "width": number;
 
   /**
    * A container for additional, undeclared properties.

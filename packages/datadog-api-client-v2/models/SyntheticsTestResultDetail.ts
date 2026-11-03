@@ -22,7 +22,7 @@ import { SyntheticsTestResultTracerouteHop } from "./SyntheticsTestResultTracero
 import { SyntheticsTestResultTurn } from "./SyntheticsTestResultTurn";
 import { SyntheticsTestResultVariables } from "./SyntheticsTestResultVariables";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Full result details for a Synthetic test execution.
@@ -75,7 +75,7 @@ export class SyntheticsTestResultDetail {
   /**
    * Timestamp of when the test finished (in milliseconds).
    */
-  "finishedAt"?: Int64;
+  "finishedAt"?: number;
   /**
    * Handshake request and response for protocol-level tests.
    */
@@ -115,7 +115,7 @@ export class SyntheticsTestResultDetail {
   /**
    * Number of emails received during the test (email tests).
    */
-  "receivedEmailCount"?: Int64;
+  "receivedEmailCount"?: number;
   /**
    * Message received from the target (for WebSocket/TCP/UDP tests).
    */
@@ -147,7 +147,7 @@ export class SyntheticsTestResultDetail {
   /**
    * Timestamp of when the test started (in milliseconds).
    */
-  "startedAt"?: Int64;
+  "startedAt"?: number;
   /**
    * Status of a Synthetic test result.
    */
@@ -159,7 +159,7 @@ export class SyntheticsTestResultDetail {
   /**
    * Time to interactive in milliseconds (browser tests).
    */
-  "timeToInteractive"?: Int64;
+  "timeToInteractive"?: number;
   /**
    * Timing breakdown of the test request phases (for example, DNS, TCP, TLS, first byte).
    */
@@ -175,7 +175,7 @@ export class SyntheticsTestResultDetail {
   /**
    * Timestamp of when the test was triggered (in milliseconds).
    */
-  "triggeredAt"?: Int64;
+  "triggeredAt"?: number;
   /**
    * Whether the test was executed through a tunnel.
    */

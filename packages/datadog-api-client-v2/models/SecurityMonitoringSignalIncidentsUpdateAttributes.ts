@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing the new list of related signals for a security signal.
@@ -13,11 +13,11 @@ export class SecurityMonitoringSignalIncidentsUpdateAttributes {
   /**
    * Array of incidents that are associated with this signal.
    */
-  "incidentIds": Array<Int64>;
+  "incidentIds": Array<number>;
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
    */
-  "version"?: Int64;
+  "version"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,12 +39,10 @@ export class SecurityMonitoringSignalIncidentsUpdateAttributes {
       baseName: "incident_ids",
       type: "Array<number>",
       required: true,
-      format: "int64",
     },
     version: {
       baseName: "version",
       type: "number",
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

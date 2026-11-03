@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A redirect hop encountered while performing the request.
@@ -17,7 +17,7 @@ export class SyntheticsTestResultRedirect {
   /**
    * HTTP status code of the redirect response.
    */
-  "statusCode"?: Int64;
+  "statusCode"?: number;
 
   /**
    * A container for additional, undeclared properties.

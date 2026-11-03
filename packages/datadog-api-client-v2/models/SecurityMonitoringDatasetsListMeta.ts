@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata returned with a list of datasets.
@@ -13,7 +13,7 @@ export class SecurityMonitoringDatasetsListMeta {
   /**
    * The total number of datasets matching the request, across all pages.
    */
-  "totalCount": Int64;
+  "totalCount": number;
 
   /**
    * A container for additional, undeclared properties.

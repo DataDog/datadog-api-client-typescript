@@ -6,7 +6,7 @@
 import { CreateSnapshotTemplateVariable } from "./CreateSnapshotTemplateVariable";
 import { CreateSnapshotTimeseriesLegendType } from "./CreateSnapshotTimeseriesLegendType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Additional configuration options for snapshot creation.
@@ -23,7 +23,7 @@ export class CreateSnapshotAdditionalConfig {
   /**
    * Timezone offset in minutes from UTC. Positive values are west of UTC (for example, `300` for UTC-5). Use `0` for UTC.
    */
-  "timezoneOffsetMinutes"?: Int64;
+  "timezoneOffsetMinutes"?: number;
 
   /**
    * A container for additional, undeclared properties.

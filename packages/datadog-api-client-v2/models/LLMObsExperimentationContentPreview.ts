@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Options to control content preview truncation.
@@ -13,7 +13,7 @@ export class LLMObsExperimentationContentPreview {
   /**
    * Maximum number of characters to include in content previews.
    */
-  "limit"?: Int64;
+  "limit"?: number;
 
   /**
    * A container for additional, undeclared properties.

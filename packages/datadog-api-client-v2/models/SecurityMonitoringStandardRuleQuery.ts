@@ -6,7 +6,7 @@
 import { SecurityMonitoringRuleQueryAggregation } from "./SecurityMonitoringRuleQueryAggregation";
 import { SecurityMonitoringStandardDataSource } from "./SecurityMonitoringStandardDataSource";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Query for matching rule.
@@ -31,7 +31,7 @@ export class SecurityMonitoringStandardRuleQuery {
   /**
    * Version of each dataset used by the rule, keyed by dataset ID. Only used when `queryLanguage` is `sql`.
    */
-  "datasetVersions"?: { [key: string]: Int64 };
+  "datasetVersions"?: { [key: string]: number };
   /**
    * Field for which the cardinality is measured. Sent as an array.
    */
@@ -110,7 +110,6 @@ export class SecurityMonitoringStandardRuleQuery {
     datasetVersions: {
       baseName: "datasetVersions",
       type: "{ [key: string]: number; }",
-      format: "int64",
     },
     distinctFields: {
       baseName: "distinctFields",

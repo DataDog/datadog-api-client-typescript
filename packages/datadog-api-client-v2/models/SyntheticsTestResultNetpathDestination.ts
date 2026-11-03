@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Destination endpoint of a network path measurement.
@@ -21,7 +21,7 @@ export class SyntheticsTestResultNetpathDestination {
   /**
    * Port of the destination service.
    */
-  "port"?: Int64;
+  "port"?: number;
 
   /**
    * A container for additional, undeclared properties.

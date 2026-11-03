@@ -7,7 +7,7 @@ import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBuffe
 import { ObservabilityPipelineRsyslogDestinationType } from "./ObservabilityPipelineRsyslogDestinationType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
@@ -34,7 +34,7 @@ export class ObservabilityPipelineRsyslogDestination {
   /**
    * Optional socket keepalive duration in milliseconds.
    */
-  "keepalive"?: Int64;
+  "keepalive"?: number;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */

@@ -6,7 +6,7 @@
 import { SyntheticsTestResultNetstatsHops } from "./SyntheticsTestResultNetstatsHops";
 import { SyntheticsTestResultNetworkLatency } from "./SyntheticsTestResultNetworkLatency";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Aggregated network statistics from the test execution.
@@ -31,11 +31,11 @@ export class SyntheticsTestResultNetstats {
   /**
    * Number of probe packets received.
    */
-  "packetsReceived"?: Int64;
+  "packetsReceived"?: number;
   /**
    * Number of probe packets sent.
    */
-  "packetsSent"?: Int64;
+  "packetsSent"?: number;
 
   /**
    * A container for additional, undeclared properties.

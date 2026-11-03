@@ -6,7 +6,7 @@
 import { SecurityMonitoringRuleQueryAggregation } from "./SecurityMonitoringRuleQueryAggregation";
 import { SecurityMonitoringStandardDataSource } from "./SecurityMonitoringStandardDataSource";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Query for selecting logs analyzed by the historical job.
@@ -27,7 +27,7 @@ export class HistoricalJobQuery {
   /**
    * Zero-based index of the query to correlate with in sequence detection rules. Up to 10 queries are supported, so valid values are 0 to 9.
    */
-  "correlatedQueryIndex"?: Int64;
+  "correlatedQueryIndex"?: number;
   /**
    * Custom query extension used to refine the base query.
    */

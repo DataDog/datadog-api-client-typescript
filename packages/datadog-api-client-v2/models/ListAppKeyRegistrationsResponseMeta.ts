@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The definition of `ListAppKeyRegistrationsResponseMeta` object.
@@ -13,11 +13,11 @@ export class ListAppKeyRegistrationsResponseMeta {
   /**
    * The total number of app key registrations.
    */
-  "total"?: Int64;
+  "total"?: number;
   /**
    * The total number of app key registrations that match the specified filters.
    */
-  "totalFiltered"?: Int64;
+  "totalFiltered"?: number;
 
   /**
    * A container for additional, undeclared properties.

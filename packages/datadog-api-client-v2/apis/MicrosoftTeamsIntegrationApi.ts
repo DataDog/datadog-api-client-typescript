@@ -66,8 +66,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
         "MicrosoftTeamsCreateTenantBasedHandleRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -119,8 +118,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
         "MicrosoftTeamsCreateWorkflowsWebhookHandleRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -523,8 +521,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
         "MicrosoftTeamsUpdateTenantBasedHandleRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -585,8 +582,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
         "MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest",
         ""
       ),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -602,12 +598,6 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 }
 
 export class MicrosoftTeamsIntegrationApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -624,14 +614,8 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: MicrosoftTeamsTenantBasedHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "MicrosoftTeamsTenantBasedHandleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandleResponse"
         ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
@@ -645,16 +629,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -670,14 +651,9 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MicrosoftTeamsTenantBasedHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "MicrosoftTeamsTenantBasedHandleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
@@ -705,14 +681,8 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse"
         ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
@@ -726,16 +696,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -751,14 +718,9 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
@@ -794,16 +756,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -851,16 +810,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -908,16 +864,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -957,14 +910,8 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: MicrosoftTeamsGetChannelByNameResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "MicrosoftTeamsGetChannelByNameResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsGetChannelByNameResponse"
         ) as MicrosoftTeamsGetChannelByNameResponse;
       return body;
     }
@@ -976,16 +923,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1001,14 +945,9 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MicrosoftTeamsGetChannelByNameResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "MicrosoftTeamsGetChannelByNameResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as MicrosoftTeamsGetChannelByNameResponse;
       return body;
     }
@@ -1036,14 +975,8 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: MicrosoftTeamsTenantBasedHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "MicrosoftTeamsTenantBasedHandleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandleResponse"
         ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
@@ -1056,16 +989,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1081,14 +1011,9 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MicrosoftTeamsTenantBasedHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "MicrosoftTeamsTenantBasedHandleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
@@ -1116,14 +1041,8 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse"
         ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
@@ -1136,16 +1055,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1161,14 +1077,9 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
@@ -1196,14 +1107,8 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: MicrosoftTeamsTenantBasedHandlesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "MicrosoftTeamsTenantBasedHandlesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandlesResponse"
         ) as MicrosoftTeamsTenantBasedHandlesResponse;
       return body;
     }
@@ -1216,16 +1121,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1241,14 +1143,9 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MicrosoftTeamsTenantBasedHandlesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "MicrosoftTeamsTenantBasedHandlesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as MicrosoftTeamsTenantBasedHandlesResponse;
       return body;
     }
@@ -1276,14 +1173,8 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: MicrosoftTeamsWorkflowsWebhookHandlesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "MicrosoftTeamsWorkflowsWebhookHandlesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandlesResponse"
         ) as MicrosoftTeamsWorkflowsWebhookHandlesResponse;
       return body;
     }
@@ -1296,16 +1187,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1321,14 +1209,9 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MicrosoftTeamsWorkflowsWebhookHandlesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "MicrosoftTeamsWorkflowsWebhookHandlesResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as MicrosoftTeamsWorkflowsWebhookHandlesResponse;
       return body;
     }
@@ -1356,14 +1239,8 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: MicrosoftTeamsTenantBasedHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "MicrosoftTeamsTenantBasedHandleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandleResponse"
         ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
@@ -1377,16 +1254,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1402,14 +1276,9 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MicrosoftTeamsTenantBasedHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "MicrosoftTeamsTenantBasedHandleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
@@ -1437,14 +1306,8 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse"
         ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
@@ -1458,16 +1321,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1483,14 +1343,9 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
@@ -1639,8 +1494,7 @@ export class MicrosoftTeamsIntegrationApi {
       requestFactory ||
       new MicrosoftTeamsIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new MicrosoftTeamsIntegrationApiResponseProcessor(configuration);
+      responseProcessor || new MicrosoftTeamsIntegrationApiResponseProcessor();
   }
 
   /**

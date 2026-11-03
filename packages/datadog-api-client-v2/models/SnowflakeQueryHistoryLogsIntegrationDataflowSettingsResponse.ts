@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Settings of the query history logs dataflow.
@@ -17,7 +17,7 @@ export class SnowflakeQueryHistoryLogsIntegrationDataflowSettingsResponse {
   /**
    * How often query history logs are collected, in minutes.
    */
-  "queryHistoryLogsIntervalMin"?: Int64;
+  "queryHistoryLogsIntervalMin"?: number;
 
   /**
    * A container for additional, undeclared properties.

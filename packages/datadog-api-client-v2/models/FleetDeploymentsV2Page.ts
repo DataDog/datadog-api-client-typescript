@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination details for the v2 list of deployments.
@@ -13,11 +13,11 @@ export class FleetDeploymentsV2Page {
   /**
    * Total number of deployments available across all pages.
    */
-  "totalCount"?: Int64;
+  "totalCount"?: number;
   /**
    * Total number of deployments matching the current filter query.
    */
-  "totalFilteredCount"?: Int64;
+  "totalFilteredCount"?: number;
 
   /**
    * A container for additional, undeclared properties.

@@ -5,7 +5,7 @@
  */
 import { MonitorFormulaAndFunctionEventAggregation } from "./MonitorFormulaAndFunctionEventAggregation";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Compute options.
@@ -18,7 +18,7 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
   /**
    * A time interval in milliseconds.
    */
-  "interval"?: Int64;
+  "interval"?: number;
   /**
    * Measurable attribute to compute.
    */

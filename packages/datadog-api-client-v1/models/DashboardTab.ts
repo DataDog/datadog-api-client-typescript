@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Dashboard tab for organizing widgets.
@@ -21,7 +21,7 @@ export class DashboardTab {
   /**
    * List of widget IDs belonging to this tab. The backend also accepts positional references in @N format (1-indexed) as a convenience for Terraform and other declarative tools.
    */
-  "widgetIds": Array<Int64>;
+  "widgetIds": Array<number>;
 
   /**
    * A container for additional, undeclared properties.
@@ -54,7 +54,6 @@ export class DashboardTab {
       baseName: "widget_ids",
       type: "Array<number>",
       required: true,
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

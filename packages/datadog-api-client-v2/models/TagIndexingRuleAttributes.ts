@@ -5,7 +5,7 @@
  */
 import { TagIndexingRuleOptions } from "./TagIndexingRuleOptions";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a tag indexing rule.
@@ -50,7 +50,7 @@ export class TagIndexingRuleAttributes {
   /**
    * Evaluation order within the org. Lower values are evaluated first. Assigned server-side on create (max+1); pass on update to change the rule's position.
    */
-  "ruleOrder"?: Int64;
+  "ruleOrder"?: number;
   /**
    * Tag keys managed by this rule.
    */

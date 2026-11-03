@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Online Archive usage in a given hour.
@@ -17,7 +17,7 @@ export class UsageOnlineArchiveHour {
   /**
    * Total count of online archived events within the hour.
    */
-  "onlineArchiveEventsCount"?: Int64;
+  "onlineArchiveEventsCount"?: number;
   /**
    * The organization name.
    */

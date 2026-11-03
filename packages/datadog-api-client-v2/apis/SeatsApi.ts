@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AssignSeatsUserRequest } from "../models/AssignSeatsUserRequest";
@@ -57,8 +56,7 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AssignSeatsUserRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -74,7 +72,7 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getSeatsUsers(
     productCode: string,
-    pageLimit?: Int64Input,
+    pageLimit?: number,
     pageCursor?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -166,8 +164,7 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UnassignSeatsUserRequest", ""),
-      contentType,
-      this.configuration.preserveLargeIntegers
+      contentType
     );
     requestContext.setBody(serializedBody);
 
@@ -183,12 +180,6 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class SeatsApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -204,14 +195,8 @@ export class SeatsApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: AssignSeatsUserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "AssignSeatsUserResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AssignSeatsUserResponse"
       ) as AssignSeatsUserResponse;
       return body;
     }
@@ -222,16 +207,13 @@ export class SeatsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -246,14 +228,9 @@ export class SeatsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AssignSeatsUserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "AssignSeatsUserResponse",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as AssignSeatsUserResponse;
       return body;
     }
@@ -280,14 +257,8 @@ export class SeatsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: SeatUserDataArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
-        "SeatUserDataArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeatUserDataArray"
       ) as SeatUserDataArray;
       return body;
     }
@@ -298,16 +269,13 @@ export class SeatsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -322,14 +290,9 @@ export class SeatsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SeatUserDataArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(
-          await response.body.text(),
-          contentType,
-          this.configuration?.preserveLargeIntegers
-        ),
+        ObjectSerializer.parse(await response.body.text(), contentType),
         "SeatUserDataArray",
-        "",
-        this.configuration?.preserveLargeIntegers
+        ""
       ) as SeatUserDataArray;
       return body;
     }
@@ -362,16 +325,13 @@ export class SeatsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -411,9 +371,9 @@ export interface SeatsApiGetSeatsUsersRequest {
   productCode: string;
   /**
    * Maximum number of results to return.
-   * @type Int64Input
+   * @type number
    */
-  pageLimit?: Int64Input;
+  pageLimit?: number;
   /**
    * Cursor for pagination.
    * @type string
@@ -442,7 +402,7 @@ export class SeatsApi {
     this.requestFactory =
       requestFactory || new SeatsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new SeatsApiResponseProcessor(configuration);
+      responseProcessor || new SeatsApiResponseProcessor();
   }
 
   /**

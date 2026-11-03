@@ -5,7 +5,7 @@
  */
 import { IOSSourcemapMapKind } from "./IOSSourcemapMapKind";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an iOS dSYM source map.
@@ -22,7 +22,7 @@ export class IOSSourcemapAttributes {
   /**
    * The size of the dSYM file in bytes.
    */
-  "size": Int64;
+  "size": number;
   /**
    * The UUID(s) associated with the dSYM file.
    */

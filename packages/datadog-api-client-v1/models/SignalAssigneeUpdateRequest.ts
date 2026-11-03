@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing an assignee update operation over a security signal.
@@ -17,7 +17,7 @@ export class SignalAssigneeUpdateRequest {
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
    */
-  "version"?: Int64;
+  "version"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,7 +43,6 @@ export class SignalAssigneeUpdateRequest {
     version: {
       baseName: "version",
       type: "number",
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

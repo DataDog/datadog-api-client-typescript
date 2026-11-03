@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata about the search results.
@@ -13,19 +13,19 @@ export class WidgetSearchMeta {
   /**
    * Total number of widgets created by anyone.
    */
-  "createdByAnyoneTotal"?: Int64;
+  "createdByAnyoneTotal"?: number;
   /**
    * Total number of widgets created by the current user.
    */
-  "createdByYouTotal"?: Int64;
+  "createdByYouTotal"?: number;
   /**
    * Total number of widgets favorited by the current user.
    */
-  "favoritedByYouTotal"?: Int64;
+  "favoritedByYouTotal"?: number;
   /**
    * Total number of widgets matching the current filter criteria.
    */
-  "filteredTotal"?: Int64;
+  "filteredTotal"?: number;
 
   /**
    * A container for additional, undeclared properties.

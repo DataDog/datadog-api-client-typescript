@@ -6,7 +6,7 @@
 import { ProductAnalyticsElapsedTime } from "./ProductAnalyticsElapsedTime";
 import { ProductAnalyticsJourneyFunnelStep } from "./ProductAnalyticsJourneyFunnelStep";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a journey funnel response.
@@ -27,7 +27,7 @@ export class ProductAnalyticsJourneyFunnelResponseAttributes {
   /**
    * Number of entities that entered the funnel.
    */
-  "initialCount": Int64;
+  "initialCount": number;
 
   /**
    * A container for additional, undeclared properties.

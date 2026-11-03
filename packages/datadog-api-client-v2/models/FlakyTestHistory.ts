@@ -6,7 +6,7 @@
 import { FlakyTestHistoryPolicyId } from "./FlakyTestHistoryPolicyId";
 import { FlakyTestHistoryPolicyMeta } from "./FlakyTestHistoryPolicyMeta";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A single history entry representing a status change for a flaky test.
@@ -31,7 +31,7 @@ export class FlakyTestHistory {
   /**
    * Unix timestamp in milliseconds when this status change occurred.
    */
-  "timestamp": Int64;
+  "timestamp": number;
 
   /**
    * A container for additional, undeclared properties.

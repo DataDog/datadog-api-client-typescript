@@ -5,7 +5,7 @@
  */
 import { CsmCoverageAnalysis } from "./CsmCoverageAnalysis";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * CSM Serverless Resources Coverage Analysis attributes.
@@ -18,7 +18,7 @@ export class CsmServerlessCoverageAnalysisAttributes {
   /**
    * The ID of your organization.
    */
-  "orgId"?: Int64;
+  "orgId"?: number;
   /**
    * CSM Coverage Analysis.
    */

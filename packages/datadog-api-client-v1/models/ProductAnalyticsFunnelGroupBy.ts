@@ -6,7 +6,7 @@
 import { ProductAnalyticsFunnelGroupBySort } from "./ProductAnalyticsFunnelGroupBySort";
 import { UserJourneySearchTarget } from "./UserJourneySearchTarget";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Group by configuration for user journey funnel.
@@ -19,7 +19,7 @@ export class ProductAnalyticsFunnelGroupBy {
   /**
    * Maximum number of groups.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * Whether to exclude missing values.
    */

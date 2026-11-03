@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Counts of findings for the rule, grouped by their evaluation status.
@@ -13,15 +13,15 @@ export class RuleBasedViewRuleStats {
   /**
    * Number of findings that failed evaluation.
    */
-  "fail": Int64;
+  "fail": number;
   /**
    * Number of findings that have been muted.
    */
-  "muted": Int64;
+  "muted": number;
   /**
    * Number of findings that passed evaluation.
    */
-  "pass": Int64;
+  "pass": number;
 
   /**
    * A container for additional, undeclared properties.

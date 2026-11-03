@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Wrapper object with the list of monitor IDs.
@@ -13,7 +13,7 @@ export class CheckCanDeleteMonitorResponseData {
   /**
    * An array of Monitor IDs that can be safely deleted.
    */
-  "ok"?: Array<Int64>;
+  "ok"?: Array<number>;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,6 @@ export class CheckCanDeleteMonitorResponseData {
     ok: {
       baseName: "ok",
       type: "Array<number>",
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

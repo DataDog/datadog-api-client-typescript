@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsJourneyEntity } from "./ProductAnalyticsJourneyEntity";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a journey list response.
@@ -22,7 +22,7 @@ export class ProductAnalyticsJourneyListResponseAttributes {
   /**
    * Total number of rows matching the query, ignoring `limit`.
    */
-  "totalCount": Int64;
+  "totalCount": number;
 
   /**
    * A container for additional, undeclared properties.

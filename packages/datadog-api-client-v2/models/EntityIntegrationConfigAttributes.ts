@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The organization ID, integration identifier, and integration-specific configuration payload for an entity integration configuration.
@@ -21,7 +21,7 @@ export class EntityIntegrationConfigAttributes {
   /**
    * The Datadog organization identifier that owns this configuration.
    */
-  "orgId": Int64;
+  "orgId": number;
 
   /**
    * A container for additional, undeclared properties.

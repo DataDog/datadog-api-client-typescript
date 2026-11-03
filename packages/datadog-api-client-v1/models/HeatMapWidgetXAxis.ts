@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * X Axis controls for the heat map widget.
@@ -15,7 +15,7 @@ export class HeatMapWidgetXAxis {
    * of the time bins. This is only applicable for distribution of
    * points (group distributions use the roll-up modifier).
    */
-  "numBuckets"?: Int64;
+  "numBuckets"?: number;
 
   /**
    * A container for additional, undeclared properties.

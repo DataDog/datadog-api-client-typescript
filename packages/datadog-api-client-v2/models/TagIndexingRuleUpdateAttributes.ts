@@ -5,7 +5,7 @@
  */
 import { TagIndexingRuleOptions } from "./TagIndexingRuleOptions";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for updating a tag indexing rule. All fields are optional; omitted fields are unchanged.
@@ -34,7 +34,7 @@ export class TagIndexingRuleUpdateAttributes {
   /**
    * Desired evaluation order. Returns 409 if the value conflicts with another rule; use POST /api/v2/metrics/tag-indexing-rules/order for atomic re-sequencing.
    */
-  "ruleOrder"?: Int64;
+  "ruleOrder"?: number;
   /**
    * Tag keys managed by this rule.
    */

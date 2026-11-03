@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
@@ -69,10 +68,10 @@ export class EntityRiskScoresApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listEntityRiskScores(
-    from?: Int64Input,
-    to?: Int64Input,
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    from?: number,
+    to?: number,
+    pageSize?: number,
+    pageNumber?: number,
     pageQueryId?: string,
     filterSort?: string,
     filterQuery?: string,
@@ -171,12 +170,6 @@ export class EntityRiskScoresApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class EntityRiskScoresApiResponseProcessor {
-  private configuration?: Configuration;
-
-  public constructor(configuration?: Configuration) {
-    this.configuration = configuration;
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -193,14 +186,8 @@ export class EntityRiskScoresApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityEntityRiskScoreResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityEntityRiskScoreResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityEntityRiskScoreResponse"
         ) as SecurityEntityRiskScoreResponse;
       return body;
     }
@@ -212,16 +199,13 @@ export class EntityRiskScoresApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -238,16 +222,13 @@ export class EntityRiskScoresApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -263,14 +244,9 @@ export class EntityRiskScoresApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityEntityRiskScoreResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityEntityRiskScoreResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityEntityRiskScoreResponse;
       return body;
     }
@@ -298,14 +274,8 @@ export class EntityRiskScoresApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SecurityEntityRiskScoresResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "SecurityEntityRiskScoresResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityEntityRiskScoresResponse"
         ) as SecurityEntityRiskScoresResponse;
       return body;
     }
@@ -316,16 +286,13 @@ export class EntityRiskScoresApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -342,16 +309,13 @@ export class EntityRiskScoresApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
+        contentType
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -367,14 +331,9 @@ export class EntityRiskScoresApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SecurityEntityRiskScoresResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
+          ObjectSerializer.parse(await response.body.text(), contentType),
           "SecurityEntityRiskScoresResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
+          ""
         ) as SecurityEntityRiskScoresResponse;
       return body;
     }
@@ -398,24 +357,24 @@ export interface EntityRiskScoresApiGetEntityRiskScoreRequest {
 export interface EntityRiskScoresApiListEntityRiskScoresRequest {
   /**
    * Start time for the query in Unix timestamp (milliseconds). Defaults to 2 weeks ago.
-   * @type Int64Input
+   * @type number
    */
-  from?: Int64Input;
+  from?: number;
   /**
    * End time for the query in Unix timestamp (milliseconds). Defaults to now.
-   * @type Int64Input
+   * @type number
    */
-  to?: Int64Input;
+  to?: number;
   /**
    * Size of the page to return. Maximum is 1000.
-   * @type Int64Input
+   * @type number
    */
-  pageSize?: Int64Input;
+  pageSize?: number;
   /**
    * Page number to return (1-indexed).
-   * @type Int64Input
+   * @type number
    */
-  pageNumber?: Int64Input;
+  pageNumber?: number;
   /**
    * Query ID for pagination consistency.
    * @type string
@@ -454,8 +413,7 @@ export class EntityRiskScoresApi {
     this.requestFactory =
       requestFactory || new EntityRiskScoresApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new EntityRiskScoresApiResponseProcessor(configuration);
+      responseProcessor || new EntityRiskScoresApiResponseProcessor();
   }
 
   /**

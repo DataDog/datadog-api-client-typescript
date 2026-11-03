@@ -8,7 +8,7 @@ import { ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit } from 
 import { ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode } from "./ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode";
 import { ObservabilityPipelineTagCardinalityLimitProcessorType } from "./ObservabilityPipelineTagCardinalityLimitProcessorType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `tag_cardinality_limit` processor caps the number of distinct tag value combinations on metrics, dropping tags or events once the limit is exceeded.
@@ -51,7 +51,7 @@ export class ObservabilityPipelineTagCardinalityLimitProcessor {
   /**
    * The default maximum number of distinct tag value combinations allowed per metric.
    */
-  "valueLimit": Int64;
+  "valueLimit": number;
 
   /**
    * A container for additional, undeclared properties.

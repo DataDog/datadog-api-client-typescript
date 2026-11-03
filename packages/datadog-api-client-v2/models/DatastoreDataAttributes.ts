@@ -5,7 +5,7 @@
  */
 import { DatastorePrimaryKeyGenerationStrategy } from "./DatastorePrimaryKeyGenerationStrategy";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Detailed information about a datastore.
@@ -18,7 +18,7 @@ export class DatastoreDataAttributes {
   /**
    * The numeric ID of the user who created the datastore.
    */
-  "creatorUserId"?: Int64;
+  "creatorUserId"?: number;
   /**
    * The UUID of the user who created the datastore.
    */
@@ -38,7 +38,7 @@ export class DatastoreDataAttributes {
   /**
    * The ID of the organization that owns this datastore.
    */
-  "orgId"?: Int64;
+  "orgId"?: number;
   /**
    * The name of the primary key column for this datastore. Primary column names:
    *   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)

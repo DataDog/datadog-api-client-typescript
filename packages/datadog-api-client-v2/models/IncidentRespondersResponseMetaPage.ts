@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Total count for the responder list.
@@ -13,7 +13,7 @@ export class IncidentRespondersResponseMetaPage {
   /**
    * Total number of responders matching the query, before pagination.
    */
-  "totalFilteredCount": Int64;
+  "totalFilteredCount": number;
 
   /**
    * A container for additional, undeclared properties.

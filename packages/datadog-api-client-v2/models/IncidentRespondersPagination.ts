@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Offset-based pagination for incident responders.
@@ -13,31 +13,31 @@ export class IncidentRespondersPagination {
   /**
    * The offset of the first page.
    */
-  "firstOffset"?: Int64;
+  "firstOffset"?: number;
   /**
    * The offset of the last page, if available.
    */
-  "lastOffset"?: Int64;
+  "lastOffset"?: number;
   /**
    * The maximum number of elements returned per page.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * The offset of the next page, if available.
    */
-  "nextOffset"?: Int64;
+  "nextOffset"?: number;
   /**
    * The index of the first element in the current page.
    */
-  "offset"?: Int64;
+  "offset"?: number;
   /**
    * The offset of the previous page, if available.
    */
-  "prevOffset"?: Int64;
+  "prevOffset"?: number;
   /**
    * The total number of elements, when available.
    */
-  "total"?: Int64;
+  "total"?: number;
   /**
    * The pagination type.
    */

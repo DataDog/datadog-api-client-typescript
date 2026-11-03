@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata returned alongside the list of services.
@@ -13,7 +13,7 @@ export class ApplicationSecurityServicesMetadata {
   /**
    * The number of services with Application Security Management (Threats) enabled.
    */
-  "numServicesWithAppsec": Int64;
+  "numServicesWithAppsec": number;
 
   /**
    * A container for additional, undeclared properties.

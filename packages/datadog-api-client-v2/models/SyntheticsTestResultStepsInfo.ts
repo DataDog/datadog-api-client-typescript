@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Step execution summary for a Synthetic test result.
@@ -13,15 +13,15 @@ export class SyntheticsTestResultStepsInfo {
   /**
    * Number of completed steps.
    */
-  "completed"?: Int64;
+  "completed"?: number;
   /**
    * Number of steps with errors.
    */
-  "errors"?: Int64;
+  "errors"?: number;
   /**
    * Total number of steps.
    */
-  "total"?: Int64;
+  "total"?: number;
 
   /**
    * A container for additional, undeclared properties.

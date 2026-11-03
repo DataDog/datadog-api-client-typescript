@@ -6,7 +6,7 @@
 import { ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems } from "./ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems";
 import { ArbitraryCostUpsertRequestDataAttributesStrategy } from "./ArbitraryCostUpsertRequestDataAttributesStrategy";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The definition of `ArbitraryCostUpsertRequestDataAttributes` object.
@@ -23,7 +23,7 @@ export class ArbitraryCostUpsertRequestDataAttributes {
   /**
    * The `attributes` `order_id`.
    */
-  "orderId"?: Int64;
+  "orderId"?: number;
   /**
    * The `attributes` `provider`.
    */

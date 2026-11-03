@@ -7,7 +7,7 @@ import { ApplicationSecurityPolicyRuleOverride } from "./ApplicationSecurityPoli
 import { ApplicationSecurityPolicyRulesetOverride } from "./ApplicationSecurityPolicyRulesetOverride";
 import { ApplicationSecurityPolicyScope } from "./ApplicationSecurityPolicyScope";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Update a WAF policy.
@@ -45,7 +45,7 @@ export class ApplicationSecurityPolicyUpdateAttributes {
   /**
    * Version of the WAF ruleset maintained by Datadog used by this policy. 0 is the default value.
    */
-  "version": Int64;
+  "version": number;
 
   /**
    * A container for additional, undeclared properties.

@@ -7,7 +7,7 @@ import { LLMObsExperimentMetricError } from "./LLMObsExperimentMetricError";
 import { LLMObsMetricAssessment } from "./LLMObsMetricAssessment";
 import { LLMObsMetricScoreType } from "./LLMObsMetricScoreType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A metric associated with an Agent Observability experiment span.
@@ -64,7 +64,7 @@ export class LLMObsExperimentMetric {
   /**
    * Timestamp when the metric was recorded, in milliseconds since Unix epoch.
    */
-  "timestampMs": Int64;
+  "timestampMs": number;
 
   /**
    * A container for additional, undeclared properties.

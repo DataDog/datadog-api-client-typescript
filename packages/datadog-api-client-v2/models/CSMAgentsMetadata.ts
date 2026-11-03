@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata related to the paginated response.
@@ -13,15 +13,15 @@ export class CSMAgentsMetadata {
   /**
    * The index of the current page in the paginated results.
    */
-  "pageIndex"?: Int64;
+  "pageIndex"?: number;
   /**
    * The number of items per page in the paginated results.
    */
-  "pageSize"?: Int64;
+  "pageSize"?: number;
   /**
    * Total number of items that match the filter criteria.
    */
-  "totalFiltered"?: Int64;
+  "totalFiltered"?: number;
 
   /**
    * A container for additional, undeclared properties.

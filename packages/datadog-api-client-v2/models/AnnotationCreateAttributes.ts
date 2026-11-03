@@ -6,7 +6,7 @@
 import { AnnotationColor } from "./AnnotationColor";
 import { AnnotationKind } from "./AnnotationKind";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for creating or updating an annotation.
@@ -23,7 +23,7 @@ export class AnnotationCreateAttributes {
   /**
    * End time of the annotation in milliseconds since the Unix epoch. Required for `timeRegion` annotations; omit or set to null for `pointInTime` annotations.
    */
-  "endTime"?: Int64;
+  "endTime"?: number;
   /**
    * ID of the page the annotation belongs to, prefixed with the page type and joined by a colon
    * (for example, `dashboard:abc-def-xyz` or `notebook:1234567890`).
@@ -32,7 +32,7 @@ export class AnnotationCreateAttributes {
   /**
    * Start time of the annotation in milliseconds since the Unix epoch.
    */
-  "startTime": Int64;
+  "startTime": number;
   /**
    * Kind of annotation. `pointInTime` annotations mark a single moment in time,
    * while `timeRegion` annotations span a window of time and require an `end_time`.

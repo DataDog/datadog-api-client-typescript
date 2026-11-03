@@ -5,7 +5,7 @@
  */
 import { MuteReason } from "./MuteReason";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The action to take when the mute rule matches a finding.
@@ -14,7 +14,7 @@ export class MuteRuleAction {
   /**
    * The Unix timestamp in milliseconds at which the mute expires. If omitted, the mute does not expire.
    */
-  "expireAt"?: Int64;
+  "expireAt"?: number;
   /**
    * The reason for muting a security finding.
    */

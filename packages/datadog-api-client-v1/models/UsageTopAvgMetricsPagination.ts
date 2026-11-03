@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The metadata for the current pagination.
@@ -13,7 +13,7 @@ export class UsageTopAvgMetricsPagination {
   /**
    * Maximum amount of records to be returned.
    */
-  "limit"?: Int64;
+  "limit"?: number;
   /**
    * The cursor to get the next results (if any). To make the next request, use the same parameters and add `next_record_id`.
    */
@@ -21,7 +21,7 @@ export class UsageTopAvgMetricsPagination {
   /**
    * Total number of records.
    */
-  "totalNumberOfRecords"?: Int64;
+  "totalNumberOfRecords"?: number;
 
   /**
    * A container for additional, undeclared properties.

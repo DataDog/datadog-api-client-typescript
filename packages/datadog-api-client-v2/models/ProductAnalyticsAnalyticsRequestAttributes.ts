@@ -6,7 +6,7 @@
 import { ProductAnalyticsAnalyticsQuery } from "./ProductAnalyticsAnalyticsQuery";
 import { ProductAnalyticsExecutionType } from "./ProductAnalyticsExecutionType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for an analytics request.
@@ -19,7 +19,7 @@ export class ProductAnalyticsAnalyticsRequestAttributes {
   /**
    * Start time in epoch milliseconds. Must be less than `to`.
    */
-  "from": Int64;
+  "from": number;
   /**
    * The analytics query definition containing a base query, compute rule, and optional grouping.
    */
@@ -31,7 +31,7 @@ export class ProductAnalyticsAnalyticsRequestAttributes {
   /**
    * End time in epoch milliseconds.
    */
-  "to": Int64;
+  "to": number;
 
   /**
    * A container for additional, undeclared properties.

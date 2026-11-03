@@ -10,7 +10,7 @@ import { ExperimentsProtocolTargetingRuleInput } from "./ExperimentsProtocolTarg
 import { ExperimentsPublicProtocolResponseDataAttributesAssignmentSourceDefaultPropertiesItems } from "./ExperimentsPublicProtocolResponseDataAttributesAssignmentSourceDefaultPropertiesItems";
 import { ExperimentsReplaceProtocolEnforcementInput } from "./ExperimentsReplaceProtocolEnforcementInput";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Replace a published protocol template. Omitted optional template fields are cleared. Omitted enforcement and migration_metadata are preserved. Enabled limits require their values; allocation settings require environment_id.
@@ -31,7 +31,7 @@ export class ExperimentsReplaceExperimentProtocolRequestDataAttributes {
   /**
    * Default experiment duration supplied by the protocol, in days.
    */
-  "defaultDurationDays"?: Int64;
+  "defaultDurationDays"?: number;
   /**
    * Complete lock map. Omit this object to preserve current locks. Null is rejected; every field is required.
    */
@@ -67,7 +67,7 @@ export class ExperimentsReplaceExperimentProtocolRequestDataAttributes {
   /**
    * Maximum number of metrics allowed by the protocol.
    */
-  "metricLimit"?: Int64;
+  "metricLimit"?: number;
   /**
    * Metadata for imported resources. Must encode to at most 4096 bytes. Null clears it; omission preserves it on update.
    */
@@ -79,7 +79,7 @@ export class ExperimentsReplaceExperimentProtocolRequestDataAttributes {
   /**
    * Minimum experiment duration in the specified unit.
    */
-  "minimumDurationValue"?: Int64;
+  "minimumDurationValue"?: number;
   /**
    * ID of the primary metric supplied by the protocol.
    */

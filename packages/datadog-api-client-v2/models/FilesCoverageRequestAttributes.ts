@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for requesting per-file code coverage data. Exactly one of `commit_sha`, `branch`, or `pr_number` must be provided. At most one of `service`, `codeowner`, or `flag` may be provided.
@@ -33,7 +33,7 @@ export class FilesCoverageRequestAttributes {
   /**
    * The pull request number. Must be a positive integer.
    */
-  "prNumber"?: Int64;
+  "prNumber"?: number;
   /**
    * Deprecated: use `repository_url` instead. The repository URL.
    */

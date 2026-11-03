@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The aggregation applied to an audit log query.
@@ -17,7 +17,7 @@ export class GovernanceInsightAuditCompute {
   /**
    * The aggregation time window, in milliseconds.
    */
-  "interval": Int64;
+  "interval": number;
   /**
    * The metric or attribute to aggregate.
    */

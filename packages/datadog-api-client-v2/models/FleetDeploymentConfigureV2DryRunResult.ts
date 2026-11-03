@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Validation result of a configuration deployment dry run.
@@ -18,11 +18,11 @@ export class FleetDeploymentConfigureV2DryRunResult {
    * Breakdown of ineligible host counts by reason. Only includes reasons with a
    * non-zero count. Absent from the response when no targeted host is ineligible.
    */
-  "nonUpgradableByReason"?: { [key: string]: Int64 };
+  "nonUpgradableByReason"?: { [key: string]: number };
   /**
    * Number of targeted hosts that are not eligible to receive this configuration.
    */
-  "nonUpgradableHosts"?: Int64;
+  "nonUpgradableHosts"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -47,7 +47,6 @@ export class FleetDeploymentConfigureV2DryRunResult {
     nonUpgradableByReason: {
       baseName: "non_upgradable_by_reason",
       type: "{ [key: string]: number; }",
-      format: "int64",
     },
     nonUpgradableHosts: {
       baseName: "non_upgradable_hosts",

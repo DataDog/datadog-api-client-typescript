@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination information for the list of automation rules.
@@ -13,7 +13,7 @@ export class SecurityAutomationRulesPageInfo {
   /**
    * The total number of rules matching the current filter.
    */
-  "totalFilteredCount": Int64;
+  "totalFilteredCount": number;
 
   /**
    * A container for additional, undeclared properties.

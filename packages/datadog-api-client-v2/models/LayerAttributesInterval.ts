@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Defines how often the rotation repeats, using a combination of days and optional seconds. Should be at least 1 hour.
@@ -17,7 +17,7 @@ export class LayerAttributesInterval {
   /**
    * Any additional seconds for the rotation cycle (up to 30 days).
    */
-  "seconds"?: Int64;
+  "seconds"?: number;
 
   /**
    * A container for additional, undeclared properties.

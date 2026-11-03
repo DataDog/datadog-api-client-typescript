@@ -6,7 +6,7 @@
 import { DatasetReportScheduleResourceType } from "./DatasetReportScheduleResourceType";
 import { ReportScheduleStatus } from "./ReportScheduleStatus";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The configuration and derived state of a report schedule for a published dataset.
@@ -27,20 +27,20 @@ export class DatasetReportScheduleResponseAttributes {
   /**
    * The maximum number of rows included in the attached CSV file, or `null` if not set.
    */
-  "fileRowLimit": Int64 | null;
+  "fileRowLimit": number | null;
   /**
    * The maximum number of rows included inline in the email body, or `null` if not set.
    */
-  "inlineRowLimit": Int64 | null;
+  "inlineRowLimit": number | null;
   /**
    * The Unix timestamp, in milliseconds, of the next scheduled delivery, or
    * `null` if none is scheduled.
    */
-  "nextRecurrence": Int64 | null;
+  "nextRecurrence": number | null;
   /**
    * The identifier of the notebook containing the dataset cell, or `null` if not set.
    */
-  "notebookId": Int64 | null;
+  "notebookId": number | null;
   /**
    * The recipients of the report (email addresses, Slack channel references, or
    * Microsoft Teams channel references).

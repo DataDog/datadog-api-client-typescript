@@ -8,7 +8,7 @@ import { CreateTenancyConfigDataAttributesLogsConfig } from "./CreateTenancyConf
 import { CreateTenancyConfigDataAttributesMetricsConfig } from "./CreateTenancyConfigDataAttributesMetricsConfig";
 import { CreateTenancyConfigDataAttributesRegionsConfig } from "./CreateTenancyConfigDataAttributesRegionsConfig";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for creating a new OCI tenancy integration configuration, including credentials, region settings, and collection options.
@@ -21,7 +21,7 @@ export class CreateTenancyConfigDataAttributes {
   /**
    * Version number of the integration the tenancy is integrated with
    */
-  "configVersion"?: Int64;
+  "configVersion"?: number;
   /**
    * Whether cost data collection from OCI is enabled for the tenancy.
    */

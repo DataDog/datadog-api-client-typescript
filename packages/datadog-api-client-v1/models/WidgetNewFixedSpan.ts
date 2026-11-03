@@ -5,7 +5,7 @@
  */
 import { WidgetNewFixedSpanType } from "./WidgetNewFixedSpanType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Used for fixed span times, such as 'March 1 to March 7'.
@@ -14,7 +14,7 @@ export class WidgetNewFixedSpan {
   /**
    * Start time in milliseconds since epoch.
    */
-  "from": Int64;
+  "from": number;
   /**
    * Whether to hide incomplete cost data in the widget.
    */
@@ -22,7 +22,7 @@ export class WidgetNewFixedSpan {
   /**
    * End time in milliseconds since epoch.
    */
-  "to": Int64;
+  "to": number;
   /**
    * Type "fixed" denotes a fixed span.
    */

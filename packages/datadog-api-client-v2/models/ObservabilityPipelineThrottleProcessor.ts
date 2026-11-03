@@ -5,7 +5,7 @@
  */
 import { ObservabilityPipelineThrottleProcessorType } from "./ObservabilityPipelineThrottleProcessorType";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `throttle` processor limits the number of events that pass through over a given time window.
@@ -36,7 +36,7 @@ export class ObservabilityPipelineThrottleProcessor {
   /**
    * the number of events allowed in a given time window. Events sent after the threshold has been reached, are dropped.
    */
-  "threshold": Int64;
+  "threshold": number;
   /**
    * The processor type. The value should always be `throttle`.
    */

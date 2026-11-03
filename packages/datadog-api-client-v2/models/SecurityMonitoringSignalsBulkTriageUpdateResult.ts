@@ -5,7 +5,7 @@
  */
 import { SecurityMonitoringSignalsBulkTriageEvent } from "./SecurityMonitoringSignalsBulkTriageEvent";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The result payload of a bulk signal triage update.
@@ -14,7 +14,7 @@ export class SecurityMonitoringSignalsBulkTriageUpdateResult {
   /**
    * The number of signals updated.
    */
-  "count": Int64;
+  "count": number;
   /**
    * The list of updated signals.
    */

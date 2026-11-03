@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a Cloud Cost Management tag key metadata entry.
@@ -13,7 +13,7 @@ export class CostTagKeyMetadataAttributes {
   /**
    * Number of unique tag values observed for this tag key, keyed by cloud account ID.
    */
-  "cardinalityByAccount": { [key: string]: Int64 };
+  "cardinalityByAccount": { [key: string]: number };
   /**
    * Total cost (in the report currency) of cost line items that carry this tag key for the requested period.
    */
@@ -29,7 +29,7 @@ export class CostTagKeyMetadataAttributes {
   /**
    * Number of cost rows that carry this tag key over the requested period.
    */
-  "rowCount": Int64;
+  "rowCount": number;
   /**
    * Origins where this tag key was observed (for example, `aws-user-defined`).
    */
@@ -59,7 +59,6 @@ export class CostTagKeyMetadataAttributes {
       baseName: "cardinality_by_account",
       type: "{ [key: string]: number; }",
       required: true,
-      format: "int64",
     },
     costCovered: {
       baseName: "cost_covered",
