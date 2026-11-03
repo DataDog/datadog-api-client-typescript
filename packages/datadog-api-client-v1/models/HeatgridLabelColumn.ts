@@ -4,17 +4,22 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { HeatgridLabelColumnWidth } from "./HeatgridLabelColumnWidth";
+import { HeatgridTextFormatRule } from "./HeatgridTextFormatRule";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Configuration of the group label column.
+ * Configuration of the group label column. Its width is sized automatically when omitted.
  */
 export class HeatgridLabelColumn {
   /**
+   * Ordered string replacement rules for the group labels.
+   */
+  "textFormats"?: Array<HeatgridTextFormatRule>;
+  /**
    * Width of the label column.
    */
-  "width": HeatgridLabelColumnWidth;
+  "width"?: HeatgridLabelColumnWidth;
 
   /**
    * @ignore
@@ -25,10 +30,13 @@ export class HeatgridLabelColumn {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    textFormats: {
+      baseName: "text_formats",
+      type: "Array<HeatgridTextFormatRule>",
+    },
     width: {
       baseName: "width",
       type: "HeatgridLabelColumnWidth",
-      required: true,
     },
   };
 
