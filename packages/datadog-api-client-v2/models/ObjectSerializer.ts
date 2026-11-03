@@ -3736,6 +3736,7 @@ import { MonitorNotificationRuleData } from "./MonitorNotificationRuleData";
 import { MonitorNotificationRuleFilterScope } from "./MonitorNotificationRuleFilterScope";
 import { MonitorNotificationRuleFilterTags } from "./MonitorNotificationRuleFilterTags";
 import { MonitorNotificationRuleListResponse } from "./MonitorNotificationRuleListResponse";
+import { MonitorNotificationRuleOptions } from "./MonitorNotificationRuleOptions";
 import { MonitorNotificationRuleRelationships } from "./MonitorNotificationRuleRelationships";
 import { MonitorNotificationRuleRelationshipsCreatedBy } from "./MonitorNotificationRuleRelationshipsCreatedBy";
 import { MonitorNotificationRuleRelationshipsCreatedByData } from "./MonitorNotificationRuleRelationshipsCreatedByData";
@@ -8124,7 +8125,7 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentPageTargetType: ["team_handle", "team_uuid", "user_uuid"],
   IncidentPageUUIDType: ["page_uuid"],
   IncidentPostmortemType: ["incident_postmortems"],
-  IncidentRelatedObject: ["users", "attachments"],
+  IncidentRelatedObject: ["users", "attachments", "responders"],
   IncidentResourceType: ["incidents"],
   IncidentResponderRelatedObject: ["users", "role_assignments"],
   IncidentResponderType: ["incident_responders"],
@@ -15147,6 +15148,7 @@ const typeMap: { [index: string]: any } = {
   MonitorNotificationRuleFilterScope: MonitorNotificationRuleFilterScope,
   MonitorNotificationRuleFilterTags: MonitorNotificationRuleFilterTags,
   MonitorNotificationRuleListResponse: MonitorNotificationRuleListResponse,
+  MonitorNotificationRuleOptions: MonitorNotificationRuleOptions,
   MonitorNotificationRuleRelationships: MonitorNotificationRuleRelationships,
   MonitorNotificationRuleRelationshipsCreatedBy:
     MonitorNotificationRuleRelationshipsCreatedBy,
@@ -19345,7 +19347,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "IncidentUserData",
     "IncidentRoleAssignmentDataResponse",
   ],
-  IncidentResponseIncludedItem: ["IncidentUserData", "AttachmentData"],
+  IncidentResponseIncludedItem: [
+    "IncidentUserData",
+    "AttachmentData",
+    "IncidentResponderDataResponse",
+  ],
   IncidentTimelineCellCreateAttributes: [
     "IncidentTimelineCellMarkdownCreateAttributes",
   ],
