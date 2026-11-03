@@ -16,7 +16,7 @@ export class FeatureFlagEnvironment {
    */
   "allocations"?: { [key: string]: any };
   /**
-   * The allocation key used for the default variant.
+   * A system-generated allocation key, in the format `allocation-default-<hash>`, that SDKs report in flag evaluation results and exposure events when a subject receives the environment's default variant because no targeting rule matched. It has no corresponding allocation ID and cannot be used with the allocation endpoints.
    */
   "defaultAllocationKey"?: string;
   /**
@@ -44,7 +44,7 @@ export class FeatureFlagEnvironment {
    */
   "observeFullEvaluationData"?: boolean;
   /**
-   * The allocation key used for the override variant.
+   * A system-generated allocation key, in the format `allocation-override-<hash>`, that SDKs report in flag evaluation results and exposure events when the environment's override variant is served. It has no corresponding allocation ID and cannot be used with the allocation endpoints.
    */
   "overrideAllocationKey"?: string;
   /**
