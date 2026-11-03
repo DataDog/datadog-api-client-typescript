@@ -8,7 +8,7 @@ import { ExperimentsTargetingRule } from "./ExperimentsTargetingRule";
  */
 export class ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfiguration {
   /**
-   * Key of the feature flag allocation linked to the experiment.
+   * Key of the feature flag allocation linked to the experiment. Matches the allocation key that SDKs report in flag evaluation results and exposure events.
    */
   "allocationKey"?: string;
   /**
