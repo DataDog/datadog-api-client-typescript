@@ -20,6 +20,10 @@ export class UpdateConnectionRequestDataAttributes {
    */
   "fieldsToUpdate"?: Array<UpdateConnectionRequestDataAttributesFieldsToUpdateItems>;
   /**
+   * New display name for the connection.
+   */
+  "name"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -45,6 +49,10 @@ export class UpdateConnectionRequestDataAttributes {
     fieldsToUpdate: {
       baseName: "fields_to_update",
       type: "Array<UpdateConnectionRequestDataAttributesFieldsToUpdateItems>",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -1,11 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CreateConnectionRequestDataAttributesFieldsItems } from "./CreateConnectionRequestDataAttributesFieldsItems";
+import { ListConnectionsResponseDataAttributesConnectionsItemsDetails } from "./ListConnectionsResponseDataAttributesConnectionsItemsDetails";
 
 /**
  * Attributes defining the data source connection, including join configuration and custom fields.
  */
 export class CreateConnectionRequestDataAttributes {
+  /**
+   * Type-specific configuration of the connection. Only the field matching the connection type is set.
+   */
+  "details"?: ListConnectionsResponseDataAttributesConnectionsItemsDetails;
   /**
    * List of custom attribute fields to import from the data source.
    */
@@ -22,6 +27,10 @@ export class CreateConnectionRequestDataAttributes {
    * Additional key-value metadata associated with the connection.
    */
   "metadata"?: { [key: string]: string };
+  /**
+   * Display name of the connection.
+   */
+  "name"?: string;
   /**
    * The type of data source connection (for example, ref_table).
    */
@@ -41,6 +50,10 @@ export class CreateConnectionRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    details: {
+      baseName: "details",
+      type: "ListConnectionsResponseDataAttributesConnectionsItemsDetails",
+    },
     fields: {
       baseName: "fields",
       type: "Array<CreateConnectionRequestDataAttributesFieldsItems>",
@@ -58,6 +71,10 @@ export class CreateConnectionRequestDataAttributes {
     metadata: {
       baseName: "metadata",
       type: "{ [key: string]: string; }",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
     },
     type: {
       baseName: "type",
