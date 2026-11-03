@@ -5,7 +5,7 @@
  */
 import { DashboardUsageUser } from "./DashboardUsageUser";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Usage statistics for a dashboard. The `viewer` field and all view-count fields (`total_views`, `viewed_at`, `total_views_by_type`) are populated only when Real User Monitoring (RUM) is active for the org.
@@ -43,7 +43,7 @@ export class DashboardUsageAttributes {
   /**
    * The Datadog organization that owns the dashboard.
    */
-  "orgId": number;
+  "orgId": Int64;
   /**
    * Teams the dashboard is tagged with.
    */
@@ -55,11 +55,11 @@ export class DashboardUsageAttributes {
   /**
    * Total view count for the dashboard. Counts only views captured by Real User Monitoring (RUM); `0` in orgs without RUM.
    */
-  "totalViews"?: number;
+  "totalViews"?: Int64;
   /**
    * View counts keyed by view type (`in_app`, `embed`, `public`, `shared`, `api`, `unknown`). Counts only views captured by Real User Monitoring (RUM); empty in orgs without RUM.
    */
-  "totalViewsByType"?: { [key: string]: number };
+  "totalViewsByType"?: { [key: string]: Int64 };
   /**
    * When the dashboard was most recently viewed. Populated only when Real User Monitoring (RUM) is active for the org; `null` in orgs without RUM.
    */
@@ -71,11 +71,11 @@ export class DashboardUsageAttributes {
   /**
    * The total number of widgets on the dashboard.
    */
-  "widgetCount"?: number;
+  "widgetCount"?: Int64;
   /**
    * Widget counts keyed by widget type. The map includes group widgets and widgets without requests.
    */
-  "widgetCountByType"?: { [key: string]: number };
+  "widgetCountByType"?: { [key: string]: Int64 };
 
   /**
    * A container for additional, undeclared properties.
@@ -134,6 +134,7 @@ export class DashboardUsageAttributes {
     totalViewsByType: {
       baseName: "total_views_by_type",
       type: "{ [key: string]: number; }",
+      format: "int64",
     },
     viewedAt: {
       baseName: "viewed_at",
@@ -152,6 +153,7 @@ export class DashboardUsageAttributes {
     widgetCountByType: {
       baseName: "widget_count_by_type",
       type: "{ [key: string]: number; }",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

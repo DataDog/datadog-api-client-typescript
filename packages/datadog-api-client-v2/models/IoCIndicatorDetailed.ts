@@ -10,7 +10,7 @@ import { IoCSource } from "./IoCSource";
 import { IoCTriageEvent } from "./IoCTriageEvent";
 import { IoCTriageState } from "./IoCTriageState";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * An indicator of compromise with extended context from your environment.
@@ -79,7 +79,7 @@ export class IoCIndicatorDetailed {
   /**
    * Number of logs that matched this indicator.
    */
-  "logMatches"?: number;
+  "logMatches"?: Int64;
   /**
    * Log sources where this indicator was observed.
    */
@@ -119,7 +119,7 @@ export class IoCIndicatorDetailed {
   /**
    * Number of security signals that matched this indicator.
    */
-  "signalMatches"?: number;
+  "signalMatches"?: Int64;
   /**
    * Breakdown of security signals by severity.
    */
@@ -127,7 +127,7 @@ export class IoCIndicatorDetailed {
   /**
    * Signal tier level.
    */
-  "signalTier"?: number;
+  "signalTier"?: Int64;
   /**
    * Threat intelligence sources that flagged this indicator as suspicious.
    */

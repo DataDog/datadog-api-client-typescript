@@ -5,7 +5,7 @@
  */
 import { DeploymentRuleOptionsMonitorId } from "./DeploymentRuleOptionsMonitorId";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Specific monitor options for deployment rules.
@@ -14,7 +14,7 @@ export class DeploymentRuleOptionsMonitorIds {
   /**
    * Seconds the monitors need to stay in OK status for the rule to pass.
    */
-  "duration"?: number;
+  "duration"?: Int64;
   /**
    * Whether the rule should fail if a selected monitor group is in a NO DATA state.
    */
@@ -30,7 +30,7 @@ export class DeploymentRuleOptionsMonitorIds {
   /**
    * Seconds to wait after a deployment starts before evaluating the monitors' statuses.
    */
-  "warmup"?: number;
+  "warmup"?: Int64;
 
   /**
    * @ignore

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for updating a heatmap snapshot, including event, session, and view context.
@@ -25,7 +25,7 @@ export class SnapshotUpdateRequestDataAttributes {
   /**
    * Offset in milliseconds from the start of the session at which the snapshot was captured.
    */
-  "start": number;
+  "start": Int64;
   /**
    * Unique identifier of the RUM view associated with the snapshot.
    */

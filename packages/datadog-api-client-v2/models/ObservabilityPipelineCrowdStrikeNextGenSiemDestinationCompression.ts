@@ -5,7 +5,7 @@
  */
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Compression configuration for log events.
@@ -18,7 +18,7 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression {
   /**
    * Compression level.
    */
-  "level"?: number;
+  "level"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

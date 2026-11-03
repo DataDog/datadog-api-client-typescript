@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination attributes for listing flaky tests.
@@ -17,7 +17,7 @@ export class FlakyTestsSearchPageOptions {
   /**
    * Maximum number of flaky tests in the response.
    */
-  "limit"?: number;
+  "limit"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

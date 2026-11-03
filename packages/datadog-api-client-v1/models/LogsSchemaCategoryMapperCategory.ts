@@ -5,7 +5,7 @@
  */
 import { LogsFilter } from "./LogsFilter";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the logs filter with corresponding category ID and name assignment.
@@ -18,7 +18,7 @@ export class LogsSchemaCategoryMapperCategory {
   /**
    * ID to inject into the category.
    */
-  "id": number;
+  "id": Int64;
   /**
    * Value to assign to target schema field.
    */

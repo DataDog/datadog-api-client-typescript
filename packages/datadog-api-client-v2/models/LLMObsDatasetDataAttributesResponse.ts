@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an Agent Observability dataset.
@@ -17,7 +17,7 @@ export class LLMObsDatasetDataAttributesResponse {
   /**
    * Current version number of the dataset.
    */
-  "currentVersion": number;
+  "currentVersion": Int64;
   /**
    * Description of the dataset.
    */

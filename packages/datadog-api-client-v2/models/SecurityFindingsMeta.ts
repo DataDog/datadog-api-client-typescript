@@ -6,7 +6,7 @@
 import { SecurityFindingsPage } from "./SecurityFindingsPage";
 import { SecurityFindingsStatus } from "./SecurityFindingsStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata about the response.
@@ -15,7 +15,7 @@ export class SecurityFindingsMeta {
   /**
    * The time elapsed in milliseconds.
    */
-  "elapsed"?: number;
+  "elapsed"?: Int64;
   /**
    * Pagination information.
    */

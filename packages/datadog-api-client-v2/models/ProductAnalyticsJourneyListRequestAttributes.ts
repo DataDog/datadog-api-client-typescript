@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsJourneyListQuery } from "./ProductAnalyticsJourneyListQuery";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a journey list request.
@@ -14,7 +14,7 @@ export class ProductAnalyticsJourneyListRequestAttributes {
   /**
    * Start of the query window, in epoch milliseconds.
    */
-  "from": number;
+  "from": Int64;
   /**
    * Query definition for a journey list request.
    */
@@ -22,7 +22,7 @@ export class ProductAnalyticsJourneyListRequestAttributes {
   /**
    * End of the query window, in epoch milliseconds.
    */
-  "to": number;
+  "to": Int64;
 
   /**
    * A container for additional, undeclared properties.

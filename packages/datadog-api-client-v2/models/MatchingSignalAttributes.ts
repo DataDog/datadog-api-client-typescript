@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a matching security signal.
@@ -25,7 +25,7 @@ export class MatchingSignalAttributes {
   /**
    * The Unix timestamp (in milliseconds) at which the signal was triggered.
    */
-  "triggerTimeMs": number;
+  "triggerTimeMs": Int64;
 
   /**
    * A container for additional, undeclared properties.

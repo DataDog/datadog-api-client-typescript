@@ -8,7 +8,7 @@ import { DemTestSuiteNested } from "./DemTestSuiteNested";
 import { DemUser } from "./DemUser";
 import { DemVariant } from "./DemVariant";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes returned in a DEM journey response.
@@ -37,7 +37,7 @@ export class DemJourneyResponseAttributes {
   /**
    * The organization ID that owns this journey.
    */
-  "orgId": number;
+  "orgId": Int64;
   /**
    * List of tags associated with a DEM resource.
    */

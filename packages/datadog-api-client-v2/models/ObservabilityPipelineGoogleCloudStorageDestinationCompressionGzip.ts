@@ -5,7 +5,7 @@
  */
 import { ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzipType } from "./ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzipType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Gzip compression.
@@ -18,7 +18,7 @@ export class ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzip {
   /**
    * Gzip compression level. Valid values range from `1` to `9`.
    */
-  "level": number;
+  "level": Int64;
 
   /**
    * A container for additional, undeclared properties.

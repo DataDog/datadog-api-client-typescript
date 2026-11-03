@@ -6,7 +6,7 @@
 import { LLMObsMetricAssessment } from "./LLMObsMetricAssessment";
 import { LLMObsMetricScoreType } from "./LLMObsMetricScoreType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * An evaluation metric event associated with an experiment span.
@@ -71,7 +71,7 @@ export class LLMObsExperimentEvalMetricEvent {
   /**
    * Timestamp when the metric was recorded, in milliseconds since Unix epoch.
    */
-  "timestampMs"?: number;
+  "timestampMs"?: Int64;
   /**
    * Trace ID linking this metric to a span.
    */

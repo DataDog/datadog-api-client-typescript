@@ -5,7 +5,7 @@
  */
 import { WASMSourcemapMapKind } from "./WASMSourcemapMapKind";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a WebAssembly symbol file.
@@ -30,7 +30,7 @@ export class WASMSourcemapAttributes {
   /**
    * The size of the symbol file in bytes.
    */
-  "size"?: number;
+  "size"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

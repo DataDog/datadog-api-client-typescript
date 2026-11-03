@@ -5,7 +5,7 @@
  */
 import { GovernanceInsightDirectionality } from "./GovernanceInsightDirectionality";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Query execution context for running insight queries directly.
@@ -22,7 +22,7 @@ export class GovernanceInsightQueryConfig {
   /**
    * The default value to display when no data is available.
    */
-  "defaultValue"?: number;
+  "defaultValue"?: Int64;
   /**
    * Whether an increase in the insight's value is good, bad, or neutral.
    */
@@ -30,7 +30,7 @@ export class GovernanceInsightQueryConfig {
   /**
    * The number of days the insight value is computed over.
    */
-  "effectiveTimeWindowDays": number;
+  "effectiveTimeWindowDays": Int64;
 
   /**
    * A container for additional, undeclared properties.

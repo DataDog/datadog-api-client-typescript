@@ -7,7 +7,7 @@ import { SyntheticsBasicAuthJWTAddClaims } from "./SyntheticsBasicAuthJWTAddClai
 import { SyntheticsBasicAuthJWTAlgorithm } from "./SyntheticsBasicAuthJWTAlgorithm";
 import { SyntheticsBasicAuthJWTType } from "./SyntheticsBasicAuthJWTType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object to handle JWT authentication when performing the test.
@@ -24,7 +24,7 @@ export class SyntheticsBasicAuthJWT {
   /**
    * Token time-to-live in seconds.
    */
-  "expiresIn"?: number;
+  "expiresIn"?: Int64;
   /**
    * Custom JWT header as a JSON string.
    */

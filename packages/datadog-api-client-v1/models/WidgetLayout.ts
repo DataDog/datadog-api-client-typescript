@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The layout for a widget on a `free` or **new dashboard layout** dashboard.
@@ -13,7 +13,7 @@ export class WidgetLayout {
   /**
    * The height of the widget. Should be a non-negative integer.
    */
-  "height": number;
+  "height": Int64;
   /**
    * Whether the widget should be the first one on the second column in high density or not.
    * **Note**: Only for the **new dashboard layout** and only one widget in the dashboard should have this property set to `true`.
@@ -22,15 +22,15 @@ export class WidgetLayout {
   /**
    * The width of the widget. Should be a non-negative integer.
    */
-  "width": number;
+  "width": Int64;
   /**
    * The position of the widget on the x (horizontal) axis. Should be a non-negative integer.
    */
-  "x": number;
+  "x": Int64;
   /**
    * The position of the widget on the y (vertical) axis. Should be a non-negative integer.
    */
-  "y": number;
+  "y": Int64;
 
   /**
    * A container for additional, undeclared properties.

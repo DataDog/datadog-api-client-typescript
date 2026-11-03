@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsFormulaRetentionQuery } from "./ProductAnalyticsFormulaRetentionQuery";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a retention scalar or retention timeseries request.
@@ -18,7 +18,7 @@ export class ProductAnalyticsFormulaRetentionRequestAttributes {
   /**
    * Start of the query window, in epoch milliseconds.
    */
-  "from": number;
+  "from": Int64;
   /**
    * Query definition for a retention scalar or retention timeseries request.
    */
@@ -26,7 +26,7 @@ export class ProductAnalyticsFormulaRetentionRequestAttributes {
   /**
    * End of the query window, in epoch milliseconds.
    */
-  "to": number;
+  "to": Int64;
 
   /**
    * A container for additional, undeclared properties.

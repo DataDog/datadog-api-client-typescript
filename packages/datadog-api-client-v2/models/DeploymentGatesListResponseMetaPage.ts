@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination information for a list of deployment gates.
@@ -21,7 +21,7 @@ export class DeploymentGatesListResponseMetaPage {
   /**
    * The number of results per page.
    */
-  "size"?: number;
+  "size"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

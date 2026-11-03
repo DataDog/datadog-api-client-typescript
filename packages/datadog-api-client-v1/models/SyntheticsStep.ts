@@ -5,7 +5,7 @@
  */
 import { SyntheticsStepType } from "./SyntheticsStepType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The steps used in a Synthetic browser test.
@@ -46,7 +46,7 @@ export class SyntheticsStep {
   /**
    * The time before declaring a step failed.
    */
-  "timeout"?: number;
+  "timeout"?: Int64;
   /**
    * Step type used in your Synthetic test.
    */

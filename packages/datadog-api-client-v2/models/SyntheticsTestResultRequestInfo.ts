@@ -5,7 +5,7 @@
  */
 import { SyntheticsTestResultFileRef } from "./SyntheticsTestResultFileRef";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Details of the outgoing request made during the test execution.
@@ -34,11 +34,11 @@ export class SyntheticsTestResultRequestInfo {
   /**
    * Port of the DNS server used for resolution.
    */
-  "dnsServerPort"?: number;
+  "dnsServerPort"?: Int64;
   /**
    * Number of end-to-end probe queries issued.
    */
-  "e2eQueries"?: number;
+  "e2eQueries"?: Int64;
   /**
    * Files attached to the request.
    */
@@ -54,7 +54,7 @@ export class SyntheticsTestResultRequestInfo {
   /**
    * Maximum TTL for network probe packets.
    */
-  "maxTtl"?: number;
+  "maxTtl"?: Int64;
   /**
    * Message sent with the request (for WebSocket/TCP/UDP tests).
    */
@@ -82,7 +82,7 @@ export class SyntheticsTestResultRequestInfo {
   /**
    * Request timeout in milliseconds.
    */
-  "timeout"?: number;
+  "timeout"?: Int64;
   /**
    * Name of the MCP tool called (MCP tests only).
    */
@@ -90,7 +90,7 @@ export class SyntheticsTestResultRequestInfo {
   /**
    * Number of traceroute probe queries issued.
    */
-  "tracerouteQueries"?: number;
+  "tracerouteQueries"?: Int64;
   /**
    * URL targeted by the request.
    */

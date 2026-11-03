@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * One condition in a protocol targeting rule.
@@ -21,7 +21,7 @@ export class ExperimentsPublicProtocolResponseDataAttributesTargetingRulesItemsC
   /**
    * Position of this entry in the ordered configuration.
    */
-  "orderPosition"?: number;
+  "orderPosition"?: Int64;
   /**
    * ID of the saved filter used by this targeting condition.
    */

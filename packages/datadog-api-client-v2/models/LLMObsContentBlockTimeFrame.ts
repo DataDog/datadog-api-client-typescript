@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Unix-millis time range used by chart blocks.
@@ -13,11 +13,11 @@ export class LLMObsContentBlockTimeFrame {
   /**
    * End of the range, in Unix milliseconds.
    */
-  "end": number;
+  "end": Int64;
   /**
    * Start of the range, in Unix milliseconds.
    */
-  "start": number;
+  "start": Int64;
 
   /**
    * A container for additional, undeclared properties.

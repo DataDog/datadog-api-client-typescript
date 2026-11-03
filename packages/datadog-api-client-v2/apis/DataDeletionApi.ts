@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CancelDataDeletionResponseBody } from "../models/CancelDataDeletionResponseBody";
@@ -104,7 +105,8 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateDataDeletionRequestBody", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -123,7 +125,7 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     product?: string,
     query?: string,
     status?: string,
-    pageSize?: number,
+    pageSize?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -192,6 +194,12 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class DataDeletionApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -207,8 +215,14 @@ export class DataDeletionApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CancelDataDeletionResponseBody = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CancelDataDeletionResponseBody"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CancelDataDeletionResponseBody",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CancelDataDeletionResponseBody;
       return body;
     }
@@ -221,13 +235,16 @@ export class DataDeletionApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -242,9 +259,14 @@ export class DataDeletionApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CancelDataDeletionResponseBody = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CancelDataDeletionResponseBody",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CancelDataDeletionResponseBody;
       return body;
     }
@@ -271,8 +293,14 @@ export class DataDeletionApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: CreateDataDeletionResponseBody = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CreateDataDeletionResponseBody"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "CreateDataDeletionResponseBody",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CreateDataDeletionResponseBody;
       return body;
     }
@@ -285,13 +313,16 @@ export class DataDeletionApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -306,9 +337,14 @@ export class DataDeletionApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CreateDataDeletionResponseBody = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "CreateDataDeletionResponseBody",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as CreateDataDeletionResponseBody;
       return body;
     }
@@ -335,8 +371,14 @@ export class DataDeletionApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: GetDataDeletionsResponseBody = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GetDataDeletionsResponseBody"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "GetDataDeletionsResponseBody",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GetDataDeletionsResponseBody;
       return body;
     }
@@ -348,13 +390,16 @@ export class DataDeletionApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -369,9 +414,14 @@ export class DataDeletionApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetDataDeletionsResponseBody = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "GetDataDeletionsResponseBody",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as GetDataDeletionsResponseBody;
       return body;
     }
@@ -427,9 +477,9 @@ export interface DataDeletionApiGetDataDeletionRequestsRequest {
   status?: string;
   /**
    * Sets the page size of the search.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
 }
 
 export class DataDeletionApi {
@@ -446,7 +496,7 @@ export class DataDeletionApi {
     this.requestFactory =
       requestFactory || new DataDeletionApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new DataDeletionApiResponseProcessor();
+      responseProcessor || new DataDeletionApiResponseProcessor(configuration);
   }
 
   /**

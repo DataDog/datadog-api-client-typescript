@@ -5,7 +5,7 @@
  */
 import { CustomForecastEntryTagFilter } from "./CustomForecastEntryTagFilter";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A monthly entry of a custom budget forecast.
@@ -18,7 +18,7 @@ export class CustomForecastEntry {
   /**
    * Month the custom forecast entry applies to, in `YYYYMM` format.
    */
-  "month": number;
+  "month": Int64;
   /**
    * Tag filters that scope this custom forecast entry to specific resources.
    */

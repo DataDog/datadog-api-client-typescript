@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Detailed information about a single integration.
@@ -49,11 +49,11 @@ export class FleetIntegrationDetailsV2 {
   /**
    * Number of pods running this integration. Absent from the response when the count is zero.
    */
-  "podCount"?: number;
+  "podCount"?: Int64;
   /**
    * Index in the configuration file.
    */
-  "sourceIndex"?: number;
+  "sourceIndex"?: Int64;
   /**
    * Path to the configuration file.
    */

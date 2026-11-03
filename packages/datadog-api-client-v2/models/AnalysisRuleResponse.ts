@@ -5,7 +5,7 @@
  */
 import { AnalysisViolation } from "./AnalysisViolation";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The result of applying a single static analysis rule to the analyzed source code.
@@ -22,7 +22,7 @@ export class AnalysisRuleResponse {
   /**
    * The time taken to execute the rule, in milliseconds.
    */
-  "executionTimeMs": number;
+  "executionTimeMs": Int64;
   /**
    * The identifier of the rule that produced this response.
    */

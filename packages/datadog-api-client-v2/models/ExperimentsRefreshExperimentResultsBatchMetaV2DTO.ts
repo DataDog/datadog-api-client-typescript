@@ -5,7 +5,7 @@
  */
 import { ExperimentsRefreshExperimentResultsBatchMetaV2DTOResultsItems } from "./ExperimentsRefreshExperimentResultsBatchMetaV2DTOResultsItems";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Summary of refresh outcomes across the organization's experiments.
@@ -14,7 +14,7 @@ export class ExperimentsRefreshExperimentResultsBatchMetaV2DTO {
   /**
    * Number of experiments updated by the refresh request.
    */
-  "experimentsUpdated"?: number;
+  "experimentsUpdated"?: Int64;
   /**
    * Refresh outcome reported for each experiment.
    */

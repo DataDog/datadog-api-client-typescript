@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A link of the Sankey diagram, representing the sessions flowing between two nodes.
@@ -13,7 +13,7 @@ export class ProductAnalyticsSankeyLink {
   /**
    * Zero-based index of the column the link starts from.
    */
-  "column"?: number;
+  "column"?: Int64;
   /**
    * Unique identifier for the link.
    */
@@ -29,7 +29,7 @@ export class ProductAnalyticsSankeyLink {
   /**
    * Number of sessions flowing along the link.
    */
-  "value"?: number;
+  "value"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

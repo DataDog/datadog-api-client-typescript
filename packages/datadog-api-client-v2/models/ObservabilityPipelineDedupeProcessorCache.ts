@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Configuration for the cache used to detect duplicates.
@@ -13,7 +13,7 @@ export class ObservabilityPipelineDedupeProcessorCache {
   /**
    * The number of events to cache for duplicate detection.
    */
-  "numEvents": number;
+  "numEvents": Int64;
 
   /**
    * A container for additional, undeclared properties.

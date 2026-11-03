@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata for a list of RUM operations.
@@ -13,31 +13,31 @@ export class RUMOperationsListResponseMetaPage {
   /**
    * The offset of the first page.
    */
-  "firstOffset"?: number;
+  "firstOffset"?: Int64;
   /**
    * The offset of the last page.
    */
-  "lastOffset"?: number;
+  "lastOffset"?: Int64;
   /**
    * The pagination limit.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * The offset of the next page, if any.
    */
-  "nextOffset"?: number;
+  "nextOffset"?: Int64;
   /**
    * The current offset.
    */
-  "offset"?: number;
+  "offset"?: Int64;
   /**
    * The offset of the previous page, if any.
    */
-  "prevOffset"?: number;
+  "prevOffset"?: Int64;
   /**
    * The total number of RUM operations matching the search.
    */
-  "total"?: number;
+  "total"?: Int64;
   /**
    * The type of pagination used.
    */

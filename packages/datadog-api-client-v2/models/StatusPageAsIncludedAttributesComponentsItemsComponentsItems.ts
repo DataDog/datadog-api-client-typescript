@@ -6,7 +6,7 @@
 import { StatusPagesComponentGroupAttributesComponentsItemsStatus } from "./StatusPagesComponentGroupAttributesComponentsItemsStatus";
 import { StatusPagesComponentGroupAttributesComponentsItemsType } from "./StatusPagesComponentGroupAttributesComponentsItemsType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A grouped component within a status page component group.
@@ -23,7 +23,7 @@ export class StatusPageAsIncludedAttributesComponentsItemsComponentsItems {
   /**
    * The zero-indexed position of the grouped component. Relative to the other components in the group.
    */
-  "position"?: number;
+  "position"?: Int64;
   /**
    * The status of the component.
    */

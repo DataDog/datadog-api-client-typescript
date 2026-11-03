@@ -6,7 +6,7 @@
 import { ObservabilityPipelineOcsfMappingCustomFieldMapping } from "./ObservabilityPipelineOcsfMappingCustomFieldMapping";
 import { ObservabilityPipelineOcsfMappingCustomMetadata } from "./ObservabilityPipelineOcsfMappingCustomMetadata";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Custom OCSF mapping configuration for transforming logs.
@@ -23,7 +23,7 @@ export class ObservabilityPipelineOcsfMappingCustom {
   /**
    * The version of the custom mapping configuration.
    */
-  "version": number;
+  "version": Int64;
 
   /**
    * A container for additional, undeclared properties.

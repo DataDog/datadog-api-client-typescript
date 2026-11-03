@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Count of the device interfaces by status
@@ -13,19 +13,19 @@ export class DeviceAttributesInterfaceStatuses {
   /**
    * The number of interfaces that are down
    */
-  "down"?: number;
+  "down"?: Int64;
   /**
    * The number of interfaces that are off
    */
-  "off"?: number;
+  "off"?: Int64;
   /**
    * The number of interfaces that are up
    */
-  "up"?: number;
+  "up"?: Int64;
   /**
    * The number of interfaces that are in a warning state
    */
-  "warning"?: number;
+  "warning"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

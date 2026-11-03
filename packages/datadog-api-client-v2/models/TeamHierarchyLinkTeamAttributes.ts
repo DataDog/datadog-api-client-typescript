@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Team hierarchy links connect different teams. This represents attributes from teams that are connected by the team hierarchy link.
@@ -17,7 +17,7 @@ export class TeamHierarchyLinkTeamAttributes {
   /**
    * The team's banner
    */
-  "banner"?: number;
+  "banner"?: Int64;
   /**
    * The team's handle
    */
@@ -33,7 +33,7 @@ export class TeamHierarchyLinkTeamAttributes {
   /**
    * The number of links for the team
    */
-  "linkCount"?: number;
+  "linkCount"?: Int64;
   /**
    * The team's name
    */
@@ -45,7 +45,7 @@ export class TeamHierarchyLinkTeamAttributes {
   /**
    * The number of users in the team
    */
-  "userCount"?: number;
+  "userCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Ingested spans usage for a given organization for a given hour.
@@ -17,7 +17,7 @@ export class UsageIngestedSpansHour {
   /**
    * Contains the total number of bytes ingested for APM spans during a given hour.
    */
-  "ingestedEventsBytes"?: number;
+  "ingestedEventsBytes"?: Int64;
   /**
    * The organization name.
    */

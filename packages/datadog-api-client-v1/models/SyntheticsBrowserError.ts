@@ -5,7 +5,7 @@
  */
 import { SyntheticsBrowserErrorType } from "./SyntheticsBrowserErrorType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Error response object for a browser test.
@@ -22,7 +22,7 @@ export class SyntheticsBrowserError {
   /**
    * Status Code of the error.
    */
-  "status"?: number;
+  "status"?: Int64;
   /**
    * Error type returned by a browser test.
    */

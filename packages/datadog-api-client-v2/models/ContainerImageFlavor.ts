@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Container Image breakdown by supported platform.
@@ -29,7 +29,7 @@ export class ContainerImageFlavor {
   /**
    * Size of the platform-specific Container Image in bytes.
    */
-  "size"?: number;
+  "size"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * An HTTP status code range that indicates an invalid (unsuccessful) secret match during validation.
@@ -13,11 +13,11 @@ export class SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems {
   /**
    * The inclusive upper bound of the HTTP status code range.
    */
-  "end"?: number;
+  "end"?: Int64;
   /**
    * The inclusive lower bound of the HTTP status code range.
    */
-  "start"?: number;
+  "start"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

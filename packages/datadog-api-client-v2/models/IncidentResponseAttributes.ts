@@ -8,7 +8,7 @@ import { IncidentNonDatadogCreator } from "./IncidentNonDatadogCreator";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentSeverity } from "./IncidentSeverity";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The incident's attributes from a response.
@@ -21,7 +21,7 @@ export class IncidentResponseAttributes {
   /**
    * The incident case id.
    */
-  "caseId"?: number;
+  "caseId"?: Int64;
   /**
    * Timestamp when the incident was created.
    */
@@ -30,7 +30,7 @@ export class IncidentResponseAttributes {
    * Length of the incident's customer impact in seconds.
    * Equals the difference between `customer_impact_start` and `customer_impact_end`.
    */
-  "customerImpactDuration"?: number;
+  "customerImpactDuration"?: Int64;
   /**
    * Timestamp when customers were no longer impacted by the incident.
    */
@@ -90,7 +90,7 @@ export class IncidentResponseAttributes {
   /**
    * The monotonically increasing integer ID for the incident.
    */
-  "publicId"?: number;
+  "publicId"?: Int64;
   /**
    * Timestamp when the incident's state was last changed from active or stable to resolved or completed.
    */
@@ -107,19 +107,19 @@ export class IncidentResponseAttributes {
    * The amount of time in seconds to detect the incident.
    * Equals the difference between `customer_impact_start` and `detected`.
    */
-  "timeToDetect"?: number;
+  "timeToDetect"?: Int64;
   /**
    * The amount of time in seconds to call incident after detection. Equals the difference of `detected` and `created`.
    */
-  "timeToInternalResponse"?: number;
+  "timeToInternalResponse"?: Int64;
   /**
    * The amount of time in seconds to resolve customer impact after detecting the issue. Equals the difference between `customer_impact_end` and `detected`.
    */
-  "timeToRepair"?: number;
+  "timeToRepair"?: Int64;
   /**
    * The amount of time in seconds to resolve the incident after it was created. Equals the difference between `created` and `resolved`.
    */
-  "timeToResolve"?: number;
+  "timeToResolve"?: Int64;
   /**
    * The title of the incident, which summarizes what happened.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Response metadata.
@@ -13,7 +13,7 @@ export class IoCExplorerListResponseMetadata {
   /**
    * Total number of indicators matching the query.
    */
-  "count"?: number;
+  "count"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

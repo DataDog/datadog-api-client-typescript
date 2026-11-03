@@ -12,7 +12,7 @@ import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorState } from "./MonitorState";
 import { MonitorType } from "./MonitorType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing a monitor.
@@ -46,7 +46,7 @@ export class Monitor {
   /**
    * ID of this monitor.
    */
-  "id"?: number;
+  "id"?: Int64;
   /**
    * A list of active v1 downtimes that match this monitor.
    */
@@ -78,7 +78,7 @@ export class Monitor {
   /**
    * Integer from 1 (high) to 5 (low) indicating alert severity.
    */
-  "priority"?: number;
+  "priority"?: Int64;
   /**
    * The monitor query.
    */

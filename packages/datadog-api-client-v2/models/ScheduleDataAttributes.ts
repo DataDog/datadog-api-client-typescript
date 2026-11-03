@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Provides core properties of a schedule object such as its name and time zone.
@@ -14,7 +14,7 @@ export class ScheduleDataAttributes {
    * Maximum number of users who can be on call at the same time.
    * The value is between 1 and the number of layers, and no greater than 10.
    */
-  "maxResponders"?: number;
+  "maxResponders"?: Int64;
   /**
    * A short name for the schedule.
    */

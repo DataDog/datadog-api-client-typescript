@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Inclusive time interval in milliseconds since the Unix epoch.
@@ -13,11 +13,11 @@ export class TimeseriesAnomalyInvestigationInterval {
   /**
    * Timestamp of the final point in the interval.
    */
-  "end": number;
+  "end": Int64;
   /**
    * Inclusive start of the interval.
    */
-  "start": number;
+  "start": Int64;
 
   /**
    * A container for additional, undeclared properties.

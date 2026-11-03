@@ -5,7 +5,7 @@
  */
 import { ArchiveSearchRehydrationTier } from "./ArchiveSearchRehydrationTier";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Rehydration settings of the Archive Search. Absent when the search only scans the archive
@@ -15,11 +15,11 @@ export class ArchiveSearchRehydration {
   /**
    * Maximum number of events to rehydrate.
    */
-  "maxRehydratedEvents": number;
+  "maxRehydratedEvents": Int64;
   /**
    * Number of days the rehydrated logs are retained for.
    */
-  "retentionDays": number;
+  "retentionDays": Int64;
   /**
    * Storage tier the matched logs are rehydrated into.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A CSM Agent returned by the API.
@@ -37,7 +37,7 @@ export class CsmAgentsAttributes {
   /**
    * ID of the host.
    */
-  "hostId"?: number;
+  "hostId"?: Int64;
   /**
    * Name of the host.
    */

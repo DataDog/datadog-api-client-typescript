@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A single hop along a network path.
@@ -29,7 +29,7 @@ export class SyntheticsTestResultNetpathHop {
   /**
    * Time-to-live value of the probe packet at this hop.
    */
-  "ttl"?: number;
+  "ttl"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

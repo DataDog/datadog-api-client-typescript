@@ -6,7 +6,7 @@
 import { TimeseriesAnomalyInvestigationFormula } from "./TimeseriesAnomalyInvestigationFormula";
 import { TimeseriesAnomalyInvestigationMetricQuery } from "./TimeseriesAnomalyInvestigationMetricQuery";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Metrics timeseries request to investigate.
@@ -19,11 +19,11 @@ export class TimeseriesAnomalyInvestigationTimeseriesRequest {
   /**
    * Start of the investigation time window in milliseconds since the Unix epoch.
    */
-  "from": number;
+  "from": Int64;
   /**
    * Optional requested aggregation interval in milliseconds.
    */
-  "interval"?: number;
+  "interval"?: Int64;
   /**
    * Metrics queries referenced by the formulas.
    */
@@ -31,7 +31,7 @@ export class TimeseriesAnomalyInvestigationTimeseriesRequest {
   /**
    * End of the investigation time window in milliseconds since the Unix epoch. Must be later than `from`.
    */
-  "to": number;
+  "to": Int64;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The aggregation applied to an event query.
@@ -17,7 +17,7 @@ export class GovernanceInsightEventCompute {
   /**
    * The aggregation time window, in milliseconds.
    */
-  "interval": number;
+  "interval": Int64;
 
   /**
    * A container for additional, undeclared properties.

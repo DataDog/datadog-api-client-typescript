@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Combination of settings to mute a host.
@@ -13,7 +13,7 @@ export class HostMuteSettings {
   /**
    * POSIX timestamp in seconds when the host is unmuted. If omitted, the host remains muted until explicitly unmuted.
    */
-  "end"?: number;
+  "end"?: Int64;
   /**
    * Message to associate with the muting of this host.
    */

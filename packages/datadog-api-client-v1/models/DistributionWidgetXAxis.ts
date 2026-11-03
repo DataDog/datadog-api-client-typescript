@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * X Axis controls for the distribution widget.
@@ -25,7 +25,7 @@ export class DistributionWidgetXAxis {
   /**
    * Number of value buckets to target, also known as the resolution of the value bins.
    */
-  "numBuckets"?: number;
+  "numBuckets"?: Int64;
   /**
    * Specifies the scale type. Possible values are `linear`.
    */

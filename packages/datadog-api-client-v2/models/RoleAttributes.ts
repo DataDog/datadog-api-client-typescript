@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of the role.
@@ -31,7 +31,7 @@ export class RoleAttributes {
   /**
    * Number of users with that role.
    */
-  "userCount"?: number;
+  "userCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

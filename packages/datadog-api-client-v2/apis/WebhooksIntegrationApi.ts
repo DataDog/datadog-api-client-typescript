@@ -62,7 +62,8 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
         "WebhooksOAuth2ClientCredentialsCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -244,7 +245,8 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
         "WebhooksOAuth2ClientCredentialsUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -260,6 +262,12 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class WebhooksIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -276,8 +284,14 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: WebhooksOAuth2ClientCredentialsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "WebhooksOAuth2ClientCredentialsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "WebhooksOAuth2ClientCredentialsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as WebhooksOAuth2ClientCredentialsResponse;
       return body;
     }
@@ -289,13 +303,16 @@ export class WebhooksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -311,9 +328,14 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksOAuth2ClientCredentialsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "WebhooksOAuth2ClientCredentialsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as WebhooksOAuth2ClientCredentialsResponse;
       return body;
     }
@@ -348,13 +370,16 @@ export class WebhooksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -393,21 +418,30 @@ export class WebhooksIntegrationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: WebhooksAuthMethodsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WebhooksAuthMethodsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "WebhooksAuthMethodsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as WebhooksAuthMethodsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -422,9 +456,14 @@ export class WebhooksIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksAuthMethodsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "WebhooksAuthMethodsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as WebhooksAuthMethodsResponse;
       return body;
     }
@@ -452,8 +491,14 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: WebhooksOAuth2ClientCredentialsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "WebhooksOAuth2ClientCredentialsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "WebhooksOAuth2ClientCredentialsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as WebhooksOAuth2ClientCredentialsResponse;
       return body;
     }
@@ -464,13 +509,16 @@ export class WebhooksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -486,9 +534,14 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksOAuth2ClientCredentialsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "WebhooksOAuth2ClientCredentialsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as WebhooksOAuth2ClientCredentialsResponse;
       return body;
     }
@@ -516,8 +569,14 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: WebhooksOAuth2ClientCredentialsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "WebhooksOAuth2ClientCredentialsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "WebhooksOAuth2ClientCredentialsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as WebhooksOAuth2ClientCredentialsResponse;
       return body;
     }
@@ -530,13 +589,16 @@ export class WebhooksIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -552,9 +614,14 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksOAuth2ClientCredentialsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "WebhooksOAuth2ClientCredentialsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as WebhooksOAuth2ClientCredentialsResponse;
       return body;
     }
@@ -626,7 +693,8 @@ export class WebhooksIntegrationApi {
     this.requestFactory =
       requestFactory || new WebhooksIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new WebhooksIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new WebhooksIntegrationApiResponseProcessor(configuration);
   }
 
   /**

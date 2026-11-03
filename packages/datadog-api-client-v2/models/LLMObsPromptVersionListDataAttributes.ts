@@ -5,7 +5,7 @@
  */
 import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a prompt version returned in a list, excluding its template.
@@ -62,7 +62,7 @@ export class LLMObsPromptVersionListDataAttributes {
   /**
    * Sequential version number.
    */
-  "version": number;
+  "version": Int64;
   /**
    * Timestamp when this version was created.
    */

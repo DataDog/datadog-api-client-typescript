@@ -6,7 +6,7 @@
 import { ProductAnalyticsGroupBySort } from "./ProductAnalyticsGroupBySort";
 import { ProductAnalyticsRetentionGroupByTarget } from "./ProductAnalyticsRetentionGroupByTarget";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Splits retention results by the values of a facet.
@@ -19,7 +19,7 @@ export class ProductAnalyticsRetentionGroupBy {
   /**
    * Maximum number of groups to return. Omit it to let the service choose.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * Whether to drop entities that have no value for the facet.
    */

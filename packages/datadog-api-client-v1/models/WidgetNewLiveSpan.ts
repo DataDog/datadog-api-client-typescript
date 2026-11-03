@@ -6,7 +6,7 @@
 import { WidgetLiveSpanUnit } from "./WidgetLiveSpanUnit";
 import { WidgetNewLiveSpanType } from "./WidgetNewLiveSpanType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Used for arbitrary live span times, such as 17 minutes or 6 hours.
@@ -27,7 +27,7 @@ export class WidgetNewLiveSpan {
   /**
    * Value of the time span.
    */
-  "value": number;
+  "value": Int64;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of the query response, containing the matched records and total count.
@@ -17,7 +17,7 @@ export class QueryResponseDataAttributes {
   /**
    * Total number of records matching the query, regardless of the limit applied.
    */
-  "total"?: number;
+  "total"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

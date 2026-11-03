@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The shape of the Sankey diagram, expressed as the facets to flow between and how many steps to show.
@@ -14,12 +14,12 @@ export class ProductAnalyticsSankeyDefinition {
    * Maximum number of nodes to keep in each column. Remaining values are rolled up into an
    * aggregated node. Omit it, or send `0`, to use the default of `5`.
    */
-  "entriesPerStep"?: number;
+  "entriesPerStep"?: Int64;
   /**
    * Number of intermediate columns between the source and the target.
    * Omit it, or send `0`, to use the default of `5`.
    */
-  "numberOfSteps"?: number;
+  "numberOfSteps"?: Int64;
   /**
    * Facet forming the first column of the diagram.
    */

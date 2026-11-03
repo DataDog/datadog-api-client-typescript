@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
@@ -266,8 +267,8 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
   }
 
   public async listOrgAuthorizedClients(
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     sort?: string,
     filter?: string,
     filterOauth2ClientName?: string,
@@ -355,8 +356,8 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
 
   public async listOrgAuthorizedClientUserAuthorizations(
     orgAuthorizedClientId: string,
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     sort?: OrgAuthorizedClientUserAuthorizationsSort,
     filterDisabled?: string,
     filterUserName?: string,
@@ -506,7 +507,8 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OrgAuthorizedClientUpdateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -522,6 +524,12 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
 }
 
 export class OrgAuthorizedClientsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -541,13 +549,16 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -564,13 +575,16 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -613,13 +627,16 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -636,13 +653,16 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -685,13 +705,16 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -708,13 +731,16 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -753,21 +779,30 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: OrgAuthorizedClientResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgAuthorizedClientResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "OrgAuthorizedClientResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OrgAuthorizedClientResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -784,13 +819,16 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -805,9 +843,14 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgAuthorizedClientResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "OrgAuthorizedClientResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OrgAuthorizedClientResponse;
       return body;
     }
@@ -834,21 +877,30 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: OrgAuthorizedClientsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgAuthorizedClientsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "OrgAuthorizedClientsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OrgAuthorizedClientsResponse;
       return body;
     }
     if (response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -865,13 +917,16 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -886,9 +941,14 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgAuthorizedClientsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "OrgAuthorizedClientsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OrgAuthorizedClientsResponse;
       return body;
     }
@@ -915,21 +975,30 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: UserAuthorizedClientsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UserAuthorizedClientsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "UserAuthorizedClientsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UserAuthorizedClientsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -946,13 +1015,16 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -967,9 +1039,14 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserAuthorizedClientsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "UserAuthorizedClientsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UserAuthorizedClientsResponse;
       return body;
     }
@@ -996,8 +1073,14 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: OrgAuthorizedClientResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgAuthorizedClientResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "OrgAuthorizedClientResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OrgAuthorizedClientResponse;
       return body;
     }
@@ -1009,13 +1092,16 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1032,13 +1118,16 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1053,9 +1142,14 @@ export class OrgAuthorizedClientsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgAuthorizedClientResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "OrgAuthorizedClientResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as OrgAuthorizedClientResponse;
       return body;
     }
@@ -1129,14 +1223,14 @@ export interface OrgAuthorizedClientsApiGetOrgAuthorizedClientRequest {
 export interface OrgAuthorizedClientsApiListOrgAuthorizedClientsRequest {
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Field to sort results by. Options include `oauth2_client.name`.
    * @type string
@@ -1173,14 +1267,14 @@ export interface OrgAuthorizedClientsApiListOrgAuthorizedClientUserAuthorization
   orgAuthorizedClientId: string;
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Field to sort results by. Options: `user.name`, `user.email`, `oauth2_client.name`.
    * @type OrgAuthorizedClientUserAuthorizationsSort
@@ -1235,7 +1329,8 @@ export class OrgAuthorizedClientsApi {
       requestFactory ||
       new OrgAuthorizedClientsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new OrgAuthorizedClientsApiResponseProcessor();
+      responseProcessor ||
+      new OrgAuthorizedClientsApiResponseProcessor(configuration);
   }
 
   /**
@@ -1373,7 +1468,7 @@ export class OrgAuthorizedClientsApi {
   ): AsyncGenerator<OrgAuthorizedClientData> {
     let pageSize = 10;
     if (param.pageSize !== undefined) {
-      pageSize = param.pageSize;
+      pageSize = Number(param.pageSize);
     }
     param.pageSize = pageSize;
     param.pageNumber = 0;
@@ -1406,7 +1501,7 @@ export class OrgAuthorizedClientsApi {
       if (results.length < pageSize) {
         break;
       }
-      param.pageNumber = param.pageNumber + 1;
+      param.pageNumber = Number(param.pageNumber) + 1;
     }
   }
 
@@ -1450,7 +1545,7 @@ export class OrgAuthorizedClientsApi {
   ): AsyncGenerator<UserAuthorizedClientData> {
     let pageSize = 10;
     if (param.pageSize !== undefined) {
-      pageSize = param.pageSize;
+      pageSize = Number(param.pageSize);
     }
     param.pageSize = pageSize;
     param.pageNumber = 0;
@@ -1486,7 +1581,7 @@ export class OrgAuthorizedClientsApi {
       if (results.length < pageSize) {
         break;
       }
-      param.pageNumber = param.pageNumber + 1;
+      param.pageNumber = Number(param.pageNumber) + 1;
     }
   }
 

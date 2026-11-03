@@ -6,7 +6,7 @@
 import { ArchiveSearchRehydration } from "./ArchiveSearchRehydration";
 import { ArchiveSearchStatus } from "./ArchiveSearchStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an Archive Search.
@@ -19,7 +19,7 @@ export class ArchiveSearchResponseAttributes {
   /**
    * Number of bytes read from the archive at the end of the search.
    */
-  "bytesScanned": number;
+  "bytesScanned": Int64;
   /**
    * Time the Archive Search finished, as an ISO 8601 timestamp.
    * Absent while the search is still running.
@@ -36,11 +36,11 @@ export class ArchiveSearchResponseAttributes {
   /**
    * Number of events read from the archive at the end of the search.
    */
-  "eventsScanned": number;
+  "eventsScanned": Int64;
   /**
    * Estimated time left before the Archive Search completes, in seconds.
    */
-  "expectedDuration"?: number;
+  "expectedDuration"?: Int64;
   /**
    * Start of the searched time range, as an ISO 8601 timestamp.
    */

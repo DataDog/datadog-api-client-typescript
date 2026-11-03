@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A single value and its occurrence count for a facet.
@@ -13,7 +13,7 @@ export class CsmHostFacetInfoItem {
   /**
    * The number of resources with this facet value.
    */
-  "count": number;
+  "count": Int64;
   /**
    * The facet value.
    */

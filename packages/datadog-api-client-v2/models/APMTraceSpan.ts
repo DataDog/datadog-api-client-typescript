@@ -5,7 +5,7 @@
  */
 import { APMSpanErrorFlag } from "./APMSpanErrorFlag";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A single APM span returned as part of a trace.
@@ -14,11 +14,11 @@ export class APMTraceSpan {
   /**
    * The duration of the span, in nanoseconds.
    */
-  "duration": number;
+  "duration": Int64;
   /**
    * The end time of the span, in Unix nanoseconds.
    */
-  "endTime": number;
+  "endTime": Int64;
   /**
    * Error flag for a span. `1` when the span is in error, `0` otherwise.
    */
@@ -40,7 +40,7 @@ export class APMTraceSpan {
   /**
    * The ID of the parent span, or `0` when the span is a trace root.
    */
-  "parentId": number;
+  "parentId": Int64;
   /**
    * The resource that the span describes.
    */
@@ -64,15 +64,15 @@ export class APMTraceSpan {
   /**
    * The span ID, as an unsigned 64-bit integer.
    */
-  "spanId": number;
+  "spanId": Int64;
   /**
    * The start time of the span, in Unix nanoseconds.
    */
-  "startTime": number;
+  "startTime": Int64;
   /**
    * The lower 64 bits of the trace ID, as an unsigned 64-bit integer.
    */
-  "traceId": number;
+  "traceId": Int64;
   /**
    * The full 128-bit trace ID, encoded as a 32-character hexadecimal string.
    */

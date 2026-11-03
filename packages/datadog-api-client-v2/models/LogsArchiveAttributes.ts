@@ -7,7 +7,7 @@ import { LogsArchiveAttributesCompressionMethod } from "./LogsArchiveAttributesC
 import { LogsArchiveDestination } from "./LogsArchiveDestination";
 import { LogsArchiveState } from "./LogsArchiveState";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes associated with the archive.
@@ -45,7 +45,7 @@ export class LogsArchiveAttributes {
   /**
    * Maximum scan size for rehydration from this archive.
    */
-  "rehydrationMaxScanSizeInGb"?: number;
+  "rehydrationMaxScanSizeInGb"?: Int64;
   /**
    * An array of tags to add to rehydrated logs from an archive.
    */

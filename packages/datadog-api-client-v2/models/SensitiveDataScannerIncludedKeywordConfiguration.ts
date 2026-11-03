@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object defining a set of keywords and a number of characters that help reduce noise.
@@ -17,7 +17,7 @@ export class SensitiveDataScannerIncludedKeywordConfiguration {
    * The number of characters behind a match detected by Sensitive Data Scanner to look for the keywords defined.
    * `character_count` should be greater than the maximum length of a keyword defined for a rule.
    */
-  "characterCount": number;
+  "characterCount": Int64;
   /**
    * Keyword list that will be checked during scanning in order to validate a match.
    * The number of keywords in the list must be less than or equal to 30.

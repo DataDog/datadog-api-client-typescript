@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { DowntimeCreateRequest } from "../models/DowntimeCreateRequest";
@@ -98,7 +99,8 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DowntimeCreateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -172,8 +174,8 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
   public async listDowntimes(
     currentOnly?: boolean,
     include?: string,
-    pageOffset?: number,
-    pageLimit?: number,
+    pageOffset?: Int64Input,
+    pageLimit?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -234,9 +236,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listMonitorDowntimes(
-    monitorId: number,
-    pageOffset?: number,
-    pageLimit?: number,
+    monitorId: Int64Input,
+    pageOffset?: Int64Input,
+    pageLimit?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -333,7 +335,8 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DowntimeUpdateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -349,6 +352,12 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class DowntimesApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -370,13 +379,16 @@ export class DowntimesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -415,8 +427,14 @@ export class DowntimesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DowntimeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DowntimeResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DowntimeResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DowntimeResponse;
       return body;
     }
@@ -427,13 +445,16 @@ export class DowntimesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -448,9 +469,14 @@ export class DowntimesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DowntimeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DowntimeResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DowntimeResponse;
       return body;
     }
@@ -477,8 +503,14 @@ export class DowntimesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DowntimeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DowntimeResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DowntimeResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DowntimeResponse;
       return body;
     }
@@ -490,13 +522,16 @@ export class DowntimesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -511,9 +546,14 @@ export class DowntimesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DowntimeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DowntimeResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DowntimeResponse;
       return body;
     }
@@ -540,21 +580,30 @@ export class DowntimesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListDowntimesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListDowntimesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ListDowntimesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListDowntimesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -569,9 +618,14 @@ export class DowntimesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListDowntimesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ListDowntimesResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListDowntimesResponse;
       return body;
     }
@@ -598,21 +652,30 @@ export class DowntimesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: MonitorDowntimeMatchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MonitorDowntimeMatchResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "MonitorDowntimeMatchResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MonitorDowntimeMatchResponse;
       return body;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -627,9 +690,14 @@ export class DowntimesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MonitorDowntimeMatchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "MonitorDowntimeMatchResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MonitorDowntimeMatchResponse;
       return body;
     }
@@ -656,8 +724,14 @@ export class DowntimesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DowntimeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DowntimeResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DowntimeResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DowntimeResponse;
       return body;
     }
@@ -669,13 +743,16 @@ export class DowntimesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -690,9 +767,14 @@ export class DowntimesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DowntimeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DowntimeResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DowntimeResponse;
       return body;
     }
@@ -757,32 +839,32 @@ export interface DowntimesApiListDowntimesRequest {
   include?: string;
   /**
    * Specific offset to use as the beginning of the returned page.
-   * @type number
+   * @type Int64Input
    */
-  pageOffset?: number;
+  pageOffset?: Int64Input;
   /**
    * Maximum number of downtimes in the response.
-   * @type number
+   * @type Int64Input
    */
-  pageLimit?: number;
+  pageLimit?: Int64Input;
 }
 
 export interface DowntimesApiListMonitorDowntimesRequest {
   /**
    * The id of the monitor.
-   * @type number
+   * @type Int64Input
    */
-  monitorId: number;
+  monitorId: Int64Input;
   /**
    * Specific offset to use as the beginning of the returned page.
-   * @type number
+   * @type Int64Input
    */
-  pageOffset?: number;
+  pageOffset?: Int64Input;
   /**
    * Maximum number of downtimes in the response.
-   * @type number
+   * @type Int64Input
    */
-  pageLimit?: number;
+  pageLimit?: Int64Input;
 }
 
 export interface DowntimesApiUpdateDowntimeRequest {
@@ -812,7 +894,7 @@ export class DowntimesApi {
     this.requestFactory =
       requestFactory || new DowntimesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new DowntimesApiResponseProcessor();
+      responseProcessor || new DowntimesApiResponseProcessor(configuration);
   }
 
   /**
@@ -915,7 +997,7 @@ export class DowntimesApi {
   ): AsyncGenerator<DowntimeResponseData> {
     let pageSize = 30;
     if (param.pageLimit !== undefined) {
-      pageSize = param.pageLimit;
+      pageSize = Number(param.pageLimit);
     }
     param.pageLimit = pageSize;
     while (true) {
@@ -947,7 +1029,7 @@ export class DowntimesApi {
       if (param.pageOffset === undefined) {
         param.pageOffset = pageSize;
       } else {
-        param.pageOffset = param.pageOffset + pageSize;
+        param.pageOffset = Number(param.pageOffset) + pageSize;
       }
     }
   }
@@ -984,7 +1066,7 @@ export class DowntimesApi {
   ): AsyncGenerator<MonitorDowntimeMatchResponseData> {
     let pageSize = 30;
     if (param.pageLimit !== undefined) {
-      pageSize = param.pageLimit;
+      pageSize = Number(param.pageLimit);
     }
     param.pageLimit = pageSize;
     while (true) {
@@ -1015,7 +1097,7 @@ export class DowntimesApi {
       if (param.pageOffset === undefined) {
         param.pageOffset = pageSize;
       } else {
-        param.pageOffset = param.pageOffset + pageSize;
+        param.pageOffset = Number(param.pageOffset) + pageSize;
       }
     }
   }

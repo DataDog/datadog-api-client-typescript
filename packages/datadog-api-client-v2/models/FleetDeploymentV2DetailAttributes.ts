@@ -6,7 +6,7 @@
 import { FleetDeploymentOperation } from "./FleetDeploymentOperation";
 import { FleetDeploymentV2DetailAgent } from "./FleetDeploymentV2DetailAgent";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a deployment detail response.
@@ -19,7 +19,7 @@ export class FleetDeploymentV2DetailAttributes {
   /**
    * Number of hosts on which the deployment was canceled.
    */
-  "canceledHosts"?: number;
+  "canceledHosts"?: Int64;
   /**
    * Ordered list of configuration file operations applied by this deployment.
    * Absent for package deployments, which have no configuration file operations.
@@ -29,7 +29,7 @@ export class FleetDeploymentV2DetailAttributes {
    * Duration of the deployment in seconds, computed as `finished_at - started_at`.
    * Zero if the deployment has not finished.
    */
-  "durationSeconds"?: number;
+  "durationSeconds"?: Int64;
   /**
    * Top-level error message for the deployment. Populated only when the deployment has failed.
    */
@@ -37,11 +37,11 @@ export class FleetDeploymentV2DetailAttributes {
   /**
    * Estimated completion time of the deployment as a Unix timestamp. Zero if not available.
    */
-  "estimatedFinishedAt"?: number;
+  "estimatedFinishedAt"?: Int64;
   /**
    * Number of hosts on which the deployment failed.
    */
-  "failedHosts"?: number;
+  "failedHosts"?: Int64;
   /**
    * Current high-level status of the deployment (for example, "pending", "running",
    * "completed", "failed").
@@ -62,7 +62,7 @@ export class FleetDeploymentV2DetailAttributes {
   /**
    * Number of hosts on which the deployment is currently running.
    */
-  "runningHosts"?: number;
+  "runningHosts"?: Int64;
   /**
    * Identifier of the schedule that triggered this deployment. Empty if triggered manually.
    */
@@ -70,11 +70,11 @@ export class FleetDeploymentV2DetailAttributes {
   /**
    * Number of hosts that were skipped during the deployment.
    */
-  "skippedHosts"?: number;
+  "skippedHosts"?: Int64;
   /**
    * Number of hosts on which the deployment succeeded.
    */
-  "succeededHosts"?: number;
+  "succeededHosts"?: Int64;
   /**
    * Distinct package versions targeted by this deployment, in first-seen order.
    */
@@ -82,7 +82,7 @@ export class FleetDeploymentV2DetailAttributes {
   /**
    * Total number of hosts targeted by this deployment.
    */
-  "totalHosts"?: number;
+  "totalHosts"?: Int64;
   /**
    * Type of update operation performed by this deployment
    * (for example, "update_config_operations", "update_package").

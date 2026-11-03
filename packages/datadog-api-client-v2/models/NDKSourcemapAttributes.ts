@@ -5,7 +5,7 @@
  */
 import { NDKSourcemapMapKind } from "./NDKSourcemapMapKind";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an Android NDK symbol file.
@@ -34,7 +34,7 @@ export class NDKSourcemapAttributes {
   /**
    * The size of the symbol file in bytes.
    */
-  "size": number;
+  "size": Int64;
 
   /**
    * A container for additional, undeclared properties.

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes from the monitor that triggered the event.
@@ -13,7 +13,7 @@ export class MonitorType {
   /**
    * The POSIX timestamp of the monitor's creation in nanoseconds.
    */
-  "createdAt"?: number;
+  "createdAt"?: Int64;
   /**
    * Monitor group status used when there is no `result_groups`.
    */
@@ -25,7 +25,7 @@ export class MonitorType {
   /**
    * The monitor ID.
    */
-  "id"?: number;
+  "id"?: Int64;
   /**
    * The monitor message.
    */
@@ -33,7 +33,7 @@ export class MonitorType {
   /**
    * The monitor's last-modified timestamp.
    */
-  "modified"?: number;
+  "modified"?: Int64;
   /**
    * The monitor name.
    */

@@ -8,7 +8,7 @@ import { IncidentNonDatadogCreator } from "./IncidentNonDatadogCreator";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentSeverity } from "./IncidentSeverity";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The incident's attributes from an import response.
@@ -21,7 +21,7 @@ export class IncidentImportResponseAttributes {
   /**
    * The incident case ID.
    */
-  "caseId"?: number;
+  "caseId"?: Int64;
   /**
    * Timestamp when the incident was created.
    */
@@ -89,7 +89,7 @@ export class IncidentImportResponseAttributes {
   /**
    * The monotonically increasing integer ID for the incident.
    */
-  "publicId"?: number;
+  "publicId"?: Int64;
   /**
    * Timestamp when the incident's state was last changed from active or stable to resolved or completed.
    */

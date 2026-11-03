@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Audit logs usage for a given organization for a given hour.
@@ -17,7 +17,7 @@ export class UsageAuditLogsHour {
   /**
    * The total number of audit logs lines indexed during a given hour.
    */
-  "linesIndexed"?: number;
+  "linesIndexed"?: Int64;
   /**
    * The organization name.
    */

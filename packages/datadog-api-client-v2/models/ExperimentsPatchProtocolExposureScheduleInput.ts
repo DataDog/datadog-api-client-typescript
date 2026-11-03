@@ -5,7 +5,7 @@
  */
 import { ExperimentsProtocolExposureStepInput } from "./ExperimentsProtocolExposureStepInput";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Partial traffic schedule. Omitted fields remain unchanged. Null clears the whole schedule. Null clears nullable fields and rollout_steps; null sets strategy to an empty string and `autostart` to false.
@@ -26,7 +26,7 @@ export class ExperimentsPatchProtocolExposureScheduleInput {
   /**
    * Interval between traffic selections, in milliseconds.
    */
-  "selectionIntervalMs"?: number;
+  "selectionIntervalMs"?: Int64;
   /**
    * Method used to increase traffic exposure over the schedule.
    */

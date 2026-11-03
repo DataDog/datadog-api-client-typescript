@@ -5,7 +5,7 @@
  */
 import { UsageMetricCategory } from "./UsageMetricCategory";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Number of hourly recorded custom metrics for a given organization.
@@ -14,11 +14,11 @@ export class UsageTopAvgMetricsHour {
   /**
    * Average number of timeseries per hour in which the metric occurs.
    */
-  "avgMetricHour"?: number;
+  "avgMetricHour"?: Int64;
   /**
    * Maximum number of timeseries per hour in which the metric occurs.
    */
-  "maxMetricHour"?: number;
+  "maxMetricHour"?: Int64;
   /**
    * Contains the metric category.
    */

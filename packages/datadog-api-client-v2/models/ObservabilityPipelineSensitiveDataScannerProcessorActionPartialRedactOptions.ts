@@ -5,7 +5,7 @@
  */
 import { ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Controls how partial redaction is applied, including character count and direction.
@@ -14,7 +14,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialReda
   /**
    * Number of characters to leave visible from the start or end of the matched value; the rest are redacted.
    */
-  "characters": number;
+  "characters": Int64;
   /**
    * Indicates whether to redact characters from the first or last part of the matched value.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The counts of findings without a team tag by ownership confidence.
@@ -13,19 +13,19 @@ export class OwnershipUntaggedFindingsAttributes {
   /**
    * The number of high confidence findings without a team tag.
    */
-  "highConfidence": number;
+  "highConfidence": Int64;
   /**
    * The number of low confidence findings without a team tag.
    */
-  "lowConfidence": number;
+  "lowConfidence": Int64;
   /**
    * The number of medium confidence findings without a team tag.
    */
-  "mediumConfidence": number;
+  "mediumConfidence": Int64;
   /**
    * The total number of findings without a team tag.
    */
-  "total": number;
+  "total": Int64;
 
   /**
    * A container for additional, undeclared properties.

@@ -5,7 +5,7 @@
  */
 import { ArchiveSearchRehydrationTier } from "./ArchiveSearchRehydrationTier";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Rehydration settings to apply.
@@ -14,7 +14,7 @@ export class ArchiveSearchRehydrateRequestRehydration {
   /**
    * Number of days the rehydrated logs are retained for.
    */
-  "retentionDays": number;
+  "retentionDays": Int64;
   /**
    * Storage tier the matched logs are rehydrated into.
    */

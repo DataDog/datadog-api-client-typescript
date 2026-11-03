@@ -6,7 +6,7 @@
 import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
 import { LLMObsPromptResponseSource } from "./LLMObsPromptResponseSource";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes returned after creating an Agent Observability prompt and its first version. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
@@ -63,7 +63,7 @@ export class LLMObsCreatePromptResponseDataAttributes {
   /**
    * Number of versions of the prompt.
    */
-  "numVersions": number;
+  "numVersions": Int64;
   /**
    * Customer-provided identifier of the prompt.
    */

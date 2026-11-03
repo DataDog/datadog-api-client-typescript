@@ -30,4 +30,5 @@ ts-node,MIT,Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
 typedoc,Apache-2.0,Copyright (c) 2015 Sebastian Lenz Copyright (c) 2016-2021 TypeDoc Contributors.
 typescript,Apache-2.0,Copyright (c) Microsoft Corporation.
 loglevel,MIT,Copyright (c) 2013 Tim Perry
+lossless-json,MIT,Copyright (c) 2016-2026 Jos de Jong
 zstd.ts,BSD-2-Clause,Copyright (c) [2021] [Beeno Tung (Tung Cheung Leong)]

@@ -5,7 +5,7 @@
  */
 import { RolloutStrategy } from "./RolloutStrategy";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Applied progression options for a progressive rollout.
@@ -18,7 +18,7 @@ export class RolloutOptions {
   /**
    * Interval in milliseconds for uniform interval strategies.
    */
-  "selectionIntervalMs": number;
+  "selectionIntervalMs": Int64;
   /**
    * The progression strategy used by a progressive rollout.
    */

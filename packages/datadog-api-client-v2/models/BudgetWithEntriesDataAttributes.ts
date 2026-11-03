@@ -5,7 +5,7 @@
  */
 import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a budget including all its monthly entries.
@@ -14,7 +14,7 @@ export class BudgetWithEntriesDataAttributes {
   /**
    * The timestamp when the budget was created.
    */
-  "createdAt"?: number;
+  "createdAt"?: Int64;
   /**
    * The ID of the user that created the budget.
    */
@@ -22,7 +22,7 @@ export class BudgetWithEntriesDataAttributes {
   /**
    * The month when the budget ends, in YYYYMM format.
    */
-  "endMonth"?: number;
+  "endMonth"?: Int64;
   /**
    * The list of monthly budget entries.
    */
@@ -38,11 +38,11 @@ export class BudgetWithEntriesDataAttributes {
   /**
    * The ID of the organization the budget belongs to.
    */
-  "orgId"?: number;
+  "orgId"?: Int64;
   /**
    * The month when the budget starts, in YYYYMM format.
    */
-  "startMonth"?: number;
+  "startMonth"?: Int64;
   /**
    * The total budget amount across all entries.
    */
@@ -50,7 +50,7 @@ export class BudgetWithEntriesDataAttributes {
   /**
    * The timestamp when the budget was last updated.
    */
-  "updatedAt"?: number;
+  "updatedAt"?: Int64;
   /**
    * The ID of the user that last updated the budget.
    */

@@ -5,7 +5,7 @@
  */
 import { WidgetSortOrderBy } from "./WidgetSortOrderBy";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The controls for sorting the widget.
@@ -14,7 +14,7 @@ export class WidgetSortBy {
   /**
    * The number of items to limit the widget to.
    */
-  "count"?: number;
+  "count"?: Int64;
   /**
    * The array of items to sort the widget by in order.
    */

@@ -5,7 +5,7 @@
  */
 import { DashboardListItem } from "./DashboardListItem";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Dashboards within a list.
@@ -18,7 +18,7 @@ export class DashboardListItems {
   /**
    * Number of dashboards in the dashboard list.
    */
-  "total"?: number;
+  "total"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

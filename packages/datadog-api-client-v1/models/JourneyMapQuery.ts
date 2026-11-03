@@ -11,7 +11,7 @@ import { JourneyMapTarget } from "./JourneyMapTarget";
 import { ProductAnalyticsFunnelDataSource } from "./ProductAnalyticsFunnelDataSource";
 import { UserJourneySearch } from "./UserJourneySearch";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Journey Paths query definition.
@@ -32,7 +32,7 @@ export class JourneyMapQuery {
   /**
    * Maximum number of paths shown per step.
    */
-  "entriesPerStep"?: number;
+  "entriesPerStep"?: Int64;
   /**
    * Filter applied to the events shown along the paths.
    */

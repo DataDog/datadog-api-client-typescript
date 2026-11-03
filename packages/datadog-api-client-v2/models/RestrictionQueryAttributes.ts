@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of the restriction query.
@@ -33,11 +33,11 @@ export class RestrictionQueryAttributes {
   /**
    * Number of roles associated with this restriction query.
    */
-  "roleCount"?: number;
+  "roleCount"?: Int64;
   /**
    * Number of users associated with this restriction query.
    */
-  "userCount"?: number;
+  "userCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

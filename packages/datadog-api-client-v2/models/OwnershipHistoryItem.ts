@@ -6,7 +6,7 @@
 import { OwnershipInferenceStatus } from "./OwnershipInferenceStatus";
 import { OwnershipOwnerType } from "./OwnershipOwnerType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A single ownership inference history entry.
@@ -43,7 +43,7 @@ export class OwnershipHistoryItem {
   /**
    * The unique identifier of the history entry.
    */
-  "id": number;
+  "id": Int64;
   /**
    * The owner type for an ownership inference.
    */

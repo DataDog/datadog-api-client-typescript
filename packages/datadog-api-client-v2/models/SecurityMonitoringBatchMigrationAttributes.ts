@@ -7,7 +7,7 @@ import { SecurityMonitoringBatchMigrationInputSource } from "./SecurityMonitorin
 import { SecurityMonitoringBatchMigrationResourceStatusCounts } from "./SecurityMonitoringBatchMigrationResourceStatusCounts";
 import { SecurityMonitoringBatchMigrationStatus } from "./SecurityMonitoringBatchMigrationStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a batch migration.
@@ -46,7 +46,7 @@ export class SecurityMonitoringBatchMigrationAttributes {
   /**
    * The ID of the organization that owns the batch migration.
    */
-  "orgId": number;
+  "orgId": Int64;
   /**
    * The number of resources of a batch migration in each status.
    */

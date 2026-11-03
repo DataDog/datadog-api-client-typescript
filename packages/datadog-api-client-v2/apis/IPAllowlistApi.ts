@@ -84,7 +84,8 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IPAllowlistUpdateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -100,6 +101,12 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class IPAllowlistApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -115,8 +122,14 @@ export class IPAllowlistApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: IPAllowlistResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IPAllowlistResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "IPAllowlistResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as IPAllowlistResponse;
       return body;
     }
@@ -127,13 +140,16 @@ export class IPAllowlistApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -148,9 +164,14 @@ export class IPAllowlistApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IPAllowlistResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "IPAllowlistResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as IPAllowlistResponse;
       return body;
     }
@@ -177,8 +198,14 @@ export class IPAllowlistApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: IPAllowlistResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IPAllowlistResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "IPAllowlistResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as IPAllowlistResponse;
       return body;
     }
@@ -190,13 +217,16 @@ export class IPAllowlistApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -211,9 +241,14 @@ export class IPAllowlistApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IPAllowlistResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "IPAllowlistResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as IPAllowlistResponse;
       return body;
     }
@@ -247,7 +282,7 @@ export class IPAllowlistApi {
     this.requestFactory =
       requestFactory || new IPAllowlistApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new IPAllowlistApiResponseProcessor();
+      responseProcessor || new IPAllowlistApiResponseProcessor(configuration);
   }
 
   /**

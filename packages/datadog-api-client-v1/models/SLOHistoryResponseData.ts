@@ -10,7 +10,7 @@ import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 import { SLOTypeNumeric } from "./SLOTypeNumeric";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * An array of service level objective objects.
@@ -19,7 +19,7 @@ export class SLOHistoryResponseData {
   /**
    * The `from` timestamp in epoch seconds.
    */
-  "fromTs"?: number;
+  "fromTs"?: Int64;
   /**
    * For `metric` based SLOs where the query includes a group-by clause, this represents the list of grouping parameters.
    *
@@ -56,7 +56,7 @@ export class SLOHistoryResponseData {
   /**
    * The `to` timestamp in epoch seconds.
    */
-  "toTs"?: number;
+  "toTs"?: Int64;
   /**
    * The type of the service level objective.
    */

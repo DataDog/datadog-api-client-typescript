@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Defines a rate limit for a trigger.
@@ -13,7 +13,7 @@ export class TriggerRateLimit {
   /**
    * The `TriggerRateLimit` `count`.
    */
-  "count"?: number;
+  "count"?: Int64;
   /**
    * The `TriggerRateLimit` `interval`. The expected format is the number of seconds ending with an s. For example, 1 day is 86400s
    */

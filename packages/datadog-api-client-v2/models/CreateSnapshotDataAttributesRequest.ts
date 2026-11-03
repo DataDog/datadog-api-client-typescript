@@ -6,7 +6,7 @@
 import { CreateSnapshotAdditionalConfig } from "./CreateSnapshotAdditionalConfig";
 import { CreateSnapshotTTL } from "./CreateSnapshotTTL";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for snapshot creation.
@@ -19,11 +19,11 @@ export class CreateSnapshotDataAttributesRequest {
   /**
    * End of the time window for the snapshot, in milliseconds since Unix epoch.
    */
-  "end": number;
+  "end": Int64;
   /**
    * The height of the rendered snapshot in pixels.
    */
-  "height"?: number;
+  "height"?: Int64;
   /**
    * Whether the snapshot requires authentication to view. Authenticated snapshots are scoped to the creating organization.
    */
@@ -31,7 +31,7 @@ export class CreateSnapshotDataAttributesRequest {
   /**
    * Start of the time window for the snapshot, in milliseconds since Unix epoch.
    */
-  "start": number;
+  "start": Int64;
   /**
    * The time-to-live for the snapshot. This value corresponds to storage lifecycle policies that automatically delete the snapshot after the specified period.
    */
@@ -43,7 +43,7 @@ export class CreateSnapshotDataAttributesRequest {
   /**
    * The width of the rendered snapshot in pixels.
    */
-  "width"?: number;
+  "width"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

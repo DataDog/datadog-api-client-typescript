@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata for a List Workflows response.
@@ -13,11 +13,11 @@ export class ListWorkflowsResponseMetaPage {
   /**
    * The total number of workflows in the organization.
    */
-  "totalCount"?: number;
+  "totalCount"?: Int64;
   /**
    * The total number of workflows matching the applied filters.
    */
-  "totalFilteredCount"?: number;
+  "totalFilteredCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

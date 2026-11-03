@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Number of Lambda functions and sum of the invocations of all Lambda functions
@@ -14,7 +14,7 @@ export class UsageLambdaHour {
   /**
    * Contains the number of different functions for each region and AWS account.
    */
-  "funcCount"?: number;
+  "funcCount"?: Int64;
   /**
    * The hour for the usage.
    */
@@ -22,7 +22,7 @@ export class UsageLambdaHour {
   /**
    * Contains the sum of invocations of all functions.
    */
-  "invocationsSum"?: number;
+  "invocationsSum"?: Int64;
   /**
    * The organization name.
    */

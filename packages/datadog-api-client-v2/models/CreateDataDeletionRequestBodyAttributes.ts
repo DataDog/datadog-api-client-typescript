@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for creating a data deletion request.
@@ -13,11 +13,11 @@ export class CreateDataDeletionRequestBodyAttributes {
   /**
    * Total number of elements to be deleted as displayed to the user.
    */
-  "displayedTotal": number;
+  "displayedTotal": Int64;
   /**
    * Start of requested time window, milliseconds since Unix epoch.
    */
-  "from": number;
+  "from": Int64;
   /**
    * List of indexes for the search. If not provided, the search is performed in all indexes.
    */
@@ -29,7 +29,7 @@ export class CreateDataDeletionRequestBodyAttributes {
   /**
    * End of requested time window, milliseconds since Unix epoch.
    */
-  "to": number;
+  "to": Int64;
 
   /**
    * A container for additional, undeclared properties.

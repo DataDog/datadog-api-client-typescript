@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata pertaining to the bulk operation.
@@ -13,11 +13,11 @@ export class OutcomesBatchResponseMeta {
   /**
    * Total number of scorecard results received during the bulk operation.
    */
-  "totalReceived"?: number;
+  "totalReceived"?: Int64;
   /**
    * Total number of scorecard results modified during the bulk operation.
    */
-  "totalUpdated"?: number;
+  "totalUpdated"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

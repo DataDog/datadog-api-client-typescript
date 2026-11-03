@@ -9,7 +9,7 @@ import { CIAppHostInfo } from "./CIAppHostInfo";
 import { CIAppPipelineEventJobInProgressStatus } from "./CIAppPipelineEventJobInProgressStatus";
 import { CIAppPipelineEventJobLevel } from "./CIAppPipelineEventJobLevel";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Details of a running CI job.
@@ -63,7 +63,7 @@ export class CIAppPipelineEventInProgressJob {
   /**
    * The queue time in milliseconds, if applicable.
    */
-  "queueTime"?: number;
+  "queueTime"?: Int64;
   /**
    * The parent stage UUID (if applicable).
    */

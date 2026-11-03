@@ -5,7 +5,7 @@
  */
 import { ExperimentsMetricCollectionV2DTODataAttributesMetricsItems } from "./ExperimentsMetricCollectionV2DTODataAttributesMetricsItems";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Details of the metric collection.
@@ -26,7 +26,7 @@ export class ExperimentsMetricCollectionV2DTODataAttributes {
   /**
    * Number of metrics in this collection.
    */
-  "metricCount"?: number;
+  "metricCount"?: Int64;
   /**
    * Metrics included in this collection.
    */

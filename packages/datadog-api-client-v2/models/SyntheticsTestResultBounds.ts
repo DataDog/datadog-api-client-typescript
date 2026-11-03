@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Bounding box of an element on the page.
@@ -13,19 +13,19 @@ export class SyntheticsTestResultBounds {
   /**
    * Height in pixels.
    */
-  "height"?: number;
+  "height"?: Int64;
   /**
    * Width in pixels.
    */
-  "width"?: number;
+  "width"?: Int64;
   /**
    * Horizontal position in pixels.
    */
-  "x"?: number;
+  "x"?: Int64;
   /**
    * Vertical position in pixels.
    */
-  "y"?: number;
+  "y"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

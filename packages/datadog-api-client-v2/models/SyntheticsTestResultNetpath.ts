@@ -7,7 +7,7 @@ import { SyntheticsTestResultNetpathDestination } from "./SyntheticsTestResultNe
 import { SyntheticsTestResultNetpathEndpoint } from "./SyntheticsTestResultNetpathEndpoint";
 import { SyntheticsTestResultNetpathHop } from "./SyntheticsTestResultNetpathHop";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Network Path test result capturing the path between source and destination.
@@ -44,7 +44,7 @@ export class SyntheticsTestResultNetpath {
   /**
    * Unix timestamp (ms) of the network path measurement.
    */
-  "timestamp"?: number;
+  "timestamp"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

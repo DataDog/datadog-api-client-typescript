@@ -7,7 +7,7 @@ import { SensitiveDataScannerIncludedKeywordConfiguration } from "./SensitiveDat
 import { SensitiveDataScannerSuppressions } from "./SensitiveDataScannerSuppressions";
 import { SensitiveDataScannerTextReplacement } from "./SensitiveDataScannerTextReplacement";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of the Sensitive Data Scanner rule.
@@ -48,7 +48,7 @@ export class SensitiveDataScannerRuleAttributes {
   /**
    * Integer from 1 (high) to 5 (low) indicating rule issue severity.
    */
-  "priority"?: number;
+  "priority"?: Int64;
   /**
    * Object describing suppressions for a rule, or the recommended suppression lists published by a standard pattern.
    * There are three types of suppressions, `starts_with`, `ends_with`, and `exact_match`.

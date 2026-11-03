@@ -6,7 +6,7 @@
 import { RumRetentionQuotaCustomConfig } from "./RumRetentionQuotaCustomConfig";
 import { RumRetentionQuotaMode } from "./RumRetentionQuotaMode";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The RUM retention quota configuration properties.
@@ -24,7 +24,7 @@ export class RumRetentionQuotaConfigAttributes {
   /**
    * The ID of the organization the retention quota configuration belongs to.
    */
-  "orgId": number;
+  "orgId": Int64;
   /**
    * The date the retention quota configuration was last updated.
    */

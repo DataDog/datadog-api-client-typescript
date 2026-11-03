@@ -10,7 +10,7 @@ import { FlakyTestPipelineStats } from "./FlakyTestPipelineStats";
 import { FlakyTestRunMetadata } from "./FlakyTestRunMetadata";
 import { FlakyTestStats } from "./FlakyTestStats";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a flaky test.
@@ -42,7 +42,7 @@ export class FlakyTestAttributes {
   /**
    * Unix timestamp when the test exhibited flakiness for the first time.
    */
-  "firstFlakedTs"?: number;
+  "firstFlakedTs"?: Int64;
   /**
    * The category of a flaky test.
    */
@@ -75,7 +75,7 @@ export class FlakyTestAttributes {
   /**
    * Unix timestamp when the test exhibited flakiness for the last time.
    */
-  "lastFlakedTs"?: number;
+  "lastFlakedTs"?: Int64;
   /**
    * The name of the test module. The definition of module changes slightly per language:
    * - In .NET, a test module groups every test that is run under the same unit test project.

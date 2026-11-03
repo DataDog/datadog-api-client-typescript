@@ -5,7 +5,7 @@
  */
 import { ExperimentsProtocolExposureStepInput } from "./ExperimentsProtocolExposureStepInput";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Traffic schedule. Publishing and replacement require `NO_ROLLOUT` with exactly one step, or `UNIFORM_INTERVALS` with a positive selection interval and at least one step. Requires `environment_id`.
@@ -26,7 +26,7 @@ export class ExperimentsProtocolExposureScheduleInput {
   /**
    * Interval between traffic selections, in milliseconds.
    */
-  "selectionIntervalMs"?: number;
+  "selectionIntervalMs"?: Int64;
   /**
    * Method used to increase traffic exposure over the schedule.
    */

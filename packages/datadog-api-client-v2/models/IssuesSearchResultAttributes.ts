@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing the information of a search result.
@@ -13,15 +13,15 @@ export class IssuesSearchResultAttributes {
   /**
    * Count of sessions impacted by the issue over the queried time window.
    */
-  "impactedSessions"?: number;
+  "impactedSessions"?: Int64;
   /**
    * Count of users impacted by the issue over the queried time window.
    */
-  "impactedUsers"?: number;
+  "impactedUsers"?: Int64;
   /**
    * Total count of errors that match the issue over the queried time window.
    */
-  "totalCount"?: number;
+  "totalCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

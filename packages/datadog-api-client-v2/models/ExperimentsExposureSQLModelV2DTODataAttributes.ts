@@ -6,7 +6,7 @@
 import { ExperimentsCreateExposureSQLModelV2RequestDataAttributesSubjectTypesItems } from "./ExperimentsCreateExposureSQLModelV2RequestDataAttributesSubjectTypesItems";
 import { ExperimentsExposureSQLModelV2DTODataAttributesItems } from "./ExperimentsExposureSQLModelV2DTODataAttributesItems";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Query and column mappings used to read experiment assignment data.
@@ -31,7 +31,7 @@ export class ExperimentsExposureSQLModelV2DTODataAttributes {
   /**
    * Number of experiments associated with the exposure SQL model.
    */
-  "experimentCount"?: number;
+  "experimentCount"?: Int64;
   /**
    * Metadata associated with migration of this resource.
    */

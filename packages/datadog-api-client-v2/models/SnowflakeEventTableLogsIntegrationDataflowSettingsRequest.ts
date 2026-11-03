@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Settings of the event table dataflow. Each record type is collected independently so that you can control ingestion costs, and every record type is ingested into Datadog as logs tagged with its `record_type`. Only the fields provided are changed.
@@ -21,7 +21,7 @@ export class SnowflakeEventTableLogsIntegrationDataflowSettingsRequest {
   /**
    * How often event table records are collected, in minutes. One of `5`, `15`, `30`, `60`, or `1440`. Defaults to `5`.
    */
-  "eventTableLogsIntervalMin"?: number;
+  "eventTableLogsIntervalMin"?: Int64;
   /**
    * Whether records with a `record_type` of `span_event` are collected. Defaults to `false`.
    */

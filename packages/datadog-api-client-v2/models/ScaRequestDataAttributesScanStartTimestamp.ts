@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The time when the SCA scan started.
@@ -17,7 +17,7 @@ export class ScaRequestDataAttributesScanStartTimestamp {
   /**
    * Seconds of UTC time since Unix epoch.
    */
-  "seconds"?: number;
+  "seconds"?: Int64;
 
   /**
    * @ignore

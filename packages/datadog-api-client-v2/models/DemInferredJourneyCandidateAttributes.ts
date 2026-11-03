@@ -7,7 +7,7 @@ import { DemJourneyRum } from "./DemJourneyRum";
 import { DemTestSuiteNested } from "./DemTestSuiteNested";
 import { DemVariant } from "./DemVariant";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an inferred journey candidate.
@@ -32,11 +32,11 @@ export class DemInferredJourneyCandidateAttributes {
   /**
    * The organization ID that owns this inferred journey.
    */
-  "orgId": number;
+  "orgId": Int64;
   /**
    * Ranking score of the inferred journey candidate.
    */
-  "rank"?: number;
+  "rank"?: Int64;
   /**
    * List of tags associated with a DEM resource.
    */

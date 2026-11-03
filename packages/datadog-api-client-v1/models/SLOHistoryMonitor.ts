@@ -5,7 +5,7 @@
  */
 import { SLOHistoryResponseErrorWithType } from "./SLOHistoryResponseErrorWithType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value.
@@ -37,7 +37,7 @@ export class SLOHistoryMonitor {
   /**
    * For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the monitor.
    */
-  "monitorModified"?: number;
+  "monitorModified"?: Int64;
   /**
    * For `monitor` based SLOs, this describes the type of monitor.
    */

@@ -8,7 +8,7 @@ import { SyntheticsDowntimeTimeSlotDate } from "./SyntheticsDowntimeTimeSlotDate
 import { SyntheticsDowntimeWeekday } from "./SyntheticsDowntimeWeekday";
 import { SyntheticsDowntimeWeekdayPosition } from "./SyntheticsDowntimeWeekdayPosition";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Recurrence settings returned in a Synthetics downtime time slot response.
@@ -21,7 +21,7 @@ export class SyntheticsDowntimeTimeSlotRecurrenceResponse {
   /**
    * The interval between recurrences, relative to the frequency.
    */
-  "interval": number;
+  "interval": Int64;
   /**
    * A specific date and time used to define the start or end of a Synthetics downtime time slot.
    */

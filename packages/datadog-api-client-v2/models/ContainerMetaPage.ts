@@ -5,7 +5,7 @@
  */
 import { ContainerMetaPageType } from "./ContainerMetaPageType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Paging attributes.
@@ -31,7 +31,7 @@ export class ContainerMetaPage {
   /**
    * Total number of containers that match the query. Always `0` for grouped results.
    */
-  "total"?: number;
+  "total"?: Int64;
   /**
    * Type of Container pagination.
    */

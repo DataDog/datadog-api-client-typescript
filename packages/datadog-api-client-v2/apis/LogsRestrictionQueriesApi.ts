@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { RelationshipToRole } from "../models/RelationshipToRole";
@@ -79,7 +80,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RelationshipToRole", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -133,7 +135,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RestrictionQueryCreatePayload", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -287,8 +290,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
   }
 
   public async listRestrictionQueries(
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -343,8 +346,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
 
   public async listRestrictionQueryRoles(
     restrictionQueryId: string,
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -509,7 +512,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RelationshipToRole", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -573,7 +577,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RestrictionQueryUpdatePayload", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -637,7 +642,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RestrictionQueryUpdatePayload", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -653,6 +659,12 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
 }
 
 export class LogsRestrictionQueriesApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -677,13 +689,16 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -723,8 +738,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryWithoutRelationshipsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RestrictionQueryWithoutRelationshipsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "RestrictionQueryWithoutRelationshipsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as RestrictionQueryWithoutRelationshipsResponse;
       return body;
     }
@@ -735,13 +756,16 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -757,9 +781,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RestrictionQueryWithoutRelationshipsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "RestrictionQueryWithoutRelationshipsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as RestrictionQueryWithoutRelationshipsResponse;
       return body;
     }
@@ -795,13 +824,16 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -841,8 +873,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryWithRelationshipsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RestrictionQueryWithRelationshipsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "RestrictionQueryWithRelationshipsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as RestrictionQueryWithRelationshipsResponse;
       return body;
     }
@@ -854,13 +892,16 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -876,9 +917,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RestrictionQueryWithRelationshipsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "RestrictionQueryWithRelationshipsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as RestrictionQueryWithRelationshipsResponse;
       return body;
     }
@@ -905,8 +951,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RestrictionQueryListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RestrictionQueryListResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RestrictionQueryListResponse;
       return body;
     }
@@ -918,13 +970,16 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -939,9 +994,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RestrictionQueryListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "RestrictionQueryListResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RestrictionQueryListResponse;
       return body;
     }
@@ -968,21 +1028,30 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RestrictionQueryListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RestrictionQueryListResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RestrictionQueryListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -997,9 +1066,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RestrictionQueryListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "RestrictionQueryListResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RestrictionQueryListResponse;
       return body;
     }
@@ -1026,8 +1100,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryRolesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RestrictionQueryRolesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RestrictionQueryRolesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RestrictionQueryRolesResponse;
       return body;
     }
@@ -1039,13 +1119,16 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1060,9 +1143,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RestrictionQueryRolesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "RestrictionQueryRolesResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RestrictionQueryRolesResponse;
       return body;
     }
@@ -1089,8 +1177,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RestrictionQueryListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RestrictionQueryListResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RestrictionQueryListResponse;
       return body;
     }
@@ -1102,13 +1196,16 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1123,9 +1220,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RestrictionQueryListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "RestrictionQueryListResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as RestrictionQueryListResponse;
       return body;
     }
@@ -1161,13 +1263,16 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1207,8 +1312,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryWithoutRelationshipsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RestrictionQueryWithoutRelationshipsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "RestrictionQueryWithoutRelationshipsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as RestrictionQueryWithoutRelationshipsResponse;
       return body;
     }
@@ -1220,13 +1331,16 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1242,9 +1356,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RestrictionQueryWithoutRelationshipsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "RestrictionQueryWithoutRelationshipsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as RestrictionQueryWithoutRelationshipsResponse;
       return body;
     }
@@ -1272,8 +1391,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryWithoutRelationshipsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RestrictionQueryWithoutRelationshipsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "RestrictionQueryWithoutRelationshipsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as RestrictionQueryWithoutRelationshipsResponse;
       return body;
     }
@@ -1285,13 +1410,16 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1307,9 +1435,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RestrictionQueryWithoutRelationshipsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "RestrictionQueryWithoutRelationshipsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as RestrictionQueryWithoutRelationshipsResponse;
       return body;
     }
@@ -1368,14 +1501,14 @@ export interface LogsRestrictionQueriesApiGetRoleRestrictionQueryRequest {
 export interface LogsRestrictionQueriesApiListRestrictionQueriesRequest {
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
 }
 
 export interface LogsRestrictionQueriesApiListRestrictionQueryRolesRequest {
@@ -1386,14 +1519,14 @@ export interface LogsRestrictionQueriesApiListRestrictionQueryRolesRequest {
   restrictionQueryId: string;
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
 }
 
 export interface LogsRestrictionQueriesApiListUserRestrictionQueriesRequest {
@@ -1455,7 +1588,8 @@ export class LogsRestrictionQueriesApi {
       requestFactory ||
       new LogsRestrictionQueriesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new LogsRestrictionQueriesApiResponseProcessor();
+      responseProcessor ||
+      new LogsRestrictionQueriesApiResponseProcessor(configuration);
   }
 
   /**

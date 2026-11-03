@@ -6,7 +6,7 @@
 import { NotebookResourceType } from "./NotebookResourceType";
 import { NotebooksResponseDataAttributes } from "./NotebooksResponseDataAttributes";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The data for a notebook in get all response.
@@ -19,7 +19,7 @@ export class NotebooksResponseData {
   /**
    * Unique notebook ID, assigned when you create the notebook.
    */
-  "id": number;
+  "id": Int64;
   /**
    * Type of the Notebook resource.
    */

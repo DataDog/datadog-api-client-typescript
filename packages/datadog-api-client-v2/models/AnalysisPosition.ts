@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A position in source code, identified by line and column numbers.
@@ -13,11 +13,11 @@ export class AnalysisPosition {
   /**
    * The column number in the source file (1-based).
    */
-  "col": number;
+  "col": Int64;
   /**
    * The line number in the source file (1-based).
    */
-  "line": number;
+  "line": Int64;
 
   /**
    * A container for additional, undeclared properties.

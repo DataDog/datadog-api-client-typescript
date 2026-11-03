@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IdentityProviderResponse } from "../models/IdentityProviderResponse";
@@ -58,8 +59,8 @@ export class IdentityProvidersApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listIdentityProviderUsers(
     idpId: string,
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     sort?: string,
     sortDir?: QuerySortOrder,
     filter?: string,
@@ -187,7 +188,8 @@ export class IdentityProvidersApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IdentityProviderUpdateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -203,6 +205,12 @@ export class IdentityProvidersApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class IdentityProvidersApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -218,21 +226,30 @@ export class IdentityProvidersApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: IdentityProvidersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IdentityProvidersResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "IdentityProvidersResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as IdentityProvidersResponse;
       return body;
     }
     if (response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -249,13 +266,16 @@ export class IdentityProvidersApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -270,9 +290,14 @@ export class IdentityProvidersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IdentityProvidersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "IdentityProvidersResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as IdentityProvidersResponse;
       return body;
     }
@@ -299,8 +324,14 @@ export class IdentityProvidersApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: UsersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsersResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "UsersResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UsersResponse;
       return body;
     }
@@ -311,13 +342,16 @@ export class IdentityProvidersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -334,13 +368,16 @@ export class IdentityProvidersApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -355,9 +392,14 @@ export class IdentityProvidersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "UsersResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UsersResponse;
       return body;
     }
@@ -384,8 +426,14 @@ export class IdentityProvidersApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: IdentityProviderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IdentityProviderResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "IdentityProviderResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as IdentityProviderResponse;
       return body;
     }
@@ -396,13 +444,16 @@ export class IdentityProvidersApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -419,13 +470,16 @@ export class IdentityProvidersApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -440,9 +494,14 @@ export class IdentityProvidersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IdentityProviderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "IdentityProviderResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as IdentityProviderResponse;
       return body;
     }
@@ -463,14 +522,14 @@ export interface IdentityProvidersApiListIdentityProviderUsersRequest {
   idpId: string;
   /**
    * Number of items to return per page. The maximum allowed value is 100.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Specific page number to return.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * User attribute to order results by. Options include `email` and `name`.
    * @type string
@@ -521,7 +580,8 @@ export class IdentityProvidersApi {
     this.requestFactory =
       requestFactory || new IdentityProvidersApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new IdentityProvidersApiResponseProcessor();
+      responseProcessor ||
+      new IdentityProvidersApiResponseProcessor(configuration);
   }
 
   /**
@@ -581,7 +641,7 @@ export class IdentityProvidersApi {
   ): AsyncGenerator<User> {
     let pageSize = 10;
     if (param.pageSize !== undefined) {
-      pageSize = param.pageSize;
+      pageSize = Number(param.pageSize);
     }
     param.pageSize = pageSize;
     param.pageNumber = 0;
@@ -615,7 +675,7 @@ export class IdentityProvidersApi {
       if (results.length < pageSize) {
         break;
       }
-      param.pageNumber = param.pageNumber + 1;
+      param.pageNumber = Number(param.pageNumber) + 1;
     }
   }
 

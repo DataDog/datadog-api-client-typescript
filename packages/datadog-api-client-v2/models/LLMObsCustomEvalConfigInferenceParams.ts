@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * LLM inference parameters for a custom evaluator.
@@ -17,7 +17,7 @@ export class LLMObsCustomEvalConfigInferenceParams {
   /**
    * Maximum number of tokens to generate.
    */
-  "maxTokens"?: number;
+  "maxTokens"?: Int64;
   /**
    * Presence penalty to reduce repetition.
    */
@@ -29,7 +29,7 @@ export class LLMObsCustomEvalConfigInferenceParams {
   /**
    * Top-k sampling parameter.
    */
-  "topK"?: number;
+  "topK"?: Int64;
   /**
    * Top-p (nucleus) sampling parameter.
    */

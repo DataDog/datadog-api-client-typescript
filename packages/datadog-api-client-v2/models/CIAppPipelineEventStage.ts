@@ -9,7 +9,7 @@ import { CIAppHostInfo } from "./CIAppHostInfo";
 import { CIAppPipelineEventStageLevel } from "./CIAppPipelineEventStageLevel";
 import { CIAppPipelineEventStageStatus } from "./CIAppPipelineEventStageStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Details of a CI stage.
@@ -67,7 +67,7 @@ export class CIAppPipelineEventStage {
   /**
    * The queue time in milliseconds, if applicable.
    */
-  "queueTime"?: number;
+  "queueTime"?: Int64;
   /**
    * Time when the stage run started (it should not include any queue time). The time format must be RFC3339.
    */

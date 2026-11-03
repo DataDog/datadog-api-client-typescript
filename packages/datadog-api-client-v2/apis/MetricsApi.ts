@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { DerivedMetricCreateRequest } from "../models/DerivedMetricCreateRequest";
@@ -87,7 +88,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DerivedMetricCreateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -149,7 +151,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         "HistoricalMetricsConfigurationCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -209,7 +212,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         "MetricTagConfigurationCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -256,7 +260,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TagIndexingRuleCreateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -324,7 +329,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         "TagIndexingRuleExemptionCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -864,7 +870,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listActiveMetricConfigurations(
     metricName: string,
-    windowSeconds?: number,
+    windowSeconds?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -997,12 +1003,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     filterMetricType?: MetricTagConfigurationMetricTypeCategory,
     filterIncludePercentiles?: boolean,
     filterQueried?: boolean,
-    filterQueriedWindowSeconds?: number,
+    filterQueriedWindowSeconds?: Int64Input,
     filterTags?: string,
     filterRelatedAssets?: boolean,
     include?: string,
     sort?: string,
-    windowSeconds?: number,
+    windowSeconds?: Int64Input,
     pageSize?: number,
     pageCursor?: string,
     _options?: Configuration
@@ -1230,8 +1236,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listTagIndexingRules(
-    pageLimit?: number,
-    pageOffset?: number,
+    pageLimit?: Int64Input,
+    pageOffset?: Int64Input,
     search?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -1327,7 +1333,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listTagsByMetricName(
     metricName: string,
-    windowSeconds?: number,
+    windowSeconds?: Int64Input,
     filterTags?: string,
     filterMatch?: string,
     filterIncludeTagValues?: boolean,
@@ -1416,7 +1422,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listVolumesByMetricName(
     metricName: string,
-    windowSeconds?: number,
+    windowSeconds?: Int64Input,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -1496,7 +1502,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ScalarFormulaQueryRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1543,7 +1550,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TimeseriesFormulaQueryRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1590,7 +1598,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TagIndexingRuleOrderRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1646,7 +1655,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MetricPayload", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1699,7 +1709,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DerivedMetricCreateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1759,7 +1770,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         "MetricTagConfigurationUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1815,7 +1827,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TagIndexingRuleUpdateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1883,7 +1896,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         "TagIndexingRuleExemptionUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1899,6 +1913,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class MetricsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1914,8 +1934,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: DerivedMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DerivedMetricResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DerivedMetricResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DerivedMetricResponse;
       return body;
     }
@@ -1927,13 +1953,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1948,9 +1977,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DerivedMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DerivedMetricResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DerivedMetricResponse;
       return body;
     }
@@ -1978,8 +2012,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode === 200 || response.httpStatusCode === 201) {
       const body: HistoricalMetricsConfigurationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "HistoricalMetricsConfigurationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "HistoricalMetricsConfigurationResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HistoricalMetricsConfigurationResponse;
       return body;
     }
@@ -1990,13 +2030,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2013,13 +2056,16 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2035,9 +2081,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HistoricalMetricsConfigurationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "HistoricalMetricsConfigurationResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HistoricalMetricsConfigurationResponse;
       return body;
     }
@@ -2064,8 +2115,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricTagConfigurationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "MetricTagConfigurationResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricTagConfigurationResponse;
       return body;
     }
@@ -2077,13 +2134,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2098,9 +2158,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "MetricTagConfigurationResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricTagConfigurationResponse;
       return body;
     }
@@ -2127,8 +2192,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: TagIndexingRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagIndexingRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TagIndexingRuleResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TagIndexingRuleResponse;
       return body;
     }
@@ -2139,13 +2210,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2163,9 +2237,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagIndexingRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TagIndexingRuleResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TagIndexingRuleResponse;
       return body;
     }
@@ -2193,8 +2272,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: TagIndexingRuleExemptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "TagIndexingRuleExemptionResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TagIndexingRuleExemptionResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TagIndexingRuleExemptionResponse;
       return body;
     }
@@ -2205,13 +2290,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2230,9 +2318,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagIndexingRuleExemptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "TagIndexingRuleExemptionResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TagIndexingRuleExemptionResponse;
       return body;
     }
@@ -2261,13 +2354,16 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2310,13 +2406,16 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2333,13 +2432,16 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2386,13 +2488,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2437,13 +2542,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2493,13 +2601,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2541,8 +2652,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: MetricEstimateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricEstimateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "MetricEstimateResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricEstimateResponse;
       return body;
     }
@@ -2554,13 +2671,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2575,9 +2695,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricEstimateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "MetricEstimateResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricEstimateResponse;
       return body;
     }
@@ -2604,8 +2729,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DerivedMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DerivedMetricResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DerivedMetricResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DerivedMetricResponse;
       return body;
     }
@@ -2616,13 +2747,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2637,9 +2771,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DerivedMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DerivedMetricResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DerivedMetricResponse;
       return body;
     }
@@ -2667,21 +2806,30 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: HistoricalMetricsConfigurationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "HistoricalMetricsConfigurationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "HistoricalMetricsConfigurationResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HistoricalMetricsConfigurationResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2698,13 +2846,16 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2720,9 +2871,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HistoricalMetricsConfigurationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "HistoricalMetricsConfigurationResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as HistoricalMetricsConfigurationResponse;
       return body;
     }
@@ -2749,8 +2905,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: MetricTagCardinalitiesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricTagCardinalitiesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "MetricTagCardinalitiesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricTagCardinalitiesResponse;
       return body;
     }
@@ -2762,13 +2924,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2786,9 +2951,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricTagCardinalitiesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "MetricTagCardinalitiesResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricTagCardinalitiesResponse;
       return body;
     }
@@ -2815,8 +2985,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TagIndexingRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagIndexingRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TagIndexingRuleResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TagIndexingRuleResponse;
       return body;
     }
@@ -2828,13 +3004,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2852,9 +3031,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagIndexingRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TagIndexingRuleResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TagIndexingRuleResponse;
       return body;
     }
@@ -2882,8 +3066,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: TagIndexingRuleExemptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "TagIndexingRuleExemptionResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TagIndexingRuleExemptionResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TagIndexingRuleExemptionResponse;
       return body;
     }
@@ -2895,13 +3085,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2920,9 +3113,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagIndexingRuleExemptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "TagIndexingRuleExemptionResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TagIndexingRuleExemptionResponse;
       return body;
     }
@@ -2950,8 +3148,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: MetricSuggestedTagsAndAggregationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MetricSuggestedTagsAndAggregationsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "MetricSuggestedTagsAndAggregationsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as MetricSuggestedTagsAndAggregationsResponse;
       return body;
     }
@@ -2963,13 +3167,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2985,9 +3192,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricSuggestedTagsAndAggregationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "MetricSuggestedTagsAndAggregationsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as MetricSuggestedTagsAndAggregationsResponse;
       return body;
     }
@@ -3014,8 +3226,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: MetricAssetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricAssetsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "MetricAssetsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricAssetsResponse;
       return body;
     }
@@ -3027,13 +3245,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3048,9 +3269,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricAssetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "MetricAssetsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricAssetsResponse;
       return body;
     }
@@ -3077,8 +3303,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricTagConfigurationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "MetricTagConfigurationResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricTagConfigurationResponse;
       return body;
     }
@@ -3089,13 +3321,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3110,9 +3345,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "MetricTagConfigurationResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricTagConfigurationResponse;
       return body;
     }
@@ -3140,8 +3380,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: MetricsAndMetricTagConfigurationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MetricsAndMetricTagConfigurationsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "MetricsAndMetricTagConfigurationsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as MetricsAndMetricTagConfigurationsResponse;
       return body;
     }
@@ -3152,13 +3398,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3174,9 +3423,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricsAndMetricTagConfigurationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "MetricsAndMetricTagConfigurationsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as MetricsAndMetricTagConfigurationsResponse;
       return body;
     }
@@ -3204,8 +3458,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: TagIndexingRuleExemptionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "TagIndexingRuleExemptionsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TagIndexingRuleExemptionsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TagIndexingRuleExemptionsResponse;
       return body;
     }
@@ -3216,13 +3476,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3241,9 +3504,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagIndexingRuleExemptionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "TagIndexingRuleExemptionsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TagIndexingRuleExemptionsResponse;
       return body;
     }
@@ -3270,8 +3538,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TagIndexingRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagIndexingRulesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TagIndexingRulesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TagIndexingRulesResponse;
       return body;
     }
@@ -3282,13 +3556,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3306,9 +3583,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagIndexingRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TagIndexingRulesResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TagIndexingRulesResponse;
       return body;
     }
@@ -3335,8 +3617,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TagIndexingRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagIndexingRulesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TagIndexingRulesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TagIndexingRulesResponse;
       return body;
     }
@@ -3347,13 +3635,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3371,9 +3662,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagIndexingRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TagIndexingRulesResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TagIndexingRulesResponse;
       return body;
     }
@@ -3400,8 +3696,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: MetricAllTagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricAllTagsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "MetricAllTagsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricAllTagsResponse;
       return body;
     }
@@ -3413,13 +3715,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3434,9 +3739,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricAllTagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "MetricAllTagsResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricAllTagsResponse;
       return body;
     }
@@ -3463,8 +3773,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: MetricVolumesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricVolumesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "MetricVolumesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricVolumesResponse;
       return body;
     }
@@ -3476,13 +3792,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3497,9 +3816,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricVolumesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "MetricVolumesResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricVolumesResponse;
       return body;
     }
@@ -3526,8 +3850,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ScalarFormulaQueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ScalarFormulaQueryResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ScalarFormulaQueryResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ScalarFormulaQueryResponse;
       return body;
     }
@@ -3539,13 +3869,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3560,9 +3893,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ScalarFormulaQueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ScalarFormulaQueryResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ScalarFormulaQueryResponse;
       return body;
     }
@@ -3589,8 +3927,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TimeseriesFormulaQueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TimeseriesFormulaQueryResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TimeseriesFormulaQueryResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TimeseriesFormulaQueryResponse;
       return body;
     }
@@ -3602,13 +3946,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3623,9 +3970,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TimeseriesFormulaQueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TimeseriesFormulaQueryResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TimeseriesFormulaQueryResponse;
       return body;
     }
@@ -3661,13 +4013,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3709,8 +4064,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 202) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IntakePayloadAccepted"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "IntakePayloadAccepted",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as IntakePayloadAccepted;
       return body;
     }
@@ -3723,13 +4084,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3744,9 +4108,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "IntakePayloadAccepted",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as IntakePayloadAccepted;
       return body;
     }
@@ -3773,8 +4142,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: DerivedMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DerivedMetricResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "DerivedMetricResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DerivedMetricResponse;
       return body;
     }
@@ -3785,13 +4160,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3806,9 +4184,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DerivedMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "DerivedMetricResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as DerivedMetricResponse;
       return body;
     }
@@ -3835,8 +4218,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricTagConfigurationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "MetricTagConfigurationResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricTagConfigurationResponse;
       return body;
     }
@@ -3848,13 +4237,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3869,9 +4261,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "MetricTagConfigurationResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as MetricTagConfigurationResponse;
       return body;
     }
@@ -3898,8 +4295,14 @@ export class MetricsApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: TagIndexingRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagIndexingRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "TagIndexingRuleResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TagIndexingRuleResponse;
       return body;
     }
@@ -3912,13 +4315,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3936,9 +4342,14 @@ export class MetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagIndexingRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "TagIndexingRuleResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as TagIndexingRuleResponse;
       return body;
     }
@@ -3966,8 +4377,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: TagIndexingRuleExemptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "TagIndexingRuleExemptionResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TagIndexingRuleExemptionResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TagIndexingRuleExemptionResponse;
       return body;
     }
@@ -3979,13 +4396,16 @@ export class MetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4004,9 +4424,14 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagIndexingRuleExemptionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "TagIndexingRuleExemptionResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TagIndexingRuleExemptionResponse;
       return body;
     }
@@ -4191,9 +4616,9 @@ export interface MetricsApiListActiveMetricConfigurationsRequest {
   /**
    * The number of seconds of look back (from now).
    * Default value is 604,800 (1 week), minimum value is 7200 (2 hours), maximum value is 2,630,000 (1 month).
-   * @type number
+   * @type Int64Input
    */
-  windowSeconds?: number;
+  windowSeconds?: Int64Input;
 }
 
 export interface MetricsApiListMetricAssetsRequest {
@@ -4245,9 +4670,9 @@ export interface MetricsApiListTagConfigurationsRequest {
   filterQueried?: boolean;
   /**
    * The look-back window for `filter[queried]`, in seconds. You must also set `filter[queried]`, or the request returns a 400 error. The default value is 2,592,000 seconds (30 days), the maximum value is 15,552,000 seconds (180 days), and the minimum value is 0. With `0`, the window ends now, so `filter[queried]=true` returns almost no metrics and `filter[queried]=false` returns all metrics. For example: `filter[queried]=true&filter[queried][window][seconds]=604800`.
-   * @type number
+   * @type Int64Input
    */
-  filterQueriedWindowSeconds?: number;
+  filterQueriedWindowSeconds?: Int64Input;
   /**
    * Only return metrics that were submitted with tags matching this expression. You can use AND, OR, IN, and wildcards. For example: `filter[tags]=env IN (staging,test) AND service:web*`.
    * @type string
@@ -4270,9 +4695,9 @@ export interface MetricsApiListTagConfigurationsRequest {
   sort?: string;
   /**
    * Only return metrics that have been actively reporting in this window. The default value is 3,600 seconds (1 hour), the maximum value is 5,184,000 seconds (60 days), and the minimum value is 0. With `0`, the API returns only metrics that reported in the last few minutes.
-   * @type number
+   * @type Int64Input
    */
-  windowSeconds?: number;
+  windowSeconds?: Int64Input;
   /**
    * Maximum number of results per page. Send `page[size]` on the first request to opt in to pagination. On subsequent requests, send `page[cursor]` set to the value of `meta.pagination.next_cursor` from the previous response. To retain a custom page size, include `page[size]` on every request. The default value is 10000, the maximum value is 10000, and the minimum value is 1.
    * @type number
@@ -4327,14 +4752,14 @@ export interface MetricsApiListTagIndexingRuleExemptionsRequest {
 export interface MetricsApiListTagIndexingRulesRequest {
   /**
    * Page size (1–1000, default 100).
-   * @type number
+   * @type Int64Input
    */
-  pageLimit?: number;
+  pageLimit?: Int64Input;
   /**
    * Page offset from the start of the list (default 0).
-   * @type number
+   * @type Int64Input
    */
-  pageOffset?: number;
+  pageOffset?: Int64Input;
   /**
    * Substring filter on rule name.
    * @type string
@@ -4359,9 +4784,9 @@ export interface MetricsApiListTagsByMetricNameRequest {
   /**
    * The number of seconds of look back (from now) to query for tag data.
    * Default value is 14400 (4 hours), minimum value is 14400 (4 hours).
-   * @type number
+   * @type Int64Input
    */
-  windowSeconds?: number;
+  windowSeconds?: Int64Input;
   /**
    * Filter results to tags from data points that have the specified tags.
    * For example, `filter[tags]=env:staging,host:123` returns tags only from data points with both `env:staging` and `host:123`.
@@ -4402,9 +4827,9 @@ export interface MetricsApiListVolumesByMetricNameRequest {
   /**
    * The number of seconds of look back (from now).
    * Default value is 3,600 (1 hour), maximum value is 2,592,000 (1 month).
-   * @type number
+   * @type Int64Input
    */
-  windowSeconds?: number;
+  windowSeconds?: Int64Input;
 }
 
 export interface MetricsApiQueryScalarDataRequest {
@@ -4502,7 +4927,7 @@ export class MetricsApi {
     this.requestFactory =
       requestFactory || new MetricsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new MetricsApiResponseProcessor();
+      responseProcessor || new MetricsApiResponseProcessor(configuration);
   }
 
   /**
@@ -5015,7 +5440,7 @@ export class MetricsApi {
   ): AsyncGenerator<MetricsAndMetricTagConfigurations> {
     let pageSize = 10000;
     if (param.pageSize !== undefined) {
-      pageSize = param.pageSize;
+      pageSize = Number(param.pageSize);
     }
     param.pageSize = pageSize;
     while (true) {
@@ -5111,7 +5536,7 @@ export class MetricsApi {
   ): AsyncGenerator<TagIndexingRuleExemptionData> {
     let pageSize = 10000;
     if (param.pageSize !== undefined) {
-      pageSize = param.pageSize;
+      pageSize = Number(param.pageSize);
     }
     param.pageSize = pageSize;
     while (true) {

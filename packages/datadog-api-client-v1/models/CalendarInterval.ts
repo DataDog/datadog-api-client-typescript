@@ -5,7 +5,7 @@
  */
 import { CalendarIntervalType } from "./CalendarIntervalType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Calendar interval definition.
@@ -18,7 +18,7 @@ export class CalendarInterval {
   /**
    * Quantity of the interval.
    */
-  "quantity"?: number;
+  "quantity"?: Int64;
   /**
    * Timezone for the interval.
    */

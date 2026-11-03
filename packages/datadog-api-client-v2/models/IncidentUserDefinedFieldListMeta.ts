@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata for the user-defined field list response.
@@ -13,11 +13,11 @@ export class IncidentUserDefinedFieldListMeta {
   /**
    * The offset of the current page.
    */
-  "offset"?: number;
+  "offset"?: Int64;
   /**
    * The total number of items in the current page.
    */
-  "size"?: number;
+  "size"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

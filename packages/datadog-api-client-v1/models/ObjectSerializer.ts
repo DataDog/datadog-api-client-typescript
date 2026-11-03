@@ -813,6 +813,24 @@ import {
   UnparsedObject,
 } from "../../datadog-api-client-common/util";
 import { logger } from "../../../logger";
+import type * as LosslessJson from "lossless-json";
+
+let losslessJson: typeof LosslessJson | undefined;
+
+// Loaded only when preserveLargeIntegers is enabled: lossless-json needs Node.js 14 or later.
+function loadLosslessJson(): typeof LosslessJson {
+  if (losslessJson === undefined) {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      losslessJson = require("lossless-json") as typeof LosslessJson;
+    } catch (error) {
+      throw new Error(
+        `preserveLargeIntegers requires Node.js 14 or later: ${error}`
+      );
+    }
+  }
+  return losslessJson;
+}
 
 const primitives = [
   "string",
@@ -3331,6 +3349,8 @@ export class ObjectSerializer {
       typeof data == type.toLowerCase()
     ) {
       return data;
+    } else if (type == "number" && typeof data == "bigint") {
+      return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
       if (!Array.isArray(data)) {
         throw new TypeError(`mismatch types '${data}' and '${type}'`);
@@ -3476,14 +3496,28 @@ export class ObjectSerializer {
     }
   }
 
-  public static deserialize(data: any, type: string, format = ""): any {
+  public static deserialize(
+    data: any,
+    type: string,
+    format = "",
+    preserveLargeIntegers = false
+  ): any {
     if (data == undefined || type == "any") {
       return data;
+    } else if (
+      preserveLargeIntegers &&
+      type == "number" &&
+      format == "int64" &&
+      Number.isInteger(data)
+    ) {
+      return BigInt(data);
     } else if (
       primitives.includes(type.toLowerCase()) &&
       typeof data == type.toLowerCase()
     ) {
       return data;
+    } else if (type == "number" && typeof data == "bigint") {
+      return format == "int64" ? data : Number(data);
     } else if (type.startsWith(ARRAY_PREFIX)) {
       // Assert the passed data is Array type
       if (!Array.isArray(data)) {
@@ -3497,7 +3531,12 @@ export class ObjectSerializer {
       const transformedData: any[] = [];
       for (const element of data) {
         transformedData.push(
-          ObjectSerializer.deserialize(element, subType, format)
+          ObjectSerializer.deserialize(
+            element,
+            subType,
+            format,
+            preserveLargeIntegers
+          )
         );
       }
       return transformedData;
@@ -3509,7 +3548,12 @@ export class ObjectSerializer {
       const transformedData: any[] = [];
       for (const element of data) {
         transformedData.push(
-          ObjectSerializer.deserialize(element, subType, format)
+          ObjectSerializer.deserialize(
+            element,
+            subType,
+            format,
+            preserveLargeIntegers
+          )
         );
       }
       return transformedData;
@@ -3524,7 +3568,8 @@ export class ObjectSerializer {
         transformedData[key] = ObjectSerializer.deserialize(
           data[key],
           subType,
-          format
+          format,
+          preserveLargeIntegers
         );
       }
       return transformedData;
@@ -3545,7 +3590,12 @@ export class ObjectSerializer {
         const oneOfs: any[] = [];
         for (const oneOf of oneOfMap[type]) {
           try {
-            const d = ObjectSerializer.deserialize(data, oneOf, format);
+            const d = ObjectSerializer.deserialize(
+              data,
+              oneOf,
+              format,
+              preserveLargeIntegers
+            );
             if (!(d instanceof UnparsedObject) && !d?._unparsed) {
               oneOfs.push(d);
             }
@@ -3596,7 +3646,8 @@ export class ObjectSerializer {
                 ? ObjectSerializer.deserialize(
                     data[key],
                     attrInfo.type,
-                    attrInfo.format
+                    attrInfo.format,
+                    preserveLargeIntegers
                   )
                 : data[key];
             }
@@ -3609,7 +3660,8 @@ export class ObjectSerializer {
             instance.additionalProperties = ObjectSerializer.deserialize(
               additionalProperties,
               attributeObj.type,
-              attributeObj.format
+              attributeObj.format,
+              preserveLargeIntegers
             );
           }
         } else {
@@ -3628,7 +3680,8 @@ export class ObjectSerializer {
         instance[attributeName] = ObjectSerializer.deserialize(
           data[attributeObj.baseName],
           attributeObj.type,
-          attributeObj.format
+          attributeObj.format,
+          preserveLargeIntegers
         );
 
         // check for required properties
@@ -3710,8 +3763,15 @@ export class ObjectSerializer {
   /**
    * Convert data to a string according the given media type
    */
-  public static stringify(data: any, mediaType: string): string {
+  public static stringify(
+    data: any,
+    mediaType: string,
+    preserveLargeIntegers?: boolean
+  ): string {
     if (mediaType === "application/json" || mediaType === "text/json") {
+      if (preserveLargeIntegers) {
+        return loadLosslessJson().stringify(data) as string;
+      }
       return JSON.stringify(data);
     }
 
@@ -3725,8 +3785,27 @@ export class ObjectSerializer {
   /**
    * Parse data from a string according to the given media type
    */
-  public static parse(rawData: string, mediaType: string | undefined): any {
+  public static parse(
+    rawData: string,
+    mediaType: string | undefined,
+    preserveLargeIntegers?: boolean
+  ): any {
+    const lossless = preserveLargeIntegers ? loadLosslessJson() : undefined;
     try {
+      if (lossless) {
+        try {
+          return lossless.parse(rawData, null, (value: string) =>
+            lossless.isInteger(value) && !Number.isSafeInteger(Number(value))
+              ? BigInt(value)
+              : Number(value)
+          );
+        } catch (error) {
+          // lossless-json rejects some valid JSON (e.g. duplicate keys) that JSON.parse accepts
+          logger.debug(
+            `could not parse ${mediaType} without losing precision: ${error}`
+          );
+        }
+      }
       return JSON.parse(rawData);
     } catch (error) {
       logger.debug(`could not parse ${mediaType}: ${error}`);

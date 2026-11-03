@@ -7,7 +7,7 @@ import { ProductAnalyticsGraphQueryGroupBySource } from "./ProductAnalyticsGraph
 import { ProductAnalyticsGroupBySort } from "./ProductAnalyticsGroupBySort";
 import { ProductAnalyticsJourneyTarget } from "./ProductAnalyticsJourneyTarget";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Segments journey results by the values of a facet.
@@ -20,7 +20,7 @@ export class ProductAnalyticsGraphQueryGroupBy {
   /**
    * Maximum number of groups to return. Omit it to let the service choose.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * Whether to exclude entities that have no value for this facet.
    */

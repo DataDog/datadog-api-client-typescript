@@ -5,7 +5,7 @@
  */
 import { QuerySortOrder } from "./QuerySortOrder";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Options for limiting results returned.
@@ -14,7 +14,7 @@ export class WidgetFormulaLimit {
   /**
    * Number of results to return.
    */
-  "count"?: number;
+  "count"?: Int64;
   /**
    * Direction of sort.
    */

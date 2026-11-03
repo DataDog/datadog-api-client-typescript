@@ -5,7 +5,7 @@
  */
 import { MetricEstimateType } from "./MetricEstimateType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing the definition of a metric estimate attribute.
@@ -22,7 +22,7 @@ export class MetricEstimateAttributes {
   /**
    * Estimated cardinality of the metric based on the queried configuration.
    */
-  "estimatedOutputSeries"?: number;
+  "estimatedOutputSeries"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

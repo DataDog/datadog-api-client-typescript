@@ -6,7 +6,7 @@
 import { ReportScheduleResourceType } from "./ReportScheduleResourceType";
 import { ReportScheduleTemplateVariable } from "./ReportScheduleTemplateVariable";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The configuration and download URL for the initiated print-only report.
@@ -19,7 +19,7 @@ export class PrintReportResponseAttributes {
   /**
    * The start of the rendered time range, as a Unix timestamp in milliseconds.
    */
-  "fromTs": number;
+  "fromTs": Int64;
   /**
    * The identifier of the dashboard or integration dashboard.
    */
@@ -43,7 +43,7 @@ export class PrintReportResponseAttributes {
   /**
    * The end of the rendered time range, as a Unix timestamp in milliseconds.
    */
-  "toTs": number;
+  "toTs": Int64;
 
   /**
    * A container for additional, undeclared properties.

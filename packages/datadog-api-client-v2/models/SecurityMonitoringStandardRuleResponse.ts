@@ -14,7 +14,7 @@ import { SecurityMonitoringSchedulingOptions } from "./SecurityMonitoringSchedul
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
 import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Rule.
@@ -31,7 +31,7 @@ export class SecurityMonitoringStandardRuleResponse {
   /**
    * The version of the rule at which its detection logic last changed. Updates that only change the name, message, tags, or notifications do not change this value.
    */
-  "compatibleVersion"?: number;
+  "compatibleVersion"?: Int64;
   /**
    * How to generate compliance signals. Useful for cloud_configuration rules only.
    */
@@ -39,11 +39,11 @@ export class SecurityMonitoringStandardRuleResponse {
   /**
    * When the rule was created, timestamp in milliseconds.
    */
-  "createdAt"?: number;
+  "createdAt"?: Int64;
   /**
    * User ID of the user who created the rule.
    */
-  "creationAuthorId"?: number;
+  "creationAuthorId"?: Int64;
   /**
    * Custom/Overridden message for generated signals (used in case of Default rule update).
    */
@@ -59,7 +59,7 @@ export class SecurityMonitoringStandardRuleResponse {
   /**
    * When the rule will be deprecated, timestamp in milliseconds.
    */
-  "deprecationDate"?: number;
+  "deprecationDate"?: Int64;
   /**
    * Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
    */
@@ -127,15 +127,15 @@ export class SecurityMonitoringStandardRuleResponse {
   /**
    * User ID of the user who updated the rule.
    */
-  "updateAuthorId"?: number;
+  "updateAuthorId"?: Int64;
   /**
    * The date the rule was last updated, in milliseconds.
    */
-  "updatedAt"?: number;
+  "updatedAt"?: Int64;
   /**
    * The version of the rule.
    */
-  "version"?: number;
+  "version"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

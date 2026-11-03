@@ -6,7 +6,7 @@
 import { LLMObsExperimentSpanMeta } from "./LLMObsExperimentSpanMeta";
 import { LLMObsExperimentSpanStatus } from "./LLMObsExperimentSpanStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A span associated with an Agent Observability experiment.
@@ -19,7 +19,7 @@ export class LLMObsExperimentSpan {
   /**
    * Duration of the span in nanoseconds.
    */
-  "duration": number;
+  "duration": Int64;
   /**
    * Metadata associated with an experiment span.
    */
@@ -39,7 +39,7 @@ export class LLMObsExperimentSpan {
   /**
    * Start time of the span in nanoseconds since Unix epoch.
    */
-  "startNs": number;
+  "startNs": Int64;
   /**
    * Status of the span.
    */

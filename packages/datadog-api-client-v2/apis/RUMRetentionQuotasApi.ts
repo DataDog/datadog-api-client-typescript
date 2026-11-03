@@ -165,7 +165,8 @@ export class RUMRetentionQuotasApiRequestFactory extends BaseAPIRequestFactory {
         "RumRetentionQuotaConfigUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -181,6 +182,12 @@ export class RUMRetentionQuotasApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class RUMRetentionQuotasApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -203,13 +210,16 @@ export class RUMRetentionQuotasApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -226,13 +236,16 @@ export class RUMRetentionQuotasApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -272,8 +285,14 @@ export class RUMRetentionQuotasApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: RumRetentionQuotaConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RumRetentionQuotaConfigResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "RumRetentionQuotaConfigResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as RumRetentionQuotaConfigResponse;
       return body;
     }
@@ -285,13 +304,16 @@ export class RUMRetentionQuotasApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -308,13 +330,16 @@ export class RUMRetentionQuotasApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -330,9 +355,14 @@ export class RUMRetentionQuotasApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumRetentionQuotaConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "RumRetentionQuotaConfigResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as RumRetentionQuotaConfigResponse;
       return body;
     }
@@ -360,8 +390,14 @@ export class RUMRetentionQuotasApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: RumRetentionQuotaConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RumRetentionQuotaConfigResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "RumRetentionQuotaConfigResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as RumRetentionQuotaConfigResponse;
       return body;
     }
@@ -373,13 +409,16 @@ export class RUMRetentionQuotasApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -396,13 +435,16 @@ export class RUMRetentionQuotasApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -418,9 +460,14 @@ export class RUMRetentionQuotasApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumRetentionQuotaConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "RumRetentionQuotaConfigResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as RumRetentionQuotaConfigResponse;
       return body;
     }
@@ -497,7 +544,8 @@ export class RUMRetentionQuotasApi {
     this.requestFactory =
       requestFactory || new RUMRetentionQuotasApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RUMRetentionQuotasApiResponseProcessor();
+      responseProcessor ||
+      new RUMRetentionQuotasApiResponseProcessor(configuration);
   }
 
   /**

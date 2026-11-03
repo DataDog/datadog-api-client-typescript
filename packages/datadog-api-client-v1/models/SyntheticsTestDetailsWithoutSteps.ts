@@ -10,7 +10,7 @@ import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing details about your Synthetic test, without test steps.
@@ -35,7 +35,7 @@ export class SyntheticsTestDetailsWithoutSteps {
   /**
    * The associated monitor ID.
    */
-  "monitorId"?: number;
+  "monitorId"?: Int64;
   /**
    * Name of the test.
    */

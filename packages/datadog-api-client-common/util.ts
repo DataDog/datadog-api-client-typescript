@@ -5,6 +5,17 @@ export class UnparsedObject {
   }
 }
 
+/**
+ * Augment with `{ preserveLargeIntegers: true }` when the `preserveLargeIntegers` option is enabled, so int64 fields are typed as bigint.
+ */
+export interface CustomTypeOptions {}
+
+export type Int64 = CustomTypeOptions extends { preserveLargeIntegers: true }
+  ? bigint
+  : number;
+
+export type Int64Input = number | Int64;
+
 export type AttributeTypeMap = {
   [key: string]: {
     baseName: string;

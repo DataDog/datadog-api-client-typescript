@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Information about a single test run.
@@ -17,7 +17,7 @@ export class SyntheticsTriggerCITestRunResult {
   /**
    * The location ID of the test run.
    */
-  "location"?: number;
+  "location"?: Int64;
   /**
    * The public ID of the Synthetic test.
    */

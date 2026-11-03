@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Most anomalous point within the detected interval.
@@ -17,7 +17,7 @@ export class TimeseriesAnomalyInvestigationMaximumDeviation {
   /**
    * Point timestamp in milliseconds since the Unix epoch.
    */
-  "timestamp": number;
+  "timestamp": Int64;
   /**
    * Observed value at the point.
    */

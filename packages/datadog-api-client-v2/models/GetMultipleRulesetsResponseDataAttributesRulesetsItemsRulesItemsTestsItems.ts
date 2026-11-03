@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A test case associated with a static analysis rule, containing the source code and expected annotation count.
@@ -13,7 +13,7 @@ export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTes
   /**
    * The expected number of annotations (findings) the rule should produce when run against the test code.
    */
-  "annotationCount"?: number;
+  "annotationCount"?: Int64;
   /**
    * The source code snippet used as input for the rule test.
    */

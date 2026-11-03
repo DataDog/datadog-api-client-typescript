@@ -68,7 +68,8 @@ export class TwilioIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         "TwilioIntegrationAccountCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -267,7 +268,8 @@ export class TwilioIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         "TwilioIntegrationAccountUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -283,6 +285,12 @@ export class TwilioIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class TwilioIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -299,8 +307,14 @@ export class TwilioIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: TwilioIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "TwilioIntegrationAccountResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TwilioIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TwilioIntegrationAccountResponse;
       return body;
     }
@@ -312,13 +326,16 @@ export class TwilioIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -332,13 +349,16 @@ export class TwilioIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -357,9 +377,14 @@ export class TwilioIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TwilioIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "TwilioIntegrationAccountResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TwilioIntegrationAccountResponse;
       return body;
     }
@@ -395,13 +420,16 @@ export class TwilioIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -441,8 +469,14 @@ export class TwilioIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: TwilioIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "TwilioIntegrationAccountResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TwilioIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TwilioIntegrationAccountResponse;
       return body;
     }
@@ -454,13 +488,16 @@ export class TwilioIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -476,9 +513,14 @@ export class TwilioIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TwilioIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "TwilioIntegrationAccountResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TwilioIntegrationAccountResponse;
       return body;
     }
@@ -506,8 +548,14 @@ export class TwilioIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: TwilioIntegrationAccountsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "TwilioIntegrationAccountsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TwilioIntegrationAccountsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TwilioIntegrationAccountsResponse;
       return body;
     }
@@ -519,13 +567,16 @@ export class TwilioIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -541,9 +592,14 @@ export class TwilioIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TwilioIntegrationAccountsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "TwilioIntegrationAccountsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TwilioIntegrationAccountsResponse;
       return body;
     }
@@ -571,8 +627,14 @@ export class TwilioIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: TwilioIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "TwilioIntegrationAccountResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TwilioIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TwilioIntegrationAccountResponse;
       return body;
     }
@@ -584,13 +646,16 @@ export class TwilioIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -604,13 +669,16 @@ export class TwilioIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -629,9 +697,14 @@ export class TwilioIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TwilioIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "TwilioIntegrationAccountResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as TwilioIntegrationAccountResponse;
       return body;
     }
@@ -693,7 +766,8 @@ export class TwilioIntegrationApi {
     this.requestFactory =
       requestFactory || new TwilioIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new TwilioIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new TwilioIntegrationApiResponseProcessor(configuration);
   }
 
   /**

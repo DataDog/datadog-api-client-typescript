@@ -5,7 +5,7 @@
  */
 import { EscalationPolicyStepAttributesAssignment } from "./EscalationPolicyStepAttributesAssignment";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Defines attributes for an escalation policy step, such as assignment strategy and escalation timeout.
@@ -18,7 +18,7 @@ export class EscalationPolicyStepAttributes {
   /**
    * Specifies how many seconds to wait before escalating to the next step.
    */
-  "escalateAfterSeconds"?: number;
+  "escalateAfterSeconds"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

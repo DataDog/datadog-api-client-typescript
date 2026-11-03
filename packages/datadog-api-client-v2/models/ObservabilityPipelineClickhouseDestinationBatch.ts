@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Batching configuration for ClickHouse inserts.
@@ -13,11 +13,11 @@ export class ObservabilityPipelineClickhouseDestinationBatch {
   /**
    * Maximum number of events per batch before it is flushed.
    */
-  "maxEvents"?: number;
+  "maxEvents"?: Int64;
   /**
    * Maximum number of seconds to wait before flushing a partial batch.
    */
-  "timeoutSecs"?: number;
+  "timeoutSecs"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

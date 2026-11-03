@@ -5,7 +5,7 @@
  */
 import { FindingMuteReason } from "./FindingMuteReason";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Information about the mute status of this finding.
@@ -18,7 +18,7 @@ export class FindingMute {
   /**
    * The expiration date of the mute or unmute action (Unix ms).
    */
-  "expirationDate"?: number;
+  "expirationDate"?: Int64;
   /**
    * Whether this finding is muted or unmuted.
    */
@@ -30,7 +30,7 @@ export class FindingMute {
   /**
    * The start of the mute period.
    */
-  "startDate"?: number;
+  "startDate"?: Int64;
   /**
    * The ID of the user who muted or unmuted this finding.
    */

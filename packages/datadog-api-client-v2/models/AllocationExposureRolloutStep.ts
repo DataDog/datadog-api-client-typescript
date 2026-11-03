@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Exposure progression step details.
@@ -25,7 +25,7 @@ export class AllocationExposureRolloutStep {
   /**
    * Logical index grouping related steps.
    */
-  "groupedStepIndex": number;
+  "groupedStepIndex": Int64;
   /**
    * The unique identifier of the progression step.
    */
@@ -33,7 +33,7 @@ export class AllocationExposureRolloutStep {
   /**
    * Step duration in milliseconds.
    */
-  "intervalMs"?: number;
+  "intervalMs"?: Int64;
   /**
    * Whether this step represents a pause record.
    */
@@ -41,7 +41,7 @@ export class AllocationExposureRolloutStep {
   /**
    * Sort order for the progression step.
    */
-  "orderPosition": number;
+  "orderPosition": Int64;
   /**
    * The timestamp when the progression step was last updated.
    */

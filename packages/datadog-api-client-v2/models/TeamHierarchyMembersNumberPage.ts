@@ -5,7 +5,7 @@
  */
 import { TeamHierarchyMembersNumberPageType } from "./TeamHierarchyMembersNumberPageType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata using number and size.
@@ -14,31 +14,31 @@ export class TeamHierarchyMembersNumberPage {
   /**
    * First page number.
    */
-  "firstNumber": number;
+  "firstNumber": Int64;
   /**
    * Last page number. Null when unavailable.
    */
-  "lastNumber": number | null;
+  "lastNumber": Int64 | null;
   /**
    * Next page number. Null when unavailable.
    */
-  "nextNumber": number | null;
+  "nextNumber": Int64 | null;
   /**
    * Current zero-based page number.
    */
-  "number": number;
+  "number": Int64;
   /**
    * Previous page number. Null when unavailable.
    */
-  "prevNumber": number | null;
+  "prevNumber": Int64 | null;
   /**
    * Maximum number of members per page.
    */
-  "size": number;
+  "size": Int64;
   /**
    * Total number of members matching the filters.
    */
-  "total": number;
+  "total": Int64;
   /**
    * Pagination mode.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata related to paging information that is included in the response when querying the team hierarchy links
@@ -13,55 +13,55 @@ export class TeamsHierarchyLinksResponseMetaPage {
   /**
    * First page number.
    */
-  "firstNumber"?: number;
+  "firstNumber"?: Int64;
   /**
    * First offset.
    */
-  "firstOffset"?: number;
+  "firstOffset"?: Int64;
   /**
    * Last page number.
    */
-  "lastNumber"?: number;
+  "lastNumber"?: Int64;
   /**
    * Last offset.
    */
-  "lastOffset"?: number;
+  "lastOffset"?: Int64;
   /**
    * Page limit, when offset pagination is used.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * Next page number.
    */
-  "nextNumber"?: number;
+  "nextNumber"?: Int64;
   /**
    * Next offset.
    */
-  "nextOffset"?: number;
+  "nextOffset"?: Int64;
   /**
    * Page number.
    */
-  "number"?: number;
+  "number"?: Int64;
   /**
    * Current offset, when offset pagination is used.
    */
-  "offset"?: number;
+  "offset"?: Int64;
   /**
    * Previous page number.
    */
-  "prevNumber"?: number;
+  "prevNumber"?: Int64;
   /**
    * Previous offset.
    */
-  "prevOffset"?: number;
+  "prevOffset"?: Int64;
   /**
    * Page size.
    */
-  "size"?: number;
+  "size"?: Int64;
   /**
    * Total number of results.
    */
-  "total"?: number;
+  "total"?: Int64;
   /**
    * Pagination type.
    */

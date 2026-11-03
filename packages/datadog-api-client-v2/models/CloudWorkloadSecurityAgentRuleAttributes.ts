@@ -7,7 +7,7 @@ import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAge
 import { CloudWorkloadSecurityAgentRuleCreatorAttributes } from "./CloudWorkloadSecurityAgentRuleCreatorAttributes";
 import { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./CloudWorkloadSecurityAgentRuleUpdaterAttributes";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A Cloud Workload Security Agent rule returned by the API
@@ -40,7 +40,7 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
   /**
    * When the Agent rule was created, timestamp in milliseconds
    */
-  "creationDate"?: number;
+  "creationDate"?: Int64;
   /**
    * The attributes of the user who created the Agent rule
    */
@@ -64,7 +64,7 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
   /**
    * The rate limiting duration of the Agent rule, in nanoseconds
    */
-  "every"?: number;
+  "every"?: Int64;
   /**
    * The SECL expression of the Agent rule
    */
@@ -100,11 +100,11 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
   /**
    * Timestamp in milliseconds when the Agent rule was last updated
    */
-  "updateDate"?: number;
+  "updateDate"?: Int64;
   /**
    * When the Agent rule was last updated, timestamp in milliseconds
    */
-  "updatedAt"?: number;
+  "updatedAt"?: Int64;
   /**
    * The attributes of the user who last updated the Agent rule
    */
@@ -112,7 +112,7 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
   /**
    * The version of the Agent rule
    */
-  "version"?: number;
+  "version"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

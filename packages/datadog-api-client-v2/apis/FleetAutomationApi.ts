@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { FleetAgentDetailV2Response } from "../models/FleetAgentDetailV2Response";
@@ -113,7 +114,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
         "FleetDeploymentConfigureV2CreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -164,7 +166,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
         "FleetDeploymentPackageUpgradeV2CreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -216,7 +219,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "FleetScheduleCreateRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -402,8 +406,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listFleetAgentsV2(
-    pageNumber?: number,
-    pageSize?: number,
+    pageNumber?: Int64Input,
+    pageSize?: Int64Input,
     filter?: string,
     tags?: string,
     sortAttribute?: string,
@@ -483,8 +487,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listFleetAgentTracers(
     agentKey: string,
-    pageNumber?: number,
-    pageSize?: number,
+    pageNumber?: Int64Input,
+    pageSize?: Int64Input,
     sortAttribute?: string,
     sortDescending?: boolean,
     _options?: Configuration
@@ -591,8 +595,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listFleetDeploymentsV2(
-    pageSize?: number,
-    pageNumber?: number,
+    pageSize?: Int64Input,
+    pageNumber?: Int64Input,
     sort?: string,
     ascending?: boolean,
     filter?: string,
@@ -693,8 +697,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listFleetTracers(
-    pageNumber?: number,
-    pageSize?: number,
+    pageNumber?: Int64Input,
+    pageSize?: Int64Input,
     sortAttribute?: string,
     sortDescending?: boolean,
     filter?: string,
@@ -860,7 +864,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "FleetSchedulePatchRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -876,6 +881,12 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class FleetAutomationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -892,8 +903,14 @@ export class FleetAutomationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: FleetDeploymentV2CancelResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "FleetDeploymentV2CancelResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "FleetDeploymentV2CancelResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as FleetDeploymentV2CancelResponse;
       return body;
     }
@@ -906,13 +923,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -928,9 +948,14 @@ export class FleetAutomationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetDeploymentV2CancelResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "FleetDeploymentV2CancelResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as FleetDeploymentV2CancelResponse;
       return body;
     }
@@ -958,16 +983,28 @@ export class FleetAutomationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: FleetDeploymentConfigureV2DryRunResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "FleetDeploymentConfigureV2DryRunResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "FleetDeploymentConfigureV2DryRunResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as FleetDeploymentConfigureV2DryRunResponse;
       return body;
     }
     if (response.httpStatusCode === 201) {
       const body: FleetDeploymentV2CreateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "FleetDeploymentV2CreateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "FleetDeploymentV2CreateResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as FleetDeploymentV2CreateResponse;
       return body;
     }
@@ -979,13 +1016,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1001,9 +1041,14 @@ export class FleetAutomationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetDeploymentConfigureV2DryRunResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "FleetDeploymentConfigureV2DryRunResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as FleetDeploymentConfigureV2DryRunResponse;
       return body;
     }
@@ -1031,8 +1076,14 @@ export class FleetAutomationApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: FleetDeploymentV2CreateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "FleetDeploymentV2CreateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "FleetDeploymentV2CreateResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as FleetDeploymentV2CreateResponse;
       return body;
     }
@@ -1045,13 +1096,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1067,9 +1121,14 @@ export class FleetAutomationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetDeploymentV2CreateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "FleetDeploymentV2CreateResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as FleetDeploymentV2CreateResponse;
       return body;
     }
@@ -1096,8 +1155,14 @@ export class FleetAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: FleetScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FleetScheduleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "FleetScheduleResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetScheduleResponse;
       return body;
     }
@@ -1109,13 +1174,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1130,9 +1198,14 @@ export class FleetAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "FleetScheduleResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetScheduleResponse;
       return body;
     }
@@ -1167,13 +1240,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1212,8 +1288,14 @@ export class FleetAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FleetAgentDetailV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FleetAgentDetailV2Response"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "FleetAgentDetailV2Response",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetAgentDetailV2Response;
       return body;
     }
@@ -1226,13 +1308,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1247,9 +1332,14 @@ export class FleetAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetAgentDetailV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "FleetAgentDetailV2Response",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetAgentDetailV2Response;
       return body;
     }
@@ -1277,8 +1367,14 @@ export class FleetAutomationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: FleetDeploymentV2DetailResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "FleetDeploymentV2DetailResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "FleetDeploymentV2DetailResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as FleetDeploymentV2DetailResponse;
       return body;
     }
@@ -1291,13 +1387,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1313,9 +1412,14 @@ export class FleetAutomationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetDeploymentV2DetailResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "FleetDeploymentV2DetailResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as FleetDeploymentV2DetailResponse;
       return body;
     }
@@ -1342,8 +1446,14 @@ export class FleetAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FleetScheduleV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FleetScheduleV2Response"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "FleetScheduleV2Response",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetScheduleV2Response;
       return body;
     }
@@ -1356,13 +1466,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1377,9 +1490,14 @@ export class FleetAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetScheduleV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "FleetScheduleV2Response",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetScheduleV2Response;
       return body;
     }
@@ -1406,8 +1524,14 @@ export class FleetAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FleetAgentsV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FleetAgentsV2Response"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "FleetAgentsV2Response",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetAgentsV2Response;
       return body;
     }
@@ -1419,13 +1543,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1440,9 +1567,14 @@ export class FleetAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetAgentsV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "FleetAgentsV2Response",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetAgentsV2Response;
       return body;
     }
@@ -1469,8 +1601,14 @@ export class FleetAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FleetTracersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FleetTracersResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "FleetTracersResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetTracersResponse;
       return body;
     }
@@ -1483,13 +1621,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1504,9 +1645,14 @@ export class FleetAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetTracersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "FleetTracersResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetTracersResponse;
       return body;
     }
@@ -1533,8 +1679,14 @@ export class FleetAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FleetAgentVersionsV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FleetAgentVersionsV2Response"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "FleetAgentVersionsV2Response",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetAgentVersionsV2Response;
       return body;
     }
@@ -1546,13 +1698,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1567,9 +1722,14 @@ export class FleetAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetAgentVersionsV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "FleetAgentVersionsV2Response",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetAgentVersionsV2Response;
       return body;
     }
@@ -1596,8 +1756,14 @@ export class FleetAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FleetDeploymentsV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FleetDeploymentsV2Response"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "FleetDeploymentsV2Response",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetDeploymentsV2Response;
       return body;
     }
@@ -1609,13 +1775,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1630,9 +1799,14 @@ export class FleetAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetDeploymentsV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "FleetDeploymentsV2Response",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetDeploymentsV2Response;
       return body;
     }
@@ -1659,8 +1833,14 @@ export class FleetAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FleetSchedulesV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FleetSchedulesV2Response"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "FleetSchedulesV2Response",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetSchedulesV2Response;
       return body;
     }
@@ -1672,13 +1852,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1693,9 +1876,14 @@ export class FleetAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetSchedulesV2Response = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "FleetSchedulesV2Response",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetSchedulesV2Response;
       return body;
     }
@@ -1722,8 +1910,14 @@ export class FleetAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FleetTracersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FleetTracersResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "FleetTracersResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetTracersResponse;
       return body;
     }
@@ -1736,13 +1930,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1757,9 +1954,14 @@ export class FleetAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetTracersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "FleetTracersResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetTracersResponse;
       return body;
     }
@@ -1786,8 +1988,14 @@ export class FleetAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 201) {
       const body: FleetDeploymentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FleetDeploymentResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "FleetDeploymentResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetDeploymentResponse;
       return body;
     }
@@ -1800,13 +2008,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1821,9 +2032,14 @@ export class FleetAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetDeploymentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "FleetDeploymentResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetDeploymentResponse;
       return body;
     }
@@ -1850,8 +2066,14 @@ export class FleetAutomationApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: FleetScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "FleetScheduleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "FleetScheduleResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetScheduleResponse;
       return body;
     }
@@ -1864,13 +2086,16 @@ export class FleetAutomationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1885,9 +2110,14 @@ export class FleetAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FleetScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "FleetScheduleResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as FleetScheduleResponse;
       return body;
     }
@@ -1972,14 +2202,14 @@ export interface FleetAutomationApiGetFleetScheduleV2Request {
 export interface FleetAutomationApiListFleetAgentsV2Request {
   /**
    * Page number for pagination, starting at 0.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Number of agents to return per page. Maximum value is 100. Defaults to 10.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Filter string to narrow down agent results.
    * @type string
@@ -2010,14 +2240,14 @@ export interface FleetAutomationApiListFleetAgentTracersRequest {
   agentKey: string;
   /**
    * Page number for pagination (starts at 0).
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Number of results per page (must be greater than 0 and less than or equal to 100).
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Attribute to sort by.
    * @type string
@@ -2033,14 +2263,14 @@ export interface FleetAutomationApiListFleetAgentTracersRequest {
 export interface FleetAutomationApiListFleetDeploymentsV2Request {
   /**
    * Number of deployments to return per page. Maximum value is 100.
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Page number for pagination, starting at 0.
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Field to sort results by (for example, `start_date`). Must be a supported field
    * name; unsupported values return a 400 error.
@@ -2067,14 +2297,14 @@ export interface FleetAutomationApiListFleetDeploymentsV2Request {
 export interface FleetAutomationApiListFleetTracersRequest {
   /**
    * Page number for pagination (starts at 0).
-   * @type number
+   * @type Int64Input
    */
-  pageNumber?: number;
+  pageNumber?: Int64Input;
   /**
    * Number of results per page (must be greater than 0 and less than or equal to 100).
-   * @type number
+   * @type Int64Input
    */
-  pageSize?: number;
+  pageSize?: Int64Input;
   /**
    * Attribute to sort by.
    * @type string
@@ -2127,7 +2357,8 @@ export class FleetAutomationApi {
     this.requestFactory =
       requestFactory || new FleetAutomationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new FleetAutomationApiResponseProcessor();
+      responseProcessor ||
+      new FleetAutomationApiResponseProcessor(configuration);
   }
 
   /**

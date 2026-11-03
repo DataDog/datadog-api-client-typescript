@@ -5,7 +5,7 @@
  */
 import { TestOptimizationFlakyTestsManagementPoliciesDisabledStatus } from "./TestOptimizationFlakyTestsManagementPoliciesDisabledStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Failure-rate-based rule for the disabled policy.
@@ -22,7 +22,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule
   /**
    * Minimum number of runs required before the rule is evaluated. Must be greater than or equal to 0.
    */
-  "minRuns"?: number;
+  "minRuns"?: Int64;
   /**
    * Test status that the disable policy applies to.
    * Must be either `active` or `quarantined`.

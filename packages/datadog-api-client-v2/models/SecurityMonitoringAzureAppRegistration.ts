@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * An Azure App Registration discovered for the organization.
@@ -17,7 +17,7 @@ export class SecurityMonitoringAzureAppRegistration {
   /**
    * The number of errors encountered while crawling resources for this App Registration.
    */
-  "errorCount": number;
+  "errorCount": Int64;
   /**
    * Whether resource collection is enabled for this App Registration.
    */
@@ -25,7 +25,7 @@ export class SecurityMonitoringAzureAppRegistration {
   /**
    * The number of Azure subscriptions associated with this App Registration.
    */
-  "subscriptionCount": number;
+  "subscriptionCount": Int64;
   /**
    * The Azure tenant ID of the App Registration.
    */

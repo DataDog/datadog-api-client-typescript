@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata.
@@ -13,15 +13,15 @@ export class ListInvestigationsResponseMetaPage {
   /**
    * Maximum number of results per page.
    */
-  "limit": number;
+  "limit": Int64;
   /**
    * Offset of the current page.
    */
-  "offset": number;
+  "offset": Int64;
   /**
    * Total number of investigations.
    */
-  "total": number;
+  "total": Int64;
 
   /**
    * A container for additional, undeclared properties.

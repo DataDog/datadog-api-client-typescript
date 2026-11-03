@@ -7,7 +7,7 @@ import { ProductAnalyticsAnalyticsListSort } from "./ProductAnalyticsAnalyticsLi
 import { ProductAnalyticsAudienceFilters } from "./ProductAnalyticsAudienceFilters";
 import { ProductAnalyticsBaseQuery } from "./ProductAnalyticsBaseQuery";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The analytics list query definition. It selects the events to return with `query`, then
@@ -27,7 +27,7 @@ export class ProductAnalyticsAnalyticsListQuery {
   /**
    * Maximum number of event rows to return.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * A query definition discriminated by the `data_source` field.
    * Use `product_analytics` for standard event queries, or

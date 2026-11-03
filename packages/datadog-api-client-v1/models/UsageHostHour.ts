@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Number of hosts/containers recorded for each hour for a given organization.
@@ -14,49 +14,49 @@ export class UsageHostHour {
    * Contains the total number of infrastructure hosts reporting
    * during a given hour that were running the Datadog Agent.
    */
-  "agentHostCount"?: number;
+  "agentHostCount"?: Int64;
   /**
    * Contains the total number of hosts that reported through Alibaba integration
    * (and were NOT running the Datadog Agent).
    */
-  "alibabaHostCount"?: number;
+  "alibabaHostCount"?: Int64;
   /**
    * Contains the total number of Azure App Services hosts using APM.
    */
-  "apmAzureAppServiceHostCount"?: number;
+  "apmAzureAppServiceHostCount"?: Int64;
   /**
    * Shows the total number of hosts using APM during the hour,
    * these are counted as billable (except during trial periods).
    */
-  "apmHostCount"?: number;
+  "apmHostCount"?: Int64;
   /**
    * Contains the total number of hosts that reported through the AWS integration
    * (and were NOT running the Datadog Agent).
    */
-  "awsHostCount"?: number;
+  "awsHostCount"?: Int64;
   /**
    * Contains the total number of hosts that reported through Azure integration
    * (and were NOT running the Datadog Agent).
    */
-  "azureHostCount"?: number;
+  "azureHostCount"?: Int64;
   /**
    * Shows the total number of containers reported by the Docker integration during the hour.
    */
-  "containerCount"?: number;
+  "containerCount"?: Int64;
   /**
    * Contains the total number of hosts that reported through the Google Cloud integration
    * (and were NOT running the Datadog Agent).
    */
-  "gcpHostCount"?: number;
+  "gcpHostCount"?: Int64;
   /**
    * Contains the total number of Heroku dynos reported by the Datadog Agent.
    */
-  "herokuHostCount"?: number;
+  "herokuHostCount"?: Int64;
   /**
    * Contains the total number of billable infrastructure hosts reporting during a given hour.
    * This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.
    */
-  "hostCount"?: number;
+  "hostCount"?: Int64;
   /**
    * The hour for the usage.
    */
@@ -65,15 +65,15 @@ export class UsageHostHour {
    * Contains the total number of hosts that reported through the Azure App Services integration
    * (and were NOT running the Datadog Agent).
    */
-  "infraAzureAppService"?: number;
+  "infraAzureAppService"?: Int64;
   /**
    * Contains the total number of hosts using APM reported by Datadog exporter for the OpenTelemetry Collector.
    */
-  "opentelemetryApmHostCount"?: number;
+  "opentelemetryApmHostCount"?: Int64;
   /**
    * Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry Collector.
    */
-  "opentelemetryHostCount"?: number;
+  "opentelemetryHostCount"?: Int64;
   /**
    * The organization name.
    */
@@ -86,7 +86,7 @@ export class UsageHostHour {
    * Contains the total number of hosts that reported through vSphere integration
    * (and were NOT running the Datadog Agent).
    */
-  "vsphereHostCount"?: number;
+  "vsphereHostCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

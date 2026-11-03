@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsCalendarIntervalType } from "./ProductAnalyticsCalendarIntervalType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A calendar-aligned bucket definition, such as "every 1 week starting on Monday".
@@ -19,7 +19,7 @@ export class ProductAnalyticsCalendarInterval {
   /**
    * Number of calendar units per bucket.
    */
-  "quantity"?: number;
+  "quantity"?: Int64;
   /**
    * Timezone used to align the buckets.
    */

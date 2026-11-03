@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Logical series on which the anomaly was detected.
@@ -21,7 +21,7 @@ export class TimeseriesAnomalyInvestigationSeries {
   /**
    * Zero-based index of the caller's formula that produced the series.
    */
-  "queryIndex": number;
+  "queryIndex": Int64;
 
   /**
    * A container for additional, undeclared properties.

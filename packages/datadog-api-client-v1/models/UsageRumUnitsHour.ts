@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Number of RUM Units used for each hour for a given organization (data available as of November 1, 2021).
@@ -13,11 +13,11 @@ export class UsageRumUnitsHour {
   /**
    * The number of browser RUM units.
    */
-  "browserRumUnits"?: number;
+  "browserRumUnits"?: Int64;
   /**
    * The number of mobile RUM units.
    */
-  "mobileRumUnits"?: number;
+  "mobileRumUnits"?: Int64;
   /**
    * The organization name.
    */
@@ -29,7 +29,7 @@ export class UsageRumUnitsHour {
   /**
    * Total RUM units across mobile and browser RUM.
    */
-  "rumUnits"?: number;
+  "rumUnits"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

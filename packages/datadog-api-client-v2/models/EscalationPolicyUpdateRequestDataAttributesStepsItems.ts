@@ -6,7 +6,7 @@
 import { EscalationPolicyStepAttributesAssignment } from "./EscalationPolicyStepAttributesAssignment";
 import { EscalationPolicyStepTarget } from "./EscalationPolicyStepTarget";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Defines a single escalation step within an escalation policy update request. Contains assignment strategy, escalation timeout, an optional step ID, and a list of targets.
@@ -19,7 +19,7 @@ export class EscalationPolicyUpdateRequestDataAttributesStepsItems {
   /**
    * Defines how many seconds to wait before escalating to the next step.
    */
-  "escalateAfterSeconds"?: number;
+  "escalateAfterSeconds"?: Int64;
   /**
    * Specifies the unique identifier of this step.
    */

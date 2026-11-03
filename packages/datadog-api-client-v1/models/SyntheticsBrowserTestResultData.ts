@@ -7,7 +7,7 @@ import { SyntheticsBrowserTestResultFailure } from "./SyntheticsBrowserTestResul
 import { SyntheticsDevice } from "./SyntheticsDevice";
 import { SyntheticsStepDetail } from "./SyntheticsStepDetail";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing results for your Synthetic browser test.
@@ -44,7 +44,7 @@ export class SyntheticsBrowserTestResultData {
   /**
    * The amount of email received during the browser test.
    */
-  "receivedEmailCount"?: number;
+  "receivedEmailCount"?: Int64;
   /**
    * Starting URL for the browser test.
    */

@@ -75,7 +75,8 @@ export class ElasticCloudIntegrationApiRequestFactory extends BaseAPIRequestFact
         "ElasticCloudIntegrationAccountCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -299,7 +300,8 @@ export class ElasticCloudIntegrationApiRequestFactory extends BaseAPIRequestFact
         "ElasticCloudIntegrationAccountUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -315,6 +317,12 @@ export class ElasticCloudIntegrationApiRequestFactory extends BaseAPIRequestFact
 }
 
 export class ElasticCloudIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -331,8 +339,14 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: ElasticCloudIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ElasticCloudIntegrationAccountResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ElasticCloudIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ElasticCloudIntegrationAccountResponse;
       return body;
     }
@@ -344,13 +358,16 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -364,13 +381,16 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -389,9 +409,14 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ElasticCloudIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ElasticCloudIntegrationAccountResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ElasticCloudIntegrationAccountResponse;
       return body;
     }
@@ -427,13 +452,16 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -473,8 +501,14 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ElasticCloudIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ElasticCloudIntegrationAccountResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ElasticCloudIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ElasticCloudIntegrationAccountResponse;
       return body;
     }
@@ -486,13 +520,16 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -508,9 +545,14 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ElasticCloudIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ElasticCloudIntegrationAccountResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ElasticCloudIntegrationAccountResponse;
       return body;
     }
@@ -538,8 +580,14 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ElasticCloudIntegrationAccountsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ElasticCloudIntegrationAccountsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ElasticCloudIntegrationAccountsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ElasticCloudIntegrationAccountsResponse;
       return body;
     }
@@ -551,13 +599,16 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -573,9 +624,14 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ElasticCloudIntegrationAccountsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ElasticCloudIntegrationAccountsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ElasticCloudIntegrationAccountsResponse;
       return body;
     }
@@ -603,8 +659,14 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: ElasticCloudIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ElasticCloudIntegrationAccountResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ElasticCloudIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ElasticCloudIntegrationAccountResponse;
       return body;
     }
@@ -616,13 +678,16 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -636,13 +701,16 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -661,9 +729,14 @@ export class ElasticCloudIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ElasticCloudIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "ElasticCloudIntegrationAccountResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as ElasticCloudIntegrationAccountResponse;
       return body;
     }
@@ -726,7 +799,8 @@ export class ElasticCloudIntegrationApi {
       requestFactory ||
       new ElasticCloudIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ElasticCloudIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new ElasticCloudIntegrationApiResponseProcessor(configuration);
   }
 
   /**

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Entity metadata.
@@ -13,11 +13,11 @@ export class EntityResponseMeta {
   /**
    * Total entities count.
    */
-  "count"?: number;
+  "count"?: Int64;
   /**
    * Total included data count.
    */
-  "includeCount"?: number;
+  "includeCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

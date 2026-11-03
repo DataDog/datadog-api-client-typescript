@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The hours of indexed spans usage.
@@ -17,7 +17,7 @@ export class UsageIndexedSpansHour {
   /**
    * Contains the number of spans indexed.
    */
-  "indexedEventsCount"?: number;
+  "indexedEventsCount"?: Int64;
   /**
    * The organization name.
    */

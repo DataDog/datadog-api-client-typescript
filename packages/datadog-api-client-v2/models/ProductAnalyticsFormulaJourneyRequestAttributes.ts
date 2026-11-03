@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsFormulaJourneyQuery } from "./ProductAnalyticsFormulaJourneyQuery";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a journey timeseries request.
@@ -14,11 +14,11 @@ export class ProductAnalyticsFormulaJourneyRequestAttributes {
   /**
    * Start of the query window, in epoch milliseconds.
    */
-  "from": number;
+  "from": Int64;
   /**
    * Time bucket interval in milliseconds.
    */
-  "interval"?: number;
+  "interval"?: Int64;
   /**
    * Query definition for a journey timeseries request.
    */
@@ -26,7 +26,7 @@ export class ProductAnalyticsFormulaJourneyRequestAttributes {
   /**
    * End of the query window, in epoch milliseconds.
    */
-  "to": number;
+  "to": Int64;
 
   /**
    * A container for additional, undeclared properties.

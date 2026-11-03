@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Cloud Workload Security usage for a given organization for a given hour.
@@ -13,11 +13,11 @@ export class UsageCWSHour {
   /**
    * The total number of Cloud Workload Security container hours from the start of the given hour’s month until the given hour.
    */
-  "cwsContainerCount"?: number;
+  "cwsContainerCount"?: Int64;
   /**
    * The total number of Cloud Workload Security host hours from the start of the given hour’s month until the given hour.
    */
-  "cwsHostCount"?: number;
+  "cwsHostCount"?: Int64;
   /**
    * The hour for the usage.
    */

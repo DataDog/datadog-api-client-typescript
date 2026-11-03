@@ -7,7 +7,7 @@ import { SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration } from "./S
 import { SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance } from "./SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance";
 import { SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration } from "./SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Options on anomaly detection method.
@@ -34,7 +34,7 @@ export class SecurityMonitoringRuleAnomalyDetectionOptions {
   /**
    * An optional override baseline to apply while the rule is in the learning period. Must be greater than or equal to 0.
    */
-  "learningPeriodBaseline"?: number;
+  "learningPeriodBaseline"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

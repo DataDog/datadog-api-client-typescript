@@ -5,7 +5,7 @@
  */
 import { MonitorFormulaAndFunctionEventQueryGroupBySort } from "./MonitorFormulaAndFunctionEventQueryGroupBySort";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * List of objects used to group by.
@@ -18,7 +18,7 @@ export class MonitorFormulaAndFunctionEventQueryGroupBy {
   /**
    * Number of groups to return.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * Options for sorting group by results.
    */

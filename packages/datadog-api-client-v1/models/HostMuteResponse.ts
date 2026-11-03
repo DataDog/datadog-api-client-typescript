@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Response with the list of muted host for your organization.
@@ -17,7 +17,7 @@ export class HostMuteResponse {
   /**
    * POSIX timestamp in seconds when the host is unmuted.
    */
-  "end"?: number;
+  "end"?: Int64;
   /**
    * The host name.
    */

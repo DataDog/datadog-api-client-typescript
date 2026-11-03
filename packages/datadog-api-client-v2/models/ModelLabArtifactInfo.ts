@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Information about a project-level artifact file.
@@ -21,7 +21,7 @@ export class ModelLabArtifactInfo {
   /**
    * The size of the file in bytes.
    */
-  "fileSize"?: number;
+  "fileSize"?: Int64;
   /**
    * The filename of the artifact.
    */

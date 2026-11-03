@@ -6,7 +6,7 @@
 import { FormulaType } from "./FormulaType";
 import { WidgetSort } from "./WidgetSort";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The formula to sort the widget by.
@@ -15,7 +15,7 @@ export class WidgetFormulaSort {
   /**
    * The index of the formula to sort by.
    */
-  "index": number;
+  "index": Int64;
   /**
    * Widget sorting methods.
    */

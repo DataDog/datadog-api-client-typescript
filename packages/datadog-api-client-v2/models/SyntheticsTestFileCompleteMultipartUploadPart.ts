@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A completed part of a multipart upload.
@@ -17,7 +17,7 @@ export class SyntheticsTestFileCompleteMultipartUploadPart {
   /**
    * The 1-indexed part number for the multipart upload.
    */
-  "partNumber": number;
+  "partNumber": Int64;
 
   /**
    * A container for additional, undeclared properties.

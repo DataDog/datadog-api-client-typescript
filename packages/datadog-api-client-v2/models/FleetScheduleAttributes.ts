@@ -6,7 +6,7 @@
 import { FleetScheduleRecurrenceRule } from "./FleetScheduleRecurrenceRule";
 import { FleetScheduleStatus } from "./FleetScheduleStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a schedule in the response.
@@ -15,7 +15,7 @@ export class FleetScheduleAttributes {
   /**
    * Unix timestamp (seconds since epoch) when the schedule was created.
    */
-  "createdAtUnix"?: number;
+  "createdAtUnix"?: Int64;
   /**
    * User handle of the person who created the schedule.
    */
@@ -42,7 +42,7 @@ export class FleetScheduleAttributes {
   /**
    * Unix timestamp (seconds since epoch) when the schedule was last updated.
    */
-  "updatedAtUnix"?: number;
+  "updatedAtUnix"?: Int64;
   /**
    * User handle of the person who last updated the schedule.
    */
@@ -54,7 +54,7 @@ export class FleetScheduleAttributes {
    * - 2: Upgrade to latest minus 2 major versions
    * Maximum value is 2.
    */
-  "versionToLatest"?: number;
+  "versionToLatest"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

@@ -6,7 +6,7 @@
 import { ChangeRequestChangeType } from "./ChangeRequestChangeType";
 import { ChangeRequestRiskLevel } from "./ChangeRequestRiskLevel";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a change request response.
@@ -71,7 +71,7 @@ export class ChangeRequestResponseAttributes {
   /**
    * The notebook ID associated with the change request plan.
    */
-  "planNotebookId": number;
+  "planNotebookId": Int64;
   /**
    * The priority of the change request.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Resolution metadata for an anomaly that has been dismissed.
@@ -25,7 +25,7 @@ export class CostAnomalyDismissal {
   /**
    * Timestamp of the last dismissal update in Unix milliseconds.
    */
-  "updatedAt": number;
+  "updatedAt": Int64;
   /**
    * Identifier of the user that last updated the dismissal.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata.
@@ -13,15 +13,15 @@ export class SecurityMonitoringSuppressionsPageMeta {
   /**
    * Current page number.
    */
-  "pageNumber"?: number;
+  "pageNumber"?: Int64;
   /**
    * Current page size.
    */
-  "pageSize"?: number;
+  "pageSize"?: Int64;
   /**
    * Total count of suppressions.
    */
-  "totalCount"?: number;
+  "totalCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

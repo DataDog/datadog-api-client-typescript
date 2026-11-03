@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Detailed information about a Datadog Agent.
@@ -65,7 +65,7 @@ export class FleetAgentInfoDetailsV2 {
   /**
    * Timestamp when the agent was first seen.
    */
-  "firstSeenAt"?: number;
+  "firstSeenAt"?: Int64;
   /**
    * Hosts participating in the agent's high-availability group.
    */
@@ -101,7 +101,7 @@ export class FleetAgentInfoDetailsV2 {
   /**
    * Timestamp of the last agent restart.
    */
-  "lastRestartAt"?: number;
+  "lastRestartAt"?: Int64;
   /**
    * The operating system.
    */

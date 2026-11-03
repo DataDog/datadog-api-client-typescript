@@ -12,6 +12,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { SingleAggregatedConnectionResponseArray } from "../models/SingleAggregatedConnectionResponseArray";
@@ -19,8 +20,8 @@ import { SingleAggregatedDnsResponseArray } from "../models/SingleAggregatedDnsR
 
 export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   public async getAggregatedConnections(
-    from?: number,
-    to?: number,
+    from?: Int64Input,
+    to?: Int64Input,
     groupBy?: string,
     tags?: string,
     query?: string,
@@ -99,8 +100,8 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
   }
 
   public async getAggregatedDns(
-    from?: number,
-    to?: number,
+    from?: Int64Input,
+    to?: Int64Input,
     groupBy?: string,
     tags?: string,
     query?: string,
@@ -180,6 +181,12 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
 }
 
 export class CloudNetworkMonitoringApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -196,8 +203,14 @@ export class CloudNetworkMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SingleAggregatedConnectionResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SingleAggregatedConnectionResponseArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SingleAggregatedConnectionResponseArray",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SingleAggregatedConnectionResponseArray;
       return body;
     }
@@ -208,13 +221,16 @@ export class CloudNetworkMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -230,9 +246,14 @@ export class CloudNetworkMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SingleAggregatedConnectionResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SingleAggregatedConnectionResponseArray",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SingleAggregatedConnectionResponseArray;
       return body;
     }
@@ -260,8 +281,14 @@ export class CloudNetworkMonitoringApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SingleAggregatedDnsResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SingleAggregatedDnsResponseArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SingleAggregatedDnsResponseArray",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SingleAggregatedDnsResponseArray;
       return body;
     }
@@ -272,13 +299,16 @@ export class CloudNetworkMonitoringApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -294,9 +324,14 @@ export class CloudNetworkMonitoringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SingleAggregatedDnsResponseArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SingleAggregatedDnsResponseArray",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SingleAggregatedDnsResponseArray;
       return body;
     }
@@ -312,14 +347,14 @@ export class CloudNetworkMonitoringApiResponseProcessor {
 export interface CloudNetworkMonitoringApiGetAggregatedConnectionsRequest {
   /**
    * Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
-   * @type number
+   * @type Int64Input
    */
-  from?: number;
+  from?: Int64Input;
   /**
    * Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
-   * @type number
+   * @type Int64Input
    */
-  to?: number;
+  to?: Int64Input;
   /**
    * Comma-separated list of fields to group connections by. The maximum number of group_by(s) is 10.
    * @type string
@@ -345,14 +380,14 @@ export interface CloudNetworkMonitoringApiGetAggregatedConnectionsRequest {
 export interface CloudNetworkMonitoringApiGetAggregatedDnsRequest {
   /**
    * Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
-   * @type number
+   * @type Int64Input
    */
-  from?: number;
+  from?: Int64Input;
   /**
    * Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
-   * @type number
+   * @type Int64Input
    */
-  to?: number;
+  to?: Int64Input;
   /**
    * Comma-separated list of fields to group DNS traffic by. The server side defaults to `network.dns_query` if unspecified. `server_ungrouped` may be used if groups are not desired. The maximum number of group_by(s) is 10.
    * @type string
@@ -390,7 +425,8 @@ export class CloudNetworkMonitoringApi {
       requestFactory ||
       new CloudNetworkMonitoringApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CloudNetworkMonitoringApiResponseProcessor();
+      responseProcessor ||
+      new CloudNetworkMonitoringApiResponseProcessor(configuration);
   }
 
   /**

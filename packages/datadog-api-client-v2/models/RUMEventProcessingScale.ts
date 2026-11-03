@@ -5,7 +5,7 @@
  */
 import { RUMEventProcessingState } from "./RUMEventProcessingState";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * RUM event processing scale configuration.
@@ -14,7 +14,7 @@ export class RUMEventProcessingScale {
   /**
    * Timestamp in milliseconds when this scale was last modified.
    */
-  "lastModifiedAt"?: number;
+  "lastModifiedAt"?: Int64;
   /**
    * Configures which RUM events are processed and stored for the application.
    */

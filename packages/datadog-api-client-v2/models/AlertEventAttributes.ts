@@ -8,7 +8,7 @@ import { AlertEventAttributesPriority } from "./AlertEventAttributesPriority";
 import { AlertEventAttributesStatus } from "./AlertEventAttributesStatus";
 import { EventSystemAttributes } from "./EventSystemAttributes";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Alert event attributes.
@@ -45,7 +45,7 @@ export class AlertEventAttributes {
   /**
    * POSIX timestamp of the event.
    */
-  "timestamp"?: number;
+  "timestamp"?: Int64;
   /**
    * The title of the event.
    */
@@ -98,6 +98,7 @@ export class AlertEventAttributes {
     timestamp: {
       baseName: "timestamp",
       type: "number",
+      format: "int64",
     },
     title: {
       baseName: "title",

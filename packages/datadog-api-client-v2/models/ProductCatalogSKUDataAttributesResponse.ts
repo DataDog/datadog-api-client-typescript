@@ -8,7 +8,7 @@ import { ProductCatalogSKUOnDemandOption } from "./ProductCatalogSKUOnDemandOpti
 import { ProductCatalogSKUPricingType } from "./ProductCatalogSKUPricingType";
 import { ProductCatalogSKUTieredPricing } from "./ProductCatalogSKUTieredPricing";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The pricing and allotment metadata of a SKU.
@@ -51,7 +51,7 @@ export class ProductCatalogSKUDataAttributesResponse {
    * block is used. `0` for SKUs that are not priced per unit of usage, such as those
    * whose `pricing_type` is `percent`.
    */
-  "numberOfUnitsIncludedInPrice": number;
+  "numberOfUnitsIncludedInPrice": Int64;
   /**
    * The public list price of on-demand usage of the SKU, as a decimal string. The number
    * of decimal places is not normalized, so values such as `0`, `0.9`, and `30000.00`

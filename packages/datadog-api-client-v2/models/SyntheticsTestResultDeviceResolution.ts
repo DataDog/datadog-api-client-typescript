@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Screen resolution of the device used to run the test.
@@ -13,7 +13,7 @@ export class SyntheticsTestResultDeviceResolution {
   /**
    * Viewport height in pixels.
    */
-  "height"?: number;
+  "height"?: Int64;
   /**
    * Device pixel ratio.
    */
@@ -21,7 +21,7 @@ export class SyntheticsTestResultDeviceResolution {
   /**
    * Viewport width in pixels.
    */
-  "width"?: number;
+  "width"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

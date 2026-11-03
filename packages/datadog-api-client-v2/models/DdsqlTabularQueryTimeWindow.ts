@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Time window scoping the underlying data sources, expressed in Unix milliseconds
@@ -16,11 +16,11 @@ export class DdsqlTabularQueryTimeWindow {
   /**
    * Start of the query window (inclusive), in Unix milliseconds since the epoch.
    */
-  "fromTimestamp": number;
+  "fromTimestamp": Int64;
   /**
    * End of the query window (exclusive), in Unix milliseconds since the epoch.
    */
-  "toTimestamp": number;
+  "toTimestamp": Int64;
 
   /**
    * A container for additional, undeclared properties.

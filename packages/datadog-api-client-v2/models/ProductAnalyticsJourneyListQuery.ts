@@ -10,7 +10,7 @@ import { ProductAnalyticsJourneyListSort } from "./ProductAnalyticsJourneyListSo
 import { ProductAnalyticsJourneySearch } from "./ProductAnalyticsJourneySearch";
 import { ProductAnalyticsJourneyTarget } from "./ProductAnalyticsJourneyTarget";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Query definition for a journey list request.
@@ -39,7 +39,7 @@ export class ProductAnalyticsJourneyListQuery {
   /**
    * Maximum number of rows to return. Omit it to let the service choose.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * Defines the steps of the journey and the filters applied to it.
    */

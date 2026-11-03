@@ -68,7 +68,8 @@ export class SnowflakeIntegrationApiRequestFactory extends BaseAPIRequestFactory
         "SnowflakeIntegrationAccountCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -267,7 +268,8 @@ export class SnowflakeIntegrationApiRequestFactory extends BaseAPIRequestFactory
         "SnowflakeIntegrationAccountUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -283,6 +285,12 @@ export class SnowflakeIntegrationApiRequestFactory extends BaseAPIRequestFactory
 }
 
 export class SnowflakeIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -299,8 +307,14 @@ export class SnowflakeIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 201) {
       const body: SnowflakeIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SnowflakeIntegrationAccountResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SnowflakeIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SnowflakeIntegrationAccountResponse;
       return body;
     }
@@ -312,13 +326,16 @@ export class SnowflakeIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -332,13 +349,16 @@ export class SnowflakeIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -357,9 +377,14 @@ export class SnowflakeIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SnowflakeIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SnowflakeIntegrationAccountResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SnowflakeIntegrationAccountResponse;
       return body;
     }
@@ -395,13 +420,16 @@ export class SnowflakeIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -441,8 +469,14 @@ export class SnowflakeIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SnowflakeIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SnowflakeIntegrationAccountResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SnowflakeIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SnowflakeIntegrationAccountResponse;
       return body;
     }
@@ -454,13 +488,16 @@ export class SnowflakeIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -476,9 +513,14 @@ export class SnowflakeIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SnowflakeIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SnowflakeIntegrationAccountResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SnowflakeIntegrationAccountResponse;
       return body;
     }
@@ -506,8 +548,14 @@ export class SnowflakeIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SnowflakeIntegrationAccountsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SnowflakeIntegrationAccountsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SnowflakeIntegrationAccountsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SnowflakeIntegrationAccountsResponse;
       return body;
     }
@@ -519,13 +567,16 @@ export class SnowflakeIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -541,9 +592,14 @@ export class SnowflakeIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SnowflakeIntegrationAccountsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SnowflakeIntegrationAccountsResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SnowflakeIntegrationAccountsResponse;
       return body;
     }
@@ -571,8 +627,14 @@ export class SnowflakeIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       const body: SnowflakeIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SnowflakeIntegrationAccountResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SnowflakeIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SnowflakeIntegrationAccountResponse;
       return body;
     }
@@ -584,13 +646,16 @@ export class SnowflakeIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -604,13 +669,16 @@ export class SnowflakeIntegrationApiResponseProcessor {
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -629,9 +697,14 @@ export class SnowflakeIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SnowflakeIntegrationAccountResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
           "SnowflakeIntegrationAccountResponse",
-          ""
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as SnowflakeIntegrationAccountResponse;
       return body;
     }
@@ -694,7 +767,8 @@ export class SnowflakeIntegrationApi {
       requestFactory ||
       new SnowflakeIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new SnowflakeIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new SnowflakeIntegrationApiResponseProcessor(configuration);
   }
 
   /**

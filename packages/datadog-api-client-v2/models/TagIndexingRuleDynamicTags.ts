@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Options for dynamic tag indexing applied per metric, such as tags filtered by query usage.
@@ -21,7 +21,7 @@ export class TagIndexingRuleDynamicTags {
   /**
    * Tags that have not been queried within this window are excluded from indexing. Maximum of `7776000` (90 days).
    */
-  "excludeNotQueriedWindowSeconds"?: number;
+  "excludeNotQueriedWindowSeconds"?: Int64;
   /**
    * Tags not used in any dashboards,  monitors, notebooks, or SLOs are excluded from indexing.
    */

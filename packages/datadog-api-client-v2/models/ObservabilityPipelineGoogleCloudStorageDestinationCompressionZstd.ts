@@ -5,7 +5,7 @@
  */
 import { ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstdType } from "./ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstdType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Zstd compression.
@@ -18,7 +18,7 @@ export class ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstd {
   /**
    * Zstd compression level. Valid values range from `1` to `21`.
    */
-  "level": number;
+  "level": Int64;
 
   /**
    * A container for additional, undeclared properties.

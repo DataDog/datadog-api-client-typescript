@@ -9,7 +9,7 @@ import { CustomRuleRevisionAttributesSeverity } from "./CustomRuleRevisionAttrib
 import { CustomRuleRevisionTest } from "./CustomRuleRevisionTest";
 import { Language } from "./Language";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A revision of a custom static analysis rule as embedded in a rule supplied by a create
@@ -106,7 +106,7 @@ export class CustomRuleRevisionInput {
   /**
    * Monotonically increasing version number of the revision.
    */
-  "versionId"?: number;
+  "versionId"?: Int64;
 
   /**
    * @ignore

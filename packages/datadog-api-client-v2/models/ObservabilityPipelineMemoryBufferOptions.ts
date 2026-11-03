@@ -6,7 +6,7 @@
 import { ObservabilityPipelineBufferOptionsMemoryType } from "./ObservabilityPipelineBufferOptionsMemoryType";
 import { ObservabilityPipelineBufferOptionsWhenFull } from "./ObservabilityPipelineBufferOptionsWhenFull";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Options for configuring a memory buffer by byte size.
@@ -15,7 +15,7 @@ export class ObservabilityPipelineMemoryBufferOptions {
   /**
    * Maximum size of the memory buffer.
    */
-  "maxSize": number;
+  "maxSize": Int64;
   /**
    * The type of the buffer that will be configured, a memory buffer.
    */

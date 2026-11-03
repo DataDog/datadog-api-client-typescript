@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Pagination metadata.
@@ -13,15 +13,15 @@ export class IncidentNotificationRuleArrayMetaPage {
   /**
    * The offset for the next page of results.
    */
-  "nextOffset"?: number;
+  "nextOffset"?: Int64;
   /**
    * The current offset in the results.
    */
-  "offset"?: number;
+  "offset"?: Int64;
   /**
    * The number of results returned per page.
    */
-  "size"?: number;
+  "size"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

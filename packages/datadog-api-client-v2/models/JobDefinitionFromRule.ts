@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Definition of a historical job based on a security monitoring rule.
@@ -17,7 +17,7 @@ export class JobDefinitionFromRule {
   /**
    * Starting time of data analyzed by the job.
    */
-  "from": number;
+  "from": Int64;
   /**
    * ID of the detection rule used to create the job.
    */
@@ -33,7 +33,7 @@ export class JobDefinitionFromRule {
   /**
    * Ending time of data analyzed by the job.
    */
-  "to": number;
+  "to": Int64;
 
   /**
    * A container for additional, undeclared properties.

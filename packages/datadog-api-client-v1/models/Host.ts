@@ -6,7 +6,7 @@
 import { HostMeta } from "./HostMeta";
 import { HostMetrics } from "./HostMetrics";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object representing a host.
@@ -31,7 +31,7 @@ export class Host {
   /**
    * The host ID.
    */
-  "id"?: number;
+  "id"?: Int64;
   /**
    * If a host is muted or unmuted.
    */
@@ -39,7 +39,7 @@ export class Host {
   /**
    * Last time the host reported a metric data point.
    */
-  "lastReportedTime"?: number;
+  "lastReportedTime"?: Int64;
   /**
    * Metadata associated with your host.
    */
@@ -51,7 +51,7 @@ export class Host {
   /**
    * Timeout of the mute applied to your host.
    */
-  "muteTimeout"?: number;
+  "muteTimeout"?: Int64;
   /**
    * The host name.
    */

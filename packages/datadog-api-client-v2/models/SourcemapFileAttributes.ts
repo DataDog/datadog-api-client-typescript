@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a JavaScript source map file.
@@ -22,7 +22,7 @@ export class SourcemapFileAttributes {
   /**
    * List of character counts for each line in the minified file.
    */
-  "minifiedLineLengths": Array<number>;
+  "minifiedLineLengths": Array<Int64>;
   /**
    * List of symbol names referenced in the mappings.
    */
@@ -42,7 +42,7 @@ export class SourcemapFileAttributes {
   /**
    * The version of the source map format (typically 3).
    */
-  "version": number;
+  "version": Int64;
 
   /**
    * A container for additional, undeclared properties.
@@ -74,6 +74,7 @@ export class SourcemapFileAttributes {
       baseName: "minifiedLineLengths",
       type: "Array<number>",
       required: true,
+      format: "int64",
     },
     names: {
       baseName: "names",

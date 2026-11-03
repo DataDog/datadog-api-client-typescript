@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Powerpack response pagination metadata.
@@ -13,31 +13,31 @@ export class PowerpacksResponseMetaPagination {
   /**
    * The first offset.
    */
-  "firstOffset"?: number;
+  "firstOffset"?: Int64;
   /**
    * The last offset.
    */
-  "lastOffset"?: number;
+  "lastOffset"?: Int64;
   /**
    * Pagination limit.
    */
-  "limit"?: number;
+  "limit"?: Int64;
   /**
    * The next offset.
    */
-  "nextOffset"?: number;
+  "nextOffset"?: Int64;
   /**
    * The offset.
    */
-  "offset"?: number;
+  "offset"?: Int64;
   /**
    * The previous offset.
    */
-  "prevOffset"?: number;
+  "prevOffset"?: Int64;
   /**
    * Total results.
    */
-  "total"?: number;
+  "total"?: Int64;
   /**
    * Offset type.
    */

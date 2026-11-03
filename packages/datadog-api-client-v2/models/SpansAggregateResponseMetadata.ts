@@ -6,7 +6,7 @@
 import { SpansAggregateResponseStatus } from "./SpansAggregateResponseStatus";
 import { SpansWarning } from "./SpansWarning";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The metadata associated with a request.
@@ -15,7 +15,7 @@ export class SpansAggregateResponseMetadata {
   /**
    * The time elapsed in milliseconds.
    */
-  "elapsed"?: number;
+  "elapsed"?: Int64;
   /**
    * The identifier of the request.
    */

@@ -5,7 +5,7 @@
  */
 import { SecurityMonitoringRuleQueryPayloadData } from "./SecurityMonitoringRuleQueryPayloadData";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Payload to test a rule query with the expected result.
@@ -18,7 +18,7 @@ export class SecurityMonitoringRuleQueryPayload {
   /**
    * Index of the query under test.
    */
-  "index"?: number;
+  "index"?: Int64;
   /**
    * Payload used to test the rule query.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The response containing attributes for specified custom reports.
@@ -25,7 +25,7 @@ export class UsageSpecifiedCustomReportsAttributes {
   /**
    * size
    */
-  "size"?: number;
+  "size"?: Int64;
   /**
    * The starting date of specified custom report.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * CSM Coverage Analysis.
@@ -13,7 +13,7 @@ export class CsmCoverageAnalysis {
   /**
    * The number of fully configured resources.
    */
-  "configuredResourcesCount"?: number;
+  "configuredResourcesCount"?: Int64;
   /**
    * The coverage percentage.
    */
@@ -21,11 +21,11 @@ export class CsmCoverageAnalysis {
   /**
    * The number of partially configured resources.
    */
-  "partiallyConfiguredResourcesCount"?: number;
+  "partiallyConfiguredResourcesCount"?: Int64;
   /**
    * The total number of resources.
    */
-  "totalResourcesCount"?: number;
+  "totalResourcesCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

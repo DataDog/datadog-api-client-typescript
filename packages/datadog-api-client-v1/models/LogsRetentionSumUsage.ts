@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing indexed logs usage grouped by retention period and summed.
@@ -13,15 +13,15 @@ export class LogsRetentionSumUsage {
   /**
    * Total indexed logs for this retention period.
    */
-  "logsIndexedLogsUsageSum"?: number;
+  "logsIndexedLogsUsageSum"?: Int64;
   /**
    * Live indexed logs for this retention period.
    */
-  "logsLiveIndexedLogsUsageSum"?: number;
+  "logsLiveIndexedLogsUsageSum"?: Int64;
   /**
    * Rehydrated indexed logs for this retention period.
    */
-  "logsRehydratedIndexedLogsUsageSum"?: number;
+  "logsRehydratedIndexedLogsUsageSum"?: Int64;
   /**
    * The retention period in days or "custom" for all custom retention periods.
    */

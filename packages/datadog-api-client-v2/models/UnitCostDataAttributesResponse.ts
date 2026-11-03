@@ -5,7 +5,7 @@
  */
 import { UnitCostQueryDefinition } from "./UnitCostQueryDefinition";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a unit cost.
@@ -43,7 +43,7 @@ export class UnitCostDataAttributesResponse {
   /**
    * The ID of the organization the unit cost belongs to.
    */
-  "orgId": number;
+  "orgId": Int64;
   /**
    * The label describing the denominator unit.
    */

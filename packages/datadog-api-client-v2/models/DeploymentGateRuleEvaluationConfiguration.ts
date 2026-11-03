@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Evaluated rule configuration. Fields depend on rule type and unset fields are omitted.
@@ -19,7 +19,7 @@ export class DeploymentGateRuleEvaluationConfiguration {
   /**
    * Evaluation duration configured for this rule.
    */
-  "duration"?: number;
+  "duration"?: Int64;
   /**
    * APM resources excluded from faulty deployment detection.
    */
@@ -43,7 +43,7 @@ export class DeploymentGateRuleEvaluationConfiguration {
   /**
    * Warm-up duration in seconds for a monitor rule. Omitted when zero.
    */
-  "warmup"?: number;
+  "warmup"?: Int64;
 
   /**
    * @ignore

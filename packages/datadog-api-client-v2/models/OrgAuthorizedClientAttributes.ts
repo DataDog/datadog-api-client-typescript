@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of an org authorized client.
@@ -21,7 +21,7 @@ export class OrgAuthorizedClientAttributes {
   /**
    * The number of users in the organization who have authorized this client.
    */
-  "userCount": number;
+  "userCount": Int64;
 
   /**
    * A container for additional, undeclared properties.

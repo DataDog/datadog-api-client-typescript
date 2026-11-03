@@ -7,7 +7,7 @@ import { LLMObsExperimentEvalMetricEvent } from "./LLMObsExperimentEvalMetricEve
 import { LLMObsExperimentSpanMeta } from "./LLMObsExperimentSpanMeta";
 import { LLMObsExperimentSpanStatus } from "./LLMObsExperimentSpanStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * An experiment span enriched with its associated evaluation metrics.
@@ -52,7 +52,7 @@ export class LLMObsExperimentSpanWithEvals {
   /**
    * Start time in nanoseconds since Unix epoch.
    */
-  "startNs"?: number;
+  "startNs"?: Int64;
   /**
    * Status of the span.
    */

@@ -11,7 +11,7 @@ import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorState } from "./MonitorState";
 import { MonitorType } from "./MonitorType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing a monitor update request.
@@ -45,7 +45,7 @@ export class MonitorUpdateRequest {
   /**
    * ID of this monitor.
    */
-  "id"?: number;
+  "id"?: Int64;
   /**
    * A message to include with notifications for this monitor.
    */
@@ -73,7 +73,7 @@ export class MonitorUpdateRequest {
   /**
    * Integer from 1 (high) to 5 (low) indicating alert severity.
    */
-  "priority"?: number;
+  "priority"?: Int64;
   /**
    * The monitor query.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a tag rule compliance score.
@@ -18,15 +18,15 @@ export class TagRuleScoreAttributes {
   /**
    * End of the time window the score was computed over, as a Unix timestamp in milliseconds.
    */
-  "tsEnd": number;
+  "tsEnd": Int64;
   /**
    * Start of the time window the score was computed over, as a Unix timestamp in milliseconds.
    */
-  "tsStart": number;
+  "tsStart": Int64;
   /**
    * The version of the tag rule that the score was computed against.
    */
-  "version": number;
+  "version": Int64;
 
   /**
    * A container for additional, undeclared properties.

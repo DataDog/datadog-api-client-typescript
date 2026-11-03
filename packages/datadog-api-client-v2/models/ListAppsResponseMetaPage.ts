@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Information on the total number of apps, to be used for pagination.
@@ -13,11 +13,11 @@ export class ListAppsResponseMetaPage {
   /**
    * The total number of apps under the Datadog organization, disregarding any filters applied.
    */
-  "totalCount"?: number;
+  "totalCount"?: Int64;
   /**
    * The total number of apps that match the specified filters.
    */
-  "totalFilteredCount"?: number;
+  "totalFilteredCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

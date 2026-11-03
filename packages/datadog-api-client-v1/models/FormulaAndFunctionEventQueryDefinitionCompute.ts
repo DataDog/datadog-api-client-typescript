@@ -5,7 +5,7 @@
  */
 import { FormulaAndFunctionEventAggregation } from "./FormulaAndFunctionEventAggregation";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Compute options.
@@ -18,7 +18,7 @@ export class FormulaAndFunctionEventQueryDefinitionCompute {
   /**
    * A time interval in milliseconds.
    */
-  "interval"?: number;
+  "interval"?: Int64;
   /**
    * Measurable attribute to compute.
    */

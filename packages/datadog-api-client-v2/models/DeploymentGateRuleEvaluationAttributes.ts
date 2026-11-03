@@ -8,7 +8,7 @@ import { DeploymentGateRuleEvaluationType } from "./DeploymentGateRuleEvaluation
 import { DeploymentGateRuleFailures } from "./DeploymentGateRuleFailures";
 import { DeploymentGatesEvaluationResultResponseAttributesGateStatus } from "./DeploymentGatesEvaluationResultResponseAttributesGateStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a deployment gate rule evaluation.
@@ -27,7 +27,7 @@ export class DeploymentGateRuleEvaluationAttributes {
   /**
    * Rule evaluation duration in seconds. Null while it is in progress.
    */
-  "durationSeconds": number | null;
+  "durationSeconds": Int64 | null;
   /**
    * Evaluated environment.
    */

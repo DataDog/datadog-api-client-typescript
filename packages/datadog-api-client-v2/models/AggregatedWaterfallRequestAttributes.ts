@@ -5,7 +5,7 @@
  */
 import { AggregatedWaterfallPerformanceCriteria } from "./AggregatedWaterfallPerformanceCriteria";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for an aggregated waterfall query.
@@ -26,7 +26,7 @@ export class AggregatedWaterfallRequestAttributes {
   /**
    * Start of the time range as a Unix timestamp in seconds.
    */
-  "from": number;
+  "from": Int64;
   /**
    * When true, enriches each resource with cross-view appearance statistics.
    */
@@ -38,7 +38,7 @@ export class AggregatedWaterfallRequestAttributes {
   /**
    * End of the time range as a Unix timestamp in seconds.
    */
-  "to": number;
+  "to": Int64;
   /**
    * The RUM view name to analyze (for example, /account/login).
    */

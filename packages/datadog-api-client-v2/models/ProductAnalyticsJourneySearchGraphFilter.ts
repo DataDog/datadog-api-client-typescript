@@ -7,7 +7,7 @@ import { ProductAnalyticsJourneySearchGraphFilterName } from "./ProductAnalytics
 import { ProductAnalyticsJourneySearchGraphFilterOperator } from "./ProductAnalyticsJourneySearchGraphFilterOperator";
 import { ProductAnalyticsJourneyTarget } from "./ProductAnalyticsJourneyTarget";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A filter applied to a step, or a range of steps, of the journey graph.
@@ -30,7 +30,7 @@ export class ProductAnalyticsJourneySearchGraphFilter {
   /**
    * Value compared against the metric. Durations are expressed in milliseconds.
    */
-  "value": number;
+  "value": Int64;
 
   /**
    * A container for additional, undeclared properties.

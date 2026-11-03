@@ -6,7 +6,7 @@
 import { QueryFormula } from "./QueryFormula";
 import { ScalarQuery } from "./ScalarQuery";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The object describing a scalar formula request.
@@ -19,7 +19,7 @@ export class ScalarFormulaRequestAttributes {
   /**
    * Start date (inclusive) of the query in milliseconds since the Unix epoch.
    */
-  "from": number;
+  "from": Int64;
   /**
    * List of queries to be run and used as inputs to the formulas.
    */
@@ -27,7 +27,7 @@ export class ScalarFormulaRequestAttributes {
   /**
    * End date (exclusive) of the query in milliseconds since the Unix epoch.
    */
-  "to": number;
+  "to": Int64;
 
   /**
    * A container for additional, undeclared properties.

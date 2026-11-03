@@ -5,7 +5,7 @@
  */
 import { AiMemoryViolationType } from "./AiMemoryViolationType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for creating an AI memory violation result.
@@ -14,7 +14,7 @@ export class AiMemoryViolationResultRequestAttributes {
   /**
    * The line number where the violation was found.
    */
-  "line": number;
+  "line": Int64;
   /**
    * A message explaining the violation result.
    */

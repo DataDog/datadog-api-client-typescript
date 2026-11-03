@@ -8,7 +8,7 @@ import { AutomationRuleModifiedBy } from "./AutomationRuleModifiedBy";
 import { AutomationRuleScope } from "./AutomationRuleScope";
 import { MuteRuleAction } from "./MuteRuleAction";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a mute rule returned by the API.
@@ -21,7 +21,7 @@ export class MuteRuleAttributesResponse {
   /**
    * The Unix timestamp in milliseconds when the rule was created.
    */
-  "createdAt": number;
+  "createdAt": Int64;
   /**
    * The user or Datadog system who created the rule.
    */
@@ -33,7 +33,7 @@ export class MuteRuleAttributesResponse {
   /**
    * The Unix timestamp in milliseconds when the rule was last modified.
    */
-  "modifiedAt": number;
+  "modifiedAt": Int64;
   /**
    * The user or Datadog system who last modified the rule.
    */

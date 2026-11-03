@@ -7,7 +7,7 @@ import { CycloneDXComponent } from "./CycloneDXComponent";
 import { CycloneDXMetadata } from "./CycloneDXMetadata";
 import { CycloneDXVulnerability } from "./CycloneDXVulnerability";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A CycloneDX 1.5 Bill of Materials (BOM) document containing vulnerability data.
@@ -32,7 +32,7 @@ export class CycloneDXBom {
   /**
    * The version number of the BOM document.
    */
-  "version"?: number;
+  "version"?: Int64;
   /**
    * The list of detected vulnerabilities. Cannot be empty.
    */

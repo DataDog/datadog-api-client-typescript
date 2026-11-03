@@ -5,7 +5,7 @@
  */
 import { SyntheticsTestVersionChangeMetadataItem } from "./SyntheticsTestVersionChangeMetadataItem";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a version change record.
@@ -22,7 +22,7 @@ export class SyntheticsTestVersionChangeAttributes {
   /**
    * The sequential version number.
    */
-  "versionNumber"?: number;
+  "versionNumber"?: Int64;
   /**
    * Timestamp of when this version was created.
    */

@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for a monitor alert trigger.
@@ -17,11 +17,11 @@ export class MonitorAlertTriggerAttributes {
   /**
    * The timestamp of the event in Unix milliseconds.
    */
-  "eventTs": number;
+  "eventTs": Int64;
   /**
    * The monitor ID that triggered the alert.
    */
-  "monitorId": number;
+  "monitorId": Int64;
 
   /**
    * A container for additional, undeclared properties.

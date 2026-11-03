@@ -5,7 +5,7 @@
  */
 import { DashboardFixedTimeframeType } from "./DashboardFixedTimeframeType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * A fixed dashboard timeframe.
@@ -14,11 +14,11 @@ export class DashboardFixedTimeframe {
   /**
    * Start time in milliseconds since epoch.
    */
-  "from": number;
+  "from": Int64;
   /**
    * End time in milliseconds since epoch.
    */
-  "to": number;
+  "to": Int64;
   /**
    * Type of fixed timeframe.
    */

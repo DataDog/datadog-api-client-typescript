@@ -5,7 +5,7 @@
  */
 import { LLMObsAnthropicThinkingType } from "./LLMObsAnthropicThinkingType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Configuration for Anthropic extended thinking feature.
@@ -14,7 +14,7 @@ export class LLMObsAnthropicThinkingConfig {
   /**
    * Maximum token budget for extended thinking. Required when type is `enabled`.
    */
-  "budgetTokens"?: number;
+  "budgetTokens"?: Int64;
   /**
    * The thinking mode for Anthropic extended thinking.
    */

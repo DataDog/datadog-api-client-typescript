@@ -5,7 +5,7 @@
  */
 import { SLOHistoryMetricsSeriesMetadataUnit } from "./SLOHistoryMetricsSeriesMetadataUnit";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Query metadata.
@@ -26,7 +26,7 @@ export class SLOHistoryMetricsSeriesMetadata {
   /**
    * Query index from original combined query.
    */
-  "queryIndex"?: number;
+  "queryIndex"?: Int64;
   /**
    * Query scope.
    */

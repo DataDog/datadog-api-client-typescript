@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { EntityData } from "../models/EntityData";
@@ -112,8 +113,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listCatalogEntity(
-    pageOffset?: number,
-    pageLimit?: number,
+    pageOffset?: Int64Input,
+    pageLimit?: Int64Input,
     filterId?: string,
     filterRef?: string,
     filterName?: string,
@@ -232,8 +233,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listCatalogKind(
-    pageOffset?: number,
-    pageLimit?: number,
+    pageOffset?: Int64Input,
+    pageLimit?: Int64Input,
     filterId?: string,
     filterName?: string,
     _options?: Configuration
@@ -296,8 +297,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listCatalogRelation(
-    pageOffset?: number,
-    pageLimit?: number,
+    pageOffset?: Int64Input,
+    pageLimit?: Int64Input,
     filterType?: RelationType,
     filterFromRef?: string,
     filterToRef?: string,
@@ -446,7 +447,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpsertCatalogEntityRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -493,7 +495,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpsertCatalogKindRequest", ""),
-      contentType
+      contentType,
+      this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -509,6 +512,12 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class SoftwareCatalogApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -531,13 +540,16 @@ export class SoftwareCatalogApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -583,13 +595,16 @@ export class SoftwareCatalogApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -628,21 +643,30 @@ export class SoftwareCatalogApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListEntityCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListEntityCatalogResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ListEntityCatalogResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListEntityCatalogResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -657,9 +681,14 @@ export class SoftwareCatalogApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListEntityCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ListEntityCatalogResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListEntityCatalogResponse;
       return body;
     }
@@ -686,8 +715,14 @@ export class SoftwareCatalogApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListKindCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListKindCatalogResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ListKindCatalogResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListKindCatalogResponse;
       return body;
     }
@@ -698,13 +733,16 @@ export class SoftwareCatalogApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -719,9 +757,14 @@ export class SoftwareCatalogApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListKindCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ListKindCatalogResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListKindCatalogResponse;
       return body;
     }
@@ -748,21 +791,30 @@ export class SoftwareCatalogApiResponseProcessor {
     );
     if (response.httpStatusCode === 200) {
       const body: ListRelationCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListRelationCatalogResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "ListRelationCatalogResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListRelationCatalogResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -777,9 +829,14 @@ export class SoftwareCatalogApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListRelationCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "ListRelationCatalogResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as ListRelationCatalogResponse;
       return body;
     }
@@ -806,21 +863,30 @@ export class SoftwareCatalogApiResponseProcessor {
     );
     if (response.httpStatusCode === 202) {
       const body: EntityResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "EntityResponseArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "EntityResponseArray",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as EntityResponseArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -835,9 +901,14 @@ export class SoftwareCatalogApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EntityResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "EntityResponseArray",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as EntityResponseArray;
       return body;
     }
@@ -864,8 +935,14 @@ export class SoftwareCatalogApiResponseProcessor {
     );
     if (response.httpStatusCode === 202) {
       const body: UpsertCatalogEntityResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UpsertCatalogEntityResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "UpsertCatalogEntityResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UpsertCatalogEntityResponse;
       return body;
     }
@@ -876,13 +953,16 @@ export class SoftwareCatalogApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -897,9 +977,14 @@ export class SoftwareCatalogApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpsertCatalogEntityResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "UpsertCatalogEntityResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UpsertCatalogEntityResponse;
       return body;
     }
@@ -926,8 +1011,14 @@ export class SoftwareCatalogApiResponseProcessor {
     );
     if (response.httpStatusCode === 202) {
       const body: UpsertCatalogKindResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UpsertCatalogKindResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "UpsertCatalogKindResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UpsertCatalogKindResponse;
       return body;
     }
@@ -938,13 +1029,16 @@ export class SoftwareCatalogApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        this.configuration?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -959,9 +1053,14 @@ export class SoftwareCatalogApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpsertCatalogKindResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
         "UpsertCatalogKindResponse",
-        ""
+        "",
+        this.configuration?.preserveLargeIntegers
       ) as UpsertCatalogKindResponse;
       return body;
     }
@@ -993,14 +1092,14 @@ export interface SoftwareCatalogApiDeleteCatalogKindRequest {
 export interface SoftwareCatalogApiListCatalogEntityRequest {
   /**
    * Specific offset to use as the beginning of the returned page.
-   * @type number
+   * @type Int64Input
    */
-  pageOffset?: number;
+  pageOffset?: Int64Input;
   /**
    * Maximum number of entities in the response.
-   * @type number
+   * @type Int64Input
    */
-  pageLimit?: number;
+  pageLimit?: Int64Input;
   /**
    * Filter entities by UUID.
    * @type string
@@ -1051,14 +1150,14 @@ export interface SoftwareCatalogApiListCatalogEntityRequest {
 export interface SoftwareCatalogApiListCatalogKindRequest {
   /**
    * Specific offset to use as the beginning of the returned page.
-   * @type number
+   * @type Int64Input
    */
-  pageOffset?: number;
+  pageOffset?: Int64Input;
   /**
    * Maximum number of kinds in the response.
-   * @type number
+   * @type Int64Input
    */
-  pageLimit?: number;
+  pageLimit?: Int64Input;
   /**
    * Filter entities by UUID.
    * @type string
@@ -1074,14 +1173,14 @@ export interface SoftwareCatalogApiListCatalogKindRequest {
 export interface SoftwareCatalogApiListCatalogRelationRequest {
   /**
    * Specific offset to use as the beginning of the returned page.
-   * @type number
+   * @type Int64Input
    */
-  pageOffset?: number;
+  pageOffset?: Int64Input;
   /**
    * Maximum number of relations in the response.
-   * @type number
+   * @type Int64Input
    */
-  pageLimit?: number;
+  pageLimit?: Int64Input;
   /**
    * Filter relations by type.
    * @type RelationType
@@ -1139,7 +1238,8 @@ export class SoftwareCatalogApi {
     this.requestFactory =
       requestFactory || new SoftwareCatalogApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new SoftwareCatalogApiResponseProcessor();
+      responseProcessor ||
+      new SoftwareCatalogApiResponseProcessor(configuration);
   }
 
   /**
@@ -1224,7 +1324,7 @@ export class SoftwareCatalogApi {
   ): AsyncGenerator<EntityData> {
     let pageSize = 100;
     if (param.pageLimit !== undefined) {
-      pageSize = param.pageLimit;
+      pageSize = Number(param.pageLimit);
     }
     param.pageLimit = pageSize;
     while (true) {
@@ -1263,7 +1363,7 @@ export class SoftwareCatalogApi {
       if (param.pageOffset === undefined) {
         param.pageOffset = pageSize;
       } else {
-        param.pageOffset = param.pageOffset + pageSize;
+        param.pageOffset = Number(param.pageOffset) + pageSize;
       }
     }
   }
@@ -1301,7 +1401,7 @@ export class SoftwareCatalogApi {
   ): AsyncGenerator<KindData> {
     let pageSize = 100;
     if (param.pageLimit !== undefined) {
-      pageSize = param.pageLimit;
+      pageSize = Number(param.pageLimit);
     }
     param.pageLimit = pageSize;
     while (true) {
@@ -1333,7 +1433,7 @@ export class SoftwareCatalogApi {
       if (param.pageOffset === undefined) {
         param.pageOffset = pageSize;
       } else {
-        param.pageOffset = param.pageOffset + pageSize;
+        param.pageOffset = Number(param.pageOffset) + pageSize;
       }
     }
   }
@@ -1374,7 +1474,7 @@ export class SoftwareCatalogApi {
   ): AsyncGenerator<RelationResponse> {
     let pageSize = 100;
     if (param.pageLimit !== undefined) {
-      pageSize = param.pageLimit;
+      pageSize = Number(param.pageLimit);
     }
     param.pageLimit = pageSize;
     while (true) {
@@ -1409,7 +1509,7 @@ export class SoftwareCatalogApi {
       if (param.pageOffset === undefined) {
         param.pageOffset = pageSize;
       } else {
-        param.pageOffset = param.pageOffset + pageSize;
+        param.pageOffset = Number(param.pageOffset) + pageSize;
       }
     }
   }

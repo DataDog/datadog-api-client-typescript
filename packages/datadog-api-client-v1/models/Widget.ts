@@ -6,7 +6,7 @@
 import { WidgetDefinition } from "./WidgetDefinition";
 import { WidgetLayout } from "./WidgetLayout";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Information about widget.
@@ -24,7 +24,7 @@ export class Widget {
   /**
    * ID of the widget.
    */
-  "id"?: number;
+  "id"?: Int64;
   /**
    * The layout for a widget on a `free` or **new dashboard layout** dashboard.
    */

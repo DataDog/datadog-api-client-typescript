@@ -5,7 +5,7 @@
  */
 import { JVMSourcemapMapKind } from "./JVMSourcemapMapKind";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of a JVM mapping file.
@@ -30,7 +30,7 @@ export class JVMSourcemapAttributes {
   /**
    * The size of the mapping file in bytes.
    */
-  "size": number;
+  "size": Int64;
   /**
    * The build variant (e.g., `release`, `debug`).
    */

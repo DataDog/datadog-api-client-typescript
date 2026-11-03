@@ -6,7 +6,7 @@
 import { ObservabilityPipelineBufferOptionsDiskType } from "./ObservabilityPipelineBufferOptionsDiskType";
 import { ObservabilityPipelineBufferOptionsWhenFull } from "./ObservabilityPipelineBufferOptionsWhenFull";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Options for configuring a disk buffer.
@@ -15,7 +15,7 @@ export class ObservabilityPipelineDiskBufferOptions {
   /**
    * Maximum size of the disk buffer.
    */
-  "maxSize": number;
+  "maxSize": Int64;
   /**
    * The type of the buffer that will be configured, a disk buffer.
    */

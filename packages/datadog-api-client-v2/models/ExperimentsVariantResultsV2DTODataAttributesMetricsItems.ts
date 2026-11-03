@@ -7,7 +7,7 @@ import { ExperimentsMetricV2DTODataAttributesDesiredChange } from "./Experiments
 import { ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems";
 import { ExperimentsVariantResultsV2DTODataAttributesMetricsItemsCoverageSummary } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItemsCoverageSummary";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Metric values and statistical results for one variant.
@@ -20,7 +20,7 @@ export class ExperimentsVariantResultsV2DTODataAttributesMetricsItems {
   /**
    * Number of subjects assigned to this variant.
    */
-  "assignmentCount"?: number;
+  "assignmentCount"?: Int64;
   /**
    * Estimated share of the global metric total from the eligible population if that population received
    * control. The estimate can exceed 1.

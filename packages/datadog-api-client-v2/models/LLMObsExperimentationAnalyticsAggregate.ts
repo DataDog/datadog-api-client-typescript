@@ -8,7 +8,7 @@ import { LLMObsExperimentationAnalyticsGroupBy } from "./LLMObsExperimentationAn
 import { LLMObsExperimentationAnalyticsSearch } from "./LLMObsExperimentationAnalyticsSearch";
 import { LLMObsExperimentationAnalyticsTimeRange } from "./LLMObsExperimentationAnalyticsTimeRange";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Analytics aggregation parameters.
@@ -21,7 +21,7 @@ export class LLMObsExperimentationAnalyticsAggregate {
   /**
    * Filter to a specific dataset version.
    */
-  "datasetVersion"?: number;
+  "datasetVersion"?: Int64;
   /**
    * Fields to group results by.
    */

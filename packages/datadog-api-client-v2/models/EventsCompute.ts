@@ -5,7 +5,7 @@
  */
 import { EventsAggregation } from "./EventsAggregation";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The instructions for what to compute for this query.
@@ -18,7 +18,7 @@ export class EventsCompute {
   /**
    * Interval for compute in milliseconds.
    */
-  "interval"?: number;
+  "interval"?: Int64;
   /**
    * The "measure" attribute on which to perform the computation.
    */

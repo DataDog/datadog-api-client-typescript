@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Object with all metric related metadata.
@@ -29,7 +29,7 @@ export class MetricMetadata {
   /**
    * StatsD flush interval of the metric in seconds if applicable.
    */
-  "statsdInterval"?: number;
+  "statsdInterval"?: Int64;
   /**
    * Metric type such as `gauge` or `rate`.
    */

@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsSankeyAggregatedNodeType } from "./ProductAnalyticsSankeyAggregatedNodeType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * One of the nodes rolled up into an aggregated node, retained so the roll-up can be broken down.
@@ -18,7 +18,7 @@ export class ProductAnalyticsSankeyAggregatedNode {
   /**
    * Number of sessions entering the node.
    */
-  "incomingValue"?: number;
+  "incomingValue"?: Int64;
   /**
    * The facet value the node represents.
    */
@@ -26,7 +26,7 @@ export class ProductAnalyticsSankeyAggregatedNode {
   /**
    * Number of sessions leaving the node.
    */
-  "outgoingValue"?: number;
+  "outgoingValue"?: Int64;
   /**
    * The resource type identifier for a node rolled up into an aggregated node.
    */
@@ -34,7 +34,7 @@ export class ProductAnalyticsSankeyAggregatedNode {
   /**
    * Number of sessions passing through the node.
    */
-  "value"?: number;
+  "value"?: Int64;
 
   /**
    * A container for additional, undeclared properties.

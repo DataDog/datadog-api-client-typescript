@@ -5,7 +5,7 @@
  */
 import { ProductAnalyticsRetentionGridCohortType } from "./ProductAnalyticsRetentionGridCohortType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * One cell of the retention grid, holding the result for a single cohort over a single return period.
@@ -15,7 +15,7 @@ export class ProductAnalyticsRetentionGridCohortCell {
   /**
    * Number of entities that returned during the period.
    */
-  "cellCount"?: number;
+  "cellCount"?: Int64;
   /**
    * Fraction of the cohort that returned, between `0` and `1`.
    */
@@ -35,15 +35,15 @@ export class ProductAnalyticsRetentionGridCohortCell {
   /**
    * End of the return period, in epoch milliseconds.
    */
-  "returnPeriodEndTime"?: number;
+  "returnPeriodEndTime"?: Int64;
   /**
    * Zero-based index of the return period this cell belongs to.
    */
-  "returnPeriodIndex"?: number;
+  "returnPeriodIndex"?: Int64;
   /**
    * Start of the return period, in epoch milliseconds.
    */
-  "returnPeriodStartTime"?: number;
+  "returnPeriodStartTime"?: Int64;
   /**
    * Whether the row holds one cohort's own numbers, or the weighted roll-up across every cohort.
    */

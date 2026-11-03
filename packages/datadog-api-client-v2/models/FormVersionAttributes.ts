@@ -7,7 +7,7 @@ import { FormDataDefinition } from "./FormDataDefinition";
 import { FormUiDefinition } from "./FormUiDefinition";
 import { FormVersionState } from "./FormVersionState";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a form version.
@@ -48,7 +48,7 @@ export class FormVersionAttributes {
   /**
    * The ID of the user who created this version.
    */
-  "userId": number;
+  "userId": Int64;
   /**
    * The UUID of the user who created this version.
    */
@@ -56,7 +56,7 @@ export class FormVersionAttributes {
   /**
    * The sequential version number.
    */
-  "version": number;
+  "version": Int64;
 
   /**
    * A container for additional, undeclared properties.

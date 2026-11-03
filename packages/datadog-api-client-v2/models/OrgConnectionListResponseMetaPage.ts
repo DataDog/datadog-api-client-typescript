@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Page information.
@@ -13,11 +13,11 @@ export class OrgConnectionListResponseMetaPage {
   /**
    * Total number of org connections.
    */
-  "totalCount"?: number;
+  "totalCount"?: Int64;
   /**
    * Total number of org connections matching the filter.
    */
-  "totalFilteredCount"?: number;
+  "totalFilteredCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.
