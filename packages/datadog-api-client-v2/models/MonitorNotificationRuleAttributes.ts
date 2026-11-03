@@ -6,6 +6,7 @@
 import { MonitorNotificationRuleBundleConfig } from "./MonitorNotificationRuleBundleConfig";
 import { MonitorNotificationRuleConditionalRecipients } from "./MonitorNotificationRuleConditionalRecipients";
 import { MonitorNotificationRuleFilter } from "./MonitorNotificationRuleFilter";
+import { MonitorNotificationRuleOptions } from "./MonitorNotificationRuleOptions";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -34,6 +35,10 @@ export class MonitorNotificationRuleAttributes {
    * A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'. Cannot be used with `conditional_recipients`.
    */
   "recipients"?: Array<string>;
+  /**
+   * Additional options for the monitor notification rule.
+   */
+  "ruleOptions"?: MonitorNotificationRuleOptions;
 
   /**
    * @ignore
@@ -64,6 +69,10 @@ export class MonitorNotificationRuleAttributes {
     recipients: {
       baseName: "recipients",
       type: "Array<string>",
+    },
+    ruleOptions: {
+      baseName: "rule_options",
+      type: "MonitorNotificationRuleOptions",
     },
   };
 
