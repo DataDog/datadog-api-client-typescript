@@ -21,7 +21,7 @@ export class FacetInfoRequestData {
    */
   "id"?: string;
   /**
-   * Users facet info request resource type.
+   * Facet info request resource type.
    */
   "type": FacetInfoRequestDataType;
 

@@ -11,13 +11,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class FacetInfoResponseDataAttributesResultRange {
   /**
-   * The maximum observed value for the numeric facet attribute.
+   * The maximum observed value for the numeric facet attribute. Null when no records match.
    */
-  "max"?: any;
+  "max"?: number;
   /**
-   * The minimum observed value for the numeric facet attribute.
+   * The minimum observed value for the numeric facet attribute. Null when no records match.
    */
-  "min"?: any;
+  "min"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,11 +37,13 @@ export class FacetInfoResponseDataAttributesResultRange {
   static readonly attributeTypeMap: AttributeTypeMap = {
     max: {
       baseName: "max",
-      type: "any",
+      type: "number",
+      format: "double",
     },
     min: {
       baseName: "min",
-      type: "any",
+      type: "number",
+      format: "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",

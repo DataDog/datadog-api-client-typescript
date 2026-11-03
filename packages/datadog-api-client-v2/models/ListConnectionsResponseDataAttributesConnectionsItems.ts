@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CreateConnectionRequestDataAttributesFieldsItems } from "./CreateConnectionRequestDataAttributesFieldsItems";
+import { ListConnectionsResponseDataAttributesConnectionsItemsDetails } from "./ListConnectionsResponseDataAttributesConnectionsItemsDetails";
 import { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./ListConnectionsResponseDataAttributesConnectionsItemsJoin";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -21,6 +22,10 @@ export class ListConnectionsResponseDataAttributesConnectionsItems {
    */
   "createdBy"?: string;
   /**
+   * Type-specific configuration of the connection. Only the field matching the connection type is set.
+   */
+  "details"?: ListConnectionsResponseDataAttributesConnectionsItemsDetails;
+  /**
    * List of custom attribute fields imported from the data source.
    */
   "fields"?: Array<CreateConnectionRequestDataAttributesFieldsItems>;
@@ -36,6 +41,10 @@ export class ListConnectionsResponseDataAttributesConnectionsItems {
    * Additional key-value metadata associated with the connection.
    */
   "metadata"?: { [key: string]: string };
+  /**
+   * Display name of the connection.
+   */
+  "name"?: string;
   /**
    * The type of data source connection (for example, ref_table).
    */
@@ -74,6 +83,10 @@ export class ListConnectionsResponseDataAttributesConnectionsItems {
       baseName: "created_by",
       type: "string",
     },
+    details: {
+      baseName: "details",
+      type: "ListConnectionsResponseDataAttributesConnectionsItemsDetails",
+    },
     fields: {
       baseName: "fields",
       type: "Array<CreateConnectionRequestDataAttributesFieldsItems>",
@@ -89,6 +102,10 @@ export class ListConnectionsResponseDataAttributesConnectionsItems {
     metadata: {
       baseName: "metadata",
       type: "{ [key: string]: string; }",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
     },
     type: {
       baseName: "type",
