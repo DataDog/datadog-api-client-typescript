@@ -17,9 +17,17 @@ export class CommitmentsAwsSPCommitment {
    */
   "expirationDate"?: string;
   /**
+   * The EC2 instance family covered by the Savings Plan. Returned only for EC2 Instance Savings Plans.
+   */
+  "instanceTypeFamily"?: string;
+  /**
    * The payment option for the Savings Plan.
    */
   "purchaseOption": string;
+  /**
+   * The AWS region covered by the Savings Plan. Returned only for EC2 Instance Savings Plans.
+   */
+  "region"?: string;
   /**
    * The Savings Plan type.
    */
@@ -29,11 +37,11 @@ export class CommitmentsAwsSPCommitment {
    */
   "startDate"?: string;
   /**
-   * The term length in years.
+   * The commitment term in whole months. Omitted when the term is unknown.
    */
-  "termLength"?: number;
+  "termLengthMonths"?: number;
   /**
-   * The utilization percentage of the commitment.
+   * The utilization percentage of the commitment, from 0 to 100.
    */
   "utilization"?: number;
   /**
@@ -65,10 +73,18 @@ export class CommitmentsAwsSPCommitment {
       baseName: "expiration_date",
       type: "string",
     },
+    instanceTypeFamily: {
+      baseName: "instance_type_family",
+      type: "string",
+    },
     purchaseOption: {
       baseName: "purchase_option",
       type: "string",
       required: true,
+    },
+    region: {
+      baseName: "region",
+      type: "string",
     },
     savingsPlanType: {
       baseName: "savings_plan_type",
@@ -79,10 +95,10 @@ export class CommitmentsAwsSPCommitment {
       baseName: "start_date",
       type: "string",
     },
-    termLength: {
-      baseName: "term_length",
+    termLengthMonths: {
+      baseName: "term_length_months",
       type: "number",
-      format: "double",
+      format: "int64",
     },
     utilization: {
       baseName: "utilization",

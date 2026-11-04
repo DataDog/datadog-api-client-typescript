@@ -88,8 +88,13 @@ import { CommitmentsCoverageScalarResponse } from "./CommitmentsCoverageScalarRe
 import { CommitmentsCoverageTimeseriesResponse } from "./CommitmentsCoverageTimeseriesResponse";
 import { CommitmentsListMeta } from "./CommitmentsListMeta";
 import { CommitmentsListResponse } from "./CommitmentsListResponse";
+import { CommitmentsListResponseAttributes } from "./CommitmentsListResponseAttributes";
+import { CommitmentsListResponseData } from "./CommitmentsListResponseData";
 import { CommitmentsOnDemandHotspotsScalarMeta } from "./CommitmentsOnDemandHotspotsScalarMeta";
 import { CommitmentsOnDemandHotspotsScalarResponse } from "./CommitmentsOnDemandHotspotsScalarResponse";
+import { CommitmentsQueryDefinition } from "./CommitmentsQueryDefinition";
+import { CommitmentsQueryDefinitionFormula } from "./CommitmentsQueryDefinitionFormula";
+import { CommitmentsQueryDefinitionQuery } from "./CommitmentsQueryDefinitionQuery";
 import { CommitmentsSavingsScalarResponse } from "./CommitmentsSavingsScalarResponse";
 import { CommitmentsSavingsTimeseriesResponse } from "./CommitmentsSavingsTimeseriesResponse";
 import { CommitmentsScalarColumn } from "./CommitmentsScalarColumn";
@@ -266,7 +271,10 @@ export const TypingInfo: ModelTypingInfo = {
     CloudCostAccountType: ["cloud_account"],
     CommitmentsAzureVMRIStatus: ["running", "expired", "cancelled"],
     CommitmentsCommitmentType: ["ri", "sp"],
+    CommitmentsListResponseType: ["commitments_list_response"],
     CommitmentsProvider: ["aws", "azure"],
+    CommitmentsQueryDefinitionAggregator: ["sum", "avg", "min", "max"],
+    CommitmentsQueryDefinitionDataSource: ["cloud_cost", "metrics"],
     CommitmentsScalarColumnType: ["group", "number"],
     CostAnomaliesResponseDataType: ["anomalies"],
     CostCurrencyType: ["cost_currency"],
@@ -424,10 +432,15 @@ export const TypingInfo: ModelTypingInfo = {
       CommitmentsCoverageTimeseriesResponse,
     CommitmentsListMeta: CommitmentsListMeta,
     CommitmentsListResponse: CommitmentsListResponse,
+    CommitmentsListResponseAttributes: CommitmentsListResponseAttributes,
+    CommitmentsListResponseData: CommitmentsListResponseData,
     CommitmentsOnDemandHotspotsScalarMeta:
       CommitmentsOnDemandHotspotsScalarMeta,
     CommitmentsOnDemandHotspotsScalarResponse:
       CommitmentsOnDemandHotspotsScalarResponse,
+    CommitmentsQueryDefinition: CommitmentsQueryDefinition,
+    CommitmentsQueryDefinitionFormula: CommitmentsQueryDefinitionFormula,
+    CommitmentsQueryDefinitionQuery: CommitmentsQueryDefinitionQuery,
     CommitmentsSavingsScalarResponse: CommitmentsSavingsScalarResponse,
     CommitmentsSavingsTimeseriesResponse: CommitmentsSavingsTimeseriesResponse,
     CommitmentsScalarColumn: CommitmentsScalarColumn,

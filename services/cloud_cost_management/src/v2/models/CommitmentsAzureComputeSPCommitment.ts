@@ -21,15 +21,20 @@ export class CommitmentsAzureComputeSPCommitment {
    */
   "expirationDate"?: string;
   /**
+   * The Azure Savings Plan type, `Compute` or `Database`, based on the product order name. Omitted when
+   * the type can't be classified.
+   */
+  "savingsPlanType"?: string;
+  /**
    * The start date of the commitment.
    */
   "startDate"?: string;
   /**
-   * The term length in years.
+   * The commitment term in whole months. Omitted when the term is unknown.
    */
-  "termLength"?: number;
+  "termLengthMonths"?: number;
   /**
-   * The utilization percentage of the commitment.
+   * The utilization percentage of the commitment, from 0 to 100.
    */
   "utilization"?: number;
   /**
@@ -66,14 +71,18 @@ export class CommitmentsAzureComputeSPCommitment {
       baseName: "expiration_date",
       type: "string",
     },
+    savingsPlanType: {
+      baseName: "savings_plan_type",
+      type: "string",
+    },
     startDate: {
       baseName: "start_date",
       type: "string",
     },
-    termLength: {
-      baseName: "term_length",
+    termLengthMonths: {
+      baseName: "term_length_months",
       type: "number",
-      format: "double",
+      format: "int64",
     },
     utilization: {
       baseName: "utilization",

@@ -11,6 +11,11 @@ export class CommitmentsListMeta {
    */
   "committedSpendUnit"?: CommitmentsUnit;
   /**
+   * Whether Azure cost data lacks the unused cost of some commitments, for example when an export is
+   * scoped below the billing profile. When `true`, utilization is overstated.
+   */
+  "unusedCostUnavailable"?: boolean;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -28,6 +33,10 @@ export class CommitmentsListMeta {
     committedSpendUnit: {
       baseName: "committed_spend_unit",
       type: "CommitmentsUnit",
+    },
+    unusedCostUnavailable: {
+      baseName: "unused_cost_unavailable",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
