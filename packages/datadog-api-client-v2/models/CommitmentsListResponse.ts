@@ -3,8 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CommitmentsListItem } from "./CommitmentsListItem";
-import { CommitmentsListMeta } from "./CommitmentsListMeta";
+import { CommitmentsListResponseData } from "./CommitmentsListResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -13,13 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CommitmentsListResponse {
   /**
-   * Array of commitment items.
+   * The commitments list resource.
    */
-  "commitments": Array<CommitmentsListItem>;
-  /**
-   * Metadata for a commitments list response.
-   */
-  "meta"?: CommitmentsListMeta;
+  "data": CommitmentsListResponseData;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,14 +32,10 @@ export class CommitmentsListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commitments: {
-      baseName: "commitments",
-      type: "Array<CommitmentsListItem>",
+    data: {
+      baseName: "data",
+      type: "CommitmentsListResponseData",
       required: true,
-    },
-    meta: {
-      baseName: "meta",
-      type: "CommitmentsListMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",

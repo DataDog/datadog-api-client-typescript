@@ -16,9 +16,10 @@ const apiInstance = new v2.CloudCostManagementApi(configuration);
 
 const params: v2.CloudCostManagementApiGetCommitmentsCommitmentListRequest = {
   provider: "aws",
-  product: "product",
-  start: 9223372036854775807,
-  end: 9223372036854775807,
+  product: "ec2",
+  start: 1788220800000,
+  end: 1790812799000,
+  commitmentType: "ri",
 };
 
 apiInstance
