@@ -1,0 +1,487 @@
+{
+  "feature": "Change Tracking",
+  "recordings": [
+    {
+      "feature": "Change Tracking",
+      "frozen_at": "2026-10-28T13:50:58.257Z",
+      "interactions": [
+        {
+          "request": {
+            "body": {
+              "type": "empty",
+              "value": null
+            },
+            "content_type": "",
+            "method": "GET",
+            "path": "/api/v2/change-tracking/stories",
+            "query": [
+              [
+                "end",
+                "1793188800000"
+              ],
+              [
+                "filter[kube_cluster]",
+                "cluster-a"
+              ],
+              [
+                "filter[kube_namespace]",
+                "payments"
+              ],
+              [
+                "filter[story_type]",
+                "kubernetes"
+              ],
+              [
+                "start",
+                "1793102400000"
+              ]
+            ]
+          },
+          "response": {
+            "body": {
+              "encoding": "text",
+              "value": "{\"data\":[{\"id\":\"b7b2d185c93759d5a80313801f75723881e8e3ac4260adeea2a21a33c7e3a4b3\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"kubernetes\",\"object\":{\"kubeEvents\":[{\"timestamp\":1793178428000,\"KubeCluster\":\"cluster-a\",\"KubeNamespace\":\"payments\",\"KubeDeployment\":\"payments-api-canary\",\"KubeReplicaSet\":\"payments-api-canary-547967b65f\",\"eventId\":\"8873731096686865857\"},{\"timestamp\":1793178681000,\"KubeCluster\":\"cluster-a\",\"KubeNamespace\":\"payments\",\"KubeDeployment\":\"payments-api-ios\",\"KubeReplicaSet\":\"payments-api-ios-6d86f9d545\",\"eventId\":\"8873735050534907411\"}]}},\"endTimeUnix\":1793179259000,\"env\":\"staging\",\"filterTags\":{\"kube_cluster\":[\"cluster-a\"],\"kube_namespace\":[\"payments\"]},\"grouping\":{\"key\":\"payments-api|registry.example.com/payments-api:v148105288-8f5deb4@sha256:998d7c6bb0fd965b229caf9a67908553a8a74ab68de2488067a4b76361ba6571\",\"version\":\"v1\"},\"header\":\"Kubernetes changes for service payments-api\",\"impactedResources\":[{\"type\":\"service\",\"name\":\"payments-api\"}],\"startTimeUnix\":1793178428000,\"storyType\":\"kubernetes\",\"subheading\":\"\"}}]}"
+            },
+            "headers": {
+              "content-type": "application/vnd.api+json"
+            },
+            "reason": "OK",
+            "status": 200
+          }
+        }
+      ],
+      "scenario": "Search Kubernetes change stories for a cluster and namespace returns \"OK\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Change Tracking",
+      "frozen_at": "2026-10-28T13:50:56.784Z",
+      "interactions": [
+        {
+          "request": {
+            "body": {
+              "type": "empty",
+              "value": null
+            },
+            "content_type": "",
+            "method": "GET",
+            "path": "/api/v2/change-tracking/stories",
+            "query": [
+              [
+                "end",
+                "1793188800000"
+              ],
+              [
+                "filter[service]",
+                "web-store,payments-api"
+              ],
+              [
+                "filter[story_type]",
+                "deployment"
+              ],
+              [
+                "start",
+                "1793102400000"
+              ]
+            ]
+          },
+          "response": {
+            "body": {
+              "encoding": "text",
+              "value": "{\"data\":[{\"id\":\"v1|deployment|payments-api-staging-v148105288-8f5deb4\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"deployment\",\"object\":{\"version\":\"v148105288-8f5deb4\",\"firstSeen\":1793178447000000000,\"lastSeen\":1793195125000000000,\"priorVersion\":\"v147741519-e3e3870\",\"storyKey\":\"payments-api|staging|v148105288-8f5deb4\"}},\"endTimeUnix\":1793178447000,\"env\":\"staging\",\"filterTags\":{\"service\":[\"payments-api\"]},\"grouping\":{\"key\":\"payments-api|staging|v148105288-8f5deb4\",\"version\":\"v1\"},\"header\":\"Deployment version v148105288-8f5deb4\",\"impactedResources\":[{\"type\":\"service\",\"name\":\"payments-api\"}],\"startTimeUnix\":1793178447000,\"storyType\":\"deployment\",\"subheading\":\"First seen: 1793178447, Last Seen: 1793195125\"}},{\"id\":\"v1|deployment|web-store-staging-v147802282-74098b8\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"deployment\",\"object\":{\"version\":\"v147802282-74098b8\",\"firstSeen\":1793108217000000000,\"lastSeen\":1793139915000000000,\"priorVersion\":\"v147565743-3e36199\",\"storyKey\":\"web-store|staging|v147802282-74098b8\"}},\"endTimeUnix\":1793108217000,\"env\":\"staging\",\"filterTags\":{\"service\":[\"web-store\"]},\"grouping\":{\"key\":\"web-store|staging|v147802282-74098b8\",\"version\":\"v1\"},\"header\":\"Deployment version v147802282-74098b8\",\"impactedResources\":[{\"type\":\"service\",\"name\":\"web-store\"}],\"startTimeUnix\":1793108217000,\"storyType\":\"deployment\",\"subheading\":\"First seen: 1793108217, Last Seen: 1793139915\"}},{\"id\":\"v1|deployment|web-store-staging-v148034662-103d438\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"deployment\",\"object\":{\"version\":\"v148034662-103d438\",\"firstSeen\":1793139321000000000,\"lastSeen\":1793142521000000000,\"priorVersion\":\"v147802282-74098b8\",\"storyKey\":\"web-store|staging|v148034662-103d438\"}},\"endTimeUnix\":1793139321000,\"env\":\"staging\",\"filterTags\":{\"service\":[\"web-store\"]},\"grouping\":{\"key\":\"web-store|staging|v148034662-103d438\",\"version\":\"v1\"},\"header\":\"Deployment version v148034662-103d438\",\"impactedResources\":[{\"type\":\"service\",\"name\":\"web-store\"}],\"startTimeUnix\":1793139321000,\"storyType\":\"deployment\",\"subheading\":\"First seen: 1793139321, Last Seen: 1793142521\"}}]}"
+            },
+            "headers": {
+              "content-type": "application/vnd.api+json"
+            },
+            "reason": "OK",
+            "status": 200
+          }
+        }
+      ],
+      "scenario": "Search change stories for multiple services returns \"OK\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Change Tracking",
+      "frozen_at": "2026-10-28T13:50:41.986Z",
+      "interactions": [
+        {
+          "request": {
+            "body": {
+              "type": "empty",
+              "value": null
+            },
+            "content_type": "",
+            "method": "GET",
+            "path": "/api/v2/change-tracking/stories",
+            "query": [
+              [
+                "end",
+                "1793188800000"
+              ],
+              [
+                "filter[env]",
+                "staging"
+              ],
+              [
+                "start",
+                "1793102400000"
+              ]
+            ]
+          },
+          "response": {
+            "body": {
+              "encoding": "text",
+              "value": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"at least one of application_id, view_name, host, hostname, feature_flag_id, service, kube_cluster, kube_namespace, kube_deployment, pod_name, region, arn, or a resource identity filter is required\"}]}"
+            },
+            "headers": {
+              "content-type": "application/vnd.api+json"
+            },
+            "reason": "Bad Request",
+            "status": 400
+          }
+        }
+      ],
+      "scenario": "Search change stories returns \"Bad Request\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Change Tracking",
+      "frozen_at": "2026-10-28T13:52:04.830Z",
+      "interactions": [
+        {
+          "request": {
+            "body": {
+              "type": "empty",
+              "value": null
+            },
+            "content_type": "",
+            "method": "GET",
+            "path": "/api/v2/change-tracking/stories",
+            "query": [
+              [
+                "end",
+                "1793188800000"
+              ],
+              [
+                "filter[service]",
+                "payments-api"
+              ],
+              [
+                "start",
+                "1793102400000"
+              ]
+            ]
+          },
+          "response": {
+            "body": {
+              "encoding": "text",
+              "value": "{\"data\":[{\"id\":\"8571950eab130ac1df0d5afbbe3a1eaf1af9ade45a637e198315c659fc91073f\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"kubernetes\",\"object\":{\"kubeEvents\":[{\"timestamp\":1793178428000,\"KubeCluster\":\"cluster-a\",\"KubeNamespace\":\"payments\",\"KubeDeployment\":\"payments-api-canary\",\"KubeReplicaSet\":\"payments-api-canary-547967b65f\",\"eventId\":\"8873731096686865857\"},{\"timestamp\":1793178506000,\"KubeCluster\":\"cluster-b\",\"KubeNamespace\":\"payments\",\"KubeDeployment\":\"payments-api-main\",\"KubeReplicaSet\":\"payments-api-main-6544fc958c\",\"eventId\":\"8873732206998121331\"}]}},\"endTimeUnix\":1793179259000,\"env\":\"staging\",\"filterTags\":{\"service\":[\"payments-api\"]},\"grouping\":{\"key\":\"payments-api|registry.example.com/payments-api:v148105288-8f5deb4@sha256:998d7c6bb0fd965b229caf9a67908553a8a74ab68de2488067a4b76361ba6571\",\"version\":\"v1\"},\"header\":\"Kubernetes changes for service payments-api\",\"impactedResources\":[{\"type\":\"service\",\"name\":\"payments-api\"}],\"startTimeUnix\":1793178428000,\"storyType\":\"kubernetes\",\"subheading\":\"\"}},{\"id\":\"8873696642624571063\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"database_setting\",\"object\":{\"databaseName\":\"payments-db-1.example.internal|65e598ddfb49cec76414b230dfd819c84c0a1c614404b4cdfcf5a6f04f14554a\",\"resourceType\":\"postgres_settings\",\"changes\":[{\"host\":\"payments-db-1.example.internal\",\"eventId\":\"8873696642624571063\",\"before\":\"\",\"after\":\"\",\"startAt\":1793176389000,\"endAt\":1793176389000,\"action\":\"\"}]}},\"endTimeUnix\":1793176389000,\"env\":\"staging\",\"filterTags\":{\"service\":[\"payments-api\"]},\"grouping\":{\"key\":\"payments-db-1.example.internal|65e598ddfb49cec76414b230dfd819c84c0a1c614404b4cdfcf5a6f04f14554a\",\"version\":\"v1\"},\"header\":\"Changes on settings for database payments-db-1.example.internal|65e598ddfb49cec76414b230dfd819c84c0a1c614404b4cdfcf5a6f04f14554a\",\"impactedResources\":[{\"type\":\"service\",\"name\":\"inventory-service\"},{\"type\":\"service\",\"name\":\"inventory-admin\"}],\"startTimeUnix\":1793176389000,\"storyType\":\"database\",\"subheading\":\"A setting was updated\"}},{\"id\":\"v1|deployment|payments-api-staging-v148105288-8f5deb4\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"deployment\",\"object\":{\"version\":\"v148105288-8f5deb4\",\"firstSeen\":1793178447000000000,\"lastSeen\":1793195449000000000,\"priorVersion\":\"v147741519-e3e3870\",\"storyKey\":\"payments-api|staging|v148105288-8f5deb4\"}},\"endTimeUnix\":1793178447000,\"env\":\"staging\",\"filterTags\":{\"service\":[\"payments-api\"]},\"grouping\":{\"key\":\"payments-api|staging|v148105288-8f5deb4\",\"version\":\"v1\"},\"header\":\"Deployment version v148105288-8f5deb4\",\"impactedResources\":[{\"type\":\"service\",\"name\":\"payments-api\"}],\"startTimeUnix\":1793178447000,\"storyType\":\"deployment\",\"subheading\":\"First seen: 1793178447, Last Seen: 1793195449\"}}]}"
+            },
+            "headers": {
+              "content-type": "application/vnd.api+json"
+            },
+            "reason": "OK",
+            "status": 200
+          }
+        }
+      ],
+      "scenario": "Search change stories returns \"OK\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Change Tracking",
+      "frozen_at": "2026-10-28T13:52:05.533Z",
+      "interactions": [
+        {
+          "request": {
+            "body": {
+              "type": "empty",
+              "value": null
+            },
+            "content_type": "",
+            "method": "GET",
+            "path": "/api/v2/change-tracking/stories",
+            "query": [
+              [
+                "end",
+                "1793188800000"
+              ],
+              [
+                "filter[service]",
+                "web-store"
+              ],
+              [
+                "filter[story_type]",
+                "traffic_anomaly"
+              ],
+              [
+                "filter[tags]",
+                "env:staging"
+              ],
+              [
+                "start",
+                "1793102400000"
+              ]
+            ]
+          },
+          "response": {
+            "body": {
+              "encoding": "text",
+              "value": "{\"data\":[{\"id\":\"v1|traffic_anomaly|web-store-1793140500-1793141100-322014921b7f27e1\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"traffic_anomaly\",\"object\":{\"anomaly_type\":\"peak\",\"avg_hits\":0.00390625,\"end_time_unix\":1793141100000,\"formulas\":\"anomalies(query, 'agile', 6)\",\"max_hits\":1,\"median_hits\":0,\"metric\":\"sum:trace.grpc.server.hits{env:staging,service:web-store,span.kind:server}.as_count().rollup(avg, 300)\",\"min_hits\":0,\"query_end\":1793188800000,\"query_start\":1792497600000,\"source_service\":\"web-store\",\"start_time_unix\":1793140500000}},\"endTimeUnix\":1793141100000,\"env\":\"staging\",\"filterTags\":{\"env\":[\"staging\"],\"service\":[\"web-store\"]},\"grouping\":{\"key\":\"traffic_anomaly-web-store-trace.grpc.server.hits-1793138400-1793142000\",\"version\":\"v1\"},\"header\":\"More traffic than usual to web-store\",\"impactedResources\":[{\"type\":\"service\",\"name\":\"web-store\"}],\"startTimeUnix\":1793140500000,\"storyType\":\"traffic_anomaly\",\"subheading\":\"Last anomaly seen at 2026-10-27 22:45:00 +0000 UTC\"}}]}"
+            },
+            "headers": {
+              "content-type": "application/vnd.api+json"
+            },
+            "reason": "OK",
+            "status": 200
+          }
+        }
+      ],
+      "scenario": "Search change stories with additional tag filters returns \"OK\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Change Tracking",
+      "frozen_at": "2026-10-28T13:50:51.594Z",
+      "interactions": [
+        {
+          "request": {
+            "body": {
+              "type": "empty",
+              "value": null
+            },
+            "content_type": "",
+            "method": "GET",
+            "path": "/api/v2/change-tracking/stories",
+            "query": [
+              [
+                "end",
+                "1793188800000"
+              ],
+              [
+                "filter[env]",
+                "staging"
+              ],
+              [
+                "filter[service]",
+                "web-store"
+              ],
+              [
+                "filter[story_type]",
+                "deployment,traffic_anomaly"
+              ],
+              [
+                "start",
+                "1793102400000"
+              ]
+            ]
+          },
+          "response": {
+            "body": {
+              "encoding": "text",
+              "value": "{\"data\":[{\"id\":\"v1|deployment|web-store-staging-v147802282-74098b8\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"deployment\",\"object\":{\"version\":\"v147802282-74098b8\",\"firstSeen\":1793108217000000000,\"lastSeen\":1793139915000000000,\"priorVersion\":\"v147565743-3e36199\",\"storyKey\":\"web-store|staging|v147802282-74098b8\"}},\"endTimeUnix\":1793108217000,\"env\":\"staging\",\"filterTags\":{\"env\":[\"staging\"],\"service\":[\"web-store\"]},\"grouping\":{\"key\":\"web-store|staging|v147802282-74098b8\",\"version\":\"v1\"},\"header\":\"Deployment version v147802282-74098b8\",\"impactedResources\":[{\"type\":\"service\",\"name\":\"web-store\"}],\"startTimeUnix\":1793108217000,\"storyType\":\"deployment\",\"subheading\":\"First seen: 1793108217, Last Seen: 1793139915\"}},{\"id\":\"v1|traffic_anomaly|web-store-1793140500-1793141100-322014921b7f27e1\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"traffic_anomaly\",\"object\":{\"anomaly_type\":\"peak\",\"avg_hits\":0.00390625,\"end_time_unix\":1793141100000,\"formulas\":\"anomalies(query, 'agile', 6)\",\"max_hits\":1,\"median_hits\":0,\"metric\":\"sum:trace.grpc.server.hits{env:staging,service:web-store,span.kind:server}.as_count().rollup(avg, 300)\",\"min_hits\":0,\"query_end\":1793188800000,\"query_start\":1792497600000,\"source_service\":\"web-store\",\"start_time_unix\":1793140500000}},\"endTimeUnix\":1793141100000,\"env\":\"staging\",\"filterTags\":{\"env\":[\"staging\"],\"service\":[\"web-store\"]},\"grouping\":{\"key\":\"traffic_anomaly-web-store-trace.grpc.server.hits-1793138400-1793142000\",\"version\":\"v1\"},\"header\":\"More traffic than usual to web-store\",\"impactedResources\":[{\"type\":\"service\",\"name\":\"web-store\"}],\"startTimeUnix\":1793140500000,\"storyType\":\"traffic_anomaly\",\"subheading\":\"Last anomaly seen at 2026-10-27 22:45:00 +0000 UTC\"}},{\"id\":\"v1|deployment|web-store-staging-v148034662-103d438\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"deployment\",\"object\":{\"version\":\"v148034662-103d438\",\"firstSeen\":1793139321000000000,\"lastSeen\":1793142521000000000,\"priorVersion\":\"v147802282-74098b8\",\"storyKey\":\"web-store|staging|v148034662-103d438\"}},\"endTimeUnix\":1793139321000,\"env\":\"staging\",\"filterTags\":{\"env\":[\"staging\"],\"service\":[\"web-store\"]},\"grouping\":{\"key\":\"web-store|staging|v148034662-103d438\",\"version\":\"v1\"},\"header\":\"Deployment version v148034662-103d438\",\"impactedResources\":[{\"type\":\"service\",\"name\":\"web-store\"}],\"startTimeUnix\":1793139321000,\"storyType\":\"deployment\",\"subheading\":\"First seen: 1793139321, Last Seen: 1793142521\"}}]}"
+            },
+            "headers": {
+              "content-type": "application/vnd.api+json"
+            },
+            "reason": "OK",
+            "status": 200
+          }
+        }
+      ],
+      "scenario": "Search change stories with multiple story types returns \"OK\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Change Tracking",
+      "frozen_at": "2026-10-28T13:52:05.775Z",
+      "interactions": [
+        {
+          "request": {
+            "body": {
+              "type": "empty",
+              "value": null
+            },
+            "content_type": "",
+            "method": "GET",
+            "path": "/api/v2/change-tracking/stories",
+            "query": [
+              [
+                "end",
+                "1793188800000"
+              ],
+              [
+                "filter[service]",
+                "no-such-service"
+              ],
+              [
+                "start",
+                "1793102400000"
+              ]
+            ]
+          },
+          "response": {
+            "body": {
+              "encoding": "text",
+              "value": "{\"data\":[]}"
+            },
+            "headers": {
+              "content-type": "application/vnd.api+json"
+            },
+            "reason": "OK",
+            "status": 200
+          }
+        }
+      ],
+      "scenario": "Search change stories with no matching changes returns \"OK\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Change Tracking",
+      "frozen_at": "2026-10-28T13:50:58.125Z",
+      "interactions": [
+        {
+          "request": {
+            "body": {
+              "type": "empty",
+              "value": null
+            },
+            "content_type": "",
+            "method": "GET",
+            "path": "/api/v2/change-tracking/stories",
+            "query": [
+              [
+                "end",
+                "1793188800000"
+              ],
+              [
+                "filter[feature_flag_id]",
+                "checkout-redesign"
+              ],
+              [
+                "start",
+                "1793102400000"
+              ]
+            ]
+          },
+          "response": {
+            "body": {
+              "encoding": "text",
+              "value": "{\"data\":[{\"id\":\"8873733379677668280\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"feature_flag\",\"object\":{\"featureFlagName\":\"checkout-redesign\",\"storyKey\":\"checkout-redesign\",\"author\":{\"name\":\"jane.doe@example.com\",\"type\":\"user\"},\"tags\":null,\"changeMetadata\":{\"feature_flag_name\":\"Checkout redesign\",\"is_production\":false},\"prevValue\":{\"status\":\"DISABLED\"},\"newValue\":{\"status\":\"ENABLED\"},\"changedResource\":{\"name\":\"checkout-redesign\",\"type\":\"feature_flag\"},\"impactedResources\":null}},\"endTimeUnix\":1793178589000,\"env\":\"\",\"filterTags\":{\"feature_flag_id\":[\"checkout-redesign\"]},\"grouping\":{\"key\":\"8873733379677668280\",\"version\":\"v1\"},\"header\":\"Feature flag 'Checkout redesign' updated in 'Staging'\",\"impactedResources\":null,\"startTimeUnix\":1793178589000,\"storyType\":\"feature_flag\",\"subheading\":\"Feature flag 'Checkout redesign' updated in environment 'Staging': status changed to 'ENABLED'\\n\\nhttps://app.datadoghq.com/feature-flags/0b6f3c1e-2d4a-4f8b-9c7e-5a1d2e3f4a5b\"}},{\"id\":\"8873733377362412276\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"feature_flag\",\"object\":{\"featureFlagName\":\"checkout-redesign\",\"storyKey\":\"checkout-redesign\",\"author\":{\"name\":\"jane.doe@example.com\",\"type\":\"user\"},\"tags\":null,\"changeMetadata\":{\"feature_flag_name\":\"Checkout redesign\",\"is_production\":false},\"prevValue\":{\"targeting_rules\":[{\"key\":\"beta-testers\",\"name\":\"Beta testers\",\"status\":\"published\",\"conditions\":[{\"attribute\":\"plan\",\"operator\":\"ONE_OF\",\"value\":[\"enterprise\"]}]}]},\"newValue\":{\"targeting_rules\":[{\"key\":\"beta-testers\",\"name\":\"Beta testers\",\"status\":\"published\",\"conditions\":[{\"attribute\":\"plan\",\"operator\":\"ONE_OF\",\"value\":[\"enterprise\"]}]}]},\"changedResource\":{\"name\":\"checkout-redesign\",\"type\":\"feature_flag\"},\"impactedResources\":null}},\"endTimeUnix\":1793178589000,\"env\":\"\",\"filterTags\":{\"feature_flag_id\":[\"checkout-redesign\"]},\"grouping\":{\"key\":\"8873733377362412276\",\"version\":\"v1\"},\"header\":\"Feature flag 'Checkout redesign' updated in 'Staging'\",\"impactedResources\":null,\"startTimeUnix\":1793178589000,\"storyType\":\"feature_flag\",\"subheading\":\"Feature flag 'Checkout redesign' updated in environment 'Staging': targeting rules changed\\n\\nhttps://app.datadoghq.com/feature-flags/0b6f3c1e-2d4a-4f8b-9c7e-5a1d2e3f4a5b\"}},{\"id\":\"8873733140319543564\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"feature_flag\",\"object\":{\"featureFlagName\":\"checkout-redesign\",\"storyKey\":\"checkout-redesign\",\"author\":{\"name\":\"jane.doe@example.com\",\"type\":\"user\"},\"tags\":null,\"changeMetadata\":{\"feature_flag_name\":\"Checkout redesign\",\"is_production\":false},\"prevValue\":{},\"newValue\":{\"targeting_rules\":[{\"key\":\"beta-testers\",\"name\":\"Beta testers\",\"status\":\"published\",\"conditions\":[{\"attribute\":\"plan\",\"operator\":\"ONE_OF\",\"value\":[\"enterprise\"]}]}]},\"changedResource\":{\"name\":\"checkout-redesign\",\"type\":\"feature_flag\"},\"impactedResources\":null}},\"endTimeUnix\":1793178576000,\"env\":\"\",\"filterTags\":{\"feature_flag_id\":[\"checkout-redesign\"]},\"grouping\":{\"key\":\"8873733140319543564\",\"version\":\"v1\"},\"header\":\"Feature flag 'Checkout redesign' updated in 'Staging'\",\"impactedResources\":null,\"startTimeUnix\":1793178576000,\"storyType\":\"feature_flag\",\"subheading\":\"Feature flag 'Checkout redesign' updated in environment 'Staging': targeting rules changed\\n\\nhttps://app.datadoghq.com/feature-flags/0b6f3c1e-2d4a-4f8b-9c7e-5a1d2e3f4a5b\"}}]}"
+            },
+            "headers": {
+              "content-type": "application/vnd.api+json"
+            },
+            "reason": "OK",
+            "status": 200
+          }
+        }
+      ],
+      "scenario": "Search feature flag change stories by flag returns \"OK\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Change Tracking",
+      "frozen_at": "2026-10-28T13:50:57.806Z",
+      "interactions": [
+        {
+          "request": {
+            "body": {
+              "type": "empty",
+              "value": null
+            },
+            "content_type": "",
+            "method": "GET",
+            "path": "/api/v2/change-tracking/stories",
+            "query": [
+              [
+                "end",
+                "1793188800000"
+              ],
+              [
+                "filter[application_id]",
+                "4f6e1d2c-8a3b-4c5d-9e0f-1a2b3c4d5e6f"
+              ],
+              [
+                "filter[story_type]",
+                "frontend_deployment"
+              ],
+              [
+                "start",
+                "1793102400000"
+              ]
+            ]
+          },
+          "response": {
+            "body": {
+              "encoding": "text",
+              "value": "{\"data\":[{\"id\":\"8873904402201840621\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"frontend_deployment\",\"object\":{\"version\":\"35.148128011\",\"service\":\"web-app\",\"applicationId\":\"4f6e1d2c-8a3b-4c5d-9e0f-1a2b3c4d5e6f\"}},\"endTimeUnix\":1793188783000,\"env\":\"feature\",\"filterTags\":{\"application_id\":[\"4f6e1d2c-8a3b-4c5d-9e0f-1a2b3c4d5e6f\"]},\"grouping\":{\"key\":\"4f6e1d2c-8a3b-4c5d-9e0f-1a2b3c4d5e6f|web-app|feature|35.148128011\",\"version\":\"v1\"},\"header\":\"Deployment version 35.148128011\",\"impactedResources\":null,\"startTimeUnix\":1793188783000,\"storyType\":\"frontend_deployment\",\"subheading\":\"First seen: 1793188783\"}},{\"id\":\"8873919554838109525\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"frontend_deployment\",\"object\":{\"version\":\"35.148149000\",\"service\":\"web-app\",\"applicationId\":\"4f6e1d2c-8a3b-4c5d-9e0f-1a2b3c4d5e6f\"}},\"endTimeUnix\":1793188781000,\"env\":\"staging\",\"filterTags\":{\"application_id\":[\"4f6e1d2c-8a3b-4c5d-9e0f-1a2b3c4d5e6f\"]},\"grouping\":{\"key\":\"4f6e1d2c-8a3b-4c5d-9e0f-1a2b3c4d5e6f|web-app|staging|35.148149000\",\"version\":\"v1\"},\"header\":\"Deployment version 35.148149000\",\"impactedResources\":null,\"startTimeUnix\":1793188781000,\"storyType\":\"frontend_deployment\",\"subheading\":\"First seen: 1793188781\"}},{\"id\":\"8873904193259382333\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"frontend_deployment\",\"object\":{\"version\":\"46642ddc20069d0625faf527c2a3f6d5\",\"service\":\"web-app\",\"applicationId\":\"4f6e1d2c-8a3b-4c5d-9e0f-1a2b3c4d5e6f\"}},\"endTimeUnix\":1793188764000,\"env\":\"feature\",\"filterTags\":{\"application_id\":[\"4f6e1d2c-8a3b-4c5d-9e0f-1a2b3c4d5e6f\"]},\"grouping\":{\"key\":\"4f6e1d2c-8a3b-4c5d-9e0f-1a2b3c4d5e6f|web-app|feature|46642ddc20069d0625faf527c2a3f6d5\",\"version\":\"v1\"},\"header\":\"Deployment version 46642ddc20069d0625faf527c2a3f6d5\",\"impactedResources\":null,\"startTimeUnix\":1793188764000,\"storyType\":\"frontend_deployment\",\"subheading\":\"First seen: 1793188764\"}}]}"
+            },
+            "headers": {
+              "content-type": "application/vnd.api+json"
+            },
+            "reason": "OK",
+            "status": 200
+          }
+        }
+      ],
+      "scenario": "Search frontend deployment change stories for a RUM application returns \"OK\" response",
+      "version": "v2"
+    },
+    {
+      "feature": "Change Tracking",
+      "frozen_at": "2026-10-28T13:50:47.090Z",
+      "interactions": [
+        {
+          "request": {
+            "body": {
+              "type": "empty",
+              "value": null
+            },
+            "content_type": "",
+            "method": "GET",
+            "path": "/api/v2/change-tracking/stories",
+            "query": [
+              [
+                "end",
+                "1793188800000"
+              ],
+              [
+                "filter[env]",
+                "staging"
+              ],
+              [
+                "filter[service]",
+                "web-store"
+              ],
+              [
+                "filter[story_type]",
+                "traffic_anomaly"
+              ],
+              [
+                "start",
+                "1793102400000"
+              ]
+            ]
+          },
+          "response": {
+            "body": {
+              "encoding": "text",
+              "value": "{\"data\":[{\"id\":\"v1|traffic_anomaly|web-store-1793140500-1793141100-322014921b7f27e1\",\"type\":\"change_story\",\"attributes\":{\"context\":{\"type\":\"traffic_anomaly\",\"object\":{\"anomaly_type\":\"peak\",\"avg_hits\":0.00390625,\"end_time_unix\":1793141100000,\"formulas\":\"anomalies(query, 'agile', 6)\",\"max_hits\":1,\"median_hits\":0,\"metric\":\"sum:trace.grpc.server.hits{env:staging,service:web-store,span.kind:server}.as_count().rollup(avg, 300)\",\"min_hits\":0,\"query_end\":1793188800000,\"query_start\":1792497600000,\"source_service\":\"web-store\",\"start_time_unix\":1793140500000}},\"endTimeUnix\":1793141100000,\"env\":\"staging\",\"filterTags\":{\"env\":[\"staging\"],\"service\":[\"web-store\"]},\"grouping\":{\"key\":\"traffic_anomaly-web-store-trace.grpc.server.hits-1793138400-1793142000\",\"version\":\"v1\"},\"header\":\"More traffic than usual to web-store\",\"impactedResources\":[{\"type\":\"service\",\"name\":\"web-store\"}],\"startTimeUnix\":1793140500000,\"storyType\":\"traffic_anomaly\",\"subheading\":\"Last anomaly seen at 2026-10-27 22:45:00 +0000 UTC\"}}]}"
+            },
+            "headers": {
+              "content-type": "application/vnd.api+json"
+            },
+            "reason": "OK",
+            "status": 200
+          }
+        }
+      ],
+      "scenario": "Search traffic anomaly change stories for a service and environment returns \"OK\" response",
+      "version": "v2"
+    }
+  ],
+  "schema_version": 1,
+  "version": "v2"
+}
