@@ -24,6 +24,9 @@ import { ListConnectionsResponse } from "./ListConnectionsResponse";
 import { ListConnectionsResponseData } from "./ListConnectionsResponseData";
 import { ListConnectionsResponseDataAttributes } from "./ListConnectionsResponseDataAttributes";
 import { ListConnectionsResponseDataAttributesConnectionsItems } from "./ListConnectionsResponseDataAttributesConnectionsItems";
+import { ListConnectionsResponseDataAttributesConnectionsItemsDetails } from "./ListConnectionsResponseDataAttributesConnectionsItemsDetails";
+import { ListConnectionsResponseDataAttributesConnectionsItemsDetailsRefTable } from "./ListConnectionsResponseDataAttributesConnectionsItemsDetailsRefTable";
+import { ListConnectionsResponseDataAttributesConnectionsItemsDetailsSnowflake } from "./ListConnectionsResponseDataAttributesConnectionsItemsDetailsSnowflake";
 import { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./ListConnectionsResponseDataAttributesConnectionsItemsJoin";
 import { QueryAccountRequest } from "./QueryAccountRequest";
 import { QueryAccountRequestData } from "./QueryAccountRequestData";
@@ -48,8 +51,11 @@ import { UpdateConnectionRequestDataAttributesFieldsToUpdateItems } from "./Upda
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    FacetInfoRequestDataType: ["users_facet_info_request"],
-    FacetInfoResponseDataType: ["users_facet_info"],
+    FacetInfoRequestDataType: [
+      "users_facet_info_request",
+      "accounts_facet_info_request",
+    ],
+    FacetInfoResponseDataType: ["users_facet_info", "accounts_facet_info"],
     GetMappingResponseDataType: ["get_mappings_response"],
     ListConnectionsResponseDataType: ["list_connections_response"],
     QueryAccountRequestDataType: ["query_account_request"],
@@ -95,6 +101,12 @@ export const TypingInfo: ModelTypingInfo = {
       ListConnectionsResponseDataAttributes,
     ListConnectionsResponseDataAttributesConnectionsItems:
       ListConnectionsResponseDataAttributesConnectionsItems,
+    ListConnectionsResponseDataAttributesConnectionsItemsDetails:
+      ListConnectionsResponseDataAttributesConnectionsItemsDetails,
+    ListConnectionsResponseDataAttributesConnectionsItemsDetailsRefTable:
+      ListConnectionsResponseDataAttributesConnectionsItemsDetailsRefTable,
+    ListConnectionsResponseDataAttributesConnectionsItemsDetailsSnowflake:
+      ListConnectionsResponseDataAttributesConnectionsItemsDetailsSnowflake,
     ListConnectionsResponseDataAttributesConnectionsItemsJoin:
       ListConnectionsResponseDataAttributesConnectionsItemsJoin,
     QueryAccountRequest: QueryAccountRequest,

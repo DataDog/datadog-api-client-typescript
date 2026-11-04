@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CreateConnectionRequestDataAttributesFieldsItems } from "./CreateConnectionRequestDataAttributesFieldsItems";
+import { ListConnectionsResponseDataAttributesConnectionsItemsDetails } from "./ListConnectionsResponseDataAttributesConnectionsItemsDetails";
 import { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./ListConnectionsResponseDataAttributesConnectionsItemsJoin";
 
 /**
@@ -15,6 +16,10 @@ export class ListConnectionsResponseDataAttributesConnectionsItems {
    * Identifier of the user who created the connection.
    */
   "createdBy"?: string;
+  /**
+   * Type-specific configuration of the connection. Only the field matching the connection type is set.
+   */
+  "details"?: ListConnectionsResponseDataAttributesConnectionsItemsDetails;
   /**
    * List of custom attribute fields imported from the data source.
    */
@@ -31,6 +36,10 @@ export class ListConnectionsResponseDataAttributesConnectionsItems {
    * Additional key-value metadata associated with the connection.
    */
   "metadata"?: { [key: string]: string };
+  /**
+   * Display name of the connection.
+   */
+  "name"?: string;
   /**
    * The type of data source connection (for example, ref_table).
    */
@@ -67,6 +76,10 @@ export class ListConnectionsResponseDataAttributesConnectionsItems {
       baseName: "created_by",
       type: "string",
     },
+    details: {
+      baseName: "details",
+      type: "ListConnectionsResponseDataAttributesConnectionsItemsDetails",
+    },
     fields: {
       baseName: "fields",
       type: "Array<CreateConnectionRequestDataAttributesFieldsItems>",
@@ -82,6 +95,10 @@ export class ListConnectionsResponseDataAttributesConnectionsItems {
     metadata: {
       baseName: "metadata",
       type: "{ [key: string]: string; }",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
     },
     type: {
       baseName: "type",
