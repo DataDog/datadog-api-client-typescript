@@ -31,7 +31,7 @@ export class UsageQuotaBulkResultAttributes {
    */
   "pendingUsageLimit"?: number;
   /**
-   * A namespace-specific key and value identifying what the quota applies to within an organization. The object contains exactly one entry. A value of `"*"` identifies the default quota applied to entities without a specific quota. This field is omitted for an organization-wide quota.
+   * A namespace-specific key and value identifying what the quota applies to within an organization. The object contains exactly one entry. A `user_handle` value of `"*"` identifies the default quota applied to users without a specific quota. This field is omitted for an organization-wide quota.
    */
   "scope"?: { [key: string]: string };
   /**
