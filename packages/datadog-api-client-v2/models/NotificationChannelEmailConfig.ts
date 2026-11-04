@@ -24,6 +24,10 @@ export class NotificationChannelEmailConfig {
    * Indicates that the notification channel is an e-mail address
    */
   "type": NotificationChannelEmailConfigType;
+  /**
+   * Whether this email address has been verified.
+   */
+  "verified"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -55,6 +59,10 @@ export class NotificationChannelEmailConfig {
       baseName: "type",
       type: "NotificationChannelEmailConfigType",
       required: true,
+    },
+    verified: {
+      baseName: "verified",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
