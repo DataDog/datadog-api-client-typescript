@@ -1,20 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { CommitmentsListItem } from "./CommitmentsListItem";
-import { CommitmentsListMeta } from "./CommitmentsListMeta";
+import { CommitmentsListResponseData } from "./CommitmentsListResponseData";
 
 /**
  * Response containing a list of cloud commitment details.
  */
 export class CommitmentsListResponse {
   /**
-   * Array of commitment items.
+   * The commitments list resource.
    */
-  "commitments": Array<CommitmentsListItem>;
-  /**
-   * Metadata for a commitments list response.
-   */
-  "meta"?: CommitmentsListMeta;
+  "data": CommitmentsListResponseData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,14 +25,10 @@ export class CommitmentsListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commitments: {
-      baseName: "commitments",
-      type: "Array<CommitmentsListItem>",
+    data: {
+      baseName: "data",
+      type: "CommitmentsListResponseData",
       required: true,
-    },
-    meta: {
-      baseName: "meta",
-      type: "CommitmentsListMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",

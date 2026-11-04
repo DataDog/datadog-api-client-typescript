@@ -41,11 +41,11 @@ export class CommitmentsAwsElasticacheRICommitment {
    */
   "startDate"?: string;
   /**
-   * The term length in years.
+   * The commitment term in whole months. Omitted when the term is unknown.
    */
-  "termLength"?: number;
+  "termLengthMonths"?: number;
   /**
-   * The utilization percentage of the commitment.
+   * The utilization percentage of the commitment, from 0 to 100.
    */
   "utilization"?: number;
   /**
@@ -106,10 +106,10 @@ export class CommitmentsAwsElasticacheRICommitment {
       baseName: "start_date",
       type: "string",
     },
-    termLength: {
-      baseName: "term_length",
+    termLengthMonths: {
+      baseName: "term_length_months",
       type: "number",
-      format: "double",
+      format: "int64",
     },
     utilization: {
       baseName: "utilization",
