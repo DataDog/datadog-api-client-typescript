@@ -20,6 +20,10 @@ export class NotificationChannelEmailConfig {
    */
   "type": NotificationChannelEmailConfigType;
   /**
+   * Whether this email address has been verified.
+   */
+  "verified"?: boolean;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -48,6 +52,10 @@ export class NotificationChannelEmailConfig {
       baseName: "type",
       type: "NotificationChannelEmailConfigType",
       required: true,
+    },
+    verified: {
+      baseName: "verified",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
