@@ -8,11 +8,11 @@ import { RumMetricUpdateData } from "./RumMetricUpdateData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The new RUM-based metric body.
+ * The RUM-based metric update body.
  */
 export class RumMetricUpdateRequest {
   /**
-   * The new RUM-based metric properties.
+   * The RUM-based metric properties to update. `id` is required by the API and must match the `metric_id` path parameter.
    */
   "data": RumMetricUpdateData;
 

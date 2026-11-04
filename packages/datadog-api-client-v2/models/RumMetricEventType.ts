@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of RUM events to filter on.
+ * The type of RUM events the metric is generated from. It is set at creation and cannot be changed.
  */
 
 export type RumMetricEventType =
