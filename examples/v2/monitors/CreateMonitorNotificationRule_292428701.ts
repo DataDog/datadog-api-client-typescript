@@ -1,0 +1,41 @@
+/**
+ * Create a monitor notification rule with rule options returns "OK" response
+ */
+
+import { client, v2 } from "@datadog/datadog-api-client";
+
+const configuration = client.createConfiguration({
+  authMethods: {
+    AuthZ: {
+      accessToken: process.env.DD_BEARER_TOKEN as string,
+    },
+  },
+});
+const apiInstance = new v2.MonitorsApi(configuration);
+
+const params: v2.MonitorsApiCreateMonitorNotificationRuleRequest = {
+  body: {
+    data: {
+      attributes: {
+        filter: {
+          tags: ["test:example-monitor"],
+        },
+        name: "test rule",
+        recipients: ["slack-test-channel"],
+        ruleOptions: {
+          isThreaded: true,
+        },
+      },
+      type: "monitor-notification-rule",
+    },
+  },
+};
+
+apiInstance
+  .createMonitorNotificationRule(params)
+  .then((data: v2.MonitorNotificationRuleResponse) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

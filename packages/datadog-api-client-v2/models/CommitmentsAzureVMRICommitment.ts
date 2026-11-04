@@ -5,7 +5,7 @@
  */
 import { CommitmentsAzureVMRIStatus } from "./CommitmentsAzureVMRIStatus";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Azure Virtual Machine Reserved Instance commitment details.
@@ -32,6 +32,10 @@ export class CommitmentsAzureVMRICommitment {
    */
   "meterSubCategory": string;
   /**
+   * The Azure product of the reservation. Omitted when it cannot be classified.
+   */
+  "product"?: string;
+  /**
    * The Azure region of the Reserved Instance.
    */
   "region": string;
@@ -44,11 +48,11 @@ export class CommitmentsAzureVMRICommitment {
    */
   "status": CommitmentsAzureVMRIStatus;
   /**
-   * The term length in years.
+   * The commitment term in whole months. Omitted when the term is unknown.
    */
-  "termLength"?: number;
+  "termLengthMonths"?: Int64;
   /**
-   * The utilization percentage of the commitment.
+   * The utilization percentage of the commitment, from 0 to 100.
    */
   "utilization"?: number;
 
@@ -92,6 +96,10 @@ export class CommitmentsAzureVMRICommitment {
       type: "string",
       required: true,
     },
+    product: {
+      baseName: "product",
+      type: "string",
+    },
     region: {
       baseName: "region",
       type: "string",
@@ -106,10 +114,10 @@ export class CommitmentsAzureVMRICommitment {
       type: "CommitmentsAzureVMRIStatus",
       required: true,
     },
-    termLength: {
-      baseName: "term_length",
+    termLengthMonths: {
+      baseName: "term_length_months",
       type: "number",
-      format: "double",
+      format: "int64",
     },
     utilization: {
       baseName: "utilization",
