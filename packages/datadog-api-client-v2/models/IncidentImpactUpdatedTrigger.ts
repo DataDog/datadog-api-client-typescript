@@ -17,9 +17,13 @@ export class IncidentImpactUpdatedTrigger {
    */
   "executionLimit"?: ExecutionLimit;
   /**
-   * The type of incident that triggers the workflow.
+   * The type of incident that triggers the workflow. Deprecated. Use `incidentTypes` instead.
    */
   "incidentType"?: string;
+  /**
+   * The types of incidents that trigger the workflow.
+   */
+  "incidentTypes"?: Array<string>;
   /**
    * Conditions that determine which incidents trigger the workflow.
    */
@@ -48,6 +52,10 @@ export class IncidentImpactUpdatedTrigger {
     incidentType: {
       baseName: "incidentType",
       type: "string",
+    },
+    incidentTypes: {
+      baseName: "incidentTypes",
+      type: "Array<string>",
     },
     tagCondition: {
       baseName: "tagCondition",

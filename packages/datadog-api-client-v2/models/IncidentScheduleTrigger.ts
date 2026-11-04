@@ -12,9 +12,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class IncidentScheduleTrigger {
   /**
-   * The type of incident that triggers the workflow.
+   * The type of incident that triggers the workflow. Deprecated. Use `incidentTypes` instead.
    */
   "incidentType"?: string;
+  /**
+   * The types of incidents that trigger the workflow.
+   */
+  "incidentTypes"?: Array<string>;
   /**
    * The recurrence rule for the schedule, expressed as an iCalendar `RRULE` string.
    */
@@ -43,6 +47,10 @@ export class IncidentScheduleTrigger {
     incidentType: {
       baseName: "incidentType",
       type: "string",
+    },
+    incidentTypes: {
+      baseName: "incidentTypes",
+      type: "Array<string>",
     },
     rrule: {
       baseName: "rrule",
