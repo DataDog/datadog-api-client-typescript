@@ -13,6 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The object sent with the request to retrieve aggregation buckets of RUM events from your organization.
+ * `filter.indexes` is not supported and ignored.
  */
 export class RUMAggregateRequest {
   /**

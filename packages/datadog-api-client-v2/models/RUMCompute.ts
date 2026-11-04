@@ -9,24 +9,24 @@ import { RUMComputeType } from "./RUMComputeType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A compute rule to compute metrics or timeseries.
+ * A compute rule to compute metrics or timeseries. In the response, the result of each rule is keyed `c0`, `c1`... following the order of the `compute` list.
  */
 export class RUMCompute {
   /**
-   * An aggregation function.
+   * An aggregation function. `count` counts events and needs no metric. `cardinality` counts the distinct values of the metric. `sum`, `min`, `max`, `avg`, `median` and the percentiles (`pc75` to `pc99`) apply to a numeric metric such as `@view.loading_time`.
    */
   "aggregation": RUMAggregationFunction;
   /**
-   * The time buckets' size (only used for type=timeseries)
-   * Defaults to a resolution of 150 points.
+   * The time buckets' size, for example `5m`, `1h` or `1d` (only used for `type=timeseries`).
+   * Defaults to a resolution of 150 points over the queried time range.
    */
   "interval"?: string;
   /**
-   * The metric to use.
+   * The attribute to aggregate, for example `@view.loading_time`. Not needed for `count`, required for the other aggregations.
    */
   "metric"?: string;
   /**
-   * The type of compute.
+   * The type of compute. `total` returns one value per bucket, `timeseries` returns a list of time points per bucket.
    */
   "type"?: RUMComputeType;
 

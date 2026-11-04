@@ -1385,6 +1385,7 @@ export {
   RUMApiDeleteRUMApplicationRequest,
   RUMApiDeleteSourcemapsRequest,
   RUMApiGetRUMApplicationRequest,
+  RUMApiGetRUMApplicationsRequest,
   RUMApiGetServiceRepositoryInfoRequest,
   RUMApiGetSourcemapsRequest,
   RUMApiListRUMEventsRequest,

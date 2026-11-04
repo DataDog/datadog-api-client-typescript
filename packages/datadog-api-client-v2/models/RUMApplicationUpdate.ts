@@ -13,7 +13,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RUMApplicationUpdate {
   /**
-   * RUM application update attributes.
+   * RUM application update attributes. Only the attributes you provide are changed, omitted attributes keep their current value.
+   * Changing `product_analytics_retention_state` or `product_analytics_replay_sample_rate` requires the `product_analytics_apps_write` permission.
    */
   "attributes"?: RUMApplicationUpdateAttributes;
   /**
