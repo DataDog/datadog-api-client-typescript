@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of the resource. The value should always be rum_metrics.
+ * The type of the resource. The value must be `rum_metrics`.
  */
 
 export type RumMetricType = typeof RUM_METRICS | UnparsedObject;
