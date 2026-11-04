@@ -12,6 +12,10 @@ export class TimeseriesResponse {
    */
   "attributes"?: TimeseriesResponseAttributes;
   /**
+   * The identifier of the timeseries response resource.
+   */
+  "id"?: string;
+  /**
    * The type of the resource. The value should always be timeseries_response.
    */
   "type"?: TimeseriesFormulaResponseType;
@@ -33,6 +37,10 @@ export class TimeseriesResponse {
     attributes: {
       baseName: "attributes",
       type: "TimeseriesResponseAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     type: {
       baseName: "type",
