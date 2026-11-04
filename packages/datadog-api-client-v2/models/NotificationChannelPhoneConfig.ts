@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { NotificationChannelPhoneConfigType } from "./NotificationChannelPhoneConfigType";
+import { OnCallPhoneNotificationRuleMethod } from "./OnCallPhoneNotificationRuleMethod";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -11,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Phone notification channel configuration
  */
 export class NotificationChannelPhoneConfig {
+  /**
+   * Notification methods currently available for this phone number. Omitted when no methods are available.
+   */
+  "availableNotificationTypes"?: Array<OnCallPhoneNotificationRuleMethod>;
   /**
    * The formatted international version of Number (e.g. +33 7 1 23 45 67).
    */
@@ -52,6 +57,10 @@ export class NotificationChannelPhoneConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    availableNotificationTypes: {
+      baseName: "available_notification_types",
+      type: "Array<OnCallPhoneNotificationRuleMethod>",
+    },
     formattedNumber: {
       baseName: "formatted_number",
       type: "string",
