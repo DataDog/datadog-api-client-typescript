@@ -24,6 +24,10 @@ export class UpdateConnectionRequestDataAttributes {
    * Existing fields with updated metadata to apply to the connection.
    */
   "fieldsToUpdate"?: Array<UpdateConnectionRequestDataAttributesFieldsToUpdateItems>;
+  /**
+   * New display name for the connection.
+   */
+  "name"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -52,6 +56,10 @@ export class UpdateConnectionRequestDataAttributes {
     fieldsToUpdate: {
       baseName: "fields_to_update",
       type: "Array<UpdateConnectionRequestDataAttributesFieldsToUpdateItems>",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -3406,6 +3406,9 @@ import { ListConnectionsResponse } from "./ListConnectionsResponse";
 import { ListConnectionsResponseData } from "./ListConnectionsResponseData";
 import { ListConnectionsResponseDataAttributes } from "./ListConnectionsResponseDataAttributes";
 import { ListConnectionsResponseDataAttributesConnectionsItems } from "./ListConnectionsResponseDataAttributesConnectionsItems";
+import { ListConnectionsResponseDataAttributesConnectionsItemsDetails } from "./ListConnectionsResponseDataAttributesConnectionsItemsDetails";
+import { ListConnectionsResponseDataAttributesConnectionsItemsDetailsRefTable } from "./ListConnectionsResponseDataAttributesConnectionsItemsDetailsRefTable";
+import { ListConnectionsResponseDataAttributesConnectionsItemsDetailsSnowflake } from "./ListConnectionsResponseDataAttributesConnectionsItemsDetailsSnowflake";
 import { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./ListConnectionsResponseDataAttributesConnectionsItemsJoin";
 import { ListDashboardsUsageResponse } from "./ListDashboardsUsageResponse";
 import { ListDashboardsUsageResponseLinks } from "./ListDashboardsUsageResponseLinks";
@@ -7867,8 +7870,11 @@ const enumsMap: { [key: string]: any[] } = {
     ],
   ExperimentsVariantResultsV2DTODataType: ["experiment-variant-results"],
   ExperimentsWarehouseEntryPointFilterOperation: ["IS", "IS_NOT"],
-  FacetInfoRequestDataType: ["users_facet_info_request"],
-  FacetInfoResponseDataType: ["users_facet_info"],
+  FacetInfoRequestDataType: [
+    "users_facet_info_request",
+    "accounts_facet_info_request",
+  ],
+  FacetInfoResponseDataType: ["users_facet_info", "accounts_facet_info"],
   FastlyAPIKeyType: ["FastlyAPIKey"],
   FastlyAccountType: ["fastly-accounts"],
   FastlyIntegrationType: ["Fastly"],
@@ -14759,6 +14765,12 @@ const typeMap: { [index: string]: any } = {
   ListConnectionsResponseDataAttributes: ListConnectionsResponseDataAttributes,
   ListConnectionsResponseDataAttributesConnectionsItems:
     ListConnectionsResponseDataAttributesConnectionsItems,
+  ListConnectionsResponseDataAttributesConnectionsItemsDetails:
+    ListConnectionsResponseDataAttributesConnectionsItemsDetails,
+  ListConnectionsResponseDataAttributesConnectionsItemsDetailsRefTable:
+    ListConnectionsResponseDataAttributesConnectionsItemsDetailsRefTable,
+  ListConnectionsResponseDataAttributesConnectionsItemsDetailsSnowflake:
+    ListConnectionsResponseDataAttributesConnectionsItemsDetailsSnowflake,
   ListConnectionsResponseDataAttributesConnectionsItemsJoin:
     ListConnectionsResponseDataAttributesConnectionsItemsJoin,
   ListDashboardsUsageResponse: ListDashboardsUsageResponse,
