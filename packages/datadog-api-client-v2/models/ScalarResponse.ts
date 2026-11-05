@@ -17,6 +17,10 @@ export class ScalarResponse {
    */
   "attributes"?: ScalarFormulaResponseAtrributes;
   /**
+   * The identifier of the scalar response resource.
+   */
+  "id"?: string;
+  /**
    * The type of the resource. The value should always be scalar_response.
    */
   "type"?: ScalarFormulaResponseType;
@@ -40,6 +44,10 @@ export class ScalarResponse {
     attributes: {
       baseName: "attributes",
       type: "ScalarFormulaResponseAtrributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     type: {
       baseName: "type",
