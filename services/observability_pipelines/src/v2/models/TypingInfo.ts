@@ -2,6 +2,9 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
 import { AzureStorageDestination } from "./AzureStorageDestination";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { ListPipelinesResponse } from "./ListPipelinesResponse";
 import { ListPipelinesResponseMeta } from "./ListPipelinesResponseMeta";
 import { MicrosoftSentinelDestination } from "./MicrosoftSentinelDestination";
@@ -855,6 +858,9 @@ export const TypingInfo: ModelTypingInfo = {
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     AzureStorageDestination: AzureStorageDestination,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     ListPipelinesResponse: ListPipelinesResponse,
     ListPipelinesResponseMeta: ListPipelinesResponseMeta,
     MicrosoftSentinelDestination: MicrosoftSentinelDestination,
