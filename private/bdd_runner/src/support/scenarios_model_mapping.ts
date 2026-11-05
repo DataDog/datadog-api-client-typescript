@@ -18424,6 +18424,127 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "STIXIngestResponse",
   },
+  "BitsSecurityAnalystApi.V2.ListSecurityAgentInvestigations": {
+    filterSignalId: {
+      type: "string",
+      format: "",
+    },
+    filterTitle: {
+      type: "string",
+      format: "",
+    },
+    filterFrom: {
+      type: "string",
+      format: "",
+    },
+    filterTo: {
+      type: "string",
+      format: "",
+    },
+    filterVerdict: {
+      type: "string",
+      format: "",
+    },
+    filterState: {
+      type: "string",
+      format: "",
+    },
+    filterRuleId: {
+      type: "string",
+      format: "",
+    },
+    filterRuleType: {
+      type: "string",
+      format: "",
+    },
+    filterSignalSeverity: {
+      type: "string",
+      format: "",
+    },
+    filterSignalSource: {
+      type: "string",
+      format: "",
+    },
+    filterTags: {
+      type: "string",
+      format: "",
+    },
+    filterEntity: {
+      type: "string",
+      format: "",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "SecurityAgentInvestigationsListResponse",
+  },
+  "BitsSecurityAnalystApi.V2.CountSecurityAgentInvestigations": {
+    field: {
+      type: "SecurityAgentInvestigationCountField",
+      format: "",
+    },
+    filterTitle: {
+      type: "string",
+      format: "",
+    },
+    filterFrom: {
+      type: "string",
+      format: "",
+    },
+    filterTo: {
+      type: "string",
+      format: "",
+    },
+    filterVerdict: {
+      type: "string",
+      format: "",
+    },
+    filterRuleId: {
+      type: "string",
+      format: "",
+    },
+    filterRuleType: {
+      type: "string",
+      format: "",
+    },
+    filterSignalSeverity: {
+      type: "string",
+      format: "",
+    },
+    filterSignalSource: {
+      type: "string",
+      format: "",
+    },
+    filterTags: {
+      type: "string",
+      format: "",
+    },
+    filterEntity: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SecurityAgentInvestigationCountsResponse",
+  },
+  "BitsSecurityAnalystApi.V2.GetSecurityAgentInvestigation": {
+    investigationId: {
+      type: "string",
+      format: "",
+    },
+    fieldsInvestigations: {
+      type: "Array<SecurityAgentInvestigationField>",
+      format: "",
+    },
+    operationResponseType: "SecurityAgentInvestigationResponse",
+  },
   "SensitiveDataScannerApi.V2.ListScanningGroups": {
     operationResponseType: "SensitiveDataScannerGetConfigResponse",
   },
