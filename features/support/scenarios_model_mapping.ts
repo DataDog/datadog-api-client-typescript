@@ -4826,6 +4826,498 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GetInvestigationResponse",
     },
+    "v2.ListAiGatewayBudgets": {
+        "operationResponseType": "AiGatewayBudgetListResponse",
+    },
+    "v2.CreateAiGatewayBudget": {
+        "body": {
+            "type": "AiGatewayBudgetCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayBudgetResponse",
+    },
+    "v2.GetAiGatewayBudget": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "AiGatewayBudgetResponse",
+    },
+    "v2.DeleteAiGatewayBudget": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateAiGatewayBudget": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "AiGatewayBudgetUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayBudgetResponse",
+    },
+    "v2.GetAiGatewayBudgetCurrentPeriod": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "AiGatewayBudgetPeriodResponse",
+    },
+    "v2.ListAiGatewayBudgetInstances": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "window": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "splitDim": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "sort": {
+            "type": "AiGatewayBudgetInstanceSort",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "offset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "AiGatewayBudgetInstanceListResponse",
+    },
+    "v2.OverrideAiGatewayBudgetInstanceCapacity": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "AiGatewayBudgetInstanceCapacityOverrideRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayBudgetInstanceResponse",
+    },
+    "v2.ListAiGatewayBudgetInstanceDimensions": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "window": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "splitDim": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "dim": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "value": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "AiGatewayBudgetInstanceDimensionListResponse",
+    },
+    "v2.ResetAiGatewayBudgetInstanceSpend": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "AiGatewayBudgetInstanceResetRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayBudgetInstanceResponse",
+    },
+    "v2.GetAiGatewayBudgetInstancesSummary": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "window": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "splitDim": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayBudgetInstancesSummaryResponse",
+    },
+    "v2.GetAiGatewayDataCaptureConfiguration": {
+        "operationResponseType": "AiGatewayCaptureConfigurationResponse",
+    },
+    "v2.CreateAiGatewayDataCaptureOverride": {
+        "body": {
+            "type": "AiGatewayCaptureCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayCaptureOverrideResponse",
+    },
+    "v2.UpdateAiGatewayDataCaptureOverride": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "AiGatewayCaptureUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayCaptureOverrideResponse",
+    },
+    "v2.DeleteAiGatewayDataCaptureOverride": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "AiGatewayCaptureDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetAiGatewayGovernance": {
+        "operationResponseType": "AiGatewayGovernanceResponse",
+    },
+    "v2.UpdateAiGatewayGovernance": {
+        "body": {
+            "type": "AiGatewayGovernanceReplaceRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayGovernanceResponse",
+    },
+    "v2.ListAiGatewayModelGroups": {
+        "operationResponseType": "AiGatewayModelGroupListResponse",
+    },
+    "v2.CreateAiGatewayModelGroup": {
+        "body": {
+            "type": "AiGatewayModelGroupCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayModelGroupResponse",
+    },
+    "v2.GetAiGatewayModelGroup": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayModelGroupResponse",
+    },
+    "v2.DeleteAiGatewayModelGroup": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateAiGatewayModelGroup": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AiGatewayModelGroupUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayModelGroupResponse",
+    },
+    "v2.ListAiGatewayModelsByCanonical": {
+        "operationResponseType": "AiGatewayModelsByCanonicalListResponse",
+    },
+    "v2.ListAiGatewayPolicies": {
+        "userId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "AiGatewayPolicyListResponse",
+    },
+    "v2.UpsertAiGatewayPolicy": {
+        "userId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "AiGatewayPolicyRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayPolicyResponse",
+    },
+    "v2.GetAiGatewayPolicy": {
+        "inbound": {
+            "type": "string",
+            "format": "",
+            },
+        "userId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "AiGatewayPolicyResponse",
+    },
+    "v2.DeleteAiGatewayPolicy": {
+        "inbound": {
+            "type": "string",
+            "format": "",
+            },
+        "userId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListAiGatewayProviderModels": {
+        "integrationType": {
+            "type": "string",
+            "format": "",
+            },
+        "integrationAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "location": {
+            "type": "string",
+            "format": "",
+            },
+        "bedrockRegion": {
+            "type": "string",
+            "format": "",
+            },
+        "foundryResourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayDiscoveredModelListResponse",
+    },
+    "v2.ListAiGatewayProviders": {
+        "operationResponseType": "AiGatewayProviderListResponse",
+    },
+    "v2.CreateAiGatewayProvider": {
+        "body": {
+            "type": "AiGatewayProviderCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayProviderResponse",
+    },
+    "v2.GetAiGatewayProvider": {
+        "id": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "AiGatewayProviderResponse",
+    },
+    "v2.DeleteAiGatewayProvider": {
+        "id": {
+            "type": "number",
+            "format": "int64",
+            },
+        "force": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateAiGatewayProvider": {
+        "id": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "AiGatewayProviderUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayProviderResponse",
+    },
+    "v2.ListAiGatewayModels": {
+        "providerId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "AiGatewayModelCatalogEntryListResponse",
+    },
+    "v2.CreateAiGatewayModel": {
+        "providerId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "AiGatewayModelCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayModelCatalogEntryResponse",
+    },
+    "v2.BulkCreateAiGatewayModels": {
+        "providerId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "AiGatewayModelsBulkCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayModelCatalogEntryListResponse",
+    },
+    "v2.DeleteAiGatewayModel": {
+        "providerId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "canonical": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateAiGatewayModel": {
+        "providerId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "canonical": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AiGatewayModelUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayModelCatalogEntryResponse",
+    },
+    "v2.GetAiGatewayModelPricing": {
+        "providerId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "canonical": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayModelPricingResponse",
+    },
+    "v2.UpdateAiGatewayModelPricing": {
+        "providerId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "canonical": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AiGatewayModelPricingRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayModelPricingResponse",
+    },
+    "v2.DeleteAiGatewayModelPricing": {
+        "providerId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "canonical": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListAiGatewayRateLimits": {
+        "operationResponseType": "AiGatewayRateLimitListResponse",
+    },
+    "v2.CreateAiGatewayRateLimit": {
+        "body": {
+            "type": "AiGatewayRateLimitCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayRateLimitResponse",
+    },
+    "v2.GetAiGatewayRateLimitUsage": {
+        "operationResponseType": "AiGatewayRateLimitUsageListResponse",
+    },
+    "v2.GetAiGatewayRateLimit": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "AiGatewayRateLimitResponse",
+    },
+    "v2.DeleteAiGatewayRateLimit": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateAiGatewayRateLimit": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "AiGatewayRateLimitUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayRateLimitResponse",
+    },
+    "v2.ListAiGatewayRoutingRules": {
+        "operationResponseType": "AiGatewayRoutingRuleListResponse",
+    },
+    "v2.UpdateAiGatewayRoutingRule": {
+        "slug": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AiGatewayRoutingRuleReplaceRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayRoutingRuleResponse",
+    },
+    "v2.CreateAiGatewayRoutingRule": {
+        "body": {
+            "type": "AiGatewayRoutingRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayRoutingRuleResponse",
+    },
+    "v2.DeleteAiGatewayRoutingRule": {
+        "slug": {
+            "type": "string",
+            "format": "",
+            },
+        "force": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetAiGatewayRoutingRule": {
+        "slug": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayRoutingRuleResponse",
+    },
     "v2.SearchCases": {
         "pageSize": {
             "type": "number",
