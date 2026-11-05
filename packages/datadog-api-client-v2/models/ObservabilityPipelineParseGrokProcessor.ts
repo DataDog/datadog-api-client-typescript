@@ -39,9 +39,9 @@ export class ObservabilityPipelineParseGrokProcessor {
    */
   "include": string;
   /**
-   * The list of Grok parsing rules selected by either source field or include query.
+   * The list of custom Grok parsing rules selected by either source field or include query. Omit to use only the Datadog library rules.
    */
-  "rules": Array<ObservabilityPipelineParseGrokProcessorRuleItem>;
+  "rules"?: Array<ObservabilityPipelineParseGrokProcessorRuleItem>;
   /**
    * The processor type. The value should always be `parse_grok`.
    */
@@ -93,7 +93,6 @@ export class ObservabilityPipelineParseGrokProcessor {
     rules: {
       baseName: "rules",
       type: "Array<ObservabilityPipelineParseGrokProcessorRuleItem>",
-      required: true,
     },
     type: {
       baseName: "type",

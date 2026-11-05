@@ -32,9 +32,9 @@ export class ObservabilityPipelineConfigProcessorGroup {
    */
   "inputs": Array<string>;
   /**
-   * Processors applied sequentially within this group. Events flow through each processor in order.
+   * Processors applied sequentially within this group. Events flow through each processor in order. Omit or use an empty array for a group without processors.
    */
-  "processors": Array<ObservabilityPipelineConfigProcessorItem>;
+  "processors"?: Array<ObservabilityPipelineConfigProcessorItem>;
 
   /**
    * A container for additional, undeclared properties.
@@ -79,7 +79,6 @@ export class ObservabilityPipelineConfigProcessorGroup {
     processors: {
       baseName: "processors",
       type: "Array<ObservabilityPipelineConfigProcessorItem>",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
