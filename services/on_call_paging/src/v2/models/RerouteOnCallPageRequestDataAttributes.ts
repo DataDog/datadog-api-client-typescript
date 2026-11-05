@@ -7,7 +7,7 @@ import { CreatePageRequestDataAttributesTarget } from "./CreatePageRequestDataAt
  */
 export class RerouteOnCallPageRequestDataAttributes {
   /**
-   * An optional comment explaining why the page is being rerouted.
+   * An optional comment explaining why the Page is being rerouted.
    */
   "comment"?: string;
   /**
