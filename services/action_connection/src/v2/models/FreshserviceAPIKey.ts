@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { FreshserviceAPIKeyApiKey } from "./FreshserviceAPIKeyApiKey";
+import { FreshserviceAPIKeyDomain } from "./FreshserviceAPIKeyDomain";
 import { FreshserviceAPIKeyType } from "./FreshserviceAPIKeyType";
 
 /**
@@ -9,11 +11,11 @@ export class FreshserviceAPIKey {
   /**
    * The `FreshserviceAPIKey` `api_key`.
    */
-  "apiKey": string;
+  "apiKey": FreshserviceAPIKeyApiKey;
   /**
    * The `FreshserviceAPIKey` `domain`.
    */
-  "domain": string;
+  "domain": FreshserviceAPIKeyDomain;
   /**
    * The definition of the `FreshserviceAPIKey` object.
    */
@@ -35,12 +37,12 @@ export class FreshserviceAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "FreshserviceAPIKeyApiKey",
       required: true,
     },
     domain: {
       baseName: "domain",
-      type: "string",
+      type: "FreshserviceAPIKeyDomain",
       required: true,
     },
     type: {

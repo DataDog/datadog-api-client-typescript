@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { OpenAIAPIKeyApiToken } from "./OpenAIAPIKeyApiToken";
 import { OpenAIAPIKeyType } from "./OpenAIAPIKeyType";
 
 /**
@@ -9,7 +10,7 @@ export class OpenAIAPIKey {
   /**
    * The `OpenAIAPIKey` `api_token`.
    */
-  "apiToken": string;
+  "apiToken": OpenAIAPIKeyApiToken;
   /**
    * The definition of the `OpenAIAPIKey` object.
    */
@@ -31,7 +32,7 @@ export class OpenAIAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "OpenAIAPIKeyApiToken",
       required: true,
     },
     type: {

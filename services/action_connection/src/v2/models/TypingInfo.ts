@@ -4,6 +4,8 @@ import { AWSAssumeRole } from "./AWSAssumeRole";
 import { AWSAssumeRoleUpdate } from "./AWSAssumeRoleUpdate";
 import { AWSIntegration } from "./AWSIntegration";
 import { AWSIntegrationUpdate } from "./AWSIntegrationUpdate";
+import { ActionConnectionAWSSecretsManager } from "./ActionConnectionAWSSecretsManager";
+import { ActionConnectionAWSSecretsManagerReference } from "./ActionConnectionAWSSecretsManagerReference";
 import { ActionConnectionAttributes } from "./ActionConnectionAttributes";
 import { ActionConnectionAttributesUpdate } from "./ActionConnectionAttributesUpdate";
 import { ActionConnectionData } from "./ActionConnectionData";
@@ -79,6 +81,7 @@ import { HTTPIntegrationUpdate } from "./HTTPIntegrationUpdate";
 import { HTTPToken } from "./HTTPToken";
 import { HTTPTokenAuth } from "./HTTPTokenAuth";
 import { HTTPTokenAuthUpdate } from "./HTTPTokenAuthUpdate";
+import { HTTPTokenResponse } from "./HTTPTokenResponse";
 import { HTTPTokenUpdate } from "./HTTPTokenUpdate";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
@@ -127,6 +130,7 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     AWSAssumeRoleType: ["AWSAssumeRole"],
     AWSIntegrationType: ["AWS"],
+    ActionConnectionAWSSecretsManagerType: ["aws_secrets_manager"],
     ActionConnectionDataType: ["action_connection"],
     AnthropicAPIKeyType: ["AnthropicAPIKey"],
     AnthropicIntegrationType: ["Anthropic"],
@@ -233,53 +237,315 @@ export const TypingInfo: ModelTypingInfo = {
       "StatsigIntegrationUpdate",
       "VirusTotalIntegrationUpdate",
     ],
+    AnthropicAPIKeyApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    AnthropicAPIKeyUpdateApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     AnthropicCredentials: ["AnthropicAPIKey"],
     AnthropicCredentialsUpdate: ["AnthropicAPIKeyUpdate"],
+    AsanaAccessTokenAccessToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    AsanaAccessTokenUpdateAccessToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     AsanaCredentials: ["AsanaAccessToken"],
     AsanaCredentialsUpdate: ["AsanaAccessTokenUpdate"],
     AzureCredentials: ["AzureTenant"],
     AzureCredentialsUpdate: ["AzureTenantUpdate"],
+    CircleCIAPIKeyApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    CircleCIAPIKeyUpdateApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     CircleCICredentials: ["CircleCIAPIKey"],
     CircleCICredentialsUpdate: ["CircleCIAPIKeyUpdate"],
+    ClickupAPIKeyApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    ClickupAPIKeyUpdateApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     ClickupCredentials: ["ClickupAPIKey"],
     ClickupCredentialsUpdate: ["ClickupAPIKeyUpdate"],
+    CloudflareAPITokenApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    CloudflareAPITokenUpdateApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     CloudflareCredentials: ["CloudflareAPIToken", "CloudflareGlobalAPIToken"],
     CloudflareCredentialsUpdate: [
       "CloudflareAPITokenUpdate",
       "CloudflareGlobalAPITokenUpdate",
     ],
+    CloudflareGlobalAPITokenAuthEmail: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    CloudflareGlobalAPITokenGlobalApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    CloudflareGlobalAPITokenUpdateAuthEmail: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    CloudflareGlobalAPITokenUpdateGlobalApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     ConfigCatCredentials: ["ConfigCatSDKKey"],
     ConfigCatCredentialsUpdate: ["ConfigCatSDKKeyUpdate"],
+    ConfigCatSDKKeyApiPassword: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    ConfigCatSDKKeyApiUsername: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    ConfigCatSDKKeySdkKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    ConfigCatSDKKeyUpdateApiPassword: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    ConfigCatSDKKeyUpdateApiUsername: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    ConfigCatSDKKeyUpdateSdkKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    DatadogAPIKeyApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    DatadogAPIKeyAppKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    DatadogAPIKeyDatacenter: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    DatadogAPIKeySubdomain: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    DatadogAPIKeyUpdateApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    DatadogAPIKeyUpdateAppKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    DatadogAPIKeyUpdateDatacenter: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     DatadogCredentials: ["DatadogAPIKey"],
     DatadogCredentialsUpdate: ["DatadogAPIKeyUpdate"],
+    FastlyAPIKeyApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    FastlyAPIKeyUpdateApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     FastlyCredentials: ["FastlyAPIKey"],
     FastlyCredentialsUpdate: ["FastlyAPIKeyUpdate"],
+    FreshserviceAPIKeyApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    FreshserviceAPIKeyDomain: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    FreshserviceAPIKeyUpdateApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    FreshserviceAPIKeyUpdateDomain: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     FreshserviceCredentials: ["FreshserviceAPIKey"],
     FreshserviceCredentialsUpdate: ["FreshserviceAPIKeyUpdate"],
     GCPCredentials: ["GCPServiceAccount"],
     GCPCredentialsUpdate: ["GCPServiceAccountUpdate"],
+    GCPServiceAccountPrivateKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GCPServiceAccountServiceAccountEmail: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GCPServiceAccountUpdatePrivateKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GCPServiceAccountUpdateServiceAccountEmail: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GeminiAPIKeyApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GeminiAPIKeyUpdateApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     GeminiCredentials: ["GeminiAPIKey"],
     GeminiCredentialsUpdate: ["GeminiAPIKeyUpdate"],
+    GitlabAPIKeyApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GitlabAPIKeyUpdateApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     GitlabCredentials: ["GitlabAPIKey"],
     GitlabCredentialsUpdate: ["GitlabAPIKeyUpdate"],
+    GreyNoiseAPIKeyApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GreyNoiseAPIKeyUpdateApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     GreyNoiseCredentials: ["GreyNoiseAPIKey"],
     GreyNoiseCredentialsUpdate: ["GreyNoiseAPIKeyUpdate"],
     HTTPCredentials: ["HTTPTokenAuth"],
     HTTPCredentialsUpdate: ["HTTPTokenAuthUpdate"],
+    HTTPTokenResponseValue: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    HTTPTokenValue: ["string", "ActionConnectionAWSSecretsManagerReference"],
+    LaunchDarklyAPIKeyApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    LaunchDarklyAPIKeyUpdateApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     LaunchDarklyCredentials: ["LaunchDarklyAPIKey"],
     LaunchDarklyCredentialsUpdate: ["LaunchDarklyAPIKeyUpdate"],
+    NotionAPIKeyApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    NotionAPIKeyUpdateApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     NotionCredentials: ["NotionAPIKey"],
     NotionCredentialsUpdate: ["NotionAPIKeyUpdate"],
+    OktaAPITokenApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    OktaAPITokenDomain: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    OktaAPITokenUpdateApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    OktaAPITokenUpdateDomain: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     OktaCredentials: ["OktaAPIToken"],
     OktaCredentialsUpdate: ["OktaAPITokenUpdate"],
+    OpenAIAPIKeyApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    OpenAIAPIKeyUpdateApiToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     OpenAICredentials: ["OpenAIAPIKey"],
     OpenAICredentialsUpdate: ["OpenAIAPIKeyUpdate"],
+    ServiceNowBasicAuthInstance: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    ServiceNowBasicAuthPassword: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    ServiceNowBasicAuthUpdateInstance: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    ServiceNowBasicAuthUpdatePassword: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    ServiceNowBasicAuthUpdateUsername: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    ServiceNowBasicAuthUsername: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     ServiceNowCredentials: ["ServiceNowBasicAuth"],
     ServiceNowCredentialsUpdate: ["ServiceNowBasicAuthUpdate"],
+    SplitAPIKeyApiKey: ["string", "ActionConnectionAWSSecretsManagerReference"],
+    SplitAPIKeyUpdateApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     SplitCredentials: ["SplitAPIKey"],
     SplitCredentialsUpdate: ["SplitAPIKeyUpdate"],
+    StatsigAPIKeyApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    StatsigAPIKeyUpdateApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     StatsigCredentials: ["StatsigAPIKey"],
     StatsigCredentialsUpdate: ["StatsigAPIKeyUpdate"],
+    VirusTotalAPIKeyApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    VirusTotalAPIKeyUpdateApiKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     VirusTotalCredentials: ["VirusTotalAPIKey"],
     VirusTotalCredentialsUpdate: ["VirusTotalAPIKeyUpdate"],
   },
@@ -288,6 +554,9 @@ export const TypingInfo: ModelTypingInfo = {
     AWSAssumeRoleUpdate: AWSAssumeRoleUpdate,
     AWSIntegration: AWSIntegration,
     AWSIntegrationUpdate: AWSIntegrationUpdate,
+    ActionConnectionAWSSecretsManager: ActionConnectionAWSSecretsManager,
+    ActionConnectionAWSSecretsManagerReference:
+      ActionConnectionAWSSecretsManagerReference,
     ActionConnectionAttributes: ActionConnectionAttributes,
     ActionConnectionAttributesUpdate: ActionConnectionAttributesUpdate,
     ActionConnectionData: ActionConnectionData,
@@ -363,6 +632,7 @@ export const TypingInfo: ModelTypingInfo = {
     HTTPToken: HTTPToken,
     HTTPTokenAuth: HTTPTokenAuth,
     HTTPTokenAuthUpdate: HTTPTokenAuthUpdate,
+    HTTPTokenResponse: HTTPTokenResponse,
     HTTPTokenUpdate: HTTPTokenUpdate,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,

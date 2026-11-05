@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { GreyNoiseAPIKeyType } from "./GreyNoiseAPIKeyType";
+import { GreyNoiseAPIKeyUpdateApiKey } from "./GreyNoiseAPIKeyUpdateApiKey";
 
 /**
  * The definition of the `GreyNoiseAPIKey` object.
@@ -9,7 +10,7 @@ export class GreyNoiseAPIKeyUpdate {
   /**
    * The `GreyNoiseAPIKeyUpdate` `api_key`.
    */
-  "apiKey"?: string;
+  "apiKey"?: GreyNoiseAPIKeyUpdateApiKey;
   /**
    * The definition of the `GreyNoiseAPIKey` object.
    */
@@ -31,7 +32,7 @@ export class GreyNoiseAPIKeyUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "GreyNoiseAPIKeyUpdateApiKey",
     },
     type: {
       baseName: "type",

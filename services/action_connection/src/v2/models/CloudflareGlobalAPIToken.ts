@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { CloudflareGlobalAPITokenAuthEmail } from "./CloudflareGlobalAPITokenAuthEmail";
+import { CloudflareGlobalAPITokenGlobalApiKey } from "./CloudflareGlobalAPITokenGlobalApiKey";
 import { CloudflareGlobalAPITokenType } from "./CloudflareGlobalAPITokenType";
 
 /**
@@ -9,11 +11,11 @@ export class CloudflareGlobalAPIToken {
   /**
    * The `CloudflareGlobalAPIToken` `auth_email`.
    */
-  "authEmail": string;
+  "authEmail": CloudflareGlobalAPITokenAuthEmail;
   /**
    * The `CloudflareGlobalAPIToken` `global_api_key`.
    */
-  "globalApiKey": string;
+  "globalApiKey": CloudflareGlobalAPITokenGlobalApiKey;
   /**
    * The definition of the `CloudflareGlobalAPIToken` object.
    */
@@ -35,12 +37,12 @@ export class CloudflareGlobalAPIToken {
   static readonly attributeTypeMap: AttributeTypeMap = {
     authEmail: {
       baseName: "auth_email",
-      type: "string",
+      type: "CloudflareGlobalAPITokenAuthEmail",
       required: true,
     },
     globalApiKey: {
       baseName: "global_api_key",
-      type: "string",
+      type: "CloudflareGlobalAPITokenGlobalApiKey",
       required: true,
     },
     type: {

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { GitlabAPIKeyApiToken } from "./GitlabAPIKeyApiToken";
 import { GitlabAPIKeyType } from "./GitlabAPIKeyType";
 
 /**
@@ -9,7 +10,7 @@ export class GitlabAPIKey {
   /**
    * The `GitlabAPIKey` `api_token`.
    */
-  "apiToken": string;
+  "apiToken": GitlabAPIKeyApiToken;
   /**
    * The definition of the `GitlabAPIKey` object.
    */
@@ -31,7 +32,7 @@ export class GitlabAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "GitlabAPIKeyApiToken",
       required: true,
     },
     type: {

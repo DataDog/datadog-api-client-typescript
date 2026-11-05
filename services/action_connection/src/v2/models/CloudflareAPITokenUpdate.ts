@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CloudflareAPITokenType } from "./CloudflareAPITokenType";
+import { CloudflareAPITokenUpdateApiToken } from "./CloudflareAPITokenUpdateApiToken";
 
 /**
  * The definition of the `CloudflareAPIToken` object.
@@ -9,7 +10,7 @@ export class CloudflareAPITokenUpdate {
   /**
    * The `CloudflareAPITokenUpdate` `api_token`.
    */
-  "apiToken"?: string;
+  "apiToken"?: CloudflareAPITokenUpdateApiToken;
   /**
    * The definition of the `CloudflareAPIToken` object.
    */
@@ -31,7 +32,7 @@ export class CloudflareAPITokenUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "CloudflareAPITokenUpdateApiToken",
     },
     type: {
       baseName: "type",

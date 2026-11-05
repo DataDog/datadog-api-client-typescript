@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AnthropicAPIKeyType } from "./AnthropicAPIKeyType";
+import { AnthropicAPIKeyUpdateApiToken } from "./AnthropicAPIKeyUpdateApiToken";
 
 /**
  * The definition of the `AnthropicAPIKey` object.
@@ -9,7 +10,7 @@ export class AnthropicAPIKeyUpdate {
   /**
    * The `AnthropicAPIKeyUpdate` `api_token`.
    */
-  "apiToken"?: string;
+  "apiToken"?: AnthropicAPIKeyUpdateApiToken;
   /**
    * The definition of the `AnthropicAPIKey` object.
    */
@@ -31,7 +32,7 @@ export class AnthropicAPIKeyUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "AnthropicAPIKeyUpdateApiToken",
     },
     type: {
       baseName: "type",

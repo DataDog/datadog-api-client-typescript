@@ -1,5 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { DatadogAPIKeyApiKey } from "./DatadogAPIKeyApiKey";
+import { DatadogAPIKeyAppKey } from "./DatadogAPIKeyAppKey";
+import { DatadogAPIKeyDatacenter } from "./DatadogAPIKeyDatacenter";
+import { DatadogAPIKeySubdomain } from "./DatadogAPIKeySubdomain";
 import { DatadogAPIKeyType } from "./DatadogAPIKeyType";
 
 /**
@@ -9,19 +13,19 @@ export class DatadogAPIKey {
   /**
    * The `DatadogAPIKey` `api_key`.
    */
-  "apiKey": string;
+  "apiKey": DatadogAPIKeyApiKey;
   /**
    * The `DatadogAPIKey` `app_key`.
    */
-  "appKey": string;
+  "appKey": DatadogAPIKeyAppKey;
   /**
    * The `DatadogAPIKey` `datacenter`.
    */
-  "datacenter": string;
+  "datacenter": DatadogAPIKeyDatacenter;
   /**
    * Custom subdomain used for Datadog URLs generated with this Connection. For example, if this org uses `https://acme.datadoghq.com` to access Datadog, set this field to `acme`. If this field is omitted, generated URLs will use the default site URL for its datacenter (see [https://docs.datadoghq.com/getting_started/site](https://docs.datadoghq.com/getting_started/site)).
    */
-  "subdomain"?: string;
+  "subdomain"?: DatadogAPIKeySubdomain;
   /**
    * The definition of the `DatadogAPIKey` object.
    */
@@ -43,22 +47,22 @@ export class DatadogAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "DatadogAPIKeyApiKey",
       required: true,
     },
     appKey: {
       baseName: "app_key",
-      type: "string",
+      type: "DatadogAPIKeyAppKey",
       required: true,
     },
     datacenter: {
       baseName: "datacenter",
-      type: "string",
+      type: "DatadogAPIKeyDatacenter",
       required: true,
     },
     subdomain: {
       baseName: "subdomain",
-      type: "string",
+      type: "DatadogAPIKeySubdomain",
     },
     type: {
       baseName: "type",

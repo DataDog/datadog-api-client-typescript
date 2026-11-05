@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ClickupAPIKeyApiToken } from "./ClickupAPIKeyApiToken";
 import { ClickupAPIKeyType } from "./ClickupAPIKeyType";
 
 /**
@@ -9,7 +10,7 @@ export class ClickupAPIKey {
   /**
    * The `ClickupAPIKey` `api_token`.
    */
-  "apiToken": string;
+  "apiToken": ClickupAPIKeyApiToken;
   /**
    * The definition of the `ClickupAPIKey` object.
    */
@@ -31,7 +32,7 @@ export class ClickupAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "ClickupAPIKeyApiToken",
       required: true,
     },
     type: {
