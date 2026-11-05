@@ -1175,6 +1175,9 @@ import { CreateSnapshotDataResponse } from "./CreateSnapshotDataResponse";
 import { CreateSnapshotRequest } from "./CreateSnapshotRequest";
 import { CreateSnapshotResponse } from "./CreateSnapshotResponse";
 import { CreateSnapshotTemplateVariable } from "./CreateSnapshotTemplateVariable";
+import { CreateStatusPageEmailAccessPolicyRequest } from "./CreateStatusPageEmailAccessPolicyRequest";
+import { CreateStatusPageEmailAccessPolicyRequestData } from "./CreateStatusPageEmailAccessPolicyRequestData";
+import { CreateStatusPageEmailAccessPolicyRequestDataAttributes } from "./CreateStatusPageEmailAccessPolicyRequestDataAttributes";
 import { CreateStatusPageRequest } from "./CreateStatusPageRequest";
 import { CreateStatusPageRequestData } from "./CreateStatusPageRequestData";
 import { CreateStatusPageRequestDataAttributes } from "./CreateStatusPageRequestDataAttributes";
@@ -5849,6 +5852,15 @@ import { StatusPageDataRelationshipsCreatedByUser } from "./StatusPageDataRelati
 import { StatusPageDataRelationshipsCreatedByUserData } from "./StatusPageDataRelationshipsCreatedByUserData";
 import { StatusPageDataRelationshipsLastModifiedByUser } from "./StatusPageDataRelationshipsLastModifiedByUser";
 import { StatusPageDataRelationshipsLastModifiedByUserData } from "./StatusPageDataRelationshipsLastModifiedByUserData";
+import { StatusPageEmailAccessPolicyArrayResponse } from "./StatusPageEmailAccessPolicyArrayResponse";
+import { StatusPageEmailAccessPolicyData } from "./StatusPageEmailAccessPolicyData";
+import { StatusPageEmailAccessPolicyDataAttributes } from "./StatusPageEmailAccessPolicyDataAttributes";
+import { StatusPageEmailAccessPolicyDataRelationships } from "./StatusPageEmailAccessPolicyDataRelationships";
+import { StatusPageEmailAccessPolicyDataRelationshipsCreatedByUser } from "./StatusPageEmailAccessPolicyDataRelationshipsCreatedByUser";
+import { StatusPageEmailAccessPolicyDataRelationshipsCreatedByUserData } from "./StatusPageEmailAccessPolicyDataRelationshipsCreatedByUserData";
+import { StatusPageEmailAccessPolicyDataRelationshipsStatusPage } from "./StatusPageEmailAccessPolicyDataRelationshipsStatusPage";
+import { StatusPageEmailAccessPolicyDataRelationshipsStatusPageData } from "./StatusPageEmailAccessPolicyDataRelationshipsStatusPageData";
+import { StatusPageEmailAccessPolicyResponse } from "./StatusPageEmailAccessPolicyResponse";
 import { StatusPagesComponent } from "./StatusPagesComponent";
 import { StatusPagesComponentArray } from "./StatusPagesComponentArray";
 import { StatusPagesComponentData } from "./StatusPagesComponentData";
@@ -7405,7 +7417,7 @@ const enumsMap: { [key: string]: any[] } = {
   CreateSnapshotTTL: ["30d", "60d", "90d", "1y", "2y", "inf"],
   CreateSnapshotTimeseriesLegendType: ["compact", "expanded", "none"],
   CreateSnapshotType: ["create_snapshot"],
-  CreateStatusPageRequestDataAttributesType: ["public", "internal"],
+  CreateStatusPageRequestDataAttributesType: ["public", "internal", "private"],
   CreateStatusPageRequestDataAttributesVisualizationLayout: ["list", "grid"],
   CreateStatusPageRequestDataAttributesVisualizationType: [
     "bars_and_uptime_percentage",
@@ -10197,6 +10209,7 @@ const enumsMap: { [key: string]: any[] } = {
   StatsigAPIKeyType: ["StatsigAPIKey"],
   StatsigIntegrationType: ["Statsig"],
   StatusPageDataType: ["status_pages"],
+  StatusPageEmailAccessPolicyType: ["email_access_policies"],
   StatusPagesComponentDataAttributesStatus: [
     "operational",
     "degraded",
@@ -12032,6 +12045,12 @@ const typeMap: { [index: string]: any } = {
   CreateSnapshotRequest: CreateSnapshotRequest,
   CreateSnapshotResponse: CreateSnapshotResponse,
   CreateSnapshotTemplateVariable: CreateSnapshotTemplateVariable,
+  CreateStatusPageEmailAccessPolicyRequest:
+    CreateStatusPageEmailAccessPolicyRequest,
+  CreateStatusPageEmailAccessPolicyRequestData:
+    CreateStatusPageEmailAccessPolicyRequestData,
+  CreateStatusPageEmailAccessPolicyRequestDataAttributes:
+    CreateStatusPageEmailAccessPolicyRequestDataAttributes,
   CreateStatusPageRequest: CreateStatusPageRequest,
   CreateStatusPageRequestData: CreateStatusPageRequestData,
   CreateStatusPageRequestDataAttributes: CreateStatusPageRequestDataAttributes,
@@ -18006,6 +18025,22 @@ const typeMap: { [index: string]: any } = {
     StatusPageDataRelationshipsLastModifiedByUser,
   StatusPageDataRelationshipsLastModifiedByUserData:
     StatusPageDataRelationshipsLastModifiedByUserData,
+  StatusPageEmailAccessPolicyArrayResponse:
+    StatusPageEmailAccessPolicyArrayResponse,
+  StatusPageEmailAccessPolicyData: StatusPageEmailAccessPolicyData,
+  StatusPageEmailAccessPolicyDataAttributes:
+    StatusPageEmailAccessPolicyDataAttributes,
+  StatusPageEmailAccessPolicyDataRelationships:
+    StatusPageEmailAccessPolicyDataRelationships,
+  StatusPageEmailAccessPolicyDataRelationshipsCreatedByUser:
+    StatusPageEmailAccessPolicyDataRelationshipsCreatedByUser,
+  StatusPageEmailAccessPolicyDataRelationshipsCreatedByUserData:
+    StatusPageEmailAccessPolicyDataRelationshipsCreatedByUserData,
+  StatusPageEmailAccessPolicyDataRelationshipsStatusPage:
+    StatusPageEmailAccessPolicyDataRelationshipsStatusPage,
+  StatusPageEmailAccessPolicyDataRelationshipsStatusPageData:
+    StatusPageEmailAccessPolicyDataRelationshipsStatusPageData,
+  StatusPageEmailAccessPolicyResponse: StatusPageEmailAccessPolicyResponse,
   StatusPagesComponent: StatusPagesComponent,
   StatusPagesComponentArray: StatusPagesComponentArray,
   StatusPagesComponentData: StatusPagesComponentData,
@@ -20228,6 +20263,10 @@ const oneOfMap: { [index: string]: string[] } = {
   StatsigCredentials: ["StatsigAPIKey"],
   StatsigCredentialsUpdate: ["StatsigAPIKeyUpdate"],
   StatusPageArrayIncluded: ["StatusPagesUser"],
+  StatusPageEmailAccessPolicyIncluded: [
+    "StatusPagesUser",
+    "StatusPageAsIncluded",
+  ],
   StatusPagesComponentArrayIncluded: [
     "StatusPagesUser",
     "StatusPageAsIncluded",

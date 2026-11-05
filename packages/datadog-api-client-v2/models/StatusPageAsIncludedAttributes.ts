@@ -35,7 +35,7 @@ export class StatusPageAsIncludedAttributes {
    */
   "customDomainEnabled"?: boolean;
   /**
-   * The subdomain of the status page's url taking the form `https://{domain_prefix}.statuspage.datadoghq.com`. Globally unique across Datadog Status Pages.
+   * The subdomain of the status page URL. Public pages use `https://{domain_prefix}.statuspage.datadoghq.com`, while private pages use `https://{domain_prefix}.private.statuspage.datadoghq.com`. Globally unique across Datadog Status Pages.
    */
   "domainPrefix"?: string;
   /**
@@ -79,7 +79,7 @@ export class StatusPageAsIncludedAttributes {
    */
   "subscriptionsEnabled"?: boolean;
   /**
-   * The type of the status page controlling how the status page is accessed.
+   * The type of the status page controlling how the status page is accessed. Public pages are accessible to anyone, internal pages are accessible to authenticated users in the Datadog organization, and private pages are accessible only to users matching an allow email access policy and no deny email access policy.
    */
   "type"?: CreateStatusPageRequestDataAttributesType;
   /**
