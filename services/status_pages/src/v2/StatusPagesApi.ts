@@ -30,12 +30,14 @@ import { CreateDegradationRequest } from "./models/CreateDegradationRequest";
 import { CreateDegradationTemplateRequest } from "./models/CreateDegradationTemplateRequest";
 import { CreateMaintenanceRequest } from "./models/CreateMaintenanceRequest";
 import { CreateMaintenanceTemplateRequest } from "./models/CreateMaintenanceTemplateRequest";
+import { CreateStatusPageEmailAccessPolicyRequest } from "./models/CreateStatusPageEmailAccessPolicyRequest";
 import { CreateStatusPageRequest } from "./models/CreateStatusPageRequest";
 import { Degradation } from "./models/Degradation";
 import { DegradationArray } from "./models/DegradationArray";
 import { DegradationTemplate } from "./models/DegradationTemplate";
 import { DegradationTemplateArray } from "./models/DegradationTemplateArray";
 import { DegradationUpdate } from "./models/DegradationUpdate";
+import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { Maintenance } from "./models/Maintenance";
 import { MaintenanceArray } from "./models/MaintenanceArray";
 import { MaintenanceTemplate } from "./models/MaintenanceTemplate";
@@ -51,6 +53,8 @@ import { PatchMaintenanceUpdateRequest } from "./models/PatchMaintenanceUpdateRe
 import { PatchStatusPageRequest } from "./models/PatchStatusPageRequest";
 import { StatusPage } from "./models/StatusPage";
 import { StatusPageArray } from "./models/StatusPageArray";
+import { StatusPageEmailAccessPolicyArrayResponse } from "./models/StatusPageEmailAccessPolicyArrayResponse";
+import { StatusPageEmailAccessPolicyResponse } from "./models/StatusPageEmailAccessPolicyResponse";
 import { StatusPagesComponent } from "./models/StatusPagesComponent";
 import { StatusPagesComponentArray } from "./models/StatusPagesComponentArray";
 import { version } from "../version";
@@ -450,6 +454,87 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createEmailAccessPolicy(
+    pageId: string,
+    body: CreateStatusPageEmailAccessPolicyRequest,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "createEmailAccessPolicy");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createEmailAccessPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/statuspages/{page_id}/access_policies/email".replace(
+        "{page_id}",
+        encodeURIComponent(String(pageId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StatusPagesApi.v2.createEmailAccessPolicy",
+      StatusPagesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "CreateStatusPageEmailAccessPolicyRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async createMaintenance(
     pageId: string,
     body: CreateMaintenanceRequest,
@@ -813,6 +898,62 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "StatusPagesApi.v2.deleteDegradationTemplate",
+      StatusPagesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteEmailAccessPolicy(
+    pageId: string,
+    policyId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "deleteEmailAccessPolicy");
+    }
+
+    // verify required parameter 'policyId' is not null or undefined
+    if (policyId === null || policyId === undefined) {
+      throw new RequiredError("policyId", "deleteEmailAccessPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/statuspages/{page_id}/access_policies/email/{policy_id}"
+        .replace("{page_id}", encodeURIComponent(String(pageId)))
+        .replace("{policy_id}", encodeURIComponent(String(policyId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StatusPagesApi.v2.deleteEmailAccessPolicy",
       StatusPagesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -1608,6 +1749,67 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "StatusPagesApi.v2.listDegradationTemplates",
+      StatusPagesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listEmailAccessPolicies(
+    pageId: string,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "listEmailAccessPolicies");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/statuspages/{page_id}/access_policies/email".replace(
+        "{page_id}",
+        encodeURIComponent(String(pageId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StatusPagesApi.v2.listEmailAccessPolicies",
       StatusPagesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -2913,6 +3115,88 @@ export class StatusPagesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createEmailAccessPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createEmailAccessPolicy(
+    response: ResponseContext,
+  ): Promise<StatusPageEmailAccessPolicyResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: StatusPageEmailAccessPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "StatusPageEmailAccessPolicyResponse",
+      ) as StatusPageEmailAccessPolicyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: StatusPageEmailAccessPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "StatusPageEmailAccessPolicyResponse",
+        "",
+      ) as StatusPageEmailAccessPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createMaintenance
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3176,6 +3460,76 @@ export class StatusPagesApiResponseProcessor {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteEmailAccessPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteEmailAccessPolicy(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
     if (response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
@@ -3840,6 +4194,87 @@ export class StatusPagesApiResponseProcessor {
         "DegradationTemplateArray",
         "",
       ) as DegradationTemplateArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listEmailAccessPolicies
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listEmailAccessPolicies(
+    response: ResponseContext,
+  ): Promise<StatusPageEmailAccessPolicyArrayResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: StatusPageEmailAccessPolicyArrayResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "StatusPageEmailAccessPolicyArrayResponse",
+      ) as StatusPageEmailAccessPolicyArrayResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: StatusPageEmailAccessPolicyArrayResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "StatusPageEmailAccessPolicyArrayResponse",
+        "",
+      ) as StatusPageEmailAccessPolicyArrayResponse;
       return body;
     }
 
@@ -4632,6 +5067,23 @@ export interface StatusPagesApiCreateDegradationTemplateRequest {
   include?: string;
 }
 
+export interface StatusPagesApiCreateEmailAccessPolicyRequest {
+  /**
+   * The ID of the private status page.
+   * @type string
+   */
+  pageId: string;
+  /**
+   * @type CreateStatusPageEmailAccessPolicyRequest
+   */
+  body: CreateStatusPageEmailAccessPolicyRequest;
+  /**
+   * Comma-separated list of resources to include. Supported values: created_by_user, status_page.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface StatusPagesApiCreateMaintenanceRequest {
   /**
    * The ID of the status page.
@@ -4720,6 +5172,19 @@ export interface StatusPagesApiDeleteDegradationTemplateRequest {
    * @type string
    */
   templateId: string;
+}
+
+export interface StatusPagesApiDeleteEmailAccessPolicyRequest {
+  /**
+   * The ID of the private status page.
+   * @type string
+   */
+  pageId: string;
+  /**
+   * The ID of the email access policy.
+   * @type string
+   */
+  policyId: string;
 }
 
 export interface StatusPagesApiDeleteMaintenanceTemplateRequest {
@@ -4932,6 +5397,19 @@ export interface StatusPagesApiListDegradationTemplatesRequest {
   pageId: string;
   /**
    * Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface StatusPagesApiListEmailAccessPoliciesRequest {
+  /**
+   * The ID of the private status page.
+   * @type string
+   */
+  pageId: string;
+  /**
+   * Comma-separated list of resources to include. Supported values: created_by_user, status_page.
    * @type string
    */
   include?: string;
@@ -5353,6 +5831,31 @@ export class StatusPagesApi {
   }
 
   /**
+   * Creates an email access policy for a private status page.
+   * @param param The request object
+   */
+  public createEmailAccessPolicy(
+    param: StatusPagesApiCreateEmailAccessPolicyRequest,
+    options?: Configuration,
+  ): Promise<StatusPageEmailAccessPolicyResponse> {
+    const requestContextPromise = this.requestFactory.createEmailAccessPolicy(
+      param.pageId,
+      param.body,
+      param.include,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createEmailAccessPolicy(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Schedules a new maintenance.
    * @param param The request object
    */
@@ -5485,6 +5988,30 @@ export class StatusPagesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteDegradationTemplate(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Deletes an email access policy from a private status page.
+   * @param param The request object
+   */
+  public deleteEmailAccessPolicy(
+    param: StatusPagesApiDeleteEmailAccessPolicyRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteEmailAccessPolicy(
+      param.pageId,
+      param.policyId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteEmailAccessPolicy(
             responseContext,
           );
         });
@@ -5772,6 +6299,30 @@ export class StatusPagesApi {
   }
 
   /**
+   * Lists the email access policies for a private status page.
+   * @param param The request object
+   */
+  public listEmailAccessPolicies(
+    param: StatusPagesApiListEmailAccessPoliciesRequest,
+    options?: Configuration,
+  ): Promise<StatusPageEmailAccessPolicyArrayResponse> {
+    const requestContextPromise = this.requestFactory.listEmailAccessPolicies(
+      param.pageId,
+      param.include,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listEmailAccessPolicies(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Lists all maintenances for the organization. Optionally filter by status and page.
    * @param param The request object
    */
@@ -5871,7 +6422,7 @@ export class StatusPagesApi {
   }
 
   /**
-   * Publishes a status page. For pages of type `public`, makes the status page available on the public internet and requires the `status_pages_public_page_publish` permission. For pages of type `internal`, makes the status page available under the `status-pages/$domain_prefix/view` route within the Datadog organization and requires the `status_pages_internal_page_publish` permission.
+   * Publishes a status page. For pages of type `public`, makes the status page available on the public internet and requires the `status_pages_public_page_publish` permission. For pages of type `internal`, makes the status page available under the `status-pages/$domain_prefix/view` route within the Datadog organization and requires the `status_pages_internal_page_publish` permission. For pages of type `private`, makes the status page available to users authorized by its email access policies and requires the `status_pages_private_page_publish` permission. A private status page must have at least one email access policy before it can be published.
    * @param param The request object
    */
   public publishStatusPage(
@@ -5918,7 +6469,7 @@ export class StatusPagesApi {
   }
 
   /**
-   * Unpublishes a status page. For pages of type `public`, removes the status page from the public internet and requires the `status_pages_public_page_publish` permission. For pages of type `internal`, removes the `status-pages/$domain_prefix/view` route from the Datadog organization and requires the `status_pages_internal_page_publish` permission.
+   * Unpublishes a status page. For pages of type `public`, removes the status page from the public internet and requires the `status_pages_public_page_publish` permission. For pages of type `internal`, removes the `status-pages/$domain_prefix/view` route from the Datadog organization and requires the `status_pages_internal_page_publish` permission. For pages of type `private`, removes access to the private status page and requires the `status_pages_private_page_publish` permission.
    * @param param The request object
    */
   public unpublishStatusPage(
