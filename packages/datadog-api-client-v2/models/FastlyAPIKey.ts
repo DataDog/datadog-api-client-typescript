@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { FastlyAPIKeyApiKey } from "./FastlyAPIKeyApiKey";
 import { FastlyAPIKeyType } from "./FastlyAPIKeyType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -14,7 +15,7 @@ export class FastlyAPIKey {
   /**
    * The `FastlyAPIKey` `api_key`.
    */
-  "apiKey": string;
+  "apiKey": FastlyAPIKeyApiKey;
   /**
    * The definition of the `FastlyAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class FastlyAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "FastlyAPIKeyApiKey",
       required: true,
     },
     type: {

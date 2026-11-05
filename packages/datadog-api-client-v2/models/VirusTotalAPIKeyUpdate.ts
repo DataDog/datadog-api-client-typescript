@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { VirusTotalAPIKeyType } from "./VirusTotalAPIKeyType";
+import { VirusTotalAPIKeyUpdateApiKey } from "./VirusTotalAPIKeyUpdateApiKey";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +15,7 @@ export class VirusTotalAPIKeyUpdate {
   /**
    * The `VirusTotalAPIKeyUpdate` `api_key`.
    */
-  "apiKey"?: string;
+  "apiKey"?: VirusTotalAPIKeyUpdateApiKey;
   /**
    * The definition of the `VirusTotalAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class VirusTotalAPIKeyUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "VirusTotalAPIKeyUpdateApiKey",
     },
     type: {
       baseName: "type",

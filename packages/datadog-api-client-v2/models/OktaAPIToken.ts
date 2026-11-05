@@ -3,6 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { OktaAPITokenApiToken } from "./OktaAPITokenApiToken";
+import { OktaAPITokenDomain } from "./OktaAPITokenDomain";
 import { OktaAPITokenType } from "./OktaAPITokenType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -14,11 +16,11 @@ export class OktaAPIToken {
   /**
    * The `OktaAPIToken` `api_token`.
    */
-  "apiToken": string;
+  "apiToken": OktaAPITokenApiToken;
   /**
    * The `OktaAPIToken` `domain`.
    */
-  "domain": string;
+  "domain": OktaAPITokenDomain;
   /**
    * The definition of the `OktaAPIToken` object.
    */
@@ -42,12 +44,12 @@ export class OktaAPIToken {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "OktaAPITokenApiToken",
       required: true,
     },
     domain: {
       baseName: "domain",
-      type: "string",
+      type: "OktaAPITokenDomain",
       required: true,
     },
     type: {

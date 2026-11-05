@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AsanaAccessTokenAccessToken } from "./AsanaAccessTokenAccessToken";
 import { AsanaAccessTokenType } from "./AsanaAccessTokenType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -14,7 +15,7 @@ export class AsanaAccessToken {
   /**
    * The `AsanaAccessToken` `access_token`.
    */
-  "accessToken": string;
+  "accessToken": AsanaAccessTokenAccessToken;
   /**
    * The definition of the `AsanaAccessToken` object.
    */
@@ -38,7 +39,7 @@ export class AsanaAccessToken {
   static readonly attributeTypeMap: AttributeTypeMap = {
     accessToken: {
       baseName: "access_token",
-      type: "string",
+      type: "AsanaAccessTokenAccessToken",
       required: true,
     },
     type: {

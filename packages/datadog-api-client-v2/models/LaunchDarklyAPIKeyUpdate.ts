@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { LaunchDarklyAPIKeyType } from "./LaunchDarklyAPIKeyType";
+import { LaunchDarklyAPIKeyUpdateApiToken } from "./LaunchDarklyAPIKeyUpdateApiToken";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +15,7 @@ export class LaunchDarklyAPIKeyUpdate {
   /**
    * The `LaunchDarklyAPIKeyUpdate` `api_token`.
    */
-  "apiToken"?: string;
+  "apiToken"?: LaunchDarklyAPIKeyUpdateApiToken;
   /**
    * The definition of the `LaunchDarklyAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class LaunchDarklyAPIKeyUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "LaunchDarklyAPIKeyUpdateApiToken",
     },
     type: {
       baseName: "type",

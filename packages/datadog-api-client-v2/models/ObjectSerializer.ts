@@ -142,6 +142,8 @@ import { AccountFiltersPatchData } from "./AccountFiltersPatchData";
 import { AccountFiltersPatchRequest } from "./AccountFiltersPatchRequest";
 import { AccountFiltersPatchRequestAttributes } from "./AccountFiltersPatchRequestAttributes";
 import { AccountFiltersResponse } from "./AccountFiltersResponse";
+import { ActionConnectionAWSSecretsManager } from "./ActionConnectionAWSSecretsManager";
+import { ActionConnectionAWSSecretsManagerReference } from "./ActionConnectionAWSSecretsManagerReference";
 import { ActionConnectionAttributes } from "./ActionConnectionAttributes";
 import { ActionConnectionAttributesUpdate } from "./ActionConnectionAttributesUpdate";
 import { ActionConnectionData } from "./ActionConnectionData";
@@ -2562,6 +2564,7 @@ import { HTTPLogItem } from "./HTTPLogItem";
 import { HTTPToken } from "./HTTPToken";
 import { HTTPTokenAuth } from "./HTTPTokenAuth";
 import { HTTPTokenAuthUpdate } from "./HTTPTokenAuthUpdate";
+import { HTTPTokenResponse } from "./HTTPTokenResponse";
 import { HTTPTokenUpdate } from "./HTTPTokenUpdate";
 import { HamrOrgConnectionAttributesRequest } from "./HamrOrgConnectionAttributesRequest";
 import { HamrOrgConnectionAttributesResponse } from "./HamrOrgConnectionAttributesResponse";
@@ -6848,6 +6851,7 @@ const enumsMap: { [key: string]: any[] } = {
   AccessTokensType: ["personal_access_tokens", "service_access_tokens"],
   AccountFiltersPatchRequestType: ["account_filters_patch_request"],
   AccountFiltersType: ["account_filters"],
+  ActionConnectionAWSSecretsManagerType: ["aws_secrets_manager"],
   ActionConnectionDataType: ["action_connection"],
   ActionQueryType: ["action"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
@@ -10805,6 +10809,9 @@ const typeMap: { [index: string]: any } = {
   AccountFiltersPatchRequest: AccountFiltersPatchRequest,
   AccountFiltersPatchRequestAttributes: AccountFiltersPatchRequestAttributes,
   AccountFiltersResponse: AccountFiltersResponse,
+  ActionConnectionAWSSecretsManager: ActionConnectionAWSSecretsManager,
+  ActionConnectionAWSSecretsManagerReference:
+    ActionConnectionAWSSecretsManagerReference,
   ActionConnectionAttributes: ActionConnectionAttributes,
   ActionConnectionAttributesUpdate: ActionConnectionAttributesUpdate,
   ActionConnectionData: ActionConnectionData,
@@ -13802,6 +13809,7 @@ const typeMap: { [index: string]: any } = {
   HTTPToken: HTTPToken,
   HTTPTokenAuth: HTTPTokenAuth,
   HTTPTokenAuthUpdate: HTTPTokenAuthUpdate,
+  HTTPTokenResponse: HTTPTokenResponse,
   HTTPTokenUpdate: HTTPTokenUpdate,
   HamrOrgConnectionAttributesRequest: HamrOrgConnectionAttributesRequest,
   HamrOrgConnectionAttributesResponse: HamrOrgConnectionAttributesResponse,
@@ -19196,6 +19204,14 @@ const oneOfMap: { [index: string]: string[] } = {
   ActionQueryShowToastOnError: ["boolean", "string"],
   ActionQuerySpec: ["string", "ActionQuerySpecObject"],
   ActionQuerySpecInputs: ["string", "{ [key: string]: any; }"],
+  AnthropicAPIKeyApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  AnthropicAPIKeyUpdateApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   AnthropicCredentials: ["AnthropicAPIKey"],
   AnthropicCredentialsUpdate: ["AnthropicAPIKeyUpdate"],
   AnyValue: [
@@ -19207,6 +19223,14 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   AnyValueItem: ["string", "number", "{ [key: string]: any; }", "boolean"],
   ApplicationKeyResponseIncludedItem: ["User", "Role", "LeakedKey"],
+  AsanaAccessTokenAccessToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  AsanaAccessTokenUpdateAccessToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   AsanaCredentials: ["AsanaAccessToken"],
   AsanaCredentialsUpdate: ["AsanaAccessTokenUpdate"],
   AttachmentIncluded: ["IncidentUserData"],
@@ -19252,15 +19276,55 @@ const oneOfMap: { [index: string]: string[] } = {
     "ChangeRequestIncludedUser",
     "ChangeRequestIncludedDecision",
   ],
+  CircleCIAPIKeyApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  CircleCIAPIKeyUpdateApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   CircleCICredentials: ["CircleCIAPIKey"],
   CircleCICredentialsUpdate: ["CircleCIAPIKeyUpdate"],
+  ClickupAPIKeyApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  ClickupAPIKeyUpdateApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   ClickupCredentials: ["ClickupAPIKey"],
   ClickupCredentialsUpdate: ["ClickupAPIKeyUpdate"],
   CloudWorkloadSecurityAgentRuleActionSetValue: ["string", "number", "boolean"],
+  CloudflareAPITokenApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  CloudflareAPITokenUpdateApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   CloudflareCredentials: ["CloudflareAPIToken", "CloudflareGlobalAPIToken"],
   CloudflareCredentialsUpdate: [
     "CloudflareAPITokenUpdate",
     "CloudflareGlobalAPITokenUpdate",
+  ],
+  CloudflareGlobalAPITokenAuthEmail: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  CloudflareGlobalAPITokenGlobalApiKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  CloudflareGlobalAPITokenUpdateAuthEmail: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  CloudflareGlobalAPITokenUpdateGlobalApiKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
   ],
   CommitmentsListItem: [
     "CommitmentsAwsEC2RICommitment",
@@ -19274,6 +19338,30 @@ const oneOfMap: { [index: string]: string[] } = {
   ComponentPropertiesIsVisible: ["boolean", "string"],
   ConfigCatCredentials: ["ConfigCatSDKKey"],
   ConfigCatCredentialsUpdate: ["ConfigCatSDKKeyUpdate"],
+  ConfigCatSDKKeyApiPassword: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  ConfigCatSDKKeyApiUsername: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  ConfigCatSDKKeySdkKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  ConfigCatSDKKeyUpdateApiPassword: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  ConfigCatSDKKeyUpdateApiUsername: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  ConfigCatSDKKeyUpdateSdkKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   ContainerImageItem: ["ContainerImage", "ContainerImageGroup"],
   ContainerItem: ["Container", "ContainerGroup"],
   CreateNotificationChannelConfig: [
@@ -19327,6 +19415,28 @@ const oneOfMap: { [index: string]: string[] } = {
     "DatabricksIntegrationAccountOAuthAuthUpdate",
     "DatabricksIntegrationAccountPrivateActionRunnerAuthUpdate",
     "DatabricksIntegrationAccountBearerTokenAuthUpdate",
+  ],
+  DatadogAPIKeyApiKey: ["string", "ActionConnectionAWSSecretsManagerReference"],
+  DatadogAPIKeyAppKey: ["string", "ActionConnectionAWSSecretsManagerReference"],
+  DatadogAPIKeyDatacenter: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  DatadogAPIKeySubdomain: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  DatadogAPIKeyUpdateApiKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  DatadogAPIKeyUpdateAppKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  DatadogAPIKeyUpdateDatacenter: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
   ],
   DatadogCredentials: ["DatadogAPIKey"],
   DatadogCredentialsUpdate: ["DatadogAPIKeyUpdate"],
@@ -19426,24 +19536,87 @@ const oneOfMap: { [index: string]: string[] } = {
     "ExperimentsMeasureRangeFilterInput",
     "ExperimentsMeasureNullFilterInput",
   ],
+  FastlyAPIKeyApiKey: ["string", "ActionConnectionAWSSecretsManagerReference"],
+  FastlyAPIKeyUpdateApiKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   FastlyCredentials: ["FastlyAPIKey"],
   FastlyCredentialsUpdate: ["FastlyAPIKeyUpdate"],
+  FreshserviceAPIKeyApiKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  FreshserviceAPIKeyDomain: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  FreshserviceAPIKeyUpdateApiKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  FreshserviceAPIKeyUpdateDomain: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   FreshserviceCredentials: ["FreshserviceAPIKey"],
   FreshserviceCredentialsUpdate: ["FreshserviceAPIKeyUpdate"],
   GCPCredentials: ["GCPServiceAccount"],
   GCPCredentialsUpdate: ["GCPServiceAccountUpdate"],
+  GCPServiceAccountPrivateKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GCPServiceAccountServiceAccountEmail: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GCPServiceAccountUpdatePrivateKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GCPServiceAccountUpdateServiceAccountEmail: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GeminiAPIKeyApiKey: ["string", "ActionConnectionAWSSecretsManagerReference"],
+  GeminiAPIKeyUpdateApiKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   GeminiCredentials: ["GeminiAPIKey"],
   GeminiCredentialsUpdate: ["GeminiAPIKeyUpdate"],
   GeneralInvestigationAttributes: [
     "GeneralInvestigationAttributesWithoutTimeBounds",
     "GeneralInvestigationAttributesWithTimeBounds",
   ],
+  GitlabAPIKeyApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GitlabAPIKeyUpdateApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   GitlabCredentials: ["GitlabAPIKey"],
   GitlabCredentialsUpdate: ["GitlabAPIKeyUpdate"],
+  GreyNoiseAPIKeyApiKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GreyNoiseAPIKeyUpdateApiKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   GreyNoiseCredentials: ["GreyNoiseAPIKey"],
   GreyNoiseCredentialsUpdate: ["GreyNoiseAPIKeyUpdate"],
   HTTPCredentials: ["HTTPTokenAuth"],
   HTTPCredentialsUpdate: ["HTTPTokenAuthUpdate"],
+  HTTPTokenResponseValue: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  HTTPTokenValue: ["string", "ActionConnectionAWSSecretsManagerReference"],
   IncidentFieldAttributes: [
     "IncidentFieldAttributesSingleValue",
     "IncidentFieldAttributesMultipleValue",
@@ -19519,6 +19692,14 @@ const oneOfMap: { [index: string]: string[] } = {
     "Array<LLMObsPromptChatTemplateItem>",
     "LLMObsPromptAuthoringMessagesTemplate",
   ],
+  LaunchDarklyAPIKeyApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  LaunchDarklyAPIKeyUpdateApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   LaunchDarklyCredentials: ["LaunchDarklyAPIKey"],
   LaunchDarklyCredentialsUpdate: ["LaunchDarklyAPIKeyUpdate"],
   ListEntityCatalogResponseIncludedItem: [
@@ -19574,6 +19755,14 @@ const oneOfMap: { [index: string]: string[] } = {
     "NotificationChannelPhoneConfig",
     "NotificationChannelEmailConfig",
     "NotificationChannelPushConfig",
+  ],
+  NotionAPIKeyApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  NotionAPIKeyUpdateApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
   ],
   NotionCredentials: ["NotionAPIKey"],
   NotionCredentialsUpdate: ["NotionAPIKeyUpdate"],
@@ -19764,6 +19953,19 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineWebsocketSourceTlsEnabled",
     "ObservabilityPipelineWebsocketSourceTlsWithClientCert",
   ],
+  OktaAPITokenApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  OktaAPITokenDomain: ["string", "ActionConnectionAWSSecretsManagerReference"],
+  OktaAPITokenUpdateApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  OktaAPITokenUpdateDomain: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   OktaCredentials: ["OktaAPIToken"],
   OktaCredentialsUpdate: ["OktaAPITokenUpdate"],
   OnCallNotificationRuleChannelSettings: [
@@ -19775,6 +19977,14 @@ const oneOfMap: { [index: string]: string[] } = {
     "TeamReference",
     "OnCallPageScheduledAction",
     "OnCallPageLink",
+  ],
+  OpenAIAPIKeyApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  OpenAIAPIKeyUpdateApiToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
   ],
   OpenAICredentials: ["OpenAIAPIKey"],
   OpenAICredentialsUpdate: ["OpenAIAPIKeyUpdate"],
@@ -19939,6 +20149,30 @@ const oneOfMap: { [index: string]: string[] } = {
     "ServiceDefinitionV2",
     "string",
   ],
+  ServiceNowBasicAuthInstance: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  ServiceNowBasicAuthPassword: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  ServiceNowBasicAuthUpdateInstance: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  ServiceNowBasicAuthUpdatePassword: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  ServiceNowBasicAuthUpdateUsername: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  ServiceNowBasicAuthUsername: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   ServiceNowCredentials: ["ServiceNowBasicAuth"],
   ServiceNowCredentialsUpdate: ["ServiceNowBasicAuthUpdate"],
   SeverityModifierRuleAction: [
@@ -19979,8 +20213,18 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   SpansGroupByMissing: ["string", "number"],
   SpansGroupByTotal: ["boolean", "string", "number"],
+  SplitAPIKeyApiKey: ["string", "ActionConnectionAWSSecretsManagerReference"],
+  SplitAPIKeyUpdateApiKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   SplitCredentials: ["SplitAPIKey"],
   SplitCredentialsUpdate: ["SplitAPIKeyUpdate"],
+  StatsigAPIKeyApiKey: ["string", "ActionConnectionAWSSecretsManagerReference"],
+  StatsigAPIKeyUpdateApiKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
   StatsigCredentials: ["StatsigAPIKey"],
   StatsigCredentialsUpdate: ["StatsigAPIKeyUpdate"],
   StatusPageArrayIncluded: ["StatusPagesUser"],
@@ -20079,6 +20323,14 @@ const oneOfMap: { [index: string]: string[] } = {
   V2EventAttributesAttributes: [
     "ChangeEventAttributes",
     "AlertEventAttributes",
+  ],
+  VirusTotalAPIKeyApiKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  VirusTotalAPIKeyUpdateApiKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
   ],
   VirusTotalCredentials: ["VirusTotalAPIKey"],
   VirusTotalCredentialsUpdate: ["VirusTotalAPIKeyUpdate"],

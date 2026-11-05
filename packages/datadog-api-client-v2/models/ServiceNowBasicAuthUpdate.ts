@@ -4,6 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ServiceNowBasicAuthType } from "./ServiceNowBasicAuthType";
+import { ServiceNowBasicAuthUpdateInstance } from "./ServiceNowBasicAuthUpdateInstance";
+import { ServiceNowBasicAuthUpdatePassword } from "./ServiceNowBasicAuthUpdatePassword";
+import { ServiceNowBasicAuthUpdateUsername } from "./ServiceNowBasicAuthUpdateUsername";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,11 +17,11 @@ export class ServiceNowBasicAuthUpdate {
   /**
    * The `ServiceNowBasicAuthUpdate` `instance`.
    */
-  "instance"?: string;
+  "instance"?: ServiceNowBasicAuthUpdateInstance;
   /**
    * The `ServiceNowBasicAuthUpdate` `password`.
    */
-  "password"?: string;
+  "password"?: ServiceNowBasicAuthUpdatePassword;
   /**
    * The definition of the `ServiceNowBasicAuth` object.
    */
@@ -26,7 +29,7 @@ export class ServiceNowBasicAuthUpdate {
   /**
    * The `ServiceNowBasicAuthUpdate` `username`.
    */
-  "username"?: string;
+  "username"?: ServiceNowBasicAuthUpdateUsername;
 
   /**
    * A container for additional, undeclared properties.
@@ -46,11 +49,11 @@ export class ServiceNowBasicAuthUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     instance: {
       baseName: "instance",
-      type: "string",
+      type: "ServiceNowBasicAuthUpdateInstance",
     },
     password: {
       baseName: "password",
-      type: "string",
+      type: "ServiceNowBasicAuthUpdatePassword",
     },
     type: {
       baseName: "type",
@@ -59,7 +62,7 @@ export class ServiceNowBasicAuthUpdate {
     },
     username: {
       baseName: "username",
-      type: "string",
+      type: "ServiceNowBasicAuthUpdateUsername",
     },
     additionalProperties: {
       baseName: "additionalProperties",

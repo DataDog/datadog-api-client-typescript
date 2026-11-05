@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { NotionAPIKeyApiToken } from "./NotionAPIKeyApiToken";
 import { NotionAPIKeyType } from "./NotionAPIKeyType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -14,7 +15,7 @@ export class NotionAPIKey {
   /**
    * The `NotionAPIKey` `api_token`.
    */
-  "apiToken": string;
+  "apiToken": NotionAPIKeyApiToken;
   /**
    * The definition of the `NotionAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class NotionAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "NotionAPIKeyApiToken",
       required: true,
     },
     type: {

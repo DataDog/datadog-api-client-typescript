@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CloudflareGlobalAPITokenType } from "./CloudflareGlobalAPITokenType";
+import { CloudflareGlobalAPITokenUpdateAuthEmail } from "./CloudflareGlobalAPITokenUpdateAuthEmail";
+import { CloudflareGlobalAPITokenUpdateGlobalApiKey } from "./CloudflareGlobalAPITokenUpdateGlobalApiKey";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,11 +16,11 @@ export class CloudflareGlobalAPITokenUpdate {
   /**
    * The `CloudflareGlobalAPITokenUpdate` `auth_email`.
    */
-  "authEmail"?: string;
+  "authEmail"?: CloudflareGlobalAPITokenUpdateAuthEmail;
   /**
    * The `CloudflareGlobalAPITokenUpdate` `global_api_key`.
    */
-  "globalApiKey"?: string;
+  "globalApiKey"?: CloudflareGlobalAPITokenUpdateGlobalApiKey;
   /**
    * The definition of the `CloudflareGlobalAPIToken` object.
    */
@@ -42,11 +44,11 @@ export class CloudflareGlobalAPITokenUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     authEmail: {
       baseName: "auth_email",
-      type: "string",
+      type: "CloudflareGlobalAPITokenUpdateAuthEmail",
     },
     globalApiKey: {
       baseName: "global_api_key",
-      type: "string",
+      type: "CloudflareGlobalAPITokenUpdateGlobalApiKey",
     },
     type: {
       baseName: "type",

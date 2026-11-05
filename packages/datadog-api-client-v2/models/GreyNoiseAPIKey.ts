@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { GreyNoiseAPIKeyApiKey } from "./GreyNoiseAPIKeyApiKey";
 import { GreyNoiseAPIKeyType } from "./GreyNoiseAPIKeyType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -14,7 +15,7 @@ export class GreyNoiseAPIKey {
   /**
    * The `GreyNoiseAPIKey` `api_key`.
    */
-  "apiKey": string;
+  "apiKey": GreyNoiseAPIKeyApiKey;
   /**
    * The definition of the `GreyNoiseAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class GreyNoiseAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "GreyNoiseAPIKeyApiKey",
       required: true,
     },
     type: {

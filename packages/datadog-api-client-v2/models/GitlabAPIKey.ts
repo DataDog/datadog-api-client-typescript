@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { GitlabAPIKeyApiToken } from "./GitlabAPIKeyApiToken";
 import { GitlabAPIKeyType } from "./GitlabAPIKeyType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -14,7 +15,7 @@ export class GitlabAPIKey {
   /**
    * The `GitlabAPIKey` `api_token`.
    */
-  "apiToken": string;
+  "apiToken": GitlabAPIKeyApiToken;
   /**
    * The definition of the `GitlabAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class GitlabAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "GitlabAPIKeyApiToken",
       required: true,
     },
     type: {

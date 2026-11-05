@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { GitlabAPIKeyType } from "./GitlabAPIKeyType";
+import { GitlabAPIKeyUpdateApiToken } from "./GitlabAPIKeyUpdateApiToken";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +15,7 @@ export class GitlabAPIKeyUpdate {
   /**
    * The `GitlabAPIKeyUpdate` `api_token`.
    */
-  "apiToken"?: string;
+  "apiToken"?: GitlabAPIKeyUpdateApiToken;
   /**
    * The definition of the `GitlabAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class GitlabAPIKeyUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "GitlabAPIKeyUpdateApiToken",
     },
     type: {
       baseName: "type",

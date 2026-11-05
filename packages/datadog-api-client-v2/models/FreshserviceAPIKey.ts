@@ -3,6 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { FreshserviceAPIKeyApiKey } from "./FreshserviceAPIKeyApiKey";
+import { FreshserviceAPIKeyDomain } from "./FreshserviceAPIKeyDomain";
 import { FreshserviceAPIKeyType } from "./FreshserviceAPIKeyType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -14,11 +16,11 @@ export class FreshserviceAPIKey {
   /**
    * The `FreshserviceAPIKey` `api_key`.
    */
-  "apiKey": string;
+  "apiKey": FreshserviceAPIKeyApiKey;
   /**
    * The `FreshserviceAPIKey` `domain`.
    */
-  "domain": string;
+  "domain": FreshserviceAPIKeyDomain;
   /**
    * The definition of the `FreshserviceAPIKey` object.
    */
@@ -42,12 +44,12 @@ export class FreshserviceAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "FreshserviceAPIKeyApiKey",
       required: true,
     },
     domain: {
       baseName: "domain",
-      type: "string",
+      type: "FreshserviceAPIKeyDomain",
       required: true,
     },
     type: {

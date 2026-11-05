@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { OpenAIAPIKeyType } from "./OpenAIAPIKeyType";
+import { OpenAIAPIKeyUpdateApiToken } from "./OpenAIAPIKeyUpdateApiToken";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +15,7 @@ export class OpenAIAPIKeyUpdate {
   /**
    * The `OpenAIAPIKeyUpdate` `api_token`.
    */
-  "apiToken"?: string;
+  "apiToken"?: OpenAIAPIKeyUpdateApiToken;
   /**
    * The definition of the `OpenAIAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class OpenAIAPIKeyUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "OpenAIAPIKeyUpdateApiToken",
     },
     type: {
       baseName: "type",

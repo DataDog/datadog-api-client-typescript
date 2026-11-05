@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CloudflareAPITokenType } from "./CloudflareAPITokenType";
+import { CloudflareAPITokenUpdateApiToken } from "./CloudflareAPITokenUpdateApiToken";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +15,7 @@ export class CloudflareAPITokenUpdate {
   /**
    * The `CloudflareAPITokenUpdate` `api_token`.
    */
-  "apiToken"?: string;
+  "apiToken"?: CloudflareAPITokenUpdateApiToken;
   /**
    * The definition of the `CloudflareAPIToken` object.
    */
@@ -38,7 +39,7 @@ export class CloudflareAPITokenUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "CloudflareAPITokenUpdateApiToken",
     },
     type: {
       baseName: "type",

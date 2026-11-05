@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SplitAPIKeyType } from "./SplitAPIKeyType";
+import { SplitAPIKeyUpdateApiKey } from "./SplitAPIKeyUpdateApiKey";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +15,7 @@ export class SplitAPIKeyUpdate {
   /**
    * The `SplitAPIKeyUpdate` `api_key`.
    */
-  "apiKey"?: string;
+  "apiKey"?: SplitAPIKeyUpdateApiKey;
   /**
    * The definition of the `SplitAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class SplitAPIKeyUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "SplitAPIKeyUpdateApiKey",
     },
     type: {
       baseName: "type",

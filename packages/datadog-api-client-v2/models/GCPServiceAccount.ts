@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { GCPServiceAccountCredentialType } from "./GCPServiceAccountCredentialType";
+import { GCPServiceAccountPrivateKey } from "./GCPServiceAccountPrivateKey";
+import { GCPServiceAccountServiceAccountEmail } from "./GCPServiceAccountServiceAccountEmail";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,11 +16,11 @@ export class GCPServiceAccount {
   /**
    * The `GCPServiceAccount` `private_key`.
    */
-  "privateKey": string;
+  "privateKey": GCPServiceAccountPrivateKey;
   /**
    * The `GCPServiceAccount` `service_account_email`.
    */
-  "serviceAccountEmail": string;
+  "serviceAccountEmail": GCPServiceAccountServiceAccountEmail;
   /**
    * The definition of the `GCPServiceAccount` object.
    */
@@ -42,12 +44,12 @@ export class GCPServiceAccount {
   static readonly attributeTypeMap: AttributeTypeMap = {
     privateKey: {
       baseName: "private_key",
-      type: "string",
+      type: "GCPServiceAccountPrivateKey",
       required: true,
     },
     serviceAccountEmail: {
       baseName: "service_account_email",
-      type: "string",
+      type: "GCPServiceAccountServiceAccountEmail",
       required: true,
     },
     type: {

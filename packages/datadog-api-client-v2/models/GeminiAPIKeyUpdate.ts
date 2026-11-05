@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { GeminiAPIKeyType } from "./GeminiAPIKeyType";
+import { GeminiAPIKeyUpdateApiKey } from "./GeminiAPIKeyUpdateApiKey";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +15,7 @@ export class GeminiAPIKeyUpdate {
   /**
    * The `GeminiAPIKeyUpdate` `api_key`.
    */
-  "apiKey"?: string;
+  "apiKey"?: GeminiAPIKeyUpdateApiKey;
   /**
    * The definition of the `GeminiAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class GeminiAPIKeyUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "GeminiAPIKeyUpdateApiKey",
     },
     type: {
       baseName: "type",
