@@ -1,0 +1,100 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { AiGatewayCaptureDeleteRequestDataAttributesMode } from "./AiGatewayCaptureDeleteRequestDataAttributesMode";
+import { AiGatewayCaptureDeleteRequestDataAttributesOperation } from "./AiGatewayCaptureDeleteRequestDataAttributesOperation";
+import { AiGatewayCaptureScope } from "./AiGatewayCaptureScope";
+
+/**
+ * Revisions and confirmation used to delete the override.
+ */
+export class AiGatewayCaptureDeleteRequestDataAttributes {
+  /**
+   * Opaque revision of the organization default and all overrides. Writes require the revision returned by a current read or preview.
+   */
+  "configurationRevision": string;
+  /**
+   * Set to `true` to confirm a change that can enable full capture, including a deletion that causes a `full_capture` override or the organization default to apply.
+   */
+  "confirmFullCapture"?: boolean;
+  /**
+   * Capture mode for matching traffic.
+   */
+  "mode"?: AiGatewayCaptureDeleteRequestDataAttributesMode;
+  /**
+   * Display name of the override. Names need not be unique; identify overrides by `id`.
+   */
+  "name"?: string;
+  /**
+   * Proposed operation for preview. Write endpoints infer it from the HTTP method.
+   */
+  "operation"?: AiGatewayCaptureDeleteRequestDataAttributesOperation;
+  /**
+   * Current override revision, required for replacement or deletion.
+   */
+  "revision": number;
+  /**
+   * All selected filters combine with AND, with one value per filter. The `model` and `provider` tags apply to each actual direct or routed attempt, including fallback destinations. Routes are not selectable filters. At least one filter is required.
+   * If any matching override uses `metadata_only`, that mode applies. Otherwise, if any matching override uses `full_capture`, that mode applies. The organization default applies only when no override matches. Overrides have no priority or specificity ordering.
+   */
+  "scope"?: AiGatewayCaptureScope;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    configurationRevision: {
+      baseName: "configuration_revision",
+      type: "string",
+      required: true,
+    },
+    confirmFullCapture: {
+      baseName: "confirm_full_capture",
+      type: "boolean",
+    },
+    mode: {
+      baseName: "mode",
+      type: "AiGatewayCaptureDeleteRequestDataAttributesMode",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+    },
+    operation: {
+      baseName: "operation",
+      type: "AiGatewayCaptureDeleteRequestDataAttributesOperation",
+    },
+    revision: {
+      baseName: "revision",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    scope: {
+      baseName: "scope",
+      type: "AiGatewayCaptureScope",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return AiGatewayCaptureDeleteRequestDataAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
