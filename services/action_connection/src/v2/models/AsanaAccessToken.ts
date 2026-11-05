@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { AsanaAccessTokenAccessToken } from "./AsanaAccessTokenAccessToken";
 import { AsanaAccessTokenType } from "./AsanaAccessTokenType";
 
 /**
@@ -9,7 +10,7 @@ export class AsanaAccessToken {
   /**
    * The `AsanaAccessToken` `access_token`.
    */
-  "accessToken": string;
+  "accessToken": AsanaAccessTokenAccessToken;
   /**
    * The definition of the `AsanaAccessToken` object.
    */
@@ -31,7 +32,7 @@ export class AsanaAccessToken {
   static readonly attributeTypeMap: AttributeTypeMap = {
     accessToken: {
       baseName: "access_token",
-      type: "string",
+      type: "AsanaAccessTokenAccessToken",
       required: true,
     },
     type: {

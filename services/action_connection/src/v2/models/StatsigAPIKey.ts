@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { StatsigAPIKeyApiKey } from "./StatsigAPIKeyApiKey";
 import { StatsigAPIKeyType } from "./StatsigAPIKeyType";
 
 /**
@@ -9,7 +10,7 @@ export class StatsigAPIKey {
   /**
    * The `StatsigAPIKey` `api_key`.
    */
-  "apiKey": string;
+  "apiKey": StatsigAPIKeyApiKey;
   /**
    * The definition of the `StatsigAPIKey` object.
    */
@@ -31,7 +32,7 @@ export class StatsigAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "StatsigAPIKeyApiKey",
       required: true,
     },
     type: {

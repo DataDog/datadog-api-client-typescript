@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { CircleCIAPIKeyApiToken } from "./CircleCIAPIKeyApiToken";
 import { CircleCIAPIKeyType } from "./CircleCIAPIKeyType";
 
 /**
@@ -9,7 +10,7 @@ export class CircleCIAPIKey {
   /**
    * The `CircleCIAPIKey` `api_token`.
    */
-  "apiToken": string;
+  "apiToken": CircleCIAPIKeyApiToken;
   /**
    * The definition of the `CircleCIAPIKey` object.
    */
@@ -31,7 +32,7 @@ export class CircleCIAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "CircleCIAPIKeyApiToken",
       required: true,
     },
     type: {

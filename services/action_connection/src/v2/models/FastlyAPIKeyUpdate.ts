@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { FastlyAPIKeyType } from "./FastlyAPIKeyType";
+import { FastlyAPIKeyUpdateApiKey } from "./FastlyAPIKeyUpdateApiKey";
 
 /**
  * The definition of the `FastlyAPIKey` object.
@@ -9,7 +10,7 @@ export class FastlyAPIKeyUpdate {
   /**
    * The `FastlyAPIKeyUpdate` `api_key`.
    */
-  "apiKey"?: string;
+  "apiKey"?: FastlyAPIKeyUpdateApiKey;
   /**
    * The definition of the `FastlyAPIKey` object.
    */
@@ -31,7 +32,7 @@ export class FastlyAPIKeyUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "FastlyAPIKeyUpdateApiKey",
     },
     type: {
       baseName: "type",

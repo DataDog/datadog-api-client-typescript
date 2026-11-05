@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { HTTPTokenValue } from "./HTTPTokenValue";
 import { TokenType } from "./TokenType";
 
 /**
@@ -21,7 +22,7 @@ export class HTTPTokenUpdate {
   /**
    * The `HTTPToken` `value`.
    */
-  "value": string;
+  "value": HTTPTokenValue;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -53,7 +54,7 @@ export class HTTPTokenUpdate {
     },
     value: {
       baseName: "value",
-      type: "string",
+      type: "HTTPTokenValue",
       required: true,
     },
     additionalProperties: {

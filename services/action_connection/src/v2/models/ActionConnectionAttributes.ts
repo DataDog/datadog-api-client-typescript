@@ -1,11 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ActionConnectionAWSSecretsManager } from "./ActionConnectionAWSSecretsManager";
 import { ActionConnectionIntegration } from "./ActionConnectionIntegration";
 
 /**
  * The definition of `ActionConnectionAttributes` object.
  */
 export class ActionConnectionAttributes {
+  /**
+   * AWS Secrets Manager settings shared by the credential references on a `DATACENTER` connection. These settings are required whenever a field uses an AWS Secrets Manager reference.
+   */
+  "externalSecretsManager"?: ActionConnectionAWSSecretsManager;
   /**
    * The definition of `ActionConnectionIntegration` object.
    */
@@ -34,6 +39,10 @@ export class ActionConnectionAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    externalSecretsManager: {
+      baseName: "external_secrets_manager",
+      type: "ActionConnectionAWSSecretsManager",
+    },
     integration: {
       baseName: "integration",
       type: "ActionConnectionIntegration",

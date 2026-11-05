@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { VirusTotalAPIKeyType } from "./VirusTotalAPIKeyType";
+import { VirusTotalAPIKeyUpdateApiKey } from "./VirusTotalAPIKeyUpdateApiKey";
 
 /**
  * The definition of the `VirusTotalAPIKey` object.
@@ -9,7 +10,7 @@ export class VirusTotalAPIKeyUpdate {
   /**
    * The `VirusTotalAPIKeyUpdate` `api_key`.
    */
-  "apiKey"?: string;
+  "apiKey"?: VirusTotalAPIKeyUpdateApiKey;
   /**
    * The definition of the `VirusTotalAPIKey` object.
    */
@@ -31,7 +32,7 @@ export class VirusTotalAPIKeyUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "VirusTotalAPIKeyUpdateApiKey",
     },
     type: {
       baseName: "type",

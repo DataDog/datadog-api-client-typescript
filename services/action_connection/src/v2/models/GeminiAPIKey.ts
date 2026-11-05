@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { GeminiAPIKeyApiKey } from "./GeminiAPIKeyApiKey";
 import { GeminiAPIKeyType } from "./GeminiAPIKeyType";
 
 /**
@@ -9,7 +10,7 @@ export class GeminiAPIKey {
   /**
    * The `GeminiAPIKey` `api_key`.
    */
-  "apiKey": string;
+  "apiKey": GeminiAPIKeyApiKey;
   /**
    * The definition of the `GeminiAPIKey` object.
    */
@@ -31,7 +32,7 @@ export class GeminiAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "GeminiAPIKeyApiKey",
       required: true,
     },
     type: {

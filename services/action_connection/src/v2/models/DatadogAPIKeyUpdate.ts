@@ -1,6 +1,10 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { DatadogAPIKeySubdomain } from "./DatadogAPIKeySubdomain";
 import { DatadogAPIKeyType } from "./DatadogAPIKeyType";
+import { DatadogAPIKeyUpdateApiKey } from "./DatadogAPIKeyUpdateApiKey";
+import { DatadogAPIKeyUpdateAppKey } from "./DatadogAPIKeyUpdateAppKey";
+import { DatadogAPIKeyUpdateDatacenter } from "./DatadogAPIKeyUpdateDatacenter";
 
 /**
  * The definition of the `DatadogAPIKey` object.
@@ -9,19 +13,19 @@ export class DatadogAPIKeyUpdate {
   /**
    * The `DatadogAPIKeyUpdate` `api_key`.
    */
-  "apiKey"?: string;
+  "apiKey"?: DatadogAPIKeyUpdateApiKey;
   /**
    * The `DatadogAPIKeyUpdate` `app_key`.
    */
-  "appKey"?: string;
+  "appKey"?: DatadogAPIKeyUpdateAppKey;
   /**
    * The `DatadogAPIKeyUpdate` `datacenter`.
    */
-  "datacenter"?: string;
+  "datacenter"?: DatadogAPIKeyUpdateDatacenter;
   /**
    * Custom subdomain used for Datadog URLs generated with this Connection. For example, if this org uses `https://acme.datadoghq.com` to access Datadog, set this field to `acme`. If this field is omitted, generated URLs will use the default site URL for its datacenter (see [https://docs.datadoghq.com/getting_started/site](https://docs.datadoghq.com/getting_started/site)).
    */
-  "subdomain"?: string;
+  "subdomain"?: DatadogAPIKeySubdomain;
   /**
    * The definition of the `DatadogAPIKey` object.
    */
@@ -43,19 +47,19 @@ export class DatadogAPIKeyUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "DatadogAPIKeyUpdateApiKey",
     },
     appKey: {
       baseName: "app_key",
-      type: "string",
+      type: "DatadogAPIKeyUpdateAppKey",
     },
     datacenter: {
       baseName: "datacenter",
-      type: "string",
+      type: "DatadogAPIKeyUpdateDatacenter",
     },
     subdomain: {
       baseName: "subdomain",
-      type: "string",
+      type: "DatadogAPIKeySubdomain",
     },
     type: {
       baseName: "type",

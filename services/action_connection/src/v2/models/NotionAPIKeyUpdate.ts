@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { NotionAPIKeyType } from "./NotionAPIKeyType";
+import { NotionAPIKeyUpdateApiToken } from "./NotionAPIKeyUpdateApiToken";
 
 /**
  * The definition of the `NotionAPIKey` object.
@@ -9,7 +10,7 @@ export class NotionAPIKeyUpdate {
   /**
    * The `NotionAPIKeyUpdate` `api_token`.
    */
-  "apiToken"?: string;
+  "apiToken"?: NotionAPIKeyUpdateApiToken;
   /**
    * The definition of the `NotionAPIKey` object.
    */
@@ -31,7 +32,7 @@ export class NotionAPIKeyUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "NotionAPIKeyUpdateApiToken",
     },
     type: {
       baseName: "type",

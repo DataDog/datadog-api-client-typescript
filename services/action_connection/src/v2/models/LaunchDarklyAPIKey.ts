@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { LaunchDarklyAPIKeyApiToken } from "./LaunchDarklyAPIKeyApiToken";
 import { LaunchDarklyAPIKeyType } from "./LaunchDarklyAPIKeyType";
 
 /**
@@ -9,7 +10,7 @@ export class LaunchDarklyAPIKey {
   /**
    * The `LaunchDarklyAPIKey` `api_token`.
    */
-  "apiToken": string;
+  "apiToken": LaunchDarklyAPIKeyApiToken;
   /**
    * The definition of the `LaunchDarklyAPIKey` object.
    */
@@ -31,7 +32,7 @@ export class LaunchDarklyAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "LaunchDarklyAPIKeyApiToken",
       required: true,
     },
     type: {

@@ -4,6 +4,7 @@ import { HTTPBody } from "./HTTPBody";
 import { HTTPHeader } from "./HTTPHeader";
 import { HTTPToken } from "./HTTPToken";
 import { HTTPTokenAuthType } from "./HTTPTokenAuthType";
+import { HTTPTokenResponse } from "./HTTPTokenResponse";
 import { UrlParam } from "./UrlParam";
 
 /**
@@ -18,6 +19,10 @@ export class HTTPTokenAuth {
    * The `HTTPTokenAuth` `headers`.
    */
   "headers"?: Array<HTTPHeader>;
+  /**
+   * HTTP authentication tokens returned by the API. Use `tokens` when creating or updating tokens.
+   */
+  "httpTokens"?: Array<HTTPTokenResponse>;
   /**
    * The `HTTPTokenAuth` `tokens`.
    */
@@ -52,6 +57,10 @@ export class HTTPTokenAuth {
     headers: {
       baseName: "headers",
       type: "Array<HTTPHeader>",
+    },
+    httpTokens: {
+      baseName: "http_tokens",
+      type: "Array<HTTPTokenResponse>",
     },
     tokens: {
       baseName: "tokens",

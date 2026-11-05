@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { SplitAPIKeyApiKey } from "./SplitAPIKeyApiKey";
 import { SplitAPIKeyType } from "./SplitAPIKeyType";
 
 /**
@@ -9,7 +10,7 @@ export class SplitAPIKey {
   /**
    * The `SplitAPIKey` `api_key`.
    */
-  "apiKey": string;
+  "apiKey": SplitAPIKeyApiKey;
   /**
    * The definition of the `SplitAPIKey` object.
    */
@@ -31,7 +32,7 @@ export class SplitAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
+      type: "SplitAPIKeyApiKey",
       required: true,
     },
     type: {

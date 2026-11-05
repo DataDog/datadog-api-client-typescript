@@ -1,5 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ConfigCatSDKKeyApiPassword } from "./ConfigCatSDKKeyApiPassword";
+import { ConfigCatSDKKeyApiUsername } from "./ConfigCatSDKKeyApiUsername";
+import { ConfigCatSDKKeySdkKey } from "./ConfigCatSDKKeySdkKey";
 import { ConfigCatSDKKeyType } from "./ConfigCatSDKKeyType";
 
 /**
@@ -9,15 +12,15 @@ export class ConfigCatSDKKey {
   /**
    * The `ConfigCatSDKKey` `api_password`.
    */
-  "apiPassword": string;
+  "apiPassword": ConfigCatSDKKeyApiPassword;
   /**
    * The `ConfigCatSDKKey` `api_username`.
    */
-  "apiUsername": string;
+  "apiUsername": ConfigCatSDKKeyApiUsername;
   /**
    * The `ConfigCatSDKKey` `sdk_key`.
    */
-  "sdkKey": string;
+  "sdkKey": ConfigCatSDKKeySdkKey;
   /**
    * The definition of the `ConfigCatSDKKey` object.
    */
@@ -39,17 +42,17 @@ export class ConfigCatSDKKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiPassword: {
       baseName: "api_password",
-      type: "string",
+      type: "ConfigCatSDKKeyApiPassword",
       required: true,
     },
     apiUsername: {
       baseName: "api_username",
-      type: "string",
+      type: "ConfigCatSDKKeyApiUsername",
       required: true,
     },
     sdkKey: {
       baseName: "sdk_key",
-      type: "string",
+      type: "ConfigCatSDKKeySdkKey",
       required: true,
     },
     type: {
