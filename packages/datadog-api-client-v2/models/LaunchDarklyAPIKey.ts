@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { LaunchDarklyAPIKeyApiToken } from "./LaunchDarklyAPIKeyApiToken";
 import { LaunchDarklyAPIKeyType } from "./LaunchDarklyAPIKeyType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -14,7 +15,7 @@ export class LaunchDarklyAPIKey {
   /**
    * The `LaunchDarklyAPIKey` `api_token`.
    */
-  "apiToken": string;
+  "apiToken": LaunchDarklyAPIKeyApiToken;
   /**
    * The definition of the `LaunchDarklyAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class LaunchDarklyAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "LaunchDarklyAPIKeyApiToken",
       required: true,
     },
     type: {

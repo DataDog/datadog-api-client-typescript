@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CircleCIAPIKeyApiToken } from "./CircleCIAPIKeyApiToken";
 import { CircleCIAPIKeyType } from "./CircleCIAPIKeyType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -14,7 +15,7 @@ export class CircleCIAPIKey {
   /**
    * The `CircleCIAPIKey` `api_token`.
    */
-  "apiToken": string;
+  "apiToken": CircleCIAPIKeyApiToken;
   /**
    * The definition of the `CircleCIAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class CircleCIAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "CircleCIAPIKeyApiToken",
       required: true,
     },
     type: {

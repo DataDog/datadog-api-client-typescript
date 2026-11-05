@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AnthropicAPIKeyType } from "./AnthropicAPIKeyType";
+import { AnthropicAPIKeyUpdateApiToken } from "./AnthropicAPIKeyUpdateApiToken";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +15,7 @@ export class AnthropicAPIKeyUpdate {
   /**
    * The `AnthropicAPIKeyUpdate` `api_token`.
    */
-  "apiToken"?: string;
+  "apiToken"?: AnthropicAPIKeyUpdateApiToken;
   /**
    * The definition of the `AnthropicAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class AnthropicAPIKeyUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "AnthropicAPIKeyUpdateApiToken",
     },
     type: {
       baseName: "type",

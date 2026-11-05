@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { HTTPTokenValue } from "./HTTPTokenValue";
 import { TokenType } from "./TokenType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -22,7 +23,7 @@ export class HTTPToken {
   /**
    * The `HTTPToken` `value`.
    */
-  "value": string;
+  "value": HTTPTokenValue;
 
   /**
    * A container for additional, undeclared properties.
@@ -52,7 +53,7 @@ export class HTTPToken {
     },
     value: {
       baseName: "value",
-      type: "string",
+      type: "HTTPTokenValue",
       required: true,
     },
     additionalProperties: {

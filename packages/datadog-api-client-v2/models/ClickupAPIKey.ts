@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ClickupAPIKeyApiToken } from "./ClickupAPIKeyApiToken";
 import { ClickupAPIKeyType } from "./ClickupAPIKeyType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -14,7 +15,7 @@ export class ClickupAPIKey {
   /**
    * The `ClickupAPIKey` `api_token`.
    */
-  "apiToken": string;
+  "apiToken": ClickupAPIKeyApiToken;
   /**
    * The definition of the `ClickupAPIKey` object.
    */
@@ -38,7 +39,7 @@ export class ClickupAPIKey {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiToken: {
       baseName: "api_token",
-      type: "string",
+      type: "ClickupAPIKeyApiToken",
       required: true,
     },
     type: {
