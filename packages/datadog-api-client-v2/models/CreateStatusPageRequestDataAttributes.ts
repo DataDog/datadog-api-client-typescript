@@ -31,9 +31,17 @@ export class CreateStatusPageRequestDataAttributes {
    */
   "emailHeaderImage"?: string;
   /**
+   * Whether email notifications are enabled for the status page. Must be enabled when `subscriptions_enabled` is `true`.
+   */
+  "emailNotificationsEnabled"?: boolean;
+  /**
    * Base64-encoded image data displayed in the browser tab.
    */
   "favicon"?: string;
+  /**
+   * Whether Microsoft Teams subscriptions are enabled for the status page.
+   */
+  "msTeamsSubscriptionsEnabled"?: boolean;
   /**
    * The name of the status page.
    */
@@ -43,7 +51,7 @@ export class CreateStatusPageRequestDataAttributes {
    */
   "rssFeedEnabled"?: boolean;
   /**
-   * The Slack app icon URL for the status page.
+   * The base64-encoded image data used as the Slack app icon.
    */
   "slackAppIcon"?: string;
   /**
@@ -100,9 +108,17 @@ export class CreateStatusPageRequestDataAttributes {
       baseName: "email_header_image",
       type: "string",
     },
+    emailNotificationsEnabled: {
+      baseName: "email_notifications_enabled",
+      type: "boolean",
+    },
     favicon: {
       baseName: "favicon",
       type: "string",
+    },
+    msTeamsSubscriptionsEnabled: {
+      baseName: "ms_teams_subscriptions_enabled",
+      type: "boolean",
     },
     name: {
       baseName: "name",
