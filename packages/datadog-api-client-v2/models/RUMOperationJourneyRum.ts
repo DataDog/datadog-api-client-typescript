@@ -13,8 +13,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 export class RUMOperationJourneyRum {
   /**
    * The ordered list of steps composing the RUM journey.
+   * `null` in responses for operations that have no journey defined.
    */
-  "rumSteps": Array<RUMOperationJourneyStep>;
+  "rumSteps": Array<RUMOperationJourneyStep> | null;
 
   /**
    * A container for additional, undeclared properties.
