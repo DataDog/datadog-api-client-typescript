@@ -17,7 +17,7 @@ export class TagRuleUpdateData {
    */
   "id": string;
   /**
-   * JSON:API resource type for a tag rule.
+   * JSON:API resource type for a tag rule. Responses use the legacy `tag_policy` value.
    */
   "type": TagRuleResourceType;
   /**

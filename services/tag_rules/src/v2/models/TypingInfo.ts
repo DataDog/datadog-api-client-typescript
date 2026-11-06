@@ -25,8 +25,8 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     TagRuleCreateType: ["surfacing"],
     TagRuleInclude: ["score"],
-    TagRuleResourceType: ["tag_rule"],
-    TagRuleScoreResourceType: ["tag_rule_score"],
+    TagRuleResourceType: ["tag_rule", "tag_policy"],
+    TagRuleScoreResourceType: ["tag_rule_score", "tag_policy_score"],
     TagRuleSource: ["logs", "spans", "metrics", "rum", "feed"],
     TagRuleType: ["blocking", "surfacing"],
   },
