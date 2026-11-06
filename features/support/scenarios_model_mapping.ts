@@ -9720,7 +9720,26 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UsageQuotasBulkResponse",
     },
+    "v2.GetQuota": {
+        "includeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
+        "quotaNamespace": {
+            "type": "string",
+            "format": "",
+            },
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UsageQuotaResponse",
+    },
     "v2.DeleteQuota": {
+        "includeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
         "quotaNamespace": {
             "type": "string",
             "format": "",
@@ -9732,6 +9751,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "{}",
     },
     "v2.UpdateQuota": {
+        "includeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
         "quotaNamespace": {
             "type": "string",
             "format": "",
@@ -9747,6 +9770,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "UsageQuotaResponse",
     },
     "v2.DeletePendingQuota": {
+        "includeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
         "quotaNamespace": {
             "type": "string",
             "format": "",
