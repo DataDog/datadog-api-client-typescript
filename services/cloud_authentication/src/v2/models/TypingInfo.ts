@@ -33,6 +33,22 @@ import { GitHubOIDCClaimPatterns } from "./GitHubOIDCClaimPatterns";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { OIDCCloudAuthClaimMatcher } from "./OIDCCloudAuthClaimMatcher";
+import { OIDCCloudAuthClaimMatcherCreate } from "./OIDCCloudAuthClaimMatcherCreate";
+import { OIDCCloudAuthPersonaMappingAttributesResponse } from "./OIDCCloudAuthPersonaMappingAttributesResponse";
+import { OIDCCloudAuthPersonaMappingCreateAttributes } from "./OIDCCloudAuthPersonaMappingCreateAttributes";
+import { OIDCCloudAuthPersonaMappingCreateData } from "./OIDCCloudAuthPersonaMappingCreateData";
+import { OIDCCloudAuthPersonaMappingCreateRequest } from "./OIDCCloudAuthPersonaMappingCreateRequest";
+import { OIDCCloudAuthPersonaMappingDataResponse } from "./OIDCCloudAuthPersonaMappingDataResponse";
+import { OIDCCloudAuthPersonaMappingResponse } from "./OIDCCloudAuthPersonaMappingResponse";
+import { OIDCCloudAuthPersonaMappingsResponse } from "./OIDCCloudAuthPersonaMappingsResponse";
+import { OIDCCloudAuthProviderAttributesResponse } from "./OIDCCloudAuthProviderAttributesResponse";
+import { OIDCCloudAuthProviderCreateAttributes } from "./OIDCCloudAuthProviderCreateAttributes";
+import { OIDCCloudAuthProviderCreateData } from "./OIDCCloudAuthProviderCreateData";
+import { OIDCCloudAuthProviderCreateRequest } from "./OIDCCloudAuthProviderCreateRequest";
+import { OIDCCloudAuthProviderDataResponse } from "./OIDCCloudAuthProviderDataResponse";
+import { OIDCCloudAuthProviderResponse } from "./OIDCCloudAuthProviderResponse";
+import { OIDCCloudAuthProvidersResponse } from "./OIDCCloudAuthProvidersResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -40,6 +56,11 @@ export const TypingInfo: ModelTypingInfo = {
     AWSCloudAuthPersonaMappingType: ["aws_cloud_auth_config"],
     GitHubCloudAuthIntakeMappingType: ["github_oidc_auth_intake_mapping"],
     GitHubCloudAuthPersonaMappingType: ["github_oidc_auth_config"],
+    OIDCCloudAuthClaimMatchMode: ["exact", "glob"],
+    OIDCCloudAuthDiscoveryType: ["oidc_discovery", "direct_jwks"],
+    OIDCCloudAuthOrgUUIDSource: ["dd_org_uuid", "aud"],
+    OIDCCloudAuthPersonaMappingType: ["custom_oidc_identity_mapping"],
+    OIDCCloudAuthProviderType: ["custom_oidc_provider_config"],
   },
   oneOfMap: {},
   typeMap: {
@@ -97,5 +118,28 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
+    OIDCCloudAuthClaimMatcher: OIDCCloudAuthClaimMatcher,
+    OIDCCloudAuthClaimMatcherCreate: OIDCCloudAuthClaimMatcherCreate,
+    OIDCCloudAuthPersonaMappingAttributesResponse:
+      OIDCCloudAuthPersonaMappingAttributesResponse,
+    OIDCCloudAuthPersonaMappingCreateAttributes:
+      OIDCCloudAuthPersonaMappingCreateAttributes,
+    OIDCCloudAuthPersonaMappingCreateData:
+      OIDCCloudAuthPersonaMappingCreateData,
+    OIDCCloudAuthPersonaMappingCreateRequest:
+      OIDCCloudAuthPersonaMappingCreateRequest,
+    OIDCCloudAuthPersonaMappingDataResponse:
+      OIDCCloudAuthPersonaMappingDataResponse,
+    OIDCCloudAuthPersonaMappingResponse: OIDCCloudAuthPersonaMappingResponse,
+    OIDCCloudAuthPersonaMappingsResponse: OIDCCloudAuthPersonaMappingsResponse,
+    OIDCCloudAuthProviderAttributesResponse:
+      OIDCCloudAuthProviderAttributesResponse,
+    OIDCCloudAuthProviderCreateAttributes:
+      OIDCCloudAuthProviderCreateAttributes,
+    OIDCCloudAuthProviderCreateData: OIDCCloudAuthProviderCreateData,
+    OIDCCloudAuthProviderCreateRequest: OIDCCloudAuthProviderCreateRequest,
+    OIDCCloudAuthProviderDataResponse: OIDCCloudAuthProviderDataResponse,
+    OIDCCloudAuthProviderResponse: OIDCCloudAuthProviderResponse,
+    OIDCCloudAuthProvidersResponse: OIDCCloudAuthProvidersResponse,
   },
 };

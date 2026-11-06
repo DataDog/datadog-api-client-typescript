@@ -36,6 +36,12 @@ import { GitHubCloudAuthPersonaMappingCreateRequest } from "./models/GitHubCloud
 import { GitHubCloudAuthPersonaMappingResponse } from "./models/GitHubCloudAuthPersonaMappingResponse";
 import { GitHubCloudAuthPersonaMappingsResponse } from "./models/GitHubCloudAuthPersonaMappingsResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+import { OIDCCloudAuthPersonaMappingCreateRequest } from "./models/OIDCCloudAuthPersonaMappingCreateRequest";
+import { OIDCCloudAuthPersonaMappingResponse } from "./models/OIDCCloudAuthPersonaMappingResponse";
+import { OIDCCloudAuthPersonaMappingsResponse } from "./models/OIDCCloudAuthPersonaMappingsResponse";
+import { OIDCCloudAuthProviderCreateRequest } from "./models/OIDCCloudAuthProviderCreateRequest";
+import { OIDCCloudAuthProviderResponse } from "./models/OIDCCloudAuthProviderResponse";
+import { OIDCCloudAuthProvidersResponse } from "./models/OIDCCloudAuthProvidersResponse";
 import { version } from "../version";
 
 export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory {
@@ -326,6 +332,143 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async createOIDCCloudAuthPersonaMapping(
+    body: OIDCCloudAuthPersonaMappingCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudAuthenticationApi.v2.createOIDCCloudAuthPersonaMapping"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createOIDCCloudAuthPersonaMapping' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.createOIDCCloudAuthPersonaMapping'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createOIDCCloudAuthPersonaMapping");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/wif/oidc/persona_mapping";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudAuthenticationApi.v2.createOIDCCloudAuthPersonaMapping",
+      CloudAuthenticationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "OIDCCloudAuthPersonaMappingCreateRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createOIDCCloudAuthProvider(
+    body: OIDCCloudAuthProviderCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudAuthenticationApi.v2.createOIDCCloudAuthProvider"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createOIDCCloudAuthProvider' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.createOIDCCloudAuthProvider'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createOIDCCloudAuthProvider");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/wif/oidc/provider";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudAuthenticationApi.v2.createOIDCCloudAuthProvider",
+      CloudAuthenticationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "OIDCCloudAuthProviderCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteAWSCloudAuthIntakeMapping(
     intakeMappingId: string,
     _options?: Configuration,
@@ -552,6 +695,130 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudAuthenticationApi.v2.deleteGitHubCloudAuthPersonaMapping",
+      CloudAuthenticationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteOIDCCloudAuthPersonaMapping(
+    personaMappingId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudAuthenticationApi.v2.deleteOIDCCloudAuthPersonaMapping"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteOIDCCloudAuthPersonaMapping' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.deleteOIDCCloudAuthPersonaMapping'] = true`",
+      );
+    }
+
+    // verify required parameter 'personaMappingId' is not null or undefined
+    if (personaMappingId === null || personaMappingId === undefined) {
+      throw new RequiredError(
+        "personaMappingId",
+        "deleteOIDCCloudAuthPersonaMapping",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/wif/oidc/persona_mapping/{persona_mapping_id}".replace(
+        "{persona_mapping_id}",
+        encodeURIComponent(String(personaMappingId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudAuthenticationApi.v2.deleteOIDCCloudAuthPersonaMapping",
+      CloudAuthenticationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteOIDCCloudAuthProvider(
+    providerId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudAuthenticationApi.v2.deleteOIDCCloudAuthProvider"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteOIDCCloudAuthProvider' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.deleteOIDCCloudAuthProvider'] = true`",
+      );
+    }
+
+    // verify required parameter 'providerId' is not null or undefined
+    if (providerId === null || providerId === undefined) {
+      throw new RequiredError("providerId", "deleteOIDCCloudAuthProvider");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/wif/oidc/provider/{provider_id}".replace(
+      "{provider_id}",
+      encodeURIComponent(String(providerId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudAuthenticationApi.v2.deleteOIDCCloudAuthProvider",
       CloudAuthenticationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -838,6 +1105,130 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getOIDCCloudAuthPersonaMapping(
+    personaMappingId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudAuthenticationApi.v2.getOIDCCloudAuthPersonaMapping"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getOIDCCloudAuthPersonaMapping' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.getOIDCCloudAuthPersonaMapping'] = true`",
+      );
+    }
+
+    // verify required parameter 'personaMappingId' is not null or undefined
+    if (personaMappingId === null || personaMappingId === undefined) {
+      throw new RequiredError(
+        "personaMappingId",
+        "getOIDCCloudAuthPersonaMapping",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/wif/oidc/persona_mapping/{persona_mapping_id}".replace(
+        "{persona_mapping_id}",
+        encodeURIComponent(String(personaMappingId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudAuthenticationApi.v2.getOIDCCloudAuthPersonaMapping",
+      CloudAuthenticationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getOIDCCloudAuthProvider(
+    providerId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudAuthenticationApi.v2.getOIDCCloudAuthProvider"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getOIDCCloudAuthProvider' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.getOIDCCloudAuthProvider'] = true`",
+      );
+    }
+
+    // verify required parameter 'providerId' is not null or undefined
+    if (providerId === null || providerId === undefined) {
+      throw new RequiredError("providerId", "getOIDCCloudAuthProvider");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/wif/oidc/provider/{provider_id}".replace(
+      "{provider_id}",
+      encodeURIComponent(String(providerId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudAuthenticationApi.v2.getOIDCCloudAuthProvider",
+      CloudAuthenticationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listAWSCloudAuthIntakeMappings(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -1012,6 +1403,108 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudAuthenticationApi.v2.listGitHubCloudAuthPersonaMappings",
+      CloudAuthenticationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOIDCCloudAuthPersonaMappings(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudAuthenticationApi.v2.listOIDCCloudAuthPersonaMappings"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listOIDCCloudAuthPersonaMappings' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.listOIDCCloudAuthPersonaMappings'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/wif/oidc/persona_mapping";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudAuthenticationApi.v2.listOIDCCloudAuthPersonaMappings",
+      CloudAuthenticationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOIDCCloudAuthProviders(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudAuthenticationApi.v2.listOIDCCloudAuthProviders"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listOIDCCloudAuthProviders' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.listOIDCCloudAuthProviders'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/wif/oidc/provider";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudAuthenticationApi.v2.listOIDCCloudAuthProviders",
       CloudAuthenticationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -1372,6 +1865,168 @@ export class CloudAuthenticationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createOIDCCloudAuthPersonaMapping
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createOIDCCloudAuthPersonaMapping(
+    response: ResponseContext,
+  ): Promise<OIDCCloudAuthPersonaMappingResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: OIDCCloudAuthPersonaMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OIDCCloudAuthPersonaMappingResponse",
+      ) as OIDCCloudAuthPersonaMappingResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OIDCCloudAuthPersonaMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OIDCCloudAuthPersonaMappingResponse",
+        "",
+      ) as OIDCCloudAuthPersonaMappingResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createOIDCCloudAuthProvider
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createOIDCCloudAuthProvider(
+    response: ResponseContext,
+  ): Promise<OIDCCloudAuthProviderResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: OIDCCloudAuthProviderResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OIDCCloudAuthProviderResponse",
+      ) as OIDCCloudAuthProviderResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OIDCCloudAuthProviderResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OIDCCloudAuthProviderResponse",
+        "",
+      ) as OIDCCloudAuthProviderResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteAWSCloudAuthIntakeMapping
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1581,6 +2236,147 @@ export class CloudAuthenticationApiResponseProcessor {
       return;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteOIDCCloudAuthPersonaMapping
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteOIDCCloudAuthPersonaMapping(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteOIDCCloudAuthProvider
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteOIDCCloudAuthProvider(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
@@ -1944,6 +2740,168 @@ export class CloudAuthenticationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getOIDCCloudAuthPersonaMapping
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOIDCCloudAuthPersonaMapping(
+    response: ResponseContext,
+  ): Promise<OIDCCloudAuthPersonaMappingResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OIDCCloudAuthPersonaMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OIDCCloudAuthPersonaMappingResponse",
+      ) as OIDCCloudAuthPersonaMappingResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OIDCCloudAuthPersonaMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OIDCCloudAuthPersonaMappingResponse",
+        "",
+      ) as OIDCCloudAuthPersonaMappingResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getOIDCCloudAuthProvider
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOIDCCloudAuthProvider(
+    response: ResponseContext,
+  ): Promise<OIDCCloudAuthProviderResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OIDCCloudAuthProviderResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OIDCCloudAuthProviderResponse",
+      ) as OIDCCloudAuthProviderResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OIDCCloudAuthProviderResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OIDCCloudAuthProviderResponse",
+        "",
+      ) as OIDCCloudAuthProviderResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAWSCloudAuthIntakeMappings
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2247,6 +3205,160 @@ export class CloudAuthenticationApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listOIDCCloudAuthPersonaMappings
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOIDCCloudAuthPersonaMappings(
+    response: ResponseContext,
+  ): Promise<OIDCCloudAuthPersonaMappingsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OIDCCloudAuthPersonaMappingsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OIDCCloudAuthPersonaMappingsResponse",
+      ) as OIDCCloudAuthPersonaMappingsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OIDCCloudAuthPersonaMappingsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OIDCCloudAuthPersonaMappingsResponse",
+        "",
+      ) as OIDCCloudAuthPersonaMappingsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listOIDCCloudAuthProviders
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOIDCCloudAuthProviders(
+    response: ResponseContext,
+  ): Promise<OIDCCloudAuthProvidersResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OIDCCloudAuthProvidersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OIDCCloudAuthProvidersResponse",
+      ) as OIDCCloudAuthProvidersResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OIDCCloudAuthProvidersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OIDCCloudAuthProvidersResponse",
+        "",
+      ) as OIDCCloudAuthProvidersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface CloudAuthenticationApiCreateAWSCloudAuthIntakeMappingRequest {
@@ -2275,6 +3387,20 @@ export interface CloudAuthenticationApiCreateGitHubCloudAuthPersonaMappingReques
    * @type GitHubCloudAuthPersonaMappingCreateRequest
    */
   body: GitHubCloudAuthPersonaMappingCreateRequest;
+}
+
+export interface CloudAuthenticationApiCreateOIDCCloudAuthPersonaMappingRequest {
+  /**
+   * @type OIDCCloudAuthPersonaMappingCreateRequest
+   */
+  body: OIDCCloudAuthPersonaMappingCreateRequest;
+}
+
+export interface CloudAuthenticationApiCreateOIDCCloudAuthProviderRequest {
+  /**
+   * @type OIDCCloudAuthProviderCreateRequest
+   */
+  body: OIDCCloudAuthProviderCreateRequest;
 }
 
 export interface CloudAuthenticationApiDeleteAWSCloudAuthIntakeMappingRequest {
@@ -2309,6 +3435,22 @@ export interface CloudAuthenticationApiDeleteGitHubCloudAuthPersonaMappingReques
   personaMappingId: string;
 }
 
+export interface CloudAuthenticationApiDeleteOIDCCloudAuthPersonaMappingRequest {
+  /**
+   * UUID of the Custom OIDC persona mapping.
+   * @type string
+   */
+  personaMappingId: string;
+}
+
+export interface CloudAuthenticationApiDeleteOIDCCloudAuthProviderRequest {
+  /**
+   * UUID of the Custom OIDC provider.
+   * @type string
+   */
+  providerId: string;
+}
+
 export interface CloudAuthenticationApiGetAWSCloudAuthIntakeMappingRequest {
   /**
    * The ID of the intake mapping
@@ -2339,6 +3481,22 @@ export interface CloudAuthenticationApiGetGitHubCloudAuthPersonaMappingRequest {
    * @type string
    */
   personaMappingId: string;
+}
+
+export interface CloudAuthenticationApiGetOIDCCloudAuthPersonaMappingRequest {
+  /**
+   * UUID of the Custom OIDC persona mapping.
+   * @type string
+   */
+  personaMappingId: string;
+}
+
+export interface CloudAuthenticationApiGetOIDCCloudAuthProviderRequest {
+  /**
+   * UUID of the Custom OIDC provider.
+   * @type string
+   */
+  providerId: string;
 }
 
 export class CloudAuthenticationApi {
@@ -2452,6 +3610,51 @@ export class CloudAuthenticationApi {
   }
 
   /**
+   * Map token claims from a registered Custom OIDC provider to a Datadog user or service account. The caller must be authorized to map to the target account.
+   * @param param The request object
+   */
+  public createOIDCCloudAuthPersonaMapping(
+    param: CloudAuthenticationApiCreateOIDCCloudAuthPersonaMappingRequest,
+    options?: Configuration,
+  ): Promise<OIDCCloudAuthPersonaMappingResponse> {
+    const requestContextPromise =
+      this.requestFactory.createOIDCCloudAuthPersonaMapping(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createOIDCCloudAuthPersonaMapping(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Register an OIDC issuer, signing-key discovery configuration, and accepted audiences. Provider names and issuer URLs must be unique within the organization.
+   * @param param The request object
+   */
+  public createOIDCCloudAuthProvider(
+    param: CloudAuthenticationApiCreateOIDCCloudAuthProviderRequest,
+    options?: Configuration,
+  ): Promise<OIDCCloudAuthProviderResponse> {
+    const requestContextPromise =
+      this.requestFactory.createOIDCCloudAuthProvider(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createOIDCCloudAuthProvider(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Delete an AWS cloud authentication intake mapping by ID.
    * @param param The request object
    */
@@ -2541,6 +3744,54 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteGitHubCloudAuthPersonaMapping(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a Custom OIDC persona mapping.
+   * @param param The request object
+   */
+  public deleteOIDCCloudAuthPersonaMapping(
+    param: CloudAuthenticationApiDeleteOIDCCloudAuthPersonaMappingRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteOIDCCloudAuthPersonaMapping(
+        param.personaMappingId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteOIDCCloudAuthPersonaMapping(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a Custom OIDC provider. Delete all persona and intake mappings referencing it first; otherwise the request returns a conflict.
+   * @param param The request object
+   */
+  public deleteOIDCCloudAuthProvider(
+    param: CloudAuthenticationApiDeleteOIDCCloudAuthProviderRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteOIDCCloudAuthProvider(
+        param.providerId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteOIDCCloudAuthProvider(
             responseContext,
           );
         });
@@ -2644,6 +3895,53 @@ export class CloudAuthenticationApi {
   }
 
   /**
+   * Get a Custom OIDC persona mapping by UUID.
+   * @param param The request object
+   */
+  public getOIDCCloudAuthPersonaMapping(
+    param: CloudAuthenticationApiGetOIDCCloudAuthPersonaMappingRequest,
+    options?: Configuration,
+  ): Promise<OIDCCloudAuthPersonaMappingResponse> {
+    const requestContextPromise =
+      this.requestFactory.getOIDCCloudAuthPersonaMapping(
+        param.personaMappingId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOIDCCloudAuthPersonaMapping(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a Custom OIDC provider by UUID.
+   * @param param The request object
+   */
+  public getOIDCCloudAuthProvider(
+    param: CloudAuthenticationApiGetOIDCCloudAuthProviderRequest,
+    options?: Configuration,
+  ): Promise<OIDCCloudAuthProviderResponse> {
+    const requestContextPromise = this.requestFactory.getOIDCCloudAuthProvider(
+      param.providerId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOIDCCloudAuthProvider(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * List AWS cloud authentication intake mappings configured for the organization.
    * @param param The request object
    */
@@ -2717,6 +4015,46 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listGitHubCloudAuthPersonaMappings(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List all Custom OIDC persona mappings in the organization.
+   * @param param The request object
+   */
+  public listOIDCCloudAuthPersonaMappings(
+    options?: Configuration,
+  ): Promise<OIDCCloudAuthPersonaMappingsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listOIDCCloudAuthPersonaMappings(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOIDCCloudAuthPersonaMappings(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List all Custom OIDC providers in the organization.
+   * @param param The request object
+   */
+  public listOIDCCloudAuthProviders(
+    options?: Configuration,
+  ): Promise<OIDCCloudAuthProvidersResponse> {
+    const requestContextPromise =
+      this.requestFactory.listOIDCCloudAuthProviders(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOIDCCloudAuthProviders(
             responseContext,
           );
         });
