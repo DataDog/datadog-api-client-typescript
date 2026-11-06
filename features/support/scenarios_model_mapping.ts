@@ -21371,6 +21371,54 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListOIDCCloudAuthPersonaMappings": {
+        "operationResponseType": "OIDCCloudAuthPersonaMappingsResponse",
+    },
+    "v2.CreateOIDCCloudAuthPersonaMapping": {
+        "body": {
+            "type": "OIDCCloudAuthPersonaMappingCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OIDCCloudAuthPersonaMappingResponse",
+    },
+    "v2.GetOIDCCloudAuthPersonaMapping": {
+        "personaMappingId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "OIDCCloudAuthPersonaMappingResponse",
+    },
+    "v2.DeleteOIDCCloudAuthPersonaMapping": {
+        "personaMappingId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListOIDCCloudAuthProviders": {
+        "operationResponseType": "OIDCCloudAuthProvidersResponse",
+    },
+    "v2.CreateOIDCCloudAuthProvider": {
+        "body": {
+            "type": "OIDCCloudAuthProviderCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OIDCCloudAuthProviderResponse",
+    },
+    "v2.GetOIDCCloudAuthProvider": {
+        "providerId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "OIDCCloudAuthProviderResponse",
+    },
+    "v2.DeleteOIDCCloudAuthProvider": {
+        "providerId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListWorkflows": {
         "limit": {
             "type": "number",
