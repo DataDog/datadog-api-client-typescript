@@ -226,6 +226,11 @@
       "version": "v2"
     },
     {
+      "feature": "Change Tracking",
+      "file": "v2/change-tracking.json",
+      "version": "v2"
+    },
+    {
       "feature": "Cloud Authentication",
       "file": "v2/cloud-authentication.json",
       "version": "v2"
