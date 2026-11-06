@@ -800,6 +800,8 @@ export { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./models/Mo
 export { MonitorFormulaAndFunctionEventQueryGroupBy } from "./models/MonitorFormulaAndFunctionEventQueryGroupBy";
 export { MonitorFormulaAndFunctionEventQueryGroupBySort } from "./models/MonitorFormulaAndFunctionEventQueryGroupBySort";
 export { MonitorFormulaAndFunctionEventsDataSource } from "./models/MonitorFormulaAndFunctionEventsDataSource";
+export { MonitorFormulaAndFunctionMetricQueryDataSource } from "./models/MonitorFormulaAndFunctionMetricQueryDataSource";
+export { MonitorFormulaAndFunctionMetricQueryDefinition } from "./models/MonitorFormulaAndFunctionMetricQueryDefinition";
 export { MonitorFormulaAndFunctionMetricsAggregator } from "./models/MonitorFormulaAndFunctionMetricsAggregator";
 export { MonitorFormulaAndFunctionMetricsDataSource } from "./models/MonitorFormulaAndFunctionMetricsDataSource";
 export { MonitorFormulaAndFunctionMetricsQueryDefinition } from "./models/MonitorFormulaAndFunctionMetricsQueryDefinition";

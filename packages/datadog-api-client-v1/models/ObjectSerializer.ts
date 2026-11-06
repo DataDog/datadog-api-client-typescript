@@ -293,6 +293,7 @@ import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorF
 import { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./MonitorFormulaAndFunctionEventQueryDefinitionSearch";
 import { MonitorFormulaAndFunctionEventQueryGroupBy } from "./MonitorFormulaAndFunctionEventQueryGroupBy";
 import { MonitorFormulaAndFunctionEventQueryGroupBySort } from "./MonitorFormulaAndFunctionEventQueryGroupBySort";
+import { MonitorFormulaAndFunctionMetricQueryDefinition } from "./MonitorFormulaAndFunctionMetricQueryDefinition";
 import { MonitorFormulaAndFunctionMetricsQueryDefinition } from "./MonitorFormulaAndFunctionMetricsQueryDefinition";
 import { MonitorFormulaAndFunctionReferenceTableColumn } from "./MonitorFormulaAndFunctionReferenceTableColumn";
 import { MonitorFormulaAndFunctionReferenceTableQueryDefinition } from "./MonitorFormulaAndFunctionReferenceTableQueryDefinition";
@@ -1310,11 +1311,7 @@ const enumsMap: { [key: string]: any[] } = {
     "percentile",
     "stddev",
   ],
-  MonitorFormulaAndFunctionCostDataSource: [
-    "metrics",
-    "cloud_cost",
-    "datadog_usage",
-  ],
+  MonitorFormulaAndFunctionCostDataSource: ["cloud_cost", "datadog_usage"],
   MonitorFormulaAndFunctionDataQualityDataSource: ["data_quality_metrics"],
   MonitorFormulaAndFunctionDataQualityDiffFunction: ["DIFF", "DIFF_PERCENT"],
   MonitorFormulaAndFunctionDataQualityDiffType: ["absolute", "diff_percent"],
@@ -1353,6 +1350,7 @@ const enumsMap: { [key: string]: any[] } = {
     "network",
     "network_path",
   ],
+  MonitorFormulaAndFunctionMetricQueryDataSource: ["metrics"],
   MonitorFormulaAndFunctionMetricsAggregator: [
     "avg",
     "min",
@@ -2512,6 +2510,8 @@ const typeMap: { [index: string]: any } = {
     MonitorFormulaAndFunctionEventQueryGroupBy,
   MonitorFormulaAndFunctionEventQueryGroupBySort:
     MonitorFormulaAndFunctionEventQueryGroupBySort,
+  MonitorFormulaAndFunctionMetricQueryDefinition:
+    MonitorFormulaAndFunctionMetricQueryDefinition,
   MonitorFormulaAndFunctionMetricsQueryDefinition:
     MonitorFormulaAndFunctionMetricsQueryDefinition,
   MonitorFormulaAndFunctionReferenceTableColumn:
@@ -3172,6 +3172,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "MonitorFormulaAndFunctionDataJobsQueryDefinition",
     "MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition",
     "MonitorFormulaAndFunctionAggregateFilteredQueryDefinition",
+    "MonitorFormulaAndFunctionMetricQueryDefinition",
   ],
   NotebookCellCreateRequestAttributes: [
     "NotebookMarkdownCellAttributes",
