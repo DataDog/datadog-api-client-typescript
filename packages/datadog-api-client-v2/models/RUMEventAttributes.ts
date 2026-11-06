@@ -11,7 +11,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RUMEventAttributes {
   /**
-   * JSON object of attributes from RUM events.
+   * JSON object of attributes from RUM events. Attributes are nested by path: the facet `@view.name` used in queries is returned as `attributes.view.name`.
+   * Common attributes include `type` (the event type: `session`, `view`, `action`, `resource`, `error`, `long_task` or `vital`), `application.id`, `session.id`, `view.id`, `view.name` and `usr.id`. Durations such as `view.time_spent`, `view.loading_time` and `resource.duration` are in nanoseconds.
    */
   "attributes"?: { [key: string]: any };
   /**
@@ -21,11 +22,11 @@ export class RUMEventAttributes {
    */
   "service"?: string;
   /**
-   * Array of tags associated with your event.
+   * Array of tags associated with your event, in `key:value` format.
    */
   "tags"?: Array<string>;
   /**
-   * Timestamp of your event.
+   * Timestamp of your event, in ISO 8601 format.
    */
   "timestamp"?: Date;
 
