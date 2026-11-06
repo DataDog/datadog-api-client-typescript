@@ -1,5 +1,5 @@
 /**
- * Get a list of metrics returns "Success" response
+ * List all metrics with volumes and query activity returns "Success" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -13,8 +13,12 @@ const configuration = client.createConfiguration({
 });
 const apiInstance = new v2.MetricsApi(configuration);
 
+const params: v2.MetricsApiListTagConfigurationsRequest = {
+  pageSize: 100,
+};
+
 apiInstance
-  .listTagConfigurations()
+  .listTagConfigurations(params)
   .then((data: v2.MetricsAndMetricTagConfigurationsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
