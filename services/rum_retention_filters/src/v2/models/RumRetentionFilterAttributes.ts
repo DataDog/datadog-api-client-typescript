@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { RumCrossProductSampling } from "./RumCrossProductSampling";
 import { RumRetentionFilterEventType } from "./RumRetentionFilterEventType";
+import { RumRetentionFilterTrack } from "./RumRetentionFilterTrack";
 
 /**
  * The object describing attributes of a RUM retention filter.
@@ -31,6 +32,10 @@ export class RumRetentionFilterAttributes {
    * The sample rate for a RUM retention filter, between 0.1 and 100. Values are truncated to one decimal place.
    */
   "sampleRate"?: number;
+  /**
+   * The product track a RUM retention filter applies to.
+   */
+  "track"?: RumRetentionFilterTrack;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -70,6 +75,10 @@ export class RumRetentionFilterAttributes {
       baseName: "sample_rate",
       type: "number",
       format: "double",
+    },
+    track: {
+      baseName: "track",
+      type: "RumRetentionFilterTrack",
     },
     additionalProperties: {
       baseName: "additionalProperties",

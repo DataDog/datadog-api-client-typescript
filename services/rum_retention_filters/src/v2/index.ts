@@ -17,6 +17,9 @@ export {
 } from "./RumRetentionFiltersApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { RumCrossProductSampling } from "./models/RumCrossProductSampling";
 export { RumCrossProductSamplingCreate } from "./models/RumCrossProductSamplingCreate";
 export { RumCrossProductSamplingUpdate } from "./models/RumCrossProductSamplingUpdate";
@@ -49,11 +52,15 @@ export { RumRetentionFilterCreateData } from "./models/RumRetentionFilterCreateD
 export { RumRetentionFilterCreateRequest } from "./models/RumRetentionFilterCreateRequest";
 export { RumRetentionFilterData } from "./models/RumRetentionFilterData";
 export { RumRetentionFilterEventType } from "./models/RumRetentionFilterEventType";
+export { RumRetentionFilterMeta } from "./models/RumRetentionFilterMeta";
+export { RumRetentionFilterMetaEditionMode } from "./models/RumRetentionFilterMetaEditionMode";
+export { RumRetentionFilterMetaSource } from "./models/RumRetentionFilterMetaSource";
 export { RumRetentionFilterResponse } from "./models/RumRetentionFilterResponse";
 export { RumRetentionFiltersOrderData } from "./models/RumRetentionFiltersOrderData";
 export { RumRetentionFiltersOrderRequest } from "./models/RumRetentionFiltersOrderRequest";
 export { RumRetentionFiltersOrderResponse } from "./models/RumRetentionFiltersOrderResponse";
 export { RumRetentionFiltersResponse } from "./models/RumRetentionFiltersResponse";
+export { RumRetentionFilterTrack } from "./models/RumRetentionFilterTrack";
 export { RumRetentionFilterType } from "./models/RumRetentionFilterType";
 export { RumRetentionFilterUpdateAttributes } from "./models/RumRetentionFilterUpdateAttributes";
 export { RumRetentionFilterUpdateData } from "./models/RumRetentionFilterUpdateData";
