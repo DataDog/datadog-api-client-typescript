@@ -14776,6 +14776,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "boolean",
       format: "",
     },
+    filterMetricsId: {
+      type: "string",
+      format: "",
+    },
+    filterHistoricalMetrics: {
+      type: "boolean",
+      format: "",
+    },
     include: {
       type: "string",
       format: "",

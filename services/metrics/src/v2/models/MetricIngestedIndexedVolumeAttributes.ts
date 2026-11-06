@@ -9,9 +9,19 @@ export class MetricIngestedIndexedVolumeAttributes {
    */
   "indexedVolume"?: number;
   /**
+   * Change in `indexed_volume` compared with the previous hour: the last hour's value minus the value for
+   * the hour before. Negative when volume decreased.
+   */
+  "indexedVolumeDelta"?: number;
+  /**
    * Estimated average hourly number of ingested time series for the given metric over the last hour. This value is `0` for metrics not configured with Metrics Without Limits. For organizations on Metric Name Pricing, this represents the estimated sum of ingested data points over the last hour.
    */
   "ingestedVolume"?: number;
+  /**
+   * Change in `ingested_volume` compared with the previous hour: the last hour's value minus the value for
+   * the hour before. Negative when volume decreased.
+   */
+  "ingestedVolumeDelta"?: number;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,8 +42,18 @@ export class MetricIngestedIndexedVolumeAttributes {
       type: "number",
       format: "int64",
     },
+    indexedVolumeDelta: {
+      baseName: "indexed_volume_delta",
+      type: "number",
+      format: "int64",
+    },
     ingestedVolume: {
       baseName: "ingested_volume",
+      type: "number",
+      format: "int64",
+    },
+    ingestedVolumeDelta: {
+      baseName: "ingested_volume_delta",
       type: "number",
       format: "int64",
     },
