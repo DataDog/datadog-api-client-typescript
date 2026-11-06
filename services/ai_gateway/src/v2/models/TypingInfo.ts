@@ -145,9 +145,16 @@ import { AiGatewayRateLimitAttributes } from "./AiGatewayRateLimitAttributes";
 import { AiGatewayRateLimitCreateAttributes } from "./AiGatewayRateLimitCreateAttributes";
 import { AiGatewayRateLimitCreateData } from "./AiGatewayRateLimitCreateData";
 import { AiGatewayRateLimitCreateRequest } from "./AiGatewayRateLimitCreateRequest";
+import { AiGatewayRateLimitInstanceAttributes } from "./AiGatewayRateLimitInstanceAttributes";
+import { AiGatewayRateLimitInstanceListResponse } from "./AiGatewayRateLimitInstanceListResponse";
+import { AiGatewayRateLimitInstanceResource } from "./AiGatewayRateLimitInstanceResource";
+import { AiGatewayRateLimitInstancesSummaryAttributes } from "./AiGatewayRateLimitInstancesSummaryAttributes";
+import { AiGatewayRateLimitInstancesSummaryResource } from "./AiGatewayRateLimitInstancesSummaryResource";
+import { AiGatewayRateLimitInstancesSummaryResponse } from "./AiGatewayRateLimitInstancesSummaryResponse";
 import { AiGatewayRateLimitListResponse } from "./AiGatewayRateLimitListResponse";
 import { AiGatewayRateLimitResource } from "./AiGatewayRateLimitResource";
 import { AiGatewayRateLimitResponse } from "./AiGatewayRateLimitResponse";
+import { AiGatewayRateLimitSelectorEntry } from "./AiGatewayRateLimitSelectorEntry";
 import { AiGatewayRateLimitUpdateAttributes } from "./AiGatewayRateLimitUpdateAttributes";
 import { AiGatewayRateLimitUpdateData } from "./AiGatewayRateLimitUpdateData";
 import { AiGatewayRateLimitUpdateRequest } from "./AiGatewayRateLimitUpdateRequest";
@@ -310,6 +317,13 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayPolicyType: ["routing-documents"],
     AiGatewayProviderInitialBindingRelation: ["viewer", "editor"],
     AiGatewayProviderType: ["providers"],
+    AiGatewayRateLimitInstanceSort: [
+      "utilization_desc",
+      "last_seen_desc",
+      "key_asc",
+    ],
+    AiGatewayRateLimitInstanceType: ["rate-limit-instances"],
+    AiGatewayRateLimitInstancesSummaryType: ["rate-limit-instances-summary"],
     AiGatewayRateLimitMode: ["ALERT", "ENFORCE"],
     AiGatewayRateLimitType: ["rate-limits"],
     AiGatewayRateLimitUsageType: ["rate-limit-usage"],
@@ -515,9 +529,20 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayRateLimitCreateAttributes: AiGatewayRateLimitCreateAttributes,
     AiGatewayRateLimitCreateData: AiGatewayRateLimitCreateData,
     AiGatewayRateLimitCreateRequest: AiGatewayRateLimitCreateRequest,
+    AiGatewayRateLimitInstanceAttributes: AiGatewayRateLimitInstanceAttributes,
+    AiGatewayRateLimitInstanceListResponse:
+      AiGatewayRateLimitInstanceListResponse,
+    AiGatewayRateLimitInstanceResource: AiGatewayRateLimitInstanceResource,
+    AiGatewayRateLimitInstancesSummaryAttributes:
+      AiGatewayRateLimitInstancesSummaryAttributes,
+    AiGatewayRateLimitInstancesSummaryResource:
+      AiGatewayRateLimitInstancesSummaryResource,
+    AiGatewayRateLimitInstancesSummaryResponse:
+      AiGatewayRateLimitInstancesSummaryResponse,
     AiGatewayRateLimitListResponse: AiGatewayRateLimitListResponse,
     AiGatewayRateLimitResource: AiGatewayRateLimitResource,
     AiGatewayRateLimitResponse: AiGatewayRateLimitResponse,
+    AiGatewayRateLimitSelectorEntry: AiGatewayRateLimitSelectorEntry,
     AiGatewayRateLimitUpdateAttributes: AiGatewayRateLimitUpdateAttributes,
     AiGatewayRateLimitUpdateData: AiGatewayRateLimitUpdateData,
     AiGatewayRateLimitUpdateRequest: AiGatewayRateLimitUpdateRequest,
