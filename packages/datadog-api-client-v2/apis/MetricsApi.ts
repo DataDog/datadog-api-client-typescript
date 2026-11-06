@@ -1006,6 +1006,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     filterQueriedWindowSeconds?: Int64Input,
     filterTags?: string,
     filterRelatedAssets?: boolean,
+    filterMetricsId?: string,
+    filterHistoricalMetrics?: boolean,
     include?: string,
     sort?: string,
     windowSeconds?: Int64Input,
@@ -1099,6 +1101,20 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[related_assets]",
         ObjectSerializer.serialize(filterRelatedAssets, "boolean", ""),
+        ""
+      );
+    }
+    if (filterMetricsId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[metrics.id]",
+        ObjectSerializer.serialize(filterMetricsId, "string", ""),
+        ""
+      );
+    }
+    if (filterHistoricalMetrics !== undefined) {
+      requestContext.setQueryParam(
+        "filter[historical_metrics]",
+        ObjectSerializer.serialize(filterHistoricalMetrics, "boolean", ""),
         ""
       );
     }
@@ -3394,6 +3410,7 @@ export class MetricsApiResponseProcessor {
     if (
       response.httpStatusCode === 400 ||
       response.httpStatusCode === 403 ||
+      response.httpStatusCode === 410 ||
       response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
@@ -4546,7 +4563,8 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    */
   filterExcludeTagsMode?: boolean;
   /**
-   * The number of hours of look back (from now) to estimate cardinality with. If unspecified, it defaults to 0 hours.
+   * The number of hours of look back (from now) to estimate cardinality with.
+   * If unspecified, it defaults to 0 hours (the most recent data).
    * @type number
    */
   filterHoursAgo?: number;
@@ -4615,7 +4633,8 @@ export interface MetricsApiListActiveMetricConfigurationsRequest {
   metricName: string;
   /**
    * The number of seconds of look back (from now).
-   * Default value is 604,800 (1 week), minimum value is 7200 (2 hours), maximum value is 2,630,000 (1 month).
+   * Default value is 604,800 (1 week), and the minimum value is 14,400 (4 hours).
+   * Values below the minimum return `400 Bad Request`.
    * @type Int64Input
    */
   windowSeconds?: Int64Input;
@@ -4654,7 +4673,9 @@ export interface MetricsApiListTagConfigurationsRequest {
    */
   filterTagsConfigured?: string;
   /**
-   * Only return metrics of the given metric type.
+   * Only return metrics of the given metric type. If omitted, metrics of all types are returned.
+   * `distribution` also matches OpenTelemetry histograms; use `exponential_histogram` or `explicit_histogram`
+   * to return only one kind of OpenTelemetry histogram.
    * @type MetricTagConfigurationMetricTypeCategory
    */
   filterMetricType?: MetricTagConfigurationMetricTypeCategory;
@@ -4684,6 +4705,25 @@ export interface MetricsApiListTagConfigurationsRequest {
    */
   filterRelatedAssets?: boolean;
   /**
+   * Only return metrics whose name matches this value.
+   * A value without `*` matches metric names that contain it, ignoring case (for example, `http.request`
+   * matches `app.HTTP.request.count`). A full metric name also matches longer names that contain it.
+   * `*` is a wildcard that can appear anywhere and more than once, and these patterns also ignore case:
+   * `*.request.count` matches names that end with `.request.count`, and `app.*.count` matches names that
+   * start with `app.` and end with `.count`. The exception is a value whose only `*` is at the end (for
+   * example, `http.request*`): it matches names that start with that text and is case-sensitive.
+   * Spaces are treated as `*`. Only one value is accepted; repeating the parameter returns
+   * `400 Bad Request`. Allowed characters are letters, digits, `_`, `.`, `*`, and spaces. An empty value
+   * is ignored.
+   * @type string
+   */
+  filterMetricsId?: string;
+  /**
+   * Only return metrics that have historical metrics ingestion enabled (`true`) or not enabled (`false`).
+   * @type boolean
+   */
+  filterHistoricalMetrics?: boolean;
+  /**
    * Include related resources in the response. Set to `metric_volumes` to include indexed and ingested volume counts for each metric.
    * @type string
    */
@@ -4699,12 +4739,18 @@ export interface MetricsApiListTagConfigurationsRequest {
    */
   windowSeconds?: Int64Input;
   /**
-   * Maximum number of results per page. Send `page[size]` on the first request to opt in to pagination. On subsequent requests, send `page[cursor]` set to the value of `meta.pagination.next_cursor` from the previous response. To retain a custom page size, include `page[size]` on every request. The default value is 10000, the maximum value is 10000, and the minimum value is 1.
+   * Maximum number of results per page. Always send it: without `page[size]` or `page[cursor]`, the response
+   * is not paginated and is capped at 250,000 metrics by default, with no indication when results are left
+   * out. Send `page[size]` on the first request to opt in to pagination. On subsequent requests, send
+   * `page[cursor]` set to the value of `meta.pagination.next_cursor` from the previous response. To retain a
+   * custom page size, include `page[size]` on every request. The default value is 10000, the maximum value is
+   * 10000, and the minimum value is 1.
    * @type number
    */
   pageSize?: number;
   /**
    * Cursor for pagination. Use `page[size]` to opt-in to pagination and get the first page; for subsequent pages, use the value from `meta.pagination.next_cursor` in the response. Pagination is complete when `next_cursor` is null.
+   * An expired cursor returns `410 Gone`; restart from the first page without `page[cursor]`.
    * @type string
    */
   pageCursor?: string;
@@ -4784,6 +4830,8 @@ export interface MetricsApiListTagsByMetricNameRequest {
   /**
    * The number of seconds of look back (from now) to query for tag data.
    * Default value is 14400 (4 hours), minimum value is 14400 (4 hours).
+   * If you send a value below 14400, the request still succeeds, but the API uses 14400 (4 hours) instead
+   * of your value.
    * @type Int64Input
    */
   windowSeconds?: Int64Input;
@@ -5176,7 +5224,11 @@ export class MetricsApi {
   }
 
   /**
-   * Returns the estimated cardinality for a metric with a given tag, percentile and number of aggregations configuration using Metrics without Limits&trade;.
+   * Returns the estimated cardinality for a metric with a given tag, percentile and number of aggregations
+   * configuration using Metrics without Limits&trade;.
+   *
+   * To compare current volumes across many metrics, use `GET /api/v2/metrics` with `include=metric_volumes`
+   * instead of calling this endpoint for each metric.
    * @param param The request object
    */
   public estimateMetricsOutputSeries(
@@ -5326,6 +5378,9 @@ export class MetricsApi {
 
   /**
    * List tags and aggregations that are actively queried on dashboards, notebooks, monitors, the Metrics Explorer, and using the API for a given metric name.
+   *
+   * To find which of many metrics are queried or not queried, use `GET /api/v2/metrics` with `filter[queried]`
+   * instead of calling this endpoint for each metric.
    * @param param The request object
    */
   public listActiveMetricConfigurations(
@@ -5373,9 +5428,12 @@ export class MetricsApi {
   /**
    * Returns the tag configuration for the given metric name.
    *
-   * A metric may exist and submit data without having a tag configuration. If no tag configuration exists
-   * for the metric, this endpoint returns `404 Not Found`. This response does not indicate that the metric
-   * itself is missing.
+   * A metric may exist and submit data without having a tag configuration. A `404 Not Found` response usually
+   * means that the metric has no tag configuration, but it is also returned when no metric with this name exists
+   * in your organization.
+   *
+   * To list tag configurations for many metrics, use `GET /api/v2/metrics` with `filter[configured]=true`
+   * instead of calling this endpoint for each metric.
    * @param param The request object
    */
   public listTagConfigurationByName(
@@ -5396,9 +5454,55 @@ export class MetricsApi {
   }
 
   /**
-   * Get a list of actively reporting metrics for your organization. Pagination is optional using the `page[cursor]` and `page[size]` query parameters.
+   * Get a list of actively reporting metrics for your organization, with optional volumes, query activity,
+   * and tag configuration filters. When you need volumes, query activity, or tag configuration status for
+   * many metrics, use this endpoint instead of calling per-metric endpoints (such as
+   * `GET /api/v2/metrics/{metric_name}/volumes` or `GET /api/v2/metrics/{metric_name}/tags`) in a loop,
+   * which is slower and quickly reaches rate limits. This endpoint does not return the tag keys or values
+   * that a metric was submitted with.
    *
-   * Query parameters use bracket notation (for example, `filter[tags]`, `filter[queried][window][seconds]`). Pass them as standard URL query strings, URL-encoding the brackets if your client does not handle them. For example: `GET /api/v2/metrics?filter[tags]=env:prod&window[seconds]=86400&page[size]=500`.
+   * Always paginate: send `page[size]` (up to 10000; a few hundred to a few thousand is typical) and follow
+   * `meta.pagination.next_cursor` (or `links.next`) until it is null or missing. Without `page[size]` or `page[cursor]`,
+   * the response is not paginated: it returns matching metrics in one response, with no pagination metadata,
+   * up to a limit of 250,000 metrics by default (some organizations have a different limit). Metrics beyond
+   * the limit are left out without any indication. Unpaginated requests in large organizations can also be
+   * slow or time out, and clients with response-size limits may fail or truncate the response.
+   * If a request with `page[cursor]` returns `410 Gone`, the cursor has expired: restart from the first page
+   * (send `page[size]` without `page[cursor]`).
+   *
+   * - **Volumes**: `include=metric_volumes` adds the indexed and ingested volume of each metric. The volume is a
+   *   fixed one-hour value and is not affected by `window[seconds]`. Volumes are not returned inside `data`:
+   *   each metric with volume data has a `relationships.metric_volumes.data` reference, and the volumes
+   *   themselves are returned as `metric_volumes` resources in the top-level `included` array. To join them,
+   *   match `included[].id` to the `id` of `data[]` items with type `metrics`; both are the metric name.
+   *   `manage_tags` items in `data` repeat the same `id`, so skip them when joining. Metrics without volume
+   *   data, such as standard (non-custom) metrics, have no `metric_volumes` reference or entry.
+   * - **Top metrics by volume**: `sort=-metric_volumes.indexed_volume` together with `include=metric_volumes`
+   *   and `page[size]` (for example, `page[size]=20`) returns the metrics with the highest indexed volume
+   *   first. Sorting requires a paginated request.
+   * - **Volume for a family of metrics**: `filter[metrics.id]=http.request*` with `include=metric_volumes`
+   *   and `page[size]` returns volumes for every metric whose name starts with `http.request` (a value whose
+   *   only `*` is at the end is case-sensitive). A value without `*` matches names that contain it, ignoring
+   *   case.
+   * - **Unqueried metrics**: `filter[queried]=false` with `filter[queried][window][seconds]` (for example,
+   *   `2592000` for 30 days) and `page[size]` returns metrics that were not queried in that window.
+   * - **Metrics without a tag configuration**: `filter[configured]=false` with `page[size]` returns custom
+   *   metrics that have no Metrics without Limits&trade; tag configuration.
+   * - **Metric types**: if `filter[metric_type]` is omitted, metrics of all types are returned.
+   *
+   * Examples:
+   * - Top 20 metrics by indexed volume:
+   *   `GET /api/v2/metrics?include=metric_volumes&sort=-metric_volumes.indexed_volume&page[size]=20`
+   * - Metrics not queried in the last 30 days, with their volumes:
+   *   `GET /api/v2/metrics?filter[queried]=false&filter[queried][window][seconds]=2592000&include=metric_volumes&page[size]=1000`
+   * - Metrics without a tag configuration:
+   *   `GET /api/v2/metrics?filter[configured]=false&page[size]=1000`
+   * - Volumes for metrics whose name starts with `http.request`:
+   *   `GET /api/v2/metrics?filter[metrics.id]=http.request*&include=metric_volumes&page[size]=1000`
+   *
+   * Query parameters use bracket notation (for example, `filter[tags]`, `filter[queried][window][seconds]`).
+   * Pass them as standard URL query strings, URL-encoding the brackets if your client does not handle them.
+   * For example: `GET /api/v2/metrics?filter[tags]=env:prod&window[seconds]=86400&page[size]=500`.
    * @param param The request object
    */
   public listTagConfigurations(
@@ -5415,6 +5519,8 @@ export class MetricsApi {
       param.filterQueriedWindowSeconds,
       param.filterTags,
       param.filterRelatedAssets,
+      param.filterMetricsId,
+      param.filterHistoricalMetrics,
       param.include,
       param.sort,
       param.windowSeconds,
@@ -5454,6 +5560,8 @@ export class MetricsApi {
         param.filterQueriedWindowSeconds,
         param.filterTags,
         param.filterRelatedAssets,
+        param.filterMetricsId,
+        param.filterHistoricalMetrics,
         param.include,
         param.sort,
         param.windowSeconds,
@@ -5637,6 +5745,14 @@ export class MetricsApi {
   /**
    * View indexed and ingested tags for a given metric name.
    * Results are filtered by the `window[seconds]` parameter, which defaults to 14400 (4 hours).
+   * This window only limits which tags are returned; it does not affect whether the metric is found.
+   *
+   * A `404 Not Found` response means that no metric with this exact name exists in your organization.
+   * Metric names must match exactly. Distribution metrics do not have suffixes such as `.avg` or `.count`,
+   * so use the base metric name.
+   *
+   * For high-cardinality metrics, keep responses small with `filter[include_tag_values]=false`,
+   * `page[limit]`, and `filter[match]`.
    * @param param The request object
    */
   public listTagsByMetricName(
@@ -5666,6 +5782,10 @@ export class MetricsApi {
    * View hourly average cardinality for the given metric name over the look back period.
    * For Metric Name Pricing customers, view total point volume for the given metric name
    * over the look back period.
+   *
+   * To get the last hour's indexed and ingested volumes for many metrics, use `GET /api/v2/metrics` with
+   * `include=metric_volumes` instead of calling this endpoint for each metric. Use this endpoint when you need
+   * a longer look-back for a single metric.
    * @param param The request object
    */
   public listVolumesByMetricName(

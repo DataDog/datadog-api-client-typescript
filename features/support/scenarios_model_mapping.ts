@@ -14740,6 +14740,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
+        "filterMetricsId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterHistoricalMetrics": {
+            "type": "boolean",
+            "format": "",
+            },
         "include": {
             "type": "string",
             "format": "",
