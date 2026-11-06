@@ -8,13 +8,17 @@ import { HeatgridColor } from "./HeatgridColor";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A color and optional lower threshold for a discrete bin.
+ * A color, optional lower threshold, and optional label for a discrete bin.
  */
 export class HeatgridColorBin {
   /**
    * A color string, or two color strings for the light and dark themes, in that order.
    */
   "color": HeatgridColor;
+  /**
+   * Name of the bin.
+   */
+  "label"?: string;
   /**
    * Inclusive lower bound. Omit for the first bin.
    */
@@ -33,6 +37,10 @@ export class HeatgridColorBin {
       baseName: "color",
       type: "HeatgridColor",
       required: true,
+    },
+    label: {
+      baseName: "label",
+      type: "string",
     },
     lowerBound: {
       baseName: "lower_bound",
