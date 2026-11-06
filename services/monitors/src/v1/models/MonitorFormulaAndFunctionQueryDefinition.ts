@@ -6,6 +6,7 @@ import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAn
 import { MonitorFormulaAndFunctionDataJobsQueryDefinition } from "./MonitorFormulaAndFunctionDataJobsQueryDefinition";
 import { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./MonitorFormulaAndFunctionDataQualityQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
+import { MonitorFormulaAndFunctionMetricQueryDefinition } from "./MonitorFormulaAndFunctionMetricQueryDefinition";
 
 /**
  * A formula and function query.
@@ -17,4 +18,5 @@ export type MonitorFormulaAndFunctionQueryDefinition =
   | MonitorFormulaAndFunctionDataJobsQueryDefinition
   | MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition
   | MonitorFormulaAndFunctionAggregateFilteredQueryDefinition
+  | MonitorFormulaAndFunctionMetricQueryDefinition
   | UnparsedObject;

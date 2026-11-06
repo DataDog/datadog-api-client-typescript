@@ -24,6 +24,7 @@ import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorF
 import { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./MonitorFormulaAndFunctionEventQueryDefinitionSearch";
 import { MonitorFormulaAndFunctionEventQueryGroupBy } from "./MonitorFormulaAndFunctionEventQueryGroupBy";
 import { MonitorFormulaAndFunctionEventQueryGroupBySort } from "./MonitorFormulaAndFunctionEventQueryGroupBySort";
+import { MonitorFormulaAndFunctionMetricQueryDefinition } from "./MonitorFormulaAndFunctionMetricQueryDefinition";
 import { MonitorFormulaAndFunctionMetricsQueryDefinition } from "./MonitorFormulaAndFunctionMetricsQueryDefinition";
 import { MonitorFormulaAndFunctionReferenceTableColumn } from "./MonitorFormulaAndFunctionReferenceTableColumn";
 import { MonitorFormulaAndFunctionReferenceTableQueryDefinition } from "./MonitorFormulaAndFunctionReferenceTableQueryDefinition";
@@ -82,11 +83,7 @@ export const TypingInfo: ModelTypingInfo = {
       "percentile",
       "stddev",
     ],
-    MonitorFormulaAndFunctionCostDataSource: [
-      "metrics",
-      "cloud_cost",
-      "datadog_usage",
-    ],
+    MonitorFormulaAndFunctionCostDataSource: ["cloud_cost", "datadog_usage"],
     MonitorFormulaAndFunctionDataQualityDataSource: ["data_quality_metrics"],
     MonitorFormulaAndFunctionDataQualityDiffFunction: ["DIFF", "DIFF_PERCENT"],
     MonitorFormulaAndFunctionDataQualityDiffType: ["absolute", "diff_percent"],
@@ -125,6 +122,7 @@ export const TypingInfo: ModelTypingInfo = {
       "network",
       "network_path",
     ],
+    MonitorFormulaAndFunctionMetricQueryDataSource: ["metrics"],
     MonitorFormulaAndFunctionMetricsAggregator: [
       "avg",
       "min",
@@ -216,6 +214,7 @@ export const TypingInfo: ModelTypingInfo = {
       "MonitorFormulaAndFunctionDataJobsQueryDefinition",
       "MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition",
       "MonitorFormulaAndFunctionAggregateFilteredQueryDefinition",
+      "MonitorFormulaAndFunctionMetricQueryDefinition",
     ],
   },
   typeMap: {
@@ -259,6 +258,8 @@ export const TypingInfo: ModelTypingInfo = {
       MonitorFormulaAndFunctionEventQueryGroupBy,
     MonitorFormulaAndFunctionEventQueryGroupBySort:
       MonitorFormulaAndFunctionEventQueryGroupBySort,
+    MonitorFormulaAndFunctionMetricQueryDefinition:
+      MonitorFormulaAndFunctionMetricQueryDefinition,
     MonitorFormulaAndFunctionMetricsQueryDefinition:
       MonitorFormulaAndFunctionMetricsQueryDefinition,
     MonitorFormulaAndFunctionReferenceTableColumn:
