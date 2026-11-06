@@ -7,9 +7,13 @@ import { IncidentCondition } from "./IncidentCondition";
  */
 export class IncidentCreatedTrigger {
   /**
-   * The type of incident that triggers the workflow.
+   * The type of incident that triggers the workflow. Deprecated. Use `incidentTypes` instead.
    */
   "incidentType"?: string;
+  /**
+   * The types of incidents that trigger the workflow.
+   */
+  "incidentTypes"?: Array<string>;
   /**
    * Conditions that determine which incidents trigger the workflow.
    */
@@ -32,6 +36,10 @@ export class IncidentCreatedTrigger {
     incidentType: {
       baseName: "incidentType",
       type: "string",
+    },
+    incidentTypes: {
+      baseName: "incidentTypes",
+      type: "Array<string>",
     },
     tagCondition: {
       baseName: "tagCondition",
