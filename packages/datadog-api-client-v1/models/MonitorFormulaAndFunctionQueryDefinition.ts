@@ -9,6 +9,7 @@ import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAn
 import { MonitorFormulaAndFunctionDataJobsQueryDefinition } from "./MonitorFormulaAndFunctionDataJobsQueryDefinition";
 import { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./MonitorFormulaAndFunctionDataQualityQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
+import { MonitorFormulaAndFunctionMetricQueryDefinition } from "./MonitorFormulaAndFunctionMetricQueryDefinition";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -23,4 +24,5 @@ export type MonitorFormulaAndFunctionQueryDefinition =
   | MonitorFormulaAndFunctionDataJobsQueryDefinition
   | MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition
   | MonitorFormulaAndFunctionAggregateFilteredQueryDefinition
+  | MonitorFormulaAndFunctionMetricQueryDefinition
   | UnparsedObject;
