@@ -24,12 +24,14 @@ export {
   AIGatewayApiGetAiGatewayPolicyRequest,
   AIGatewayApiGetAiGatewayProviderRequest,
   AIGatewayApiGetAiGatewayRateLimitRequest,
+  AIGatewayApiGetAiGatewayRateLimitInstancesSummaryRequest,
   AIGatewayApiGetAiGatewayRoutingRuleRequest,
   AIGatewayApiListAiGatewayBudgetInstanceDimensionsRequest,
   AIGatewayApiListAiGatewayBudgetInstancesRequest,
   AIGatewayApiListAiGatewayModelsRequest,
   AIGatewayApiListAiGatewayPoliciesRequest,
   AIGatewayApiListAiGatewayProviderModelsRequest,
+  AIGatewayApiListAiGatewayRateLimitInstancesRequest,
   AIGatewayApiOverrideAiGatewayBudgetInstanceCapacityRequest,
   AIGatewayApiResetAiGatewayBudgetInstanceSpendRequest,
   AIGatewayApiUpdateAiGatewayBudgetRequest,
@@ -2540,10 +2542,20 @@ export { AiGatewayRateLimitAttributes } from "./models/AiGatewayRateLimitAttribu
 export { AiGatewayRateLimitCreateAttributes } from "./models/AiGatewayRateLimitCreateAttributes";
 export { AiGatewayRateLimitCreateData } from "./models/AiGatewayRateLimitCreateData";
 export { AiGatewayRateLimitCreateRequest } from "./models/AiGatewayRateLimitCreateRequest";
+export { AiGatewayRateLimitInstanceAttributes } from "./models/AiGatewayRateLimitInstanceAttributes";
+export { AiGatewayRateLimitInstanceListResponse } from "./models/AiGatewayRateLimitInstanceListResponse";
+export { AiGatewayRateLimitInstanceResource } from "./models/AiGatewayRateLimitInstanceResource";
+export { AiGatewayRateLimitInstanceSort } from "./models/AiGatewayRateLimitInstanceSort";
+export { AiGatewayRateLimitInstancesSummaryAttributes } from "./models/AiGatewayRateLimitInstancesSummaryAttributes";
+export { AiGatewayRateLimitInstancesSummaryResource } from "./models/AiGatewayRateLimitInstancesSummaryResource";
+export { AiGatewayRateLimitInstancesSummaryResponse } from "./models/AiGatewayRateLimitInstancesSummaryResponse";
+export { AiGatewayRateLimitInstancesSummaryType } from "./models/AiGatewayRateLimitInstancesSummaryType";
+export { AiGatewayRateLimitInstanceType } from "./models/AiGatewayRateLimitInstanceType";
 export { AiGatewayRateLimitListResponse } from "./models/AiGatewayRateLimitListResponse";
 export { AiGatewayRateLimitMode } from "./models/AiGatewayRateLimitMode";
 export { AiGatewayRateLimitResource } from "./models/AiGatewayRateLimitResource";
 export { AiGatewayRateLimitResponse } from "./models/AiGatewayRateLimitResponse";
+export { AiGatewayRateLimitSelectorEntry } from "./models/AiGatewayRateLimitSelectorEntry";
 export { AiGatewayRateLimitType } from "./models/AiGatewayRateLimitType";
 export { AiGatewayRateLimitUpdateAttributes } from "./models/AiGatewayRateLimitUpdateAttributes";
 export { AiGatewayRateLimitUpdateData } from "./models/AiGatewayRateLimitUpdateData";

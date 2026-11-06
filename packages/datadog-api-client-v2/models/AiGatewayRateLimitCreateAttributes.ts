@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AiGatewayRateLimitMode } from "./AiGatewayRateLimitMode";
+import { AiGatewayRateLimitSelectorEntry } from "./AiGatewayRateLimitSelectorEntry";
 
 import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
@@ -31,6 +32,10 @@ export class AiGatewayRateLimitCreateAttributes {
    * Maximum requests per rolling minute. At least one of `requests_per_minute`, `input_tokens_per_minute`, and `output_tokens_per_minute` is required.
    */
   "requestsPerMinute"?: Int64;
+  /**
+   * Dimension rules for a template rate limit, which gives each matched user, Team, or value its own allowance with the rule's limits. Can't be combined with user_id, team_id, or tags, and can't be changed after creation. Omit for a rule with one shared allowance.
+   */
+  "selector"?: Array<AiGatewayRateLimitSelectorEntry>;
   /**
    * Optional scope tags, such as `provider`, `model`, `ml_app`, or custom dimensions. A request matches when it has all of these tags. The reserved metadata keys `name`, `budget_name`, and `span_filter` are rejected.
    */
@@ -83,6 +88,10 @@ export class AiGatewayRateLimitCreateAttributes {
       baseName: "requests_per_minute",
       type: "number",
       format: "int64",
+    },
+    selector: {
+      baseName: "selector",
+      type: "Array<AiGatewayRateLimitSelectorEntry>",
     },
     tags: {
       baseName: "tags",
