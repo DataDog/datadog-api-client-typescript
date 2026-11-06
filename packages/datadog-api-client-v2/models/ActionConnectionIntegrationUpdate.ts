@@ -16,6 +16,7 @@ import { FastlyIntegrationUpdate } from "./FastlyIntegrationUpdate";
 import { FreshserviceIntegrationUpdate } from "./FreshserviceIntegrationUpdate";
 import { GCPIntegrationUpdate } from "./GCPIntegrationUpdate";
 import { GeminiIntegrationUpdate } from "./GeminiIntegrationUpdate";
+import { GithubIntegrationUpdate } from "./GithubIntegrationUpdate";
 import { GitlabIntegrationUpdate } from "./GitlabIntegrationUpdate";
 import { GreyNoiseIntegrationUpdate } from "./GreyNoiseIntegrationUpdate";
 import { HTTPIntegrationUpdate } from "./HTTPIntegrationUpdate";
@@ -48,6 +49,7 @@ export type ActionConnectionIntegrationUpdate =
   | FreshserviceIntegrationUpdate
   | GCPIntegrationUpdate
   | GeminiIntegrationUpdate
+  | GithubIntegrationUpdate
   | GitlabIntegrationUpdate
   | GreyNoiseIntegrationUpdate
   | HTTPIntegrationUpdate
