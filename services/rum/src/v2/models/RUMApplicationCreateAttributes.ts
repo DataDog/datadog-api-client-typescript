@@ -5,8 +5,17 @@ import { RUMProductAnalyticsRetentionState } from "./RUMProductAnalyticsRetentio
 
 /**
  * RUM application creation attributes.
+ * When `rum_event_processing_state` is omitted, it defaults to `ALL`. When `product_analytics_retention_state` is omitted, Product Analytics is not enabled. Setting it to `MAX` requires the `product_analytics_apps_write` permission.
  */
 export class RUMApplicationCreateAttributes {
+  /**
+   * Indicates if flat sampling of Session Replay for APM-correlated RUM sessions is enabled. Defaults to `true`.
+   */
+  "apmRumFlatSamplingReplayEnabled"?: boolean;
+  /**
+   * Sample rate (0-100) of Session Replay for APM-correlated RUM sessions when flat sampling is enabled. Defaults to `1`.
+   */
+  "apmRumFlatSamplingReplaySampleRate"?: number;
   /**
    * Whether to create the default retention filters when the application is created: `Sessions with errors` and `Sessions`, each with a 100% retention rate.
    * Set to `false` to create the application without them, for example when you add your own retention filters right after creating it. Until you add retention filters, the application only retains sessions matched by its [permanent retention filters](https://docs.datadoghq.com/real_user_monitoring/rum_without_limits/retention_filters/#permanent-retention-filters).
@@ -14,19 +23,32 @@ export class RUMApplicationCreateAttributes {
    */
   "createDefaultRetentionFilters"?: boolean;
   /**
-   * Name of the RUM application.
+   * Indicates if Error Tracking exclusion filters are enabled for the application. Defaults to `false`.
+   */
+  "errorTrackingExclusionFilterEnabled"?: boolean;
+  /**
+   * Name of the RUM application. Between 1 and 255 characters.
    */
   "name": string;
   /**
+   * Sample rate (0-100) of Session Replay for Product Analytics sessions. Defaults to `100`.
+   */
+  "productAnalyticsReplaySampleRate"?: number;
+  /**
    * Controls the retention policy for Product Analytics data derived from RUM events.
+   * Requests also accept `PREVIEW` (the initial state of a new application, reported as `NONE` in responses). Setting `MAX` requires the `product_analytics_apps_write` permission.
    */
   "productAnalyticsRetentionState"?: RUMProductAnalyticsRetentionState;
   /**
-   * Configures which RUM events are processed and stored for the application.
+   * Configures which RUM events are processed and stored for the application. Defaults to `ALL` when creating an application.
    */
   "rumEventProcessingState"?: RUMEventProcessingState;
   /**
-   * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
+   * List of tags to associate with the RUM application, in `key:value` format.
+   */
+  "tags"?: Array<string>;
+  /**
+   * Type of the RUM application. Defaults to `browser`. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`, `react`, `nextjs`, `angular`, `vuejs`, `nuxt`, `tanstack`, `maui`, `salesforce-lwc`, `shopify`, `cpp`, `rum-cpp`, `unreal`.
    */
   "type"?: string;
   /**
@@ -44,14 +66,32 @@ export class RUMApplicationCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    apmRumFlatSamplingReplayEnabled: {
+      baseName: "apm_rum_flat_sampling_replay_enabled",
+      type: "boolean",
+    },
+    apmRumFlatSamplingReplaySampleRate: {
+      baseName: "apm_rum_flat_sampling_replay_sample_rate",
+      type: "number",
+      format: "double",
+    },
     createDefaultRetentionFilters: {
       baseName: "create_default_retention_filters",
+      type: "boolean",
+    },
+    errorTrackingExclusionFilterEnabled: {
+      baseName: "error_tracking_exclusion_filter_enabled",
       type: "boolean",
     },
     name: {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    productAnalyticsReplaySampleRate: {
+      baseName: "product_analytics_replay_sample_rate",
+      type: "number",
+      format: "int32",
     },
     productAnalyticsRetentionState: {
       baseName: "product_analytics_retention_state",
@@ -60,6 +100,10 @@ export class RUMApplicationCreateAttributes {
     rumEventProcessingState: {
       baseName: "rum_event_processing_state",
       type: "RUMEventProcessingState",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     type: {
       baseName: "type",
