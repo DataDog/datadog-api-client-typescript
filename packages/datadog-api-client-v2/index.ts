@@ -463,14 +463,20 @@ export {
   CloudAuthenticationApiCreateAWSCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiCreateGitHubCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiCreateGitHubCloudAuthPersonaMappingRequest,
+  CloudAuthenticationApiCreateOIDCCloudAuthPersonaMappingRequest,
+  CloudAuthenticationApiCreateOIDCCloudAuthProviderRequest,
   CloudAuthenticationApiDeleteAWSCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiDeleteAWSCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiDeleteGitHubCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiDeleteGitHubCloudAuthPersonaMappingRequest,
+  CloudAuthenticationApiDeleteOIDCCloudAuthPersonaMappingRequest,
+  CloudAuthenticationApiDeleteOIDCCloudAuthProviderRequest,
   CloudAuthenticationApiGetAWSCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiGetAWSCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiGetGitHubCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiGetGitHubCloudAuthPersonaMappingRequest,
+  CloudAuthenticationApiGetOIDCCloudAuthPersonaMappingRequest,
+  CloudAuthenticationApiGetOIDCCloudAuthProviderRequest,
   CloudAuthenticationApi,
 } from "./apis/CloudAuthenticationApi";
 
@@ -7754,6 +7760,27 @@ export { OCIConfig } from "./models/OCIConfig";
 export { OCIConfigAttributes } from "./models/OCIConfigAttributes";
 export { OCIConfigsResponse } from "./models/OCIConfigsResponse";
 export { OCIConfigType } from "./models/OCIConfigType";
+export { OIDCCloudAuthClaimMatcher } from "./models/OIDCCloudAuthClaimMatcher";
+export { OIDCCloudAuthClaimMatcherCreate } from "./models/OIDCCloudAuthClaimMatcherCreate";
+export { OIDCCloudAuthClaimMatchMode } from "./models/OIDCCloudAuthClaimMatchMode";
+export { OIDCCloudAuthDiscoveryType } from "./models/OIDCCloudAuthDiscoveryType";
+export { OIDCCloudAuthOrgUUIDSource } from "./models/OIDCCloudAuthOrgUUIDSource";
+export { OIDCCloudAuthPersonaMappingAttributesResponse } from "./models/OIDCCloudAuthPersonaMappingAttributesResponse";
+export { OIDCCloudAuthPersonaMappingCreateAttributes } from "./models/OIDCCloudAuthPersonaMappingCreateAttributes";
+export { OIDCCloudAuthPersonaMappingCreateData } from "./models/OIDCCloudAuthPersonaMappingCreateData";
+export { OIDCCloudAuthPersonaMappingCreateRequest } from "./models/OIDCCloudAuthPersonaMappingCreateRequest";
+export { OIDCCloudAuthPersonaMappingDataResponse } from "./models/OIDCCloudAuthPersonaMappingDataResponse";
+export { OIDCCloudAuthPersonaMappingResponse } from "./models/OIDCCloudAuthPersonaMappingResponse";
+export { OIDCCloudAuthPersonaMappingsResponse } from "./models/OIDCCloudAuthPersonaMappingsResponse";
+export { OIDCCloudAuthPersonaMappingType } from "./models/OIDCCloudAuthPersonaMappingType";
+export { OIDCCloudAuthProviderAttributesResponse } from "./models/OIDCCloudAuthProviderAttributesResponse";
+export { OIDCCloudAuthProviderCreateAttributes } from "./models/OIDCCloudAuthProviderCreateAttributes";
+export { OIDCCloudAuthProviderCreateData } from "./models/OIDCCloudAuthProviderCreateData";
+export { OIDCCloudAuthProviderCreateRequest } from "./models/OIDCCloudAuthProviderCreateRequest";
+export { OIDCCloudAuthProviderDataResponse } from "./models/OIDCCloudAuthProviderDataResponse";
+export { OIDCCloudAuthProviderResponse } from "./models/OIDCCloudAuthProviderResponse";
+export { OIDCCloudAuthProvidersResponse } from "./models/OIDCCloudAuthProvidersResponse";
+export { OIDCCloudAuthProviderType } from "./models/OIDCCloudAuthProviderType";
 export { OIDCDiscoveryDocument } from "./models/OIDCDiscoveryDocument";
 export { OktaAccount } from "./models/OktaAccount";
 export { OktaAccountAttributes } from "./models/OktaAccountAttributes";

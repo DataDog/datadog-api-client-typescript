@@ -4006,6 +4006,22 @@ import { OAuthScopesRestrictionResponseData } from "./OAuthScopesRestrictionResp
 import { OCIConfig } from "./OCIConfig";
 import { OCIConfigAttributes } from "./OCIConfigAttributes";
 import { OCIConfigsResponse } from "./OCIConfigsResponse";
+import { OIDCCloudAuthClaimMatcher } from "./OIDCCloudAuthClaimMatcher";
+import { OIDCCloudAuthClaimMatcherCreate } from "./OIDCCloudAuthClaimMatcherCreate";
+import { OIDCCloudAuthPersonaMappingAttributesResponse } from "./OIDCCloudAuthPersonaMappingAttributesResponse";
+import { OIDCCloudAuthPersonaMappingCreateAttributes } from "./OIDCCloudAuthPersonaMappingCreateAttributes";
+import { OIDCCloudAuthPersonaMappingCreateData } from "./OIDCCloudAuthPersonaMappingCreateData";
+import { OIDCCloudAuthPersonaMappingCreateRequest } from "./OIDCCloudAuthPersonaMappingCreateRequest";
+import { OIDCCloudAuthPersonaMappingDataResponse } from "./OIDCCloudAuthPersonaMappingDataResponse";
+import { OIDCCloudAuthPersonaMappingResponse } from "./OIDCCloudAuthPersonaMappingResponse";
+import { OIDCCloudAuthPersonaMappingsResponse } from "./OIDCCloudAuthPersonaMappingsResponse";
+import { OIDCCloudAuthProviderAttributesResponse } from "./OIDCCloudAuthProviderAttributesResponse";
+import { OIDCCloudAuthProviderCreateAttributes } from "./OIDCCloudAuthProviderCreateAttributes";
+import { OIDCCloudAuthProviderCreateData } from "./OIDCCloudAuthProviderCreateData";
+import { OIDCCloudAuthProviderCreateRequest } from "./OIDCCloudAuthProviderCreateRequest";
+import { OIDCCloudAuthProviderDataResponse } from "./OIDCCloudAuthProviderDataResponse";
+import { OIDCCloudAuthProviderResponse } from "./OIDCCloudAuthProviderResponse";
+import { OIDCCloudAuthProvidersResponse } from "./OIDCCloudAuthProvidersResponse";
 import { OIDCDiscoveryDocument } from "./OIDCDiscoveryDocument";
 import { ObservabilityPipeline } from "./ObservabilityPipeline";
 import { ObservabilityPipelineAddEnvVarsProcessor } from "./ObservabilityPipelineAddEnvVarsProcessor";
@@ -8958,6 +8974,11 @@ const enumsMap: { [key: string]: any[] } = {
   OAuthOidcScope: ["openid", "profile", "email", "offline_access"],
   OAuthScopesRestrictionType: ["scopes_restriction"],
   OCIConfigType: ["oci_config"],
+  OIDCCloudAuthClaimMatchMode: ["exact", "glob"],
+  OIDCCloudAuthDiscoveryType: ["oidc_discovery", "direct_jwks"],
+  OIDCCloudAuthOrgUUIDSource: ["dd_org_uuid", "aud"],
+  OIDCCloudAuthPersonaMappingType: ["custom_oidc_identity_mapping"],
+  OIDCCloudAuthProviderType: ["custom_oidc_provider_config"],
   ObservabilityPipelineAddEnvVarsProcessorType: ["add_env_vars"],
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
   ObservabilityPipelineAddHostnameProcessorType: ["add_hostname"],
@@ -15859,6 +15880,27 @@ const typeMap: { [index: string]: any } = {
   OCIConfig: OCIConfig,
   OCIConfigAttributes: OCIConfigAttributes,
   OCIConfigsResponse: OCIConfigsResponse,
+  OIDCCloudAuthClaimMatcher: OIDCCloudAuthClaimMatcher,
+  OIDCCloudAuthClaimMatcherCreate: OIDCCloudAuthClaimMatcherCreate,
+  OIDCCloudAuthPersonaMappingAttributesResponse:
+    OIDCCloudAuthPersonaMappingAttributesResponse,
+  OIDCCloudAuthPersonaMappingCreateAttributes:
+    OIDCCloudAuthPersonaMappingCreateAttributes,
+  OIDCCloudAuthPersonaMappingCreateData: OIDCCloudAuthPersonaMappingCreateData,
+  OIDCCloudAuthPersonaMappingCreateRequest:
+    OIDCCloudAuthPersonaMappingCreateRequest,
+  OIDCCloudAuthPersonaMappingDataResponse:
+    OIDCCloudAuthPersonaMappingDataResponse,
+  OIDCCloudAuthPersonaMappingResponse: OIDCCloudAuthPersonaMappingResponse,
+  OIDCCloudAuthPersonaMappingsResponse: OIDCCloudAuthPersonaMappingsResponse,
+  OIDCCloudAuthProviderAttributesResponse:
+    OIDCCloudAuthProviderAttributesResponse,
+  OIDCCloudAuthProviderCreateAttributes: OIDCCloudAuthProviderCreateAttributes,
+  OIDCCloudAuthProviderCreateData: OIDCCloudAuthProviderCreateData,
+  OIDCCloudAuthProviderCreateRequest: OIDCCloudAuthProviderCreateRequest,
+  OIDCCloudAuthProviderDataResponse: OIDCCloudAuthProviderDataResponse,
+  OIDCCloudAuthProviderResponse: OIDCCloudAuthProviderResponse,
+  OIDCCloudAuthProvidersResponse: OIDCCloudAuthProvidersResponse,
   OIDCDiscoveryDocument: OIDCDiscoveryDocument,
   ObservabilityPipeline: ObservabilityPipeline,
   ObservabilityPipelineAddEnvVarsProcessor:
