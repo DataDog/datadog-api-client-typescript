@@ -534,6 +534,7 @@ export function createConfiguration(
       "v2.deleteRequestedTemporaryGrant": false,
       "v2.deleteTemporaryGrantRequest": false,
       "v2.getMyTemporaryGrantRequest": false,
+      "v2.getQuota": false,
       "v2.getTemporaryGrantRequest": false,
       "v2.listMyTemporaryGrantRequests": false,
       "v2.listQuotas": false,
