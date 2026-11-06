@@ -318,39 +318,6 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async downloadCloudWorkloadPolicyFile(
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // Path Params
-    const localVarPath = "/api/v2/security/cloud_workload/policy/download";
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CSMThreatsApi.downloadCloudWorkloadPolicyFile")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/yaml, application/json"
-    );
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set IaC header
-    if (_config.isIaC) {
-      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
-    }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
   public async downloadCSMThreatsPolicy(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -1221,61 +1188,6 @@ export class CSMThreatsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to downloadCloudWorkloadPolicyFile
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async downloadCloudWorkloadPolicyFile(
-    response: ResponseContext
-  ): Promise<HttpFile> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: HttpFile = (await response.getBodyAsFile()) as HttpFile;
-      return body;
-    }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: HttpFile =
-        (await response.getBodyAsFile()) as any as HttpFile;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -2331,30 +2243,6 @@ export class CSMThreatsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteCSMThreatsAgentRule(
-            responseContext
-          );
-        });
-    });
-  }
-
-  /**
-   * The download endpoint generates a Workload Protection policy file from your currently active
-   * Workload Protection agent rules, and downloads them as a `.policy` file. This file can then be deployed to
-   * your agents to update the policy running in your environment.
-   *
-   * **Note**: This endpoint should only be used for the Government (US1-FED) site.
-   * @param param The request object
-   */
-  public downloadCloudWorkloadPolicyFile(
-    options?: Configuration
-  ): Promise<HttpFile> {
-    const requestContextPromise =
-      this.requestFactory.downloadCloudWorkloadPolicyFile(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.downloadCloudWorkloadPolicyFile(
             responseContext
           );
         });

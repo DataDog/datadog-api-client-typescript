@@ -17302,9 +17302,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CloudWorkloadSecurityAgentPolicyResponse",
     },
-    "v2.DownloadCloudWorkloadPolicyFile": {
-        "operationResponseType": "HttpFile",
-    },
     "v2.ListCloudWorkloadSecurityAgentRules": {
         "operationResponseType": "CloudWorkloadSecurityAgentRulesListResponse",
     },
