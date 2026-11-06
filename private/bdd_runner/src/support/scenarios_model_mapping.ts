@@ -18112,6 +18112,42 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumConfigResponse",
   },
+  "RUMManagedArchivesApi.V2.ListRUMArchiveConfigs": {
+    pageNumber: {
+      type: "number",
+      format: "int32",
+    },
+    pageSize: {
+      type: "number",
+      format: "int32",
+    },
+    operationResponseType: "RumArchiveConfigListResponse",
+  },
+  "RUMManagedArchivesApi.V2.GetRUMArchiveConfig": {
+    appId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "RumArchiveConfigResponse",
+  },
+  "RUMManagedArchivesApi.V2.UpdateRUMArchiveConfig": {
+    appId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "RumArchiveConfigUpsertRequest",
+      format: "",
+    },
+    operationResponseType: "RumArchiveConfigResponse",
+  },
+  "RUMManagedArchivesApi.V2.DeleteRUMArchiveConfig": {
+    appId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
   "RumMetricsApi.V2.ListRumMetrics": {
     operationResponseType: "RumMetricsResponse",
   },
@@ -18385,6 +18421,72 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "AggregatedWaterfallResponse",
+  },
+  "RUMRecoveryApi.V2.GetRUMRecoverySessionCount": {
+    body: {
+      type: "RumRecoveryCountRequest",
+      format: "",
+    },
+    operationResponseType: "RumRecoveryCountResponse",
+  },
+  "RUMRecoveryApi.V2.ListRUMRecoveryBatchRequests": {
+    type: {
+      type: "RumRecoveryBatchRequestType",
+      format: "",
+    },
+    limit: {
+      type: "number",
+      format: "int32",
+    },
+    cursor: {
+      type: "string",
+      format: "",
+    },
+    from: {
+      type: "number",
+      format: "int64",
+    },
+    to: {
+      type: "number",
+      format: "int64",
+    },
+    query: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RumRecoveryBatchListResponse",
+  },
+  "RUMRecoveryApi.V2.CreateRUMRecoveryRequest": {
+    body: {
+      type: "RumRecoveryCreateRequest",
+      format: "",
+    },
+    operationResponseType: "RumRecoveryCreateResponse",
+  },
+  "RUMRecoveryApi.V2.GetRUMRecoveryRequest": {
+    requestId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "RumRecoveryRequestResponse",
+  },
+  "RUMRecoveryApi.V2.UpdateRUMRecoveryBatchRequest": {
+    requestId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "RumRecoveryCancelRequest",
+      format: "",
+    },
+    operationResponseType: "RumRecoveryCancelResponse",
+  },
+  "RUMRecoveryApi.V2.SearchRUMArchiveSessions": {
+    body: {
+      type: "RumArchiveSessionsSearchRequest",
+      format: "",
+    },
+    operationResponseType: "RumArchiveSessionsResponse",
   },
   "RumReplayPlaylistsApi.V2.ListRumReplayPlaylists": {
     filterCreatedByUuid: {

@@ -1414,6 +1414,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-rum-managed-archives@workspace:services/rum_managed_archives":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-rum-managed-archives@workspace:services/rum_managed_archives"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-rum-metrics@workspace:services/rum_metrics":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-rum-metrics@workspace:services/rum_metrics"
@@ -1435,6 +1444,15 @@ __metadata:
 "@datadog/datadog-api-client-rum-rate-limit@workspace:services/rum_rate_limit":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-rum-rate-limit@workspace:services/rum_rate_limit"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-rum-recovery@workspace:services/rum_recovery":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-rum-recovery@workspace:services/rum_recovery"
   dependencies:
     "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
