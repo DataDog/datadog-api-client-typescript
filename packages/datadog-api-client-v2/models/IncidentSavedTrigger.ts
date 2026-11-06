@@ -18,9 +18,13 @@ export class IncidentSavedTrigger {
    */
   "executionLimit"?: ExecutionLimit;
   /**
-   * The type of incident that triggers the workflow.
+   * The type of incident that triggers the workflow. Deprecated. Use `incidentTypes` instead.
    */
   "incidentType"?: string;
+  /**
+   * The types of incidents that trigger the workflow.
+   */
+  "incidentTypes"?: Array<string>;
   /**
    * Whether to execute the workflow serially for an incident.
    */
@@ -53,6 +57,10 @@ export class IncidentSavedTrigger {
     incidentType: {
       baseName: "incidentType",
       type: "string",
+    },
+    incidentTypes: {
+      baseName: "incidentTypes",
+      type: "Array<string>",
     },
     serialExecution: {
       baseName: "serialExecution",
