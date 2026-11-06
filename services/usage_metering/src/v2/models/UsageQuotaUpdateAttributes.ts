@@ -9,7 +9,7 @@ export class UsageQuotaUpdateAttributes {
    */
   "enforced"?: boolean;
   /**
-   * The non-negative, whole-number limit to schedule for the organization-wide quota in the usage units defined by the quota namespace. It is not checked against current usage. Each write schedules the value for 00:00 UTC on the first day of the next calendar month and replaces any previously scheduled change; the server computes `pending_effective_from`. Omit this field to leave any scheduled change unchanged, including when raising `usage_limit`; use `DELETE /api/v2/usage/quotas/{quota_namespace}/{id}/pending` to cancel one.
+   * The non-negative, whole-number limit to schedule for the organization-wide quota in the usage units defined by the quota namespace. It is not checked against current usage. Each write schedules the value for 00:00 UTC on the first day of the next calendar month and replaces any previously scheduled change; the server computes `pending_effective_from`. Omit this field to leave any scheduled change unchanged, including when raising `usage_limit`, unless `enforced=false` is supplied, which clears the pending change; use `DELETE /api/v2/usage/quotas/{quota_namespace}/{id}/pending` to cancel one.
    */
   "pendingUsageLimit"?: number;
   /**
