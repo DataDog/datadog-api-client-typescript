@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AiGatewayRateLimitMode } from "./AiGatewayRateLimitMode";
+import { AiGatewayRateLimitSelectorEntry } from "./AiGatewayRateLimitSelectorEntry";
 
 import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
@@ -24,7 +25,7 @@ export class AiGatewayRateLimitAttributes {
    */
   "enabled": boolean;
   /**
-   * Maximum input tokens per rolling minute shared by all matching traffic. Null when this rule does not limit input tokens.
+   * Maximum input tokens per rolling minute shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit input tokens.
    */
   "inputTokensPerMinute"?: Int64;
   /**
@@ -40,11 +41,11 @@ export class AiGatewayRateLimitAttributes {
    */
   "name": string;
   /**
-   * Maximum output tokens per rolling minute shared by all matching traffic. Null when this rule does not limit output tokens.
+   * Maximum output tokens per rolling minute shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit output tokens.
    */
   "outputTokensPerMinute"?: Int64;
   /**
-   * Maximum requests per rolling minute shared by all matching traffic. Null when this rule does not limit requests.
+   * Maximum requests per rolling minute shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit requests.
    */
   "requestsPerMinute"?: Int64;
   /**
@@ -55,6 +56,10 @@ export class AiGatewayRateLimitAttributes {
    * Whether provider or model scope metadata was withheld. Omit unchanged scope fields on an unrelated update to preserve their saved values.
    */
   "scopeRestricted": boolean;
+  /**
+   * Dimension rules for a template rate limit, which gives each matched user, Team, or value its own allowance with the rule's limits. Can't be combined with user_id, team_id, or tags, and can't be changed after creation. Omit for a rule with one shared allowance.
+   */
+  "selector"?: Array<AiGatewayRateLimitSelectorEntry>;
   /**
    * Optional scope tags, such as provider, model, ml_app, or custom dimensions. A request matches when it has all of these tags.
    */
@@ -148,6 +153,10 @@ export class AiGatewayRateLimitAttributes {
       baseName: "scope_restricted",
       type: "boolean",
       required: true,
+    },
+    selector: {
+      baseName: "selector",
+      type: "Array<AiGatewayRateLimitSelectorEntry>",
     },
     tags: {
       baseName: "tags",

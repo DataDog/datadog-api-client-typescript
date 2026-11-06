@@ -23,6 +23,13 @@ const params: v2.AIGatewayApiCreateAiGatewayRateLimitRequest = {
         name: "Default rate limit",
         outputTokensPerMinute: undefined,
         requestsPerMinute: 600,
+        selector: [
+          {
+            dim: "user_id",
+            perValue: true,
+            values: ["11111111-1111-1111-1111-111111111111"],
+          },
+        ],
         teamId: "00000000-0000-4000-8000-000000000002",
         userId: "00000000-0000-4000-8000-000000000001",
       },

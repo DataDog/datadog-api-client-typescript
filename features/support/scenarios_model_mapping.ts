@@ -5279,6 +5279,40 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AiGatewayRateLimitResponse",
     },
+    "v2.ListAiGatewayRateLimitInstances": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "splitDim": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "sort": {
+            "type": "AiGatewayRateLimitInstanceSort",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "offset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "AiGatewayRateLimitInstanceListResponse",
+    },
+    "v2.GetAiGatewayRateLimitInstancesSummary": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "splitDim": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayRateLimitInstancesSummaryResponse",
+    },
     "v2.ListAiGatewayRoutingRules": {
         "operationResponseType": "AiGatewayRoutingRuleListResponse",
     },
