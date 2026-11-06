@@ -5109,6 +5109,24 @@ import { RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems } from
 import { RulesetStatusRespArray } from "./RulesetStatusRespArray";
 import { RulesetStatusRespData } from "./RulesetStatusRespData";
 import { RulesetStatusRespDataAttributes } from "./RulesetStatusRespDataAttributes";
+import { RumArchiveConfig } from "./RumArchiveConfig";
+import { RumArchiveConfigAttributes } from "./RumArchiveConfigAttributes";
+import { RumArchiveConfigListResponse } from "./RumArchiveConfigListResponse";
+import { RumArchiveConfigMeta } from "./RumArchiveConfigMeta";
+import { RumArchiveConfigPage } from "./RumArchiveConfigPage";
+import { RumArchiveConfigResponse } from "./RumArchiveConfigResponse";
+import { RumArchiveConfigUpsertAttributes } from "./RumArchiveConfigUpsertAttributes";
+import { RumArchiveConfigUpsertData } from "./RumArchiveConfigUpsertData";
+import { RumArchiveConfigUpsertRequest } from "./RumArchiveConfigUpsertRequest";
+import { RumArchiveSession } from "./RumArchiveSession";
+import { RumArchiveSessionAttributes } from "./RumArchiveSessionAttributes";
+import { RumArchiveSessionRecoveryStatus } from "./RumArchiveSessionRecoveryStatus";
+import { RumArchiveSessionsMeta } from "./RumArchiveSessionsMeta";
+import { RumArchiveSessionsPage } from "./RumArchiveSessionsPage";
+import { RumArchiveSessionsResponse } from "./RumArchiveSessionsResponse";
+import { RumArchiveSessionsSearchAttributes } from "./RumArchiveSessionsSearchAttributes";
+import { RumArchiveSessionsSearchData } from "./RumArchiveSessionsSearchData";
+import { RumArchiveSessionsSearchRequest } from "./RumArchiveSessionsSearchRequest";
 import { RumConfigAttributes } from "./RumConfigAttributes";
 import { RumConfigCreateAttributes } from "./RumConfigCreateAttributes";
 import { RumConfigCreateData } from "./RumConfigCreateData";
@@ -5132,6 +5150,7 @@ import { RumExclusionFilterUpdateAttributes } from "./RumExclusionFilterUpdateAt
 import { RumExclusionFilterUpdateData } from "./RumExclusionFilterUpdateData";
 import { RumExclusionFilterUpdateRequest } from "./RumExclusionFilterUpdateRequest";
 import { RumExclusionFiltersResponse } from "./RumExclusionFiltersResponse";
+import { RumManagedArchiveErrorResponse } from "./RumManagedArchiveErrorResponse";
 import { RumMetricCompute } from "./RumMetricCompute";
 import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
 import { RumMetricCreateData } from "./RumMetricCreateData";
@@ -5159,6 +5178,34 @@ import { RumPermanentRetentionFilterUpdateAttributes } from "./RumPermanentReten
 import { RumPermanentRetentionFilterUpdateData } from "./RumPermanentRetentionFilterUpdateData";
 import { RumPermanentRetentionFilterUpdateRequest } from "./RumPermanentRetentionFilterUpdateRequest";
 import { RumPermanentRetentionFiltersResponse } from "./RumPermanentRetentionFiltersResponse";
+import { RumRecoveredSession } from "./RumRecoveredSession";
+import { RumRecoveryBatchCreateAttributes } from "./RumRecoveryBatchCreateAttributes";
+import { RumRecoveryBatchListAttributes } from "./RumRecoveryBatchListAttributes";
+import { RumRecoveryBatchListData } from "./RumRecoveryBatchListData";
+import { RumRecoveryBatchListMeta } from "./RumRecoveryBatchListMeta";
+import { RumRecoveryBatchListResponse } from "./RumRecoveryBatchListResponse";
+import { RumRecoveryCancelAttributes } from "./RumRecoveryCancelAttributes";
+import { RumRecoveryCancelData } from "./RumRecoveryCancelData";
+import { RumRecoveryCancelRequest } from "./RumRecoveryCancelRequest";
+import { RumRecoveryCancelResponse } from "./RumRecoveryCancelResponse";
+import { RumRecoveryCancelResponseAttributes } from "./RumRecoveryCancelResponseAttributes";
+import { RumRecoveryCancelResponseData } from "./RumRecoveryCancelResponseData";
+import { RumRecoveryCountAttributes } from "./RumRecoveryCountAttributes";
+import { RumRecoveryCountRequest } from "./RumRecoveryCountRequest";
+import { RumRecoveryCountRequestData } from "./RumRecoveryCountRequestData";
+import { RumRecoveryCountResponse } from "./RumRecoveryCountResponse";
+import { RumRecoveryCountResponseAttributes } from "./RumRecoveryCountResponseAttributes";
+import { RumRecoveryCountResponseData } from "./RumRecoveryCountResponseData";
+import { RumRecoveryCreateData } from "./RumRecoveryCreateData";
+import { RumRecoveryCreateRequest } from "./RumRecoveryCreateRequest";
+import { RumRecoveryCreateResponse } from "./RumRecoveryCreateResponse";
+import { RumRecoveryCreateResponseAttributes } from "./RumRecoveryCreateResponseAttributes";
+import { RumRecoveryCreateResponseData } from "./RumRecoveryCreateResponseData";
+import { RumRecoveryRequestAttributes } from "./RumRecoveryRequestAttributes";
+import { RumRecoveryRequestData } from "./RumRecoveryRequestData";
+import { RumRecoveryRequestResponse } from "./RumRecoveryRequestResponse";
+import { RumRecoverySessionInput } from "./RumRecoverySessionInput";
+import { RumRecoverySessionsCreateAttributes } from "./RumRecoverySessionsCreateAttributes";
 import { RumRetentionFilterAttributes } from "./RumRetentionFilterAttributes";
 import { RumRetentionFilterCreateAttributes } from "./RumRetentionFilterCreateAttributes";
 import { RumRetentionFilterCreateData } from "./RumRetentionFilterCreateData";
@@ -9860,6 +9907,8 @@ const enumsMap: { [key: string]: any[] } = {
   RulesValidateQueryResponseDataType: ["validate_response"],
   RulesetRespDataType: ["ruleset"],
   RulesetStatusRespDataType: ["ruleset_status"],
+  RumArchiveConfigType: ["rum_archive_config"],
+  RumArchiveSessionType: ["rum_archive_session"],
   RumConfigType: ["rum_config"],
   RumExclusionFilterEventType: [
     "session",
@@ -9889,6 +9938,40 @@ const enumsMap: { [key: string]: any[] } = {
     "forced_replay_sessions",
   ],
   RumPermanentRetentionFilterType: ["permanent_retention_filters"],
+  RumRecoveryBatchListDataType: ["rum_batch_recovery_request"],
+  RumRecoveryBatchRequestType: ["batch"],
+  RumRecoveryCancelStatus: ["cancelled"],
+  RumRecoveryCountResponseDataType: ["rum_recovery_count"],
+  RumRecoveryDiscoveryStatus: [
+    "QUEUED",
+    "PENDING",
+    "SLICING",
+    "DISCOVERED",
+    "PROCESSING",
+    "COMPLETED",
+    "FAILED",
+    "CANCELLED",
+  ],
+  RumRecoveryRequestStatus: [
+    "PENDING",
+    "PROCESSING",
+    "COMPLETED",
+    "FAILED",
+    "CANCELLED",
+    "EXPIRED",
+  ],
+  RumRecoveryRequestType: ["rum_recovery_request"],
+  RumRecoverySessionStatus: [
+    "AVAILABLE",
+    "PENDING",
+    "PROCESSING",
+    "RECOVERED",
+    "FAILED",
+    "RETAINED",
+    "EXPIRED",
+    "CANCELLED",
+  ],
+  RumRecoverySessionsRequestType: ["sessions"],
   RumRetentionFilterEventType: [
     "session",
     "view",
@@ -17303,6 +17386,24 @@ const typeMap: { [index: string]: any } = {
   RulesetStatusRespArray: RulesetStatusRespArray,
   RulesetStatusRespData: RulesetStatusRespData,
   RulesetStatusRespDataAttributes: RulesetStatusRespDataAttributes,
+  RumArchiveConfig: RumArchiveConfig,
+  RumArchiveConfigAttributes: RumArchiveConfigAttributes,
+  RumArchiveConfigListResponse: RumArchiveConfigListResponse,
+  RumArchiveConfigMeta: RumArchiveConfigMeta,
+  RumArchiveConfigPage: RumArchiveConfigPage,
+  RumArchiveConfigResponse: RumArchiveConfigResponse,
+  RumArchiveConfigUpsertAttributes: RumArchiveConfigUpsertAttributes,
+  RumArchiveConfigUpsertData: RumArchiveConfigUpsertData,
+  RumArchiveConfigUpsertRequest: RumArchiveConfigUpsertRequest,
+  RumArchiveSession: RumArchiveSession,
+  RumArchiveSessionAttributes: RumArchiveSessionAttributes,
+  RumArchiveSessionRecoveryStatus: RumArchiveSessionRecoveryStatus,
+  RumArchiveSessionsMeta: RumArchiveSessionsMeta,
+  RumArchiveSessionsPage: RumArchiveSessionsPage,
+  RumArchiveSessionsResponse: RumArchiveSessionsResponse,
+  RumArchiveSessionsSearchAttributes: RumArchiveSessionsSearchAttributes,
+  RumArchiveSessionsSearchData: RumArchiveSessionsSearchData,
+  RumArchiveSessionsSearchRequest: RumArchiveSessionsSearchRequest,
   RumConfigAttributes: RumConfigAttributes,
   RumConfigCreateAttributes: RumConfigCreateAttributes,
   RumConfigCreateData: RumConfigCreateData,
@@ -17326,6 +17427,7 @@ const typeMap: { [index: string]: any } = {
   RumExclusionFilterUpdateData: RumExclusionFilterUpdateData,
   RumExclusionFilterUpdateRequest: RumExclusionFilterUpdateRequest,
   RumExclusionFiltersResponse: RumExclusionFiltersResponse,
+  RumManagedArchiveErrorResponse: RumManagedArchiveErrorResponse,
   RumMetricCompute: RumMetricCompute,
   RumMetricCreateAttributes: RumMetricCreateAttributes,
   RumMetricCreateData: RumMetricCreateData,
@@ -17356,6 +17458,34 @@ const typeMap: { [index: string]: any } = {
   RumPermanentRetentionFilterUpdateRequest:
     RumPermanentRetentionFilterUpdateRequest,
   RumPermanentRetentionFiltersResponse: RumPermanentRetentionFiltersResponse,
+  RumRecoveredSession: RumRecoveredSession,
+  RumRecoveryBatchCreateAttributes: RumRecoveryBatchCreateAttributes,
+  RumRecoveryBatchListAttributes: RumRecoveryBatchListAttributes,
+  RumRecoveryBatchListData: RumRecoveryBatchListData,
+  RumRecoveryBatchListMeta: RumRecoveryBatchListMeta,
+  RumRecoveryBatchListResponse: RumRecoveryBatchListResponse,
+  RumRecoveryCancelAttributes: RumRecoveryCancelAttributes,
+  RumRecoveryCancelData: RumRecoveryCancelData,
+  RumRecoveryCancelRequest: RumRecoveryCancelRequest,
+  RumRecoveryCancelResponse: RumRecoveryCancelResponse,
+  RumRecoveryCancelResponseAttributes: RumRecoveryCancelResponseAttributes,
+  RumRecoveryCancelResponseData: RumRecoveryCancelResponseData,
+  RumRecoveryCountAttributes: RumRecoveryCountAttributes,
+  RumRecoveryCountRequest: RumRecoveryCountRequest,
+  RumRecoveryCountRequestData: RumRecoveryCountRequestData,
+  RumRecoveryCountResponse: RumRecoveryCountResponse,
+  RumRecoveryCountResponseAttributes: RumRecoveryCountResponseAttributes,
+  RumRecoveryCountResponseData: RumRecoveryCountResponseData,
+  RumRecoveryCreateData: RumRecoveryCreateData,
+  RumRecoveryCreateRequest: RumRecoveryCreateRequest,
+  RumRecoveryCreateResponse: RumRecoveryCreateResponse,
+  RumRecoveryCreateResponseAttributes: RumRecoveryCreateResponseAttributes,
+  RumRecoveryCreateResponseData: RumRecoveryCreateResponseData,
+  RumRecoveryRequestAttributes: RumRecoveryRequestAttributes,
+  RumRecoveryRequestData: RumRecoveryRequestData,
+  RumRecoveryRequestResponse: RumRecoveryRequestResponse,
+  RumRecoverySessionInput: RumRecoverySessionInput,
+  RumRecoverySessionsCreateAttributes: RumRecoverySessionsCreateAttributes,
   RumRetentionFilterAttributes: RumRetentionFilterAttributes,
   RumRetentionFilterCreateAttributes: RumRetentionFilterCreateAttributes,
   RumRetentionFilterCreateData: RumRetentionFilterCreateData,
@@ -20610,6 +20740,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "TriggerWorkflowAutomationAction",
     "RoutingRuleEscalationPolicyAction",
     "RoutingRuleRerouteToTeamAction",
+  ],
+  RumRecoveryCreateAttributes: [
+    "RumRecoverySessionsCreateAttributes",
+    "RumRecoveryBatchCreateAttributes",
   ],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
   ScalarQuery: [

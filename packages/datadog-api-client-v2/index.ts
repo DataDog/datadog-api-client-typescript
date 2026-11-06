@@ -1468,6 +1468,14 @@ export {
 } from "./apis/RUMInsightsApi";
 
 export {
+  RUMManagedArchivesApiDeleteRUMArchiveConfigRequest,
+  RUMManagedArchivesApiGetRUMArchiveConfigRequest,
+  RUMManagedArchivesApiListRUMArchiveConfigsRequest,
+  RUMManagedArchivesApiUpdateRUMArchiveConfigRequest,
+  RUMManagedArchivesApi,
+} from "./apis/RUMManagedArchivesApi";
+
+export {
   RUMOperationsApiCreateRUMOperationRequest,
   RUMOperationsApiCreateRUMOperationStrongLinkRequest,
   RUMOperationsApiDeleteRUMOperationRequest,
@@ -1480,6 +1488,16 @@ export {
   RUMOperationsApiUpdateRUMOperationStrongLinkRequest,
   RUMOperationsApi,
 } from "./apis/RUMOperationsApi";
+
+export {
+  RUMRecoveryApiCreateRUMRecoveryRequestRequest,
+  RUMRecoveryApiGetRUMRecoveryRequestRequest,
+  RUMRecoveryApiGetRUMRecoverySessionCountRequest,
+  RUMRecoveryApiListRUMRecoveryBatchRequestsRequest,
+  RUMRecoveryApiSearchRUMArchiveSessionsRequest,
+  RUMRecoveryApiUpdateRUMRecoveryBatchRequestRequest,
+  RUMRecoveryApi,
+} from "./apis/RUMRecoveryApi";
 
 export {
   RUMRemoteConfigApiGetRumSdkConfigRequest,
@@ -8861,6 +8879,26 @@ export { RUMApplicationUpdate } from "./models/RUMApplicationUpdate";
 export { RUMApplicationUpdateAttributes } from "./models/RUMApplicationUpdateAttributes";
 export { RUMApplicationUpdateRequest } from "./models/RUMApplicationUpdateRequest";
 export { RUMApplicationUpdateType } from "./models/RUMApplicationUpdateType";
+export { RumArchiveConfig } from "./models/RumArchiveConfig";
+export { RumArchiveConfigAttributes } from "./models/RumArchiveConfigAttributes";
+export { RumArchiveConfigListResponse } from "./models/RumArchiveConfigListResponse";
+export { RumArchiveConfigMeta } from "./models/RumArchiveConfigMeta";
+export { RumArchiveConfigPage } from "./models/RumArchiveConfigPage";
+export { RumArchiveConfigResponse } from "./models/RumArchiveConfigResponse";
+export { RumArchiveConfigType } from "./models/RumArchiveConfigType";
+export { RumArchiveConfigUpsertAttributes } from "./models/RumArchiveConfigUpsertAttributes";
+export { RumArchiveConfigUpsertData } from "./models/RumArchiveConfigUpsertData";
+export { RumArchiveConfigUpsertRequest } from "./models/RumArchiveConfigUpsertRequest";
+export { RumArchiveSession } from "./models/RumArchiveSession";
+export { RumArchiveSessionAttributes } from "./models/RumArchiveSessionAttributes";
+export { RumArchiveSessionRecoveryStatus } from "./models/RumArchiveSessionRecoveryStatus";
+export { RumArchiveSessionsMeta } from "./models/RumArchiveSessionsMeta";
+export { RumArchiveSessionsPage } from "./models/RumArchiveSessionsPage";
+export { RumArchiveSessionsResponse } from "./models/RumArchiveSessionsResponse";
+export { RumArchiveSessionsSearchAttributes } from "./models/RumArchiveSessionsSearchAttributes";
+export { RumArchiveSessionsSearchData } from "./models/RumArchiveSessionsSearchData";
+export { RumArchiveSessionsSearchRequest } from "./models/RumArchiveSessionsSearchRequest";
+export { RumArchiveSessionType } from "./models/RumArchiveSessionType";
 export { RUMBucketGroupByValue } from "./models/RUMBucketGroupByValue";
 export { RUMBucketResponse } from "./models/RUMBucketResponse";
 export { RUMCompute } from "./models/RUMCompute";
@@ -8901,6 +8939,7 @@ export { RUMGroupBy } from "./models/RUMGroupBy";
 export { RUMGroupByHistogram } from "./models/RUMGroupByHistogram";
 export { RUMGroupByMissing } from "./models/RUMGroupByMissing";
 export { RUMGroupByTotal } from "./models/RUMGroupByTotal";
+export { RumManagedArchiveErrorResponse } from "./models/RumManagedArchiveErrorResponse";
 export { RumMetricCompute } from "./models/RumMetricCompute";
 export { RumMetricComputeAggregationType } from "./models/RumMetricComputeAggregationType";
 export { RumMetricCreateAttributes } from "./models/RumMetricCreateAttributes";
@@ -8974,6 +9013,44 @@ export { RUMProductScales } from "./models/RUMProductScales";
 export { RUMQueryFilter } from "./models/RUMQueryFilter";
 export { RUMQueryOptions } from "./models/RUMQueryOptions";
 export { RUMQueryPageOptions } from "./models/RUMQueryPageOptions";
+export { RumRecoveredSession } from "./models/RumRecoveredSession";
+export { RumRecoveryBatchCreateAttributes } from "./models/RumRecoveryBatchCreateAttributes";
+export { RumRecoveryBatchListAttributes } from "./models/RumRecoveryBatchListAttributes";
+export { RumRecoveryBatchListData } from "./models/RumRecoveryBatchListData";
+export { RumRecoveryBatchListDataType } from "./models/RumRecoveryBatchListDataType";
+export { RumRecoveryBatchListMeta } from "./models/RumRecoveryBatchListMeta";
+export { RumRecoveryBatchListResponse } from "./models/RumRecoveryBatchListResponse";
+export { RumRecoveryBatchRequestType } from "./models/RumRecoveryBatchRequestType";
+export { RumRecoveryCancelAttributes } from "./models/RumRecoveryCancelAttributes";
+export { RumRecoveryCancelData } from "./models/RumRecoveryCancelData";
+export { RumRecoveryCancelRequest } from "./models/RumRecoveryCancelRequest";
+export { RumRecoveryCancelResponse } from "./models/RumRecoveryCancelResponse";
+export { RumRecoveryCancelResponseAttributes } from "./models/RumRecoveryCancelResponseAttributes";
+export { RumRecoveryCancelResponseData } from "./models/RumRecoveryCancelResponseData";
+export { RumRecoveryCancelStatus } from "./models/RumRecoveryCancelStatus";
+export { RumRecoveryCountAttributes } from "./models/RumRecoveryCountAttributes";
+export { RumRecoveryCountRequest } from "./models/RumRecoveryCountRequest";
+export { RumRecoveryCountRequestData } from "./models/RumRecoveryCountRequestData";
+export { RumRecoveryCountResponse } from "./models/RumRecoveryCountResponse";
+export { RumRecoveryCountResponseAttributes } from "./models/RumRecoveryCountResponseAttributes";
+export { RumRecoveryCountResponseData } from "./models/RumRecoveryCountResponseData";
+export { RumRecoveryCountResponseDataType } from "./models/RumRecoveryCountResponseDataType";
+export { RumRecoveryCreateAttributes } from "./models/RumRecoveryCreateAttributes";
+export { RumRecoveryCreateData } from "./models/RumRecoveryCreateData";
+export { RumRecoveryCreateRequest } from "./models/RumRecoveryCreateRequest";
+export { RumRecoveryCreateResponse } from "./models/RumRecoveryCreateResponse";
+export { RumRecoveryCreateResponseAttributes } from "./models/RumRecoveryCreateResponseAttributes";
+export { RumRecoveryCreateResponseData } from "./models/RumRecoveryCreateResponseData";
+export { RumRecoveryDiscoveryStatus } from "./models/RumRecoveryDiscoveryStatus";
+export { RumRecoveryRequestAttributes } from "./models/RumRecoveryRequestAttributes";
+export { RumRecoveryRequestData } from "./models/RumRecoveryRequestData";
+export { RumRecoveryRequestResponse } from "./models/RumRecoveryRequestResponse";
+export { RumRecoveryRequestStatus } from "./models/RumRecoveryRequestStatus";
+export { RumRecoveryRequestType } from "./models/RumRecoveryRequestType";
+export { RumRecoverySessionInput } from "./models/RumRecoverySessionInput";
+export { RumRecoverySessionsCreateAttributes } from "./models/RumRecoverySessionsCreateAttributes";
+export { RumRecoverySessionsRequestType } from "./models/RumRecoverySessionsRequestType";
+export { RumRecoverySessionStatus } from "./models/RumRecoverySessionStatus";
 export { RUMResponseLinks } from "./models/RUMResponseLinks";
 export { RUMResponseMetadata } from "./models/RUMResponseMetadata";
 export { RUMResponsePage } from "./models/RUMResponsePage";
