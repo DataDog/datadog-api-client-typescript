@@ -102,10 +102,10 @@ jobs:
           repo: ${{ inputs.target-repo || 'datadog-api-spec' }}
           status: pending
           context: ${{ inputs.status-context || 'integration' }}
-      - name: Set up Node 16
+      - name: Set up Node 22
         uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v4.4.0
         with:
-          node-version: 16
+          node-version: 22
           cache: 'yarn'
       - name: Run integration tests
         run: ./run-tests.sh
