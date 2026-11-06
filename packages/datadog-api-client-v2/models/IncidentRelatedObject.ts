@@ -13,6 +13,8 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type IncidentRelatedObject =
   | typeof USERS
   | typeof ATTACHMENTS
+  | typeof RESPONDERS
   | UnparsedObject;
 export const USERS = "users";
 export const ATTACHMENTS = "attachments";
+export const RESPONDERS = "responders";

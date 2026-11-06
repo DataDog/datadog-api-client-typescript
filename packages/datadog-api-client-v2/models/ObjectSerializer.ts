@@ -8516,7 +8516,7 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentPageTargetType: ["team_handle", "team_uuid", "user_uuid"],
   IncidentPageUUIDType: ["page_uuid"],
   IncidentPostmortemType: ["incident_postmortems"],
-  IncidentRelatedObject: ["users", "attachments"],
+  IncidentRelatedObject: ["users", "attachments", "responders"],
   IncidentResourceType: ["incidents"],
   IncidentResponderRelatedObject: ["users", "role_assignments"],
   IncidentResponderType: ["incident_responders"],
@@ -20216,7 +20216,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "IncidentUserData",
     "IncidentRoleAssignmentDataResponse",
   ],
-  IncidentResponseIncludedItem: ["IncidentUserData", "AttachmentData"],
+  IncidentResponseIncludedItem: [
+    "IncidentUserData",
+    "AttachmentData",
+    "IncidentResponderDataResponse",
+  ],
   IncidentTimelineCellCreateAttributes: [
     "IncidentTimelineCellMarkdownCreateAttributes",
   ],
