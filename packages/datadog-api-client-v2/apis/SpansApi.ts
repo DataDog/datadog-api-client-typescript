@@ -516,7 +516,7 @@ export class SpansApi {
 
   /**
    * The API endpoint to aggregate spans into buckets and compute metrics and timeseries.
-   * This endpoint is rate limited to `300` requests per hour.
+   * This endpoint is rate limited to `50` requests per minute per organization.
    *
    * A request can generate at most 10,000 groups across all `group_by` entries, or 400,000 groups
    * including time buckets when a `timeseries` compute is used. Set `limit` on each `group_by` entry
@@ -546,7 +546,7 @@ export class SpansApi {
    * [Results are paginated][1].
    *
    * Use this endpoint to build complex spans filtering and search.
-   * This endpoint is rate limited to `300` requests per hour.
+   * This endpoint is rate limited to `50` requests per minute per organization.
    *
    * [1]: /logs/guide/collect-multiple-logs-with-pagination?tab=v2api
    * @param param The request object
@@ -633,7 +633,7 @@ export class SpansApi {
    * [Results are paginated][1].
    *
    * Use this endpoint to see your latest spans.
-   * This endpoint is rate limited to `300` requests per hour.
+   * This endpoint is rate limited to `50` requests per minute per organization.
    *
    * [1]: /logs/guide/collect-multiple-logs-with-pagination?tab=v2api
    * @param param The request object
