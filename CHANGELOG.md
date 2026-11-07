@@ -1,5 +1,64 @@
 # CHANGELOG
 
+## 1.65.0/2026-10-13
+
+### Added
+* Clarify JavaScript source map listing and pagination [#5352](https://github.com/DataDog/datadog-api-client-typescript/pull/5352)
+* Document public Deployment Gate and rule evaluation endpoints [#5350](https://github.com/DataDog/datadog-api-client-typescript/pull/5350)
+* Add Heatgrid dashboard widget support [#5344](https://github.com/DataDog/datadog-api-client-typescript/pull/5344)
+* Mark Bits Investigation endpoints as stable [#5342](https://github.com/DataDog/datadog-api-client-typescript/pull/5342)
+* Add endpoint to override the severity of security findings [#5336](https://github.com/DataDog/datadog-api-client-typescript/pull/5336)
+* Add reroute_to_team action to On-Call team routing rules [#5334](https://github.com/DataDog/datadog-api-client-typescript/pull/5334)
+* Include the matched shard in the SPA v2 response [#5333](https://github.com/DataDog/datadog-api-client-typescript/pull/5333)
+* Add aggregate event-time configuration to Observability Pipelines [#5320](https://github.com/DataDog/datadog-api-client-typescript/pull/5320)
+* Publish Cloud Cost Management cloud account listing [#5318](https://github.com/DataDog/datadog-api-client-typescript/pull/5318)
+* Add AI Impact user activity endpoint [#5316](https://github.com/DataDog/datadog-api-client-typescript/pull/5316)
+* Rename Patch a deployment event to Mark a deployment as failed by ID [#5297](https://github.com/DataDog/datadog-api-client-typescript/pull/5297)
+* Promote Mark a deployment as failed by version endpoint to GA [#5296](https://github.com/DataDog/datadog-api-client-typescript/pull/5296)
+* Document Supply Chain Firewall reports API [#5293](https://github.com/DataDog/datadog-api-client-typescript/pull/5293)
+* Add compatibleVersion to security monitoring rule responses [#5288](https://github.com/DataDog/datadog-api-client-typescript/pull/5288)
+* Add CI job logs intake API [#5285](https://github.com/DataDog/datadog-api-client-typescript/pull/5285)
+* Add Archive Search endpoints to the public API [#5281](https://github.com/DataDog/datadog-api-client-typescript/pull/5281)
+* Add SPA recommendations v2 endpoint [#5279](https://github.com/DataDog/datadog-api-client-typescript/pull/5279)
+* Add dashboard experience type to API responses [#5277](https://github.com/DataDog/datadog-api-client-typescript/pull/5277)
+* Extend Cloud Auth Config endpoints to support new GitHub provider [#5275](https://github.com/DataDog/datadog-api-client-typescript/pull/5275)
+* Add case_stream to dashboard list stream sources [#5264](https://github.com/DataDog/datadog-api-client-typescript/pull/5264)
+* Add metrics enrichment table processor to Observability Pipelines [#5262](https://github.com/DataDog/datadog-api-client-typescript/pull/5262)
+* Add bits_ai_auto_investigate to synthetics test options [#5256](https://github.com/DataDog/datadog-api-client-typescript/pull/5256)
+* Document `source` field in DataDeletionResponseItemAttributes [#5254](https://github.com/DataDog/datadog-api-client-typescript/pull/5254)
+* Document Flink as a Confluent Cloud resource type [#5246](https://github.com/DataDog/datadog-api-client-typescript/pull/5246)
+* Document recently updated entities endpoint and entity_type parameter [#5244](https://github.com/DataDog/datadog-api-client-typescript/pull/5244)
+* Publish stable Experiments v2 APIs [#5238](https://github.com/DataDog/datadog-api-client-typescript/pull/5238)
+* Document leak information on personal and service access tokens [#5231](https://github.com/DataDog/datadog-api-client-typescript/pull/5231)
+* Increase Reference Tables Upsert/DeleteRows payload limit to 1 MiB [#5212](https://github.com/DataDog/datadog-api-client-typescript/pull/5212)
+* add recipient_email and servicenow to team notification rule [#5207](https://github.com/DataDog/datadog-api-client-typescript/pull/5207)
+* Document the meta object returned by Reference Tables Get rows by id [#5173](https://github.com/DataDog/datadog-api-client-typescript/pull/5173)
+* Add support for general investigations to Bits Investigations trigger API [#5158](https://github.com/DataDog/datadog-api-client-typescript/pull/5158)
+* Document managed prompt message placeholders [#5105](https://github.com/DataDog/datadog-api-client-typescript/pull/5105)
+
+### Changed
+* Document AI Impact user activity endpoint under DORA Metrics [#5340](https://github.com/DataDog/datadog-api-client-typescript/pull/5340)
+* Document dashboard quality scores in usage APIs [#5313](https://github.com/DataDog/datadog-api-client-typescript/pull/5313)
+* Update signalsDetected description to reflect risk-contributing signals [#5146](https://github.com/DataDog/datadog-api-client-typescript/pull/5146)
+
+### Fixed
+* Allow null default_value in governance control parameter definitions [#5338](https://github.com/DataDog/datadog-api-client-typescript/pull/5338)
+* Remove bearer token auth from the CreateEvent intake endpoint [#5330](https://github.com/DataDog/datadog-api-client-typescript/pull/5330)
+* Clarify the Archive Search tag description [#5301](https://github.com/DataDog/datadog-api-client-typescript/pull/5301)
+* Fix Workload Protection policy creation success response to 201 Created [#5287](https://github.com/DataDog/datadog-api-client-typescript/pull/5287)
+* Document DDSQL query permissions and OAuth scope [#5242](https://github.com/DataDog/datadog-api-client-typescript/pull/5242)
+* Specify UUID format for Databricks Private Action Runner connection fields [#5216](https://github.com/DataDog/datadog-api-client-typescript/pull/5216)
+* CCM Recommendations API - Re-add filter request attribute and fix sort examples [#5185](https://github.com/DataDog/datadog-api-client-typescript/pull/5185)
+* Automation pipelines require ID in updates and use different request/response schemas [#5052](https://github.com/DataDog/datadog-api-client-typescript/pull/5052)
+* RUM Rename feature to journey strong link to link in comments and desc [#4992](https://github.com/DataDog/datadog-api-client-typescript/pull/4992)
+* Document missing limitations and 409 response for org disable endpoint [#4691](https://github.com/DataDog/datadog-api-client-typescript/pull/4691)
+
+### Deprecated
+* Deprecate Salesforce Incidents API endpoints [#5324](https://github.com/DataDog/datadog-api-client-typescript/pull/5324)
+
+### Removed
+* Retire the RUM aggregated signals and problems endpoint [#5248](https://github.com/DataDog/datadog-api-client-typescript/pull/5248)
+
 ## 1.64.0/2026-09-24
 
 ### Added
