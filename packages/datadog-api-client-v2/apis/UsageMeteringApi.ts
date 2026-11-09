@@ -180,6 +180,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   public async deletePendingQuota(
     quotaNamespace: string,
     id: string,
+    includeDescendants?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -216,6 +217,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
+    // Query Params
+    if (includeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "include_descendants",
+        ObjectSerializer.serialize(includeDescendants, "boolean", ""),
+        ""
+      );
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -229,6 +239,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   public async deleteQuota(
     quotaNamespace: string,
     id: string,
+    includeDescendants?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -263,6 +274,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (includeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "include_descendants",
+        ObjectSerializer.serialize(includeDescendants, "boolean", ""),
+        ""
+      );
     }
 
     // Apply auth methods
@@ -1000,6 +1020,65 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getQuota(
+    quotaNamespace: string,
+    id: string,
+    includeDescendants?: boolean,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getQuota'");
+    if (!_config.unstableOperations["v2.getQuota"]) {
+      throw new Error("Unstable operation 'getQuota' is disabled");
+    }
+
+    // verify required parameter 'quotaNamespace' is not null or undefined
+    if (quotaNamespace === null || quotaNamespace === undefined) {
+      throw new RequiredError("quotaNamespace", "getQuota");
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "getQuota");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/quotas/{quota_namespace}/{id}"
+      .replace("{quota_namespace}", encodeURIComponent(String(quotaNamespace)))
+      .replace("{id}", encodeURIComponent(String(id)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsageMeteringApi.getQuota")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (includeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "include_descendants",
+        ObjectSerializer.serialize(includeDescendants, "boolean", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getTemporaryGrantRequest(
     requestId: string,
     _options?: Configuration
@@ -1500,6 +1579,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     quotaNamespace: string,
     id: string,
     body: UsageQuotaUpdateRequest,
+    includeDescendants?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -1539,6 +1619,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (includeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "include_descendants",
+        ObjectSerializer.serialize(includeDescendants, "boolean", ""),
+        ""
+      );
     }
 
     // Body Params
@@ -2890,6 +2979,108 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getQuota
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getQuota(
+    response: ResponseContext
+  ): Promise<UsageQuotaResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UsageQuotaResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "UsageQuotaResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as UsageQuotaResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsageQuotaResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "UsageQuotaResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as UsageQuotaResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getTemporaryGrantRequest
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3899,7 +4090,7 @@ export interface UsageMeteringApiCreateQuotasRequest {
    */
   body: UsageQuotasCreateRequest;
   /**
-   * Whether to write every item in the request to the caller's organization and all of its descendant organizations, instead of only the caller's organization. Only descendants in the same datacenter are supported. For a user-handle scope, the quota is applied only to the caller's organization and to descendant organizations where that user handle exists; the item fails only if the handle exists in none of them.
+   * Whether to write every item in the request to the caller's organization and all of its descendant organizations, instead of only the caller's organization. Only descendants in the same data center are supported. For a user-handle scope, the quota is applied only to the caller's organization and to descendant organizations where that user handle exists; the item fails only if the handle exists in none of them.
    * @type boolean
    */
   includeDescendants?: boolean;
@@ -3923,6 +4114,11 @@ export interface UsageMeteringApiDeletePendingQuotaRequest {
    * @type string
    */
   id: string;
+  /**
+   * Allow access to authorized descendant organizations in the same data center. When false, an identifier belonging to any other organization returns 403. Defaults to true for ID-based operations to preserve existing descendant access.
+   * @type boolean
+   */
+  includeDescendants?: boolean;
 }
 
 export interface UsageMeteringApiDeleteQuotaRequest {
@@ -3936,6 +4132,11 @@ export interface UsageMeteringApiDeleteQuotaRequest {
    * @type string
    */
   id: string;
+  /**
+   * Allow access to authorized descendant organizations in the same data center. When false, an identifier belonging to any other organization returns 403. Defaults to true for ID-based operations to preserve existing descendant access.
+   * @type boolean
+   */
+  includeDescendants?: boolean;
 }
 
 export interface UsageMeteringApiDeleteRequestedTemporaryGrantRequest {
@@ -4170,6 +4371,24 @@ export interface UsageMeteringApiGetProjectedCostRequest {
   includeConnectedAccounts?: boolean;
 }
 
+export interface UsageMeteringApiGetQuotaRequest {
+  /**
+   * The product-specific namespace whose usage quotas are being managed.
+   * @type string
+   */
+  quotaNamespace: string;
+  /**
+   * The opaque quota identifier returned by a previous list or create request. Clients must pass this value verbatim.
+   * @type string
+   */
+  id: string;
+  /**
+   * Allow access to authorized descendant organizations in the same data center. When false, an identifier belonging to any other organization returns 403. Defaults to true for ID-based operations to preserve existing descendant access.
+   * @type boolean
+   */
+  includeDescendants?: boolean;
+}
+
 export interface UsageMeteringApiGetTemporaryGrantRequestRequest {
   /**
    * The temporary grant request UUID.
@@ -4245,7 +4464,7 @@ export interface UsageMeteringApiListQuotasRequest {
    */
   quotaNamespace: string;
   /**
-   * Whether to include quotas configured on descendant organizations in the caller's organization hierarchy. Only descendants in the same datacenter are supported.
+   * Whether to include quotas configured on descendant organizations in the caller's organization hierarchy. Only descendants in the same data center are supported.
    * @type boolean
    */
   includeDescendants?: boolean;
@@ -4300,6 +4519,11 @@ export interface UsageMeteringApiUpdateQuotaRequest {
    * @type UsageQuotaUpdateRequest
    */
   body: UsageQuotaUpdateRequest;
+  /**
+   * Allow access to authorized descendant organizations in the same data center. When false, an identifier belonging to any other organization returns 403. Defaults to true for ID-based operations to preserve existing descendant access.
+   * @type boolean
+   */
+  includeDescendants?: boolean;
 }
 
 export interface UsageMeteringApiUpdateTemporaryGrantRequestRequest {
@@ -4418,6 +4642,7 @@ export class UsageMeteringApi {
     const requestContextPromise = this.requestFactory.deletePendingQuota(
       param.quotaNamespace,
       param.id,
+      param.includeDescendants,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -4440,6 +4665,7 @@ export class UsageMeteringApi {
     const requestContextPromise = this.requestFactory.deleteQuota(
       param.quotaNamespace,
       param.id,
+      param.includeDescendants,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -4752,6 +4978,33 @@ export class UsageMeteringApi {
   }
 
   /**
+   * Returns a usage quota's current configuration by its opaque identifier. Scheduled limits are returned separately until they take effect, after which they are returned as the current limit.
+   *
+   * By default, you can retrieve quotas from your organization and authorized descendant organizations in the same data center. Set `include_descendants=false` to restrict access to your organization.
+   *
+   * A quota remains readable after its associated user, role, or team is deleted. Requires `billing_read` or `billing_edit`.
+   * @param param The request object
+   */
+  public getQuota(
+    param: UsageMeteringApiGetQuotaRequest,
+    options?: Configuration
+  ): Promise<UsageQuotaResponse> {
+    const requestContextPromise = this.requestFactory.getQuota(
+      param.quotaNamespace,
+      param.id,
+      param.includeDescendants,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getQuota(responseContext);
+        });
+    });
+  }
+
+  /**
    * Read an organization request, justification, decision, and linked grant state. Requires Billing Edit. Requires an authenticated human user. Service-account credentials are unsupported. Request status remains approved after expiry, revocation, or replacement.
    * @param param The request object
    */
@@ -5013,7 +5266,7 @@ export class UsageMeteringApi {
 
   /**
    * Lists usage quotas for the caller's organization in a quota namespace. You can optionally include
-   * descendant organizations in the same datacenter as the caller. Requires the `billing_read` or
+   * descendant organizations in the same data center as the caller. Requires the `billing_read` or
    * `billing_edit` permission.
    * @param param The request object
    */
@@ -5174,7 +5427,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Updates the supplied fields on a usage quota and leaves omitted fields unchanged. For an organization-wide quota, `pending_usage_limit` schedules a limit for the next usage period. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `billing_edit` permission.
+   * Updates the supplied fields on a usage quota. Setting `enforced=false` clears any pending change atomically, including when enforcement is already disabled. Other immediate updates preserve future pending changes when `pending_usage_limit` is omitted. For an organization-wide quota, `pending_usage_limit` schedules a limit for the next usage period. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `billing_edit` permission.
    * @param param The request object
    */
   public updateQuota(
@@ -5185,6 +5438,7 @@ export class UsageMeteringApi {
       param.quotaNamespace,
       param.id,
       param.body,
+      param.includeDescendants,
       options
     );
     return requestContextPromise.then((requestContext) => {

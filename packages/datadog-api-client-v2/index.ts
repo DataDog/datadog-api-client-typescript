@@ -2184,6 +2184,7 @@ export {
   UsageMeteringApiGetMonthlyCostAttributionRequest,
   UsageMeteringApiGetMyTemporaryGrantRequestRequest,
   UsageMeteringApiGetProjectedCostRequest,
+  UsageMeteringApiGetQuotaRequest,
   UsageMeteringApiGetTemporaryGrantRequestRequest,
   UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
   UsageMeteringApiGetUsageLambdaTracedInvocationsRequest,
