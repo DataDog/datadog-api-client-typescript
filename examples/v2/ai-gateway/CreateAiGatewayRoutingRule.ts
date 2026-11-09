@@ -21,14 +21,22 @@ const params: v2.AIGatewayApiCreateAiGatewayRoutingRuleRequest = {
         slug: "coding",
         tiers: [
           {
+            classifier: {
+              confidenceThreshold: 0.6,
+              context: "Requests come from the internal coding assistant.",
+              model: "gpt-6-luna",
+              provider: "prod-us",
+            },
             ordering: "configured",
             targets: [
               {
+                _default: false,
                 id: 901,
                 model: "gpt-5.2-codex",
                 modelId: 101,
                 provider: "prod-us",
                 reasoningLevel: "medium",
+                rubric: "Writing, reviewing, or debugging code.",
                 slug: "coding-fallback",
                 type: "model",
                 weight: 70,
