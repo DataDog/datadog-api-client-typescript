@@ -9747,7 +9747,26 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UsageQuotasBulkResponse",
   },
+  "UsageMeteringApi.V2.GetQuota": {
+    includeDescendants: {
+      type: "boolean",
+      format: "",
+    },
+    quotaNamespace: {
+      type: "string",
+      format: "",
+    },
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "UsageQuotaResponse",
+  },
   "UsageMeteringApi.V2.DeleteQuota": {
+    includeDescendants: {
+      type: "boolean",
+      format: "",
+    },
     quotaNamespace: {
       type: "string",
       format: "",
@@ -9759,6 +9778,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "{}",
   },
   "UsageMeteringApi.V2.UpdateQuota": {
+    includeDescendants: {
+      type: "boolean",
+      format: "",
+    },
     quotaNamespace: {
       type: "string",
       format: "",
@@ -9774,6 +9797,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "UsageQuotaResponse",
   },
   "UsageMeteringApi.V2.DeletePendingQuota": {
+    includeDescendants: {
+      type: "boolean",
+      format: "",
+    },
     quotaNamespace: {
       type: "string",
       format: "",
