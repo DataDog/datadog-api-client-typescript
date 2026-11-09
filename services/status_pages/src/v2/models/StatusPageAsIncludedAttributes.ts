@@ -38,6 +38,10 @@ export class StatusPageAsIncludedAttributes {
    */
   "emailHeaderImage"?: string;
   /**
+   * Whether email notifications are enabled for the status page. Must be enabled when `subscriptions_enabled` is `true`.
+   */
+  "emailNotificationsEnabled"?: boolean;
+  /**
    * Whether the status page is enabled.
    */
   "enabled"?: boolean;
@@ -49,6 +53,10 @@ export class StatusPageAsIncludedAttributes {
    * Timestamp of when the status page was last modified.
    */
   "modifiedAt"?: Date;
+  /**
+   * Whether Microsoft Teams subscriptions are enabled for the status page.
+   */
+  "msTeamsSubscriptionsEnabled"?: boolean;
   /**
    * The name of the status page.
    */
@@ -129,6 +137,10 @@ export class StatusPageAsIncludedAttributes {
       baseName: "email_header_image",
       type: "string",
     },
+    emailNotificationsEnabled: {
+      baseName: "email_notifications_enabled",
+      type: "boolean",
+    },
     enabled: {
       baseName: "enabled",
       type: "boolean",
@@ -141,6 +153,10 @@ export class StatusPageAsIncludedAttributes {
       baseName: "modified_at",
       type: "Date",
       format: "date-time",
+    },
+    msTeamsSubscriptionsEnabled: {
+      baseName: "ms_teams_subscriptions_enabled",
+      type: "boolean",
     },
     name: {
       baseName: "name",
