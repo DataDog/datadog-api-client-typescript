@@ -11,7 +11,8 @@ export class SummarizedTrace {
    */
   "root": SummarizedSpan;
   /**
-   * The full 128-bit trace ID, encoded as a 32-character hexadecimal string.
+   * The trace ID as requested: a decimal ID is returned unchanged, and a hexadecimal ID is lowercased and
+   * left-padded with zeros to 32 characters.
    */
   "traceId": string;
   /**
