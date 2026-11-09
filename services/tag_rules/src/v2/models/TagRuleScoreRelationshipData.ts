@@ -11,7 +11,7 @@ export class TagRuleScoreRelationshipData {
    */
   "id": string;
   /**
-   * JSON:API resource type for a tag rule compliance score.
+   * JSON:API resource type for a tag rule compliance score. Responses use the legacy `tag_policy_score` value.
    */
   "type": TagRuleScoreResourceType;
   /**
