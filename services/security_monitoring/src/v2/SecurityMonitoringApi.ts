@@ -12013,16 +12013,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "SecurityMonitoringApi.v2.updateFindingsAssignee"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateFindingsAssignee' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.updateFindingsAssignee'] = true`",
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "updateFindingsAssignee");
@@ -12078,16 +12068,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "SecurityMonitoringApi.v2.updateFindingsSeverity"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateFindingsSeverity' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.updateFindingsSeverity'] = true`",
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
