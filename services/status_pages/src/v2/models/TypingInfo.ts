@@ -44,6 +44,9 @@ import { CreateMaintenanceRequestDataRelationshipsTemplateData } from "./CreateM
 import { CreateMaintenanceTemplateRequest } from "./CreateMaintenanceTemplateRequest";
 import { CreateMaintenanceTemplateRequestData } from "./CreateMaintenanceTemplateRequestData";
 import { CreateMaintenanceTemplateRequestDataAttributes } from "./CreateMaintenanceTemplateRequestDataAttributes";
+import { CreateStatusPageEmailAccessPolicyRequest } from "./CreateStatusPageEmailAccessPolicyRequest";
+import { CreateStatusPageEmailAccessPolicyRequestData } from "./CreateStatusPageEmailAccessPolicyRequestData";
+import { CreateStatusPageEmailAccessPolicyRequestDataAttributes } from "./CreateStatusPageEmailAccessPolicyRequestDataAttributes";
 import { CreateStatusPageRequest } from "./CreateStatusPageRequest";
 import { CreateStatusPageRequestData } from "./CreateStatusPageRequestData";
 import { CreateStatusPageRequestDataAttributes } from "./CreateStatusPageRequestDataAttributes";
@@ -91,6 +94,9 @@ import { DegradationUpdateDataRelationshipsStatusPage } from "./DegradationUpdat
 import { DegradationUpdateDataRelationshipsStatusPageData } from "./DegradationUpdateDataRelationshipsStatusPageData";
 import { DegradationUpdateDataRelationshipsUser } from "./DegradationUpdateDataRelationshipsUser";
 import { DegradationUpdateDataRelationshipsUserData } from "./DegradationUpdateDataRelationshipsUserData";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { Maintenance } from "./Maintenance";
 import { MaintenanceArray } from "./MaintenanceArray";
 import { MaintenanceData } from "./MaintenanceData";
@@ -182,6 +188,15 @@ import { StatusPageDataRelationshipsCreatedByUser } from "./StatusPageDataRelati
 import { StatusPageDataRelationshipsCreatedByUserData } from "./StatusPageDataRelationshipsCreatedByUserData";
 import { StatusPageDataRelationshipsLastModifiedByUser } from "./StatusPageDataRelationshipsLastModifiedByUser";
 import { StatusPageDataRelationshipsLastModifiedByUserData } from "./StatusPageDataRelationshipsLastModifiedByUserData";
+import { StatusPageEmailAccessPolicyArrayResponse } from "./StatusPageEmailAccessPolicyArrayResponse";
+import { StatusPageEmailAccessPolicyData } from "./StatusPageEmailAccessPolicyData";
+import { StatusPageEmailAccessPolicyDataAttributes } from "./StatusPageEmailAccessPolicyDataAttributes";
+import { StatusPageEmailAccessPolicyDataRelationships } from "./StatusPageEmailAccessPolicyDataRelationships";
+import { StatusPageEmailAccessPolicyDataRelationshipsCreatedByUser } from "./StatusPageEmailAccessPolicyDataRelationshipsCreatedByUser";
+import { StatusPageEmailAccessPolicyDataRelationshipsCreatedByUserData } from "./StatusPageEmailAccessPolicyDataRelationshipsCreatedByUserData";
+import { StatusPageEmailAccessPolicyDataRelationshipsStatusPage } from "./StatusPageEmailAccessPolicyDataRelationshipsStatusPage";
+import { StatusPageEmailAccessPolicyDataRelationshipsStatusPageData } from "./StatusPageEmailAccessPolicyDataRelationshipsStatusPageData";
+import { StatusPageEmailAccessPolicyResponse } from "./StatusPageEmailAccessPolicyResponse";
 import { StatusPagesComponent } from "./StatusPagesComponent";
 import { StatusPagesComponentArray } from "./StatusPagesComponentArray";
 import { StatusPagesComponentData } from "./StatusPagesComponentData";
@@ -213,6 +228,7 @@ import { StatusPagesUserAttributes } from "./StatusPagesUserAttributes";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    AccessPolicyEffect: ["allow", "deny"],
     CreateComponentRequestDataAttributesType: ["component", "group"],
     CreateDegradationRequestDataAttributesStatus: [
       "investigating",
@@ -224,7 +240,11 @@ export const TypingInfo: ModelTypingInfo = {
       "in_progress",
       "completed",
     ],
-    CreateStatusPageRequestDataAttributesType: ["public", "internal"],
+    CreateStatusPageRequestDataAttributesType: [
+      "public",
+      "internal",
+      "private",
+    ],
     CreateStatusPageRequestDataAttributesVisualizationLayout: ["list", "grid"],
     CreateStatusPageRequestDataAttributesVisualizationType: [
       "bars_and_uptime_percentage",
@@ -264,6 +284,7 @@ export const TypingInfo: ModelTypingInfo = {
     PatchMaintenanceTemplateRequestDataType: ["maintenance_templates"],
     PatchMaintenanceUpdateRequestDataType: ["maintenance_updates"],
     StatusPageDataType: ["status_pages"],
+    StatusPageEmailAccessPolicyType: ["email_access_policies"],
     StatusPagesComponentDataAttributesStatus: [
       "operational",
       "degraded",
@@ -290,6 +311,10 @@ export const TypingInfo: ModelTypingInfo = {
       "StatusPageAsIncluded",
     ],
     StatusPageArrayIncluded: ["StatusPagesUser"],
+    StatusPageEmailAccessPolicyIncluded: [
+      "StatusPagesUser",
+      "StatusPageAsIncluded",
+    ],
     StatusPagesComponentArrayIncluded: [
       "StatusPagesUser",
       "StatusPageAsIncluded",
@@ -371,6 +396,12 @@ export const TypingInfo: ModelTypingInfo = {
     CreateMaintenanceTemplateRequestData: CreateMaintenanceTemplateRequestData,
     CreateMaintenanceTemplateRequestDataAttributes:
       CreateMaintenanceTemplateRequestDataAttributes,
+    CreateStatusPageEmailAccessPolicyRequest:
+      CreateStatusPageEmailAccessPolicyRequest,
+    CreateStatusPageEmailAccessPolicyRequestData:
+      CreateStatusPageEmailAccessPolicyRequestData,
+    CreateStatusPageEmailAccessPolicyRequestDataAttributes:
+      CreateStatusPageEmailAccessPolicyRequestDataAttributes,
     CreateStatusPageRequest: CreateStatusPageRequest,
     CreateStatusPageRequestData: CreateStatusPageRequestData,
     CreateStatusPageRequestDataAttributes:
@@ -446,6 +477,9 @@ export const TypingInfo: ModelTypingInfo = {
       DegradationUpdateDataRelationshipsUser,
     DegradationUpdateDataRelationshipsUserData:
       DegradationUpdateDataRelationshipsUserData,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     Maintenance: Maintenance,
     MaintenanceArray: MaintenanceArray,
     MaintenanceData: MaintenanceData,
@@ -585,6 +619,22 @@ export const TypingInfo: ModelTypingInfo = {
       StatusPageDataRelationshipsLastModifiedByUser,
     StatusPageDataRelationshipsLastModifiedByUserData:
       StatusPageDataRelationshipsLastModifiedByUserData,
+    StatusPageEmailAccessPolicyArrayResponse:
+      StatusPageEmailAccessPolicyArrayResponse,
+    StatusPageEmailAccessPolicyData: StatusPageEmailAccessPolicyData,
+    StatusPageEmailAccessPolicyDataAttributes:
+      StatusPageEmailAccessPolicyDataAttributes,
+    StatusPageEmailAccessPolicyDataRelationships:
+      StatusPageEmailAccessPolicyDataRelationships,
+    StatusPageEmailAccessPolicyDataRelationshipsCreatedByUser:
+      StatusPageEmailAccessPolicyDataRelationshipsCreatedByUser,
+    StatusPageEmailAccessPolicyDataRelationshipsCreatedByUserData:
+      StatusPageEmailAccessPolicyDataRelationshipsCreatedByUserData,
+    StatusPageEmailAccessPolicyDataRelationshipsStatusPage:
+      StatusPageEmailAccessPolicyDataRelationshipsStatusPage,
+    StatusPageEmailAccessPolicyDataRelationshipsStatusPageData:
+      StatusPageEmailAccessPolicyDataRelationshipsStatusPageData,
+    StatusPageEmailAccessPolicyResponse: StatusPageEmailAccessPolicyResponse,
     StatusPagesComponent: StatusPagesComponent,
     StatusPagesComponentArray: StatusPagesComponentArray,
     StatusPagesComponentData: StatusPagesComponentData,
