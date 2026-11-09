@@ -2607,6 +2607,12 @@ import { GitHubCloudAuthPersonaMappingDataResponse } from "./GitHubCloudAuthPers
 import { GitHubCloudAuthPersonaMappingResponse } from "./GitHubCloudAuthPersonaMappingResponse";
 import { GitHubCloudAuthPersonaMappingsResponse } from "./GitHubCloudAuthPersonaMappingsResponse";
 import { GitHubOIDCClaimPatterns } from "./GitHubOIDCClaimPatterns";
+import { GithubApp } from "./GithubApp";
+import { GithubAppUpdate } from "./GithubAppUpdate";
+import { GithubIntegration } from "./GithubIntegration";
+import { GithubIntegrationUpdate } from "./GithubIntegrationUpdate";
+import { GithubPersonalAccessToken } from "./GithubPersonalAccessToken";
+import { GithubPersonalAccessTokenUpdate } from "./GithubPersonalAccessTokenUpdate";
 import { GithubWebhookTrigger } from "./GithubWebhookTrigger";
 import { GithubWebhookTriggerWrapper } from "./GithubWebhookTriggerWrapper";
 import { GitlabAPIKey } from "./GitlabAPIKey";
@@ -8437,6 +8443,9 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   GitHubCloudAuthIntakeMappingType: ["github_oidc_auth_intake_mapping"],
   GitHubCloudAuthPersonaMappingType: ["github_oidc_auth_config"],
+  GithubAppType: ["GithubApp"],
+  GithubIntegrationType: ["Github"],
+  GithubPersonalAccessTokenType: ["GithubPersonalAccessToken"],
   GitlabAPIKeyType: ["GitlabAPIKey"],
   GitlabIntegrationType: ["Gitlab"],
   GlobalIncidentSettingsType: ["incidents_global_settings"],
@@ -14284,6 +14293,12 @@ const typeMap: { [index: string]: any } = {
   GitHubCloudAuthPersonaMappingsResponse:
     GitHubCloudAuthPersonaMappingsResponse,
   GitHubOIDCClaimPatterns: GitHubOIDCClaimPatterns,
+  GithubApp: GithubApp,
+  GithubAppUpdate: GithubAppUpdate,
+  GithubIntegration: GithubIntegration,
+  GithubIntegrationUpdate: GithubIntegrationUpdate,
+  GithubPersonalAccessToken: GithubPersonalAccessToken,
+  GithubPersonalAccessTokenUpdate: GithubPersonalAccessTokenUpdate,
   GithubWebhookTrigger: GithubWebhookTrigger,
   GithubWebhookTriggerWrapper: GithubWebhookTriggerWrapper,
   GitlabAPIKey: GitlabAPIKey,
@@ -19849,6 +19864,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "FreshserviceIntegration",
     "GCPIntegration",
     "GeminiIntegration",
+    "GithubIntegration",
     "GitlabIntegration",
     "GreyNoiseIntegration",
     "HTTPIntegration",
@@ -19875,6 +19891,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "FreshserviceIntegrationUpdate",
     "GCPIntegrationUpdate",
     "GeminiIntegrationUpdate",
+    "GithubIntegrationUpdate",
     "GitlabIntegrationUpdate",
     "GreyNoiseIntegrationUpdate",
     "HTTPIntegrationUpdate",
@@ -20286,6 +20303,53 @@ const oneOfMap: { [index: string]: string[] } = {
   GeneralInvestigationAttributes: [
     "GeneralInvestigationAttributesWithoutTimeBounds",
     "GeneralInvestigationAttributesWithTimeBounds",
+  ],
+  GithubAppGithubAppId: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GithubAppGithubInstallationId: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GithubAppHostname: ["string", "ActionConnectionAWSSecretsManagerReference"],
+  GithubAppPrivateKey: ["string", "ActionConnectionAWSSecretsManagerReference"],
+  GithubAppUpdateGithubAppId: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GithubAppUpdateGithubInstallationId: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GithubAppUpdateHostname: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GithubAppUpdatePrivateKey: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GithubCredentials: ["GithubApp", "GithubPersonalAccessToken"],
+  GithubCredentialsUpdate: [
+    "GithubAppUpdate",
+    "GithubPersonalAccessTokenUpdate",
+  ],
+  GithubPersonalAccessTokenAccessToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GithubPersonalAccessTokenHostname: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GithubPersonalAccessTokenUpdateAccessToken: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
+  ],
+  GithubPersonalAccessTokenUpdateHostname: [
+    "string",
+    "ActionConnectionAWSSecretsManagerReference",
   ],
   GitlabAPIKeyApiToken: [
     "string",
