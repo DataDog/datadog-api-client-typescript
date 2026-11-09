@@ -19976,6 +19976,43 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "StatusPage",
   },
+  "StatusPagesApi.V2.ListEmailAccessPolicies": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "StatusPageEmailAccessPolicyArrayResponse",
+  },
+  "StatusPagesApi.V2.CreateEmailAccessPolicy": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CreateStatusPageEmailAccessPolicyRequest",
+      format: "",
+    },
+    operationResponseType: "StatusPageEmailAccessPolicyResponse",
+  },
+  "StatusPagesApi.V2.DeleteEmailAccessPolicy": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    policyId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
   "StatusPagesApi.V2.ListComponents": {
     pageId: {
       type: "string",

@@ -4,12 +4,14 @@ export {
   StatusPagesApiCreateComponentRequest,
   StatusPagesApiCreateDegradationRequest,
   StatusPagesApiCreateDegradationTemplateRequest,
+  StatusPagesApiCreateEmailAccessPolicyRequest,
   StatusPagesApiCreateMaintenanceRequest,
   StatusPagesApiCreateMaintenanceTemplateRequest,
   StatusPagesApiCreateStatusPageRequest,
   StatusPagesApiDeleteComponentRequest,
   StatusPagesApiDeleteDegradationRequest,
   StatusPagesApiDeleteDegradationTemplateRequest,
+  StatusPagesApiDeleteEmailAccessPolicyRequest,
   StatusPagesApiDeleteMaintenanceTemplateRequest,
   StatusPagesApiDeleteStatusPageRequest,
   StatusPagesApiEditDegradationUpdateRequest,
@@ -22,6 +24,7 @@ export {
   StatusPagesApiListComponentsRequest,
   StatusPagesApiListDegradationTemplatesRequest,
   StatusPagesApiListDegradationsRequest,
+  StatusPagesApiListEmailAccessPoliciesRequest,
   StatusPagesApiListMaintenanceTemplatesRequest,
   StatusPagesApiListMaintenancesRequest,
   StatusPagesApiListStatusPagesRequest,
@@ -38,6 +41,7 @@ export {
   StatusPagesApi,
 } from "./StatusPagesApi";
 
+export { AccessPolicyEffect } from "./models/AccessPolicyEffect";
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { CreateBackfilledDegradationRequest } from "./models/CreateBackfilledDegradationRequest";
 export { CreateBackfilledDegradationRequestData } from "./models/CreateBackfilledDegradationRequestData";
@@ -85,6 +89,9 @@ export { CreateMaintenanceRequestDataRelationshipsTemplateData } from "./models/
 export { CreateMaintenanceTemplateRequest } from "./models/CreateMaintenanceTemplateRequest";
 export { CreateMaintenanceTemplateRequestData } from "./models/CreateMaintenanceTemplateRequestData";
 export { CreateMaintenanceTemplateRequestDataAttributes } from "./models/CreateMaintenanceTemplateRequestDataAttributes";
+export { CreateStatusPageEmailAccessPolicyRequest } from "./models/CreateStatusPageEmailAccessPolicyRequest";
+export { CreateStatusPageEmailAccessPolicyRequestData } from "./models/CreateStatusPageEmailAccessPolicyRequestData";
+export { CreateStatusPageEmailAccessPolicyRequestDataAttributes } from "./models/CreateStatusPageEmailAccessPolicyRequestDataAttributes";
 export { CreateStatusPageRequest } from "./models/CreateStatusPageRequest";
 export { CreateStatusPageRequestData } from "./models/CreateStatusPageRequestData";
 export { CreateStatusPageRequestDataAttributes } from "./models/CreateStatusPageRequestDataAttributes";
@@ -138,6 +145,9 @@ export { DegradationUpdateDataRelationshipsStatusPageData } from "./models/Degra
 export { DegradationUpdateDataRelationshipsUser } from "./models/DegradationUpdateDataRelationshipsUser";
 export { DegradationUpdateDataRelationshipsUserData } from "./models/DegradationUpdateDataRelationshipsUserData";
 export { DegradationUpdateIncluded } from "./models/DegradationUpdateIncluded";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { Maintenance } from "./models/Maintenance";
 export { MaintenanceArray } from "./models/MaintenanceArray";
 export { MaintenanceData } from "./models/MaintenanceData";
@@ -244,6 +254,17 @@ export { StatusPageDataRelationshipsCreatedByUserData } from "./models/StatusPag
 export { StatusPageDataRelationshipsLastModifiedByUser } from "./models/StatusPageDataRelationshipsLastModifiedByUser";
 export { StatusPageDataRelationshipsLastModifiedByUserData } from "./models/StatusPageDataRelationshipsLastModifiedByUserData";
 export { StatusPageDataType } from "./models/StatusPageDataType";
+export { StatusPageEmailAccessPolicyArrayResponse } from "./models/StatusPageEmailAccessPolicyArrayResponse";
+export { StatusPageEmailAccessPolicyData } from "./models/StatusPageEmailAccessPolicyData";
+export { StatusPageEmailAccessPolicyDataAttributes } from "./models/StatusPageEmailAccessPolicyDataAttributes";
+export { StatusPageEmailAccessPolicyDataRelationships } from "./models/StatusPageEmailAccessPolicyDataRelationships";
+export { StatusPageEmailAccessPolicyDataRelationshipsCreatedByUser } from "./models/StatusPageEmailAccessPolicyDataRelationshipsCreatedByUser";
+export { StatusPageEmailAccessPolicyDataRelationshipsCreatedByUserData } from "./models/StatusPageEmailAccessPolicyDataRelationshipsCreatedByUserData";
+export { StatusPageEmailAccessPolicyDataRelationshipsStatusPage } from "./models/StatusPageEmailAccessPolicyDataRelationshipsStatusPage";
+export { StatusPageEmailAccessPolicyDataRelationshipsStatusPageData } from "./models/StatusPageEmailAccessPolicyDataRelationshipsStatusPageData";
+export { StatusPageEmailAccessPolicyIncluded } from "./models/StatusPageEmailAccessPolicyIncluded";
+export { StatusPageEmailAccessPolicyResponse } from "./models/StatusPageEmailAccessPolicyResponse";
+export { StatusPageEmailAccessPolicyType } from "./models/StatusPageEmailAccessPolicyType";
 export { StatusPagesComponent } from "./models/StatusPagesComponent";
 export { StatusPagesComponentArray } from "./models/StatusPagesComponentArray";
 export { StatusPagesComponentArrayIncluded } from "./models/StatusPagesComponentArrayIncluded";
