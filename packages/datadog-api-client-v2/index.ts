@@ -1991,12 +1991,14 @@ export {
   StatusPagesApiCreateComponentRequest,
   StatusPagesApiCreateDegradationRequest,
   StatusPagesApiCreateDegradationTemplateRequest,
+  StatusPagesApiCreateEmailAccessPolicyRequest,
   StatusPagesApiCreateMaintenanceRequest,
   StatusPagesApiCreateMaintenanceTemplateRequest,
   StatusPagesApiCreateStatusPageRequest,
   StatusPagesApiDeleteComponentRequest,
   StatusPagesApiDeleteDegradationRequest,
   StatusPagesApiDeleteDegradationTemplateRequest,
+  StatusPagesApiDeleteEmailAccessPolicyRequest,
   StatusPagesApiDeleteMaintenanceTemplateRequest,
   StatusPagesApiDeleteStatusPageRequest,
   StatusPagesApiEditDegradationUpdateRequest,
@@ -2009,6 +2011,7 @@ export {
   StatusPagesApiListComponentsRequest,
   StatusPagesApiListDegradationTemplatesRequest,
   StatusPagesApiListDegradationsRequest,
+  StatusPagesApiListEmailAccessPoliciesRequest,
   StatusPagesApiListMaintenanceTemplatesRequest,
   StatusPagesApiListMaintenancesRequest,
   StatusPagesApiListStatusPagesRequest,
@@ -2263,6 +2266,7 @@ export {
   WorkflowAutomationApi,
 } from "./apis/WorkflowAutomationApi";
 
+export { AccessPolicyEffect } from "./models/AccessPolicyEffect";
 export { AccessTokenListItem } from "./models/AccessTokenListItem";
 export { AccessTokenListItemRelationships } from "./models/AccessTokenListItemRelationships";
 export { AccessTokenOwnerType } from "./models/AccessTokenOwnerType";
@@ -4023,6 +4027,9 @@ export { CreateSnapshotTemplateVariable } from "./models/CreateSnapshotTemplateV
 export { CreateSnapshotTimeseriesLegendType } from "./models/CreateSnapshotTimeseriesLegendType";
 export { CreateSnapshotTTL } from "./models/CreateSnapshotTTL";
 export { CreateSnapshotType } from "./models/CreateSnapshotType";
+export { CreateStatusPageEmailAccessPolicyRequest } from "./models/CreateStatusPageEmailAccessPolicyRequest";
+export { CreateStatusPageEmailAccessPolicyRequestData } from "./models/CreateStatusPageEmailAccessPolicyRequestData";
+export { CreateStatusPageEmailAccessPolicyRequestDataAttributes } from "./models/CreateStatusPageEmailAccessPolicyRequestDataAttributes";
 export { CreateStatusPageRequest } from "./models/CreateStatusPageRequest";
 export { CreateStatusPageRequestData } from "./models/CreateStatusPageRequestData";
 export { CreateStatusPageRequestDataAttributes } from "./models/CreateStatusPageRequestDataAttributes";
@@ -10264,6 +10271,17 @@ export { StatusPageDataRelationshipsCreatedByUserData } from "./models/StatusPag
 export { StatusPageDataRelationshipsLastModifiedByUser } from "./models/StatusPageDataRelationshipsLastModifiedByUser";
 export { StatusPageDataRelationshipsLastModifiedByUserData } from "./models/StatusPageDataRelationshipsLastModifiedByUserData";
 export { StatusPageDataType } from "./models/StatusPageDataType";
+export { StatusPageEmailAccessPolicyArrayResponse } from "./models/StatusPageEmailAccessPolicyArrayResponse";
+export { StatusPageEmailAccessPolicyData } from "./models/StatusPageEmailAccessPolicyData";
+export { StatusPageEmailAccessPolicyDataAttributes } from "./models/StatusPageEmailAccessPolicyDataAttributes";
+export { StatusPageEmailAccessPolicyDataRelationships } from "./models/StatusPageEmailAccessPolicyDataRelationships";
+export { StatusPageEmailAccessPolicyDataRelationshipsCreatedByUser } from "./models/StatusPageEmailAccessPolicyDataRelationshipsCreatedByUser";
+export { StatusPageEmailAccessPolicyDataRelationshipsCreatedByUserData } from "./models/StatusPageEmailAccessPolicyDataRelationshipsCreatedByUserData";
+export { StatusPageEmailAccessPolicyDataRelationshipsStatusPage } from "./models/StatusPageEmailAccessPolicyDataRelationshipsStatusPage";
+export { StatusPageEmailAccessPolicyDataRelationshipsStatusPageData } from "./models/StatusPageEmailAccessPolicyDataRelationshipsStatusPageData";
+export { StatusPageEmailAccessPolicyIncluded } from "./models/StatusPageEmailAccessPolicyIncluded";
+export { StatusPageEmailAccessPolicyResponse } from "./models/StatusPageEmailAccessPolicyResponse";
+export { StatusPageEmailAccessPolicyType } from "./models/StatusPageEmailAccessPolicyType";
 export { StatusPagesComponent } from "./models/StatusPagesComponent";
 export { StatusPagesComponentArray } from "./models/StatusPagesComponentArray";
 export { StatusPagesComponentArrayIncluded } from "./models/StatusPagesComponentArrayIncluded";
