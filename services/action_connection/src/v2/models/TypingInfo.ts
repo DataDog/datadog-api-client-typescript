@@ -65,6 +65,12 @@ import { GeminiIntegration } from "./GeminiIntegration";
 import { GeminiIntegrationUpdate } from "./GeminiIntegrationUpdate";
 import { GetActionConnectionResponse } from "./GetActionConnectionResponse";
 import { GetAppKeyRegistrationResponse } from "./GetAppKeyRegistrationResponse";
+import { GithubApp } from "./GithubApp";
+import { GithubAppUpdate } from "./GithubAppUpdate";
+import { GithubIntegration } from "./GithubIntegration";
+import { GithubIntegrationUpdate } from "./GithubIntegrationUpdate";
+import { GithubPersonalAccessToken } from "./GithubPersonalAccessToken";
+import { GithubPersonalAccessTokenUpdate } from "./GithubPersonalAccessTokenUpdate";
 import { GitlabAPIKey } from "./GitlabAPIKey";
 import { GitlabAPIKeyUpdate } from "./GitlabAPIKeyUpdate";
 import { GitlabIntegration } from "./GitlabIntegration";
@@ -158,6 +164,9 @@ export const TypingInfo: ModelTypingInfo = {
     GCPServiceAccountCredentialType: ["GCPServiceAccount"],
     GeminiAPIKeyType: ["GeminiAPIKey"],
     GeminiIntegrationType: ["Gemini"],
+    GithubAppType: ["GithubApp"],
+    GithubIntegrationType: ["Github"],
+    GithubPersonalAccessTokenType: ["GithubPersonalAccessToken"],
     GitlabAPIKeyType: ["GitlabAPIKey"],
     GitlabIntegrationType: ["Gitlab"],
     GreyNoiseAPIKeyType: ["GreyNoiseAPIKey"],
@@ -199,6 +208,7 @@ export const TypingInfo: ModelTypingInfo = {
       "FreshserviceIntegration",
       "GCPIntegration",
       "GeminiIntegration",
+      "GithubIntegration",
       "GitlabIntegration",
       "GreyNoiseIntegration",
       "HTTPIntegration",
@@ -225,6 +235,7 @@ export const TypingInfo: ModelTypingInfo = {
       "FreshserviceIntegrationUpdate",
       "GCPIntegrationUpdate",
       "GeminiIntegrationUpdate",
+      "GithubIntegrationUpdate",
       "GitlabIntegrationUpdate",
       "GreyNoiseIntegrationUpdate",
       "HTTPIntegrationUpdate",
@@ -420,6 +431,56 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     GeminiCredentials: ["GeminiAPIKey"],
     GeminiCredentialsUpdate: ["GeminiAPIKeyUpdate"],
+    GithubAppGithubAppId: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GithubAppGithubInstallationId: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GithubAppHostname: ["string", "ActionConnectionAWSSecretsManagerReference"],
+    GithubAppPrivateKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GithubAppUpdateGithubAppId: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GithubAppUpdateGithubInstallationId: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GithubAppUpdateHostname: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GithubAppUpdatePrivateKey: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GithubCredentials: ["GithubApp", "GithubPersonalAccessToken"],
+    GithubCredentialsUpdate: [
+      "GithubAppUpdate",
+      "GithubPersonalAccessTokenUpdate",
+    ],
+    GithubPersonalAccessTokenAccessToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GithubPersonalAccessTokenHostname: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GithubPersonalAccessTokenUpdateAccessToken: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
+    GithubPersonalAccessTokenUpdateHostname: [
+      "string",
+      "ActionConnectionAWSSecretsManagerReference",
+    ],
     GitlabAPIKeyApiToken: [
       "string",
       "ActionConnectionAWSSecretsManagerReference",
@@ -616,6 +677,12 @@ export const TypingInfo: ModelTypingInfo = {
     GeminiIntegrationUpdate: GeminiIntegrationUpdate,
     GetActionConnectionResponse: GetActionConnectionResponse,
     GetAppKeyRegistrationResponse: GetAppKeyRegistrationResponse,
+    GithubApp: GithubApp,
+    GithubAppUpdate: GithubAppUpdate,
+    GithubIntegration: GithubIntegration,
+    GithubIntegrationUpdate: GithubIntegrationUpdate,
+    GithubPersonalAccessToken: GithubPersonalAccessToken,
+    GithubPersonalAccessTokenUpdate: GithubPersonalAccessTokenUpdate,
     GitlabAPIKey: GitlabAPIKey,
     GitlabAPIKeyUpdate: GitlabAPIKeyUpdate,
     GitlabIntegration: GitlabIntegration,

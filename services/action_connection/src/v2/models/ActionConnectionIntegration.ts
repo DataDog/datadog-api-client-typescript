@@ -13,6 +13,7 @@ import { FastlyIntegration } from "./FastlyIntegration";
 import { FreshserviceIntegration } from "./FreshserviceIntegration";
 import { GCPIntegration } from "./GCPIntegration";
 import { GeminiIntegration } from "./GeminiIntegration";
+import { GithubIntegration } from "./GithubIntegration";
 import { GitlabIntegration } from "./GitlabIntegration";
 import { GreyNoiseIntegration } from "./GreyNoiseIntegration";
 import { HTTPIntegration } from "./HTTPIntegration";
@@ -42,6 +43,7 @@ export type ActionConnectionIntegration =
   | FreshserviceIntegration
   | GCPIntegration
   | GeminiIntegration
+  | GithubIntegration
   | GitlabIntegration
   | GreyNoiseIntegration
   | HTTPIntegration

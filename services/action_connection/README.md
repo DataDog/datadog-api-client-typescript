@@ -9,6 +9,8 @@ Datadog’s Integrations automatically provide authentication for Slack, Microso
 JIRA, GitHub, and Statuspage. You do not need additional connections in order to access these tools within
 Workflow Automation and App Builder.
 
+To authenticate with your own GitHub App or personal access token, create a GitHub connection.
+
 We offer granular access control for editing and resolving connections.
 
 ## Navigation
