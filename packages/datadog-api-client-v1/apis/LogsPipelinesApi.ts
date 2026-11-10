@@ -347,7 +347,7 @@ export class LogsPipelinesApiResponseProcessor {
       ) as LogsPipeline;
       return body;
     }
-    if (response.httpStatusCode === 400) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 409) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -433,7 +433,7 @@ export class LogsPipelinesApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (response.httpStatusCode === 400) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 409) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -763,7 +763,7 @@ export class LogsPipelinesApiResponseProcessor {
       ) as LogsPipeline;
       return body;
     }
-    if (response.httpStatusCode === 400) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 409) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -861,7 +861,11 @@ export class LogsPipelinesApiResponseProcessor {
       ) as LogsPipelinesOrder;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 422
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
