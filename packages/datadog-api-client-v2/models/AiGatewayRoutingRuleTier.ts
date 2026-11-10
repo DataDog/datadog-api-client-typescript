@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AiGatewayRoutingRuleClassifier } from "./AiGatewayRoutingRuleClassifier";
 import { AiGatewayRoutingRuleTarget } from "./AiGatewayRoutingRuleTarget";
 import { AiGatewayRoutingRuleTierOrdering } from "./AiGatewayRoutingRuleTierOrdering";
 import { AiGatewayRoutingRuleTierOrderingIssue } from "./AiGatewayRoutingRuleTierOrderingIssue";
@@ -13,6 +14,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Routing fallback tier containing targets and their effective ordering.
  */
 export class AiGatewayRoutingRuleTier {
+  /**
+   * Decision model of a classified tier.
+   */
+  "classifier"?: AiGatewayRoutingRuleClassifier;
   /**
    * How a tier orders its targets.
    */
@@ -39,6 +44,10 @@ export class AiGatewayRoutingRuleTier {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    classifier: {
+      baseName: "classifier",
+      type: "AiGatewayRoutingRuleClassifier",
+    },
     ordering: {
       baseName: "ordering",
       type: "AiGatewayRoutingRuleTierOrdering",
