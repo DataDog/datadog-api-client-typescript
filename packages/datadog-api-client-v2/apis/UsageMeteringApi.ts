@@ -50,6 +50,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     quotaNamespace: string,
     body: UsageQuotasCreateRequest,
     includeDescendants?: boolean,
+    createOnly?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -92,6 +93,13 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include_descendants",
         ObjectSerializer.serialize(includeDescendants, "boolean", ""),
+        ""
+      );
+    }
+    if (createOnly !== undefined) {
+      requestContext.setQueryParam(
+        "create_only",
+        ObjectSerializer.serialize(createOnly, "boolean", ""),
         ""
       );
     }
@@ -1758,6 +1766,7 @@ export class UsageMeteringApiResponseProcessor {
     if (
       response.httpStatusCode === 400 ||
       response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
       response.httpStatusCode === 500
     ) {
       const bodyText = ObjectSerializer.parse(
@@ -4094,6 +4103,11 @@ export interface UsageMeteringApiCreateQuotasRequest {
    * @type boolean
    */
   includeDescendants?: boolean;
+  /**
+   * Create one quota without updating an existing quota. Requires exactly one item that specifies `usage_limit` and `enforced`, omits `pending_usage_limit`, and sets `include_descendants=false`. The quota belongs to the caller's organization. An existing quota returns `409` without being modified.
+   * @type boolean
+   */
+  createOnly?: boolean;
 }
 
 export interface UsageMeteringApiCreateTemporaryGrantRequestRequest {
@@ -4558,6 +4572,10 @@ export class UsageMeteringApi {
   /**
    * Creates or updates one or more usage quotas by scope. If a quota already exists for a supplied scope, it is updated.
    * Otherwise, a quota is created only when `usage_limit` and `enforced` are provided.
+   * Set `create_only=true` to atomically create exactly one quota in the caller's organization and reject an
+   * existing quota with `409` instead of updating it. This mode does not support pending limits or descendant writes.
+   * Repeated create-only requests do not replay the original response. If a response is lost, a retry can return `409`
+   * even if the first request succeeded; reconcile the outcome before retrying or importing the quota.
    * For the organization-wide quota, `pending_usage_limit` schedules a limit for the next usage period and can
    * accompany an immediate limit or update an existing quota by itself.
    * Scheduled changes follow `include_descendants` like the other fields. Requires the `billing_edit` permission.
@@ -4599,6 +4617,7 @@ export class UsageMeteringApi {
       param.quotaNamespace,
       param.body,
       param.includeDescendants,
+      param.createOnly,
       options
     );
     return requestContextPromise.then((requestContext) => {
