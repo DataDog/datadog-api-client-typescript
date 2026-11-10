@@ -5,7 +5,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class RulesValidateQueryRequestDataAttributes {
   /**
-   * The `attributes` `Query`.
+   * The tag pipeline rule query to validate, in Datadog tag query syntax: `tag:value` terms combined with `AND`, `OR`, and `NOT`.
    */
   "query": string;
   /**
@@ -24,7 +24,7 @@ export class RulesValidateQueryRequestDataAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
-      baseName: "Query",
+      baseName: "query",
       type: "string",
       required: true,
     },
