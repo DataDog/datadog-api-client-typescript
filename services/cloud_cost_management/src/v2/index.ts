@@ -89,12 +89,14 @@ export { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocat
 export { ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems } from "./models/ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems";
 export { ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./models/ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems";
 export { ArbitraryCostUpsertRequestDataType } from "./models/ArbitraryCostUpsertRequestDataType";
+export { ArbitraryRuleMappingTransform } from "./models/ArbitraryRuleMappingTransform";
 export { ArbitraryRuleResponse } from "./models/ArbitraryRuleResponse";
 export { ArbitraryRuleResponseArray } from "./models/ArbitraryRuleResponseArray";
 export { ArbitraryRuleResponseArrayMeta } from "./models/ArbitraryRuleResponseArrayMeta";
 export { ArbitraryRuleResponseData } from "./models/ArbitraryRuleResponseData";
 export { ArbitraryRuleResponseDataAttributes } from "./models/ArbitraryRuleResponseDataAttributes";
 export { ArbitraryRuleResponseDataAttributesCostsToAllocateItems } from "./models/ArbitraryRuleResponseDataAttributesCostsToAllocateItems";
+export { ArbitraryRuleResponseDataAttributesRuleCategory } from "./models/ArbitraryRuleResponseDataAttributesRuleCategory";
 export { ArbitraryRuleResponseDataAttributesStrategy } from "./models/ArbitraryRuleResponseDataAttributesStrategy";
 export { ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems } from "./models/ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems";
 export { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems } from "./models/ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems";
@@ -106,6 +108,9 @@ export { ArbitraryRuleStatusResponseArray } from "./models/ArbitraryRuleStatusRe
 export { ArbitraryRuleStatusResponseData } from "./models/ArbitraryRuleStatusResponseData";
 export { ArbitraryRuleStatusResponseDataAttributes } from "./models/ArbitraryRuleStatusResponseDataAttributes";
 export { ArbitraryRuleStatusResponseDataType } from "./models/ArbitraryRuleStatusResponseDataType";
+export { ArbitraryRuleTagTransforms } from "./models/ArbitraryRuleTagTransforms";
+export { ArbitraryRuleTagValueTransform } from "./models/ArbitraryRuleTagValueTransform";
+export { ArbitraryRuleTagValueTransformType } from "./models/ArbitraryRuleTagValueTransformType";
 export { AwsCURConfig } from "./models/AwsCURConfig";
 export { AwsCURConfigAttributes } from "./models/AwsCURConfigAttributes";
 export { AwsCURConfigPatchData } from "./models/AwsCURConfigPatchData";
@@ -281,6 +286,7 @@ export { CustomForecastUpsertRequestData } from "./models/CustomForecastUpsertRe
 export { CustomForecastUpsertRequestDataAttributes } from "./models/CustomForecastUpsertRequestDataAttributes";
 export { DataAttributesRulesItemsIfTagExists } from "./models/DataAttributesRulesItemsIfTagExists";
 export { DataAttributesRulesItemsMapping } from "./models/DataAttributesRulesItemsMapping";
+export { GCPCudMetadataConfig } from "./models/GCPCudMetadataConfig";
 export { GcpUcConfigResponse } from "./models/GcpUcConfigResponse";
 export { GcpUcConfigResponseData } from "./models/GcpUcConfigResponseData";
 export { GcpUcConfigResponseDataAttributes } from "./models/GcpUcConfigResponseDataAttributes";

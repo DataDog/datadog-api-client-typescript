@@ -18,6 +18,7 @@ import { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems } from
 import { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems";
 import { ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems";
 import { ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems";
+import { ArbitraryRuleMappingTransform } from "./ArbitraryRuleMappingTransform";
 import { ArbitraryRuleResponse } from "./ArbitraryRuleResponse";
 import { ArbitraryRuleResponseArray } from "./ArbitraryRuleResponseArray";
 import { ArbitraryRuleResponseArrayMeta } from "./ArbitraryRuleResponseArrayMeta";
@@ -33,6 +34,8 @@ import { ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItem
 import { ArbitraryRuleStatusResponseArray } from "./ArbitraryRuleStatusResponseArray";
 import { ArbitraryRuleStatusResponseData } from "./ArbitraryRuleStatusResponseData";
 import { ArbitraryRuleStatusResponseDataAttributes } from "./ArbitraryRuleStatusResponseDataAttributes";
+import { ArbitraryRuleTagTransforms } from "./ArbitraryRuleTagTransforms";
+import { ArbitraryRuleTagValueTransform } from "./ArbitraryRuleTagValueTransform";
 import { AwsCURConfig } from "./AwsCURConfig";
 import { AwsCURConfigAttributes } from "./AwsCURConfigAttributes";
 import { AwsCURConfigPatchData } from "./AwsCURConfigPatchData";
@@ -174,6 +177,7 @@ import { CustomForecastUpsertRequest } from "./CustomForecastUpsertRequest";
 import { CustomForecastUpsertRequestData } from "./CustomForecastUpsertRequestData";
 import { CustomForecastUpsertRequestDataAttributes } from "./CustomForecastUpsertRequestDataAttributes";
 import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMapping";
+import { GCPCudMetadataConfig } from "./GCPCudMetadataConfig";
 import { GCPUsageCostConfig } from "./GCPUsageCostConfig";
 import { GCPUsageCostConfigAttributes } from "./GCPUsageCostConfigAttributes";
 import { GCPUsageCostConfigPatchData } from "./GCPUsageCostConfigPatchData";
@@ -257,8 +261,15 @@ export const TypingInfo: ModelTypingInfo = {
     AccountFiltersPatchRequestType: ["account_filters_patch_request"],
     AccountFiltersType: ["account_filters"],
     ArbitraryCostUpsertRequestDataType: ["upsert_arbitrary_rule"],
+    ArbitraryRuleResponseDataAttributesRuleCategory: ["custom", "ai_gateway"],
     ArbitraryRuleResponseDataType: ["arbitrary_rule"],
     ArbitraryRuleStatusResponseDataType: ["arbitrary_rule_status"],
+    ArbitraryRuleTagValueTransformType: [
+      "string_replace",
+      "regex_extract",
+      "regex_replace",
+      "lookup_map",
+    ],
     AwsCURConfigPatchRequestType: ["aws_cur_config_patch_request"],
     AwsCURConfigPostRequestType: ["aws_cur_config_post_request"],
     AwsCURConfigType: ["aws_cur_config"],
@@ -347,6 +358,7 @@ export const TypingInfo: ModelTypingInfo = {
       ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems,
     ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems:
       ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems,
+    ArbitraryRuleMappingTransform: ArbitraryRuleMappingTransform,
     ArbitraryRuleResponse: ArbitraryRuleResponse,
     ArbitraryRuleResponseArray: ArbitraryRuleResponseArray,
     ArbitraryRuleResponseArrayMeta: ArbitraryRuleResponseArrayMeta,
@@ -370,6 +382,8 @@ export const TypingInfo: ModelTypingInfo = {
     ArbitraryRuleStatusResponseData: ArbitraryRuleStatusResponseData,
     ArbitraryRuleStatusResponseDataAttributes:
       ArbitraryRuleStatusResponseDataAttributes,
+    ArbitraryRuleTagTransforms: ArbitraryRuleTagTransforms,
+    ArbitraryRuleTagValueTransform: ArbitraryRuleTagValueTransform,
     AwsCURConfig: AwsCURConfig,
     AwsCURConfigAttributes: AwsCURConfigAttributes,
     AwsCURConfigPatchData: AwsCURConfigPatchData,
@@ -531,6 +545,7 @@ export const TypingInfo: ModelTypingInfo = {
     CustomForecastUpsertRequestDataAttributes:
       CustomForecastUpsertRequestDataAttributes,
     DataAttributesRulesItemsMapping: DataAttributesRulesItemsMapping,
+    GCPCudMetadataConfig: GCPCudMetadataConfig,
     GCPUsageCostConfig: GCPUsageCostConfig,
     GCPUsageCostConfigAttributes: GCPUsageCostConfigAttributes,
     GCPUsageCostConfigPatchData: GCPUsageCostConfigPatchData,

@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ArbitraryRuleResponseDataAttributesCostsToAllocateItems } from "./ArbitraryRuleResponseDataAttributesCostsToAllocateItems";
+import { ArbitraryRuleResponseDataAttributesRuleCategory } from "./ArbitraryRuleResponseDataAttributesRuleCategory";
 import { ArbitraryRuleResponseDataAttributesStrategy } from "./ArbitraryRuleResponseDataAttributesStrategy";
 
 /**
@@ -19,6 +20,10 @@ export class ArbitraryRuleResponseDataAttributes {
    * The `attributes` `enabled`.
    */
   "enabled": boolean;
+  /**
+   * Whether the rule is an out-of-the-box rule provided by Datadog. Omitted when `false`.
+   */
+  "isOotb"?: boolean;
   /**
    * The `attributes` `last_modified_user_uuid`.
    */
@@ -40,6 +45,10 @@ export class ArbitraryRuleResponseDataAttributes {
    */
   "rejected"?: boolean;
   /**
+   * Rule category. Omitted for custom rules.
+   */
+  "ruleCategory"?: ArbitraryRuleResponseDataAttributesRuleCategory;
+  /**
    * The `attributes` `rule_name`.
    */
   "ruleName": string;
@@ -55,6 +64,14 @@ export class ArbitraryRuleResponseDataAttributes {
    * The `attributes` `updated`.
    */
   "updated": Date;
+  /**
+   * The first date the rule applies to. Omitted when the rule has no start date.
+   */
+  "validFromDate"?: Date;
+  /**
+   * The last date the rule applies to. Omitted when the rule has no end date.
+   */
+  "validThroughDate"?: Date;
   /**
    * The `attributes` `version`.
    */
@@ -90,6 +107,10 @@ export class ArbitraryRuleResponseDataAttributes {
       type: "boolean",
       required: true,
     },
+    isOotb: {
+      baseName: "is_ootb",
+      type: "boolean",
+    },
     lastModifiedUserUuid: {
       baseName: "last_modified_user_uuid",
       type: "string",
@@ -114,6 +135,10 @@ export class ArbitraryRuleResponseDataAttributes {
       baseName: "rejected",
       type: "boolean",
     },
+    ruleCategory: {
+      baseName: "rule_category",
+      type: "ArbitraryRuleResponseDataAttributesRuleCategory",
+    },
     ruleName: {
       baseName: "rule_name",
       type: "string",
@@ -134,6 +159,16 @@ export class ArbitraryRuleResponseDataAttributes {
       type: "Date",
       required: true,
       format: "date-time",
+    },
+    validFromDate: {
+      baseName: "valid_from_date",
+      type: "Date",
+      format: "date",
+    },
+    validThroughDate: {
+      baseName: "valid_through_date",
+      type: "Date",
+      format: "date",
     },
     version: {
       baseName: "version",

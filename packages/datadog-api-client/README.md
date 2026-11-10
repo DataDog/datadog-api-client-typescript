@@ -406,6 +406,7 @@ apiInstance
 | Domain Allowlist | @datadog/datadog-api-client-domain-allowlist | [README.md](../../services/domain-allowlist/README.md) |
 | Downtimes | @datadog/datadog-api-client-downtimes | [README.md](../../services/downtimes/README.md) |
 | Elastic Cloud Integration | @datadog/datadog-api-client-elastic-cloud-integration | [README.md](../../services/elastic-cloud-integration/README.md) |
+| End User Device Monitoring | @datadog/datadog-api-client-end-user-device-monitoring | [README.md](../../services/end-user-device-monitoring/README.md) |
 | Entity Integration Configs | @datadog/datadog-api-client-entity-integration-configs | [README.md](../../services/entity-integration-configs/README.md) |
 | Entity Risk Scores | @datadog/datadog-api-client-entity-risk-scores | [README.md](../../services/entity-risk-scores/README.md) |
 | Error Tracking | @datadog/datadog-api-client-error-tracking | [README.md](../../services/error-tracking/README.md) |
