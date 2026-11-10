@@ -4879,6 +4879,7 @@ import { RUMOperationUpdateRequest } from "./RUMOperationUpdateRequest";
 import { RUMOperationUpdateRequestData } from "./RUMOperationUpdateRequestData";
 import { RUMOperationUser } from "./RUMOperationUser";
 import { RUMOperationsListResponse } from "./RUMOperationsListResponse";
+import { RUMOperationsListResponseLinks } from "./RUMOperationsListResponseLinks";
 import { RUMOperationsListResponseMeta } from "./RUMOperationsListResponseMeta";
 import { RUMOperationsListResponseMetaPage } from "./RUMOperationsListResponseMetaPage";
 import { RUMProductAnalyticsRetentionScale } from "./RUMProductAnalyticsRetentionScale";
@@ -17155,6 +17156,7 @@ const typeMap: { [index: string]: any } = {
   RUMOperationUpdateRequestData: RUMOperationUpdateRequestData,
   RUMOperationUser: RUMOperationUser,
   RUMOperationsListResponse: RUMOperationsListResponse,
+  RUMOperationsListResponseLinks: RUMOperationsListResponseLinks,
   RUMOperationsListResponseMeta: RUMOperationsListResponseMeta,
   RUMOperationsListResponseMetaPage: RUMOperationsListResponseMetaPage,
   RUMProductAnalyticsRetentionScale: RUMProductAnalyticsRetentionScale,
