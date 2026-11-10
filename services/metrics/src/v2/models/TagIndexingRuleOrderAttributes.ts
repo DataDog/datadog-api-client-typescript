@@ -5,7 +5,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class TagIndexingRuleOrderAttributes {
   /**
-   * Ordered list of tag indexing rule UUIDs. The server assigns rule_order 1, 2, … matching position in this list.
+   * Ordered list of tag indexing rule UUIDs. The server assigns rule_order 1, 2, … matching position in this list. Must contain the UUID of every active rule in the org (at most 1,000); omitting any active rule returns a 400 error.
    */
   "ruleIds"?: Array<string>;
   /**
