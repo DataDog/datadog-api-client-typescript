@@ -10482,13 +10482,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'updateFindingsAssignee'");
-    if (!_config.unstableOperations["v2.updateFindingsAssignee"]) {
-      throw new Error(
-        "Unstable operation 'updateFindingsAssignee' is disabled"
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "updateFindingsAssignee");
@@ -10536,13 +10529,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'updateFindingsSeverity'");
-    if (!_config.unstableOperations["v2.updateFindingsSeverity"]) {
-      throw new Error(
-        "Unstable operation 'updateFindingsSeverity' is disabled"
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
