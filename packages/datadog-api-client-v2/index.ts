@@ -920,6 +920,14 @@ export {
 } from "./apis/GCPIntegrationApi";
 
 export {
+  GitHubCostsIntegrationApiCreateGitHubCostsIntegrationAccountRequest,
+  GitHubCostsIntegrationApiDeleteGitHubCostsIntegrationAccountRequest,
+  GitHubCostsIntegrationApiGetGitHubCostsIntegrationAccountRequest,
+  GitHubCostsIntegrationApiUpdateGitHubCostsIntegrationAccountRequest,
+  GitHubCostsIntegrationApi,
+} from "./apis/GitHubCostsIntegrationApi";
+
+export {
   GoogleChatIntegrationApiCreateGoogleChatTargetAudienceRequest,
   GoogleChatIntegrationApiCreateOrganizationHandleRequest,
   GoogleChatIntegrationApiDeleteGoogleChatDelegatedUserRequest,
@@ -5640,6 +5648,28 @@ export { GitHubCloudAuthPersonaMappingDataResponse } from "./models/GitHubCloudA
 export { GitHubCloudAuthPersonaMappingResponse } from "./models/GitHubCloudAuthPersonaMappingResponse";
 export { GitHubCloudAuthPersonaMappingsResponse } from "./models/GitHubCloudAuthPersonaMappingsResponse";
 export { GitHubCloudAuthPersonaMappingType } from "./models/GitHubCloudAuthPersonaMappingType";
+export { GitHubCostsCloudCostMetricsIntegrationDataflowResponse } from "./models/GitHubCostsCloudCostMetricsIntegrationDataflowResponse";
+export { GitHubCostsIntegrationAccountAuthenticationRequest } from "./models/GitHubCostsIntegrationAccountAuthenticationRequest";
+export { GitHubCostsIntegrationAccountAuthenticationResponse } from "./models/GitHubCostsIntegrationAccountAuthenticationResponse";
+export { GitHubCostsIntegrationAccountAuthenticationUpdate } from "./models/GitHubCostsIntegrationAccountAuthenticationUpdate";
+export { GitHubCostsIntegrationAccountBearerTokenAuthRequest } from "./models/GitHubCostsIntegrationAccountBearerTokenAuthRequest";
+export { GitHubCostsIntegrationAccountBearerTokenAuthResponse } from "./models/GitHubCostsIntegrationAccountBearerTokenAuthResponse";
+export { GitHubCostsIntegrationAccountBearerTokenAuthType } from "./models/GitHubCostsIntegrationAccountBearerTokenAuthType";
+export { GitHubCostsIntegrationAccountBearerTokenAuthUpdate } from "./models/GitHubCostsIntegrationAccountBearerTokenAuthUpdate";
+export { GitHubCostsIntegrationAccountCreateAttributes } from "./models/GitHubCostsIntegrationAccountCreateAttributes";
+export { GitHubCostsIntegrationAccountCreateData } from "./models/GitHubCostsIntegrationAccountCreateData";
+export { GitHubCostsIntegrationAccountCreateRequest } from "./models/GitHubCostsIntegrationAccountCreateRequest";
+export { GitHubCostsIntegrationAccountResponse } from "./models/GitHubCostsIntegrationAccountResponse";
+export { GitHubCostsIntegrationAccountResponseAttributes } from "./models/GitHubCostsIntegrationAccountResponseAttributes";
+export { GitHubCostsIntegrationAccountResponseData } from "./models/GitHubCostsIntegrationAccountResponseData";
+export { GitHubCostsIntegrationAccountSettingsRequest } from "./models/GitHubCostsIntegrationAccountSettingsRequest";
+export { GitHubCostsIntegrationAccountSettingsResponse } from "./models/GitHubCostsIntegrationAccountSettingsResponse";
+export { GitHubCostsIntegrationAccountSettingsUpdate } from "./models/GitHubCostsIntegrationAccountSettingsUpdate";
+export { GitHubCostsIntegrationAccountsResponse } from "./models/GitHubCostsIntegrationAccountsResponse";
+export { GitHubCostsIntegrationAccountUpdateAttributes } from "./models/GitHubCostsIntegrationAccountUpdateAttributes";
+export { GitHubCostsIntegrationAccountUpdateData } from "./models/GitHubCostsIntegrationAccountUpdateData";
+export { GitHubCostsIntegrationAccountUpdateRequest } from "./models/GitHubCostsIntegrationAccountUpdateRequest";
+export { GitHubCostsIntegrationDataflowsResponse } from "./models/GitHubCostsIntegrationDataflowsResponse";
 export { GithubCredentials } from "./models/GithubCredentials";
 export { GithubCredentialsUpdate } from "./models/GithubCredentialsUpdate";
 export { GithubIntegration } from "./models/GithubIntegration";
