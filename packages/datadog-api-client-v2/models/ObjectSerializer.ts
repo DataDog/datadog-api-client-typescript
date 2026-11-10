@@ -3987,6 +3987,36 @@ import { MuteRuleUpdateRequest } from "./MuteRuleUpdateRequest";
 import { MuteRulesResponse } from "./MuteRulesResponse";
 import { NDKSourcemapAttributes } from "./NDKSourcemapAttributes";
 import { NDKSourcemapData } from "./NDKSourcemapData";
+import { NebiusCloudCostCollectionIntegrationDataflowRequest } from "./NebiusCloudCostCollectionIntegrationDataflowRequest";
+import { NebiusCloudCostCollectionIntegrationDataflowResponse } from "./NebiusCloudCostCollectionIntegrationDataflowResponse";
+import { NebiusCloudCostCollectionIntegrationDataflowSettingsRequest } from "./NebiusCloudCostCollectionIntegrationDataflowSettingsRequest";
+import { NebiusCloudCostCollectionIntegrationDataflowSettingsResponse } from "./NebiusCloudCostCollectionIntegrationDataflowSettingsResponse";
+import { NebiusCloudIntegrationAccountCreateAttributes } from "./NebiusCloudIntegrationAccountCreateAttributes";
+import { NebiusCloudIntegrationAccountCreateData } from "./NebiusCloudIntegrationAccountCreateData";
+import { NebiusCloudIntegrationAccountCreateRequest } from "./NebiusCloudIntegrationAccountCreateRequest";
+import { NebiusCloudIntegrationAccountResponse } from "./NebiusCloudIntegrationAccountResponse";
+import { NebiusCloudIntegrationAccountResponseAttributes } from "./NebiusCloudIntegrationAccountResponseAttributes";
+import { NebiusCloudIntegrationAccountResponseData } from "./NebiusCloudIntegrationAccountResponseData";
+import { NebiusCloudIntegrationAccountServiceAccountAuthRequest } from "./NebiusCloudIntegrationAccountServiceAccountAuthRequest";
+import { NebiusCloudIntegrationAccountServiceAccountAuthResponse } from "./NebiusCloudIntegrationAccountServiceAccountAuthResponse";
+import { NebiusCloudIntegrationAccountServiceAccountAuthUpdate } from "./NebiusCloudIntegrationAccountServiceAccountAuthUpdate";
+import { NebiusCloudIntegrationAccountSettingsRequest } from "./NebiusCloudIntegrationAccountSettingsRequest";
+import { NebiusCloudIntegrationAccountSettingsResponse } from "./NebiusCloudIntegrationAccountSettingsResponse";
+import { NebiusCloudIntegrationAccountSettingsUpdate } from "./NebiusCloudIntegrationAccountSettingsUpdate";
+import { NebiusCloudIntegrationAccountUpdateAttributes } from "./NebiusCloudIntegrationAccountUpdateAttributes";
+import { NebiusCloudIntegrationAccountUpdateData } from "./NebiusCloudIntegrationAccountUpdateData";
+import { NebiusCloudIntegrationAccountUpdateRequest } from "./NebiusCloudIntegrationAccountUpdateRequest";
+import { NebiusCloudIntegrationAccountsResponse } from "./NebiusCloudIntegrationAccountsResponse";
+import { NebiusCloudIntegrationDataflowsRequest } from "./NebiusCloudIntegrationDataflowsRequest";
+import { NebiusCloudIntegrationDataflowsResponse } from "./NebiusCloudIntegrationDataflowsResponse";
+import { NebiusCloudLogsIntegrationDataflowRequest } from "./NebiusCloudLogsIntegrationDataflowRequest";
+import { NebiusCloudLogsIntegrationDataflowResponse } from "./NebiusCloudLogsIntegrationDataflowResponse";
+import { NebiusCloudLogsIntegrationDataflowSettingsRequest } from "./NebiusCloudLogsIntegrationDataflowSettingsRequest";
+import { NebiusCloudLogsIntegrationDataflowSettingsResponse } from "./NebiusCloudLogsIntegrationDataflowSettingsResponse";
+import { NebiusCloudResourcesIntegrationDataflowRequest } from "./NebiusCloudResourcesIntegrationDataflowRequest";
+import { NebiusCloudResourcesIntegrationDataflowResponse } from "./NebiusCloudResourcesIntegrationDataflowResponse";
+import { NebiusCloudServiceQuotaCollectionIntegrationDataflowRequest } from "./NebiusCloudServiceQuotaCollectionIntegrationDataflowRequest";
+import { NebiusCloudServiceQuotaCollectionIntegrationDataflowResponse } from "./NebiusCloudServiceQuotaCollectionIntegrationDataflowResponse";
 import { NodeTypesResponse } from "./NodeTypesResponse";
 import { NodeTypesResponseData } from "./NodeTypesResponseData";
 import { NodeTypesResponseDataAttributes } from "./NodeTypesResponseDataAttributes";
@@ -9056,6 +9086,9 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   MuteRuleType: ["mute_rules"],
   NDKSourcemapMapKind: ["ndk"],
+  NebiusCloudIntegrationAccountServiceAccountAuthType: [
+    "nebius_service_account",
+  ],
   NodeTypesResponseDataType: ["get_node_types_response"],
   NotificationChannelEmailConfigType: ["email"],
   NotificationChannelEmailFormatType: ["html", "text"],
@@ -16004,6 +16037,65 @@ const typeMap: { [index: string]: any } = {
   MuteRulesResponse: MuteRulesResponse,
   NDKSourcemapAttributes: NDKSourcemapAttributes,
   NDKSourcemapData: NDKSourcemapData,
+  NebiusCloudCostCollectionIntegrationDataflowRequest:
+    NebiusCloudCostCollectionIntegrationDataflowRequest,
+  NebiusCloudCostCollectionIntegrationDataflowResponse:
+    NebiusCloudCostCollectionIntegrationDataflowResponse,
+  NebiusCloudCostCollectionIntegrationDataflowSettingsRequest:
+    NebiusCloudCostCollectionIntegrationDataflowSettingsRequest,
+  NebiusCloudCostCollectionIntegrationDataflowSettingsResponse:
+    NebiusCloudCostCollectionIntegrationDataflowSettingsResponse,
+  NebiusCloudIntegrationAccountCreateAttributes:
+    NebiusCloudIntegrationAccountCreateAttributes,
+  NebiusCloudIntegrationAccountCreateData:
+    NebiusCloudIntegrationAccountCreateData,
+  NebiusCloudIntegrationAccountCreateRequest:
+    NebiusCloudIntegrationAccountCreateRequest,
+  NebiusCloudIntegrationAccountResponse: NebiusCloudIntegrationAccountResponse,
+  NebiusCloudIntegrationAccountResponseAttributes:
+    NebiusCloudIntegrationAccountResponseAttributes,
+  NebiusCloudIntegrationAccountResponseData:
+    NebiusCloudIntegrationAccountResponseData,
+  NebiusCloudIntegrationAccountServiceAccountAuthRequest:
+    NebiusCloudIntegrationAccountServiceAccountAuthRequest,
+  NebiusCloudIntegrationAccountServiceAccountAuthResponse:
+    NebiusCloudIntegrationAccountServiceAccountAuthResponse,
+  NebiusCloudIntegrationAccountServiceAccountAuthUpdate:
+    NebiusCloudIntegrationAccountServiceAccountAuthUpdate,
+  NebiusCloudIntegrationAccountSettingsRequest:
+    NebiusCloudIntegrationAccountSettingsRequest,
+  NebiusCloudIntegrationAccountSettingsResponse:
+    NebiusCloudIntegrationAccountSettingsResponse,
+  NebiusCloudIntegrationAccountSettingsUpdate:
+    NebiusCloudIntegrationAccountSettingsUpdate,
+  NebiusCloudIntegrationAccountUpdateAttributes:
+    NebiusCloudIntegrationAccountUpdateAttributes,
+  NebiusCloudIntegrationAccountUpdateData:
+    NebiusCloudIntegrationAccountUpdateData,
+  NebiusCloudIntegrationAccountUpdateRequest:
+    NebiusCloudIntegrationAccountUpdateRequest,
+  NebiusCloudIntegrationAccountsResponse:
+    NebiusCloudIntegrationAccountsResponse,
+  NebiusCloudIntegrationDataflowsRequest:
+    NebiusCloudIntegrationDataflowsRequest,
+  NebiusCloudIntegrationDataflowsResponse:
+    NebiusCloudIntegrationDataflowsResponse,
+  NebiusCloudLogsIntegrationDataflowRequest:
+    NebiusCloudLogsIntegrationDataflowRequest,
+  NebiusCloudLogsIntegrationDataflowResponse:
+    NebiusCloudLogsIntegrationDataflowResponse,
+  NebiusCloudLogsIntegrationDataflowSettingsRequest:
+    NebiusCloudLogsIntegrationDataflowSettingsRequest,
+  NebiusCloudLogsIntegrationDataflowSettingsResponse:
+    NebiusCloudLogsIntegrationDataflowSettingsResponse,
+  NebiusCloudResourcesIntegrationDataflowRequest:
+    NebiusCloudResourcesIntegrationDataflowRequest,
+  NebiusCloudResourcesIntegrationDataflowResponse:
+    NebiusCloudResourcesIntegrationDataflowResponse,
+  NebiusCloudServiceQuotaCollectionIntegrationDataflowRequest:
+    NebiusCloudServiceQuotaCollectionIntegrationDataflowRequest,
+  NebiusCloudServiceQuotaCollectionIntegrationDataflowResponse:
+    NebiusCloudServiceQuotaCollectionIntegrationDataflowResponse,
   NodeTypesResponse: NodeTypesResponse,
   NodeTypesResponseData: NodeTypesResponseData,
   NodeTypesResponseDataAttributes: NodeTypesResponseDataAttributes,
@@ -20611,6 +20703,15 @@ const oneOfMap: { [index: string]: string[] } = {
     "MonitorNotificationRuleFilterScope",
   ],
   MonitorNotificationRuleResponseIncludedItem: ["User"],
+  NebiusCloudIntegrationAccountAuthenticationRequest: [
+    "NebiusCloudIntegrationAccountServiceAccountAuthRequest",
+  ],
+  NebiusCloudIntegrationAccountAuthenticationResponse: [
+    "NebiusCloudIntegrationAccountServiceAccountAuthResponse",
+  ],
+  NebiusCloudIntegrationAccountAuthenticationUpdate: [
+    "NebiusCloudIntegrationAccountServiceAccountAuthUpdate",
+  ],
   NotificationChannelConfig: [
     "NotificationChannelPhoneConfig",
     "NotificationChannelEmailConfig",

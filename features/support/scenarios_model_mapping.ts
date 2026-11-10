@@ -13282,6 +13282,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ElasticCloudIntegrationAccountResponse",
     },
+    "v2.ListNebiusCloudIntegrationAccounts": {
+        "operationResponseType": "NebiusCloudIntegrationAccountsResponse",
+    },
+    "v2.CreateNebiusCloudIntegrationAccount": {
+        "body": {
+            "type": "NebiusCloudIntegrationAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "NebiusCloudIntegrationAccountResponse",
+    },
+    "v2.GetNebiusCloudIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "NebiusCloudIntegrationAccountResponse",
+    },
+    "v2.DeleteNebiusCloudIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateNebiusCloudIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "NebiusCloudIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "NebiusCloudIntegrationAccountResponse",
+    },
     "v2.ListSnowflakeIntegrationAccounts": {
         "operationResponseType": "SnowflakeIntegrationAccountsResponse",
     },
