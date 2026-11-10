@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineAnomalyDetection } from "./ObservabilityPipelineAnomalyDetection";
 import { ObservabilityPipelineConfigDestinationItem } from "./ObservabilityPipelineConfigDestinationItem";
 import { ObservabilityPipelineConfigPipelineType } from "./ObservabilityPipelineConfigPipelineType";
 import { ObservabilityPipelineConfigProcessorGroup } from "./ObservabilityPipelineConfigProcessorGroup";
@@ -15,9 +16,19 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineConfig {
   /**
+   * Anomaly detection settings for the pipeline.
+   * Only applies to `logs` pipelines. Requires Observability Pipelines Worker 2.25 or later.
+   */
+  "anomalyDetection"?: ObservabilityPipelineAnomalyDetection;
+  /**
    * A list of destination components where processed logs are sent.
    */
   "destinations": Array<ObservabilityPipelineConfigDestinationItem>;
+  /**
+   * Set to `true` to enable end-to-end acknowledgments for the pipeline.
+   * Requires Observability Pipelines Worker 2.14 or later.
+   */
+  "endToEndAcknowledgements"?: boolean;
   /**
    * The type of data being ingested. Defaults to `logs` if not specified.
    */
@@ -61,10 +72,18 @@ export class ObservabilityPipelineConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    anomalyDetection: {
+      baseName: "anomaly_detection",
+      type: "ObservabilityPipelineAnomalyDetection",
+    },
     destinations: {
       baseName: "destinations",
       type: "Array<ObservabilityPipelineConfigDestinationItem>",
       required: true,
+    },
+    endToEndAcknowledgements: {
+      baseName: "end_to_end_acknowledgements",
+      type: "boolean",
     },
     pipelineType: {
       baseName: "pipeline_type",

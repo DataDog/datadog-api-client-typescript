@@ -4067,6 +4067,7 @@ import { ObservabilityPipelineAmazonS3GenericEncodingJson } from "./Observabilit
 import { ObservabilityPipelineAmazonS3GenericEncodingParquet } from "./ObservabilityPipelineAmazonS3GenericEncodingParquet";
 import { ObservabilityPipelineAmazonS3Source } from "./ObservabilityPipelineAmazonS3Source";
 import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
+import { ObservabilityPipelineAnomalyDetection } from "./ObservabilityPipelineAnomalyDetection";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
 import { ObservabilityPipelineAzureDataExplorerDestination } from "./ObservabilityPipelineAzureDataExplorerDestination";
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli";
@@ -16112,6 +16113,7 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineAmazonS3Source: ObservabilityPipelineAmazonS3Source,
   ObservabilityPipelineAmazonSecurityLakeDestination:
     ObservabilityPipelineAmazonSecurityLakeDestination,
+  ObservabilityPipelineAnomalyDetection: ObservabilityPipelineAnomalyDetection,
   ObservabilityPipelineAwsAuth: ObservabilityPipelineAwsAuth,
   ObservabilityPipelineAzureDataExplorerDestination:
     ObservabilityPipelineAzureDataExplorerDestination,
