@@ -254,6 +254,8 @@ export { AiGatewayRateLimitUsageType } from "./models/AiGatewayRateLimitUsageTyp
 export { AiGatewayRestrictedDetailsMeta } from "./models/AiGatewayRestrictedDetailsMeta";
 export { AiGatewayRoutingReasoningLevel } from "./models/AiGatewayRoutingReasoningLevel";
 export { AiGatewayRoutingRuleAttributes } from "./models/AiGatewayRoutingRuleAttributes";
+export { AiGatewayRoutingRuleClassifier } from "./models/AiGatewayRoutingRuleClassifier";
+export { AiGatewayRoutingRuleClassifierRequest } from "./models/AiGatewayRoutingRuleClassifierRequest";
 export { AiGatewayRoutingRuleCreateAttributes } from "./models/AiGatewayRoutingRuleCreateAttributes";
 export { AiGatewayRoutingRuleCreateData } from "./models/AiGatewayRoutingRuleCreateData";
 export { AiGatewayRoutingRuleCreateRequest } from "./models/AiGatewayRoutingRuleCreateRequest";

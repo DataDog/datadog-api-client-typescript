@@ -156,6 +156,8 @@ import { AiGatewayRateLimitUsageListResponse } from "./AiGatewayRateLimitUsageLi
 import { AiGatewayRateLimitUsageResource } from "./AiGatewayRateLimitUsageResource";
 import { AiGatewayRestrictedDetailsMeta } from "./AiGatewayRestrictedDetailsMeta";
 import { AiGatewayRoutingRuleAttributes } from "./AiGatewayRoutingRuleAttributes";
+import { AiGatewayRoutingRuleClassifier } from "./AiGatewayRoutingRuleClassifier";
+import { AiGatewayRoutingRuleClassifierRequest } from "./AiGatewayRoutingRuleClassifierRequest";
 import { AiGatewayRoutingRuleCreateAttributes } from "./AiGatewayRoutingRuleCreateAttributes";
 import { AiGatewayRoutingRuleCreateData } from "./AiGatewayRoutingRuleCreateData";
 import { AiGatewayRoutingRuleCreateRequest } from "./AiGatewayRoutingRuleCreateRequest";
@@ -306,6 +308,7 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayNullableRoutingRuleTierOrdering: [
       "configured",
       "weighted_affinity",
+      "classified",
     ],
     AiGatewayPolicyType: ["routing-documents"],
     AiGatewayProviderInitialBindingRelation: ["viewer", "editor"],
@@ -323,7 +326,11 @@ export const TypingInfo: ModelTypingInfo = {
       "max",
     ],
     AiGatewayRoutingRuleTargetType: ["model", "routing-rule"],
-    AiGatewayRoutingRuleTierOrdering: ["configured", "weighted_affinity"],
+    AiGatewayRoutingRuleTierOrdering: [
+      "configured",
+      "weighted_affinity",
+      "classified",
+    ],
     AiGatewayRoutingRuleTierOrderingIssue: ["mixed", "unknown"],
     AiGatewayRoutingRuleType: ["routing-rules"],
     AiGatewaySupportedOperation: [
@@ -526,6 +533,9 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayRateLimitUsageResource: AiGatewayRateLimitUsageResource,
     AiGatewayRestrictedDetailsMeta: AiGatewayRestrictedDetailsMeta,
     AiGatewayRoutingRuleAttributes: AiGatewayRoutingRuleAttributes,
+    AiGatewayRoutingRuleClassifier: AiGatewayRoutingRuleClassifier,
+    AiGatewayRoutingRuleClassifierRequest:
+      AiGatewayRoutingRuleClassifierRequest,
     AiGatewayRoutingRuleCreateAttributes: AiGatewayRoutingRuleCreateAttributes,
     AiGatewayRoutingRuleCreateData: AiGatewayRoutingRuleCreateData,
     AiGatewayRoutingRuleCreateRequest: AiGatewayRoutingRuleCreateRequest,
