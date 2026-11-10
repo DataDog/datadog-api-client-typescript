@@ -68,6 +68,7 @@ export { ObservabilityPipelineAmazonS3SourceCompression } from "./models/Observa
 export { ObservabilityPipelineAmazonS3SourceType } from "./models/ObservabilityPipelineAmazonS3SourceType";
 export { ObservabilityPipelineAmazonSecurityLakeDestination } from "./models/ObservabilityPipelineAmazonSecurityLakeDestination";
 export { ObservabilityPipelineAmazonSecurityLakeDestinationType } from "./models/ObservabilityPipelineAmazonSecurityLakeDestinationType";
+export { ObservabilityPipelineAnomalyDetection } from "./models/ObservabilityPipelineAnomalyDetection";
 export { ObservabilityPipelineAwsAuth } from "./models/ObservabilityPipelineAwsAuth";
 export { ObservabilityPipelineAzureDataExplorerDestination } from "./models/ObservabilityPipelineAzureDataExplorerDestination";
 export { ObservabilityPipelineAzureDataExplorerDestinationAuth } from "./models/ObservabilityPipelineAzureDataExplorerDestinationAuth";

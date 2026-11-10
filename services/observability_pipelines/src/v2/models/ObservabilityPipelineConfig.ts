@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineAnomalyDetection } from "./ObservabilityPipelineAnomalyDetection";
 import { ObservabilityPipelineConfigDestinationItem } from "./ObservabilityPipelineConfigDestinationItem";
 import { ObservabilityPipelineConfigPipelineType } from "./ObservabilityPipelineConfigPipelineType";
 import { ObservabilityPipelineConfigProcessorGroup } from "./ObservabilityPipelineConfigProcessorGroup";
@@ -10,9 +11,19 @@ import { ObservabilityPipelineConfigSourceItem } from "./ObservabilityPipelineCo
  */
 export class ObservabilityPipelineConfig {
   /**
+   * Anomaly detection settings for the pipeline.
+   * Only applies to `logs` pipelines. Requires Observability Pipelines Worker 2.25 or later.
+   */
+  "anomalyDetection"?: ObservabilityPipelineAnomalyDetection;
+  /**
    * A list of destination components where processed logs are sent.
    */
   "destinations": Array<ObservabilityPipelineConfigDestinationItem>;
+  /**
+   * Set to `true` to enable end-to-end acknowledgments for the pipeline.
+   * Requires Observability Pipelines Worker 2.14 or later.
+   */
+  "endToEndAcknowledgements"?: boolean;
   /**
    * The type of data being ingested. Defaults to `logs` if not specified.
    */
@@ -54,10 +65,18 @@ export class ObservabilityPipelineConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    anomalyDetection: {
+      baseName: "anomaly_detection",
+      type: "ObservabilityPipelineAnomalyDetection",
+    },
     destinations: {
       baseName: "destinations",
       type: "Array<ObservabilityPipelineConfigDestinationItem>",
       required: true,
+    },
+    endToEndAcknowledgements: {
+      baseName: "end_to_end_acknowledgements",
+      type: "boolean",
     },
     pipelineType: {
       baseName: "pipeline_type",
