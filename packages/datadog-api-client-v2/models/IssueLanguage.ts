@@ -36,6 +36,7 @@ export type IssueLanguage =
   | typeof SCALA
   | typeof SWIFT
   | typeof TERRAFORM
+  | typeof TF
   | typeof TYPESCRIPT
   | typeof UNKNOWN
   | UnparsedObject;
@@ -64,5 +65,6 @@ export const RUST = "RUST";
 export const SCALA = "SCALA";
 export const SWIFT = "SWIFT";
 export const TERRAFORM = "TERRAFORM";
+export const TF = "TF";
 export const TYPESCRIPT = "TYPESCRIPT";
 export const UNKNOWN = "UNKNOWN";

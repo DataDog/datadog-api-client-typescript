@@ -22,7 +22,7 @@ export class Issue {
    */
   "id": string;
   /**
-   * Relationship between the issue and an assignee, case and/or teams.
+   * Relationship between the issue and other resources, such as an assignee, case, teams, pull requests, watches, samples, or a Bits AI investigation.
    */
   "relationships"?: IssueRelationships;
   /**

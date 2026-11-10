@@ -4,14 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { IssueAssigneeRelationship } from "./IssueAssigneeRelationship";
+import { IssueBitsInvestigationRelationship } from "./IssueBitsInvestigationRelationship";
 import { IssueCaseRelationship } from "./IssueCaseRelationship";
+import { IssuePullRequestsRelationship } from "./IssuePullRequestsRelationship";
 import { IssueSamplesRelationship } from "./IssueSamplesRelationship";
 import { IssueTeamOwnersRelationship } from "./IssueTeamOwnersRelationship";
+import { IssueWatchesRelationship } from "./IssueWatchesRelationship";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Relationship between the issue and an assignee, case and/or teams.
+ * Relationship between the issue and other resources, such as an assignee, case, teams, pull requests, watches, samples, or a Bits AI investigation.
  */
 export class IssueRelationships {
   /**
@@ -19,9 +22,18 @@ export class IssueRelationships {
    */
   "assignee"?: IssueAssigneeRelationship;
   /**
+   * Bits AI investigation linked to the issue, returned when `bits_investigation` is requested
+   * in the `include` query parameter.
+   */
+  "bitsInvestigation"?: IssueBitsInvestigationRelationship;
+  /**
    * Relationship between the issue and case.
    */
   "_case"?: IssueCaseRelationship;
+  /**
+   * Relationship between the issue and its linked pull requests. Returned when `pull_requests` is included and the issue has linked pull requests.
+   */
+  "pullRequests"?: IssuePullRequestsRelationship;
   /**
    * Relationship between the issue and its curated error samples.
    */
@@ -30,6 +42,10 @@ export class IssueRelationships {
    * Relationship between the issue and teams.
    */
   "teamOwners"?: IssueTeamOwnersRelationship;
+  /**
+   * Relationship between the issue and its active watches. Returned when `watches` is included and the issue has an active watch.
+   */
+  "watches"?: IssueWatchesRelationship;
 
   /**
    * A container for additional, undeclared properties.
@@ -51,9 +67,17 @@ export class IssueRelationships {
       baseName: "assignee",
       type: "IssueAssigneeRelationship",
     },
+    bitsInvestigation: {
+      baseName: "bits_investigation",
+      type: "IssueBitsInvestigationRelationship",
+    },
     _case: {
       baseName: "case",
       type: "IssueCaseRelationship",
+    },
+    pullRequests: {
+      baseName: "pull_requests",
+      type: "IssuePullRequestsRelationship",
     },
     samples: {
       baseName: "samples",
@@ -62,6 +86,10 @@ export class IssueRelationships {
     teamOwners: {
       baseName: "team_owners",
       type: "IssueTeamOwnersRelationship",
+    },
+    watches: {
+      baseName: "watches",
+      type: "IssueWatchesRelationship",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -3129,6 +3129,8 @@ import { IoCTriageWriteResponseData } from "./IoCTriageWriteResponseData";
 import { Issue } from "./Issue";
 import { IssueAssigneeRelationship } from "./IssueAssigneeRelationship";
 import { IssueAttributes } from "./IssueAttributes";
+import { IssueBitsInvestigationReference } from "./IssueBitsInvestigationReference";
+import { IssueBitsInvestigationRelationship } from "./IssueBitsInvestigationRelationship";
 import { IssueCase } from "./IssueCase";
 import { IssueCaseAttributes } from "./IssueCaseAttributes";
 import { IssueCaseInsight } from "./IssueCaseInsight";
@@ -3139,6 +3141,10 @@ import { IssueCaseLinearIssueResult } from "./IssueCaseLinearIssueResult";
 import { IssueCaseReference } from "./IssueCaseReference";
 import { IssueCaseRelationship } from "./IssueCaseRelationship";
 import { IssueCaseRelationships } from "./IssueCaseRelationships";
+import { IssuePullRequest } from "./IssuePullRequest";
+import { IssuePullRequestAttributes } from "./IssuePullRequestAttributes";
+import { IssuePullRequestReference } from "./IssuePullRequestReference";
+import { IssuePullRequestsRelationship } from "./IssuePullRequestsRelationship";
 import { IssueReference } from "./IssueReference";
 import { IssueRegression } from "./IssueRegression";
 import { IssueRelationships } from "./IssueRelationships";
@@ -3164,6 +3170,12 @@ import { IssueUpdateStateRequestDataAttributes } from "./IssueUpdateStateRequest
 import { IssueUser } from "./IssueUser";
 import { IssueUserAttributes } from "./IssueUserAttributes";
 import { IssueUserReference } from "./IssueUserReference";
+import { IssueWatch } from "./IssueWatch";
+import { IssueWatchAction } from "./IssueWatchAction";
+import { IssueWatchAttributes } from "./IssueWatchAttributes";
+import { IssueWatchCondition } from "./IssueWatchCondition";
+import { IssueWatchReference } from "./IssueWatchReference";
+import { IssueWatchesRelationship } from "./IssueWatchesRelationship";
 import { IssuesSearchRequest } from "./IssuesSearchRequest";
 import { IssuesSearchRequestData } from "./IssuesSearchRequestData";
 import { IssuesSearchRequestDataAttributes } from "./IssuesSearchRequestDataAttributes";
@@ -8435,9 +8447,12 @@ const enumsMap: { [key: string]: any[] } = {
   GetAstResponseDataType: ["get_ast_response"],
   GetIssueIncludeQueryParameterItem: [
     "assignee",
+    "bits_investigation",
     "case",
-    "team_owners",
+    "pull_requests",
     "samples",
+    "team_owners",
+    "watches",
   ],
   GetMappingResponseDataType: ["get_mappings_response"],
   GetMultipleRulesetsRequestDataType: ["get_multiple_rulesets_request"],
@@ -8666,6 +8681,7 @@ const enumsMap: { [key: string]: any[] } = {
   InvestigationType: ["investigation"],
   IoCScoreEffect: ["RAISE_SCORE", "LOWER_SCORE", "NO_EFFECT"],
   IoCTriageState: ["not_reviewed", "reviewed"],
+  IssueBitsInvestigationType: ["bits_investigation"],
   IssueCaseResourceType: ["case"],
   IssueLanguage: [
     "BRIGHTSCRIPT",
@@ -8693,6 +8709,7 @@ const enumsMap: { [key: string]: any[] } = {
     "SCALA",
     "SWIFT",
     "TERRAFORM",
+    "TF",
     "TYPESCRIPT",
     "UNKNOWN",
   ],
@@ -8700,12 +8717,15 @@ const enumsMap: { [key: string]: any[] } = {
     "ANDROID",
     "BACKEND",
     "BROWSER",
+    "ELECTRON",
     "FLUTTER",
     "IOS",
     "REACT_NATIVE",
     "ROKU",
     "UNKNOWN",
   ],
+  IssuePullRequestReason: ["unknown", "fix", "trigger"],
+  IssuePullRequestType: ["error_tracking_pull_request"],
   IssueSampleBias: [
     "latest",
     "git_metadata",
@@ -8721,6 +8741,16 @@ const enumsMap: { [key: string]: any[] } = {
   IssueUpdateAssigneeRequestDataType: ["assignee"],
   IssueUpdateStateRequestDataType: ["error_tracking_issue"],
   IssueUserType: ["user"],
+  IssueWatchActionKind: ["CHANGE_ISSUE_STATE"],
+  IssueWatchConditionKind: [
+    "OCCURRENCES",
+    "CARDINALITY",
+    "ELAPSED_TIME",
+    "ANY",
+    "ALL",
+  ],
+  IssueWatchStatus: ["ACTIVE"],
+  IssueWatchType: ["error_tracking_issue_watch"],
   IssuesSearchRequestDataAttributesOrderBy: [
     "TOTAL_COUNT",
     "FIRST_SEEN",
@@ -10136,8 +10166,13 @@ const enumsMap: { [key: string]: any[] } = {
   SearchIssuesIncludeQueryParameterItem: [
     "issue",
     "issue.assignee",
+    "issue.bits_investigation",
     "issue.case",
+    "issue.impacted_sessions",
+    "issue.impacted_users",
+    "issue.pull_requests",
     "issue.team_owners",
+    "issue.watches",
   ],
   SeatAssignmentsDataType: ["seat-assignments"],
   SeatUserDataType: ["seat-users"],
@@ -14954,6 +14989,8 @@ const typeMap: { [index: string]: any } = {
   Issue: Issue,
   IssueAssigneeRelationship: IssueAssigneeRelationship,
   IssueAttributes: IssueAttributes,
+  IssueBitsInvestigationReference: IssueBitsInvestigationReference,
+  IssueBitsInvestigationRelationship: IssueBitsInvestigationRelationship,
   IssueCase: IssueCase,
   IssueCaseAttributes: IssueCaseAttributes,
   IssueCaseInsight: IssueCaseInsight,
@@ -14964,6 +15001,10 @@ const typeMap: { [index: string]: any } = {
   IssueCaseReference: IssueCaseReference,
   IssueCaseRelationship: IssueCaseRelationship,
   IssueCaseRelationships: IssueCaseRelationships,
+  IssuePullRequest: IssuePullRequest,
+  IssuePullRequestAttributes: IssuePullRequestAttributes,
+  IssuePullRequestReference: IssuePullRequestReference,
+  IssuePullRequestsRelationship: IssuePullRequestsRelationship,
   IssueReference: IssueReference,
   IssueRegression: IssueRegression,
   IssueRelationships: IssueRelationships,
@@ -14989,6 +15030,12 @@ const typeMap: { [index: string]: any } = {
   IssueUser: IssueUser,
   IssueUserAttributes: IssueUserAttributes,
   IssueUserReference: IssueUserReference,
+  IssueWatch: IssueWatch,
+  IssueWatchAction: IssueWatchAction,
+  IssueWatchAttributes: IssueWatchAttributes,
+  IssueWatchCondition: IssueWatchCondition,
+  IssueWatchReference: IssueWatchReference,
+  IssueWatchesRelationship: IssueWatchesRelationship,
   IssuesSearchRequest: IssuesSearchRequest,
   IssuesSearchRequestData: IssuesSearchRequestData,
   IssuesSearchRequestDataAttributes: IssuesSearchRequestDataAttributes,
@@ -20458,8 +20505,22 @@ const oneOfMap: { [index: string]: string[] } = {
     "IncidentUserData",
     "IncidentTypeObject",
   ],
-  IssueIncluded: ["IssueCase", "IssueUser", "IssueTeam", "IssueSample"],
-  IssuesSearchResultIncluded: ["Issue", "IssueCase", "IssueUser", "IssueTeam"],
+  IssueIncluded: [
+    "IssueCase",
+    "IssueUser",
+    "IssueTeam",
+    "IssuePullRequest",
+    "IssueWatch",
+    "IssueSample",
+  ],
+  IssuesSearchResultIncluded: [
+    "Issue",
+    "IssueCase",
+    "IssueUser",
+    "IssueTeam",
+    "IssuePullRequest",
+    "IssueWatch",
+  ],
   LLMObsAnnotatedInteractionItem: [
     "LLMObsTraceAnnotatedInteractionItem",
     "LLMObsDisplayBlockAnnotatedInteractionItem",
