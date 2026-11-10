@@ -838,6 +838,7 @@ export function createConfiguration(
       "v2.queryProductAnalyticsSankey": false,
       "v2.createConnection": false,
       "v2.deleteConnection": false,
+      "v2.deleteUserProfile": false,
       "v2.getAccountFacetInfo": false,
       "v2.getMapping": false,
       "v2.getUserFacetInfo": false,

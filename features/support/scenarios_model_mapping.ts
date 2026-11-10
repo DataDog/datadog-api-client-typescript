@@ -16911,6 +16911,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "QueryResponse",
     },
+    "v2.DeleteUserProfile": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetMapping": {
         "entity": {
             "type": "string",
