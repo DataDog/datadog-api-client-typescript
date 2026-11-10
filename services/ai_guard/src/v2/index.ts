@@ -15,6 +15,7 @@ export { AIGuardEvaluateRequestData } from "./models/AIGuardEvaluateRequestData"
 export { AIGuardEvaluateRequestDataAttributes } from "./models/AIGuardEvaluateRequestDataAttributes";
 export { AIGuardEvaluateResponse } from "./models/AIGuardEvaluateResponse";
 export { AIGuardEvaluationType } from "./models/AIGuardEvaluationType";
+export { AIGuardExtraTag } from "./models/AIGuardExtraTag";
 export { AIGuardImageURL } from "./models/AIGuardImageURL";
 export { AIGuardMessage } from "./models/AIGuardMessage";
 export { AIGuardMessageContent } from "./models/AIGuardMessageContent";

@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AIGuardAction } from "./AIGuardAction";
+import { AIGuardExtraTag } from "./AIGuardExtraTag";
 import { AIGuardRedactionReplacement } from "./AIGuardRedactionReplacement";
 import { AIGuardScfwFindings } from "./AIGuardScfwFindings";
 import { AIGuardSdsFinding } from "./AIGuardSdsFinding";
@@ -13,6 +14,12 @@ export class AIGuardEvaluateAttributesResponse {
    * The recommended action for the evaluated conversation.
    */
   "action": AIGuardAction;
+  /**
+   * The span tags that tracers should add to the `ai_guard` span. Each item contains a
+   * backend-defined key and value, and clients should not assume a fixed set of keys.
+   * Example keys include `ai_guard.evaluate_id` and `ai_guard.evaluation_context`.
+   */
+  "extraTags"?: Array<AIGuardExtraTag>;
   /**
    * The global threat probability, between `0` and `1`. Included only when computed.
    */
@@ -78,6 +85,10 @@ export class AIGuardEvaluateAttributesResponse {
       baseName: "action",
       type: "AIGuardAction",
       required: true,
+    },
+    extraTags: {
+      baseName: "extra_tags",
+      type: "Array<AIGuardExtraTag>",
     },
     globalProb: {
       baseName: "global_prob",
