@@ -6,6 +6,7 @@ import { AIGuardEvaluateRequest } from "./AIGuardEvaluateRequest";
 import { AIGuardEvaluateRequestData } from "./AIGuardEvaluateRequestData";
 import { AIGuardEvaluateRequestDataAttributes } from "./AIGuardEvaluateRequestDataAttributes";
 import { AIGuardEvaluateResponse } from "./AIGuardEvaluateResponse";
+import { AIGuardExtraTag } from "./AIGuardExtraTag";
 import { AIGuardImageURL } from "./AIGuardImageURL";
 import { AIGuardMessage } from "./AIGuardMessage";
 import { AIGuardMeta } from "./AIGuardMeta";
@@ -11173,6 +11174,7 @@ const typeMap: { [index: string]: any } = {
   AIGuardEvaluateRequestData: AIGuardEvaluateRequestData,
   AIGuardEvaluateRequestDataAttributes: AIGuardEvaluateRequestDataAttributes,
   AIGuardEvaluateResponse: AIGuardEvaluateResponse,
+  AIGuardExtraTag: AIGuardExtraTag,
   AIGuardImageURL: AIGuardImageURL,
   AIGuardMessage: AIGuardMessage,
   AIGuardMeta: AIGuardMeta,
