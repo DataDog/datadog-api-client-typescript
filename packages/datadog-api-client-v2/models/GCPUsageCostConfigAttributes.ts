@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { GCPCudMetadataConfig } from "./GCPCudMetadataConfig";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -22,6 +23,22 @@ export class GCPUsageCostConfigAttributes {
    * The timestamp when the Google Cloud Usage Cost config was created.
    */
   "createdAt"?: string;
+  /**
+   * The BigQuery table the committed use discount (CUD) metadata is read from. Only returned when CUD metadata is configured for the account.
+   */
+  "cudMetadataConfig"?: GCPCudMetadataConfig;
+  /**
+   * The error codes reported for the committed use discount (CUD) metadata export. Only returned when CUD metadata is configured for the account.
+   */
+  "cudMetadataErrorCodes"?: Array<number>;
+  /**
+   * The state of the Google Cloud committed use discount (CUD) metadata export. Only returned when CUD metadata is configured for the account.
+   */
+  "cudMetadataState"?: string;
+  /**
+   * The timestamp when the committed use discount (CUD) metadata state was last updated. Only returned when CUD metadata is configured for the account.
+   */
+  "cudMetadataStatusUpdatedAt"?: string;
   /**
    * The export dataset name used for the Google Cloud Usage Cost Report.
    */
@@ -91,6 +108,22 @@ export class GCPUsageCostConfigAttributes {
     },
     createdAt: {
       baseName: "created_at",
+      type: "string",
+    },
+    cudMetadataConfig: {
+      baseName: "cud_metadata_config",
+      type: "GCPCudMetadataConfig",
+    },
+    cudMetadataErrorCodes: {
+      baseName: "cud_metadata_error_codes",
+      type: "Array<number>",
+    },
+    cudMetadataState: {
+      baseName: "cud_metadata_state",
+      type: "string",
+    },
+    cudMetadataStatusUpdatedAt: {
+      baseName: "cud_metadata_status_updated_at",
       type: "string",
     },
     dataset: {

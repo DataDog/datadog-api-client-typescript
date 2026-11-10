@@ -3,10 +3,13 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ArbitraryRuleMappingTransform } from "./ArbitraryRuleMappingTransform";
 import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems";
 import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems";
+import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems";
 import { ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems } from "./ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems";
 import { ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems";
+import { ArbitraryRuleTagTransforms } from "./ArbitraryRuleTagTransforms";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -47,9 +50,25 @@ export class ArbitraryRuleResponseDataAttributesStrategy {
    */
   "granularity"?: string;
   /**
+   * Only supported for `proportional_timeseries` and `even_timeseries` rules. Creates a synthetic tag from timeseries input rows before `tag_transforms` are applied.
+   */
+  "mappingTransform"?: ArbitraryRuleMappingTransform;
+  /**
    * The `strategy` `method`.
    */
   "method": string;
+  /**
+   * Tags added to every cost row allocated by the rule.
+   */
+  "staticTags"?: Array<ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems>;
+  /**
+   * Integration metrics query used to calculate coverage.
+   */
+  "supportingTimeseries"?: { [key: string]: any };
+  /**
+   * Only supported for `proportional_timeseries` and `even_timeseries` rules. Applies tag key renames and tag value transforms to timeseries input rows after `mapping_transform`.
+   */
+  "tagTransforms"?: ArbitraryRuleTagTransforms;
 
   /**
    * A container for additional, undeclared properties.
@@ -99,10 +118,26 @@ export class ArbitraryRuleResponseDataAttributesStrategy {
       baseName: "granularity",
       type: "string",
     },
+    mappingTransform: {
+      baseName: "mapping_transform",
+      type: "ArbitraryRuleMappingTransform",
+    },
     method: {
       baseName: "method",
       type: "string",
       required: true,
+    },
+    staticTags: {
+      baseName: "static_tags",
+      type: "Array<ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems>",
+    },
+    supportingTimeseries: {
+      baseName: "supporting_timeseries",
+      type: "{ [key: string]: any; }",
+    },
+    tagTransforms: {
+      baseName: "tag_transforms",
+      type: "ArbitraryRuleTagTransforms",
     },
     additionalProperties: {
       baseName: "additionalProperties",

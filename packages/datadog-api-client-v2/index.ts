@@ -743,6 +743,12 @@ export {
 } from "./apis/ElasticCloudIntegrationApi";
 
 export {
+  EndUserDeviceMonitoringApiGetEUDMDeviceRequest,
+  EndUserDeviceMonitoringApiGetEUDMDevicesRequest,
+  EndUserDeviceMonitoringApi,
+} from "./apis/EndUserDeviceMonitoringApi";
+
+export {
   EntityIntegrationConfigsApiDeleteEntityIntegrationConfigRequest,
   EntityIntegrationConfigsApiGetEntityIntegrationConfigRequest,
   EntityIntegrationConfigsApiUpdateEntityIntegrationConfigRequest,
@@ -2853,12 +2859,14 @@ export { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocat
 export { ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems } from "./models/ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems";
 export { ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./models/ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems";
 export { ArbitraryCostUpsertRequestDataType } from "./models/ArbitraryCostUpsertRequestDataType";
+export { ArbitraryRuleMappingTransform } from "./models/ArbitraryRuleMappingTransform";
 export { ArbitraryRuleResponse } from "./models/ArbitraryRuleResponse";
 export { ArbitraryRuleResponseArray } from "./models/ArbitraryRuleResponseArray";
 export { ArbitraryRuleResponseArrayMeta } from "./models/ArbitraryRuleResponseArrayMeta";
 export { ArbitraryRuleResponseData } from "./models/ArbitraryRuleResponseData";
 export { ArbitraryRuleResponseDataAttributes } from "./models/ArbitraryRuleResponseDataAttributes";
 export { ArbitraryRuleResponseDataAttributesCostsToAllocateItems } from "./models/ArbitraryRuleResponseDataAttributesCostsToAllocateItems";
+export { ArbitraryRuleResponseDataAttributesRuleCategory } from "./models/ArbitraryRuleResponseDataAttributesRuleCategory";
 export { ArbitraryRuleResponseDataAttributesStrategy } from "./models/ArbitraryRuleResponseDataAttributesStrategy";
 export { ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems } from "./models/ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems";
 export { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems } from "./models/ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems";
@@ -2870,6 +2878,9 @@ export { ArbitraryRuleStatusResponseArray } from "./models/ArbitraryRuleStatusRe
 export { ArbitraryRuleStatusResponseData } from "./models/ArbitraryRuleStatusResponseData";
 export { ArbitraryRuleStatusResponseDataAttributes } from "./models/ArbitraryRuleStatusResponseDataAttributes";
 export { ArbitraryRuleStatusResponseDataType } from "./models/ArbitraryRuleStatusResponseDataType";
+export { ArbitraryRuleTagTransforms } from "./models/ArbitraryRuleTagTransforms";
+export { ArbitraryRuleTagValueTransform } from "./models/ArbitraryRuleTagValueTransform";
+export { ArbitraryRuleTagValueTransformType } from "./models/ArbitraryRuleTagValueTransformType";
 export { ArchiveSearchCreateRehydration } from "./models/ArchiveSearchCreateRehydration";
 export { ArchiveSearchCreateRequest } from "./models/ArchiveSearchCreateRequest";
 export { ArchiveSearchCreateRequestAttributes } from "./models/ArchiveSearchCreateRequestAttributes";
@@ -4599,7 +4610,20 @@ export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
 export { DetailedFindingType } from "./models/DetailedFindingType";
 export { DeviceAttributes } from "./models/DeviceAttributes";
 export { DeviceAttributesInterfaceStatuses } from "./models/DeviceAttributesInterfaceStatuses";
+export { DeviceBaseArray } from "./models/DeviceBaseArray";
+export { DeviceBaseArrayLinks } from "./models/DeviceBaseArrayLinks";
+export { DeviceBaseArrayMeta } from "./models/DeviceBaseArrayMeta";
+export { DeviceBaseArrayMetaPage } from "./models/DeviceBaseArrayMetaPage";
+export { DeviceBaseData } from "./models/DeviceBaseData";
+export { DeviceBaseDataAttributes } from "./models/DeviceBaseDataAttributes";
+export { DeviceDetails } from "./models/DeviceDetails";
+export { DeviceDetailsData } from "./models/DeviceDetailsData";
+export { DeviceDetailsDataAttributes } from "./models/DeviceDetailsDataAttributes";
+export { DeviceDetailsDataType } from "./models/DeviceDetailsDataType";
+export { DeviceEmployee } from "./models/DeviceEmployee";
+export { DeviceGeoIP } from "./models/DeviceGeoIP";
 export { DevicesListData } from "./models/DevicesListData";
+export { DeviceStatus } from "./models/DeviceStatus";
 export { DeviceTagsBySource } from "./models/DeviceTagsBySource";
 export { DnsMetricKey } from "./models/DnsMetricKey";
 export { DomainAllowlist } from "./models/DomainAllowlist";
@@ -5478,6 +5502,7 @@ export { FullServiceAccessTokenAttributes } from "./models/FullServiceAccessToke
 export { FullServiceAccessTokenRelationships } from "./models/FullServiceAccessTokenRelationships";
 export { GCPCredentials } from "./models/GCPCredentials";
 export { GCPCredentialsUpdate } from "./models/GCPCredentialsUpdate";
+export { GCPCudMetadataConfig } from "./models/GCPCudMetadataConfig";
 export { GCPIntegration } from "./models/GCPIntegration";
 export { GCPIntegrationType } from "./models/GCPIntegrationType";
 export { GCPIntegrationUpdate } from "./models/GCPIntegrationUpdate";
