@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CasePriority } from "./CasePriority";
 import { CaseStatus } from "./CaseStatus";
+import { CaseStatusGroup } from "./CaseStatusGroup";
 import { IssueCaseInsight } from "./IssueCaseInsight";
 import { IssueCaseJiraIssue } from "./IssueCaseJiraIssue";
 import { IssueCaseLinearIssue } from "./IssueCaseLinearIssue";
@@ -62,6 +63,14 @@ export class IssueCaseAttributes {
    * Deprecated way of representing the work item status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
    */
   "status"?: CaseStatus;
+  /**
+   * Status group of the work item.
+   */
+  "statusGroup"?: CaseStatusGroup;
+  /**
+   * Status of the work item. Must be one of the existing statuses for the work item's type.
+   */
+  "statusName"?: string;
   /**
    * Title of the case.
    */
@@ -140,6 +149,14 @@ export class IssueCaseAttributes {
     status: {
       baseName: "status",
       type: "CaseStatus",
+    },
+    statusGroup: {
+      baseName: "status_group",
+      type: "CaseStatusGroup",
+    },
+    statusName: {
+      baseName: "status_name",
+      type: "string",
     },
     title: {
       baseName: "title",

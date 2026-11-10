@@ -7,6 +7,7 @@ export type IssuePlatform =
   | typeof ANDROID
   | typeof BACKEND
   | typeof BROWSER
+  | typeof ELECTRON
   | typeof FLUTTER
   | typeof IOS
   | typeof REACT_NATIVE
@@ -16,6 +17,7 @@ export type IssuePlatform =
 export const ANDROID = "ANDROID";
 export const BACKEND = "BACKEND";
 export const BROWSER = "BROWSER";
+export const ELECTRON = "ELECTRON";
 export const FLUTTER = "FLUTTER";
 export const IOS = "IOS";
 export const REACT_NATIVE = "REACT_NATIVE";

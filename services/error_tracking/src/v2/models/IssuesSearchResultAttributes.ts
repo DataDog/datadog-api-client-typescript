@@ -6,10 +6,16 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 export class IssuesSearchResultAttributes {
   /**
    * Count of sessions impacted by the issue over the queried time window.
+   * Returned for RUM, LLM Observability, browser, and mobile searches,
+   * or when `issue.impacted_sessions` is requested in the `include` query parameter.
+   * Omitted when zero unless requested in the `include` query parameter.
    */
   "impactedSessions"?: number;
   /**
    * Count of users impacted by the issue over the queried time window.
+   * Returned for RUM, browser, and mobile searches,
+   * or when `issue.impacted_users` is requested in the `include` query parameter.
+   * Omitted when zero unless requested in the `include` query parameter.
    */
   "impactedUsers"?: number;
   /**

@@ -686,8 +686,8 @@ export interface ErrorTrackingApiGetIssueRequest {
    */
   issueId: string;
   /**
-   * Comma-separated list of relationship objects that should be included in the response.
-   * Possible values are `assignee`, `case`, `team_owners`, and `samples`.
+   * Comma-separated list of relationship objects that should be included in the response. Possible values are `assignee`, `bits_investigation`, `case`, `pull_requests`, `samples`, `team_owners`, and `watches`.
+   * Values must not contain spaces. `case` and `assignee` return nothing, without an error, if the caller lacks the `cases_read` permission.
    * @type Array<GetIssueIncludeQueryParameterItem>
    */
   include?: Array<GetIssueIncludeQueryParameterItem>;
@@ -706,7 +706,7 @@ export interface ErrorTrackingApiSearchIssuesRequest {
    */
   body: IssuesSearchRequest;
   /**
-   * Comma-separated list of relationship objects that should be included in the response. Possible values are `issue`, `issue.assignee`, `issue.case`, and `issue.team_owners`.
+   * Comma-separated list of relationship objects that should be included in the response. Possible values are `issue`, `issue.assignee`, `issue.bits_investigation`, `issue.case`, `issue.impacted_sessions`, `issue.impacted_users`, `issue.pull_requests`, `issue.team_owners`, and `issue.watches`.
    * @type Array<SearchIssuesIncludeQueryParameterItem>
    */
   include?: Array<SearchIssuesIncludeQueryParameterItem>;
@@ -780,6 +780,7 @@ export class ErrorTrackingApi {
 
   /**
    * Retrieve the full details for a specific error tracking issue, including attributes and relationships.
+   * Returns 403 if the caller lacks the `error_tracking_read` permission or does not have access to the issue's data.
    * @param param The request object
    */
   public getIssue(
