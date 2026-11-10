@@ -4713,8 +4713,9 @@ export interface MetricsApiListTagConfigurationsRequest {
    * start with `app.` and end with `.count`. The exception is a value whose only `*` is at the end (for
    * example, `http.request*`): it matches names that start with that text and is case-sensitive.
    * Spaces are treated as `*`. Only one value is accepted; repeating the parameter returns
-   * `400 Bad Request`. Allowed characters are letters, digits, `_`, `.`, `*`, and spaces. An empty value
-   * is ignored.
+   * `400 Bad Request`. Allowed characters are letters, digits, `_`, `.`, `*`, and spaces. Surrounding spaces
+   * are ignored, and an empty or spaces-only value is ignored. The value can be at most 200 characters (the
+   * longest metric name); a longer value returns `400 Bad Request`.
    * @type string
    */
   filterMetricsId?: string;
