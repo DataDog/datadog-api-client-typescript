@@ -9741,6 +9741,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "boolean",
       format: "",
     },
+    createOnly: {
+      type: "boolean",
+      format: "",
+    },
     body: {
       type: "UsageQuotasCreateRequest",
       format: "",
