@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { IssueCase } from "./IssueCase";
+import { IssuePullRequest } from "./IssuePullRequest";
 import { IssueSample } from "./IssueSample";
 import { IssueTeam } from "./IssueTeam";
 import { IssueUser } from "./IssueUser";
+import { IssueWatch } from "./IssueWatch";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -18,5 +20,7 @@ export type IssueIncluded =
   | IssueCase
   | IssueUser
   | IssueTeam
+  | IssuePullRequest
+  | IssueWatch
   | IssueSample
   | UnparsedObject;

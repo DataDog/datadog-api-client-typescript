@@ -5,8 +5,10 @@
  */
 import { Issue } from "./Issue";
 import { IssueCase } from "./IssueCase";
+import { IssuePullRequest } from "./IssuePullRequest";
 import { IssueTeam } from "./IssueTeam";
 import { IssueUser } from "./IssueUser";
+import { IssueWatch } from "./IssueWatch";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -19,4 +21,6 @@ export type IssuesSearchResultIncluded =
   | IssueCase
   | IssueUser
   | IssueTeam
+  | IssuePullRequest
+  | IssueWatch
   | UnparsedObject;
