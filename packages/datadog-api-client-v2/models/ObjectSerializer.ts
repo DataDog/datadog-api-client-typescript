@@ -1832,6 +1832,17 @@ import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
 import { DeviceAttributes } from "./DeviceAttributes";
 import { DeviceAttributesInterfaceStatuses } from "./DeviceAttributesInterfaceStatuses";
+import { DeviceBaseArray } from "./DeviceBaseArray";
+import { DeviceBaseArrayLinks } from "./DeviceBaseArrayLinks";
+import { DeviceBaseArrayMeta } from "./DeviceBaseArrayMeta";
+import { DeviceBaseArrayMetaPage } from "./DeviceBaseArrayMetaPage";
+import { DeviceBaseData } from "./DeviceBaseData";
+import { DeviceBaseDataAttributes } from "./DeviceBaseDataAttributes";
+import { DeviceDetails } from "./DeviceDetails";
+import { DeviceDetailsData } from "./DeviceDetailsData";
+import { DeviceDetailsDataAttributes } from "./DeviceDetailsDataAttributes";
+import { DeviceEmployee } from "./DeviceEmployee";
+import { DeviceGeoIP } from "./DeviceGeoIP";
 import { DeviceTagsBySource } from "./DeviceTagsBySource";
 import { DevicesListData } from "./DevicesListData";
 import { DomainAllowlist } from "./DomainAllowlist";
@@ -7985,6 +7996,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   DerivedMetricsType: ["derived_metrics"],
   DetailedFindingType: ["detailed_finding"],
+  DeviceDetailsDataType: ["devices"],
+  DeviceStatus: ["healthy", "degraded", "critical", "inactive", "unknown"],
   DnsMetricKey: [
     "dns_total_requests",
     "dns_failures",
@@ -13328,6 +13341,17 @@ const typeMap: { [index: string]: any } = {
   DetailedFindingAttributes: DetailedFindingAttributes,
   DeviceAttributes: DeviceAttributes,
   DeviceAttributesInterfaceStatuses: DeviceAttributesInterfaceStatuses,
+  DeviceBaseArray: DeviceBaseArray,
+  DeviceBaseArrayLinks: DeviceBaseArrayLinks,
+  DeviceBaseArrayMeta: DeviceBaseArrayMeta,
+  DeviceBaseArrayMetaPage: DeviceBaseArrayMetaPage,
+  DeviceBaseData: DeviceBaseData,
+  DeviceBaseDataAttributes: DeviceBaseDataAttributes,
+  DeviceDetails: DeviceDetails,
+  DeviceDetailsData: DeviceDetailsData,
+  DeviceDetailsDataAttributes: DeviceDetailsDataAttributes,
+  DeviceEmployee: DeviceEmployee,
+  DeviceGeoIP: DeviceGeoIP,
   DeviceTagsBySource: DeviceTagsBySource,
   DevicesListData: DevicesListData,
   DomainAllowlist: DomainAllowlist,
