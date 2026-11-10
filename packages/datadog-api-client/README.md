@@ -417,6 +417,7 @@ apiInstance
 | Fleet Automation | @datadog/datadog-api-client-fleet-automation | [README.md](../../services/fleet-automation/README.md) |
 | Forms | @datadog/datadog-api-client-forms | [README.md](../../services/forms/README.md) |
 | GCP Integration | @datadog/datadog-api-client-gcp-integration | [README.md](../../services/gcp-integration/README.md) |
+| GitHub Costs Integration | @datadog/datadog-api-client-git-hub-costs-integration | [README.md](../../services/git-hub-costs-integration/README.md) |
 | Google Chat Integration | @datadog/datadog-api-client-google-chat-integration | [README.md](../../services/google-chat-integration/README.md) |
 | Governance Console | @datadog/datadog-api-client-governance-console | [README.md](../../services/governance-console/README.md) |
 | High Availability MultiRegion | @datadog/datadog-api-client-high-availability-multi-region | [README.md](../../services/high-availability-multi-region/README.md) |
