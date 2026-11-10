@@ -20,6 +20,9 @@ import { GetMappingResponse } from "./GetMappingResponse";
 import { GetMappingResponseData } from "./GetMappingResponseData";
 import { GetMappingResponseDataAttributes } from "./GetMappingResponseDataAttributes";
 import { GetMappingResponseDataAttributesAttributesItems } from "./GetMappingResponseDataAttributesAttributesItems";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { ListConnectionsResponse } from "./ListConnectionsResponse";
 import { ListConnectionsResponseData } from "./ListConnectionsResponseData";
 import { ListConnectionsResponseDataAttributes } from "./ListConnectionsResponseDataAttributes";
@@ -95,6 +98,9 @@ export const TypingInfo: ModelTypingInfo = {
     GetMappingResponseDataAttributes: GetMappingResponseDataAttributes,
     GetMappingResponseDataAttributesAttributesItems:
       GetMappingResponseDataAttributesAttributesItems,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     ListConnectionsResponse: ListConnectionsResponse,
     ListConnectionsResponseData: ListConnectionsResponseData,
     ListConnectionsResponseDataAttributes:

@@ -1,6 +1,7 @@
 export {
   RumAudienceManagementApiCreateConnectionRequest,
   RumAudienceManagementApiDeleteConnectionRequest,
+  RumAudienceManagementApiDeleteUserProfileRequest,
   RumAudienceManagementApiGetAccountFacetInfoRequest,
   RumAudienceManagementApiGetMappingRequest,
   RumAudienceManagementApiGetUserFacetInfoRequest,
@@ -35,6 +36,9 @@ export { GetMappingResponseData } from "./models/GetMappingResponseData";
 export { GetMappingResponseDataAttributes } from "./models/GetMappingResponseDataAttributes";
 export { GetMappingResponseDataAttributesAttributesItems } from "./models/GetMappingResponseDataAttributesAttributesItems";
 export { GetMappingResponseDataType } from "./models/GetMappingResponseDataType";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { ListConnectionsResponse } from "./models/ListConnectionsResponse";
 export { ListConnectionsResponseData } from "./models/ListConnectionsResponseData";
 export { ListConnectionsResponseDataAttributes } from "./models/ListConnectionsResponseDataAttributes";
