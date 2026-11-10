@@ -4,6 +4,8 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { Issue } from "./Issue";
 import { IssueAssigneeRelationship } from "./IssueAssigneeRelationship";
 import { IssueAttributes } from "./IssueAttributes";
+import { IssueBitsInvestigationReference } from "./IssueBitsInvestigationReference";
+import { IssueBitsInvestigationRelationship } from "./IssueBitsInvestigationRelationship";
 import { IssueCase } from "./IssueCase";
 import { IssueCaseAttributes } from "./IssueCaseAttributes";
 import { IssueCaseInsight } from "./IssueCaseInsight";
@@ -14,6 +16,10 @@ import { IssueCaseLinearIssueResult } from "./IssueCaseLinearIssueResult";
 import { IssueCaseReference } from "./IssueCaseReference";
 import { IssueCaseRelationship } from "./IssueCaseRelationship";
 import { IssueCaseRelationships } from "./IssueCaseRelationships";
+import { IssuePullRequest } from "./IssuePullRequest";
+import { IssuePullRequestAttributes } from "./IssuePullRequestAttributes";
+import { IssuePullRequestReference } from "./IssuePullRequestReference";
+import { IssuePullRequestsRelationship } from "./IssuePullRequestsRelationship";
 import { IssueReference } from "./IssueReference";
 import { IssueRegression } from "./IssueRegression";
 import { IssueRelationships } from "./IssueRelationships";
@@ -39,6 +45,12 @@ import { IssueUpdateStateRequestDataAttributes } from "./IssueUpdateStateRequest
 import { IssueUser } from "./IssueUser";
 import { IssueUserAttributes } from "./IssueUserAttributes";
 import { IssueUserReference } from "./IssueUserReference";
+import { IssueWatch } from "./IssueWatch";
+import { IssueWatchAction } from "./IssueWatchAction";
+import { IssueWatchAttributes } from "./IssueWatchAttributes";
+import { IssueWatchCondition } from "./IssueWatchCondition";
+import { IssueWatchReference } from "./IssueWatchReference";
+import { IssueWatchesRelationship } from "./IssueWatchesRelationship";
 import { IssuesSearchRequest } from "./IssuesSearchRequest";
 import { IssuesSearchRequestData } from "./IssuesSearchRequestData";
 import { IssuesSearchRequestDataAttributes } from "./IssuesSearchRequestDataAttributes";
@@ -56,12 +68,17 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
     CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
+    CaseStatusGroup: ["SG_OPEN", "SG_IN_PROGRESS", "SG_CLOSED"],
     GetIssueIncludeQueryParameterItem: [
       "assignee",
+      "bits_investigation",
       "case",
-      "team_owners",
+      "pull_requests",
       "samples",
+      "team_owners",
+      "watches",
     ],
+    IssueBitsInvestigationType: ["bits_investigation"],
     IssueCaseResourceType: ["case"],
     IssueLanguage: [
       "BRIGHTSCRIPT",
@@ -89,6 +106,7 @@ export const TypingInfo: ModelTypingInfo = {
       "SCALA",
       "SWIFT",
       "TERRAFORM",
+      "TF",
       "TYPESCRIPT",
       "UNKNOWN",
     ],
@@ -96,12 +114,15 @@ export const TypingInfo: ModelTypingInfo = {
       "ANDROID",
       "BACKEND",
       "BROWSER",
+      "ELECTRON",
       "FLUTTER",
       "IOS",
       "REACT_NATIVE",
       "ROKU",
       "UNKNOWN",
     ],
+    IssuePullRequestReason: ["unknown", "fix", "trigger"],
+    IssuePullRequestType: ["error_tracking_pull_request"],
     IssueSampleBias: [
       "latest",
       "git_metadata",
@@ -124,6 +145,16 @@ export const TypingInfo: ModelTypingInfo = {
     IssueUpdateAssigneeRequestDataType: ["assignee"],
     IssueUpdateStateRequestDataType: ["error_tracking_issue"],
     IssueUserType: ["user"],
+    IssueWatchActionKind: ["CHANGE_ISSUE_STATE"],
+    IssueWatchConditionKind: [
+      "OCCURRENCES",
+      "CARDINALITY",
+      "ELAPSED_TIME",
+      "ANY",
+      "ALL",
+    ],
+    IssueWatchStatus: ["ACTIVE"],
+    IssueWatchType: ["error_tracking_issue_watch"],
     IssuesSearchRequestDataAttributesOrderBy: [
       "TOTAL_COUNT",
       "FIRST_SEEN",
@@ -143,18 +174,32 @@ export const TypingInfo: ModelTypingInfo = {
     SearchIssuesIncludeQueryParameterItem: [
       "issue",
       "issue.assignee",
+      "issue.bits_investigation",
       "issue.case",
+      "issue.impacted_sessions",
+      "issue.impacted_users",
+      "issue.pull_requests",
       "issue.team_owners",
+      "issue.watches",
     ],
     UserResourceType: ["user"],
   },
   oneOfMap: {
-    IssueIncluded: ["IssueCase", "IssueUser", "IssueTeam", "IssueSample"],
+    IssueIncluded: [
+      "IssueCase",
+      "IssueUser",
+      "IssueTeam",
+      "IssuePullRequest",
+      "IssueWatch",
+      "IssueSample",
+    ],
     IssuesSearchResultIncluded: [
       "Issue",
       "IssueCase",
       "IssueUser",
       "IssueTeam",
+      "IssuePullRequest",
+      "IssueWatch",
     ],
   },
   typeMap: {
@@ -162,6 +207,8 @@ export const TypingInfo: ModelTypingInfo = {
     Issue: Issue,
     IssueAssigneeRelationship: IssueAssigneeRelationship,
     IssueAttributes: IssueAttributes,
+    IssueBitsInvestigationReference: IssueBitsInvestigationReference,
+    IssueBitsInvestigationRelationship: IssueBitsInvestigationRelationship,
     IssueCase: IssueCase,
     IssueCaseAttributes: IssueCaseAttributes,
     IssueCaseInsight: IssueCaseInsight,
@@ -172,6 +219,10 @@ export const TypingInfo: ModelTypingInfo = {
     IssueCaseReference: IssueCaseReference,
     IssueCaseRelationship: IssueCaseRelationship,
     IssueCaseRelationships: IssueCaseRelationships,
+    IssuePullRequest: IssuePullRequest,
+    IssuePullRequestAttributes: IssuePullRequestAttributes,
+    IssuePullRequestReference: IssuePullRequestReference,
+    IssuePullRequestsRelationship: IssuePullRequestsRelationship,
     IssueReference: IssueReference,
     IssueRegression: IssueRegression,
     IssueRelationships: IssueRelationships,
@@ -198,6 +249,12 @@ export const TypingInfo: ModelTypingInfo = {
     IssueUser: IssueUser,
     IssueUserAttributes: IssueUserAttributes,
     IssueUserReference: IssueUserReference,
+    IssueWatch: IssueWatch,
+    IssueWatchAction: IssueWatchAction,
+    IssueWatchAttributes: IssueWatchAttributes,
+    IssueWatchCondition: IssueWatchCondition,
+    IssueWatchReference: IssueWatchReference,
+    IssueWatchesRelationship: IssueWatchesRelationship,
     IssuesSearchRequest: IssuesSearchRequest,
     IssuesSearchRequestData: IssuesSearchRequestData,
     IssuesSearchRequestDataAttributes: IssuesSearchRequestDataAttributes,
