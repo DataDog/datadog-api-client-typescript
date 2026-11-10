@@ -743,6 +743,12 @@ export {
 } from "./apis/ElasticCloudIntegrationApi";
 
 export {
+  EndUserDeviceMonitoringApiGetEUDMDeviceRequest,
+  EndUserDeviceMonitoringApiGetEUDMDevicesRequest,
+  EndUserDeviceMonitoringApi,
+} from "./apis/EndUserDeviceMonitoringApi";
+
+export {
   EntityIntegrationConfigsApiDeleteEntityIntegrationConfigRequest,
   EntityIntegrationConfigsApiGetEntityIntegrationConfigRequest,
   EntityIntegrationConfigsApiUpdateEntityIntegrationConfigRequest,
@@ -4599,7 +4605,20 @@ export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
 export { DetailedFindingType } from "./models/DetailedFindingType";
 export { DeviceAttributes } from "./models/DeviceAttributes";
 export { DeviceAttributesInterfaceStatuses } from "./models/DeviceAttributesInterfaceStatuses";
+export { DeviceBaseArray } from "./models/DeviceBaseArray";
+export { DeviceBaseArrayLinks } from "./models/DeviceBaseArrayLinks";
+export { DeviceBaseArrayMeta } from "./models/DeviceBaseArrayMeta";
+export { DeviceBaseArrayMetaPage } from "./models/DeviceBaseArrayMetaPage";
+export { DeviceBaseData } from "./models/DeviceBaseData";
+export { DeviceBaseDataAttributes } from "./models/DeviceBaseDataAttributes";
+export { DeviceDetails } from "./models/DeviceDetails";
+export { DeviceDetailsData } from "./models/DeviceDetailsData";
+export { DeviceDetailsDataAttributes } from "./models/DeviceDetailsDataAttributes";
+export { DeviceDetailsDataType } from "./models/DeviceDetailsDataType";
+export { DeviceEmployee } from "./models/DeviceEmployee";
+export { DeviceGeoIP } from "./models/DeviceGeoIP";
 export { DevicesListData } from "./models/DevicesListData";
+export { DeviceStatus } from "./models/DeviceStatus";
 export { DeviceTagsBySource } from "./models/DeviceTagsBySource";
 export { DnsMetricKey } from "./models/DnsMetricKey";
 export { DomainAllowlist } from "./models/DomainAllowlist";

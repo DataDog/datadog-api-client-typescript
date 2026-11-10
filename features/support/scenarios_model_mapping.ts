@@ -10794,6 +10794,28 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IssueResponse",
     },
+    "v2.GetEUDMDevices": {
+        "bssid": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeviceBaseArray",
+    },
+    "v2.GetEUDMDevice": {
+        "deviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeviceDetails",
+    },
     "v2.ListEvents": {
         "filterQuery": {
             "type": "string",
