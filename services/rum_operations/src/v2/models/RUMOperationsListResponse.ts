@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { RUMOperationResponseData } from "./RUMOperationResponseData";
+import { RUMOperationsListResponseLinks } from "./RUMOperationsListResponseLinks";
 import { RUMOperationsListResponseMeta } from "./RUMOperationsListResponseMeta";
 
 /**
@@ -8,6 +9,10 @@ import { RUMOperationsListResponseMeta } from "./RUMOperationsListResponseMeta";
  */
 export class RUMOperationsListResponse {
   "data": Array<RUMOperationResponseData>;
+  /**
+   * Pagination links for a list of RUM operations.
+   */
+  "links"?: RUMOperationsListResponseLinks;
   /**
    * Metadata for a list of RUM operations.
    */
@@ -31,6 +36,10 @@ export class RUMOperationsListResponse {
       baseName: "data",
       type: "Array<RUMOperationResponseData>",
       required: true,
+    },
+    links: {
+      baseName: "links",
+      type: "RUMOperationsListResponseLinks",
     },
     meta: {
       baseName: "meta",
