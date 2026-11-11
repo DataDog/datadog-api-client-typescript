@@ -1578,6 +1578,7 @@ export {
 export {
   RumAudienceManagementApiCreateConnectionRequest,
   RumAudienceManagementApiDeleteConnectionRequest,
+  RumAudienceManagementApiDeleteUserProfileRequest,
   RumAudienceManagementApiGetAccountFacetInfoRequest,
   RumAudienceManagementApiGetMappingRequest,
   RumAudienceManagementApiGetUserFacetInfoRequest,

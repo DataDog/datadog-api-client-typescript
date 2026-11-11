@@ -21,6 +21,7 @@ import { CreateConnectionRequest } from "../models/CreateConnectionRequest";
 import { FacetInfoRequest } from "../models/FacetInfoRequest";
 import { FacetInfoResponse } from "../models/FacetInfoResponse";
 import { GetMappingResponse } from "../models/GetMappingResponse";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListConnectionsResponse } from "../models/ListConnectionsResponse";
 import { QueryAccountRequest } from "../models/QueryAccountRequest";
 import { QueryEventFilteredUsersRequest } from "../models/QueryEventFilteredUsersRequest";
@@ -123,6 +124,50 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const requestContext = _config
       .getServer("v2.RumAudienceManagementApi.deleteConnection")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteUserProfile(
+    userId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteUserProfile'");
+    if (!_config.unstableOperations["v2.deleteUserProfile"]) {
+      throw new Error("Unstable operation 'deleteUserProfile' is disabled");
+    }
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "deleteUserProfile");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/users/{user_id}".replace(
+      "{user_id}",
+      encodeURIComponent(String(userId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RumAudienceManagementApi.deleteUserProfile")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -632,6 +677,82 @@ export class RumAudienceManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 204) {
       return;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteUserProfile
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteUserProfile(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 202) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
@@ -1247,6 +1368,14 @@ export interface RumAudienceManagementApiDeleteConnectionRequest {
   entity: string;
 }
 
+export interface RumAudienceManagementApiDeleteUserProfileRequest {
+  /**
+   * The ID of the user to delete, as sent in the `usr.id` attribute.
+   * @type string
+   */
+  userId: string;
+}
+
 export interface RumAudienceManagementApiGetAccountFacetInfoRequest {
   /**
    * @type FacetInfoRequest
@@ -1369,6 +1498,29 @@ export class RumAudienceManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteConnection(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a Product Analytics user profile.
+   * Deletion is asynchronous: the request is accepted and the profile is removed shortly after, usually within a few minutes.
+   * This only deletes the user profile. To delete the RUM events of the user, use the RUM data deletion API.
+   * @param param The request object
+   */
+  public deleteUserProfile(
+    param: RumAudienceManagementApiDeleteUserProfileRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteUserProfile(
+      param.userId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteUserProfile(responseContext);
         });
     });
   }
