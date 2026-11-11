@@ -2632,6 +2632,24 @@ import { GitHubCloudAuthPersonaMappingCreateRequest } from "./GitHubCloudAuthPer
 import { GitHubCloudAuthPersonaMappingDataResponse } from "./GitHubCloudAuthPersonaMappingDataResponse";
 import { GitHubCloudAuthPersonaMappingResponse } from "./GitHubCloudAuthPersonaMappingResponse";
 import { GitHubCloudAuthPersonaMappingsResponse } from "./GitHubCloudAuthPersonaMappingsResponse";
+import { GitHubCostsCloudCostMetricsIntegrationDataflowResponse } from "./GitHubCostsCloudCostMetricsIntegrationDataflowResponse";
+import { GitHubCostsIntegrationAccountBearerTokenAuthRequest } from "./GitHubCostsIntegrationAccountBearerTokenAuthRequest";
+import { GitHubCostsIntegrationAccountBearerTokenAuthResponse } from "./GitHubCostsIntegrationAccountBearerTokenAuthResponse";
+import { GitHubCostsIntegrationAccountBearerTokenAuthUpdate } from "./GitHubCostsIntegrationAccountBearerTokenAuthUpdate";
+import { GitHubCostsIntegrationAccountCreateAttributes } from "./GitHubCostsIntegrationAccountCreateAttributes";
+import { GitHubCostsIntegrationAccountCreateData } from "./GitHubCostsIntegrationAccountCreateData";
+import { GitHubCostsIntegrationAccountCreateRequest } from "./GitHubCostsIntegrationAccountCreateRequest";
+import { GitHubCostsIntegrationAccountResponse } from "./GitHubCostsIntegrationAccountResponse";
+import { GitHubCostsIntegrationAccountResponseAttributes } from "./GitHubCostsIntegrationAccountResponseAttributes";
+import { GitHubCostsIntegrationAccountResponseData } from "./GitHubCostsIntegrationAccountResponseData";
+import { GitHubCostsIntegrationAccountSettingsRequest } from "./GitHubCostsIntegrationAccountSettingsRequest";
+import { GitHubCostsIntegrationAccountSettingsResponse } from "./GitHubCostsIntegrationAccountSettingsResponse";
+import { GitHubCostsIntegrationAccountSettingsUpdate } from "./GitHubCostsIntegrationAccountSettingsUpdate";
+import { GitHubCostsIntegrationAccountUpdateAttributes } from "./GitHubCostsIntegrationAccountUpdateAttributes";
+import { GitHubCostsIntegrationAccountUpdateData } from "./GitHubCostsIntegrationAccountUpdateData";
+import { GitHubCostsIntegrationAccountUpdateRequest } from "./GitHubCostsIntegrationAccountUpdateRequest";
+import { GitHubCostsIntegrationAccountsResponse } from "./GitHubCostsIntegrationAccountsResponse";
+import { GitHubCostsIntegrationDataflowsResponse } from "./GitHubCostsIntegrationDataflowsResponse";
 import { GitHubOIDCClaimPatterns } from "./GitHubOIDCClaimPatterns";
 import { GithubApp } from "./GithubApp";
 import { GithubAppUpdate } from "./GithubAppUpdate";
@@ -8546,6 +8564,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   GitHubCloudAuthIntakeMappingType: ["github_oidc_auth_intake_mapping"],
   GitHubCloudAuthPersonaMappingType: ["github_oidc_auth_config"],
+  GitHubCostsIntegrationAccountBearerTokenAuthType: ["bearer_token"],
   GithubAppType: ["GithubApp"],
   GithubIntegrationType: ["Github"],
   GithubPersonalAccessTokenType: ["GithubPersonalAccessToken"],
@@ -14446,6 +14465,41 @@ const typeMap: { [index: string]: any } = {
   GitHubCloudAuthPersonaMappingResponse: GitHubCloudAuthPersonaMappingResponse,
   GitHubCloudAuthPersonaMappingsResponse:
     GitHubCloudAuthPersonaMappingsResponse,
+  GitHubCostsCloudCostMetricsIntegrationDataflowResponse:
+    GitHubCostsCloudCostMetricsIntegrationDataflowResponse,
+  GitHubCostsIntegrationAccountBearerTokenAuthRequest:
+    GitHubCostsIntegrationAccountBearerTokenAuthRequest,
+  GitHubCostsIntegrationAccountBearerTokenAuthResponse:
+    GitHubCostsIntegrationAccountBearerTokenAuthResponse,
+  GitHubCostsIntegrationAccountBearerTokenAuthUpdate:
+    GitHubCostsIntegrationAccountBearerTokenAuthUpdate,
+  GitHubCostsIntegrationAccountCreateAttributes:
+    GitHubCostsIntegrationAccountCreateAttributes,
+  GitHubCostsIntegrationAccountCreateData:
+    GitHubCostsIntegrationAccountCreateData,
+  GitHubCostsIntegrationAccountCreateRequest:
+    GitHubCostsIntegrationAccountCreateRequest,
+  GitHubCostsIntegrationAccountResponse: GitHubCostsIntegrationAccountResponse,
+  GitHubCostsIntegrationAccountResponseAttributes:
+    GitHubCostsIntegrationAccountResponseAttributes,
+  GitHubCostsIntegrationAccountResponseData:
+    GitHubCostsIntegrationAccountResponseData,
+  GitHubCostsIntegrationAccountSettingsRequest:
+    GitHubCostsIntegrationAccountSettingsRequest,
+  GitHubCostsIntegrationAccountSettingsResponse:
+    GitHubCostsIntegrationAccountSettingsResponse,
+  GitHubCostsIntegrationAccountSettingsUpdate:
+    GitHubCostsIntegrationAccountSettingsUpdate,
+  GitHubCostsIntegrationAccountUpdateAttributes:
+    GitHubCostsIntegrationAccountUpdateAttributes,
+  GitHubCostsIntegrationAccountUpdateData:
+    GitHubCostsIntegrationAccountUpdateData,
+  GitHubCostsIntegrationAccountUpdateRequest:
+    GitHubCostsIntegrationAccountUpdateRequest,
+  GitHubCostsIntegrationAccountsResponse:
+    GitHubCostsIntegrationAccountsResponse,
+  GitHubCostsIntegrationDataflowsResponse:
+    GitHubCostsIntegrationDataflowsResponse,
   GitHubOIDCClaimPatterns: GitHubOIDCClaimPatterns,
   GithubApp: GithubApp,
   GithubAppUpdate: GithubAppUpdate,
@@ -20489,6 +20543,15 @@ const oneOfMap: { [index: string]: string[] } = {
   GeneralInvestigationAttributes: [
     "GeneralInvestigationAttributesWithoutTimeBounds",
     "GeneralInvestigationAttributesWithTimeBounds",
+  ],
+  GitHubCostsIntegrationAccountAuthenticationRequest: [
+    "GitHubCostsIntegrationAccountBearerTokenAuthRequest",
+  ],
+  GitHubCostsIntegrationAccountAuthenticationResponse: [
+    "GitHubCostsIntegrationAccountBearerTokenAuthResponse",
+  ],
+  GitHubCostsIntegrationAccountAuthenticationUpdate: [
+    "GitHubCostsIntegrationAccountBearerTokenAuthUpdate",
   ],
   GithubAppGithubAppId: [
     "string",

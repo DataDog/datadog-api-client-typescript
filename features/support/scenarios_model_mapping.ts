@@ -13378,6 +13378,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ElasticCloudIntegrationAccountResponse",
     },
+    "v2.ListGitHubCostsIntegrationAccounts": {
+        "operationResponseType": "GitHubCostsIntegrationAccountsResponse",
+    },
+    "v2.CreateGitHubCostsIntegrationAccount": {
+        "body": {
+            "type": "GitHubCostsIntegrationAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "GitHubCostsIntegrationAccountResponse",
+    },
+    "v2.GetGitHubCostsIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GitHubCostsIntegrationAccountResponse",
+    },
+    "v2.DeleteGitHubCostsIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateGitHubCostsIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "GitHubCostsIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "GitHubCostsIntegrationAccountResponse",
+    },
     "v2.ListSnowflakeIntegrationAccounts": {
         "operationResponseType": "SnowflakeIntegrationAccountsResponse",
     },
