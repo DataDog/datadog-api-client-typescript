@@ -29,6 +29,7 @@ export {
   ExperimentsApiGetMetricCollectionRequest,
   ExperimentsApiGetMetricSQLModelRequest,
   ExperimentsApiGetSubjectTypeRequest,
+  ExperimentsApiListExperimentHoldoutsRequest,
   ExperimentsApiListExperimentMetricGroupsRequest,
   ExperimentsApiListExperimentProtocolsRequest,
   ExperimentsApiListExperimentsRequest,
@@ -136,6 +137,13 @@ export { ExperimentsExperimentDiagnosticsV2DTODataAttributesDiagnosticsItemsType
 export { ExperimentsExperimentDiagnosticsV2DTODataAttributesResult } from "./models/ExperimentsExperimentDiagnosticsV2DTODataAttributesResult";
 export { ExperimentsExperimentDiagnosticsV2DTODataAttributesState } from "./models/ExperimentsExperimentDiagnosticsV2DTODataAttributesState";
 export { ExperimentsExperimentDiagnosticsV2DTODataType } from "./models/ExperimentsExperimentDiagnosticsV2DTODataType";
+export { ExperimentsExperimentHoldoutV2DTOArray } from "./models/ExperimentsExperimentHoldoutV2DTOArray";
+export { ExperimentsExperimentHoldoutV2DTOData } from "./models/ExperimentsExperimentHoldoutV2DTOData";
+export { ExperimentsExperimentHoldoutV2DTODataAttributes } from "./models/ExperimentsExperimentHoldoutV2DTODataAttributes";
+export { ExperimentsExperimentHoldoutV2DTODataAttributesHoldoutType } from "./models/ExperimentsExperimentHoldoutV2DTODataAttributesHoldoutType";
+export { ExperimentsExperimentHoldoutV2DTODataAttributesKind } from "./models/ExperimentsExperimentHoldoutV2DTODataAttributesKind";
+export { ExperimentsExperimentHoldoutV2DTODataAttributesState } from "./models/ExperimentsExperimentHoldoutV2DTODataAttributesState";
+export { ExperimentsExperimentHoldoutV2DTODataType } from "./models/ExperimentsExperimentHoldoutV2DTODataType";
 export { ExperimentsExperimentMetricGroupMutationV2 } from "./models/ExperimentsExperimentMetricGroupMutationV2";
 export { ExperimentsExperimentMetricGroupMutationV2Data } from "./models/ExperimentsExperimentMetricGroupMutationV2Data";
 export { ExperimentsExperimentMetricGroupMutationV2DataAttributesMetricsItems } from "./models/ExperimentsExperimentMetricGroupMutationV2DataAttributesMetricsItems";
