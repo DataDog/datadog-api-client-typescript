@@ -17,6 +17,10 @@ export class TenancyConfigDataAttributesLogsConfig {
    */
   "enabledServices"?: Array<string>;
   /**
+   * Map of OCI service names to the resource tag filters that scope log collection for that service.
+   */
+  "resourceTagFilters"?: { [key: string]: Array<string> };
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -42,6 +46,10 @@ export class TenancyConfigDataAttributesLogsConfig {
     enabledServices: {
       baseName: "enabled_services",
       type: "Array<string>",
+    },
+    resourceTagFilters: {
+      baseName: "resource_tag_filters",
+      type: "{ [key: string]: Array<string>; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -11,6 +11,7 @@ import { CreateTenancyConfigRequest } from "./CreateTenancyConfigRequest";
 import { TenancyConfig } from "./TenancyConfig";
 import { TenancyConfigData } from "./TenancyConfigData";
 import { TenancyConfigDataAttributes } from "./TenancyConfigDataAttributes";
+import { TenancyConfigDataAttributesGraceResource } from "./TenancyConfigDataAttributesGraceResource";
 import { TenancyConfigDataAttributesLogsConfig } from "./TenancyConfigDataAttributesLogsConfig";
 import { TenancyConfigDataAttributesMetricsConfig } from "./TenancyConfigDataAttributesMetricsConfig";
 import { TenancyConfigDataAttributesRegionsConfig } from "./TenancyConfigDataAttributesRegionsConfig";
@@ -49,6 +50,8 @@ export const TypingInfo: ModelTypingInfo = {
     TenancyConfig: TenancyConfig,
     TenancyConfigData: TenancyConfigData,
     TenancyConfigDataAttributes: TenancyConfigDataAttributes,
+    TenancyConfigDataAttributesGraceResource:
+      TenancyConfigDataAttributesGraceResource,
     TenancyConfigDataAttributesLogsConfig:
       TenancyConfigDataAttributesLogsConfig,
     TenancyConfigDataAttributesMetricsConfig:

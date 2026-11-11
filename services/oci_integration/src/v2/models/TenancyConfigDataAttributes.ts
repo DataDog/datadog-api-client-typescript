@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { TenancyConfigDataAttributesGraceResource } from "./TenancyConfigDataAttributesGraceResource";
 import { TenancyConfigDataAttributesLogsConfig } from "./TenancyConfigDataAttributesLogsConfig";
 import { TenancyConfigDataAttributesMetricsConfig } from "./TenancyConfigDataAttributesMetricsConfig";
 import { TenancyConfigDataAttributesRegionsConfig } from "./TenancyConfigDataAttributesRegionsConfig";
@@ -8,6 +9,10 @@ import { TenancyConfigDataAttributesRegionsConfig } from "./TenancyConfigDataAtt
  * Attributes of an OCI tenancy integration configuration, including authentication details, region settings, and collection options.
  */
 export class TenancyConfigDataAttributes {
+  /**
+   * List of Datadog tags applied to data collected from the tenancy.
+   */
+  "accountTags"?: Array<string>;
   /**
    * The identifier of the billing plan associated with the OCI tenancy.
    */
@@ -25,9 +30,25 @@ export class TenancyConfigDataAttributes {
    */
   "ddCompartmentId"?: string;
   /**
+   * The version of the Datadog infrastructure-as-code stack applied to the tenancy (for example, 1.2.0).
+   */
+  "ddIacVersion"?: string;
+  /**
    * The OCID of the OCI Resource Manager stack used by the Datadog integration.
    */
   "ddStackId"?: string;
+  /**
+   * List of OCI defined tags applied to the Datadog-managed connector hubs.
+   */
+  "definedTags"?: Array<string>;
+  /**
+   * Whether resource change events collection from OCI is enabled for the tenancy.
+   */
+  "eventsCollectionEnabled"?: boolean;
+  /**
+   * Access control details for the tenancy configuration, used to determine whether the requesting user can edit it.
+   */
+  "graceResource"?: TenancyConfigDataAttributesGraceResource;
   /**
    * The home region of the OCI tenancy (for example, us-ashburn-1).
    */
@@ -53,6 +74,10 @@ export class TenancyConfigDataAttributes {
    */
   "resourceCollectionEnabled"?: boolean;
   /**
+   * Whether service quota collection from OCI is enabled for the tenancy.
+   */
+  "serviceQuotaCollectionEnabled"?: boolean;
+  /**
    * The human-readable name of the OCI tenancy.
    */
   "tenancyName"?: string;
@@ -75,6 +100,10 @@ export class TenancyConfigDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    accountTags: {
+      baseName: "account_tags",
+      type: "Array<string>",
+    },
     billingPlanId: {
       baseName: "billing_plan_id",
       type: "number",
@@ -93,9 +122,25 @@ export class TenancyConfigDataAttributes {
       baseName: "dd_compartment_id",
       type: "string",
     },
+    ddIacVersion: {
+      baseName: "dd_iac_version",
+      type: "string",
+    },
     ddStackId: {
       baseName: "dd_stack_id",
       type: "string",
+    },
+    definedTags: {
+      baseName: "defined_tags",
+      type: "Array<string>",
+    },
+    eventsCollectionEnabled: {
+      baseName: "events_collection_enabled",
+      type: "boolean",
+    },
+    graceResource: {
+      baseName: "grace_resource",
+      type: "TenancyConfigDataAttributesGraceResource",
     },
     homeRegion: {
       baseName: "home_region",
@@ -119,6 +164,10 @@ export class TenancyConfigDataAttributes {
     },
     resourceCollectionEnabled: {
       baseName: "resource_collection_enabled",
+      type: "boolean",
+    },
+    serviceQuotaCollectionEnabled: {
+      baseName: "service_quota_collection_enabled",
       type: "boolean",
     },
     tenancyName: {
