@@ -4326,6 +4326,29 @@ import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttrib
 import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
 import { OpenAIAPIKey } from "./OpenAIAPIKey";
 import { OpenAIAPIKeyUpdate } from "./OpenAIAPIKeyUpdate";
+import { OpenAICodexDoraIntegrationDataflowRequest } from "./OpenAICodexDoraIntegrationDataflowRequest";
+import { OpenAICodexDoraIntegrationDataflowResponse } from "./OpenAICodexDoraIntegrationDataflowResponse";
+import { OpenAICodexIntegrationAccountBearerTokenAuthRequest } from "./OpenAICodexIntegrationAccountBearerTokenAuthRequest";
+import { OpenAICodexIntegrationAccountBearerTokenAuthResponse } from "./OpenAICodexIntegrationAccountBearerTokenAuthResponse";
+import { OpenAICodexIntegrationAccountBearerTokenAuthUpdate } from "./OpenAICodexIntegrationAccountBearerTokenAuthUpdate";
+import { OpenAICodexIntegrationAccountCreateAttributes } from "./OpenAICodexIntegrationAccountCreateAttributes";
+import { OpenAICodexIntegrationAccountCreateData } from "./OpenAICodexIntegrationAccountCreateData";
+import { OpenAICodexIntegrationAccountCreateRequest } from "./OpenAICodexIntegrationAccountCreateRequest";
+import { OpenAICodexIntegrationAccountResponse } from "./OpenAICodexIntegrationAccountResponse";
+import { OpenAICodexIntegrationAccountResponseAttributes } from "./OpenAICodexIntegrationAccountResponseAttributes";
+import { OpenAICodexIntegrationAccountResponseData } from "./OpenAICodexIntegrationAccountResponseData";
+import { OpenAICodexIntegrationAccountSettingsRequest } from "./OpenAICodexIntegrationAccountSettingsRequest";
+import { OpenAICodexIntegrationAccountSettingsResponse } from "./OpenAICodexIntegrationAccountSettingsResponse";
+import { OpenAICodexIntegrationAccountSettingsUpdate } from "./OpenAICodexIntegrationAccountSettingsUpdate";
+import { OpenAICodexIntegrationAccountUpdateAttributes } from "./OpenAICodexIntegrationAccountUpdateAttributes";
+import { OpenAICodexIntegrationAccountUpdateData } from "./OpenAICodexIntegrationAccountUpdateData";
+import { OpenAICodexIntegrationAccountUpdateRequest } from "./OpenAICodexIntegrationAccountUpdateRequest";
+import { OpenAICodexIntegrationAccountsResponse } from "./OpenAICodexIntegrationAccountsResponse";
+import { OpenAICodexIntegrationDataflowsRequest } from "./OpenAICodexIntegrationDataflowsRequest";
+import { OpenAICodexIntegrationDataflowsResponse } from "./OpenAICodexIntegrationDataflowsResponse";
+import { OpenAICodexMetricsIntegrationDataflowResponse } from "./OpenAICodexMetricsIntegrationDataflowResponse";
+import { OpenAICodexTurnMetricsIntegrationDataflowRequest } from "./OpenAICodexTurnMetricsIntegrationDataflowRequest";
+import { OpenAICodexTurnMetricsIntegrationDataflowResponse } from "./OpenAICodexTurnMetricsIntegrationDataflowResponse";
 import { OpenAIIntegration } from "./OpenAIIntegration";
 import { OpenAIIntegrationUpdate } from "./OpenAIIntegrationUpdate";
 import { OpenAPIEndpoint } from "./OpenAPIEndpoint";
@@ -9596,6 +9619,7 @@ const enumsMap: { [key: string]: any[] } = {
   OnCallPhoneNotificationRuleMethod: ["sms", "voice"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpenAIAPIKeyType: ["OpenAIAPIKey"],
+  OpenAICodexIntegrationAccountBearerTokenAuthType: ["bearer_token"],
   OpenAIIntegrationType: ["OpenAI"],
   OpsgenieAccountType: ["opsgenie-account"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
@@ -16555,6 +16579,51 @@ const typeMap: { [index: string]: any } = {
   OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
   OpenAIAPIKey: OpenAIAPIKey,
   OpenAIAPIKeyUpdate: OpenAIAPIKeyUpdate,
+  OpenAICodexDoraIntegrationDataflowRequest:
+    OpenAICodexDoraIntegrationDataflowRequest,
+  OpenAICodexDoraIntegrationDataflowResponse:
+    OpenAICodexDoraIntegrationDataflowResponse,
+  OpenAICodexIntegrationAccountBearerTokenAuthRequest:
+    OpenAICodexIntegrationAccountBearerTokenAuthRequest,
+  OpenAICodexIntegrationAccountBearerTokenAuthResponse:
+    OpenAICodexIntegrationAccountBearerTokenAuthResponse,
+  OpenAICodexIntegrationAccountBearerTokenAuthUpdate:
+    OpenAICodexIntegrationAccountBearerTokenAuthUpdate,
+  OpenAICodexIntegrationAccountCreateAttributes:
+    OpenAICodexIntegrationAccountCreateAttributes,
+  OpenAICodexIntegrationAccountCreateData:
+    OpenAICodexIntegrationAccountCreateData,
+  OpenAICodexIntegrationAccountCreateRequest:
+    OpenAICodexIntegrationAccountCreateRequest,
+  OpenAICodexIntegrationAccountResponse: OpenAICodexIntegrationAccountResponse,
+  OpenAICodexIntegrationAccountResponseAttributes:
+    OpenAICodexIntegrationAccountResponseAttributes,
+  OpenAICodexIntegrationAccountResponseData:
+    OpenAICodexIntegrationAccountResponseData,
+  OpenAICodexIntegrationAccountSettingsRequest:
+    OpenAICodexIntegrationAccountSettingsRequest,
+  OpenAICodexIntegrationAccountSettingsResponse:
+    OpenAICodexIntegrationAccountSettingsResponse,
+  OpenAICodexIntegrationAccountSettingsUpdate:
+    OpenAICodexIntegrationAccountSettingsUpdate,
+  OpenAICodexIntegrationAccountUpdateAttributes:
+    OpenAICodexIntegrationAccountUpdateAttributes,
+  OpenAICodexIntegrationAccountUpdateData:
+    OpenAICodexIntegrationAccountUpdateData,
+  OpenAICodexIntegrationAccountUpdateRequest:
+    OpenAICodexIntegrationAccountUpdateRequest,
+  OpenAICodexIntegrationAccountsResponse:
+    OpenAICodexIntegrationAccountsResponse,
+  OpenAICodexIntegrationDataflowsRequest:
+    OpenAICodexIntegrationDataflowsRequest,
+  OpenAICodexIntegrationDataflowsResponse:
+    OpenAICodexIntegrationDataflowsResponse,
+  OpenAICodexMetricsIntegrationDataflowResponse:
+    OpenAICodexMetricsIntegrationDataflowResponse,
+  OpenAICodexTurnMetricsIntegrationDataflowRequest:
+    OpenAICodexTurnMetricsIntegrationDataflowRequest,
+  OpenAICodexTurnMetricsIntegrationDataflowResponse:
+    OpenAICodexTurnMetricsIntegrationDataflowResponse,
   OpenAIIntegration: OpenAIIntegration,
   OpenAIIntegrationUpdate: OpenAIIntegrationUpdate,
   OpenAPIEndpoint: OpenAPIEndpoint,
@@ -20886,6 +20955,15 @@ const oneOfMap: { [index: string]: string[] } = {
   OpenAIAPIKeyUpdateApiToken: [
     "string",
     "ActionConnectionAWSSecretsManagerReference",
+  ],
+  OpenAICodexIntegrationAccountAuthenticationRequest: [
+    "OpenAICodexIntegrationAccountBearerTokenAuthRequest",
+  ],
+  OpenAICodexIntegrationAccountAuthenticationResponse: [
+    "OpenAICodexIntegrationAccountBearerTokenAuthResponse",
+  ],
+  OpenAICodexIntegrationAccountAuthenticationUpdate: [
+    "OpenAICodexIntegrationAccountBearerTokenAuthUpdate",
   ],
   OpenAICredentials: ["OpenAIAPIKey"],
   OpenAICredentialsUpdate: ["OpenAIAPIKeyUpdate"],
