@@ -10878,6 +10878,7 @@ export { TemporaryGrantRequestType } from "./models/TemporaryGrantRequestType";
 export { TenancyConfig } from "./models/TenancyConfig";
 export { TenancyConfigData } from "./models/TenancyConfigData";
 export { TenancyConfigDataAttributes } from "./models/TenancyConfigDataAttributes";
+export { TenancyConfigDataAttributesGraceResource } from "./models/TenancyConfigDataAttributesGraceResource";
 export { TenancyConfigDataAttributesLogsConfig } from "./models/TenancyConfigDataAttributesLogsConfig";
 export { TenancyConfigDataAttributesMetricsConfig } from "./models/TenancyConfigDataAttributesMetricsConfig";
 export { TenancyConfigDataAttributesRegionsConfig } from "./models/TenancyConfigDataAttributesRegionsConfig";
