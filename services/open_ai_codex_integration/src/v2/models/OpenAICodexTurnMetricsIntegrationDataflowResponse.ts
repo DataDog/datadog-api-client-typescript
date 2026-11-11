@@ -1,0 +1,54 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { IntegrationAccountDataflowStatus } from "./IntegrationAccountDataflowStatus";
+
+/**
+ * Hourly turn-level metrics from the OpenAI Compliance Logs Platform, including turn and session identity, Work Insights classification, token usage, credits, estimated cost, duration, and skill, plugin, and artifact activity. Turn cost is a provider estimate and can differ from invoiced charges. Requires the `chatgpt.enterprise.compliance_logs_platform.workspace_analytics.read` scope on the key in `authentication`; without it this dataflow collects no data.
+ */
+export class OpenAICodexTurnMetricsIntegrationDataflowResponse {
+  /**
+   * Whether Datadog collects this data.
+   */
+  "enabled"?: boolean;
+  /**
+   * Read-only collection status of a dataflow.
+   */
+  "status"?: IntegrationAccountDataflowStatus;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
+    status: {
+      baseName: "status",
+      type: "IntegrationAccountDataflowStatus",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return OpenAICodexTurnMetricsIntegrationDataflowResponse.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
