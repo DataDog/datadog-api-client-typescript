@@ -16973,6 +16973,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "QueryResponse",
   },
+  "RumAudienceManagementApi.V2.DeleteUserProfile": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "RumAudienceManagementApi.V2.GetMapping": {
     entity: {
       type: "string",
