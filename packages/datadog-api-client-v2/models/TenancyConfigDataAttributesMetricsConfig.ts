@@ -22,6 +22,10 @@ export class TenancyConfigDataAttributesMetricsConfig {
    * List of OCI service names excluded from metrics collection.
    */
   "excludedServices"?: Array<string>;
+  /**
+   * Map of OCI service names to the resource tag filters that scope metrics collection for that service.
+   */
+  "resourceTagFilters"?: { [key: string]: Array<string> };
 
   /**
    * A container for additional, undeclared properties.
@@ -50,6 +54,10 @@ export class TenancyConfigDataAttributesMetricsConfig {
     excludedServices: {
       baseName: "excluded_services",
       type: "Array<string>",
+    },
+    resourceTagFilters: {
+      baseName: "resource_tag_filters",
+      type: "{ [key: string]: Array<string>; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
