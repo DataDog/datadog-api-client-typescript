@@ -1349,6 +1349,7 @@ const enumsMap: { [key: string]: any[] } = {
     "database_queries",
     "network",
     "network_path",
+    "llm_observability",
   ],
   MonitorFormulaAndFunctionMetricQueryDataSource: ["metrics"],
   MonitorFormulaAndFunctionMetricsAggregator: [
