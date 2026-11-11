@@ -121,6 +121,7 @@ export const TypingInfo: ModelTypingInfo = {
       "database_queries",
       "network",
       "network_path",
+      "llm_observability",
     ],
     MonitorFormulaAndFunctionMetricQueryDataSource: ["metrics"],
     MonitorFormulaAndFunctionMetricsAggregator: [
