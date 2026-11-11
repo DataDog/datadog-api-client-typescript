@@ -32,6 +32,7 @@ import { ExperimentsCreateMetricSQLModelV2Request } from "../models/ExperimentsC
 import { ExperimentsCreateMetricV2Request } from "../models/ExperimentsCreateMetricV2Request";
 import { ExperimentsCreateSubjectTypeV2Request } from "../models/ExperimentsCreateSubjectTypeV2Request";
 import { ExperimentsExperimentDiagnosticsV2DTO } from "../models/ExperimentsExperimentDiagnosticsV2DTO";
+import { ExperimentsExperimentHoldoutV2DTOArray } from "../models/ExperimentsExperimentHoldoutV2DTOArray";
 import { ExperimentsExperimentMetricGroupMutationV2 } from "../models/ExperimentsExperimentMetricGroupMutationV2";
 import { ExperimentsExperimentMetricGroupV2DTOArray } from "../models/ExperimentsExperimentMetricGroupV2DTOArray";
 import { ExperimentsExperimentV2DTO } from "../models/ExperimentsExperimentV2DTO";
@@ -1474,6 +1475,45 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(include, "string", ""),
         ""
       );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listExperimentHoldouts(
+    experimentId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'experimentId' is not null or undefined
+    if (experimentId === null || experimentId === undefined) {
+      throw new RequiredError("experimentId", "listExperimentHoldouts");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/experiments/{experiment_id}/holdouts".replace(
+      "{experiment_id}",
+      encodeURIComponent(String(experimentId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.ExperimentsApi.listExperimentHoldouts")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -5967,6 +6007,111 @@ export class ExperimentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listExperimentHoldouts
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listExperimentHoldouts(
+    response: ResponseContext
+  ): Promise<ExperimentsExperimentHoldoutV2DTOArray> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ExperimentsExperimentHoldoutV2DTOArray =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ExperimentsExperimentHoldoutV2DTOArray",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ExperimentsExperimentHoldoutV2DTOArray;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsExperimentHoldoutV2DTOArray =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ExperimentsExperimentHoldoutV2DTOArray",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ExperimentsExperimentHoldoutV2DTOArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listExperimentMetricGroups
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -8711,6 +8856,14 @@ export interface ExperimentsApiGetSubjectTypeRequest {
   include?: string;
 }
 
+export interface ExperimentsApiListExperimentHoldoutsRequest {
+  /**
+   * The UUID of the experiment.
+   * @type string
+   */
+  experimentId: string;
+}
+
 export interface ExperimentsApiListExperimentMetricGroupsRequest {
   /**
    * The UUID of the experiment.
@@ -9847,6 +10000,27 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSubjectType(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List the holdouts an experiment is attached to, in evaluation order: MANAGED holdouts first, starting with the GLOBAL holdout, followed by EXTERNAL holdouts. For a draft experiment, the response includes the GLOBAL holdout that the experiment would join if it started. The response excludes archived and deleted holdouts, and MANAGED holdouts past their analysis window. EXTERNAL holdouts are listed until they are archived. MANAGED holdouts are listed only for experiments that use a Datadog feature flag, because Datadog serves holdouts only through its flags. The order matches the experiment's `holdout_ids` attribute.
+   * @param param The request object
+   */
+  public listExperimentHoldouts(
+    param: ExperimentsApiListExperimentHoldoutsRequest,
+    options?: Configuration
+  ): Promise<ExperimentsExperimentHoldoutV2DTOArray> {
+    const requestContextPromise = this.requestFactory.listExperimentHoldouts(
+      param.experimentId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listExperimentHoldouts(responseContext);
         });
     });
   }

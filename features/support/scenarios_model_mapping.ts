@@ -11403,6 +11403,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ExperimentsExperimentDiagnosticsV2DTO",
     },
+    "v2.ListExperimentHoldouts": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsExperimentHoldoutV2DTOArray",
+    },
     "v2.ListExperimentMetricGroups": {
         "experimentId": {
             "type": "string",
