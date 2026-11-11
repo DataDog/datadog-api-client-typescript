@@ -417,7 +417,7 @@ export class LogsPipelinesApiResponseProcessor {
       ) as LogsPipeline;
       return body;
     }
-    if (response.httpStatusCode === 400) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 409) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: LogsAPIErrorResponse;
       try {
@@ -487,7 +487,7 @@ export class LogsPipelinesApiResponseProcessor {
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (response.httpStatusCode === 400) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 409) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: LogsAPIErrorResponse;
       try {
@@ -747,7 +747,7 @@ export class LogsPipelinesApiResponseProcessor {
       ) as LogsPipeline;
       return body;
     }
-    if (response.httpStatusCode === 400) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 409) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: LogsAPIErrorResponse;
       try {
@@ -824,7 +824,11 @@ export class LogsPipelinesApiResponseProcessor {
       ) as LogsPipelinesOrder;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 422
+    ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: LogsAPIErrorResponse;
       try {
