@@ -10,6 +10,9 @@ import { AllocationExposureSchedule } from "./AllocationExposureSchedule";
 import { AllocationExposureScheduleData } from "./AllocationExposureScheduleData";
 import { AllocationExposureScheduleResponse } from "./AllocationExposureScheduleResponse";
 import { AllocationResponse } from "./AllocationResponse";
+import { ApproveFlagSuggestionAttributes } from "./ApproveFlagSuggestionAttributes";
+import { ApproveFlagSuggestionData } from "./ApproveFlagSuggestionData";
+import { ApproveFlagSuggestionRequest } from "./ApproveFlagSuggestionRequest";
 import { Condition } from "./Condition";
 import { ConditionRequest } from "./ConditionRequest";
 import { CreateAllocationsRequest } from "./CreateAllocationsRequest";
@@ -19,6 +22,9 @@ import { CreateEnvironmentRequest } from "./CreateEnvironmentRequest";
 import { CreateFeatureFlagAttributes } from "./CreateFeatureFlagAttributes";
 import { CreateFeatureFlagData } from "./CreateFeatureFlagData";
 import { CreateFeatureFlagRequest } from "./CreateFeatureFlagRequest";
+import { CreateFlagSuggestionAttributes } from "./CreateFlagSuggestionAttributes";
+import { CreateFlagSuggestionData } from "./CreateFlagSuggestionData";
+import { CreateFlagSuggestionRequest } from "./CreateFlagSuggestionRequest";
 import { CreateVariant } from "./CreateVariant";
 import { CreateVariantData } from "./CreateVariantData";
 import { CreateVariantRequest } from "./CreateVariantRequest";
@@ -30,6 +36,9 @@ import { EnvironmentsPaginationMetaPage } from "./EnvironmentsPaginationMetaPage
 import { ExposureRolloutStepRequest } from "./ExposureRolloutStepRequest";
 import { ExposureScheduleRequest } from "./ExposureScheduleRequest";
 import { FeatureFlag } from "./FeatureFlag";
+import { FeatureFlagApprovalRequired } from "./FeatureFlagApprovalRequired";
+import { FeatureFlagApprovalRequiredAttributes } from "./FeatureFlagApprovalRequiredAttributes";
+import { FeatureFlagApprovalRequiredResponse } from "./FeatureFlagApprovalRequiredResponse";
 import { FeatureFlagAttributes } from "./FeatureFlagAttributes";
 import { FeatureFlagEnvironment } from "./FeatureFlagEnvironment";
 import { FeatureFlagEnvironmentListItem } from "./FeatureFlagEnvironmentListItem";
@@ -39,6 +48,12 @@ import { FeatureFlagResponse } from "./FeatureFlagResponse";
 import { FeatureFlagStalenessCodeReference } from "./FeatureFlagStalenessCodeReference";
 import { FeatureFlagStalenessDetails } from "./FeatureFlagStalenessDetails";
 import { FeatureFlagStalenessRecommendedAction } from "./FeatureFlagStalenessRecommendedAction";
+import { FeatureFlagSuggestion } from "./FeatureFlagSuggestion";
+import { FeatureFlagSuggestionAttributes } from "./FeatureFlagSuggestionAttributes";
+import { FeatureFlagSuggestionExperimentAction } from "./FeatureFlagSuggestionExperimentAction";
+import { FeatureFlagSuggestionMetadata } from "./FeatureFlagSuggestionMetadata";
+import { FeatureFlagSuggestionMetadataRequest } from "./FeatureFlagSuggestionMetadataRequest";
+import { FeatureFlagSuggestionResponse } from "./FeatureFlagSuggestionResponse";
 import { FeatureFlagsPaginationLinks } from "./FeatureFlagsPaginationLinks";
 import { FeatureFlagsPaginationMeta } from "./FeatureFlagsPaginationMeta";
 import { FeatureFlagsPaginationMetaPage } from "./FeatureFlagsPaginationMetaPage";
@@ -54,6 +69,9 @@ import { OverwriteAllocationsRequest } from "./OverwriteAllocationsRequest";
 import { PatchSavedFilterAttributes } from "./PatchSavedFilterAttributes";
 import { PatchSavedFilterData } from "./PatchSavedFilterData";
 import { PatchSavedFilterRequest } from "./PatchSavedFilterRequest";
+import { RejectFlagSuggestionAttributes } from "./RejectFlagSuggestionAttributes";
+import { RejectFlagSuggestionData } from "./RejectFlagSuggestionData";
+import { RejectFlagSuggestionRequest } from "./RejectFlagSuggestionRequest";
 import { RolloutOptions } from "./RolloutOptions";
 import { RolloutOptionsRequest } from "./RolloutOptionsRequest";
 import { SavedFilterAPIErrorResponse } from "./SavedFilterAPIErrorResponse";
@@ -77,6 +95,9 @@ import { TargetingRuleRequest } from "./TargetingRuleRequest";
 import { UpdateEnvironmentAttributes } from "./UpdateEnvironmentAttributes";
 import { UpdateEnvironmentData } from "./UpdateEnvironmentData";
 import { UpdateEnvironmentRequest } from "./UpdateEnvironmentRequest";
+import { UpdateFeatureFlagApprovalsAttributes } from "./UpdateFeatureFlagApprovalsAttributes";
+import { UpdateFeatureFlagApprovalsData } from "./UpdateFeatureFlagApprovalsData";
+import { UpdateFeatureFlagApprovalsRequest } from "./UpdateFeatureFlagApprovalsRequest";
 import { UpdateFeatureFlagAttributes } from "./UpdateFeatureFlagAttributes";
 import { UpdateFeatureFlagData } from "./UpdateFeatureFlagData";
 import { UpdateFeatureFlagRequest } from "./UpdateFeatureFlagRequest";
@@ -111,12 +132,28 @@ export const TypingInfo: ModelTypingInfo = {
     CreateEnvironmentDataType: ["environments"],
     CreateFeatureFlagDataType: ["feature-flags"],
     CreateFeatureFlagStalenessStatus: ["ACTIVE", "PERMANENT"],
+    FeatureFlagApprovalRequiredDataType: ["approval-required"],
+    FeatureFlagApprovalsDataType: ["feature-flag-approvals"],
     FeatureFlagDistributionChannel: ["ALL", "CLIENT", "SERVER"],
     FeatureFlagProductionStatus: ["ENABLED", "DISABLED", "OVERRIDDEN"],
     FeatureFlagStalenessStatus: ["ACTIVE", "STALE", "PERMANENT"],
     FeatureFlagStalenessStatusOverride: ["STALE", "PERMANENT"],
     FeatureFlagStatus: ["ENABLED", "DISABLED"],
+    FeatureFlagSuggestionAttributesCurrentStatus: [
+      "pending",
+      "approved",
+      "rejected",
+    ],
+    FeatureFlagSuggestionAttributesLifecycleStatus: [
+      "pending",
+      "approved",
+      "applied",
+      "rejected",
+      "discarded",
+    ],
+    FeatureFlagSuggestionDataType: ["flag-suggestions"],
     GuardrailTriggerAction: ["PAUSE", "ABORT"],
+    ReviewFlagSuggestionDataType: ["flag-suggestion-events"],
     RolloutStrategy: ["UNIFORM_INTERVALS", "NO_ROLLOUT"],
     SavedFilterApprovalConflictType: ["update-approval-conflict"],
     SavedFilterConditionOperator: [
@@ -142,6 +179,7 @@ export const TypingInfo: ModelTypingInfo = {
     SavedFilterPermissionDeniedType: ["update-grace-denied"],
     UpdateEnvironmentDataType: ["environments"],
     UpdateFeatureFlagDataType: ["feature-flags"],
+    UpdateFeatureFlagStalenessStatus: ["ACTIVE", "PERMANENT"],
     ValueType: ["BOOLEAN", "INTEGER", "NUMERIC", "STRING", "JSON"],
     VariantDataType: ["variants"],
   },
@@ -167,6 +205,9 @@ export const TypingInfo: ModelTypingInfo = {
     AllocationExposureScheduleData: AllocationExposureScheduleData,
     AllocationExposureScheduleResponse: AllocationExposureScheduleResponse,
     AllocationResponse: AllocationResponse,
+    ApproveFlagSuggestionAttributes: ApproveFlagSuggestionAttributes,
+    ApproveFlagSuggestionData: ApproveFlagSuggestionData,
+    ApproveFlagSuggestionRequest: ApproveFlagSuggestionRequest,
     Condition: Condition,
     ConditionRequest: ConditionRequest,
     CreateAllocationsRequest: CreateAllocationsRequest,
@@ -176,6 +217,9 @@ export const TypingInfo: ModelTypingInfo = {
     CreateFeatureFlagAttributes: CreateFeatureFlagAttributes,
     CreateFeatureFlagData: CreateFeatureFlagData,
     CreateFeatureFlagRequest: CreateFeatureFlagRequest,
+    CreateFlagSuggestionAttributes: CreateFlagSuggestionAttributes,
+    CreateFlagSuggestionData: CreateFlagSuggestionData,
+    CreateFlagSuggestionRequest: CreateFlagSuggestionRequest,
     CreateVariant: CreateVariant,
     CreateVariantData: CreateVariantData,
     CreateVariantRequest: CreateVariantRequest,
@@ -187,6 +231,10 @@ export const TypingInfo: ModelTypingInfo = {
     ExposureRolloutStepRequest: ExposureRolloutStepRequest,
     ExposureScheduleRequest: ExposureScheduleRequest,
     FeatureFlag: FeatureFlag,
+    FeatureFlagApprovalRequired: FeatureFlagApprovalRequired,
+    FeatureFlagApprovalRequiredAttributes:
+      FeatureFlagApprovalRequiredAttributes,
+    FeatureFlagApprovalRequiredResponse: FeatureFlagApprovalRequiredResponse,
     FeatureFlagAttributes: FeatureFlagAttributes,
     FeatureFlagEnvironment: FeatureFlagEnvironment,
     FeatureFlagEnvironmentListItem: FeatureFlagEnvironmentListItem,
@@ -197,6 +245,13 @@ export const TypingInfo: ModelTypingInfo = {
     FeatureFlagStalenessDetails: FeatureFlagStalenessDetails,
     FeatureFlagStalenessRecommendedAction:
       FeatureFlagStalenessRecommendedAction,
+    FeatureFlagSuggestion: FeatureFlagSuggestion,
+    FeatureFlagSuggestionAttributes: FeatureFlagSuggestionAttributes,
+    FeatureFlagSuggestionExperimentAction:
+      FeatureFlagSuggestionExperimentAction,
+    FeatureFlagSuggestionMetadata: FeatureFlagSuggestionMetadata,
+    FeatureFlagSuggestionMetadataRequest: FeatureFlagSuggestionMetadataRequest,
+    FeatureFlagSuggestionResponse: FeatureFlagSuggestionResponse,
     FeatureFlagsPaginationLinks: FeatureFlagsPaginationLinks,
     FeatureFlagsPaginationMeta: FeatureFlagsPaginationMeta,
     FeatureFlagsPaginationMetaPage: FeatureFlagsPaginationMetaPage,
@@ -212,6 +267,9 @@ export const TypingInfo: ModelTypingInfo = {
     PatchSavedFilterAttributes: PatchSavedFilterAttributes,
     PatchSavedFilterData: PatchSavedFilterData,
     PatchSavedFilterRequest: PatchSavedFilterRequest,
+    RejectFlagSuggestionAttributes: RejectFlagSuggestionAttributes,
+    RejectFlagSuggestionData: RejectFlagSuggestionData,
+    RejectFlagSuggestionRequest: RejectFlagSuggestionRequest,
     RolloutOptions: RolloutOptions,
     RolloutOptionsRequest: RolloutOptionsRequest,
     SavedFilterAPIErrorResponse: SavedFilterAPIErrorResponse,
@@ -237,6 +295,9 @@ export const TypingInfo: ModelTypingInfo = {
     UpdateEnvironmentAttributes: UpdateEnvironmentAttributes,
     UpdateEnvironmentData: UpdateEnvironmentData,
     UpdateEnvironmentRequest: UpdateEnvironmentRequest,
+    UpdateFeatureFlagApprovalsAttributes: UpdateFeatureFlagApprovalsAttributes,
+    UpdateFeatureFlagApprovalsData: UpdateFeatureFlagApprovalsData,
+    UpdateFeatureFlagApprovalsRequest: UpdateFeatureFlagApprovalsRequest,
     UpdateFeatureFlagAttributes: UpdateFeatureFlagAttributes,
     UpdateFeatureFlagData: UpdateFeatureFlagData,
     UpdateFeatureFlagRequest: UpdateFeatureFlagRequest,

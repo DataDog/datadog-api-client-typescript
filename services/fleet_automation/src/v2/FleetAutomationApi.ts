@@ -1148,7 +1148,9 @@ export class FleetAutomationApiResponseProcessor {
    */
   public async createFleetDeploymentConfigureV2(
     response: ResponseContext,
-  ): Promise<FleetDeploymentConfigureV2DryRunResponse> {
+  ): Promise<
+    FleetDeploymentConfigureV2DryRunResponse | FleetDeploymentV2CreateResponse
+  > {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: FleetDeploymentConfigureV2DryRunResponse = deserialize(
@@ -2347,7 +2349,9 @@ export class FleetAutomationApi {
   public createFleetDeploymentConfigureV2(
     param: FleetAutomationApiCreateFleetDeploymentConfigureV2Request,
     options?: Configuration,
-  ): Promise<FleetDeploymentConfigureV2DryRunResponse> {
+  ): Promise<
+    FleetDeploymentConfigureV2DryRunResponse | FleetDeploymentV2CreateResponse
+  > {
     const requestContextPromise =
       this.requestFactory.createFleetDeploymentConfigureV2(param.body, options);
     return requestContextPromise.then((requestContext) => {
