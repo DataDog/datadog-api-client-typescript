@@ -42,6 +42,10 @@ export class ExperimentsExperimentV2ListDTODataAttributes {
    */
   "experimentType"?: string;
   /**
+   * IDs of the holdouts the experiment is attached to, in evaluation order: MANAGED holdouts first, starting with the GLOBAL holdout, followed by EXTERNAL holdouts. For a draft experiment, the list includes the GLOBAL holdout that the experiment would join if it started. `GET /api/v2/experiments/{experiment_id}/holdouts` returns their details.
+   */
+  "holdoutIds"?: Array<string>;
+  /**
    * Expected effect that the experiment is designed to test.
    */
   "hypothesis"?: string;
@@ -149,6 +153,11 @@ export class ExperimentsExperimentV2ListDTODataAttributes {
     experimentType: {
       baseName: "experiment_type",
       type: "string",
+    },
+    holdoutIds: {
+      baseName: "holdout_ids",
+      type: "Array<string>",
+      format: "uuid",
     },
     hypothesis: {
       baseName: "hypothesis",

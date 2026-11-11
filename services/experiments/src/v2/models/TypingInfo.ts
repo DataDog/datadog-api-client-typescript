@@ -61,6 +61,9 @@ import { ExperimentsExperimentDiagnosticsV2DTO } from "./ExperimentsExperimentDi
 import { ExperimentsExperimentDiagnosticsV2DTOData } from "./ExperimentsExperimentDiagnosticsV2DTOData";
 import { ExperimentsExperimentDiagnosticsV2DTODataAttributes } from "./ExperimentsExperimentDiagnosticsV2DTODataAttributes";
 import { ExperimentsExperimentDiagnosticsV2DTODataAttributesDiagnosticsItems } from "./ExperimentsExperimentDiagnosticsV2DTODataAttributesDiagnosticsItems";
+import { ExperimentsExperimentHoldoutV2DTOArray } from "./ExperimentsExperimentHoldoutV2DTOArray";
+import { ExperimentsExperimentHoldoutV2DTOData } from "./ExperimentsExperimentHoldoutV2DTOData";
+import { ExperimentsExperimentHoldoutV2DTODataAttributes } from "./ExperimentsExperimentHoldoutV2DTODataAttributes";
 import { ExperimentsExperimentMetricGroupMutationV2 } from "./ExperimentsExperimentMetricGroupMutationV2";
 import { ExperimentsExperimentMetricGroupMutationV2Data } from "./ExperimentsExperimentMetricGroupMutationV2Data";
 import { ExperimentsExperimentMetricGroupMutationV2DataAttributesMetricsItems } from "./ExperimentsExperimentMetricGroupMutationV2DataAttributesMetricsItems";
@@ -309,6 +312,25 @@ export const TypingInfo: ModelTypingInfo = {
       "FAILED",
     ],
     ExperimentsExperimentDiagnosticsV2DTODataType: ["experiment-diagnostics"],
+    ExperimentsExperimentHoldoutV2DTODataAttributesHoldoutType: [
+      "GLOBAL",
+      "SELECTIVE",
+      "UNKNOWN",
+    ],
+    ExperimentsExperimentHoldoutV2DTODataAttributesKind: [
+      "MANAGED",
+      "EXTERNAL",
+      "UNKNOWN",
+    ],
+    ExperimentsExperimentHoldoutV2DTODataAttributesState: [
+      "PENDING",
+      "INCLUDING",
+      "WAITING_FOR_ANALYSIS",
+      "ANALYSING",
+      "COMPLETE",
+      "UNKNOWN",
+    ],
+    ExperimentsExperimentHoldoutV2DTODataType: ["experiment-holdouts"],
     ExperimentsExperimentV2DTODataAttributesConclusionOutcome: [
       "POSITIVE",
       "NEGATIVE",
@@ -578,6 +600,12 @@ export const TypingInfo: ModelTypingInfo = {
       ExperimentsExperimentDiagnosticsV2DTODataAttributes,
     ExperimentsExperimentDiagnosticsV2DTODataAttributesDiagnosticsItems:
       ExperimentsExperimentDiagnosticsV2DTODataAttributesDiagnosticsItems,
+    ExperimentsExperimentHoldoutV2DTOArray:
+      ExperimentsExperimentHoldoutV2DTOArray,
+    ExperimentsExperimentHoldoutV2DTOData:
+      ExperimentsExperimentHoldoutV2DTOData,
+    ExperimentsExperimentHoldoutV2DTODataAttributes:
+      ExperimentsExperimentHoldoutV2DTODataAttributes,
     ExperimentsExperimentMetricGroupMutationV2:
       ExperimentsExperimentMetricGroupMutationV2,
     ExperimentsExperimentMetricGroupMutationV2Data:
