@@ -47,7 +47,7 @@ const params: v2.FeatureFlagsApiCreateAllocationsForFeatureFlagInEnvironmentRequ
 
 apiInstance
   .createAllocationsForFeatureFlagInEnvironment(params)
-  .then((data: v2.AllocationResponse) => {
+  .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

@@ -80,7 +80,7 @@ const params: v2.FeatureFlagsApiUpdateAllocationsForFeatureFlagInEnvironmentRequ
 
 apiInstance
   .updateAllocationsForFeatureFlagInEnvironment(params)
-  .then((data: v2.ListAllocationsResponse) => {
+  .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

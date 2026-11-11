@@ -36,7 +36,7 @@ const params: v2.FleetAutomationApiCreateFleetDeploymentConfigureV2Request = {
 
 apiInstance
   .createFleetDeploymentConfigureV2(params)
-  .then((data: v2.FleetDeploymentConfigureV2DryRunResponse) => {
+  .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

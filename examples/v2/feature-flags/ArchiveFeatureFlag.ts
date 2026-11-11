@@ -22,7 +22,7 @@ const params: v2.FeatureFlagsApiArchiveFeatureFlagRequest = {
 
 apiInstance
   .archiveFeatureFlag(params)
-  .then((data: v2.FeatureFlagResponse) => {
+  .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

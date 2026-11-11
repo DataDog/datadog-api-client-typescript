@@ -31,7 +31,7 @@ const params: v2.FeatureFlagsApiUpdateFeatureFlagRequest = {
 
 apiInstance
   .updateFeatureFlag(params)
-  .then((data: v2.FeatureFlagResponse) => {
+  .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
