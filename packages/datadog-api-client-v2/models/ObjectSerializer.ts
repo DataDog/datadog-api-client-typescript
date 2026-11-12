@@ -163,6 +163,17 @@ import { AgentHealthHostIssue } from "./AgentHealthHostIssue";
 import { AgentHealthHostIssuesAttributes } from "./AgentHealthHostIssuesAttributes";
 import { AgentHealthHostIssuesData } from "./AgentHealthHostIssuesData";
 import { AgentHealthHostIssuesResponse } from "./AgentHealthHostIssuesResponse";
+import { AgentHealthIssueAttributes } from "./AgentHealthIssueAttributes";
+import { AgentHealthIssueData } from "./AgentHealthIssueData";
+import { AgentHealthIssueDetailAttributes } from "./AgentHealthIssueDetailAttributes";
+import { AgentHealthIssueDetailData } from "./AgentHealthIssueDetailData";
+import { AgentHealthIssueResponse } from "./AgentHealthIssueResponse";
+import { AgentHealthIssuesResponse } from "./AgentHealthIssuesResponse";
+import { AgentHealthIssuesResponseMeta } from "./AgentHealthIssuesResponseMeta";
+import { AgentHealthIssuesResponsePage } from "./AgentHealthIssuesResponsePage";
+import { AgentHealthRemediation } from "./AgentHealthRemediation";
+import { AgentHealthRemediationScript } from "./AgentHealthRemediationScript";
+import { AgentHealthRemediationStep } from "./AgentHealthRemediationStep";
 import { AgentTrigger } from "./AgentTrigger";
 import { AgentTriggerWrapper } from "./AgentTriggerWrapper";
 import { AggregatedLongTasksByInvokerType } from "./AggregatedLongTasksByInvokerType";
@@ -7153,6 +7164,7 @@ const enumsMap: { [key: string]: any[] } = {
   ActiveBillingDimensionsType: ["billing_dimensions"],
   AgentHealthAgentType: ["node", "cluster"],
   AgentHealthHostIssuesType: ["agent_health_issues"],
+  AgentHealthIssueResourceType: ["agent_health_issues"],
   AggregatedLongTasksRequestType: ["aggregated_long_tasks"],
   AggregatedWaterfallPerformanceCriteriaMetric: [
     "loading_time",
@@ -11434,6 +11446,17 @@ const typeMap: { [index: string]: any } = {
   AgentHealthHostIssuesAttributes: AgentHealthHostIssuesAttributes,
   AgentHealthHostIssuesData: AgentHealthHostIssuesData,
   AgentHealthHostIssuesResponse: AgentHealthHostIssuesResponse,
+  AgentHealthIssueAttributes: AgentHealthIssueAttributes,
+  AgentHealthIssueData: AgentHealthIssueData,
+  AgentHealthIssueDetailAttributes: AgentHealthIssueDetailAttributes,
+  AgentHealthIssueDetailData: AgentHealthIssueDetailData,
+  AgentHealthIssueResponse: AgentHealthIssueResponse,
+  AgentHealthIssuesResponse: AgentHealthIssuesResponse,
+  AgentHealthIssuesResponseMeta: AgentHealthIssuesResponseMeta,
+  AgentHealthIssuesResponsePage: AgentHealthIssuesResponsePage,
+  AgentHealthRemediation: AgentHealthRemediation,
+  AgentHealthRemediationScript: AgentHealthRemediationScript,
+  AgentHealthRemediationStep: AgentHealthRemediationStep,
   AgentTrigger: AgentTrigger,
   AgentTriggerWrapper: AgentTriggerWrapper,
   AggregatedLongTasksByInvokerType: AggregatedLongTasksByInvokerType,

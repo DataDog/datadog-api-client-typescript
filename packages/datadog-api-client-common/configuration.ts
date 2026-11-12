@@ -323,6 +323,8 @@ export function createConfiguration(
       "v2.getExecutionPolicy": false,
       "v2.listExecutionPolicies": false,
       "v2.updateExecutionPolicy": false,
+      "v2.getAgentHealthIssue": false,
+      "v2.listAgentHealthIssues": false,
       "v2.evaluateAIGuardRequest": false,
       "v2.createAnnotation": false,
       "v2.deleteAnnotation": false,
