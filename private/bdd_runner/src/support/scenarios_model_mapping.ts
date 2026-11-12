@@ -3664,6 +3664,44 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AgentHealthHostIssuesResponse",
   },
+  "AgentHealthApi.V2.ListAgentHealthIssues": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    filterSeverity: {
+      type: "string",
+      format: "",
+    },
+    filterCategory: {
+      type: "string",
+      format: "",
+    },
+    filterIssueType: {
+      type: "string",
+      format: "",
+    },
+    filterResourceKind: {
+      type: "string",
+      format: "",
+    },
+    filterResourceId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AgentHealthIssuesResponse",
+  },
+  "AgentHealthApi.V2.GetAgentHealthIssue": {
+    issueId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AgentHealthIssueResponse",
+  },
   "AgentlessScanningApi.V2.ListAwsScanOptions": {
     operationResponseType: "AwsScanOptionsListResponse",
   },
