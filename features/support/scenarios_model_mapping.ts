@@ -13385,6 +13385,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ElasticCloudIntegrationAccountResponse",
     },
+    "v2.ListOpenAICodexIntegrationAccounts": {
+        "operationResponseType": "OpenAICodexIntegrationAccountsResponse",
+    },
+    "v2.CreateOpenAICodexIntegrationAccount": {
+        "body": {
+            "type": "OpenAICodexIntegrationAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OpenAICodexIntegrationAccountResponse",
+    },
+    "v2.GetOpenAICodexIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OpenAICodexIntegrationAccountResponse",
+    },
+    "v2.DeleteOpenAICodexIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOpenAICodexIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "OpenAICodexIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OpenAICodexIntegrationAccountResponse",
+    },
     "v2.ListSnowflakeIntegrationAccounts": {
         "operationResponseType": "SnowflakeIntegrationAccountsResponse",
     },
