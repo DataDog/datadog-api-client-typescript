@@ -252,6 +252,8 @@ export { AiGatewayRateLimitUsageListResponse } from "./models/AiGatewayRateLimit
 export { AiGatewayRateLimitUsageResource } from "./models/AiGatewayRateLimitUsageResource";
 export { AiGatewayRateLimitUsageType } from "./models/AiGatewayRateLimitUsageType";
 export { AiGatewayRestrictedDetailsMeta } from "./models/AiGatewayRestrictedDetailsMeta";
+export { AiGatewayRoutingClassifier } from "./models/AiGatewayRoutingClassifier";
+export { AiGatewayRoutingClassifierRequest } from "./models/AiGatewayRoutingClassifierRequest";
 export { AiGatewayRoutingReasoningLevel } from "./models/AiGatewayRoutingReasoningLevel";
 export { AiGatewayRoutingRuleAttributes } from "./models/AiGatewayRoutingRuleAttributes";
 export { AiGatewayRoutingRuleCreateAttributes } from "./models/AiGatewayRoutingRuleCreateAttributes";
@@ -274,3 +276,6 @@ export { AiGatewayRoutingRuleType } from "./models/AiGatewayRoutingRuleType";
 export { AiGatewaySupportedOperation } from "./models/AiGatewaySupportedOperation";
 export { AiGatewayZDRMode } from "./models/AiGatewayZDRMode";
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";

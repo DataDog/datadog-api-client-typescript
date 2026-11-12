@@ -11,9 +11,9 @@ export class AiGatewayRoutingRuleAttributes {
    */
   "createdAt": Date;
   /**
-   * Stable numeric route identifier used by scoped policies.
+   * Stable numeric route identifier used by scoped policies and `ai-gateway-route` restriction policies.
    */
-  "routeId"?: number;
+  "routeId": number;
   "tiers": Array<AiGatewayRoutingRuleTier>;
   /**
    * Time when the resource was last updated.
@@ -43,6 +43,7 @@ export class AiGatewayRoutingRuleAttributes {
     routeId: {
       baseName: "route_id",
       type: "number",
+      required: true,
       format: "int64",
     },
     tiers: {

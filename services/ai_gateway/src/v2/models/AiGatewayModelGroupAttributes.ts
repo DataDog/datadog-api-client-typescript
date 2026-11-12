@@ -47,6 +47,10 @@ export class AiGatewayModelGroupAttributes {
   "revision"?: number;
   "routingRules": Array<AiGatewayModelGroupRoutingRule>;
   /**
+   * Whether some saved routes are hidden from the caller. Omit routing_rule_slugs to preserve all memberships; replacing the visible selection also preserves saved hidden memberships.
+   */
+  "routingRulesRestricted"?: boolean;
+  /**
    * Time when the resource was last updated.
    */
   "updatedAt": Date;
@@ -117,6 +121,10 @@ export class AiGatewayModelGroupAttributes {
       baseName: "routing_rules",
       type: "Array<AiGatewayModelGroupRoutingRule>",
       required: true,
+    },
+    routingRulesRestricted: {
+      baseName: "routing_rules_restricted",
+      type: "boolean",
     },
     updatedAt: {
       baseName: "updated_at",

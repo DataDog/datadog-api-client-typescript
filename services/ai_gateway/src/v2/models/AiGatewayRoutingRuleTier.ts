@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { AiGatewayRoutingClassifier } from "./AiGatewayRoutingClassifier";
 import { AiGatewayRoutingRuleTarget } from "./AiGatewayRoutingRuleTarget";
 import { AiGatewayRoutingRuleTierOrdering } from "./AiGatewayRoutingRuleTierOrdering";
 import { AiGatewayRoutingRuleTierOrderingIssue } from "./AiGatewayRoutingRuleTierOrderingIssue";
@@ -8,6 +9,10 @@ import { AiGatewayRoutingRuleTierOrderingIssue } from "./AiGatewayRoutingRuleTie
  * Routing fallback tier containing targets and their effective ordering.
  */
 export class AiGatewayRoutingRuleTier {
+  /**
+   * Saved classified-tier settings. Provider and model are empty when the caller cannot view the provider.
+   */
+  "classifier"?: AiGatewayRoutingClassifier;
   /**
    * How a tier orders its targets.
    */
@@ -32,6 +37,10 @@ export class AiGatewayRoutingRuleTier {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    classifier: {
+      baseName: "classifier",
+      type: "AiGatewayRoutingClassifier",
+    },
     ordering: {
       baseName: "ordering",
       type: "AiGatewayRoutingRuleTierOrdering",
