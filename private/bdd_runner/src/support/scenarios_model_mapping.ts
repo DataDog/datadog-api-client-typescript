@@ -9162,6 +9162,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "CloudCostManagementApi.V2.UpdateCustomCostsFile": {
+    fileId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CustomCostsFileUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "CustomCostsFileUploadResponse",
+  },
   "CloudCostManagementApi.V2.ListCostGCPUsageCostConfigs": {
     operationResponseType: "GCPUsageCostConfigsResponse",
   },

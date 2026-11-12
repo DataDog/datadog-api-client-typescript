@@ -72,6 +72,7 @@ import { CreateRulesetRequest } from "./models/CreateRulesetRequest";
 import { CustomCostsFileGetResponse } from "./models/CustomCostsFileGetResponse";
 import { CustomCostsFileLineItem } from "./models/CustomCostsFileLineItem";
 import { CustomCostsFileListResponse } from "./models/CustomCostsFileListResponse";
+import { CustomCostsFileUpdateRequest } from "./models/CustomCostsFileUpdateRequest";
 import { CustomCostsFileUploadResponse } from "./models/CustomCostsFileUploadResponse";
 import { CustomForecastResponse } from "./models/CustomForecastResponse";
 import { CustomForecastUpsertRequest } from "./models/CustomForecastUpsertRequest";
@@ -4566,6 +4567,71 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ArbitraryCostUpsertRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateCustomCostsFile(
+    fileId: string,
+    body: CustomCostsFileUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'fileId' is not null or undefined
+    if (fileId === null || fileId === undefined) {
+      throw new RequiredError("fileId", "updateCustomCostsFile");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateCustomCostsFile");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/custom_costs/{file_id}".replace(
+      "{file_id}",
+      encodeURIComponent(String(fileId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.updateCustomCostsFile",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CustomCostsFileUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -9283,6 +9349,83 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateCustomCostsFile
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateCustomCostsFile(
+    response: ResponseContext,
+  ): Promise<CustomCostsFileUploadResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CustomCostsFileUploadResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CustomCostsFileUploadResponse",
+      ) as CustomCostsFileUploadResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CustomCostsFileUploadResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CustomCostsFileUploadResponse",
+        "",
+      ) as CustomCostsFileUploadResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateTagPipelinesRuleset
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -10660,6 +10803,18 @@ export interface CloudCostManagementApiUpdateCustomAllocationRuleRequest {
    * @type ArbitraryCostUpsertRequest
    */
   body: ArbitraryCostUpsertRequest;
+}
+
+export interface CloudCostManagementApiUpdateCustomCostsFileRequest {
+  /**
+   * File ID.
+   * @type string
+   */
+  fileId: string;
+  /**
+   * @type CustomCostsFileUpdateRequest
+   */
+  body: CustomCostsFileUpdateRequest;
 }
 
 export interface CloudCostManagementApiUpdateTagPipelinesRulesetRequest {
@@ -12353,6 +12508,28 @@ export class CloudCostManagementApi {
           return this.responseProcessor.updateCustomAllocationRule(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Mark whether a Custom Costs file holds AI provider costs. Datadog then recomputes the costs for the months that the file covers.
+   * @param param The request object
+   */
+  public updateCustomCostsFile(
+    param: CloudCostManagementApiUpdateCustomCostsFileRequest,
+    options?: Configuration,
+  ): Promise<CustomCostsFileUploadResponse> {
+    const requestContextPromise = this.requestFactory.updateCustomCostsFile(
+      param.fileId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateCustomCostsFile(responseContext);
         });
     });
   }
