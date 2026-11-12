@@ -18,7 +18,7 @@
   "dependencies": {
     "@cucumber/cucumber": "^11.2.0",
     "@cucumber/messages": "^27.2.0",
-    "@datadog/datadog-api-client": "^2.0.0-beta.0",
+    "@datadog/datadog-api-client-core": "workspace:*",
     "@pollyjs/adapter-node-http": "^6.0.5",
     "@pollyjs/core": "^6.0.5",
     "@pollyjs/persister-fs": "^6.0.5",

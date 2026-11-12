@@ -34,13 +34,13 @@ export class World {
 
   public cassettesDir: string;
   public packagePrefix: string;
-  public servicesDir: string;
+  public packagesDir: string;
   public workingDir: string;
 
   constructor(options: any) {
     this.cassettesDir = options?.parameters?.cassettesDir;
     this.packagePrefix = options?.parameters?.packagePrefix;
-    this.servicesDir = options?.parameters?.servicesDir;
+    this.packagesDir = options?.parameters?.packagesDir;
     this.workingDir = options?.parameters?.workingDir;
   }
 

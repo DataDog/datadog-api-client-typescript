@@ -3,6 +3,7 @@
 import { Command } from "commander";
 import {
   ImportDeclarationStructure,
+  ImportSpecifierStructure,
   Project,
   SourceFile,
   StructureKind,
@@ -14,31 +15,22 @@ import Cli, { ICliRunResult } from "@cucumber/cucumber/lib/cli/index";
 import path from "path";
 import fs from "fs";
 
-const apiExportRegex = /(\S+)ApiV\d+/g;
-
 function isDirectory(path: string): boolean {
   return fs.statSync(path).isDirectory();
 }
 
-function isFile(path: string): boolean {
-  return fs.statSync(path).isFile();
-}
-
 function createImportDeclaration(
-  namedImports: string[],
-  serviceDirName: string,
-  servicesDir: string,
+  namedImports: ImportSpecifierStructure[],
+  packageDirName: string,
+  packagesDir: string,
   importPath: string,
   useBuiltPackages: boolean,
 ): ImportDeclarationStructure {
   let moduleSpecifier = "";
   if (useBuiltPackages) {
-    moduleSpecifier = `@datadog/datadog-api-client-${serviceDirName.replace(/_/g, "-")}`;
-    if (importPath !== "") {
-      moduleSpecifier += "/dist" + importPath;
-    }
+    moduleSpecifier = `@datadog/datadog-api-client-${packageDirName}/dist/${importPath}`;
   } else {
-    moduleSpecifier = `${servicesDir}/${serviceDirName}/src/${importPath}`;
+    moduleSpecifier = `${packagesDir}/${packageDirName}/src/${importPath}`;
   }
 
   return {
@@ -49,7 +41,7 @@ function createImportDeclaration(
 }
 
 function buildImportsAndMappings(
-  servicesDir: string,
+  packagesDir: string,
   useBuiltPackages: boolean,
 ): {
   imports: ImportDeclarationStructure[];
@@ -60,49 +52,58 @@ function buildImportsAndMappings(
   const apiNameToServiceNameMapping: Record<string, string> = {};
   const apiNameToTypingInfoMapping: Record<string, string> = {};
 
-  fs.readdirSync(servicesDir).forEach((service) => {
-    const servicePath = path.join(servicesDir, service);
-    const packageJson = path.join(servicePath, "src", "index.ts");
-    if (isDirectory(servicePath) && isFile(packageJson)) {
-      // Load the source file. We don't use ast parser because its too slow.
-      const file = fs.readFileSync(packageJson, "utf8");
-      // Parse the regex matching the Api export format. For example: UsageMeteringApiV2
-      const apiMatches = file.match(apiExportRegex);
-      if (apiMatches) {
+  fs.readdirSync(packagesDir).forEach((packageDirName) => {
+    const srcPath = path.join(packagesDir, packageDirName, "src");
+    if (packageDirName === "core" || !isDirectory(srcPath)) {
+      return;
+    }
+    fs.readdirSync(srcPath).forEach((version) => {
+      const versionPath = path.join(srcPath, version);
+      if (!/^v\d+$/.test(version) || !isDirectory(versionPath)) {
+        return;
+      }
+      // Each Api class has its own file. For example: v2/UsageMeteringApi.ts
+      const apiNames = fs
+        .readdirSync(versionPath)
+        .filter((file) => file.endsWith("Api.ts"))
+        .map((file) => file.slice(0, -".ts".length));
+      const apiVersion = version.toUpperCase();
+      imports.push(
+        createImportDeclaration(
+          apiNames.map((apiName) => ({
+            kind: StructureKind.ImportSpecifier,
+            name: apiName,
+            alias: apiName + apiVersion,
+          })),
+          packageDirName,
+          packagesDir,
+          version,
+          useBuiltPackages,
+        ),
+      );
+
+      for (const apiName of apiNames) {
         imports.push(
           createImportDeclaration(
-            apiMatches,
-            service,
-            servicesDir,
-            "",
+            [
+              {
+                kind: StructureKind.ImportSpecifier,
+                name: "TypingInfo",
+                alias: apiName + apiVersion + "TypingInfo",
+              },
+            ],
+            packageDirName,
+            packagesDir,
+            `${version}/models/TypingInfo`,
             useBuiltPackages,
           ),
         );
 
-        for (const apiMatch of apiMatches) {
-          // Extract version number (e.g. "V2" from "UsageMeteringApiV2")
-          const version = apiMatch.match(/V([0-9]+)/)?.[1];
-          if (!version) {
-            throw new Error(`Failed to extract version from ${apiMatch}`);
-          }
-          imports.push(
-            createImportDeclaration(
-              ["TypingInfo as " + apiMatch + "TypingInfo"],
-              service,
-              servicesDir,
-              `v${version}/models/TypingInfo`,
-              useBuiltPackages,
-            ),
-          );
-
-          apiNameToTypingInfoMapping[apiMatch] = apiMatch + "TypingInfo";
-        }
-
-        // Remove the Version from the Api name
-        const apiName = apiMatches[0].replace(/ApiV\d+/, "Api");
-        apiNameToServiceNameMapping[apiName] = service;
+        apiNameToTypingInfoMapping[apiName + apiVersion] =
+          apiName + apiVersion + "TypingInfo";
+        apiNameToServiceNameMapping[apiName] = packageDirName;
       }
-    }
+    });
   });
 
   return { imports, apiNameToServiceNameMapping, apiNameToTypingInfoMapping };
@@ -157,9 +158,10 @@ function populateApiTypes(
       if (namedImport.getName().includes("TypingInfo")) {
         continue;
       }
+      const alias = namedImport.getAliasNode()?.getText() as string;
       apiTypesInitializer.addPropertyAssignment({
-        name: namedImport.getName(),
-        initializer: namedImport.getName(),
+        name: alias,
+        initializer: alias,
       });
     }
   }
@@ -201,7 +203,7 @@ function populateApiTypes(
   }
 }
 
-function generateApiInfo(servicesDir: string, useBuiltPackages: boolean) {
+function generateApiInfo(packagesDir: string, useBuiltPackages: boolean) {
   const project = new Project({
     skipAddingFilesFromTsConfig: true,
   });
@@ -210,7 +212,7 @@ function generateApiInfo(servicesDir: string, useBuiltPackages: boolean) {
   let sourceFile = project.getSourceFileOrThrow("src/support/api_info.ts");
 
   const { imports, apiNameToServiceNameMapping, apiNameToTypingInfoMapping } =
-    buildImportsAndMappings(servicesDir, useBuiltPackages);
+    buildImportsAndMappings(packagesDir, useBuiltPackages);
   sourceFile.addImportDeclarations(imports);
 
   // Populate apiTypes map
@@ -239,8 +241,8 @@ async function main(): Promise<ICliRunResult> {
       "Fully qualified path to cassettes directory",
     )
     .option(
-      "--services-dir <path>",
-      "Fully qualified path to services directory",
+      "--packages-dir <path>",
+      "Fully qualified path to packages directory",
     )
     .option(
       "--package-prefix <prefix>",
@@ -288,8 +290,8 @@ async function main(): Promise<ICliRunResult> {
   worldParameters["cassettesDir"] =
     options.cassettesDir || path.resolve(cwd, "cassettes");
   worldParameters["packagePrefix"] = options.packagePrefix;
-  worldParameters["servicesDir"] =
-    options.servicesDir || path.resolve(cwd, "services");
+  worldParameters["packagesDir"] =
+    options.packagesDir || path.resolve(cwd, "packages");
 
   let args = program.args;
   args.unshift("--world-parameters", JSON.stringify(worldParameters));
@@ -324,6 +326,11 @@ async function main(): Promise<ICliRunResult> {
     process.env.BDD_RUNNER_UNDO_ACTIONS = undoActions;
   }
 
+  process.env.BDD_RUNNER_PACKAGE_MAPPING = path.resolve(
+    cwd,
+    "package-mapping.json",
+  );
+
   // Run Cucumber
   const cli = new Cli({
     argv: args,
@@ -334,7 +341,7 @@ async function main(): Promise<ICliRunResult> {
   });
 
   // Generate API info
-  generateApiInfo(worldParameters["servicesDir"], options.useBuiltPackages);
+  generateApiInfo(worldParameters["packagesDir"], options.useBuiltPackages);
 
   // Run Cucumber
   return cli.run();
