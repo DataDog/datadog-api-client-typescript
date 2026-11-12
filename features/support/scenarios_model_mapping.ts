@@ -17499,34 +17499,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListCloudWorkloadSecurityAgentRules": {
         "operationResponseType": "CloudWorkloadSecurityAgentRulesListResponse",
     },
-    "v2.CreateCloudWorkloadSecurityAgentRule": {
-        "body": {
-            "type": "CloudWorkloadSecurityAgentRuleCreateRequest",
-            "format": "",
-            },
-        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
-    },
     "v2.GetCloudWorkloadSecurityAgentRule": {
         "agentRuleId": {
             "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
-    },
-    "v2.DeleteCloudWorkloadSecurityAgentRule": {
-        "agentRuleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.UpdateCloudWorkloadSecurityAgentRule": {
-        "agentRuleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "CloudWorkloadSecurityAgentRuleUpdateRequest",
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",

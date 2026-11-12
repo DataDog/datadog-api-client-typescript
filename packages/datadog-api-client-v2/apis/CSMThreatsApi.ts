@@ -28,59 +28,6 @@ import { CloudWorkloadSecurityAgentRulesListResponse } from "../models/CloudWork
 import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "../models/CloudWorkloadSecurityAgentRuleUpdateRequest";
 
 export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
-  public async createCloudWorkloadSecurityAgentRule(
-    body: CloudWorkloadSecurityAgentRuleCreateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'body' is not null or undefined
-    if (body === null || body === undefined) {
-      throw new RequiredError("body", "createCloudWorkloadSecurityAgentRule");
-    }
-
-    // Path Params
-    const localVarPath =
-      "/api/v2/security_monitoring/cloud_workload_security/agent_rules";
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CSMThreatsApi.createCloudWorkloadSecurityAgentRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set IaC header
-    if (_config.isIaC) {
-      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
-    }
-
-    // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
-    requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "CloudWorkloadSecurityAgentRuleCreateRequest",
-        ""
-      ),
-      contentType,
-      this.configuration.preserveLargeIntegers
-    );
-    requestContext.setBody(serializedBody);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
   public async createCSMThreatsAgentPolicy(
     body: CloudWorkloadSecurityAgentPolicyCreateRequest,
     _options?: Configuration
@@ -174,49 +121,6 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
       this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
-  public async deleteCloudWorkloadSecurityAgentRule(
-    agentRuleId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'agentRuleId' is not null or undefined
-    if (agentRuleId === null || agentRuleId === undefined) {
-      throw new RequiredError(
-        "agentRuleId",
-        "deleteCloudWorkloadSecurityAgentRule"
-      );
-    }
-
-    // Path Params
-    const localVarPath =
-      "/api/v2/security_monitoring/cloud_workload_security/agent_rules/{agent_rule_id}".replace(
-        "{agent_rule_id}",
-        encodeURIComponent(String(agentRuleId))
-      );
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CSMThreatsApi.deleteCloudWorkloadSecurityAgentRule")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "*/*");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set IaC header
-    if (_config.isIaC) {
-      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
-    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -585,71 +489,6 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateCloudWorkloadSecurityAgentRule(
-    agentRuleId: string,
-    body: CloudWorkloadSecurityAgentRuleUpdateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'agentRuleId' is not null or undefined
-    if (agentRuleId === null || agentRuleId === undefined) {
-      throw new RequiredError(
-        "agentRuleId",
-        "updateCloudWorkloadSecurityAgentRule"
-      );
-    }
-
-    // verify required parameter 'body' is not null or undefined
-    if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateCloudWorkloadSecurityAgentRule");
-    }
-
-    // Path Params
-    const localVarPath =
-      "/api/v2/security_monitoring/cloud_workload_security/agent_rules/{agent_rule_id}".replace(
-        "{agent_rule_id}",
-        encodeURIComponent(String(agentRuleId))
-      );
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CSMThreatsApi.updateCloudWorkloadSecurityAgentRule")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set IaC header
-    if (_config.isIaC) {
-      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
-    }
-
-    // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
-    requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "CloudWorkloadSecurityAgentRuleUpdateRequest",
-        ""
-      ),
-      contentType,
-      this.configuration.preserveLargeIntegers
-    );
-    requestContext.setBody(serializedBody);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
   public async updateCSMThreatsAgentPolicy(
     policyId: string,
     body: CloudWorkloadSecurityAgentPolicyUpdateRequest,
@@ -790,85 +629,6 @@ export class CSMThreatsApiResponseProcessor {
 
   public constructor(configuration?: Configuration) {
     this.configuration = configuration;
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to createCloudWorkloadSecurityAgentRule
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async createCloudWorkloadSecurityAgentRule(
-    response: ResponseContext
-  ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "CloudWorkloadSecurityAgentRuleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
-        ) as CloudWorkloadSecurityAgentRuleResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 409 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "CloudWorkloadSecurityAgentRuleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
-        ) as CloudWorkloadSecurityAgentRuleResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
   }
 
   /**
@@ -1020,62 +780,6 @@ export class CSMThreatsApiResponseProcessor {
           this.configuration?.preserveLargeIntegers
         ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to deleteCloudWorkloadSecurityAgentRule
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async deleteCloudWorkloadSecurityAgentRule(
-    response: ResponseContext
-  ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 204) {
-      return;
-    }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -1712,86 +1416,6 @@ export class CSMThreatsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to updateCloudWorkloadSecurityAgentRule
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async updateCloudWorkloadSecurityAgentRule(
-    response: ResponseContext
-  ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "CloudWorkloadSecurityAgentRuleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
-        ) as CloudWorkloadSecurityAgentRuleResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 409 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-        this.configuration?.preserveLargeIntegers
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(
-            await response.body.text(),
-            contentType,
-            this.configuration?.preserveLargeIntegers
-          ),
-          "CloudWorkloadSecurityAgentRuleResponse",
-          "",
-          this.configuration?.preserveLargeIntegers
-        ) as CloudWorkloadSecurityAgentRuleResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to updateCSMThreatsAgentPolicy
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1949,14 +1573,6 @@ export class CSMThreatsApiResponseProcessor {
   }
 }
 
-export interface CSMThreatsApiCreateCloudWorkloadSecurityAgentRuleRequest {
-  /**
-   * The definition of the new agent rule
-   * @type CloudWorkloadSecurityAgentRuleCreateRequest
-   */
-  body: CloudWorkloadSecurityAgentRuleCreateRequest;
-}
-
 export interface CSMThreatsApiCreateCSMThreatsAgentPolicyRequest {
   /**
    * The definition of the new Agent policy
@@ -1971,14 +1587,6 @@ export interface CSMThreatsApiCreateCSMThreatsAgentRuleRequest {
    * @type CloudWorkloadSecurityAgentRuleCreateRequest
    */
   body: CloudWorkloadSecurityAgentRuleCreateRequest;
-}
-
-export interface CSMThreatsApiDeleteCloudWorkloadSecurityAgentRuleRequest {
-  /**
-   * The ID of the Agent rule
-   * @type string
-   */
-  agentRuleId: string;
 }
 
 export interface CSMThreatsApiDeleteCSMThreatsAgentPolicyRequest {
@@ -2039,19 +1647,6 @@ export interface CSMThreatsApiListCSMThreatsAgentRulesRequest {
   policyId?: string;
 }
 
-export interface CSMThreatsApiUpdateCloudWorkloadSecurityAgentRuleRequest {
-  /**
-   * The ID of the Agent rule
-   * @type string
-   */
-  agentRuleId: string;
-  /**
-   * New definition of the agent rule
-   * @type CloudWorkloadSecurityAgentRuleUpdateRequest
-   */
-  body: CloudWorkloadSecurityAgentRuleUpdateRequest;
-}
-
 export interface CSMThreatsApiUpdateCSMThreatsAgentPolicyRequest {
   /**
    * The ID of the Agent policy
@@ -2101,32 +1696,6 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Create a new agent rule with the given parameters.
-   *
-   * **Note**: This endpoint should only be used for the Government (US1-FED) site.
-   * @param param The request object
-   */
-  public createCloudWorkloadSecurityAgentRule(
-    param: CSMThreatsApiCreateCloudWorkloadSecurityAgentRuleRequest,
-    options?: Configuration
-  ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
-    const requestContextPromise =
-      this.requestFactory.createCloudWorkloadSecurityAgentRule(
-        param.body,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createCloudWorkloadSecurityAgentRule(
-            responseContext
-          );
-        });
-    });
-  }
-
-  /**
    * Create a new Workload Protection policy with the given parameters.
    *
    * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
@@ -2168,32 +1737,6 @@ export class CSMThreatsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createCSMThreatsAgentRule(
-            responseContext
-          );
-        });
-    });
-  }
-
-  /**
-   * Delete a specific agent rule.
-   *
-   * **Note**: This endpoint should only be used for the Government (US1-FED) site.
-   * @param param The request object
-   */
-  public deleteCloudWorkloadSecurityAgentRule(
-    param: CSMThreatsApiDeleteCloudWorkloadSecurityAgentRuleRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteCloudWorkloadSecurityAgentRule(
-        param.agentRuleId,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteCloudWorkloadSecurityAgentRule(
             responseContext
           );
         });
@@ -2409,34 +1952,6 @@ export class CSMThreatsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listCSMThreatsAgentRules(
-            responseContext
-          );
-        });
-    });
-  }
-
-  /**
-   * Update a specific agent rule.
-   * Returns the agent rule object when the request is successful.
-   *
-   * **Note**: This endpoint should only be used for the Government (US1-FED) site.
-   * @param param The request object
-   */
-  public updateCloudWorkloadSecurityAgentRule(
-    param: CSMThreatsApiUpdateCloudWorkloadSecurityAgentRuleRequest,
-    options?: Configuration
-  ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateCloudWorkloadSecurityAgentRule(
-        param.agentRuleId,
-        param.body,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateCloudWorkloadSecurityAgentRule(
             responseContext
           );
         });

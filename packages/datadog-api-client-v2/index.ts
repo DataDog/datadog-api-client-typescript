@@ -354,17 +354,14 @@ export {
 export {
   CSMThreatsApiCreateCSMThreatsAgentPolicyRequest,
   CSMThreatsApiCreateCSMThreatsAgentRuleRequest,
-  CSMThreatsApiCreateCloudWorkloadSecurityAgentRuleRequest,
   CSMThreatsApiDeleteCSMThreatsAgentPolicyRequest,
   CSMThreatsApiDeleteCSMThreatsAgentRuleRequest,
-  CSMThreatsApiDeleteCloudWorkloadSecurityAgentRuleRequest,
   CSMThreatsApiGetCSMThreatsAgentPolicyRequest,
   CSMThreatsApiGetCSMThreatsAgentRuleRequest,
   CSMThreatsApiGetCloudWorkloadSecurityAgentRuleRequest,
   CSMThreatsApiListCSMThreatsAgentRulesRequest,
   CSMThreatsApiUpdateCSMThreatsAgentPolicyRequest,
   CSMThreatsApiUpdateCSMThreatsAgentRuleRequest,
-  CSMThreatsApiUpdateCloudWorkloadSecurityAgentRuleRequest,
   CSMThreatsApi,
 } from "./apis/CSMThreatsApi";
 
