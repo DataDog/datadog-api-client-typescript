@@ -165,6 +165,9 @@ import { CustomCostsFileMetadata } from "./CustomCostsFileMetadata";
 import { CustomCostsFileMetadataHighLevel } from "./CustomCostsFileMetadataHighLevel";
 import { CustomCostsFileMetadataWithContent } from "./CustomCostsFileMetadataWithContent";
 import { CustomCostsFileMetadataWithContentHighLevel } from "./CustomCostsFileMetadataWithContentHighLevel";
+import { CustomCostsFileUpdateAttributes } from "./CustomCostsFileUpdateAttributes";
+import { CustomCostsFileUpdateData } from "./CustomCostsFileUpdateData";
+import { CustomCostsFileUpdateRequest } from "./CustomCostsFileUpdateRequest";
 import { CustomCostsFileUploadResponse } from "./CustomCostsFileUploadResponse";
 import { CustomCostsFileUsageChargePeriod } from "./CustomCostsFileUsageChargePeriod";
 import { CustomCostsUser } from "./CustomCostsUser";
@@ -301,6 +304,7 @@ export const TypingInfo: ModelTypingInfo = {
     CostTagMetadataMonthType: ["cost_tag_metadata_month"],
     CostTagType: ["cost_tag"],
     CreateRulesetRequestDataType: ["create_ruleset"],
+    CustomCostsFileUpdateType: ["cost_metadata"],
     CustomForecastType: ["custom_forecast"],
     DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
     GCPUsageCostConfigPatchRequestType: ["gcp_uc_config_patch_request"],
@@ -532,6 +536,9 @@ export const TypingInfo: ModelTypingInfo = {
     CustomCostsFileMetadataWithContent: CustomCostsFileMetadataWithContent,
     CustomCostsFileMetadataWithContentHighLevel:
       CustomCostsFileMetadataWithContentHighLevel,
+    CustomCostsFileUpdateAttributes: CustomCostsFileUpdateAttributes,
+    CustomCostsFileUpdateData: CustomCostsFileUpdateData,
+    CustomCostsFileUpdateRequest: CustomCostsFileUpdateRequest,
     CustomCostsFileUploadResponse: CustomCostsFileUploadResponse,
     CustomCostsFileUsageChargePeriod: CustomCostsFileUsageChargePeriod,
     CustomCostsUser: CustomCostsUser,

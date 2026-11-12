@@ -57,6 +57,7 @@ export {
   CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
   CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest,
   CloudCostManagementApiUpdateCustomAllocationRuleRequest,
+  CloudCostManagementApiUpdateCustomCostsFileRequest,
   CloudCostManagementApiUpdateTagPipelinesRulesetRequest,
   CloudCostManagementApiUpdateUnitCostRequest,
   CloudCostManagementApiUploadCustomCostsFileRequest,
@@ -271,6 +272,10 @@ export { CustomCostsFileMetadata } from "./models/CustomCostsFileMetadata";
 export { CustomCostsFileMetadataHighLevel } from "./models/CustomCostsFileMetadataHighLevel";
 export { CustomCostsFileMetadataWithContent } from "./models/CustomCostsFileMetadataWithContent";
 export { CustomCostsFileMetadataWithContentHighLevel } from "./models/CustomCostsFileMetadataWithContentHighLevel";
+export { CustomCostsFileUpdateAttributes } from "./models/CustomCostsFileUpdateAttributes";
+export { CustomCostsFileUpdateData } from "./models/CustomCostsFileUpdateData";
+export { CustomCostsFileUpdateRequest } from "./models/CustomCostsFileUpdateRequest";
+export { CustomCostsFileUpdateType } from "./models/CustomCostsFileUpdateType";
 export { CustomCostsFileUploadResponse } from "./models/CustomCostsFileUploadResponse";
 export { CustomCostsFileUsageChargePeriod } from "./models/CustomCostsFileUsageChargePeriod";
 export { CustomCostsUser } from "./models/CustomCostsUser";
