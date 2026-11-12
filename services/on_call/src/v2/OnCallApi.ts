@@ -24,6 +24,7 @@ import {
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CreateOnCallNotificationRuleRequest } from "./models/CreateOnCallNotificationRuleRequest";
+import { CreateOnCallPageCommentRequest } from "./models/CreateOnCallPageCommentRequest";
 import { CreateOverridesRequest } from "./models/CreateOverridesRequest";
 import { CreateUserNotificationChannelRequest } from "./models/CreateUserNotificationChannelRequest";
 import { EscalationPolicies } from "./models/EscalationPolicies";
@@ -117,6 +118,71 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "EscalationPolicyCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createOnCallPageComment(
+    pageId: string,
+    body: CreateOnCallPageCommentRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "createOnCallPageComment");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createOnCallPageComment");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/on-call/pages/{page_id}/comment".replace(
+      "{page_id}",
+      encodeURIComponent(String(pageId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OnCallApi.v2.createOnCallPageComment",
+      OnCallApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateOnCallPageCommentRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2089,6 +2155,76 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createOnCallPageComment
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createOnCallPageComment(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createOnCallSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3795,6 +3931,18 @@ export interface OnCallApiCreateOnCallEscalationPolicyRequest {
   include?: string;
 }
 
+export interface OnCallApiCreateOnCallPageCommentRequest {
+  /**
+   * The ID of the Page, or its key.
+   * @type string
+   */
+  pageId: string;
+  /**
+   * @type CreateOnCallPageCommentRequest
+   */
+  body: CreateOnCallPageCommentRequest;
+}
+
 export interface OnCallApiCreateOnCallScheduleRequest {
   /**
    * @type ScheduleCreateRequest
@@ -4294,6 +4442,30 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createOnCallEscalationPolicy(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Add a comment to the timeline of an On-Call Page.
+   * @param param The request object
+   */
+  public createOnCallPageComment(
+    param: OnCallApiCreateOnCallPageCommentRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.createOnCallPageComment(
+      param.pageId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createOnCallPageComment(
             responseContext,
           );
         });
