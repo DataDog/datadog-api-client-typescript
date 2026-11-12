@@ -25,11 +25,6 @@ export class GovernanceControlDetectionAttributes {
    */
   "assignmentSource": GovernanceControlDetectionAssignmentSource;
   /**
-   * DEPRECATED: mirrors `detection_type` for backward compatibility; use `detection_type`
-   * instead.
-   */
-  "controlId": string;
-  /**
    * The date and time when the detection was created.
    */
   "createdAt": Date;
@@ -105,11 +100,6 @@ export class GovernanceControlDetectionAttributes {
     assignmentSource: {
       baseName: "assignment_source",
       type: "GovernanceControlDetectionAssignmentSource",
-      required: true,
-    },
-    controlId: {
-      baseName: "control_id",
-      type: "string",
       required: true,
     },
     createdAt: {
