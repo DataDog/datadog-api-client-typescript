@@ -61,6 +61,7 @@ export { IncidentScheduleTrigger } from "./models/IncidentScheduleTrigger";
 export { IncidentScheduleTriggerWrapper } from "./models/IncidentScheduleTriggerWrapper";
 export { IncidentTagValue } from "./models/IncidentTagValue";
 export { IncidentTrigger } from "./models/IncidentTrigger";
+export { IncidentTriggerIncidentType } from "./models/IncidentTriggerIncidentType";
 export { IncidentTriggerWrapper } from "./models/IncidentTriggerWrapper";
 export { InputSchema } from "./models/InputSchema";
 export { InputSchemaParameters } from "./models/InputSchemaParameters";
