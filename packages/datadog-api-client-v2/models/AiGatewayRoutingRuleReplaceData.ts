@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AiGatewayRoutingRuleReplaceData {
   /**
-   * Attributes used to replace an AI Gateway routing rule.
+   * Partial route update. Omit tiers to preserve the entire graph, including hidden selections. Saved target IDs retain omitted settings. Replacing tiers must explicitly retain or remove every hidden occurrence.
    */
   "attributes": AiGatewayRoutingRuleReplaceAttributes;
   /**

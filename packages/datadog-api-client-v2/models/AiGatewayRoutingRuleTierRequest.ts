@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AiGatewayNullableRoutingRuleTierOrdering } from "./AiGatewayNullableRoutingRuleTierOrdering";
+import { AiGatewayRoutingClassifierRequest } from "./AiGatewayRoutingClassifierRequest";
 import { AiGatewayRoutingRuleTargetRequest } from "./AiGatewayRoutingRuleTargetRequest";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -13,7 +14,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AiGatewayRoutingRuleTierRequest {
   /**
-   * How a tier orders its targets. Omitted or null defaults to configured, which preserves target order. The weighted_affinity ordering distributes first-choice assignments by relative target weights and accepts only model targets with an explicit provider, without repeated provider and model pairs in the same tier.
+   * Decision model and settings for a classified tier. Omission preserves the saved classifier; null clears it. Newly selected models require provider View.
+   */
+  "classifier"?: AiGatewayRoutingClassifierRequest;
+  /**
+   * How a tier orders its targets. Omission preserves the saved same-position tier on update; null resets to configured. New tiers default to configured. The weighted_affinity ordering distributes first-choice assignments by relative target weights and accepts only model targets with an explicit provider, without repeated provider and model pairs in the same tier. The `classified` ordering is allowed only in the first tier and requires a classifier, destination rubrics, and one default destination.
    */
   "ordering"?: AiGatewayNullableRoutingRuleTierOrdering;
   "targets": Array<AiGatewayRoutingRuleTargetRequest>;
@@ -34,6 +39,10 @@ export class AiGatewayRoutingRuleTierRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    classifier: {
+      baseName: "classifier",
+      type: "AiGatewayRoutingClassifierRequest",
+    },
     ordering: {
       baseName: "ordering",
       type: "AiGatewayNullableRoutingRuleTierOrdering",
