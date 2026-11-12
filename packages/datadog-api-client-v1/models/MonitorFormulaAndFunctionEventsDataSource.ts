@@ -21,6 +21,7 @@ export type MonitorFormulaAndFunctionEventsDataSource =
   | typeof DATABASE_QUERIES
   | typeof NETWORK
   | typeof NETWORK_PATH
+  | typeof LLM_OBSERVABILITY
   | UnparsedObject;
 export const RUM = "rum";
 export const CI_PIPELINES = "ci_pipelines";
@@ -32,3 +33,4 @@ export const SPANS = "spans";
 export const DATABASE_QUERIES = "database_queries";
 export const NETWORK = "network";
 export const NETWORK_PATH = "network_path";
+export const LLM_OBSERVABILITY = "llm_observability";
