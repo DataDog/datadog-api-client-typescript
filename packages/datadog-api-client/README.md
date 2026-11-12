@@ -372,6 +372,7 @@ apiInstance
 | Case Management Attribute | @datadog/datadog-api-client-case-management-attribute | [README.md](../../services/case-management-attribute/README.md) |
 | Case Management Type | @datadog/datadog-api-client-case-management-type | [README.md](../../services/case-management-type/README.md) |
 | Change Management | @datadog/datadog-api-client-change-management | [README.md](../../services/change-management/README.md) |
+| ChatGPT Enterprise Integration | @datadog/datadog-api-client-chat-gpt-enterprise-integration | [README.md](../../services/chat-gpt-enterprise-integration/README.md) |
 | CI Visibility GitHub Accounts | @datadog/datadog-api-client-ci-visibility-git-hub-accounts | [README.md](../../services/ci-visibility-git-hub-accounts/README.md) |
 | CI Visibility Logs | @datadog/datadog-api-client-ci-visibility-logs | [README.md](../../services/ci-visibility-logs/README.md) |
 | CI Visibility Pipelines | @datadog/datadog-api-client-ci-visibility-pipelines | [README.md](../../services/ci-visibility-pipelines/README.md) |

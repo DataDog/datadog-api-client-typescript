@@ -13342,6 +13342,45 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IncidentTimestampOverrideResponse",
   },
+  "ChatGPTEnterpriseIntegrationApi.V2.ListChatGPTEnterpriseIntegrationAccounts":
+    {
+      operationResponseType: "ChatGPTEnterpriseIntegrationAccountsResponse",
+    },
+  "ChatGPTEnterpriseIntegrationApi.V2.CreateChatGPTEnterpriseIntegrationAccount":
+    {
+      body: {
+        type: "ChatGPTEnterpriseIntegrationAccountCreateRequest",
+        format: "",
+      },
+      operationResponseType: "ChatGPTEnterpriseIntegrationAccountResponse",
+    },
+  "ChatGPTEnterpriseIntegrationApi.V2.GetChatGPTEnterpriseIntegrationAccount": {
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ChatGPTEnterpriseIntegrationAccountResponse",
+  },
+  "ChatGPTEnterpriseIntegrationApi.V2.DeleteChatGPTEnterpriseIntegrationAccount":
+    {
+      accountId: {
+        type: "string",
+        format: "",
+      },
+      operationResponseType: "{}",
+    },
+  "ChatGPTEnterpriseIntegrationApi.V2.UpdateChatGPTEnterpriseIntegrationAccount":
+    {
+      accountId: {
+        type: "string",
+        format: "",
+      },
+      body: {
+        type: "ChatGPTEnterpriseIntegrationAccountUpdateRequest",
+        format: "",
+      },
+      operationResponseType: "ChatGPTEnterpriseIntegrationAccountResponse",
+    },
   "DatabricksIntegrationApi.V2.ListDatabricksIntegrationAccounts": {
     operationResponseType: "DatabricksIntegrationAccountsResponse",
   },
