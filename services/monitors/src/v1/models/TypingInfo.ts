@@ -13,6 +13,7 @@ import { MonitorFormulaAndFunctionAggregateFilteredQueryDefinition } from "./Mon
 import { MonitorFormulaAndFunctionAggregateQueryFilter } from "./MonitorFormulaAndFunctionAggregateQueryFilter";
 import { MonitorFormulaAndFunctionAggregateQueryJoinCondition } from "./MonitorFormulaAndFunctionAggregateQueryJoinCondition";
 import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
+import { MonitorFormulaAndFunctionDataJobsMonitorOptions } from "./MonitorFormulaAndFunctionDataJobsMonitorOptions";
 import { MonitorFormulaAndFunctionDataJobsQueryDefinition } from "./MonitorFormulaAndFunctionDataJobsQueryDefinition";
 import { MonitorFormulaAndFunctionDataQualityEntityMetricConfig } from "./MonitorFormulaAndFunctionDataQualityEntityMetricConfig";
 import { MonitorFormulaAndFunctionDataQualityModelConfiguration } from "./MonitorFormulaAndFunctionDataQualityModelConfiguration";
@@ -85,6 +86,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     MonitorFormulaAndFunctionCostDataSource: ["cloud_cost", "datadog_usage"],
     MonitorFormulaAndFunctionDataQualityDataSource: ["data_quality_metrics"],
+    MonitorFormulaAndFunctionDataQualityDetectionType: ["static", "anomaly"],
     MonitorFormulaAndFunctionDataQualityDiffFunction: ["DIFF", "DIFF_PERCENT"],
     MonitorFormulaAndFunctionDataQualityDiffType: ["absolute", "diff_percent"],
     MonitorFormulaAndFunctionDataQualityModelBoundsOverride: [
@@ -237,6 +239,8 @@ export const TypingInfo: ModelTypingInfo = {
       MonitorFormulaAndFunctionAggregateQueryJoinCondition,
     MonitorFormulaAndFunctionCostQueryDefinition:
       MonitorFormulaAndFunctionCostQueryDefinition,
+    MonitorFormulaAndFunctionDataJobsMonitorOptions:
+      MonitorFormulaAndFunctionDataJobsMonitorOptions,
     MonitorFormulaAndFunctionDataJobsQueryDefinition:
       MonitorFormulaAndFunctionDataJobsQueryDefinition,
     MonitorFormulaAndFunctionDataQualityEntityMetricConfig:
