@@ -143,6 +143,10 @@ import { HeatgridLegend } from "./HeatgridLegend";
 import { HeatgridSort } from "./HeatgridSort";
 import { HeatgridSortByLabel } from "./HeatgridSortByLabel";
 import { HeatgridSortByValue } from "./HeatgridSortByValue";
+import { HeatgridTextFormatMatch } from "./HeatgridTextFormatMatch";
+import { HeatgridTextFormatReplaceAll } from "./HeatgridTextFormatReplaceAll";
+import { HeatgridTextFormatReplaceSubstring } from "./HeatgridTextFormatReplaceSubstring";
+import { HeatgridTextFormatRule } from "./HeatgridTextFormatRule";
 import { HeatgridWidgetDefinition } from "./HeatgridWidgetDefinition";
 import { HeatgridWidgetFormula } from "./HeatgridWidgetFormula";
 import { HeatgridWidgetRequest } from "./HeatgridWidgetRequest";
@@ -1091,6 +1095,16 @@ const enumsMap: { [key: string]: any[] } = {
   HeatgridSortByLabelProperty: ["label"],
   HeatgridSortByValueProperty: ["value"],
   HeatgridSortOrder: ["asc", "desc"],
+  HeatgridTextFormatMatchType: [
+    "is",
+    "is_not",
+    "contains",
+    "does_not_contain",
+    "starts_with",
+    "ends_with",
+  ],
+  HeatgridTextFormatReplaceAllType: ["all"],
+  HeatgridTextFormatReplaceSubstringType: ["substring"],
   HeatgridWidgetDefinitionType: ["heatgrid"],
   HeatgridWidgetResponseFormat: ["timeseries"],
   HostMapWidgetDefinitionRequestType: [
@@ -2341,6 +2355,10 @@ const typeMap: { [index: string]: any } = {
   HeatgridSort: HeatgridSort,
   HeatgridSortByLabel: HeatgridSortByLabel,
   HeatgridSortByValue: HeatgridSortByValue,
+  HeatgridTextFormatMatch: HeatgridTextFormatMatch,
+  HeatgridTextFormatReplaceAll: HeatgridTextFormatReplaceAll,
+  HeatgridTextFormatReplaceSubstring: HeatgridTextFormatReplaceSubstring,
+  HeatgridTextFormatRule: HeatgridTextFormatRule,
   HeatgridWidgetDefinition: HeatgridWidgetDefinition,
   HeatgridWidgetFormula: HeatgridWidgetFormula,
   HeatgridWidgetRequest: HeatgridWidgetRequest,
@@ -3116,6 +3134,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "HeatgridDiscretePresetColor",
   ],
   HeatgridSortBy: ["HeatgridSortByValue", "HeatgridSortByLabel"],
+  HeatgridTextFormatReplace: [
+    "HeatgridTextFormatReplaceAll",
+    "HeatgridTextFormatReplaceSubstring",
+  ],
   LogsArrayMapSubProcessor: [
     "LogsArrayMapAttributeRemapper",
     "LogsArrayMapArithmeticSubProcessor",
