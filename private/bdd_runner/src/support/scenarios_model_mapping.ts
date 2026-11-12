@@ -17535,34 +17535,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "CSMThreatsApi.V2.ListCloudWorkloadSecurityAgentRules": {
     operationResponseType: "CloudWorkloadSecurityAgentRulesListResponse",
   },
-  "CSMThreatsApi.V2.CreateCloudWorkloadSecurityAgentRule": {
-    body: {
-      type: "CloudWorkloadSecurityAgentRuleCreateRequest",
-      format: "",
-    },
-    operationResponseType: "CloudWorkloadSecurityAgentRuleResponse",
-  },
   "CSMThreatsApi.V2.GetCloudWorkloadSecurityAgentRule": {
     agentRuleId: {
       type: "string",
-      format: "",
-    },
-    operationResponseType: "CloudWorkloadSecurityAgentRuleResponse",
-  },
-  "CSMThreatsApi.V2.DeleteCloudWorkloadSecurityAgentRule": {
-    agentRuleId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "CSMThreatsApi.V2.UpdateCloudWorkloadSecurityAgentRule": {
-    agentRuleId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "CloudWorkloadSecurityAgentRuleUpdateRequest",
       format: "",
     },
     operationResponseType: "CloudWorkloadSecurityAgentRuleResponse",
