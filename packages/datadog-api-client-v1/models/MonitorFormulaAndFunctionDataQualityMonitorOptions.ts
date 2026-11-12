@@ -3,16 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { MonitorFormulaAndFunctionDataQualityDetectionType } from "./MonitorFormulaAndFunctionDataQualityDetectionType";
 import { MonitorFormulaAndFunctionDataQualityModelConfiguration } from "./MonitorFormulaAndFunctionDataQualityModelConfiguration";
 import { MonitorFormulaAndFunctionDataQualityModelTypeOverride } from "./MonitorFormulaAndFunctionDataQualityModelTypeOverride";
 import { MonitorFormulaAndFunctionDataQualitySourceToTargetConfig } from "./MonitorFormulaAndFunctionDataQualitySourceToTargetConfig";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
  * Monitor configuration options for data quality queries.
  */
 export class MonitorFormulaAndFunctionDataQualityMonitorOptions {
+  /**
+   * Number of consecutive runs that must breach before the monitor alerts.
+   * Only supported by `data-jobs alert` job duration monitors. Defaults to `1`.
+   */
+  "consecutiveRuns"?: Int64;
   /**
    * Crontab expression to override the default schedule.
    */
@@ -25,6 +31,11 @@ export class MonitorFormulaAndFunctionDataQualityMonitorOptions {
    * Custom WHERE clause for the query.
    */
   "customWhere"?: string;
+  /**
+   * How a `data-jobs alert` job duration monitor detects a breach. Must match the
+   * `.detection()` call in the monitor query. Required for job duration monitors.
+   */
+  "detectionType"?: MonitorFormulaAndFunctionDataQualityDetectionType;
   /**
    * Columns to group results by.
    */
@@ -65,6 +76,11 @@ export class MonitorFormulaAndFunctionDataQualityMonitorOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    consecutiveRuns: {
+      baseName: "consecutive_runs",
+      type: "number",
+      format: "int64",
+    },
     crontabOverride: {
       baseName: "crontab_override",
       type: "string",
@@ -76,6 +92,10 @@ export class MonitorFormulaAndFunctionDataQualityMonitorOptions {
     customWhere: {
       baseName: "custom_where",
       type: "string",
+    },
+    detectionType: {
+      baseName: "detection_type",
+      type: "MonitorFormulaAndFunctionDataQualityDetectionType",
     },
     groupByColumns: {
       baseName: "group_by_columns",

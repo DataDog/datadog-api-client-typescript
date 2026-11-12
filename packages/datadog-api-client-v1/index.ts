@@ -790,8 +790,10 @@ export { MonitorFormulaAndFunctionAggregateQueryJoinType } from "./models/Monito
 export { MonitorFormulaAndFunctionCostAggregator } from "./models/MonitorFormulaAndFunctionCostAggregator";
 export { MonitorFormulaAndFunctionCostDataSource } from "./models/MonitorFormulaAndFunctionCostDataSource";
 export { MonitorFormulaAndFunctionCostQueryDefinition } from "./models/MonitorFormulaAndFunctionCostQueryDefinition";
+export { MonitorFormulaAndFunctionDataJobsMonitorOptions } from "./models/MonitorFormulaAndFunctionDataJobsMonitorOptions";
 export { MonitorFormulaAndFunctionDataJobsQueryDefinition } from "./models/MonitorFormulaAndFunctionDataJobsQueryDefinition";
 export { MonitorFormulaAndFunctionDataQualityDataSource } from "./models/MonitorFormulaAndFunctionDataQualityDataSource";
+export { MonitorFormulaAndFunctionDataQualityDetectionType } from "./models/MonitorFormulaAndFunctionDataQualityDetectionType";
 export { MonitorFormulaAndFunctionDataQualityDiffFunction } from "./models/MonitorFormulaAndFunctionDataQualityDiffFunction";
 export { MonitorFormulaAndFunctionDataQualityDiffType } from "./models/MonitorFormulaAndFunctionDataQualityDiffType";
 export { MonitorFormulaAndFunctionDataQualityEntityMetricConfig } from "./models/MonitorFormulaAndFunctionDataQualityEntityMetricConfig";
