@@ -181,6 +181,14 @@ export { HeatgridSortByLabelProperty } from "./models/HeatgridSortByLabelPropert
 export { HeatgridSortByValue } from "./models/HeatgridSortByValue";
 export { HeatgridSortByValueProperty } from "./models/HeatgridSortByValueProperty";
 export { HeatgridSortOrder } from "./models/HeatgridSortOrder";
+export { HeatgridTextFormatMatch } from "./models/HeatgridTextFormatMatch";
+export { HeatgridTextFormatMatchType } from "./models/HeatgridTextFormatMatchType";
+export { HeatgridTextFormatReplace } from "./models/HeatgridTextFormatReplace";
+export { HeatgridTextFormatReplaceAll } from "./models/HeatgridTextFormatReplaceAll";
+export { HeatgridTextFormatReplaceAllType } from "./models/HeatgridTextFormatReplaceAllType";
+export { HeatgridTextFormatReplaceSubstring } from "./models/HeatgridTextFormatReplaceSubstring";
+export { HeatgridTextFormatReplaceSubstringType } from "./models/HeatgridTextFormatReplaceSubstringType";
+export { HeatgridTextFormatRule } from "./models/HeatgridTextFormatRule";
 export { HeatgridWidgetDefinition } from "./models/HeatgridWidgetDefinition";
 export { HeatgridWidgetDefinitionType } from "./models/HeatgridWidgetDefinitionType";
 export { HeatgridWidgetFormula } from "./models/HeatgridWidgetFormula";
