@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { IncidentCondition } from "./IncidentCondition";
+import { IncidentTriggerIncidentType } from "./IncidentTriggerIncidentType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +13,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class IncidentScheduleTrigger {
   /**
-   * The type of incident that triggers the workflow.
+   * Deprecated. Use `incidentTypes` instead. The type of incident that triggers the workflow.
    */
   "incidentType"?: string;
+  /**
+   * The types of incident that trigger the workflow.
+   */
+  "incidentTypes"?: Array<IncidentTriggerIncidentType>;
   /**
    * The recurrence rule for the schedule, expressed as an iCalendar `RRULE` string.
    */
@@ -43,6 +48,10 @@ export class IncidentScheduleTrigger {
     incidentType: {
       baseName: "incidentType",
       type: "string",
+    },
+    incidentTypes: {
+      baseName: "incidentTypes",
+      type: "Array<IncidentTriggerIncidentType>",
     },
     rrule: {
       baseName: "rrule",

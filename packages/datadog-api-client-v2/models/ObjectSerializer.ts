@@ -3060,6 +3060,7 @@ import { IncidentTodoRelationships } from "./IncidentTodoRelationships";
 import { IncidentTodoResponse } from "./IncidentTodoResponse";
 import { IncidentTodoResponseData } from "./IncidentTodoResponseData";
 import { IncidentTrigger } from "./IncidentTrigger";
+import { IncidentTriggerIncidentType } from "./IncidentTriggerIncidentType";
 import { IncidentTriggerWrapper } from "./IncidentTriggerWrapper";
 import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
 import { IncidentTypeConfiguration } from "./IncidentTypeConfiguration";
@@ -15012,6 +15013,7 @@ const typeMap: { [index: string]: any } = {
   IncidentTodoResponse: IncidentTodoResponse,
   IncidentTodoResponseData: IncidentTodoResponseData,
   IncidentTrigger: IncidentTrigger,
+  IncidentTriggerIncidentType: IncidentTriggerIncidentType,
   IncidentTriggerWrapper: IncidentTriggerWrapper,
   IncidentTypeAttributes: IncidentTypeAttributes,
   IncidentTypeConfiguration: IncidentTypeConfiguration,

@@ -6220,6 +6220,7 @@ export { IncidentTodoResponseData } from "./models/IncidentTodoResponseData";
 export { IncidentTodoResponseIncludedItem } from "./models/IncidentTodoResponseIncludedItem";
 export { IncidentTodoType } from "./models/IncidentTodoType";
 export { IncidentTrigger } from "./models/IncidentTrigger";
+export { IncidentTriggerIncidentType } from "./models/IncidentTriggerIncidentType";
 export { IncidentTriggerWrapper } from "./models/IncidentTriggerWrapper";
 export { IncidentType } from "./models/IncidentType";
 export { IncidentTypeAttributes } from "./models/IncidentTypeAttributes";
