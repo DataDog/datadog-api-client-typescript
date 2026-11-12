@@ -449,6 +449,7 @@ apiInstance
 | Okta Integration | @datadog/datadog-api-client-okta-integration | [README.md](../../services/okta-integration/README.md) |
 | On-Call | @datadog/datadog-api-client-on-call | [README.md](../../services/on-call/README.md) |
 | On-Call Paging | @datadog/datadog-api-client-on-call-paging | [README.md](../../services/on-call-paging/README.md) |
+| OpenAI Codex Integration | @datadog/datadog-api-client-open-ai-codex-integration | [README.md](../../services/open-ai-codex-integration/README.md) |
 | Opsgenie Integration | @datadog/datadog-api-client-opsgenie-integration | [README.md](../../services/opsgenie-integration/README.md) |
 | Org Authorized Clients | @datadog/datadog-api-client-org-authorized-clients | [README.md](../../services/org-authorized-clients/README.md) |
 | Org Connections | @datadog/datadog-api-client-org-connections | [README.md](../../services/org-connections/README.md) |
