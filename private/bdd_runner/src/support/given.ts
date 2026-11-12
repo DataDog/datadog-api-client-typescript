@@ -6,10 +6,11 @@ import fs from "fs";
 import { World } from "../support/world";
 import { pathLookup, tagToApiClassName } from "./templating";
 import { UndoActions, buildUndoFor } from "./undo";
-import * as datadogCommon from "@datadog/datadog-api-client";
+import * as datadogCommon from "@datadog/datadog-api-client-core";
 import { deserializeOpts } from "./deserialize_opts";
 import { apiTypes } from "./api_info";
 import { testServerFetch } from "./test_runner";
+import { packageApiName } from "./package_mapping";
 
 interface IOperationParameter {
   name: string;
@@ -37,7 +38,7 @@ for (const [apiVersion, givenFile] of Object.entries(
       const apiName: string = tagToApiClassName(operation.tag);
       const operationName: string = operation.operationId.toOperationName();
       // make sure we have a fresh instance of API client and configuration
-      const apiNameWithVersion = `${apiName}${apiVersion.toUpperCase()}`;
+      const apiNameWithVersion = `${packageApiName(apiVersion, operationName)}${apiVersion.toUpperCase()}`;
       const api = apiTypes[apiNameWithVersion];
 
       const configurationOpts = {
@@ -76,9 +77,7 @@ for (const [apiVersion, givenFile] of Object.entries(
       }
       const configuration =
         datadogCommon.createConfiguration(configurationOpts);
-      configuration.unstableOperations[
-        `${apiName}.${apiVersion}.${operationName}`
-      ] = true;
+      configuration.unstableOperations[`${apiVersion}.${operationName}`] = true;
 
       const apiInstance = new api(configuration);
       // find undo method
@@ -122,7 +121,7 @@ for (const [apiVersion, givenFile] of Object.entries(
       // Deserialize obejcts into correct model types
       opts = deserializeOpts(
         opts,
-        this.servicesDir,
+        this.packagesDir,
         apiVersion,
         apiName,
         operation.operationId,
@@ -143,7 +142,7 @@ for (const [apiVersion, givenFile] of Object.entries(
             operationName,
             result,
             opts,
-            this.servicesDir,
+            this.packagesDir,
             this.pathParameters,
             this.testServerSession,
           ),

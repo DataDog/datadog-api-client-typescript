@@ -3,29 +3,34 @@ import path from "path";
 
 import { getProperty } from "./templating";
 import { ScenariosModelMappings } from "./scenarios_model_mapping";
-import * as datadogCommon from "@datadog/datadog-api-client";
+import * as datadogCommon from "@datadog/datadog-api-client-core";
 import {
   apiNameToServiceNameMapping,
   apiNameToTypingInfoMapping,
 } from "./api_info";
+import { packageApiName } from "./package_mapping";
 
 function deserializeOpts(
   opts: Record<string, any>,
-  servicesDir: string,
+  packagesDir: string,
   apiVersion: string,
   apiName: string,
   operationId: string,
 ): Record<string, any> {
+  const apiClassName = packageApiName(
+    apiVersion,
+    operationId.toOperationName(),
+  );
   let typingInfo =
-    apiNameToTypingInfoMapping[apiName + apiVersion.toUpperCase()];
+    apiNameToTypingInfoMapping[apiClassName + apiVersion.toUpperCase()];
   if (typingInfo === undefined) {
-    const serviceName = apiNameToServiceNameMapping[apiName];
+    const serviceName = apiNameToServiceNameMapping[apiClassName];
     if (serviceName === undefined) {
-      throw new Error(`No service found for ${apiName}`);
+      throw new Error(`No service found for ${apiClassName}`);
     }
     typingInfo = require(
       path.join(
-        servicesDir,
+        packagesDir,
         serviceName,
         "src",
         apiVersion,

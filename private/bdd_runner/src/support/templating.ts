@@ -1,4 +1,4 @@
-import { UnparsedObject } from "@datadog/datadog-api-client";
+import { UnparsedObject } from "@datadog/datadog-api-client-core";
 
 const RESERVED_KEYWORDS = [
   "abstract",

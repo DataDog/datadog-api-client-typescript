@@ -1,10 +1,11 @@
 import fs from "fs";
-import { pathLookup, tagToApiClassName } from "./templating";
-import * as datadogCommon from "@datadog/datadog-api-client";
+import { pathLookup } from "./templating";
+import * as datadogCommon from "@datadog/datadog-api-client-core";
 
 import log from "loglevel";
 import { apiTypes } from "./api_info";
 import { testServerFetch } from "./test_runner";
+import { packageApiName } from "./package_mapping";
 const logger = log.getLogger("testing");
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
@@ -45,15 +46,22 @@ function buildUndoFor(
   operationOrig: string,
   response: any,
   request: any,
-  servicesDir: string,
+  packagesDir: string,
   pathParameters: { [key: string]: any } = {},
   testServerSession?: string,
 ): { (): void } {
   return async function () {
-    const apiName: string = tagToApiClassName(operationUndo.tag);
     const operationName = operationUndo.undo.operationId.toOperationName();
-    const apiNameWithVersion = `${apiName}${apiVersion.toUpperCase()}`;
-    const api = apiTypes[apiNameWithVersion];
+    let api: any;
+    try {
+      api =
+        apiTypes[
+          `${packageApiName(apiVersion, operationName)}${apiVersion.toUpperCase()}`
+        ];
+    } catch (error) {
+      logger.debug(`could not undo operation ${operationOrig}: ${error}`);
+      return;
+    }
     const configurationOpts = {
       authMethods: {
         apiKeyAuth: process.env.DD_TEST_CLIENT_API_KEY,
@@ -87,9 +95,7 @@ function buildUndoFor(
         );
     }
     const configuration = datadogCommon.createConfiguration(configurationOpts);
-    configuration.unstableOperations[
-      `${apiName}.${apiVersion}.${operationName}`
-    ] = true;
+    configuration.unstableOperations[`${apiVersion}.${operationName}`] = true;
     const apiInstance = new api(configuration);
     // perform operation
     const opts: { [key: string]: any } = {};

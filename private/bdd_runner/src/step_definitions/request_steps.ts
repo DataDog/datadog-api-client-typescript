@@ -17,7 +17,8 @@ import {
 } from "../support/templating";
 import { Store } from "../support/store";
 import { buildUndoFor, UndoActions } from "../support/undo";
-import * as datadogCommon from "@datadog/datadog-api-client";
+import { packageApiName } from "../support/package_mapping";
+import * as datadogCommon from "@datadog/datadog-api-client-core";
 import fs from "fs";
 import path from "path";
 
@@ -37,7 +38,7 @@ logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 function getApiType(
   apiName: string,
   apiVersion: string,
-  servicesDir: string,
+  packagesDir: string,
 ): any {
   const api = apiTypes[`${apiName}${apiVersion.toUpperCase()}`];
   if (api !== undefined) return api;
@@ -47,7 +48,7 @@ function getApiType(
     throw new Error(`No service found for ${apiName}`);
   }
   const versionedApi = require(
-    path.join(servicesDir, serviceName, "src", apiVersion),
+    path.join(packagesDir, serviceName, "src", apiVersion),
   )[apiName];
   if (versionedApi === undefined) {
     throw new Error(`No API found for ${apiName} ${apiVersion}`);
@@ -157,7 +158,11 @@ When("the request is sent", async function (this: World) {
   applyTestRunnerPlan(this, false);
   const operationApiVersion = this.operationApiVersion;
   // build request from scenario
-  const api = getApiType(this.apiName, operationApiVersion, this.servicesDir);
+  const api = getApiType(
+    packageApiName(operationApiVersion, this.operationId.toOperationName()),
+    operationApiVersion,
+    this.packagesDir,
+  );
 
   const configurationOpts = {
     authMethods: this.authMethods,
@@ -193,9 +198,8 @@ When("the request is sent", async function (this: World) {
 
   const configuration = datadogCommon.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
-    configuration.unstableOperations[
-      `${this.apiName}.${operationApiVersion}.${operationId}`
-    ] = this.unstableOperations[operationId];
+    configuration.unstableOperations[`${operationApiVersion}.${operationId}`] =
+      this.unstableOperations[operationId];
   }
   const apiInstance = new api(configuration);
   const undoAction = UndoActions[this.apiVersion][this.operationId];
@@ -207,7 +211,7 @@ When("the request is sent", async function (this: World) {
   // Deserialize obejcts into correct model types
   this.opts = deserializeOpts(
     this.opts,
-    this.servicesDir,
+    this.packagesDir,
     operationApiVersion,
     this.apiName,
     this.operationId,
@@ -233,7 +237,7 @@ When("the request is sent", async function (this: World) {
           this.operationId,
           this.response,
           this.opts,
-          this.servicesDir,
+          this.packagesDir,
           this.pathParameters,
           this.testServerSession,
         ),
@@ -264,7 +268,11 @@ When("the request is sent", async function (this: World) {
 When("the request with pagination is sent", async function (this: World) {
   applyTestRunnerPlan(this, true);
   const operationApiVersion = this.operationApiVersion;
-  const api = getApiType(this.apiName, operationApiVersion, this.servicesDir);
+  const api = getApiType(
+    packageApiName(operationApiVersion, this.operationId.toOperationName()),
+    operationApiVersion,
+    this.packagesDir,
+  );
   const configurationOpts = {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
@@ -295,15 +303,14 @@ When("the request with pagination is sent", async function (this: World) {
   }
   const configuration = datadogCommon.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
-    configuration.unstableOperations[
-      `${this.apiName}.${operationApiVersion}.${operationId}`
-    ] = this.unstableOperations[operationId];
+    configuration.unstableOperations[`${operationApiVersion}.${operationId}`] =
+      this.unstableOperations[operationId];
   }
   const apiInstance = new api(configuration);
   // Deserialize obejcts into correct model types
   this.opts = deserializeOpts(
     this.opts,
-    this.servicesDir,
+    this.packagesDir,
     operationApiVersion,
     this.apiName,
     this.operationId,
@@ -376,7 +383,10 @@ Then(
     if (_type) {
       const typingInfo =
         apiNameToTypingInfoMapping[
-          this.apiName + this.operationApiVersion.toUpperCase()
+          packageApiName(
+            this.operationApiVersion,
+            this.operationId.toOperationName(),
+          ) + this.operationApiVersion.toUpperCase()
         ];
       templatedFixtureValue = datadogCommon.deserialize(
         templatedFixtureValue,
