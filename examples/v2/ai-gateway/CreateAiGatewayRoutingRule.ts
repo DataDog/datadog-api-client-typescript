@@ -21,14 +21,22 @@ const params: v2.AIGatewayApiCreateAiGatewayRoutingRuleRequest = {
         slug: "coding",
         tiers: [
           {
+            classifier: {
+              confidenceThreshold: 0.5,
+              context: "Requests come from engineers.",
+              model: "gpt-6-luna",
+              provider: "openai",
+            },
             ordering: "configured",
             targets: [
               {
+                _default: false,
                 id: 901,
                 model: "gpt-5.2-codex",
                 modelId: 101,
                 provider: "prod-us",
                 reasoningLevel: "medium",
+                rubric: "Short factual questions.",
                 slug: "coding-fallback",
                 type: "model",
                 weight: 70,

@@ -360,6 +360,8 @@ import { AiGatewayRateLimitUsageAttributes } from "./AiGatewayRateLimitUsageAttr
 import { AiGatewayRateLimitUsageListResponse } from "./AiGatewayRateLimitUsageListResponse";
 import { AiGatewayRateLimitUsageResource } from "./AiGatewayRateLimitUsageResource";
 import { AiGatewayRestrictedDetailsMeta } from "./AiGatewayRestrictedDetailsMeta";
+import { AiGatewayRoutingClassifier } from "./AiGatewayRoutingClassifier";
+import { AiGatewayRoutingClassifierRequest } from "./AiGatewayRoutingClassifierRequest";
 import { AiGatewayRoutingRuleAttributes } from "./AiGatewayRoutingRuleAttributes";
 import { AiGatewayRoutingRuleCreateAttributes } from "./AiGatewayRoutingRuleCreateAttributes";
 import { AiGatewayRoutingRuleCreateData } from "./AiGatewayRoutingRuleCreateData";
@@ -7291,7 +7293,11 @@ const enumsMap: { [key: string]: any[] } = {
     "xhigh",
     "max",
   ],
-  AiGatewayNullableRoutingRuleTierOrdering: ["configured", "weighted_affinity"],
+  AiGatewayNullableRoutingRuleTierOrdering: [
+    "configured",
+    "weighted_affinity",
+    "classified",
+  ],
   AiGatewayPolicyType: ["routing-documents"],
   AiGatewayProviderInitialBindingRelation: ["viewer", "editor"],
   AiGatewayProviderType: ["providers"],
@@ -7308,7 +7314,11 @@ const enumsMap: { [key: string]: any[] } = {
     "max",
   ],
   AiGatewayRoutingRuleTargetType: ["model", "routing-rule"],
-  AiGatewayRoutingRuleTierOrdering: ["configured", "weighted_affinity"],
+  AiGatewayRoutingRuleTierOrdering: [
+    "configured",
+    "weighted_affinity",
+    "classified",
+  ],
   AiGatewayRoutingRuleTierOrderingIssue: ["mixed", "unknown"],
   AiGatewayRoutingRuleType: ["routing-rules"],
   AiGatewaySupportedOperation: [
@@ -11644,6 +11654,8 @@ const typeMap: { [index: string]: any } = {
   AiGatewayRateLimitUsageListResponse: AiGatewayRateLimitUsageListResponse,
   AiGatewayRateLimitUsageResource: AiGatewayRateLimitUsageResource,
   AiGatewayRestrictedDetailsMeta: AiGatewayRestrictedDetailsMeta,
+  AiGatewayRoutingClassifier: AiGatewayRoutingClassifier,
+  AiGatewayRoutingClassifierRequest: AiGatewayRoutingClassifierRequest,
   AiGatewayRoutingRuleAttributes: AiGatewayRoutingRuleAttributes,
   AiGatewayRoutingRuleCreateAttributes: AiGatewayRoutingRuleCreateAttributes,
   AiGatewayRoutingRuleCreateData: AiGatewayRoutingRuleCreateData,

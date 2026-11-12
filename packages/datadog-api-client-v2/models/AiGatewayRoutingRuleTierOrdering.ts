@@ -13,6 +13,8 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type AiGatewayRoutingRuleTierOrdering =
   | typeof CONFIGURED
   | typeof WEIGHTED_AFFINITY
+  | typeof CLASSIFIED
   | UnparsedObject;
 export const CONFIGURED = "configured";
 export const WEIGHTED_AFFINITY = "weighted_affinity";
+export const CLASSIFIED = "classified";
