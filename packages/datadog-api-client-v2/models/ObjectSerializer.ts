@@ -1445,6 +1445,9 @@ import { CustomCostsFileMetadata } from "./CustomCostsFileMetadata";
 import { CustomCostsFileMetadataHighLevel } from "./CustomCostsFileMetadataHighLevel";
 import { CustomCostsFileMetadataWithContent } from "./CustomCostsFileMetadataWithContent";
 import { CustomCostsFileMetadataWithContentHighLevel } from "./CustomCostsFileMetadataWithContentHighLevel";
+import { CustomCostsFileUpdateAttributes } from "./CustomCostsFileUpdateAttributes";
+import { CustomCostsFileUpdateData } from "./CustomCostsFileUpdateData";
+import { CustomCostsFileUpdateRequest } from "./CustomCostsFileUpdateRequest";
 import { CustomCostsFileUploadResponse } from "./CustomCostsFileUploadResponse";
 import { CustomCostsFileUsageChargePeriod } from "./CustomCostsFileUsageChargePeriod";
 import { CustomCostsUser } from "./CustomCostsUser";
@@ -7901,6 +7904,7 @@ const enumsMap: { [key: string]: any[] } = {
   CustomAttributeConfigResourceType: ["custom_attribute"],
   CustomAttributeType: ["URL", "TEXT", "NUMBER", "SELECT"],
   CustomConnectionType: ["custom_connections"],
+  CustomCostsFileUpdateType: ["cost_metadata"],
   CustomDestinationAttributeTagsRestrictionListType: [
     "ALLOW_LIST",
     "BLOCK_LIST",
@@ -12950,6 +12954,9 @@ const typeMap: { [index: string]: any } = {
   CustomCostsFileMetadataWithContent: CustomCostsFileMetadataWithContent,
   CustomCostsFileMetadataWithContentHighLevel:
     CustomCostsFileMetadataWithContentHighLevel,
+  CustomCostsFileUpdateAttributes: CustomCostsFileUpdateAttributes,
+  CustomCostsFileUpdateData: CustomCostsFileUpdateData,
+  CustomCostsFileUpdateRequest: CustomCostsFileUpdateRequest,
   CustomCostsFileUploadResponse: CustomCostsFileUploadResponse,
   CustomCostsFileUsageChargePeriod: CustomCostsFileUsageChargePeriod,
   CustomCostsUser: CustomCostsUser,
