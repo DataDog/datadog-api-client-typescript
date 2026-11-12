@@ -22,13 +22,12 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "services/*",
     "private/*"
   ],
   "scripts": {
     "check-licenses": "node bin/check-licenses.js",
     "build": "yarn workspaces foreach -Apt run build",
-    "lint": "eslint --ext .ts packages/* services/*",
+    "lint": "eslint --ext .ts packages/*",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write --ignore-unknown '**.{js,ts}'",
     "bdd-test": "yarn workspace bdd-runner run start --working-dir \"$(pwd)\" \"features/v*/*.feature\"",
