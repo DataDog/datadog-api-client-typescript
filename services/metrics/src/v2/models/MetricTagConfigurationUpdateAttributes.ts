@@ -17,8 +17,8 @@ export class MetricTagConfigurationUpdateAttributes {
    */
   "excludeTagsMode"?: boolean;
   /**
-   * Toggle to include/exclude percentiles for a distribution metric.
-   * Defaults to false. Can only be applied to metrics that have a `metric_type` of `distribution`.
+   * Include percentile aggregations for metric types `distribution`, `exponential_histogram`,
+   * and `explicit_histogram`. Omit this field to keep the current setting.
    */
   "includePercentiles"?: boolean;
   /**
