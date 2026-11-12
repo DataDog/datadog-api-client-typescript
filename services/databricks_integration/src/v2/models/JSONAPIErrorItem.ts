@@ -7,6 +7,10 @@ import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
  */
 export class JSONAPIErrorItem {
   /**
+   * An application-specific error code.
+   */
+  "code"?: string;
+  /**
    * A human-readable explanation specific to this occurrence of the error.
    */
   "detail"?: string;
@@ -41,6 +45,10 @@ export class JSONAPIErrorItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    code: {
+      baseName: "code",
+      type: "string",
+    },
     detail: {
       baseName: "detail",
       type: "string",

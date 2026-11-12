@@ -155,6 +155,8 @@ import { AiGatewayRateLimitUsageAttributes } from "./AiGatewayRateLimitUsageAttr
 import { AiGatewayRateLimitUsageListResponse } from "./AiGatewayRateLimitUsageListResponse";
 import { AiGatewayRateLimitUsageResource } from "./AiGatewayRateLimitUsageResource";
 import { AiGatewayRestrictedDetailsMeta } from "./AiGatewayRestrictedDetailsMeta";
+import { AiGatewayRoutingClassifier } from "./AiGatewayRoutingClassifier";
+import { AiGatewayRoutingClassifierRequest } from "./AiGatewayRoutingClassifierRequest";
 import { AiGatewayRoutingRuleAttributes } from "./AiGatewayRoutingRuleAttributes";
 import { AiGatewayRoutingRuleCreateAttributes } from "./AiGatewayRoutingRuleCreateAttributes";
 import { AiGatewayRoutingRuleCreateData } from "./AiGatewayRoutingRuleCreateData";
@@ -169,6 +171,9 @@ import { AiGatewayRoutingRuleTarget } from "./AiGatewayRoutingRuleTarget";
 import { AiGatewayRoutingRuleTargetRequest } from "./AiGatewayRoutingRuleTargetRequest";
 import { AiGatewayRoutingRuleTier } from "./AiGatewayRoutingRuleTier";
 import { AiGatewayRoutingRuleTierRequest } from "./AiGatewayRoutingRuleTierRequest";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -306,6 +311,7 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayNullableRoutingRuleTierOrdering: [
       "configured",
       "weighted_affinity",
+      "classified",
     ],
     AiGatewayPolicyType: ["routing-documents"],
     AiGatewayProviderInitialBindingRelation: ["viewer", "editor"],
@@ -323,7 +329,11 @@ export const TypingInfo: ModelTypingInfo = {
       "max",
     ],
     AiGatewayRoutingRuleTargetType: ["model", "routing-rule"],
-    AiGatewayRoutingRuleTierOrdering: ["configured", "weighted_affinity"],
+    AiGatewayRoutingRuleTierOrdering: [
+      "configured",
+      "weighted_affinity",
+      "classified",
+    ],
     AiGatewayRoutingRuleTierOrderingIssue: ["mixed", "unknown"],
     AiGatewayRoutingRuleType: ["routing-rules"],
     AiGatewaySupportedOperation: [
@@ -525,6 +535,8 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayRateLimitUsageListResponse: AiGatewayRateLimitUsageListResponse,
     AiGatewayRateLimitUsageResource: AiGatewayRateLimitUsageResource,
     AiGatewayRestrictedDetailsMeta: AiGatewayRestrictedDetailsMeta,
+    AiGatewayRoutingClassifier: AiGatewayRoutingClassifier,
+    AiGatewayRoutingClassifierRequest: AiGatewayRoutingClassifierRequest,
     AiGatewayRoutingRuleAttributes: AiGatewayRoutingRuleAttributes,
     AiGatewayRoutingRuleCreateAttributes: AiGatewayRoutingRuleCreateAttributes,
     AiGatewayRoutingRuleCreateData: AiGatewayRoutingRuleCreateData,
@@ -540,5 +552,8 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayRoutingRuleTargetRequest: AiGatewayRoutingRuleTargetRequest,
     AiGatewayRoutingRuleTier: AiGatewayRoutingRuleTier,
     AiGatewayRoutingRuleTierRequest: AiGatewayRoutingRuleTierRequest,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
   },
 };
