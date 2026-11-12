@@ -3654,6 +3654,44 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AgentHealthHostIssuesResponse",
     },
+    "v2.ListAgentHealthIssues": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterSeverity": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCategory": {
+            "type": "string",
+            "format": "",
+            },
+        "filterIssueType": {
+            "type": "string",
+            "format": "",
+            },
+        "filterResourceKind": {
+            "type": "string",
+            "format": "",
+            },
+        "filterResourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AgentHealthIssuesResponse",
+    },
+    "v2.GetAgentHealthIssue": {
+        "issueId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AgentHealthIssueResponse",
+    },
     "v2.ListAwsScanOptions": {
         "operationResponseType": "AwsScanOptionsListResponse",
     },
