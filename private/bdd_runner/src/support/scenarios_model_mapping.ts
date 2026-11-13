@@ -10863,6 +10863,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "ErrorTrackingApi.V2.GetIssueImpact": {
+    issueId: {
+      type: "string",
+      format: "",
+    },
+    filterFrom: {
+      type: "number",
+      format: "int64",
+    },
+    filterTo: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "IssueImpactResponse",
+  },
   "ErrorTrackingApi.V2.UpdateIssueState": {
     issueId: {
       type: "string",

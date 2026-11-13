@@ -16,6 +16,21 @@ import { IssueCaseLinearIssueResult } from "./IssueCaseLinearIssueResult";
 import { IssueCaseReference } from "./IssueCaseReference";
 import { IssueCaseRelationship } from "./IssueCaseRelationship";
 import { IssueCaseRelationships } from "./IssueCaseRelationships";
+import { IssueImpact } from "./IssueImpact";
+import { IssueImpactAccount } from "./IssueImpactAccount";
+import { IssueImpactAccounts } from "./IssueImpactAccounts";
+import { IssueImpactAttributes } from "./IssueImpactAttributes";
+import { IssueImpactEndpoint } from "./IssueImpactEndpoint";
+import { IssueImpactEndpoints } from "./IssueImpactEndpoints";
+import { IssueImpactErrorCounts } from "./IssueImpactErrorCounts";
+import { IssueImpactResponse } from "./IssueImpactResponse";
+import { IssueImpactSession } from "./IssueImpactSession";
+import { IssueImpactSessions } from "./IssueImpactSessions";
+import { IssueImpactUser } from "./IssueImpactUser";
+import { IssueImpactUsers } from "./IssueImpactUsers";
+import { IssueImpactView } from "./IssueImpactView";
+import { IssueImpactViewCounts } from "./IssueImpactViewCounts";
+import { IssueImpactViews } from "./IssueImpactViews";
 import { IssuePullRequest } from "./IssuePullRequest";
 import { IssuePullRequestAttributes } from "./IssuePullRequestAttributes";
 import { IssuePullRequestReference } from "./IssuePullRequestReference";
@@ -80,6 +95,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     IssueBitsInvestigationType: ["bits_investigation"],
     IssueCaseResourceType: ["case"],
+    IssueImpactType: ["error_tracking_issue_impact"],
     IssueLanguage: [
       "BRIGHTSCRIPT",
       "C",
@@ -219,6 +235,21 @@ export const TypingInfo: ModelTypingInfo = {
     IssueCaseReference: IssueCaseReference,
     IssueCaseRelationship: IssueCaseRelationship,
     IssueCaseRelationships: IssueCaseRelationships,
+    IssueImpact: IssueImpact,
+    IssueImpactAccount: IssueImpactAccount,
+    IssueImpactAccounts: IssueImpactAccounts,
+    IssueImpactAttributes: IssueImpactAttributes,
+    IssueImpactEndpoint: IssueImpactEndpoint,
+    IssueImpactEndpoints: IssueImpactEndpoints,
+    IssueImpactErrorCounts: IssueImpactErrorCounts,
+    IssueImpactResponse: IssueImpactResponse,
+    IssueImpactSession: IssueImpactSession,
+    IssueImpactSessions: IssueImpactSessions,
+    IssueImpactUser: IssueImpactUser,
+    IssueImpactUsers: IssueImpactUsers,
+    IssueImpactView: IssueImpactView,
+    IssueImpactViewCounts: IssueImpactViewCounts,
+    IssueImpactViews: IssueImpactViews,
     IssuePullRequest: IssuePullRequest,
     IssuePullRequestAttributes: IssuePullRequestAttributes,
     IssuePullRequestReference: IssuePullRequestReference,
