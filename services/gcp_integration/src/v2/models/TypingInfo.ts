@@ -3,6 +3,7 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 import { APIErrorResponse } from "./APIErrorResponse";
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
 import { GCPMonitoredResourceConfig } from "./GCPMonitoredResourceConfig";
+import { GCPProjectFilterConfig } from "./GCPProjectFilterConfig";
 import { GCPSTSDelegateAccount } from "./GCPSTSDelegateAccount";
 import { GCPSTSDelegateAccountAttributes } from "./GCPSTSDelegateAccountAttributes";
 import { GCPSTSDelegateAccountResponse } from "./GCPSTSDelegateAccountResponse";
@@ -23,6 +24,7 @@ export const TypingInfo: ModelTypingInfo = {
       "cloud_run_revision",
       "gce_instance",
     ],
+    GCPProjectFilterConfigType: ["project_id", "project_label"],
     GCPSTSDelegateAccountType: ["gcp_sts_delegate"],
     GCPServiceAccountType: ["gcp_service_account"],
   },
@@ -31,6 +33,7 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     GCPMetricNamespaceConfig: GCPMetricNamespaceConfig,
     GCPMonitoredResourceConfig: GCPMonitoredResourceConfig,
+    GCPProjectFilterConfig: GCPProjectFilterConfig,
     GCPSTSDelegateAccount: GCPSTSDelegateAccount,
     GCPSTSDelegateAccountAttributes: GCPSTSDelegateAccountAttributes,
     GCPSTSDelegateAccountResponse: GCPSTSDelegateAccountResponse,
