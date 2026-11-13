@@ -26,7 +26,7 @@ export class RUMResponseMetadata {
    */
   "requestId"?: string;
   /**
-   * The status of the response.
+   * The status of the response. `timeout` means the query did not complete in time and the results are partial.
    */
   "status"?: RUMResponseStatus;
   /**

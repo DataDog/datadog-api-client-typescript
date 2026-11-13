@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Configures which RUM events are processed and stored for the application.
+ * Configures which RUM events are processed and stored for the application. Defaults to `ALL` when creating an application.
  */
 
 export type RUMEventProcessingState =
