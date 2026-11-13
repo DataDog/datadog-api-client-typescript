@@ -6,7 +6,7 @@ Tag Rules define rules that govern which tag values are accepted for a given tag
 scoped to a particular telemetry source (such as logs, spans, or metrics). Rules can be
 `blocking` (data not matching the rule is rejected) or `surfacing` (matching data is
 highlighted but not blocked). Each rule reports a compliance `score` derived from how
-much recent telemetry adheres to the rule.
+much recent telemetry adheres to the rule. RUM supports only `surfacing` rules.
 
 ## Navigation
 
