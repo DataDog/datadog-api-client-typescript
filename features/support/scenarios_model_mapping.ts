@@ -15960,6 +15960,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OnCallPageResponse",
     },
+    "v2.CreateOnCallPageComment": {
+        "pageId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateOnCallPageCommentRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListOnCallSchedules": {
         "pageSize": {
             "type": "number",
