@@ -10836,6 +10836,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.GetIssueImpact": {
+        "issueId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFrom": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterTo": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "IssueImpactResponse",
+    },
     "v2.UpdateIssueState": {
         "issueId": {
             "type": "string",
