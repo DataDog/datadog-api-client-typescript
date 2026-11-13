@@ -11005,6 +11005,74 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ExperimentsExperimentV2DTO",
     },
+    "v2.ListBandits": {
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "search": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "status": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "subjectTypeId": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "tags": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsBanditV2ListDTOArray",
+    },
+    "v2.GetBandit": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsBanditV2DTO",
+    },
+    "v2.GetBanditResults": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "start": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "end": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "ExperimentsBanditResultsV2DTO",
+    },
+    "v2.GetBanditTrafficSummary": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "start": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "end": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "ExperimentsBanditTrafficSummaryV2DTO",
+    },
     "v2.ListExposureSQLModels": {
         "include": {
             "type": "Array<string>",
