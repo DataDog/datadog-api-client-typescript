@@ -378,6 +378,7 @@ export function createConfiguration(
       "v2.listAiGatewayProviderModels": false,
       "v2.listAiGatewayProviders": false,
       "v2.listAiGatewayRateLimitInstances": false,
+      "v2.listAiGatewayRateLimitInstancesSummaries": false,
       "v2.listAiGatewayRateLimits": false,
       "v2.listAiGatewayRoutingRules": false,
       "v2.overrideAiGatewayBudgetInstanceCapacity": false,

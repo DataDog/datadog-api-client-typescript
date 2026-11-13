@@ -11,6 +11,10 @@ import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
  */
 export class AiGatewayRateLimitUsageAttributes {
   /**
+   * Priced spend, in microcents, counted in the rolling one-minute window. Only rules with a cost limit count it, so it is 0 for other rules and for the untracked and total entries.
+   */
+  "costMicrocents"?: Int64;
+  /**
    * Input tokens counted in the rolling one-minute window.
    */
   "inputTokens": Int64;
@@ -47,6 +51,11 @@ export class AiGatewayRateLimitUsageAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    costMicrocents: {
+      baseName: "cost_microcents",
+      type: "number",
+      format: "int64",
+    },
     inputTokens: {
       baseName: "input_tokens",
       type: "number",

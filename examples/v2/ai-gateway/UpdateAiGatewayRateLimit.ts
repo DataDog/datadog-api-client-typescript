@@ -18,6 +18,7 @@ const params: v2.AIGatewayApiUpdateAiGatewayRateLimitRequest = {
   body: {
     data: {
       attributes: {
+        costMicrocentsPerMinute: undefined,
         inputTokensPerMinute: undefined,
         mode: "ALERT",
         outputTokensPerMinute: undefined,

@@ -18,6 +18,7 @@ const params: v2.AIGatewayApiCreateAiGatewayRateLimitRequest = {
   body: {
     data: {
       attributes: {
+        costMicrocentsPerMinute: 100000000,
         inputTokensPerMinute: undefined,
         mode: "ALERT",
         name: "Default rate limit",

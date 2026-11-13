@@ -12,6 +12,10 @@ import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
  */
 export class AiGatewayRateLimitUpdateAttributes {
   /**
+   * Spend limit in microcents per rolling minute. Set to 0 to remove the cost limit. Null is ignored. At least one limit must remain.
+   */
+  "costMicrocentsPerMinute"?: Int64;
+  /**
    * Whether this rate limit is active.
    */
   "enabled"?: boolean;
@@ -64,6 +68,11 @@ export class AiGatewayRateLimitUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    costMicrocentsPerMinute: {
+      baseName: "cost_microcents_per_minute",
+      type: "number",
+      format: "int64",
+    },
     enabled: {
       baseName: "enabled",
       type: "boolean",

@@ -365,6 +365,7 @@ import { AiGatewayRateLimitInstanceAttributes } from "./AiGatewayRateLimitInstan
 import { AiGatewayRateLimitInstanceListResponse } from "./AiGatewayRateLimitInstanceListResponse";
 import { AiGatewayRateLimitInstanceResource } from "./AiGatewayRateLimitInstanceResource";
 import { AiGatewayRateLimitInstancesSummaryAttributes } from "./AiGatewayRateLimitInstancesSummaryAttributes";
+import { AiGatewayRateLimitInstancesSummaryListResponse } from "./AiGatewayRateLimitInstancesSummaryListResponse";
 import { AiGatewayRateLimitInstancesSummaryResource } from "./AiGatewayRateLimitInstancesSummaryResource";
 import { AiGatewayRateLimitInstancesSummaryResponse } from "./AiGatewayRateLimitInstancesSummaryResponse";
 import { AiGatewayRateLimitListResponse } from "./AiGatewayRateLimitListResponse";
@@ -11702,6 +11703,8 @@ const typeMap: { [index: string]: any } = {
   AiGatewayRateLimitInstanceResource: AiGatewayRateLimitInstanceResource,
   AiGatewayRateLimitInstancesSummaryAttributes:
     AiGatewayRateLimitInstancesSummaryAttributes,
+  AiGatewayRateLimitInstancesSummaryListResponse:
+    AiGatewayRateLimitInstancesSummaryListResponse,
   AiGatewayRateLimitInstancesSummaryResource:
     AiGatewayRateLimitInstancesSummaryResource,
   AiGatewayRateLimitInstancesSummaryResponse:
