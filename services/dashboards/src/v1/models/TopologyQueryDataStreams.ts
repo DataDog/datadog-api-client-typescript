@@ -15,13 +15,13 @@ export class TopologyQueryDataStreams {
    */
   "filters": Array<string>;
   /**
-   * A search string for filtering services. Replaces the deprecated `service` field.
+   * A search string for filtering services. When set, this replaces the `service` field.
    */
   "queryString"?: string;
   /**
-   * (deprecated) Name of the service. Use `query_string` instead.
+   * (deprecated) Name of the service. Leave this empty and use query_string instead.
    */
-  "service"?: string;
+  "service": string;
   /**
    * @ignore
    */
@@ -48,6 +48,7 @@ export class TopologyQueryDataStreams {
     service: {
       baseName: "service",
       type: "string",
+      required: true,
     },
   };
 
