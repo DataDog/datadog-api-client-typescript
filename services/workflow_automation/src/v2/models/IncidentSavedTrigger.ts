@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ExecutionLimit } from "./ExecutionLimit";
 import { IncidentCondition } from "./IncidentCondition";
+import { IncidentTriggerIncidentType } from "./IncidentTriggerIncidentType";
 import { SerialExecution } from "./SerialExecution";
 
 /**
@@ -13,9 +14,13 @@ export class IncidentSavedTrigger {
    */
   "executionLimit"?: ExecutionLimit;
   /**
-   * The type of incident that triggers the workflow.
+   * Deprecated. Use `incidentTypes` instead. The type of incident that triggers the workflow.
    */
   "incidentType"?: string;
+  /**
+   * The types of incident that trigger the workflow.
+   */
+  "incidentTypes"?: Array<IncidentTriggerIncidentType>;
   /**
    * Whether to execute the workflow serially for an incident.
    */
@@ -46,6 +51,10 @@ export class IncidentSavedTrigger {
     incidentType: {
       baseName: "incidentType",
       type: "string",
+    },
+    incidentTypes: {
+      baseName: "incidentTypes",
+      type: "Array<IncidentTriggerIncidentType>",
     },
     serialExecution: {
       baseName: "serialExecution",

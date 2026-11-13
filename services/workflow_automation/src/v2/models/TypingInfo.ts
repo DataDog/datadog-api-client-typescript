@@ -48,6 +48,7 @@ import { IncidentScheduleTrigger } from "./IncidentScheduleTrigger";
 import { IncidentScheduleTriggerWrapper } from "./IncidentScheduleTriggerWrapper";
 import { IncidentTagValue } from "./IncidentTagValue";
 import { IncidentTrigger } from "./IncidentTrigger";
+import { IncidentTriggerIncidentType } from "./IncidentTriggerIncidentType";
 import { IncidentTriggerWrapper } from "./IncidentTriggerWrapper";
 import { InputSchema } from "./InputSchema";
 import { InputSchemaParameters } from "./InputSchemaParameters";
@@ -250,6 +251,7 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentScheduleTriggerWrapper: IncidentScheduleTriggerWrapper,
     IncidentTagValue: IncidentTagValue,
     IncidentTrigger: IncidentTrigger,
+    IncidentTriggerIncidentType: IncidentTriggerIncidentType,
     IncidentTriggerWrapper: IncidentTriggerWrapper,
     InputSchema: InputSchema,
     InputSchemaParameters: InputSchemaParameters,

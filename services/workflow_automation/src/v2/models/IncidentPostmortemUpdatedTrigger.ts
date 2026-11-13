@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ExecutionLimit } from "./ExecutionLimit";
 import { IncidentCondition } from "./IncidentCondition";
+import { IncidentTriggerIncidentType } from "./IncidentTriggerIncidentType";
 
 /**
  * Trigger a workflow when a postmortem is updated for an incident.
@@ -12,9 +13,13 @@ export class IncidentPostmortemUpdatedTrigger {
    */
   "executionLimit"?: ExecutionLimit;
   /**
-   * The type of incident that triggers the workflow.
+   * Deprecated. Use `incidentTypes` instead. The type of incident that triggers the workflow.
    */
   "incidentType"?: string;
+  /**
+   * The types of incident that trigger the workflow.
+   */
+  "incidentTypes"?: Array<IncidentTriggerIncidentType>;
   /**
    * Conditions that determine which incidents trigger the workflow.
    */
@@ -41,6 +46,10 @@ export class IncidentPostmortemUpdatedTrigger {
     incidentType: {
       baseName: "incidentType",
       type: "string",
+    },
+    incidentTypes: {
+      baseName: "incidentTypes",
+      type: "Array<IncidentTriggerIncidentType>",
     },
     tagCondition: {
       baseName: "tagCondition",
