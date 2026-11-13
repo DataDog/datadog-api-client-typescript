@@ -5,6 +5,7 @@
  */
 import { ExecutionLimit } from "./ExecutionLimit";
 import { IncidentCondition } from "./IncidentCondition";
+import { IncidentTriggerIncidentType } from "./IncidentTriggerIncidentType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -17,9 +18,13 @@ export class IncidentResponderCreatedTrigger {
    */
   "executionLimit"?: ExecutionLimit;
   /**
-   * The type of incident that triggers the workflow.
+   * Deprecated. Use `incidentTypes` instead. The type of incident that triggers the workflow.
    */
   "incidentType"?: string;
+  /**
+   * The types of incident that trigger the workflow.
+   */
+  "incidentTypes"?: Array<IncidentTriggerIncidentType>;
   /**
    * Conditions that determine which incidents trigger the workflow.
    */
@@ -48,6 +53,10 @@ export class IncidentResponderCreatedTrigger {
     incidentType: {
       baseName: "incidentType",
       type: "string",
+    },
+    incidentTypes: {
+      baseName: "incidentTypes",
+      type: "Array<IncidentTriggerIncidentType>",
     },
     tagCondition: {
       baseName: "tagCondition",
