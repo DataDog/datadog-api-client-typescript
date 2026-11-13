@@ -7,7 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Persona for the search. Either track(s) or persona(s) must be specified.
+ * Persona for the search. Either `track` or `persona` must be specified.
+ * Ignored if `track` is specified.
  */
 
 export type IssuesSearchRequestDataAttributesPersona =
@@ -15,8 +16,10 @@ export type IssuesSearchRequestDataAttributesPersona =
   | typeof BROWSER
   | typeof MOBILE
   | typeof BACKEND
+  | typeof AGENT
   | UnparsedObject;
 export const ALL = "ALL";
 export const BROWSER = "BROWSER";
 export const MOBILE = "MOBILE";
 export const BACKEND = "BACKEND";
+export const AGENT = "AGENT";
