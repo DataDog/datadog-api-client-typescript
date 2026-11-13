@@ -9,6 +9,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 /**
  * How the rule is enforced. `blocking` rejects telemetry that violates the rule.
  * `surfacing` only highlights non-compliant telemetry without blocking it.
+ * RUM supports only `surfacing` rules.
  */
 
 export type TagRuleType = typeof BLOCKING | typeof SURFACING | UnparsedObject;
