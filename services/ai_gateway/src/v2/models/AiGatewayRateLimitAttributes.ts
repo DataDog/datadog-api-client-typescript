@@ -8,6 +8,10 @@ import { AiGatewayRateLimitSelectorEntry } from "./AiGatewayRateLimitSelectorEnt
  */
 export class AiGatewayRateLimitAttributes {
   /**
+   * Maximum priced spend per rolling minute, in microcents of 1e-8 USD each, shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit cost.
+   */
+  "costMicrocentsPerMinute"?: number;
+  /**
    * Creation timestamp.
    */
   "createdAt": Date;
@@ -26,7 +30,7 @@ export class AiGatewayRateLimitAttributes {
   /**
    * Whether the selector gives each matching value its own allowance, that is, whether it has at least one per_value entry. Returned even when scope_restricted hides the selector.
    */
-  "isTemplate"?: boolean;
+  "isTemplate": boolean;
   /**
    * Action taken when request rate exceeds the limit.
    */
@@ -70,7 +74,7 @@ export class AiGatewayRateLimitAttributes {
   /**
    * Dimensions of the selector's per_value entries, such as user_id or tag:env, each matching value of which gets its own allowance. Empty unless is_template is true. Returned even when scope_restricted hides the selector.
    */
-  "templateSplitDims"?: Array<string>;
+  "templateSplitDims": Array<string>;
   /**
    * Last modification timestamp.
    */
@@ -98,6 +102,11 @@ export class AiGatewayRateLimitAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    costMicrocentsPerMinute: {
+      baseName: "cost_microcents_per_minute",
+      type: "number",
+      format: "int64",
+    },
     createdAt: {
       baseName: "created_at",
       type: "Date",
@@ -122,6 +131,7 @@ export class AiGatewayRateLimitAttributes {
     isTemplate: {
       baseName: "is_template",
       type: "boolean",
+      required: true,
     },
     mode: {
       baseName: "mode",
@@ -176,6 +186,7 @@ export class AiGatewayRateLimitAttributes {
     templateSplitDims: {
       baseName: "template_split_dims",
       type: "Array<string>",
+      required: true,
     },
     updatedAt: {
       baseName: "updated_at",

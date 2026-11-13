@@ -246,6 +246,7 @@ export { AiGatewayRateLimitInstanceListResponse } from "./models/AiGatewayRateLi
 export { AiGatewayRateLimitInstanceResource } from "./models/AiGatewayRateLimitInstanceResource";
 export { AiGatewayRateLimitInstanceSort } from "./models/AiGatewayRateLimitInstanceSort";
 export { AiGatewayRateLimitInstancesSummaryAttributes } from "./models/AiGatewayRateLimitInstancesSummaryAttributes";
+export { AiGatewayRateLimitInstancesSummaryListResponse } from "./models/AiGatewayRateLimitInstancesSummaryListResponse";
 export { AiGatewayRateLimitInstancesSummaryResource } from "./models/AiGatewayRateLimitInstancesSummaryResource";
 export { AiGatewayRateLimitInstancesSummaryResponse } from "./models/AiGatewayRateLimitInstancesSummaryResponse";
 export { AiGatewayRateLimitInstancesSummaryType } from "./models/AiGatewayRateLimitInstancesSummaryType";
