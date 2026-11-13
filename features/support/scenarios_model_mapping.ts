@@ -9747,6 +9747,33 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UsageLambdaTracedInvocationsResponse",
     },
+    "v2.GetUsageMonthlyResources": {
+        "filterBillingDimension": {
+            "type": "string",
+            "format": "",
+            },
+        "filterMonth": {
+            "type": "string",
+            "format": "",
+            },
+        "filterView": {
+            "type": "MonthlyResourcesView",
+            "format": "",
+            },
+        "filterIncludeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNextRecordId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MonthlyResourcesResponse",
+    },
     "v2.GetUsageObservabilityPipelines": {
         "startHr": {
             "type": "Date",

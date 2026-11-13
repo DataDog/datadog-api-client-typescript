@@ -25,6 +25,8 @@ import { CostByOrgResponse } from "../models/CostByOrgResponse";
 import { HourlyUsageResponse } from "../models/HourlyUsageResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { MonthlyCostAttributionResponse } from "../models/MonthlyCostAttributionResponse";
+import { MonthlyResourcesResponse } from "../models/MonthlyResourcesResponse";
+import { MonthlyResourcesView } from "../models/MonthlyResourcesView";
 import { ProjectedCostResponse } from "../models/ProjectedCostResponse";
 import { SortDirection } from "../models/SortDirection";
 import { TemporaryGrantRequestCreateRequest } from "../models/TemporaryGrantRequestCreateRequest";
@@ -1268,6 +1270,110 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "end_hr",
         ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getUsageMonthlyResources(
+    filterBillingDimension: string,
+    filterMonth: string,
+    filterView: MonthlyResourcesView,
+    filterIncludeDescendants?: boolean,
+    pageLimit?: Int64Input,
+    pageNextRecordId?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'filterBillingDimension' is not null or undefined
+    if (
+      filterBillingDimension === null ||
+      filterBillingDimension === undefined
+    ) {
+      throw new RequiredError(
+        "filterBillingDimension",
+        "getUsageMonthlyResources"
+      );
+    }
+
+    // verify required parameter 'filterMonth' is not null or undefined
+    if (filterMonth === null || filterMonth === undefined) {
+      throw new RequiredError("filterMonth", "getUsageMonthlyResources");
+    }
+
+    // verify required parameter 'filterView' is not null or undefined
+    if (filterView === null || filterView === undefined) {
+      throw new RequiredError("filterView", "getUsageMonthlyResources");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/monthly_resources";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsageMeteringApi.getUsageMonthlyResources")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterBillingDimension !== undefined) {
+      requestContext.setQueryParam(
+        "filter[billing_dimension]",
+        ObjectSerializer.serialize(filterBillingDimension, "string", ""),
+        ""
+      );
+    }
+    if (filterMonth !== undefined) {
+      requestContext.setQueryParam(
+        "filter[month]",
+        ObjectSerializer.serialize(filterMonth, "string", ""),
+        ""
+      );
+    }
+    if (filterView !== undefined) {
+      requestContext.setQueryParam(
+        "filter[view]",
+        ObjectSerializer.serialize(filterView, "MonthlyResourcesView", ""),
+        ""
+      );
+    }
+    if (filterIncludeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "filter[include_descendants]",
+        ObjectSerializer.serialize(filterIncludeDescendants, "boolean", ""),
+        ""
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNextRecordId !== undefined) {
+      requestContext.setQueryParam(
+        "page[next_record_id]",
+        ObjectSerializer.serialize(pageNextRecordId, "string", ""),
         ""
       );
     }
@@ -3422,6 +3528,104 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getUsageMonthlyResources
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getUsageMonthlyResources(
+    response: ResponseContext
+  ): Promise<MonthlyResourcesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MonthlyResourcesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "MonthlyResourcesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as MonthlyResourcesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MonthlyResourcesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "MonthlyResourcesResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as MonthlyResourcesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getUsageObservabilityPipelines
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4439,6 +4643,44 @@ export interface UsageMeteringApiGetUsageLambdaTracedInvocationsRequest {
   endHr?: Date;
 }
 
+export interface UsageMeteringApiGetUsageMonthlyResourcesRequest {
+  /**
+   * Billing dimension to retrieve, such as `infra_host`, `indexed_points`, or `logs_indexed_30day`.
+   * @type string
+   */
+  filterBillingDimension: string;
+  /**
+   * Month of usage to retrieve in `YYYY-MM` format.
+   * @type string
+   */
+  filterMonth: string;
+  /**
+   * Set to `billable` to return resources that contribute to billable usage, or `all`
+   * to return the full monthly resource breakdown.
+   * @type MonthlyResourcesView
+   */
+  filterView: MonthlyResourcesView;
+  /**
+   * Include usage for descendant organizations of the authenticated organization.
+   * @type boolean
+   */
+  filterIncludeDescendants?: boolean;
+  /**
+   * Maximum number of resource records per paginated response. Must be a positive integer.
+   * Values above 100,000 are capped at 100,000. Ignored for billable queries using
+   * 99th-percentile billing, which return the complete result in one response.
+   * @type Int64Input
+   */
+  pageLimit?: Int64Input;
+  /**
+   * Opaque cursor from `meta.pagination.next_record_id` in the previous response.
+   * Omit for the first request. Ignored for billable queries using 99th-percentile
+   * billing, which always return the complete result.
+   * @type string
+   */
+  pageNextRecordId?: string;
+}
+
 export interface UsageMeteringApiGetUsageObservabilityPipelinesRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
@@ -5112,6 +5354,60 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getUsageLambdaTracedInvocations(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get resource-level usage for a billing dimension and month, using the same
+   * data as the resource breakdown in Plan & Usage. Supports all host and
+   * non-host resource types available in that breakdown. Availability depends
+   * on the billing dimension and the organization's usage data.
+   *
+   * Results are scoped to the authenticated organization. Set `filter[include_descendants]`
+   * to `true` to also return usage from its descendant organizations in all regions.
+   *
+   * Set `filter[view]` to `billable` to return resources that contribute to billable usage.
+   * For dimensions billed at the 99th percentile, this view returns resources at the
+   * selected billing hour. For sum-based dimensions, it returns monthly resource usage.
+   * Set `filter[view]` to `all` to return the full monthly resource breakdown. Requests
+   * for unsupported billing dimensions, or dimensions configured with an unsupported
+   * billing aggregation method, return a `400 Bad Request` error.
+   *
+   * To get the next page of results, pass the `meta.pagination.next_record_id` value
+   * from the previous response as `page[next_record_id]`, and keep all filters unchanged.
+   * A null cursor indicates the last page. Paginated responses contain at most
+   * `page[limit]` resource records, including queries across descendant organizations.
+   *
+   * Exception: for any billing dimension billed at the 99th percentile,
+   * `filter[view]=billable` returns the complete resource breakdown in one response,
+   * including requested descendants. Eligibility depends on the organization's
+   * billing configuration for the requested dimension and month, not on the product
+   * name. For these queries, `page[limit]` and `page[next_record_id]` are ignored, and
+   * `meta.pagination.next_record_id` is null. Sum-based usage and `filter[view]=all`
+   * remain paginated.
+   * @param param The request object
+   */
+  public getUsageMonthlyResources(
+    param: UsageMeteringApiGetUsageMonthlyResourcesRequest,
+    options?: Configuration
+  ): Promise<MonthlyResourcesResponse> {
+    const requestContextPromise = this.requestFactory.getUsageMonthlyResources(
+      param.filterBillingDimension,
+      param.filterMonth,
+      param.filterView,
+      param.filterIncludeDescendants,
+      param.pageLimit,
+      param.pageNextRecordId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUsageMonthlyResources(
             responseContext
           );
         });

@@ -1048,7 +1048,7 @@ export interface TagRulesApiGetTagRuleRequest {
    */
   include?: TagRuleInclude;
   /**
-   * Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds.
+   * Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds. Defaults to approximately 4 hours before the current time for metrics, or 24 hours before the current time for other sources. The API clamps earlier values to this default, regardless of `ts_end`.
    * @type Int64Input
    */
   tsStart?: Int64Input;
@@ -1066,7 +1066,7 @@ export interface TagRulesApiGetTagRuleScoreRequest {
    */
   ruleId: string;
   /**
-   * Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds.
+   * Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds. Defaults to approximately 4 hours before the current time for metrics, or 24 hours before the current time for other sources. The API clamps earlier values to this default, regardless of `ts_end`.
    * @type Int64Input
    */
   tsStart?: Int64Input;
@@ -1099,7 +1099,7 @@ export interface TagRulesApiListTagRulesRequest {
    */
   filterSource?: TagRuleSource;
   /**
-   * Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds. Defaults to a recent window appropriate for the source.
+   * Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds. Defaults to approximately 4 hours before the current time for metrics, or 24 hours before the current time for other sources. The API clamps earlier values to this default, regardless of `ts_end`.
    * @type Int64Input
    */
   tsStart?: Int64Input;
@@ -1165,7 +1165,8 @@ export class TagRulesApi {
   /**
    * Delete a tag rule. By default the rule is soft-deleted so it can be recovered later
    * and so that historical score data remains queryable. Pass `hard_delete=true` to remove
-   * the rule permanently.
+   * the rule permanently. Deleting a `blocking` rule additionally requires the
+   * `telemetry_rules_activate` permission.
    * @param param The request object
    */
   public deleteTagRule(
@@ -1270,6 +1271,9 @@ export class TagRulesApi {
    * Update one or more attributes of an existing tag rule. Only the fields supplied in the
    * request body are modified; omitted fields retain their current values. The rule's
    * `source` cannot be changed after creation.
+   * Promoting a rule from `surfacing` to `blocking` additionally requires the
+   * `telemetry_rules_activate` permission, and your organization must have access to
+   * blocking rules. You can't promote RUM rules to `blocking`.
    * @param param The request object
    */
   public updateTagRule(

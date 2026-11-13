@@ -4016,6 +4016,11 @@ import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
 import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
 import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagination";
 import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
+import { MonthlyResource } from "./MonthlyResource";
+import { MonthlyResourceAttributes } from "./MonthlyResourceAttributes";
+import { MonthlyResourcesMetadata } from "./MonthlyResourcesMetadata";
+import { MonthlyResourcesPagination } from "./MonthlyResourcesPagination";
+import { MonthlyResourcesResponse } from "./MonthlyResourcesResponse";
 import { MuteFindingsMuteAttributes } from "./MuteFindingsMuteAttributes";
 import { MuteFindingsRequest } from "./MuteFindingsRequest";
 import { MuteFindingsRequestData } from "./MuteFindingsRequestData";
@@ -9180,6 +9185,8 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorDowntimeMatchResourceType: ["downtime_match"],
   MonitorNotificationRuleResourceType: ["monitor-notification-rule"],
   MonitorUserTemplateResourceType: ["monitor-user-template"],
+  MonthlyResourceType: ["monthly_resource"],
+  MonthlyResourcesView: ["billable", "all"],
   MuteDataType: ["mute"],
   MuteFindingsReason: [
     "PENDING_FIX",
@@ -10965,8 +10972,8 @@ const enumsMap: { [key: string]: any[] } = {
   TagIndexingRuleType: ["tag_indexing_rules"],
   TagRuleCreateType: ["surfacing"],
   TagRuleInclude: ["score"],
-  TagRuleResourceType: ["tag_rule"],
-  TagRuleScoreResourceType: ["tag_rule_score"],
+  TagRuleResourceType: ["tag_rule", "tag_policy"],
+  TagRuleScoreResourceType: ["tag_rule_score", "tag_policy_score"],
   TagRuleSource: ["logs", "spans", "metrics", "rum", "feed"],
   TagRuleType: ["blocking", "surfacing"],
   TeamConnectionType: ["team_connection"],
@@ -16187,6 +16194,11 @@ const typeMap: { [index: string]: any } = {
   MonthlyCostAttributionMeta: MonthlyCostAttributionMeta,
   MonthlyCostAttributionPagination: MonthlyCostAttributionPagination,
   MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
+  MonthlyResource: MonthlyResource,
+  MonthlyResourceAttributes: MonthlyResourceAttributes,
+  MonthlyResourcesMetadata: MonthlyResourcesMetadata,
+  MonthlyResourcesPagination: MonthlyResourcesPagination,
+  MonthlyResourcesResponse: MonthlyResourcesResponse,
   MuteFindingsMuteAttributes: MuteFindingsMuteAttributes,
   MuteFindingsRequest: MuteFindingsRequest,
   MuteFindingsRequestData: MuteFindingsRequestData,
