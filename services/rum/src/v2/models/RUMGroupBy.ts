@@ -10,7 +10,7 @@ import { RUMGroupByTotal } from "./RUMGroupByTotal";
  */
 export class RUMGroupBy {
   /**
-   * The name of the facet to use (required).
+   * The attribute to group by, for example `@view.name` or `@session.type` (required).
    */
   "facet": string;
   /**
@@ -23,7 +23,7 @@ export class RUMGroupBy {
    */
   "limit"?: number;
   /**
-   * The value to use for logs that don't have the facet used to group by.
+   * The value to use for events that don't have the facet used to group by.
    */
   "missing"?: RUMGroupByMissing;
   /**
