@@ -175,7 +175,7 @@ export class MonitorOptions {
    */
   "timeoutH"?: number;
   /**
-   * List of requests that can be used in the monitor query. **This feature is currently in beta.**
+   * List of requests that can be used in the monitor query.
    */
   "variables"?: Array<MonitorFormulaAndFunctionQueryDefinition>;
   /**
