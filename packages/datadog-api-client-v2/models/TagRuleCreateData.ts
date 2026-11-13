@@ -13,11 +13,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class TagRuleCreateData {
   /**
-   * Attributes that can be supplied when creating a tag rule.
+   * Attributes that can be supplied when creating a tag rule. If `tag_value_patterns`
+   * contains `*`, set `required` and `negated` to different values. If both are `false`,
+   * the rule has no effect. If both are `true`, no value can satisfy the rule.
    */
   "attributes": TagRuleCreateAttributes;
   /**
-   * JSON:API resource type for a tag rule.
+   * JSON:API resource type for a tag rule. Requests accept `tag_rule` or `tag_policy`; responses use `tag_policy`.
    */
   "type": TagRuleResourceType;
 
