@@ -9,7 +9,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Mutable attributes of a tag rule. Each field is optional; omitting a field leaves its
- * current value unchanged. The `source` of a rule cannot be changed.
+ * current value unchanged. The `source` of a rule cannot be changed. Tag keys, patterns,
+ * and metrics scopes have the same constraints as on creation. If the effective
+ * `tag_value_patterns` contains `*`, set `required` and `negated` to different values.
  */
 export class TagRuleUpdateAttributes {
   /**
@@ -31,6 +33,7 @@ export class TagRuleUpdateAttributes {
   /**
    * How the rule is enforced. `blocking` rejects telemetry that violates the rule.
    * `surfacing` only highlights non-compliant telemetry without blocking it.
+   * RUM supports only `surfacing` rules.
    */
   "ruleType"?: TagRuleType;
   /**
