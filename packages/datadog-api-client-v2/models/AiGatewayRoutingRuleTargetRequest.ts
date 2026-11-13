@@ -29,7 +29,7 @@ export class AiGatewayRoutingRuleTargetRequest {
    */
   "modelId"?: Int64;
   /**
-   * Provider slug. weighted_affinity and classified tiers require an explicit provider and do not allow "*".
+   * Provider slug. weighted_affinity requires an explicit provider and does not allow "*".
    */
   "provider"?: string;
   /**
@@ -37,7 +37,7 @@ export class AiGatewayRoutingRuleTargetRequest {
    */
   "reasoningLevel"?: AiGatewayRoutingReasoningLevel;
   /**
-   * Destination rubric in a classified tier: when the decision model picks this destination. Up to 300 characters after leading and trailing spaces are trimmed, and different for each destination in the tier. Omission preserves a saved value; null clears it. Must be absent on the default destination.
+   * Destination rubric in a classified tier. Omission preserves a saved value; null clears it. Must be absent on the default destination.
    */
   "rubric"?: string;
   /**
