@@ -31,6 +31,11 @@ export class LLMObsPatternsConfigUpsertRequestAttributes {
    */
   "integrationProvider"?: string;
   /**
+   * Minimum topic size, the smallest number of interactions a topic must contain. Topics with fewer
+   * interactions are moved to Outliers. Must be at least 2 and less than `num_records`. Required when creating a configuration.
+   */
+  "minClusterSize"?: number;
+  /**
    * Model name for a bring-your-own-model configuration.
    */
   "modelName"?: string;
@@ -93,6 +98,11 @@ export class LLMObsPatternsConfigUpsertRequestAttributes {
     integrationProvider: {
       baseName: "integration_provider",
       type: "string",
+    },
+    minClusterSize: {
+      baseName: "min_cluster_size",
+      type: "number",
+      format: "int32",
     },
     modelName: {
       baseName: "model_name",
