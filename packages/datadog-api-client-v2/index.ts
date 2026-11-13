@@ -3897,6 +3897,7 @@ export { CostTagType } from "./models/CostTagType";
 export { CoverageSummaryAttributes } from "./models/CoverageSummaryAttributes";
 export { CoverageSummaryCodeownerStats } from "./models/CoverageSummaryCodeownerStats";
 export { CoverageSummaryData } from "./models/CoverageSummaryData";
+export { CoverageSummaryFlagStats } from "./models/CoverageSummaryFlagStats";
 export { CoverageSummaryResponse } from "./models/CoverageSummaryResponse";
 export { CoverageSummaryServiceStats } from "./models/CoverageSummaryServiceStats";
 export { CoverageSummaryType } from "./models/CoverageSummaryType";

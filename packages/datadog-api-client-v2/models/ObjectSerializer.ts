@@ -1211,6 +1211,7 @@ import { CostTagsResponse } from "./CostTagsResponse";
 import { CoverageSummaryAttributes } from "./CoverageSummaryAttributes";
 import { CoverageSummaryCodeownerStats } from "./CoverageSummaryCodeownerStats";
 import { CoverageSummaryData } from "./CoverageSummaryData";
+import { CoverageSummaryFlagStats } from "./CoverageSummaryFlagStats";
 import { CoverageSummaryResponse } from "./CoverageSummaryResponse";
 import { CoverageSummaryServiceStats } from "./CoverageSummaryServiceStats";
 import { CreateActionConnectionRequest } from "./CreateActionConnectionRequest";
@@ -12684,6 +12685,7 @@ const typeMap: { [index: string]: any } = {
   CoverageSummaryAttributes: CoverageSummaryAttributes,
   CoverageSummaryCodeownerStats: CoverageSummaryCodeownerStats,
   CoverageSummaryData: CoverageSummaryData,
+  CoverageSummaryFlagStats: CoverageSummaryFlagStats,
   CoverageSummaryResponse: CoverageSummaryResponse,
   CoverageSummaryServiceStats: CoverageSummaryServiceStats,
   CreateActionConnectionRequest: CreateActionConnectionRequest,
