@@ -27,6 +27,11 @@ import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
 import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
 import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagination";
 import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
+import { MonthlyResource } from "./MonthlyResource";
+import { MonthlyResourceAttributes } from "./MonthlyResourceAttributes";
+import { MonthlyResourcesMetadata } from "./MonthlyResourcesMetadata";
+import { MonthlyResourcesPagination } from "./MonthlyResourcesPagination";
+import { MonthlyResourcesResponse } from "./MonthlyResourcesResponse";
 import { ProjectedCost } from "./ProjectedCost";
 import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
 import { ProjectedCostResponse } from "./ProjectedCostResponse";
@@ -85,6 +90,8 @@ export const TypingInfo: ModelTypingInfo = {
       "observability_pipelines_bytes_processed",
       "lambda_traced_invocations_count",
     ],
+    MonthlyResourceType: ["monthly_resource"],
+    MonthlyResourcesView: ["billable", "all"],
     ProjectedCostType: ["projected_cost"],
     SortDirection: ["desc", "asc"],
     TemporaryGrantRequestDecision: ["approved", "denied"],
@@ -132,6 +139,11 @@ export const TypingInfo: ModelTypingInfo = {
     MonthlyCostAttributionMeta: MonthlyCostAttributionMeta,
     MonthlyCostAttributionPagination: MonthlyCostAttributionPagination,
     MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
+    MonthlyResource: MonthlyResource,
+    MonthlyResourceAttributes: MonthlyResourceAttributes,
+    MonthlyResourcesMetadata: MonthlyResourcesMetadata,
+    MonthlyResourcesPagination: MonthlyResourcesPagination,
+    MonthlyResourcesResponse: MonthlyResourcesResponse,
     ProjectedCost: ProjectedCost,
     ProjectedCostAttributes: ProjectedCostAttributes,
     ProjectedCostResponse: ProjectedCostResponse,
