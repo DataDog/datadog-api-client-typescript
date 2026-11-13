@@ -5565,6 +5565,8 @@ export { GCPIntegrationUpdate } from "./models/GCPIntegrationUpdate";
 export { GCPMetricNamespaceConfig } from "./models/GCPMetricNamespaceConfig";
 export { GCPMonitoredResourceConfig } from "./models/GCPMonitoredResourceConfig";
 export { GCPMonitoredResourceConfigType } from "./models/GCPMonitoredResourceConfigType";
+export { GCPProjectFilterConfig } from "./models/GCPProjectFilterConfig";
+export { GCPProjectFilterConfigType } from "./models/GCPProjectFilterConfigType";
 export { GcpScanOptions } from "./models/GcpScanOptions";
 export { GcpScanOptionsArray } from "./models/GcpScanOptionsArray";
 export { GcpScanOptionsData } from "./models/GcpScanOptionsData";

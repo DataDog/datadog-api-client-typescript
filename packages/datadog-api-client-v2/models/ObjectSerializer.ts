@@ -2548,6 +2548,7 @@ import { GCPIntegration } from "./GCPIntegration";
 import { GCPIntegrationUpdate } from "./GCPIntegrationUpdate";
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
 import { GCPMonitoredResourceConfig } from "./GCPMonitoredResourceConfig";
+import { GCPProjectFilterConfig } from "./GCPProjectFilterConfig";
 import { GCPSTSDelegateAccount } from "./GCPSTSDelegateAccount";
 import { GCPSTSDelegateAccountAttributes } from "./GCPSTSDelegateAccountAttributes";
 import { GCPSTSDelegateAccountResponse } from "./GCPSTSDelegateAccountResponse";
@@ -8567,6 +8568,7 @@ const enumsMap: { [key: string]: any[] } = {
     "cloud_run_revision",
     "gce_instance",
   ],
+  GCPProjectFilterConfigType: ["project_id", "project_label"],
   GCPSTSDelegateAccountType: ["gcp_sts_delegate"],
   GCPServiceAccountCredentialType: ["GCPServiceAccount"],
   GCPServiceAccountType: ["gcp_service_account"],
@@ -10965,8 +10967,8 @@ const enumsMap: { [key: string]: any[] } = {
   TagIndexingRuleType: ["tag_indexing_rules"],
   TagRuleCreateType: ["surfacing"],
   TagRuleInclude: ["score"],
-  TagRuleResourceType: ["tag_rule"],
-  TagRuleScoreResourceType: ["tag_rule_score"],
+  TagRuleResourceType: ["tag_rule", "tag_policy"],
+  TagRuleScoreResourceType: ["tag_rule_score", "tag_policy_score"],
   TagRuleSource: ["logs", "spans", "metrics", "rum", "feed"],
   TagRuleType: ["blocking", "surfacing"],
   TeamConnectionType: ["team_connection"],
@@ -14413,6 +14415,7 @@ const typeMap: { [index: string]: any } = {
   GCPIntegrationUpdate: GCPIntegrationUpdate,
   GCPMetricNamespaceConfig: GCPMetricNamespaceConfig,
   GCPMonitoredResourceConfig: GCPMonitoredResourceConfig,
+  GCPProjectFilterConfig: GCPProjectFilterConfig,
   GCPSTSDelegateAccount: GCPSTSDelegateAccount,
   GCPSTSDelegateAccountAttributes: GCPSTSDelegateAccountAttributes,
   GCPSTSDelegateAccountResponse: GCPSTSDelegateAccountResponse,
