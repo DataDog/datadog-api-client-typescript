@@ -19340,6 +19340,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListStandardPatterns": {
         "operationResponseType": "SensitiveDataScannerStandardPatternsResponseData",
     },
+    "v2.ListTargetScanningGroups": {
+        "filterTarget": {
+            "type": "SensitiveDataScannerGroupTarget",
+            "format": "",
+            },
+        "operationResponseType": "SensitiveDataScannerTargetGroupListResponse",
+    },
+    "v2.GetScanningGroup": {
+        "groupId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SensitiveDataScannerTargetGroupResponse",
+    },
     "v2.CreateServiceAccount": {
         "body": {
             "type": "ServiceAccountCreateRequest",
