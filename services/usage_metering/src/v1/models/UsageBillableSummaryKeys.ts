@@ -125,6 +125,14 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
+  "errorTrackingSum"?: UsageBillableSummaryBody;
+  /**
+   * Response with properties for each aggregated usage type.
+   */
+  "errorTrackingTieredSum"?: UsageBillableSummaryBody;
+  /**
+   * Response with properties for each aggregated usage type.
+   */
   "fargateContainerApmAndProfilerAverage"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
@@ -491,6 +499,14 @@ export class UsageBillableSummaryKeys {
     },
     dbmNormalizedQueriesSum: {
       baseName: "dbm_normalized_queries_sum",
+      type: "UsageBillableSummaryBody",
+    },
+    errorTrackingSum: {
+      baseName: "error_tracking_sum",
+      type: "UsageBillableSummaryBody",
+    },
+    errorTrackingTieredSum: {
+      baseName: "error_tracking_tiered_sum",
       type: "UsageBillableSummaryBody",
     },
     fargateContainerApmAndProfilerAverage: {
