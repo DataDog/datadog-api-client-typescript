@@ -5836,6 +5836,11 @@ import { SensitiveDataScannerStandardPatternData } from "./SensitiveDataScannerS
 import { SensitiveDataScannerStandardPatternsResponseData } from "./SensitiveDataScannerStandardPatternsResponseData";
 import { SensitiveDataScannerStandardPatternsResponseItem } from "./SensitiveDataScannerStandardPatternsResponseItem";
 import { SensitiveDataScannerSuppressions } from "./SensitiveDataScannerSuppressions";
+import { SensitiveDataScannerTargetGroupAttributes } from "./SensitiveDataScannerTargetGroupAttributes";
+import { SensitiveDataScannerTargetGroupData } from "./SensitiveDataScannerTargetGroupData";
+import { SensitiveDataScannerTargetGroupListResponse } from "./SensitiveDataScannerTargetGroupListResponse";
+import { SensitiveDataScannerTargetGroupRelationships } from "./SensitiveDataScannerTargetGroupRelationships";
+import { SensitiveDataScannerTargetGroupResponse } from "./SensitiveDataScannerTargetGroupResponse";
 import { SensitiveDataScannerTextReplacement } from "./SensitiveDataScannerTextReplacement";
 import { SerialExecution } from "./SerialExecution";
 import { ServiceAccessToken } from "./ServiceAccessToken";
@@ -10657,6 +10662,7 @@ const enumsMap: { [key: string]: any[] } = {
   SensitiveDataScannerConfigurationType: [
     "sensitive_data_scanner_configuration",
   ],
+  SensitiveDataScannerGroupTarget: ["llm_observability"],
   SensitiveDataScannerGroupType: ["sensitive_data_scanner_group"],
   SensitiveDataScannerProduct: ["logs", "rum", "events", "apm"],
   SensitiveDataScannerRuleType: ["sensitive_data_scanner_rule"],
@@ -18575,6 +18581,15 @@ const typeMap: { [index: string]: any } = {
   SensitiveDataScannerStandardPatternsResponseItem:
     SensitiveDataScannerStandardPatternsResponseItem,
   SensitiveDataScannerSuppressions: SensitiveDataScannerSuppressions,
+  SensitiveDataScannerTargetGroupAttributes:
+    SensitiveDataScannerTargetGroupAttributes,
+  SensitiveDataScannerTargetGroupData: SensitiveDataScannerTargetGroupData,
+  SensitiveDataScannerTargetGroupListResponse:
+    SensitiveDataScannerTargetGroupListResponse,
+  SensitiveDataScannerTargetGroupRelationships:
+    SensitiveDataScannerTargetGroupRelationships,
+  SensitiveDataScannerTargetGroupResponse:
+    SensitiveDataScannerTargetGroupResponse,
   SensitiveDataScannerTextReplacement: SensitiveDataScannerTextReplacement,
   SerialExecution: SerialExecution,
   ServiceAccessToken: ServiceAccessToken,

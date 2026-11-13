@@ -1876,6 +1876,8 @@ export {
   SensitiveDataScannerApiCreateScanningRuleRequest,
   SensitiveDataScannerApiDeleteScanningGroupRequest,
   SensitiveDataScannerApiDeleteScanningRuleRequest,
+  SensitiveDataScannerApiGetScanningGroupRequest,
+  SensitiveDataScannerApiListTargetScanningGroupsRequest,
   SensitiveDataScannerApiReorderScanningGroupsRequest,
   SensitiveDataScannerApiUpdateScanningGroupRequest,
   SensitiveDataScannerApiUpdateScanningRuleRequest,
@@ -9886,6 +9888,7 @@ export { SensitiveDataScannerGroupItem } from "./models/SensitiveDataScannerGrou
 export { SensitiveDataScannerGroupList } from "./models/SensitiveDataScannerGroupList";
 export { SensitiveDataScannerGroupRelationships } from "./models/SensitiveDataScannerGroupRelationships";
 export { SensitiveDataScannerGroupResponse } from "./models/SensitiveDataScannerGroupResponse";
+export { SensitiveDataScannerGroupTarget } from "./models/SensitiveDataScannerGroupTarget";
 export { SensitiveDataScannerGroupType } from "./models/SensitiveDataScannerGroupType";
 export { SensitiveDataScannerGroupUpdate } from "./models/SensitiveDataScannerGroupUpdate";
 export { SensitiveDataScannerGroupUpdateRequest } from "./models/SensitiveDataScannerGroupUpdateRequest";
@@ -9917,6 +9920,11 @@ export { SensitiveDataScannerStandardPatternsResponseData } from "./models/Sensi
 export { SensitiveDataScannerStandardPatternsResponseItem } from "./models/SensitiveDataScannerStandardPatternsResponseItem";
 export { SensitiveDataScannerStandardPatternType } from "./models/SensitiveDataScannerStandardPatternType";
 export { SensitiveDataScannerSuppressions } from "./models/SensitiveDataScannerSuppressions";
+export { SensitiveDataScannerTargetGroupAttributes } from "./models/SensitiveDataScannerTargetGroupAttributes";
+export { SensitiveDataScannerTargetGroupData } from "./models/SensitiveDataScannerTargetGroupData";
+export { SensitiveDataScannerTargetGroupListResponse } from "./models/SensitiveDataScannerTargetGroupListResponse";
+export { SensitiveDataScannerTargetGroupRelationships } from "./models/SensitiveDataScannerTargetGroupRelationships";
+export { SensitiveDataScannerTargetGroupResponse } from "./models/SensitiveDataScannerTargetGroupResponse";
 export { SensitiveDataScannerTextReplacement } from "./models/SensitiveDataScannerTextReplacement";
 export { SensitiveDataScannerTextReplacementType } from "./models/SensitiveDataScannerTextReplacementType";
 export { SerialExecution } from "./models/SerialExecution";
