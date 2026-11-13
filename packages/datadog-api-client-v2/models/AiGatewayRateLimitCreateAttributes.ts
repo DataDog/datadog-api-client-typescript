@@ -13,6 +13,10 @@ import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
  */
 export class AiGatewayRateLimitCreateAttributes {
   /**
+   * Maximum priced spend per rolling minute, in microcents of 1e-8 USD each. At most 10000000000000, that is $100,000. In `ENFORCE` mode, requests to a model with no pricing are rejected, because their cost can't be counted.
+   */
+  "costMicrocentsPerMinute"?: Int64;
+  /**
    * Maximum input tokens per rolling minute.
    */
   "inputTokensPerMinute"?: Int64;
@@ -29,7 +33,7 @@ export class AiGatewayRateLimitCreateAttributes {
    */
   "outputTokensPerMinute"?: Int64;
   /**
-   * Maximum requests per rolling minute. At least one of `requests_per_minute`, `input_tokens_per_minute`, and `output_tokens_per_minute` is required.
+   * Maximum requests per rolling minute. At least one of `requests_per_minute`, `input_tokens_per_minute`, `output_tokens_per_minute`, and `cost_microcents_per_minute` is required.
    */
   "requestsPerMinute"?: Int64;
   /**
@@ -65,6 +69,11 @@ export class AiGatewayRateLimitCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    costMicrocentsPerMinute: {
+      baseName: "cost_microcents_per_minute",
+      type: "number",
+      format: "int64",
+    },
     inputTokensPerMinute: {
       baseName: "input_tokens_per_minute",
       type: "number",
