@@ -9111,7 +9111,14 @@ const enumsMap: { [key: string]: any[] } = {
     "exponential_histogram",
     "explicit_histogram",
   ],
-  MetricTagConfigurationMetricTypes: ["gauge", "count", "rate", "distribution"],
+  MetricTagConfigurationMetricTypes: [
+    "gauge",
+    "count",
+    "rate",
+    "distribution",
+    "exponential_histogram",
+    "explicit_histogram",
+  ],
   MetricTagConfigurationType: ["manage_tags"],
   MetricType: ["metrics"],
   MetricsAggregator: [
