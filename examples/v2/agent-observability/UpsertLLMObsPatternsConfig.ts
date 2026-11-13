@@ -23,6 +23,7 @@ const params: v2.AgentObservabilityApiUpsertLLMObsPatternsConfigRequest = {
         evpQuery: "@ml_app:support-bot",
         hierarchyDepth: 2,
         integrationProvider: "openai",
+        minClusterSize: 15,
         modelName: "gpt-4o",
         name: "Support chatbot topics",
         numRecords: 1000,
