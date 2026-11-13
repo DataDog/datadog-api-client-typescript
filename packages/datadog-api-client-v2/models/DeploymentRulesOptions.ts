@@ -11,6 +11,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
  * Options for deployment rule response representing either faulty deployment detection or monitor options.
+ * Bits Deployment Analysis rules only accept `duration`, using the faulty deployment detection options shape.
  */
 
 export type DeploymentRulesOptions =

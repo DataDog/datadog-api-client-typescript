@@ -21,10 +21,11 @@ export class CreateDeploymentRuleParamsDataAttributes {
   "name": string;
   /**
    * Options for deployment rule response representing either faulty deployment detection or monitor options.
+   * Bits Deployment Analysis rules only accept `duration`, using the faulty deployment detection options shape.
    */
   "options": DeploymentRulesOptions;
   /**
-   * The type of the deployment rule (faulty_deployment_detection or monitor).
+   * The type of the deployment rule (faulty_deployment_detection, monitor, or bits_deployment_analysis).
    */
   "type": string;
 
