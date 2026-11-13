@@ -18,11 +18,12 @@ export class IssuesSearchRequestDataAttributes {
    */
   "from": number;
   /**
-   * The attribute to sort the search results by.
+   * The attribute to sort the search results by, in descending order. Defaults to `TOTAL_COUNT`.
    */
   "orderBy"?: IssuesSearchRequestDataAttributesOrderBy;
   /**
-   * Persona for the search. Either track(s) or persona(s) must be specified.
+   * Persona for the search. Either `track` or `persona` must be specified.
+   * Ignored if `track` is specified.
    */
   "persona"?: IssuesSearchRequestDataAttributesPersona;
   /**
@@ -42,7 +43,8 @@ export class IssuesSearchRequestDataAttributes {
    */
   "to": number;
   /**
-   * Track of the events to query. Either track(s) or persona(s) must be specified.
+   * Track of the events to query. Either `track` or `persona` must be specified.
+   * If both are specified, `persona` is ignored.
    */
   "track"?: IssuesSearchRequestDataAttributesTrack;
   /**
