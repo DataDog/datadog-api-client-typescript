@@ -515,7 +515,13 @@ export class UsageSummaryDateOrg {
    */
   "fargateTasksCountHwm"?: number;
   /**
-   * Shows the sum of all Feature Flags Client-Side SDK config requests over all hours in the current date for the given org.
+   * Shows the sum of all Feature Flags configuration-request usage units from client-side and server-side SDK
+   * requests over all hours in the current date for the given org. Each metered client-side request contributes
+   * 1 unit, and each metered server-side request contributes 10 units. This value already includes the
+   * server-side multiplier, so do not multiply it again. For example, 100 metered client-side requests and 10
+   * metered server-side requests total 200 units, not 110. Periods before server-side metering began include no
+   * server-side requests.
+   * See [Monthly Flag Configuration Requests](https://docs.datadoghq.com/feature_flags/concepts/monthly_flag_configuration_requests/).
    */
   "featureFlagsConfigRequestsSum"?: number;
   /**
