@@ -25,6 +25,8 @@ import { DeploymentGateRuleFailureMonitor } from "./DeploymentGateRuleFailureMon
 import { DeploymentGateRuleFailureNarrative } from "./DeploymentGateRuleFailureNarrative";
 import { DeploymentGateRuleFailures } from "./DeploymentGateRuleFailures";
 import { DeploymentGateRulesResponse } from "./DeploymentGateRulesResponse";
+import { DeploymentGatesBitsDeploymentAnalysisRule } from "./DeploymentGatesBitsDeploymentAnalysisRule";
+import { DeploymentGatesBitsDeploymentAnalysisRuleOptions } from "./DeploymentGatesBitsDeploymentAnalysisRuleOptions";
 import { DeploymentGatesEvaluationConfiguration } from "./DeploymentGatesEvaluationConfiguration";
 import { DeploymentGatesEvaluationRequest } from "./DeploymentGatesEvaluationRequest";
 import { DeploymentGatesEvaluationRequestAttributes } from "./DeploymentGatesEvaluationRequestAttributes";
@@ -77,7 +79,9 @@ export const TypingInfo: ModelTypingInfo = {
     DeploymentGateRuleEvaluationType: [
       "monitor",
       "faulty_deployment_detection",
+      "bits_deployment_analysis",
     ],
+    DeploymentGatesBitsDeploymentAnalysisRuleType: ["bits_deployment_analysis"],
     DeploymentGatesEvaluationRequestDataType: [
       "deployment_gates_evaluation_request",
     ],
@@ -98,6 +102,7 @@ export const TypingInfo: ModelTypingInfo = {
     DeploymentRuleResponseDataAttributesType: [
       "faulty_deployment_detection",
       "monitor",
+      "bits_deployment_analysis",
     ],
     ListDeploymentRulesDataType: ["list_deployment_rules"],
   },
@@ -105,6 +110,7 @@ export const TypingInfo: ModelTypingInfo = {
     DeploymentGatesEvaluationRule: [
       "DeploymentGatesMonitorRule",
       "DeploymentGatesFDDRule",
+      "DeploymentGatesBitsDeploymentAnalysisRule",
     ],
     DeploymentRulesOptions: [
       "DeploymentRuleOptionsFaultyDeploymentDetection",
@@ -145,6 +151,10 @@ export const TypingInfo: ModelTypingInfo = {
     DeploymentGateRuleFailureNarrative: DeploymentGateRuleFailureNarrative,
     DeploymentGateRuleFailures: DeploymentGateRuleFailures,
     DeploymentGateRulesResponse: DeploymentGateRulesResponse,
+    DeploymentGatesBitsDeploymentAnalysisRule:
+      DeploymentGatesBitsDeploymentAnalysisRule,
+    DeploymentGatesBitsDeploymentAnalysisRuleOptions:
+      DeploymentGatesBitsDeploymentAnalysisRuleOptions,
     DeploymentGatesEvaluationConfiguration:
       DeploymentGatesEvaluationConfiguration,
     DeploymentGatesEvaluationRequest: DeploymentGatesEvaluationRequest,

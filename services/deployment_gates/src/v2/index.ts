@@ -45,6 +45,9 @@ export { DeploymentGateRuleFailureMonitor } from "./models/DeploymentGateRuleFai
 export { DeploymentGateRuleFailureNarrative } from "./models/DeploymentGateRuleFailureNarrative";
 export { DeploymentGateRuleFailures } from "./models/DeploymentGateRuleFailures";
 export { DeploymentGateRulesResponse } from "./models/DeploymentGateRulesResponse";
+export { DeploymentGatesBitsDeploymentAnalysisRule } from "./models/DeploymentGatesBitsDeploymentAnalysisRule";
+export { DeploymentGatesBitsDeploymentAnalysisRuleOptions } from "./models/DeploymentGatesBitsDeploymentAnalysisRuleOptions";
+export { DeploymentGatesBitsDeploymentAnalysisRuleType } from "./models/DeploymentGatesBitsDeploymentAnalysisRuleType";
 export { DeploymentGatesEvaluationConfiguration } from "./models/DeploymentGatesEvaluationConfiguration";
 export { DeploymentGatesEvaluationRequest } from "./models/DeploymentGatesEvaluationRequest";
 export { DeploymentGatesEvaluationRequestAttributes } from "./models/DeploymentGatesEvaluationRequestAttributes";
