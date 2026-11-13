@@ -22,7 +22,7 @@ const params: v2.TagRulesApiUpdateTagRuleRequest = {
         tagValuePatterns: [],
       },
       id: "123",
-      type: "tag_rule",
+      type: "tag_policy",
     },
   },
   ruleId: "rule_id",
