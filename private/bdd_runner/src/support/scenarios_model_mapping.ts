@@ -11860,6 +11860,49 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SavedFilterResponse",
   },
+  "FeatureFlagsApi.V2.GetFlagSuggestion": {
+    suggestionId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "FeatureFlagSuggestionResponse",
+  },
+  "FeatureFlagsApi.V2.DeleteFlagSuggestion": {
+    suggestionId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "FeatureFlagsApi.V2.ApplyFlagSuggestion": {
+    suggestionId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "FeatureFlagSuggestionResponse",
+  },
+  "FeatureFlagsApi.V2.ApproveFlagSuggestion": {
+    suggestionId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "ApproveFlagSuggestionRequest",
+      format: "",
+    },
+    operationResponseType: "FeatureFlagSuggestionResponse",
+  },
+  "FeatureFlagsApi.V2.RejectFlagSuggestion": {
+    suggestionId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "RejectFlagSuggestionRequest",
+      format: "",
+    },
+    operationResponseType: "FeatureFlagSuggestionResponse",
+  },
   "FeatureFlagsApi.V2.GetFeatureFlag": {
     featureFlagId: {
       type: "string",
@@ -11893,6 +11936,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     environmentId: {
       type: "string",
       format: "uuid",
+    },
+    defaultVariantKey: {
+      type: "string",
+      format: "",
     },
     body: {
       type: "OverwriteAllocationsRequest",
@@ -11936,6 +11983,28 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "uuid",
     },
     operationResponseType: "{}",
+  },
+  "FeatureFlagsApi.V2.UpdateFeatureFlagApprovals": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpdateFeatureFlagApprovalsRequest",
+      format: "",
+    },
+    operationResponseType: "FeatureFlagResponse",
+  },
+  "FeatureFlagsApi.V2.CreateFlagSuggestion": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CreateFlagSuggestionRequest",
+      format: "",
+    },
+    operationResponseType: "FeatureFlagSuggestionResponse",
   },
   "FeatureFlagsApi.V2.UnarchiveFeatureFlag": {
     featureFlagId: {

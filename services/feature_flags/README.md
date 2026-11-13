@@ -2,7 +2,7 @@
 
 ## Description
 
-Manage feature flags and environments.
+Manage feature flags, environments, and approval suggestions.
 
 ## Navigation
 
