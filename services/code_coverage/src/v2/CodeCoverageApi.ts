@@ -564,8 +564,8 @@ export class CodeCoverageApi {
 
   /**
    * Retrieve aggregated code coverage statistics for a specific branch in a repository.
-   * This endpoint provides overall coverage metrics as well as breakdowns by service
-   * and code owner.
+   * This endpoint provides overall coverage metrics as well as breakdowns by service,
+   * code owner, and flag.
    * @param param The request object
    */
   public getCodeCoverageBranchSummary(
@@ -587,8 +587,8 @@ export class CodeCoverageApi {
 
   /**
    * Retrieve aggregated code coverage statistics for a specific commit in a repository.
-   * This endpoint provides overall coverage metrics as well as breakdowns by service
-   * and code owner.
+   * This endpoint provides overall coverage metrics as well as breakdowns by service,
+   * code owner, and flag.
    *
    * The commit SHA must be a 40-character hexadecimal string (SHA-1 hash).
    * @param param The request object
@@ -635,8 +635,8 @@ export class CodeCoverageApi {
 
   /**
    * Retrieve aggregated code coverage statistics for a specific pull request in a repository.
-   * This endpoint provides overall coverage metrics as well as breakdowns by service
-   * and code owner.
+   * This endpoint provides overall coverage metrics as well as breakdowns by service,
+   * code owner, and flag.
    * @param param The request object
    */
   public getCodeCoveragePRSummary(

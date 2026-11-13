@@ -10,6 +10,7 @@ import { CommitCoverageSummaryRequestData } from "./CommitCoverageSummaryRequest
 import { CoverageSummaryAttributes } from "./CoverageSummaryAttributes";
 import { CoverageSummaryCodeownerStats } from "./CoverageSummaryCodeownerStats";
 import { CoverageSummaryData } from "./CoverageSummaryData";
+import { CoverageSummaryFlagStats } from "./CoverageSummaryFlagStats";
 import { CoverageSummaryResponse } from "./CoverageSummaryResponse";
 import { CoverageSummaryServiceStats } from "./CoverageSummaryServiceStats";
 import { FileCoverageLines } from "./FileCoverageLines";
@@ -50,6 +51,7 @@ export const TypingInfo: ModelTypingInfo = {
     CoverageSummaryAttributes: CoverageSummaryAttributes,
     CoverageSummaryCodeownerStats: CoverageSummaryCodeownerStats,
     CoverageSummaryData: CoverageSummaryData,
+    CoverageSummaryFlagStats: CoverageSummaryFlagStats,
     CoverageSummaryResponse: CoverageSummaryResponse,
     CoverageSummaryServiceStats: CoverageSummaryServiceStats,
     FileCoverageLines: FileCoverageLines,

@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CoverageSummaryCodeownerStats } from "./CoverageSummaryCodeownerStats";
+import { CoverageSummaryFlagStats } from "./CoverageSummaryFlagStats";
 import { CoverageSummaryServiceStats } from "./CoverageSummaryServiceStats";
 
 /**
@@ -19,6 +20,12 @@ export class CoverageSummaryAttributes {
    * Total number of coverage reports evaluated.
    */
   "evaluatedReportsCount"?: number;
+  /**
+   * Coverage statistics broken down by flag. Each entry contains only coverage percentages.
+   * Branch summaries include the flags of the latest covered commit, including coverage carried forward
+   * to that commit. Pull request summaries include flags across all commits of the pull request.
+   */
+  "flags"?: { [key: string]: CoverageSummaryFlagStats };
   /**
    * Overall patch coverage percentage.
    */
@@ -59,6 +66,10 @@ export class CoverageSummaryAttributes {
       baseName: "evaluated_reports_count",
       type: "number",
       format: "int64",
+    },
+    flags: {
+      baseName: "flags",
+      type: "{ [key: string]: CoverageSummaryFlagStats; }",
     },
     patchCoverage: {
       baseName: "patch_coverage",
