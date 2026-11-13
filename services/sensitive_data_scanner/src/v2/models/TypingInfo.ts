@@ -1,6 +1,9 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { SensitiveDataScannerConfigRequest } from "./SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerConfiguration } from "./SensitiveDataScannerConfiguration";
 import { SensitiveDataScannerConfigurationData } from "./SensitiveDataScannerConfigurationData";
@@ -49,6 +52,11 @@ import { SensitiveDataScannerStandardPatternData } from "./SensitiveDataScannerS
 import { SensitiveDataScannerStandardPatternsResponseData } from "./SensitiveDataScannerStandardPatternsResponseData";
 import { SensitiveDataScannerStandardPatternsResponseItem } from "./SensitiveDataScannerStandardPatternsResponseItem";
 import { SensitiveDataScannerSuppressions } from "./SensitiveDataScannerSuppressions";
+import { SensitiveDataScannerTargetGroupAttributes } from "./SensitiveDataScannerTargetGroupAttributes";
+import { SensitiveDataScannerTargetGroupData } from "./SensitiveDataScannerTargetGroupData";
+import { SensitiveDataScannerTargetGroupListResponse } from "./SensitiveDataScannerTargetGroupListResponse";
+import { SensitiveDataScannerTargetGroupRelationships } from "./SensitiveDataScannerTargetGroupRelationships";
+import { SensitiveDataScannerTargetGroupResponse } from "./SensitiveDataScannerTargetGroupResponse";
 import { SensitiveDataScannerTextReplacement } from "./SensitiveDataScannerTextReplacement";
 
 export const TypingInfo: ModelTypingInfo = {
@@ -56,6 +64,7 @@ export const TypingInfo: ModelTypingInfo = {
     SensitiveDataScannerConfigurationType: [
       "sensitive_data_scanner_configuration",
     ],
+    SensitiveDataScannerGroupTarget: ["llm_observability"],
     SensitiveDataScannerGroupType: ["sensitive_data_scanner_group"],
     SensitiveDataScannerProduct: ["logs", "rum", "events", "apm"],
     SensitiveDataScannerRuleType: ["sensitive_data_scanner_rule"],
@@ -78,6 +87,9 @@ export const TypingInfo: ModelTypingInfo = {
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     SensitiveDataScannerConfigRequest: SensitiveDataScannerConfigRequest,
     SensitiveDataScannerConfiguration: SensitiveDataScannerConfiguration,
     SensitiveDataScannerConfigurationData:
@@ -151,6 +163,15 @@ export const TypingInfo: ModelTypingInfo = {
     SensitiveDataScannerStandardPatternsResponseItem:
       SensitiveDataScannerStandardPatternsResponseItem,
     SensitiveDataScannerSuppressions: SensitiveDataScannerSuppressions,
+    SensitiveDataScannerTargetGroupAttributes:
+      SensitiveDataScannerTargetGroupAttributes,
+    SensitiveDataScannerTargetGroupData: SensitiveDataScannerTargetGroupData,
+    SensitiveDataScannerTargetGroupListResponse:
+      SensitiveDataScannerTargetGroupListResponse,
+    SensitiveDataScannerTargetGroupRelationships:
+      SensitiveDataScannerTargetGroupRelationships,
+    SensitiveDataScannerTargetGroupResponse:
+      SensitiveDataScannerTargetGroupResponse,
     SensitiveDataScannerTextReplacement: SensitiveDataScannerTextReplacement,
   },
 };

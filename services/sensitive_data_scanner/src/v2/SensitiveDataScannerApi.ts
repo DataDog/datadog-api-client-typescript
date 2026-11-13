@@ -23,6 +23,7 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { SensitiveDataScannerConfigRequest } from "./models/SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerCreateGroupResponse } from "./models/SensitiveDataScannerCreateGroupResponse";
 import { SensitiveDataScannerCreateRuleResponse } from "./models/SensitiveDataScannerCreateRuleResponse";
@@ -30,6 +31,7 @@ import { SensitiveDataScannerGetConfigResponse } from "./models/SensitiveDataSca
 import { SensitiveDataScannerGroupCreateRequest } from "./models/SensitiveDataScannerGroupCreateRequest";
 import { SensitiveDataScannerGroupDeleteRequest } from "./models/SensitiveDataScannerGroupDeleteRequest";
 import { SensitiveDataScannerGroupDeleteResponse } from "./models/SensitiveDataScannerGroupDeleteResponse";
+import { SensitiveDataScannerGroupTarget } from "./models/SensitiveDataScannerGroupTarget";
 import { SensitiveDataScannerGroupUpdateRequest } from "./models/SensitiveDataScannerGroupUpdateRequest";
 import { SensitiveDataScannerGroupUpdateResponse } from "./models/SensitiveDataScannerGroupUpdateResponse";
 import { SensitiveDataScannerReorderGroupsResponse } from "./models/SensitiveDataScannerReorderGroupsResponse";
@@ -39,6 +41,8 @@ import { SensitiveDataScannerRuleDeleteResponse } from "./models/SensitiveDataSc
 import { SensitiveDataScannerRuleUpdateRequest } from "./models/SensitiveDataScannerRuleUpdateRequest";
 import { SensitiveDataScannerRuleUpdateResponse } from "./models/SensitiveDataScannerRuleUpdateResponse";
 import { SensitiveDataScannerStandardPatternsResponseData } from "./models/SensitiveDataScannerStandardPatternsResponseData";
+import { SensitiveDataScannerTargetGroupListResponse } from "./models/SensitiveDataScannerTargetGroupListResponse";
+import { SensitiveDataScannerTargetGroupResponse } from "./models/SensitiveDataScannerTargetGroupResponse";
 import { version } from "../version";
 
 export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory {
@@ -294,6 +298,57 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     return requestContext;
   }
 
+  public async getScanningGroup(
+    groupId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'groupId' is not null or undefined
+    if (groupId === null || groupId === undefined) {
+      throw new RequiredError("groupId", "getScanningGroup");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/sensitive-data-scanner/groups/{group_id}".replace(
+        "{group_id}",
+        encodeURIComponent(String(groupId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SensitiveDataScannerApi.v2.getScanningGroup",
+      SensitiveDataScannerApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listScanningGroups(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -365,6 +420,67 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listTargetScanningGroups(
+    filterTarget: SensitiveDataScannerGroupTarget,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'filterTarget' is not null or undefined
+    if (filterTarget === null || filterTarget === undefined) {
+      throw new RequiredError("filterTarget", "listTargetScanningGroups");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/sensitive-data-scanner/groups";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SensitiveDataScannerApi.v2.listTargetScanningGroups",
+      SensitiveDataScannerApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterTarget !== undefined) {
+      requestContext.setQueryParam(
+        "filter[target]",
+        serialize(
+          filterTarget,
+          TypingInfo,
+          "SensitiveDataScannerGroupTarget",
+          "",
+        ),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -813,6 +929,87 @@ export class SensitiveDataScannerApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getScanningGroup
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getScanningGroup(
+    response: ResponseContext,
+  ): Promise<SensitiveDataScannerTargetGroupResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SensitiveDataScannerTargetGroupResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerTargetGroupResponse",
+      ) as SensitiveDataScannerTargetGroupResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SensitiveDataScannerTargetGroupResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerTargetGroupResponse",
+        "",
+      ) as SensitiveDataScannerTargetGroupResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listScanningGroups
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -921,6 +1118,83 @@ export class SensitiveDataScannerApiResponseProcessor {
           "SensitiveDataScannerStandardPatternsResponseData",
           "",
         ) as SensitiveDataScannerStandardPatternsResponseData;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listTargetScanningGroups
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listTargetScanningGroups(
+    response: ResponseContext,
+  ): Promise<SensitiveDataScannerTargetGroupListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SensitiveDataScannerTargetGroupListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerTargetGroupListResponse",
+      ) as SensitiveDataScannerTargetGroupListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SensitiveDataScannerTargetGroupListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerTargetGroupListResponse",
+        "",
+      ) as SensitiveDataScannerTargetGroupListResponse;
       return body;
     }
 
@@ -1152,6 +1426,22 @@ export interface SensitiveDataScannerApiDeleteScanningRuleRequest {
   body: SensitiveDataScannerRuleDeleteRequest;
 }
 
+export interface SensitiveDataScannerApiGetScanningGroupRequest {
+  /**
+   * The ID of a group of rules.
+   * @type string
+   */
+  groupId: string;
+}
+
+export interface SensitiveDataScannerApiListTargetScanningGroupsRequest {
+  /**
+   * Target whose scanning groups are listed.
+   * @type SensitiveDataScannerGroupTarget
+   */
+  filterTarget: SensitiveDataScannerGroupTarget;
+}
+
 export interface SensitiveDataScannerApiReorderScanningGroupsRequest {
   /**
    * @type SensitiveDataScannerConfigRequest
@@ -1298,6 +1588,29 @@ export class SensitiveDataScannerApi {
   }
 
   /**
+   * Get a scanning group, with its rules included.
+   * Only scanning groups of the `llm_observability` target are returned. Other scanning groups
+   * are reported as not found.
+   * @param param The request object
+   */
+  public getScanningGroup(
+    param: SensitiveDataScannerApiGetScanningGroupRequest,
+    options?: Configuration,
+  ): Promise<SensitiveDataScannerTargetGroupResponse> {
+    const requestContextPromise = this.requestFactory.getScanningGroup(
+      param.groupId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getScanningGroup(responseContext);
+        });
+    });
+  }
+
+  /**
    * List all the Scanning groups in your organization.
    * @param param The request object
    */
@@ -1329,6 +1642,33 @@ export class SensitiveDataScannerApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listStandardPatterns(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List the scanning groups of a target, with their rules included.
+   * Only the `llm_observability` target is supported. Scanning groups of logs, RUM, events, and APM
+   * are listed by the List Scanning Groups endpoint.
+   * If the organization has no scanning group for the target, its default group is stored and returned,
+   * so it can be edited. This does not change what gets scanned, because the default rules already apply.
+   * @param param The request object
+   */
+  public listTargetScanningGroups(
+    param: SensitiveDataScannerApiListTargetScanningGroupsRequest,
+    options?: Configuration,
+  ): Promise<SensitiveDataScannerTargetGroupListResponse> {
+    const requestContextPromise = this.requestFactory.listTargetScanningGroups(
+      param.filterTarget,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTargetScanningGroups(
+            responseContext,
+          );
         });
     });
   }
