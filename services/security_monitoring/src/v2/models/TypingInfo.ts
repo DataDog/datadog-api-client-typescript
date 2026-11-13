@@ -1076,6 +1076,7 @@ export const TypingInfo: ModelTypingInfo = {
       "application_security",
       "api_security",
       "workload_activity",
+      "workload_hardening",
     ],
     SecurityMonitoringRuleTypeTest: ["log_detection"],
     SecurityMonitoringSKU: [
