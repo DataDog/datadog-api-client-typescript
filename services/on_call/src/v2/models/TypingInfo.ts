@@ -11,6 +11,9 @@ import { CreateNotificationChannelAttributes } from "./CreateNotificationChannel
 import { CreateNotificationChannelData } from "./CreateNotificationChannelData";
 import { CreateOnCallNotificationRuleRequest } from "./CreateOnCallNotificationRuleRequest";
 import { CreateOnCallNotificationRuleRequestData } from "./CreateOnCallNotificationRuleRequestData";
+import { CreateOnCallPageCommentRequest } from "./CreateOnCallPageCommentRequest";
+import { CreateOnCallPageCommentRequestAttributes } from "./CreateOnCallPageCommentRequestAttributes";
+import { CreateOnCallPageCommentRequestData } from "./CreateOnCallPageCommentRequestData";
 import { CreateOverrideRequestAttributes } from "./CreateOverrideRequestAttributes";
 import { CreateOverrideRequestData } from "./CreateOverrideRequestData";
 import { CreateOverrideRequestRelationships } from "./CreateOverrideRequestRelationships";
@@ -236,6 +239,7 @@ export const TypingInfo: ModelTypingInfo = {
     NotificationChannelType: ["notification_channels"],
     OnCallNotificationRuleCategory: ["high_urgency", "low_urgency"],
     OnCallNotificationRuleType: ["notification_rules"],
+    OnCallPageCommentType: ["comments"],
     OnCallPageDataType: ["pages"],
     OnCallPageJiraIssueType: ["jira_issues"],
     OnCallPageLinkEntityType: [
@@ -419,6 +423,10 @@ export const TypingInfo: ModelTypingInfo = {
     CreateOnCallNotificationRuleRequest: CreateOnCallNotificationRuleRequest,
     CreateOnCallNotificationRuleRequestData:
       CreateOnCallNotificationRuleRequestData,
+    CreateOnCallPageCommentRequest: CreateOnCallPageCommentRequest,
+    CreateOnCallPageCommentRequestAttributes:
+      CreateOnCallPageCommentRequestAttributes,
+    CreateOnCallPageCommentRequestData: CreateOnCallPageCommentRequestData,
     CreateOverrideRequestAttributes: CreateOverrideRequestAttributes,
     CreateOverrideRequestData: CreateOverrideRequestData,
     CreateOverrideRequestRelationships: CreateOverrideRequestRelationships,

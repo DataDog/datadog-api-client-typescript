@@ -1,5 +1,6 @@
 export {
   OnCallApiCreateOnCallEscalationPolicyRequest,
+  OnCallApiCreateOnCallPageCommentRequest,
   OnCallApiCreateOnCallScheduleRequest,
   OnCallApiCreateScheduleOverridesRequest,
   OnCallApiCreateUserNotificationChannelRequest,
@@ -44,6 +45,9 @@ export { CreateNotificationChannelConfig } from "./models/CreateNotificationChan
 export { CreateNotificationChannelData } from "./models/CreateNotificationChannelData";
 export { CreateOnCallNotificationRuleRequest } from "./models/CreateOnCallNotificationRuleRequest";
 export { CreateOnCallNotificationRuleRequestData } from "./models/CreateOnCallNotificationRuleRequestData";
+export { CreateOnCallPageCommentRequest } from "./models/CreateOnCallPageCommentRequest";
+export { CreateOnCallPageCommentRequestAttributes } from "./models/CreateOnCallPageCommentRequestAttributes";
+export { CreateOnCallPageCommentRequestData } from "./models/CreateOnCallPageCommentRequestData";
 export { CreateOverrideRequestAttributes } from "./models/CreateOverrideRequestAttributes";
 export { CreateOverrideRequestData } from "./models/CreateOverrideRequestData";
 export { CreateOverrideRequestRelationships } from "./models/CreateOverrideRequestRelationships";
@@ -136,6 +140,7 @@ export { OnCallNotificationRulesIncluded } from "./models/OnCallNotificationRule
 export { OnCallNotificationRuleType } from "./models/OnCallNotificationRuleType";
 export { OnCallPageAuthorRelationship } from "./models/OnCallPageAuthorRelationship";
 export { OnCallPageAuthorRelationshipData } from "./models/OnCallPageAuthorRelationshipData";
+export { OnCallPageCommentType } from "./models/OnCallPageCommentType";
 export { OnCallPageData } from "./models/OnCallPageData";
 export { OnCallPageDataAttributes } from "./models/OnCallPageDataAttributes";
 export { OnCallPageDataRelationships } from "./models/OnCallPageDataRelationships";
