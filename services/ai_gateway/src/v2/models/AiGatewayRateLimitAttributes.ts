@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AiGatewayRateLimitMode } from "./AiGatewayRateLimitMode";
+import { AiGatewayRateLimitSelectorEntry } from "./AiGatewayRateLimitSelectorEntry";
 
 /**
  * Attributes of an AI Gateway rate limit.
@@ -19,9 +20,13 @@ export class AiGatewayRateLimitAttributes {
    */
   "enabled": boolean;
   /**
-   * Maximum input tokens per rolling minute shared by all matching traffic. Null when this rule does not limit input tokens.
+   * Maximum input tokens per rolling minute shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit input tokens.
    */
   "inputTokensPerMinute"?: number;
+  /**
+   * Whether the selector gives each matching value its own allowance, that is, whether it has at least one per_value entry. Returned even when scope_restricted hides the selector.
+   */
+  "isTemplate"?: boolean;
   /**
    * Action taken when request rate exceeds the limit.
    */
@@ -35,11 +40,11 @@ export class AiGatewayRateLimitAttributes {
    */
   "name": string;
   /**
-   * Maximum output tokens per rolling minute shared by all matching traffic. Null when this rule does not limit output tokens.
+   * Maximum output tokens per rolling minute shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit output tokens.
    */
   "outputTokensPerMinute"?: number;
   /**
-   * Maximum requests per rolling minute shared by all matching traffic. Null when this rule does not limit requests.
+   * Maximum requests per rolling minute shared by all matching traffic, or per counter for a template rate limit. Null when this rule does not limit requests.
    */
   "requestsPerMinute"?: number;
   /**
@@ -51,6 +56,10 @@ export class AiGatewayRateLimitAttributes {
    */
   "scopeRestricted": boolean;
   /**
+   * Dimension rules for a template rate limit, which gives each matched user, Team, or value its own allowance with the rule's limits. Can't be combined with user_id, team_id, or tags, and can't be changed after creation. Omit for a rule with one shared allowance.
+   */
+  "selector"?: Array<AiGatewayRateLimitSelectorEntry>;
+  /**
    * Optional scope tags, such as provider, model, ml_app, or custom dimensions. A request matches when it has all of these tags.
    */
   "tags": { [key: string]: string };
@@ -58,6 +67,10 @@ export class AiGatewayRateLimitAttributes {
    * Optional Team UUID. Count only requests attributed to this Datadog Team.
    */
   "teamId"?: string;
+  /**
+   * Dimensions of the selector's per_value entries, such as user_id or tag:env, each matching value of which gets its own allowance. Empty unless is_template is true. Returned even when scope_restricted hides the selector.
+   */
+  "templateSplitDims"?: Array<string>;
   /**
    * Last modification timestamp.
    */
@@ -106,6 +119,10 @@ export class AiGatewayRateLimitAttributes {
       type: "number",
       format: "int64",
     },
+    isTemplate: {
+      baseName: "is_template",
+      type: "boolean",
+    },
     mode: {
       baseName: "mode",
       type: "AiGatewayRateLimitMode",
@@ -142,6 +159,10 @@ export class AiGatewayRateLimitAttributes {
       type: "boolean",
       required: true,
     },
+    selector: {
+      baseName: "selector",
+      type: "Array<AiGatewayRateLimitSelectorEntry>",
+    },
     tags: {
       baseName: "tags",
       type: "{ [key: string]: string; }",
@@ -151,6 +172,10 @@ export class AiGatewayRateLimitAttributes {
       baseName: "team_id",
       type: "string",
       format: "uuid",
+    },
+    templateSplitDims: {
+      baseName: "template_split_dims",
+      type: "Array<string>",
     },
     updatedAt: {
       baseName: "updated_at",
