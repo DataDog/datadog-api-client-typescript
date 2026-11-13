@@ -251,6 +251,8 @@ export const TypingInfo: ModelTypingInfo = {
       "count",
       "rate",
       "distribution",
+      "exponential_histogram",
+      "explicit_histogram",
     ],
     MetricTagConfigurationType: ["manage_tags"],
     MetricType: ["metrics"],

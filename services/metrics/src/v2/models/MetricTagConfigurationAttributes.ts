@@ -22,12 +22,12 @@ export class MetricTagConfigurationAttributes {
    */
   "excludeTagsMode"?: boolean;
   /**
-   * Toggle to include or exclude percentile aggregations for distribution metrics.
-   * Only present when the `metric_type` is `distribution`.
+   * Whether percentile aggregations are enabled for a `distribution`, `exponential_histogram`,
+   * or `explicit_histogram` metric.
    */
   "includePercentiles"?: boolean;
   /**
-   * The metric's type.
+   * The metric's type. Contact your Customer Success Manager for instructions on using native histogram types.
    */
   "metricType"?: MetricTagConfigurationMetricTypes;
   /**
