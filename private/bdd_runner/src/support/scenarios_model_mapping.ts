@@ -17766,6 +17766,30 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "RUMAnalyticsAggregateResponse",
   },
   "RUMApi.V2.GetRUMApplications": {
+    filterRumEnabled: {
+      type: "boolean",
+      format: "",
+    },
+    filterProductAnalyticsEnabled: {
+      type: "boolean",
+      format: "",
+    },
+    filterErrorFocusedModeEnabled: {
+      type: "boolean",
+      format: "",
+    },
+    filterRemoteConfigEnabled: {
+      type: "boolean",
+      format: "",
+    },
+    filterRumEventProcessingState: {
+      type: "RUMEventProcessingState",
+      format: "",
+    },
+    filterProductAnalyticsRetentionState: {
+      type: "RUMProductAnalyticsRetentionState",
+      format: "",
+    },
     operationResponseType: "RUMApplicationsResponse",
   },
   "RUMApi.V2.CreateRUMApplication": {
@@ -17806,12 +17830,12 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     filterFrom: {
-      type: "Date",
-      format: "date-time",
+      type: "string",
+      format: "",
     },
     filterTo: {
-      type: "Date",
-      format: "date-time",
+      type: "string",
+      format: "",
     },
     sort: {
       type: "RUMSort",

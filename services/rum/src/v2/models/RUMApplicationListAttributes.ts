@@ -15,7 +15,7 @@ export class RUMApplicationListAttributes {
    */
   "apmRumFlatSamplingReplayEnabled"?: boolean;
   /**
-   * Sample rate (0-100) of Session Replay for APM-correlated RUM sessions when flat sampling is enabled.
+   * Fraction (0 to 1) of APM-correlated RUM sessions with Session Replay when flat sampling is enabled.
    */
   "apmRumFlatSamplingReplaySampleRate"?: number;
   /**
@@ -91,7 +91,7 @@ export class RUMApplicationListAttributes {
    */
   "tags"?: Array<string>;
   /**
-   * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
+   * Type of the RUM application. Possible values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`, `react`, `nextjs`, `angular`, `vuejs`, `nuxt`, `tanstack`, `maui`, `salesforce-lwc`, `shopify`, `cpp`, `unreal`.
    */
   "type": string;
   /**
