@@ -10897,6 +10897,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "ErrorTrackingApi.V2.SnoozeIssue": {
+    issueId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IssueSnoozeRequest",
+      format: "",
+    },
+    operationResponseType: "IssueResponse",
+  },
   "ErrorTrackingApi.V2.UpdateIssueState": {
     issueId: {
       type: "string",

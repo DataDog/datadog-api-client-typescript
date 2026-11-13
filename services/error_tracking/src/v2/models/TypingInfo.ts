@@ -33,6 +33,9 @@ import { IssueSampleGitFileLocation } from "./IssueSampleGitFileLocation";
 import { IssueSampleReference } from "./IssueSampleReference";
 import { IssueSampleStackFrame } from "./IssueSampleStackFrame";
 import { IssueSamplesRelationship } from "./IssueSamplesRelationship";
+import { IssueSnoozeRequest } from "./IssueSnoozeRequest";
+import { IssueSnoozeRequestData } from "./IssueSnoozeRequestData";
+import { IssueSnoozeRequestDataAttributes } from "./IssueSnoozeRequestDataAttributes";
 import { IssueTeam } from "./IssueTeam";
 import { IssueTeamAttributes } from "./IssueTeamAttributes";
 import { IssueTeamOwnersRelationship } from "./IssueTeamOwnersRelationship";
@@ -59,6 +62,9 @@ import { IssuesSearchResult } from "./IssuesSearchResult";
 import { IssuesSearchResultAttributes } from "./IssuesSearchResultAttributes";
 import { IssuesSearchResultIssueRelationship } from "./IssuesSearchResultIssueRelationship";
 import { IssuesSearchResultRelationships } from "./IssuesSearchResultRelationships";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
 import { ProjectRelationship } from "./ProjectRelationship";
@@ -139,6 +145,7 @@ export const TypingInfo: ModelTypingInfo = {
       "NONE",
     ],
     IssueSampleType: ["error_tracking_issue_sample"],
+    IssueSnoozeRequestDataType: ["error_tracking_issue"],
     IssueState: ["OPEN", "ACKNOWLEDGED", "RESOLVED", "IGNORED", "EXCLUDED"],
     IssueTeamType: ["team"],
     IssueType: ["issue"],
@@ -238,6 +245,9 @@ export const TypingInfo: ModelTypingInfo = {
     IssueSampleReference: IssueSampleReference,
     IssueSampleStackFrame: IssueSampleStackFrame,
     IssueSamplesRelationship: IssueSamplesRelationship,
+    IssueSnoozeRequest: IssueSnoozeRequest,
+    IssueSnoozeRequestData: IssueSnoozeRequestData,
+    IssueSnoozeRequestDataAttributes: IssueSnoozeRequestDataAttributes,
     IssueTeam: IssueTeam,
     IssueTeamAttributes: IssueTeamAttributes,
     IssueTeamOwnersRelationship: IssueTeamOwnersRelationship,
@@ -265,6 +275,9 @@ export const TypingInfo: ModelTypingInfo = {
     IssuesSearchResultAttributes: IssuesSearchResultAttributes,
     IssuesSearchResultIssueRelationship: IssuesSearchResultIssueRelationship,
     IssuesSearchResultRelationships: IssuesSearchResultRelationships,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     NullableUserRelationship: NullableUserRelationship,
     NullableUserRelationshipData: NullableUserRelationshipData,
     ProjectRelationship: ProjectRelationship,

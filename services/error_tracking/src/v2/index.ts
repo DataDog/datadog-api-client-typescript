@@ -2,6 +2,7 @@ export {
   ErrorTrackingApiDeleteIssueAssigneeRequest,
   ErrorTrackingApiGetIssueRequest,
   ErrorTrackingApiSearchIssuesRequest,
+  ErrorTrackingApiSnoozeIssueRequest,
   ErrorTrackingApiUpdateIssueAssigneeRequest,
   ErrorTrackingApiUpdateIssueStateRequest,
   ErrorTrackingApi,
@@ -54,6 +55,10 @@ export { IssueSampleReference } from "./models/IssueSampleReference";
 export { IssueSamplesRelationship } from "./models/IssueSamplesRelationship";
 export { IssueSampleStackFrame } from "./models/IssueSampleStackFrame";
 export { IssueSampleType } from "./models/IssueSampleType";
+export { IssueSnoozeRequest } from "./models/IssueSnoozeRequest";
+export { IssueSnoozeRequestData } from "./models/IssueSnoozeRequestData";
+export { IssueSnoozeRequestDataAttributes } from "./models/IssueSnoozeRequestDataAttributes";
+export { IssueSnoozeRequestDataType } from "./models/IssueSnoozeRequestDataType";
 export { IssuesSearchRequest } from "./models/IssuesSearchRequest";
 export { IssuesSearchRequestData } from "./models/IssuesSearchRequestData";
 export { IssuesSearchRequestDataAttributes } from "./models/IssuesSearchRequestDataAttributes";
@@ -96,6 +101,9 @@ export { IssueWatchesRelationship } from "./models/IssueWatchesRelationship";
 export { IssueWatchReference } from "./models/IssueWatchReference";
 export { IssueWatchStatus } from "./models/IssueWatchStatus";
 export { IssueWatchType } from "./models/IssueWatchType";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { NullableUserRelationship } from "./models/NullableUserRelationship";
 export { NullableUserRelationshipData } from "./models/NullableUserRelationshipData";
 export { ProjectRelationship } from "./models/ProjectRelationship";
