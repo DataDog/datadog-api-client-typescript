@@ -26,6 +26,10 @@ import { APIErrorResponse } from "./models/APIErrorResponse";
 import { ExperimentsAnalysisPlanV2DTO } from "./models/ExperimentsAnalysisPlanV2DTO";
 import { ExperimentsAnalysisPlanV2MutationResponse } from "./models/ExperimentsAnalysisPlanV2MutationResponse";
 import { ExperimentsAnalysisPlanWriteV2Request } from "./models/ExperimentsAnalysisPlanWriteV2Request";
+import { ExperimentsBanditResultsV2DTO } from "./models/ExperimentsBanditResultsV2DTO";
+import { ExperimentsBanditTrafficSummaryV2DTO } from "./models/ExperimentsBanditTrafficSummaryV2DTO";
+import { ExperimentsBanditV2DTO } from "./models/ExperimentsBanditV2DTO";
+import { ExperimentsBanditV2ListDTOArray } from "./models/ExperimentsBanditV2ListDTOArray";
 import { ExperimentsCancelExperimentV2Request } from "./models/ExperimentsCancelExperimentV2Request";
 import { ExperimentsConcludeExperimentV2Request } from "./models/ExperimentsConcludeExperimentV2Request";
 import { ExperimentsCreateExperimentMetricGroupV2Request } from "./models/ExperimentsCreateExperimentMetricGroupV2Request";
@@ -1193,6 +1197,214 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getBandit(
+    banditId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["ExperimentsApi.v2.getBandit"]) {
+      throw new Error(
+        "Unstable operation 'getBandit' is disabled. Enable it by setting `configuration.unstableOperations['ExperimentsApi.v2.getBandit'] = true`",
+      );
+    }
+
+    // verify required parameter 'banditId' is not null or undefined
+    if (banditId === null || banditId === undefined) {
+      throw new RequiredError("banditId", "getBandit");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/experiments/bandits/{bandit_id}".replace(
+      "{bandit_id}",
+      encodeURIComponent(String(banditId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.getBandit",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getBanditResults(
+    banditId: string,
+    start?: Date,
+    end?: Date,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["ExperimentsApi.v2.getBanditResults"]) {
+      throw new Error(
+        "Unstable operation 'getBanditResults' is disabled. Enable it by setting `configuration.unstableOperations['ExperimentsApi.v2.getBanditResults'] = true`",
+      );
+    }
+
+    // verify required parameter 'banditId' is not null or undefined
+    if (banditId === null || banditId === undefined) {
+      throw new RequiredError("banditId", "getBanditResults");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/experiments/bandits/{bandit_id}/results".replace(
+        "{bandit_id}",
+        encodeURIComponent(String(banditId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.getBanditResults",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (start !== undefined) {
+      requestContext.setQueryParam(
+        "start",
+        serialize(start, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+    if (end !== undefined) {
+      requestContext.setQueryParam(
+        "end",
+        serialize(end, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getBanditTrafficSummary(
+    banditId: string,
+    start?: Date,
+    end?: Date,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["ExperimentsApi.v2.getBanditTrafficSummary"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getBanditTrafficSummary' is disabled. Enable it by setting `configuration.unstableOperations['ExperimentsApi.v2.getBanditTrafficSummary'] = true`",
+      );
+    }
+
+    // verify required parameter 'banditId' is not null or undefined
+    if (banditId === null || banditId === undefined) {
+      throw new RequiredError("banditId", "getBanditTrafficSummary");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/experiments/bandits/{bandit_id}/traffic-summary".replace(
+        "{bandit_id}",
+        encodeURIComponent(String(banditId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.getBanditTrafficSummary",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (start !== undefined) {
+      requestContext.setQueryParam(
+        "start",
+        serialize(start, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+    if (end !== undefined) {
+      requestContext.setQueryParam(
+        "end",
+        serialize(end, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getExperiment(
     experimentId: string,
     _options?: Configuration,
@@ -1777,6 +1989,111 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "include",
         serialize(include, TypingInfo, "string", ""),
         "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listBandits(
+    pageOffset?: number,
+    pageLimit?: number,
+    search?: string,
+    sort?: string,
+    status?: Array<string>,
+    subjectTypeId?: Array<string>,
+    tags?: Array<string>,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["ExperimentsApi.v2.listBandits"]) {
+      throw new Error(
+        "Unstable operation 'listBandits' is disabled. Enable it by setting `configuration.unstableOperations['ExperimentsApi.v2.listBandits'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/experiments/bandits";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.listBandits",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        serialize(pageOffset, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        serialize(pageLimit, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (search !== undefined) {
+      requestContext.setQueryParam(
+        "search",
+        serialize(search, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (status !== undefined) {
+      requestContext.setQueryParam(
+        "status",
+        serialize(status, TypingInfo, "Array<string>", ""),
+        "multi",
+      );
+    }
+    if (subjectTypeId !== undefined) {
+      requestContext.setQueryParam(
+        "subject_type_id",
+        serialize(subjectTypeId, TypingInfo, "Array<string>", "uuid"),
+        "multi",
+      );
+    }
+    if (tags !== undefined) {
+      requestContext.setQueryParam(
+        "tags",
+        serialize(tags, TypingInfo, "Array<string>", ""),
+        "multi",
       );
     }
 
@@ -5061,6 +5378,252 @@ export class ExperimentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getBandit
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getBandit(
+    response: ResponseContext,
+  ): Promise<ExperimentsBanditV2DTO> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ExperimentsBanditV2DTO = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditV2DTO",
+      ) as ExperimentsBanditV2DTO;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsBanditV2DTO = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditV2DTO",
+        "",
+      ) as ExperimentsBanditV2DTO;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getBanditResults
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getBanditResults(
+    response: ResponseContext,
+  ): Promise<ExperimentsBanditResultsV2DTO> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ExperimentsBanditResultsV2DTO = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditResultsV2DTO",
+      ) as ExperimentsBanditResultsV2DTO;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsBanditResultsV2DTO = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditResultsV2DTO",
+        "",
+      ) as ExperimentsBanditResultsV2DTO;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getBanditTrafficSummary
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getBanditTrafficSummary(
+    response: ResponseContext,
+  ): Promise<ExperimentsBanditTrafficSummaryV2DTO> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ExperimentsBanditTrafficSummaryV2DTO = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditTrafficSummaryV2DTO",
+      ) as ExperimentsBanditTrafficSummaryV2DTO;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsBanditTrafficSummaryV2DTO = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditTrafficSummaryV2DTO",
+        "",
+      ) as ExperimentsBanditTrafficSummaryV2DTO;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getExperiment
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5952,6 +6515,87 @@ export class ExperimentsApiResponseProcessor {
         "ExperimentsSubjectTypeV2DTO",
         "",
       ) as ExperimentsSubjectTypeV2DTO;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listBandits
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listBandits(
+    response: ResponseContext,
+  ): Promise<ExperimentsBanditV2ListDTOArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ExperimentsBanditV2ListDTOArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditV2ListDTOArray",
+      ) as ExperimentsBanditV2ListDTOArray;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsBanditV2ListDTOArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditV2ListDTOArray",
+        "",
+      ) as ExperimentsBanditV2ListDTOArray;
       return body;
     }
 
@@ -8168,6 +8812,50 @@ export interface ExperimentsApiDeleteSubjectTypeRequest {
   subjectTypeId: string;
 }
 
+export interface ExperimentsApiGetBanditRequest {
+  /**
+   * The UUID of the bandit.
+   * @type string
+   */
+  banditId: string;
+}
+
+export interface ExperimentsApiGetBanditResultsRequest {
+  /**
+   * The UUID of the bandit.
+   * @type string
+   */
+  banditId: string;
+  /**
+   * Return only point estimates from refreshes saved at or after this RFC3339 timestamp. Inclusive.
+   * @type Date
+   */
+  start?: Date;
+  /**
+   * Return only point estimates from refreshes saved before this RFC3339 timestamp. Exclusive.
+   * @type Date
+   */
+  end?: Date;
+}
+
+export interface ExperimentsApiGetBanditTrafficSummaryRequest {
+  /**
+   * The UUID of the bandit.
+   * @type string
+   */
+  banditId: string;
+  /**
+   * Return only the UTC days that overlap the range starting at this RFC3339 timestamp. Inclusive.
+   * @type Date
+   */
+  start?: Date;
+  /**
+   * Return only the UTC days that overlap the range ending at this RFC3339 timestamp. Exclusive.
+   * @type Date
+   */
+  end?: Date;
+}
+
 export interface ExperimentsApiGetExperimentRequest {
   /**
    * The UUID of the experiment.
@@ -8277,6 +8965,48 @@ export interface ExperimentsApiGetSubjectTypeRequest {
    * @type string
    */
   include?: string;
+}
+
+export interface ExperimentsApiListBanditsRequest {
+  /**
+   * Number of results to skip for pagination. Defaults to 0 when omitted.
+   * @type number
+   */
+  pageOffset?: number;
+  /**
+   * Maximum number of results to return. Defaults to 25 when omitted, and is capped at 50 (larger values are clamped to 50). The response includes meta.page (with total) and pagination links.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * Find bandits whose names contain the search text, regardless of case.
+   * @type string
+   */
+  search?: string;
+  /**
+   * Sort fields: name, created_at, or updated_at. Use a comma-separated list in priority order, for example name,-created_at. Prefix each field with `-` for descending. Defaults to created_at descending.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * Filter by bandit status. Accepted values are DRAFT, SCHEDULED, RUNNING, PAUSED, STOPPED, and COMPLETED.
+   * Repeat this parameter to select several statuses, for example `status=RUNNING&status=PAUSED`.
+   * @type Array<string>
+   */
+  status?: Array<string>;
+  /**
+   * Filter by subject type UUID. Repeat this parameter to supply several IDs. A bandit matches if it uses any
+   * listed subject type.
+   * @type Array<string>
+   */
+  subjectTypeId?: Array<string>;
+  /**
+   * Filter by tag name. Repeat this parameter to supply several tags. A bandit matches if it has at least one
+   * listed tag. Use `team:<handle>` to filter by team. When both tags and teams are given, a bandit must match
+   * one of each.
+   * @type Array<string>
+   */
+  tags?: Array<string>;
 }
 
 export interface ExperimentsApiListExperimentHoldoutsRequest {
@@ -9188,6 +9918,75 @@ export class ExperimentsApi {
   }
 
   /**
+   * Get a bandit: its setup, the policy it serves, its latest refresh, and the arm most likely to be best. When the caller lacks feature flag and environment read permissions, the response omits `datadog_flag_configuration` and `meta.warnings` includes `datadog_flag_configuration_omitted`. Bandits must be enabled for the organization.
+   * @param param The request object
+   */
+  public getBandit(
+    param: ExperimentsApiGetBanditRequest,
+    options?: Configuration,
+  ): Promise<ExperimentsBanditV2DTO> {
+    const requestContextPromise = this.requestFactory.getBandit(
+      param.banditId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getBandit(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get what a bandit's refreshes have learned: each arm's estimate and probability of being best from the latest saved refresh, and each arm's point estimate over time. `start` and `end` narrow only `point_estimates`; the latest estimates ignore them. Observation counts are on Get bandit traffic summary. Bandits must be enabled for the organization.
+   * @param param The request object
+   */
+  public getBanditResults(
+    param: ExperimentsApiGetBanditResultsRequest,
+    options?: Configuration,
+  ): Promise<ExperimentsBanditResultsV2DTO> {
+    const requestContextPromise = this.requestFactory.getBanditResults(
+      param.banditId,
+      param.start,
+      param.end,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getBanditResults(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get what a bandit has observed, as of its latest saved refresh: observation counts, subjects, and each arm's valid observations and subjects in total and per UTC day. An observation is a subject's reward on the arm it was exposed to, counted on the UTC day of its anchor time. `start` and `end` narrow only `daily`; the totals ignore them. Bandits must be enabled for the organization.
+   * @param param The request object
+   */
+  public getBanditTrafficSummary(
+    param: ExperimentsApiGetBanditTrafficSummaryRequest,
+    options?: Configuration,
+  ): Promise<ExperimentsBanditTrafficSummaryV2DTO> {
+    const requestContextPromise = this.requestFactory.getBanditTrafficSummary(
+      param.banditId,
+      param.start,
+      param.end,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getBanditTrafficSummary(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Get a complete experiment by ID. The response includes structured metadata, related links, and, when a complete setup exists, decision metrics, variants, `warehouse_exposure_configuration`, `datadog_flag_configuration`, STATIC or STEPS traffic exposure, and assignment and event dates. STEPS describes the configured plan rather than wall-clock history; Datadog step durations exclude pauses. The list endpoint omits these setup details.
    * @param param The request object
    */
@@ -9425,6 +10224,33 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSubjectType(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List the organization's bandits, newest first by default. Each item is a summary; use Get bandit for its setup, active policy, and latest refresh. Bandits must be enabled for the organization.
+   * @param param The request object
+   */
+  public listBandits(
+    param: ExperimentsApiListBanditsRequest = {},
+    options?: Configuration,
+  ): Promise<ExperimentsBanditV2ListDTOArray> {
+    const requestContextPromise = this.requestFactory.listBandits(
+      param.pageOffset,
+      param.pageLimit,
+      param.search,
+      param.sort,
+      param.status,
+      param.subjectTypeId,
+      param.tags,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listBandits(responseContext);
         });
     });
   }
