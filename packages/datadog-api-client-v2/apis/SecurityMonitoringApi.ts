@@ -30527,7 +30527,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new critical asset.
+   * Create a new dynamic severity rule (previously called critical assets).
    * @param param The request object
    */
   public createSecurityMonitoringCriticalAsset(
@@ -31071,7 +31071,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a specific critical asset.
+   * Delete a specific dynamic severity rule (previously called critical assets).
    * @param param The request object
    */
   public deleteSecurityMonitoringCriticalAsset(
@@ -31452,7 +31452,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Get the list of critical assets that affect a specific existing rule by the rule's ID.
+   * Get the list of dynamic severity rules (previously called critical assets) that affect a specific existing rule by the rule's ID.
    * @param param The request object
    */
   public getCriticalAssetsAffectingRule(
@@ -31951,7 +31951,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Get the details of a specific critical asset.
+   * Get the details of a specific dynamic severity rule (previously called critical assets).
    * @param param The request object
    */
   public getSecurityMonitoringCriticalAsset(
@@ -33283,7 +33283,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Get the list of all critical assets.
+   * Get the list of all dynamic severity rules (previously called critical assets).
    * @param param The request object
    */
   public listSecurityMonitoringCriticalAssets(
@@ -34672,7 +34672,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Update a specific critical asset.
+   * Update a specific dynamic severity rule (previously called critical assets).
    * @param param The request object
    */
   public updateSecurityMonitoringCriticalAsset(
