@@ -5299,6 +5299,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AiGatewayRateLimitResponse",
   },
+  "AIGatewayApi.V2.ListAiGatewayRateLimitInstancesSummaries": {
+    operationResponseType: "AiGatewayRateLimitInstancesSummaryListResponse",
+  },
   "AIGatewayApi.V2.GetAiGatewayRateLimitUsage": {
     operationResponseType: "AiGatewayRateLimitUsageListResponse",
   },

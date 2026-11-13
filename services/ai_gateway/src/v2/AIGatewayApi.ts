@@ -64,6 +64,7 @@ import { AiGatewayProviderUpdateRequest } from "./models/AiGatewayProviderUpdate
 import { AiGatewayRateLimitCreateRequest } from "./models/AiGatewayRateLimitCreateRequest";
 import { AiGatewayRateLimitInstanceListResponse } from "./models/AiGatewayRateLimitInstanceListResponse";
 import { AiGatewayRateLimitInstanceSort } from "./models/AiGatewayRateLimitInstanceSort";
+import { AiGatewayRateLimitInstancesSummaryListResponse } from "./models/AiGatewayRateLimitInstancesSummaryListResponse";
 import { AiGatewayRateLimitInstancesSummaryResponse } from "./models/AiGatewayRateLimitInstancesSummaryResponse";
 import { AiGatewayRateLimitListResponse } from "./models/AiGatewayRateLimitListResponse";
 import { AiGatewayRateLimitResponse } from "./models/AiGatewayRateLimitResponse";
@@ -2678,6 +2679,57 @@ export class AIGatewayApiRequestFactory extends BaseAPIRequestFactory {
         serialize(offset, TypingInfo, "number", "int64"),
         "",
       );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listAiGatewayRateLimitInstancesSummaries(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "AIGatewayApi.v2.listAiGatewayRateLimitInstancesSummaries"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listAiGatewayRateLimitInstancesSummaries' is disabled. Enable it by setting `configuration.unstableOperations['AIGatewayApi.v2.listAiGatewayRateLimitInstancesSummaries'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/rate-limits/instances/summary";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AIGatewayApi.v2.listAiGatewayRateLimitInstancesSummaries",
+      AIGatewayApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -5942,6 +5994,62 @@ export class AIGatewayApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listAiGatewayRateLimitInstancesSummaries
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listAiGatewayRateLimitInstancesSummaries(
+    response: ResponseContext,
+  ): Promise<AiGatewayRateLimitInstancesSummaryListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: AiGatewayRateLimitInstancesSummaryListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AiGatewayRateLimitInstancesSummaryListResponse",
+      ) as AiGatewayRateLimitInstancesSummaryListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AiGatewayRateLimitInstancesSummaryListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AiGatewayRateLimitInstancesSummaryListResponse",
+        "",
+      ) as AiGatewayRateLimitInstancesSummaryListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAiGatewayRateLimits
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7979,7 +8087,7 @@ export class AIGatewayApi {
   }
 
   /**
-   * Aggregate a template rate limit's counters, including how many there are, how many are near or at their limit, and the fullest counter's utilization. Use split_dim to aggregate only counters that match every given dimension value. When the caller can't see the template's selector, every count is zero and scope_restricted is true. Summaries are cached for up to 15 seconds. Returns 503 when counter usage can't be read.
+   * Aggregate a template rate limit's hot counters (those near or at a limit, or limiting, in the last hour), including how many there are, how many are near or at their limit, and the fullest counter's utilization. Use split_dim to aggregate only counters that match every given dimension value. When the caller can't see the template's selector, every count is zero and scope_restricted is true. Summaries are cached for up to 15 seconds. Returns 503 when counter usage can't be read.
    * @param param The request object
    */
   public getAiGatewayRateLimitInstancesSummary(
@@ -8253,7 +8361,7 @@ export class AIGatewayApi {
   }
 
   /**
-   * List the counters of a template rate limit, one per matched user, Team, or value, with their live usage. Counters appear within a few minutes of their first request and are dropped after 30 days without one. Usage is read for counters seen in the last 20 minutes, at most 200 per request; past that, rows carry usage_known false. Counters for a provider or model the caller can't see are left out, and when the caller can't see the template's selector, the list is empty. A rate limit with one shared allowance, including one whose selector has no per_value entry, returns an empty list. Returns 503 when counter usage can't be read.
+   * List the hot counters of a template rate limit, one per matched user, Team, or value, with their live usage. Only counters at 80% or more of a limit, or that limited or would have limited a request, in the last hour are listed. A counter appears within a few minutes of becoming hot. Usage is read for at most 200 counters per request; past that, rows carry usage_known false. Counters for a provider or model the caller can't see are left out, and when the caller can't see the template's selector, the list is empty. A rate limit with one shared allowance, including one whose selector has no per_value entry, returns an empty list. Returns 503 when counter usage can't be read.
    * @param param The request object
    */
   public listAiGatewayRateLimitInstances(
@@ -8274,6 +8382,26 @@ export class AIGatewayApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listAiGatewayRateLimitInstances(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Aggregate the counters of every template rate limit in the organization in one call, with one summary per template in the order the rate limit list returns them. Each summary is the one the single-template counter summary endpoint returns without split_dim, including scope_restricted and truncated. Rate limits with one shared allowance are left out. Summaries are cached for up to 15 seconds.
+   * @param param The request object
+   */
+  public listAiGatewayRateLimitInstancesSummaries(
+    options?: Configuration,
+  ): Promise<AiGatewayRateLimitInstancesSummaryListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listAiGatewayRateLimitInstancesSummaries(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAiGatewayRateLimitInstancesSummaries(
             responseContext,
           );
         });
