@@ -16,6 +16,10 @@ import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
  */
 export class Allocation {
   /**
+   * The bandit that serves through this targeting rule allocation. Absent when no bandit uses it. Until the bandit ends, only the bandit's own operations can change or delete the allocation; its position among the flag's targeting rules can still change.
+   */
+  "banditId"?: string;
+  /**
    * The timestamp when the targeting rule allocation was created.
    */
   "createdAt": Date;
@@ -84,6 +88,11 @@ export class Allocation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    banditId: {
+      baseName: "bandit_id",
+      type: "string",
+      format: "uuid",
+    },
     createdAt: {
       baseName: "created_at",
       type: "Date",

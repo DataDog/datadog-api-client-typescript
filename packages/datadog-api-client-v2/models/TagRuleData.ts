@@ -26,7 +26,7 @@ export class TagRuleData {
    */
   "relationships"?: TagRuleRelationships;
   /**
-   * JSON:API resource type for a tag rule.
+   * JSON:API resource type for a tag rule. Requests accept `tag_rule` or `tag_policy`; responses use `tag_policy`.
    */
   "type": TagRuleResourceType;
 
