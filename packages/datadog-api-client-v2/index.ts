@@ -2203,6 +2203,7 @@ export {
   UsageMeteringApiGetTemporaryGrantRequestRequest,
   UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
   UsageMeteringApiGetUsageLambdaTracedInvocationsRequest,
+  UsageMeteringApiGetUsageMonthlyResourcesRequest,
   UsageMeteringApiGetUsageObservabilityPipelinesRequest,
   UsageMeteringApiListMyTemporaryGrantRequestsRequest,
   UsageMeteringApiListQuotasRequest,
@@ -7405,6 +7406,13 @@ export { MonthlyCostAttributionBody } from "./models/MonthlyCostAttributionBody"
 export { MonthlyCostAttributionMeta } from "./models/MonthlyCostAttributionMeta";
 export { MonthlyCostAttributionPagination } from "./models/MonthlyCostAttributionPagination";
 export { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionResponse";
+export { MonthlyResource } from "./models/MonthlyResource";
+export { MonthlyResourceAttributes } from "./models/MonthlyResourceAttributes";
+export { MonthlyResourcesMetadata } from "./models/MonthlyResourcesMetadata";
+export { MonthlyResourcesPagination } from "./models/MonthlyResourcesPagination";
+export { MonthlyResourcesResponse } from "./models/MonthlyResourcesResponse";
+export { MonthlyResourcesView } from "./models/MonthlyResourcesView";
+export { MonthlyResourceType } from "./models/MonthlyResourceType";
 export { MSTeamsIntegrationMetadata } from "./models/MSTeamsIntegrationMetadata";
 export { MSTeamsIntegrationMetadataTeamsItem } from "./models/MSTeamsIntegrationMetadataTeamsItem";
 export { MuteDataType } from "./models/MuteDataType";
