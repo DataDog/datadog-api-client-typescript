@@ -3208,6 +3208,9 @@ import { IssueSampleGitFileLocation } from "./IssueSampleGitFileLocation";
 import { IssueSampleReference } from "./IssueSampleReference";
 import { IssueSampleStackFrame } from "./IssueSampleStackFrame";
 import { IssueSamplesRelationship } from "./IssueSamplesRelationship";
+import { IssueSnoozeRequest } from "./IssueSnoozeRequest";
+import { IssueSnoozeRequestData } from "./IssueSnoozeRequestData";
+import { IssueSnoozeRequestDataAttributes } from "./IssueSnoozeRequestDataAttributes";
 import { IssueTeam } from "./IssueTeam";
 import { IssueTeamAttributes } from "./IssueTeamAttributes";
 import { IssueTeamOwnersRelationship } from "./IssueTeamOwnersRelationship";
@@ -8872,6 +8875,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IssueSampleDataSource: ["APM", "LOGS", "RUM", "LLMOBS", "SYNTHETICS", "NONE"],
   IssueSampleType: ["error_tracking_issue_sample"],
+  IssueSnoozeRequestDataType: ["error_tracking_issue"],
   IssueState: ["OPEN", "ACKNOWLEDGED", "RESOLVED", "IGNORED", "EXCLUDED"],
   IssueTeamType: ["team"],
   IssueType: ["issue"],
@@ -10965,8 +10969,8 @@ const enumsMap: { [key: string]: any[] } = {
   TagIndexingRuleType: ["tag_indexing_rules"],
   TagRuleCreateType: ["surfacing"],
   TagRuleInclude: ["score"],
-  TagRuleResourceType: ["tag_rule"],
-  TagRuleScoreResourceType: ["tag_rule_score"],
+  TagRuleResourceType: ["tag_rule", "tag_policy"],
+  TagRuleScoreResourceType: ["tag_rule_score", "tag_policy_score"],
   TagRuleSource: ["logs", "spans", "metrics", "rum", "feed"],
   TagRuleType: ["blocking", "surfacing"],
   TeamConnectionType: ["team_connection"],
@@ -15222,6 +15226,9 @@ const typeMap: { [index: string]: any } = {
   IssueSampleReference: IssueSampleReference,
   IssueSampleStackFrame: IssueSampleStackFrame,
   IssueSamplesRelationship: IssueSamplesRelationship,
+  IssueSnoozeRequest: IssueSnoozeRequest,
+  IssueSnoozeRequestData: IssueSnoozeRequestData,
+  IssueSnoozeRequestDataAttributes: IssueSnoozeRequestDataAttributes,
   IssueTeam: IssueTeam,
   IssueTeamAttributes: IssueTeamAttributes,
   IssueTeamOwnersRelationship: IssueTeamOwnersRelationship,

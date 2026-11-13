@@ -767,6 +767,7 @@ export {
   ErrorTrackingApiDeleteIssueAssigneeRequest,
   ErrorTrackingApiGetIssueRequest,
   ErrorTrackingApiSearchIssuesRequest,
+  ErrorTrackingApiSnoozeIssueRequest,
   ErrorTrackingApiUpdateIssueAssigneeRequest,
   ErrorTrackingApiUpdateIssueStateRequest,
   ErrorTrackingApi,
@@ -6414,6 +6415,10 @@ export { IssueSampleReference } from "./models/IssueSampleReference";
 export { IssueSamplesRelationship } from "./models/IssueSamplesRelationship";
 export { IssueSampleStackFrame } from "./models/IssueSampleStackFrame";
 export { IssueSampleType } from "./models/IssueSampleType";
+export { IssueSnoozeRequest } from "./models/IssueSnoozeRequest";
+export { IssueSnoozeRequestData } from "./models/IssueSnoozeRequestData";
+export { IssueSnoozeRequestDataAttributes } from "./models/IssueSnoozeRequestDataAttributes";
+export { IssueSnoozeRequestDataType } from "./models/IssueSnoozeRequestDataType";
 export { IssuesSearchRequest } from "./models/IssuesSearchRequest";
 export { IssuesSearchRequestData } from "./models/IssuesSearchRequestData";
 export { IssuesSearchRequestDataAttributes } from "./models/IssuesSearchRequestDataAttributes";

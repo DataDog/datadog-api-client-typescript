@@ -20,10 +20,12 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { GetIssueIncludeQueryParameterItem } from "../models/GetIssueIncludeQueryParameterItem";
 import { IssueResponse } from "../models/IssueResponse";
 import { IssueSampleBias } from "../models/IssueSampleBias";
+import { IssueSnoozeRequest } from "../models/IssueSnoozeRequest";
 import { IssuesSearchRequest } from "../models/IssuesSearchRequest";
 import { IssuesSearchResponse } from "../models/IssuesSearchResponse";
 import { IssueUpdateAssigneeRequest } from "../models/IssueUpdateAssigneeRequest";
 import { IssueUpdateStateRequest } from "../models/IssueUpdateStateRequest";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { SearchIssuesIncludeQueryParameterItem } from "../models/SearchIssuesIncludeQueryParameterItem";
 
 export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
@@ -179,6 +181,69 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IssuesSearchRequest", ""),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async snoozeIssue(
+    issueId: string,
+    body: IssueSnoozeRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'snoozeIssue'");
+    if (!_config.unstableOperations["v2.snoozeIssue"]) {
+      throw new Error("Unstable operation 'snoozeIssue' is disabled");
+    }
+
+    // verify required parameter 'issueId' is not null or undefined
+    if (issueId === null || issueId === undefined) {
+      throw new RequiredError("issueId", "snoozeIssue");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "snoozeIssue");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/error-tracking/issues/{issue_id}/snooze".replace(
+        "{issue_id}",
+        encodeURIComponent(String(issueId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.ErrorTrackingApi.snoozeIssue")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "IssueSnoozeRequest", ""),
       contentType,
       this.configuration.preserveLargeIntegers
     );
@@ -531,6 +596,106 @@ export class ErrorTrackingApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to snoozeIssue
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async snoozeIssue(response: ResponseContext): Promise<IssueResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IssueResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "IssueResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as IssueResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IssueResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "IssueResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as IssueResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateIssueAssignee
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -725,6 +890,19 @@ export interface ErrorTrackingApiSearchIssuesRequest {
   include?: Array<SearchIssuesIncludeQueryParameterItem>;
 }
 
+export interface ErrorTrackingApiSnoozeIssueRequest {
+  /**
+   * The identifier of the issue.
+   * @type string
+   */
+  issueId: string;
+  /**
+   * Snooze issue request payload.
+   * @type IssueSnoozeRequest
+   */
+  body: IssueSnoozeRequest;
+}
+
 export interface ErrorTrackingApiUpdateIssueAssigneeRequest {
   /**
    * The identifier of the issue.
@@ -832,6 +1010,33 @@ export class ErrorTrackingApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.searchIssues(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Snooze an issue by `issue_id`: move it to `IGNORED` until a condition is met, then back to `OPEN`.
+   * The condition can be a number of occurrences, a number of distinct values of an attribute such as `@usr.id`,
+   * an elapsed time, or any or all of several conditions.
+   * Snoozing an issue that is already snoozed replaces its snooze. Updating the state of the issue with
+   * `UpdateIssueState` cancels the snooze.
+   * The response includes the watch that reopens the issue.
+   * @param param The request object
+   */
+  public snoozeIssue(
+    param: ErrorTrackingApiSnoozeIssueRequest,
+    options?: Configuration
+  ): Promise<IssueResponse> {
+    const requestContextPromise = this.requestFactory.snoozeIssue(
+      param.issueId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.snoozeIssue(responseContext);
         });
     });
   }
