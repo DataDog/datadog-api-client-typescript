@@ -35,6 +35,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
               requestType: "topology",
               query: {
                 dataSource: "data_streams",
+                service: "",
                 filters: ["env:prod"],
                 queryString: "service:myservice",
               },
