@@ -28,8 +28,7 @@ export class MonitorFormulaAndFunctionDataQualityQueryDefinition {
    * The data quality measure to query. Common values include:
    * `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`,
    * `nullness`, `percent_negative`, `percent_zero`, `row_count`, `stddev`,
-   * `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`.
-   * Additional values may be supported.
+   * `sum`, `uniqueness`. Additional values may be supported.
    */
   "measure": string;
   /**
@@ -40,11 +39,6 @@ export class MonitorFormulaAndFunctionDataQualityQueryDefinition {
    * Name of the query for use in formulas.
    */
   "name": string;
-  /**
-   * Optional filter on individual runs, using metrics filter syntax.
-   * Only supported by `data-jobs alert` job duration monitors.
-   */
-  "runFilter"?: string;
   /**
    * Schema version for the data quality query.
    */
@@ -98,10 +92,6 @@ export class MonitorFormulaAndFunctionDataQualityQueryDefinition {
       baseName: "name",
       type: "string",
       required: true,
-    },
-    runFilter: {
-      baseName: "run_filter",
-      type: "string",
     },
     schemaVersion: {
       baseName: "schema_version",

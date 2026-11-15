@@ -1183,9 +1183,35 @@ import { CostMetricsResponse } from "./CostMetricsResponse";
 import { CostOrchestrator } from "./CostOrchestrator";
 import { CostOrchestratorsResponse } from "./CostOrchestratorsResponse";
 import { CostRecommendationArray } from "./CostRecommendationArray";
+import { CostRecommendationCustomRuleAttributes } from "./CostRecommendationCustomRuleAttributes";
+import { CostRecommendationCustomRuleCreateAttributes } from "./CostRecommendationCustomRuleCreateAttributes";
+import { CostRecommendationCustomRuleCreateData } from "./CostRecommendationCustomRuleCreateData";
+import { CostRecommendationCustomRuleCreateRequest } from "./CostRecommendationCustomRuleCreateRequest";
+import { CostRecommendationCustomRuleData } from "./CostRecommendationCustomRuleData";
+import { CostRecommendationCustomRuleFilter } from "./CostRecommendationCustomRuleFilter";
+import { CostRecommendationCustomRuleResponse } from "./CostRecommendationCustomRuleResponse";
+import { CostRecommendationCustomRuleUpdateAttributes } from "./CostRecommendationCustomRuleUpdateAttributes";
+import { CostRecommendationCustomRuleUpdateData } from "./CostRecommendationCustomRuleUpdateData";
+import { CostRecommendationCustomRuleUpdateRequest } from "./CostRecommendationCustomRuleUpdateRequest";
+import { CostRecommendationCustomRulesResponse } from "./CostRecommendationCustomRulesResponse";
 import { CostRecommendationData } from "./CostRecommendationData";
 import { CostRecommendationDataAttributes } from "./CostRecommendationDataAttributes";
 import { CostRecommendationDataAttributesPotentialDailySavings } from "./CostRecommendationDataAttributesPotentialDailySavings";
+import { CostRecommendationNotificationRuleAttributes } from "./CostRecommendationNotificationRuleAttributes";
+import { CostRecommendationNotificationRuleCreateAttributes } from "./CostRecommendationNotificationRuleCreateAttributes";
+import { CostRecommendationNotificationRuleCreateData } from "./CostRecommendationNotificationRuleCreateData";
+import { CostRecommendationNotificationRuleCreateRequest } from "./CostRecommendationNotificationRuleCreateRequest";
+import { CostRecommendationNotificationRuleData } from "./CostRecommendationNotificationRuleData";
+import { CostRecommendationNotificationRuleMessageAction } from "./CostRecommendationNotificationRuleMessageAction";
+import { CostRecommendationNotificationRuleMessageActions } from "./CostRecommendationNotificationRuleMessageActions";
+import { CostRecommendationNotificationRuleMessageCustomization } from "./CostRecommendationNotificationRuleMessageCustomization";
+import { CostRecommendationNotificationRuleMessageCustomizationHeader } from "./CostRecommendationNotificationRuleMessageCustomizationHeader";
+import { CostRecommendationNotificationRuleMessageCustomizationPerRec } from "./CostRecommendationNotificationRuleMessageCustomizationPerRec";
+import { CostRecommendationNotificationRuleResponse } from "./CostRecommendationNotificationRuleResponse";
+import { CostRecommendationNotificationRuleUpdateAttributes } from "./CostRecommendationNotificationRuleUpdateAttributes";
+import { CostRecommendationNotificationRuleUpdateData } from "./CostRecommendationNotificationRuleUpdateData";
+import { CostRecommendationNotificationRuleUpdateRequest } from "./CostRecommendationNotificationRuleUpdateRequest";
+import { CostRecommendationNotificationRulesResponse } from "./CostRecommendationNotificationRulesResponse";
 import { CostTag } from "./CostTag";
 import { CostTagAttributes } from "./CostTagAttributes";
 import { CostTagDescription } from "./CostTagDescription";
@@ -7870,7 +7896,27 @@ const enumsMap: { [key: string]: any[] } = {
   CostCurrencyType: ["cost_currency"],
   CostMetricType: ["cost_metric"],
   CostOrchestratorType: ["cost_orchestrator"],
+  CostRecommendationCustomRuleFilterType: [
+    "is",
+    "is_not",
+    "contains",
+    "does_not_contain",
+    "like",
+    "not_like",
+    "all",
+    "untagged",
+  ],
+  CostRecommendationCustomRuleType: ["custom_rules"],
   CostRecommendationDataType: ["recommendation"],
+  CostRecommendationNotificationRuleDestinationType: ["slack", "teams"],
+  CostRecommendationNotificationRuleFrequency: [
+    "weekly",
+    "biweekly",
+    "every_30",
+    "every_90",
+  ],
+  CostRecommendationNotificationRuleMessageCustomizationMode: ["structured"],
+  CostRecommendationNotificationRuleType: ["notification_rules"],
   CostTagDescriptionSource: ["human", "ai_generated", "datadog"],
   CostTagDescriptionType: ["cost_tag_description"],
   CostTagKeyMetadataType: ["cost_tag_key_metadata"],
@@ -12657,10 +12703,58 @@ const typeMap: { [index: string]: any } = {
   CostOrchestrator: CostOrchestrator,
   CostOrchestratorsResponse: CostOrchestratorsResponse,
   CostRecommendationArray: CostRecommendationArray,
+  CostRecommendationCustomRuleAttributes:
+    CostRecommendationCustomRuleAttributes,
+  CostRecommendationCustomRuleCreateAttributes:
+    CostRecommendationCustomRuleCreateAttributes,
+  CostRecommendationCustomRuleCreateData:
+    CostRecommendationCustomRuleCreateData,
+  CostRecommendationCustomRuleCreateRequest:
+    CostRecommendationCustomRuleCreateRequest,
+  CostRecommendationCustomRuleData: CostRecommendationCustomRuleData,
+  CostRecommendationCustomRuleFilter: CostRecommendationCustomRuleFilter,
+  CostRecommendationCustomRuleResponse: CostRecommendationCustomRuleResponse,
+  CostRecommendationCustomRuleUpdateAttributes:
+    CostRecommendationCustomRuleUpdateAttributes,
+  CostRecommendationCustomRuleUpdateData:
+    CostRecommendationCustomRuleUpdateData,
+  CostRecommendationCustomRuleUpdateRequest:
+    CostRecommendationCustomRuleUpdateRequest,
+  CostRecommendationCustomRulesResponse: CostRecommendationCustomRulesResponse,
   CostRecommendationData: CostRecommendationData,
   CostRecommendationDataAttributes: CostRecommendationDataAttributes,
   CostRecommendationDataAttributesPotentialDailySavings:
     CostRecommendationDataAttributesPotentialDailySavings,
+  CostRecommendationNotificationRuleAttributes:
+    CostRecommendationNotificationRuleAttributes,
+  CostRecommendationNotificationRuleCreateAttributes:
+    CostRecommendationNotificationRuleCreateAttributes,
+  CostRecommendationNotificationRuleCreateData:
+    CostRecommendationNotificationRuleCreateData,
+  CostRecommendationNotificationRuleCreateRequest:
+    CostRecommendationNotificationRuleCreateRequest,
+  CostRecommendationNotificationRuleData:
+    CostRecommendationNotificationRuleData,
+  CostRecommendationNotificationRuleMessageAction:
+    CostRecommendationNotificationRuleMessageAction,
+  CostRecommendationNotificationRuleMessageActions:
+    CostRecommendationNotificationRuleMessageActions,
+  CostRecommendationNotificationRuleMessageCustomization:
+    CostRecommendationNotificationRuleMessageCustomization,
+  CostRecommendationNotificationRuleMessageCustomizationHeader:
+    CostRecommendationNotificationRuleMessageCustomizationHeader,
+  CostRecommendationNotificationRuleMessageCustomizationPerRec:
+    CostRecommendationNotificationRuleMessageCustomizationPerRec,
+  CostRecommendationNotificationRuleResponse:
+    CostRecommendationNotificationRuleResponse,
+  CostRecommendationNotificationRuleUpdateAttributes:
+    CostRecommendationNotificationRuleUpdateAttributes,
+  CostRecommendationNotificationRuleUpdateData:
+    CostRecommendationNotificationRuleUpdateData,
+  CostRecommendationNotificationRuleUpdateRequest:
+    CostRecommendationNotificationRuleUpdateRequest,
+  CostRecommendationNotificationRulesResponse:
+    CostRecommendationNotificationRulesResponse,
   CostTag: CostTag,
   CostTagAttributes: CostTagAttributes,
   CostTagDescription: CostTagDescription,
