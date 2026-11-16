@@ -9,7 +9,7 @@ import { AiGatewayCaptureScope } from "./AiGatewayCaptureScope";
  */
 export class AiGatewayCaptureDeleteRequestDataAttributes {
   /**
-   * Opaque revision of the organization default and all overrides. Writes require the revision returned by a current read or preview.
+   * Opaque revision of the organization default and all overrides, including hidden overrides. Writes require the revision returned by a current read or preview.
    */
   "configurationRevision": string;
   /**
