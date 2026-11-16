@@ -9585,6 +9585,8 @@ export { SecurityMonitoringBatchMigrationPublishedResourceAttributes } from "./m
 export { SecurityMonitoringBatchMigrationPublishedResourceData } from "./models/SecurityMonitoringBatchMigrationPublishedResourceData";
 export { SecurityMonitoringBatchMigrationPublishedResourceStatus } from "./models/SecurityMonitoringBatchMigrationPublishedResourceStatus";
 export { SecurityMonitoringBatchMigrationPublishedResourceType } from "./models/SecurityMonitoringBatchMigrationPublishedResourceType";
+export { SecurityMonitoringBatchMigrationPublishError } from "./models/SecurityMonitoringBatchMigrationPublishError";
+export { SecurityMonitoringBatchMigrationPublishErrorDetail } from "./models/SecurityMonitoringBatchMigrationPublishErrorDetail";
 export { SecurityMonitoringBatchMigrationPublishRequest } from "./models/SecurityMonitoringBatchMigrationPublishRequest";
 export { SecurityMonitoringBatchMigrationPublishResponse } from "./models/SecurityMonitoringBatchMigrationPublishResponse";
 export { SecurityMonitoringBatchMigrationPublishType } from "./models/SecurityMonitoringBatchMigrationPublishType";
