@@ -3,6 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { FeatureFlagDistributionChannel } from "./FeatureFlagDistributionChannel";
+import { UpdateFeatureFlagStalenessStatus } from "./UpdateFeatureFlagStalenessStatus";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,6 +17,10 @@ export class UpdateFeatureFlagAttributes {
    */
   "description"?: string;
   /**
+   * The distribution channel for the feature flag.
+   */
+  "distributionChannel"?: FeatureFlagDistributionChannel;
+  /**
    * JSON schema for validation when value_type is JSON.
    */
   "jsonSchema"?: string;
@@ -22,6 +28,13 @@ export class UpdateFeatureFlagAttributes {
    * The name of the feature flag.
    */
   "name"?: string;
+  /**
+   * The lifecycle to set. `ACTIVE` makes the flag temporary; `PERMANENT` excludes it from
+   * staleness detection. Either value clears any snooze; omit the field to keep the lifecycle.
+   * Do not copy the top-level `staleness_status` from a response into this field: that legacy
+   * response field is always `ACTIVE`.
+   */
+  "stalenessStatus"?: UpdateFeatureFlagStalenessStatus;
   /**
    * Tags associated with the feature flag. This field replaces the full set of
    * existing tags; omit it to leave tags unchanged, or pass an empty array to
@@ -50,6 +63,10 @@ export class UpdateFeatureFlagAttributes {
       baseName: "description",
       type: "string",
     },
+    distributionChannel: {
+      baseName: "distribution_channel",
+      type: "FeatureFlagDistributionChannel",
+    },
     jsonSchema: {
       baseName: "json_schema",
       type: "string",
@@ -57,6 +74,10 @@ export class UpdateFeatureFlagAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    stalenessStatus: {
+      baseName: "staleness_status",
+      type: "UpdateFeatureFlagStalenessStatus",
     },
     tags: {
       baseName: "tags",

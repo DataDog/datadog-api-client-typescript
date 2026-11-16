@@ -528,6 +528,9 @@ import { ApplicationSecurityWafExclusionFilterUpdateAttributes } from "./Applica
 import { ApplicationSecurityWafExclusionFilterUpdateData } from "./ApplicationSecurityWafExclusionFilterUpdateData";
 import { ApplicationSecurityWafExclusionFilterUpdateRequest } from "./ApplicationSecurityWafExclusionFilterUpdateRequest";
 import { ApplicationSecurityWafExclusionFiltersResponse } from "./ApplicationSecurityWafExclusionFiltersResponse";
+import { ApproveFlagSuggestionAttributes } from "./ApproveFlagSuggestionAttributes";
+import { ApproveFlagSuggestionData } from "./ApproveFlagSuggestionData";
+import { ApproveFlagSuggestionRequest } from "./ApproveFlagSuggestionRequest";
 import { ArbitraryCostUpsertRequest } from "./ArbitraryCostUpsertRequest";
 import { ArbitraryCostUpsertRequestData } from "./ArbitraryCostUpsertRequestData";
 import { ArbitraryCostUpsertRequestDataAttributes } from "./ArbitraryCostUpsertRequestDataAttributes";
@@ -1295,6 +1298,9 @@ import { CreateEnvironmentRequest } from "./CreateEnvironmentRequest";
 import { CreateFeatureFlagAttributes } from "./CreateFeatureFlagAttributes";
 import { CreateFeatureFlagData } from "./CreateFeatureFlagData";
 import { CreateFeatureFlagRequest } from "./CreateFeatureFlagRequest";
+import { CreateFlagSuggestionAttributes } from "./CreateFlagSuggestionAttributes";
+import { CreateFlagSuggestionData } from "./CreateFlagSuggestionData";
+import { CreateFlagSuggestionRequest } from "./CreateFlagSuggestionRequest";
 import { CreateFormData } from "./CreateFormData";
 import { CreateFormDataAttributes } from "./CreateFormDataAttributes";
 import { CreateFormRequest } from "./CreateFormRequest";
@@ -2369,6 +2375,9 @@ import { FastlyServiceRequest } from "./FastlyServiceRequest";
 import { FastlyServiceResponse } from "./FastlyServiceResponse";
 import { FastlyServicesResponse } from "./FastlyServicesResponse";
 import { FeatureFlag } from "./FeatureFlag";
+import { FeatureFlagApprovalRequired } from "./FeatureFlagApprovalRequired";
+import { FeatureFlagApprovalRequiredAttributes } from "./FeatureFlagApprovalRequiredAttributes";
+import { FeatureFlagApprovalRequiredResponse } from "./FeatureFlagApprovalRequiredResponse";
 import { FeatureFlagAttributes } from "./FeatureFlagAttributes";
 import { FeatureFlagChangeEvent } from "./FeatureFlagChangeEvent";
 import { FeatureFlagChangeEventAttributes } from "./FeatureFlagChangeEventAttributes";
@@ -2385,6 +2394,12 @@ import { FeatureFlagResponse } from "./FeatureFlagResponse";
 import { FeatureFlagStalenessCodeReference } from "./FeatureFlagStalenessCodeReference";
 import { FeatureFlagStalenessDetails } from "./FeatureFlagStalenessDetails";
 import { FeatureFlagStalenessRecommendedAction } from "./FeatureFlagStalenessRecommendedAction";
+import { FeatureFlagSuggestion } from "./FeatureFlagSuggestion";
+import { FeatureFlagSuggestionAttributes } from "./FeatureFlagSuggestionAttributes";
+import { FeatureFlagSuggestionExperimentAction } from "./FeatureFlagSuggestionExperimentAction";
+import { FeatureFlagSuggestionMetadata } from "./FeatureFlagSuggestionMetadata";
+import { FeatureFlagSuggestionMetadataRequest } from "./FeatureFlagSuggestionMetadataRequest";
+import { FeatureFlagSuggestionResponse } from "./FeatureFlagSuggestionResponse";
 import { FeatureFlagsPaginationLinks } from "./FeatureFlagsPaginationLinks";
 import { FeatureFlagsPaginationMeta } from "./FeatureFlagsPaginationMeta";
 import { FeatureFlagsPaginationMetaPage } from "./FeatureFlagsPaginationMetaPage";
@@ -4986,6 +5001,9 @@ import { RecommendationsFilterRequestSortItems } from "./RecommendationsFilterRe
 import { RecommendationsPageMeta } from "./RecommendationsPageMeta";
 import { RecommendationsPageMetaPage } from "./RecommendationsPageMetaPage";
 import { RegisterAppKeyResponse } from "./RegisterAppKeyResponse";
+import { RejectFlagSuggestionAttributes } from "./RejectFlagSuggestionAttributes";
+import { RejectFlagSuggestionData } from "./RejectFlagSuggestionData";
+import { RejectFlagSuggestionRequest } from "./RejectFlagSuggestionRequest";
 import { RelationAttributes } from "./RelationAttributes";
 import { RelationEntity } from "./RelationEntity";
 import { RelationMeta } from "./RelationMeta";
@@ -6820,6 +6838,9 @@ import { UpdateDeploymentRuleParamsDataAttributes } from "./UpdateDeploymentRule
 import { UpdateEnvironmentAttributes } from "./UpdateEnvironmentAttributes";
 import { UpdateEnvironmentData } from "./UpdateEnvironmentData";
 import { UpdateEnvironmentRequest } from "./UpdateEnvironmentRequest";
+import { UpdateFeatureFlagApprovalsAttributes } from "./UpdateFeatureFlagApprovalsAttributes";
+import { UpdateFeatureFlagApprovalsData } from "./UpdateFeatureFlagApprovalsData";
+import { UpdateFeatureFlagApprovalsRequest } from "./UpdateFeatureFlagApprovalsRequest";
 import { UpdateFeatureFlagAttributes } from "./UpdateFeatureFlagAttributes";
 import { UpdateFeatureFlagData } from "./UpdateFeatureFlagData";
 import { UpdateFeatureFlagRequest } from "./UpdateFeatureFlagRequest";
@@ -8459,6 +8480,8 @@ const enumsMap: { [key: string]: any[] } = {
   FastlyAccountType: ["fastly-accounts"],
   FastlyIntegrationType: ["Fastly"],
   FastlyServiceType: ["fastly-services"],
+  FeatureFlagApprovalRequiredDataType: ["approval-required"],
+  FeatureFlagApprovalsDataType: ["feature-flag-approvals"],
   FeatureFlagChangeEventAction: [
     "created",
     "updated",
@@ -8504,6 +8527,19 @@ const enumsMap: { [key: string]: any[] } = {
   FeatureFlagStalenessStatus: ["ACTIVE", "STALE", "PERMANENT"],
   FeatureFlagStalenessStatusOverride: ["STALE", "PERMANENT"],
   FeatureFlagStatus: ["ENABLED", "DISABLED"],
+  FeatureFlagSuggestionAttributesCurrentStatus: [
+    "pending",
+    "approved",
+    "rejected",
+  ],
+  FeatureFlagSuggestionAttributesLifecycleStatus: [
+    "pending",
+    "approved",
+    "applied",
+    "rejected",
+    "discarded",
+  ],
+  FeatureFlagSuggestionDataType: ["flag-suggestions"],
   FilesCoverageRequestType: ["ci_app_coverage_files_request"],
   FilesCoverageResponseType: ["ci_app_coverage_files"],
   FindingDataType: ["findings"],
@@ -10078,6 +10114,7 @@ const enumsMap: { [key: string]: any[] } = {
   RetentionFilterType: ["spans-sampling-processor"],
   RetryStrategyKind: ["RETRY_STRATEGY_LINEAR"],
   RevertCustomRuleRevisionDataType: ["revert_custom_rule_revision_request"],
+  ReviewFlagSuggestionDataType: ["flag-suggestion-events"],
   RoleTemplateDataType: ["roles"],
   RolesSort: [
     "name",
@@ -11120,6 +11157,7 @@ const enumsMap: { [key: string]: any[] } = {
   UpdateConnectionRequestDataType: ["connection_id"],
   UpdateEnvironmentDataType: ["environments"],
   UpdateFeatureFlagDataType: ["feature-flags"],
+  UpdateFeatureFlagStalenessStatus: ["ACTIVE", "PERMANENT"],
   UpdateFlakyTestsRequestDataType: ["update_flaky_test_state_request"],
   UpdateFlakyTestsRequestTestNewState: [
     "active",
@@ -11926,6 +11964,9 @@ const typeMap: { [index: string]: any } = {
     ApplicationSecurityWafExclusionFilterUpdateRequest,
   ApplicationSecurityWafExclusionFiltersResponse:
     ApplicationSecurityWafExclusionFiltersResponse,
+  ApproveFlagSuggestionAttributes: ApproveFlagSuggestionAttributes,
+  ApproveFlagSuggestionData: ApproveFlagSuggestionData,
+  ApproveFlagSuggestionRequest: ApproveFlagSuggestionRequest,
   ArbitraryCostUpsertRequest: ArbitraryCostUpsertRequest,
   ArbitraryCostUpsertRequestData: ArbitraryCostUpsertRequestData,
   ArbitraryCostUpsertRequestDataAttributes:
@@ -12821,6 +12862,9 @@ const typeMap: { [index: string]: any } = {
   CreateFeatureFlagAttributes: CreateFeatureFlagAttributes,
   CreateFeatureFlagData: CreateFeatureFlagData,
   CreateFeatureFlagRequest: CreateFeatureFlagRequest,
+  CreateFlagSuggestionAttributes: CreateFlagSuggestionAttributes,
+  CreateFlagSuggestionData: CreateFlagSuggestionData,
+  CreateFlagSuggestionRequest: CreateFlagSuggestionRequest,
   CreateFormData: CreateFormData,
   CreateFormDataAttributes: CreateFormDataAttributes,
   CreateFormRequest: CreateFormRequest,
@@ -14249,6 +14293,9 @@ const typeMap: { [index: string]: any } = {
   FastlyServiceResponse: FastlyServiceResponse,
   FastlyServicesResponse: FastlyServicesResponse,
   FeatureFlag: FeatureFlag,
+  FeatureFlagApprovalRequired: FeatureFlagApprovalRequired,
+  FeatureFlagApprovalRequiredAttributes: FeatureFlagApprovalRequiredAttributes,
+  FeatureFlagApprovalRequiredResponse: FeatureFlagApprovalRequiredResponse,
   FeatureFlagAttributes: FeatureFlagAttributes,
   FeatureFlagChangeEvent: FeatureFlagChangeEvent,
   FeatureFlagChangeEventAttributes: FeatureFlagChangeEventAttributes,
@@ -14266,6 +14313,12 @@ const typeMap: { [index: string]: any } = {
   FeatureFlagStalenessCodeReference: FeatureFlagStalenessCodeReference,
   FeatureFlagStalenessDetails: FeatureFlagStalenessDetails,
   FeatureFlagStalenessRecommendedAction: FeatureFlagStalenessRecommendedAction,
+  FeatureFlagSuggestion: FeatureFlagSuggestion,
+  FeatureFlagSuggestionAttributes: FeatureFlagSuggestionAttributes,
+  FeatureFlagSuggestionExperimentAction: FeatureFlagSuggestionExperimentAction,
+  FeatureFlagSuggestionMetadata: FeatureFlagSuggestionMetadata,
+  FeatureFlagSuggestionMetadataRequest: FeatureFlagSuggestionMetadataRequest,
+  FeatureFlagSuggestionResponse: FeatureFlagSuggestionResponse,
   FeatureFlagsPaginationLinks: FeatureFlagsPaginationLinks,
   FeatureFlagsPaginationMeta: FeatureFlagsPaginationMeta,
   FeatureFlagsPaginationMetaPage: FeatureFlagsPaginationMetaPage,
@@ -17475,6 +17528,9 @@ const typeMap: { [index: string]: any } = {
   RecommendationsPageMeta: RecommendationsPageMeta,
   RecommendationsPageMetaPage: RecommendationsPageMetaPage,
   RegisterAppKeyResponse: RegisterAppKeyResponse,
+  RejectFlagSuggestionAttributes: RejectFlagSuggestionAttributes,
+  RejectFlagSuggestionData: RejectFlagSuggestionData,
+  RejectFlagSuggestionRequest: RejectFlagSuggestionRequest,
   RelationAttributes: RelationAttributes,
   RelationEntity: RelationEntity,
   RelationMeta: RelationMeta,
@@ -19857,6 +19913,9 @@ const typeMap: { [index: string]: any } = {
   UpdateEnvironmentAttributes: UpdateEnvironmentAttributes,
   UpdateEnvironmentData: UpdateEnvironmentData,
   UpdateEnvironmentRequest: UpdateEnvironmentRequest,
+  UpdateFeatureFlagApprovalsAttributes: UpdateFeatureFlagApprovalsAttributes,
+  UpdateFeatureFlagApprovalsData: UpdateFeatureFlagApprovalsData,
+  UpdateFeatureFlagApprovalsRequest: UpdateFeatureFlagApprovalsRequest,
   UpdateFeatureFlagAttributes: UpdateFeatureFlagAttributes,
   UpdateFeatureFlagData: UpdateFeatureFlagData,
   UpdateFeatureFlagRequest: UpdateFeatureFlagRequest,
