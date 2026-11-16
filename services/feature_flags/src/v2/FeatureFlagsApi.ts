@@ -3787,27 +3787,27 @@ export interface FeatureFlagsApiListFeatureFlagsRequest {
 
 export interface FeatureFlagsApiListFeatureFlagsEnvironmentsRequest {
   /**
-   * Filter environments by name (partial matching).
+   * This parameter is currently ignored. Use dd_env to filter environments.
    * @type string
    */
   name?: string;
   /**
-   * Filter environments by key (partial matching).
+   * This parameter is currently ignored. Use dd_env to filter environments.
    * @type string
    */
   key?: string;
   /**
-   * Filter environments by queries that contain the provided DD_ENV value.
+   * Filter environments whose queries list contains an exact match for the provided DD_ENV value.
    * @type string
    */
   ddEnv?: string;
   /**
-   * Maximum number of results to return.
+   * This parameter is currently ignored. All matching environments are returned.
    * @type number
    */
   limit?: number;
   /**
-   * Number of results to skip.
+   * This parameter is currently ignored. All matching environments are returned.
    * @type number
    */
   offset?: number;
@@ -4344,7 +4344,7 @@ export class FeatureFlagsApi {
 
   /**
    * Returns a list of environments for the organization.
-   * Supports filtering by name, key, and DD_ENV.
+   * Use `dd_env` to filter by an exact DD_ENV value in an environment's `queries` list.
    * @param param The request object
    */
   public listFeatureFlagsEnvironments(
@@ -4533,8 +4533,13 @@ export class FeatureFlagsApi {
   }
 
   /**
-   * Updates an existing environment's metadata such as
-   *  name and description.
+   * Updates an environment's name, DD_ENV values, and settings.
+   *
+   * Every request must include `name` and `queries`, even when changing only `observe_full_evaluation_data`.
+   * To preserve the current name and DD_ENV values, get the environment first and include those values in the request.
+   *
+   * Omitting `is_production` or `require_feature_flag_approval` resets that setting to `false`.
+   * Include their current values to preserve them. Omitting `observe_full_evaluation_data` preserves its current value.
    * @param param The request object
    */
   public updateFeatureFlagsEnvironment(
