@@ -162,6 +162,7 @@ import { AiGatewayRateLimitUpdateRequest } from "./AiGatewayRateLimitUpdateReque
 import { AiGatewayRateLimitUsageAttributes } from "./AiGatewayRateLimitUsageAttributes";
 import { AiGatewayRateLimitUsageListResponse } from "./AiGatewayRateLimitUsageListResponse";
 import { AiGatewayRateLimitUsageResource } from "./AiGatewayRateLimitUsageResource";
+import { AiGatewayRateLimitWindowLimit } from "./AiGatewayRateLimitWindowLimit";
 import { AiGatewayRestrictedDetailsMeta } from "./AiGatewayRestrictedDetailsMeta";
 import { AiGatewayRoutingClassifier } from "./AiGatewayRoutingClassifier";
 import { AiGatewayRoutingClassifierRequest } from "./AiGatewayRoutingClassifierRequest";
@@ -334,6 +335,22 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayRateLimitMode: ["ALERT", "ENFORCE"],
     AiGatewayRateLimitType: ["rate-limits"],
     AiGatewayRateLimitUsageType: ["rate-limit-usage"],
+    AiGatewayRateLimitWindowLimitMetric: [
+      "requests",
+      "input_tokens",
+      "output_tokens",
+      "cost",
+    ],
+    AiGatewayRateLimitWindowLimitWindow: [
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "3h",
+      "6h",
+      "12h",
+      "24h",
+    ],
     AiGatewayRoutingReasoningLevel: [
       "none",
       "minimal",
@@ -562,6 +579,7 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayRateLimitUsageAttributes: AiGatewayRateLimitUsageAttributes,
     AiGatewayRateLimitUsageListResponse: AiGatewayRateLimitUsageListResponse,
     AiGatewayRateLimitUsageResource: AiGatewayRateLimitUsageResource,
+    AiGatewayRateLimitWindowLimit: AiGatewayRateLimitWindowLimit,
     AiGatewayRestrictedDetailsMeta: AiGatewayRestrictedDetailsMeta,
     AiGatewayRoutingClassifier: AiGatewayRoutingClassifier,
     AiGatewayRoutingClassifierRequest: AiGatewayRoutingClassifierRequest,

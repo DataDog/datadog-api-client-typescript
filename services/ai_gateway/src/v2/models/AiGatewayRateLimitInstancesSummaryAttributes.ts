@@ -5,7 +5,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class AiGatewayRateLimitInstancesSummaryAttributes {
   /**
-   * Number of counters that were near or at a limit, or limited a request, in the last hour. Counters with room to spare aren't recorded.
+   * Number of counters that were at 80% or more of a limit, or that limited or would have limited a request, in the last hour. Other counters aren't recorded.
    */
   "instanceCount": number;
   /**
