@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CustomCostsFileLineItem } from "./CustomCostsFileLineItem";
+import { CustomCostsFilePreviewUnavailableReason } from "./CustomCostsFilePreviewUnavailableReason";
 import { CustomCostsFileUsageChargePeriod } from "./CustomCostsFileUsageChargePeriod";
 import { CustomCostsUser } from "./CustomCostsUser";
 
@@ -37,6 +38,10 @@ export class CustomCostsFileMetadataWithContent {
    * Name of the Custom Costs file.
    */
   "name"?: string;
+  /**
+   * Reason the content of the Custom Costs file is not returned. Only set when `content` is omitted.
+   */
+  "previewUnavailableReason"?: CustomCostsFilePreviewUnavailableReason;
   /**
    * Providers contained in the Custom Costs file.
    */
@@ -94,6 +99,10 @@ export class CustomCostsFileMetadataWithContent {
     name: {
       baseName: "name",
       type: "string",
+    },
+    previewUnavailableReason: {
+      baseName: "preview_unavailable_reason",
+      type: "CustomCostsFilePreviewUnavailableReason",
     },
     providerNames: {
       baseName: "provider_names",
