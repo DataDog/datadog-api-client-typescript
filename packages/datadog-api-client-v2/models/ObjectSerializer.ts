@@ -3224,6 +3224,9 @@ import { IssueSampleGitFileLocation } from "./IssueSampleGitFileLocation";
 import { IssueSampleReference } from "./IssueSampleReference";
 import { IssueSampleStackFrame } from "./IssueSampleStackFrame";
 import { IssueSamplesRelationship } from "./IssueSamplesRelationship";
+import { IssueSnoozeRequest } from "./IssueSnoozeRequest";
+import { IssueSnoozeRequestData } from "./IssueSnoozeRequestData";
+import { IssueSnoozeRequestDataAttributes } from "./IssueSnoozeRequestDataAttributes";
 import { IssueTeam } from "./IssueTeam";
 import { IssueTeamAttributes } from "./IssueTeamAttributes";
 import { IssueTeamOwnersRelationship } from "./IssueTeamOwnersRelationship";
@@ -8889,6 +8892,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IssueSampleDataSource: ["APM", "LOGS", "RUM", "LLMOBS", "SYNTHETICS", "NONE"],
   IssueSampleType: ["error_tracking_issue_sample"],
+  IssueSnoozeRequestDataType: ["error_tracking_issue"],
   IssueState: ["OPEN", "ACKNOWLEDGED", "RESOLVED", "IGNORED", "EXCLUDED"],
   IssueTeamType: ["team"],
   IssueType: ["issue"],
@@ -15256,6 +15260,9 @@ const typeMap: { [index: string]: any } = {
   IssueSampleReference: IssueSampleReference,
   IssueSampleStackFrame: IssueSampleStackFrame,
   IssueSamplesRelationship: IssueSamplesRelationship,
+  IssueSnoozeRequest: IssueSnoozeRequest,
+  IssueSnoozeRequestData: IssueSnoozeRequestData,
+  IssueSnoozeRequestDataAttributes: IssueSnoozeRequestDataAttributes,
   IssueTeam: IssueTeam,
   IssueTeamAttributes: IssueTeamAttributes,
   IssueTeamOwnersRelationship: IssueTeamOwnersRelationship,

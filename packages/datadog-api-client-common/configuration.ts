@@ -588,6 +588,7 @@ export function createConfiguration(
       "v2.updateDeploymentGate": false,
       "v2.updateDeploymentRule": false,
       "v2.getIssueImpact": false,
+      "v2.snoozeIssue": false,
       "v2.getEUDMDevice": false,
       "v2.getEUDMDevices": false,
       "v2.cloneForm": false,
