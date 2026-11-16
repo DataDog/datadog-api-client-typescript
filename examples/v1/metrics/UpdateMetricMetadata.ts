@@ -15,7 +15,10 @@ const apiInstance = new v1.MetricsApi(configuration);
 
 const params: v1.MetricsApiUpdateMetricMetadataRequest = {
   body: {
+    description: "Number of requests received.",
     perUnit: "second",
+    shortName: "requests",
+    statsdInterval: 10,
     type: "count",
     unit: "byte",
   },
