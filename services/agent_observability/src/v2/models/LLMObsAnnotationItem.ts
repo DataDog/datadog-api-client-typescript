@@ -5,6 +5,12 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class LLMObsAnnotationItem {
   /**
+   * Caller-supplied name or identifier for the external person or automated system that produced the labels.
+   * The value is stored and returned as provided. It is not a Datadog user ID or login, and it is not
+   * resolved against Datadog users.
+   */
+  "annotator"?: string;
+  /**
    * Timestamp when the annotation was created.
    */
   "createdAt": Date;
@@ -47,6 +53,10 @@ export class LLMObsAnnotationItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    annotator: {
+      baseName: "annotator",
+      type: "string",
+    },
     createdAt: {
       baseName: "created_at",
       type: "Date",
