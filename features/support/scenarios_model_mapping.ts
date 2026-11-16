@@ -10888,6 +10888,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IssueImpactResponse",
     },
+    "v2.SnoozeIssue": {
+        "issueId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IssueSnoozeRequest",
+            "format": "",
+            },
+        "operationResponseType": "IssueResponse",
+    },
     "v2.UpdateIssueState": {
         "issueId": {
             "type": "string",
