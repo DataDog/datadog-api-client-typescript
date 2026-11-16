@@ -1,16 +1,19 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { IssueImpactUser } from "./IssueImpactUser";
+
 /**
- * Monitor configuration options for data jobs queries.
+ * Users affected by the issue.
  */
-export class MonitorFormulaAndFunctionDataJobsMonitorOptions {
+export class IssueImpactUsers {
   /**
-   * Alert separately for each failed run instead of on the count of trailing failures.
-   * Only supported for `failed_runs` monitors with the `aastra` query dialect. It requires
-   * a `> 0` threshold with no warning threshold, an evaluation window of at most two days,
-   * and renotification disabled.
+   * Number of distinct users affected by the issue in the time window.
    */
-  "alertOnEveryFailure"?: boolean;
+  "distinctCount": number;
+  /**
+   * Up to five users with the most errors, most affected first.
+   */
+  "top": Array<IssueImpactUser>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -26,9 +29,16 @@ export class MonitorFormulaAndFunctionDataJobsMonitorOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    alertOnEveryFailure: {
-      baseName: "alert_on_every_failure",
-      type: "boolean",
+    distinctCount: {
+      baseName: "distinct_count",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    top: {
+      baseName: "top",
+      type: "Array<IssueImpactUser>",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -40,7 +50,7 @@ export class MonitorFormulaAndFunctionDataJobsMonitorOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorFormulaAndFunctionDataJobsMonitorOptions.attributeTypeMap;
+    return IssueImpactUsers.attributeTypeMap;
   }
 
   public constructor() {}
