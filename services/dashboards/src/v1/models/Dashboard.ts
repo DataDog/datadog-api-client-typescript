@@ -15,6 +15,10 @@ import { Widget } from "./Widget";
  */
 export class Dashboard {
   /**
+   * Archive date of the dashboard.
+   */
+  "archivedAt"?: Date;
+  /**
    * Identifier of the dashboard author.
    */
   "authorHandle"?: string;
@@ -113,6 +117,11 @@ export class Dashboard {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    archivedAt: {
+      baseName: "archived_at",
+      type: "Date",
+      format: "date-time",
+    },
     authorHandle: {
       baseName: "author_handle",
       type: "string",
