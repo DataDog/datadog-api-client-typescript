@@ -1,27 +1,34 @@
 export {
+  FeatureFlagsApiApplyFlagSuggestionRequest,
+  FeatureFlagsApiApproveFlagSuggestionRequest,
   FeatureFlagsApiArchiveFeatureFlagRequest,
   FeatureFlagsApiCreateAllocationsForFeatureFlagInEnvironmentRequest,
   FeatureFlagsApiCreateFeatureFlagRequest,
   FeatureFlagsApiCreateFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiCreateFlagSuggestionRequest,
   FeatureFlagsApiCreateVariantForFeatureFlagRequest,
   FeatureFlagsApiDeleteFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiDeleteFlagSuggestionRequest,
   FeatureFlagsApiDeleteVariantFromFeatureFlagRequest,
   FeatureFlagsApiDisableFeatureFlagEnvironmentRequest,
   FeatureFlagsApiEnableFeatureFlagEnvironmentRequest,
   FeatureFlagsApiExportFeatureFlagHistoryRequest,
   FeatureFlagsApiGetFeatureFlagRequest,
   FeatureFlagsApiGetFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiGetFlagSuggestionRequest,
   FeatureFlagsApiGetSavedFilterRequest,
   FeatureFlagsApiListFeatureFlagHistoryRequest,
   FeatureFlagsApiListFeatureFlagsRequest,
   FeatureFlagsApiListFeatureFlagsEnvironmentsRequest,
   FeatureFlagsApiPauseExposureScheduleRequest,
+  FeatureFlagsApiRejectFlagSuggestionRequest,
   FeatureFlagsApiResumeExposureScheduleRequest,
   FeatureFlagsApiStartExposureScheduleRequest,
   FeatureFlagsApiStopExposureScheduleRequest,
   FeatureFlagsApiUnarchiveFeatureFlagRequest,
   FeatureFlagsApiUpdateAllocationsForFeatureFlagInEnvironmentRequest,
   FeatureFlagsApiUpdateFeatureFlagRequest,
+  FeatureFlagsApiUpdateFeatureFlagApprovalsRequest,
   FeatureFlagsApiUpdateFeatureFlagsEnvironmentRequest,
   FeatureFlagsApiUpdateSavedFilterAttributesRequest,
   FeatureFlagsApiUpdateVariantForFeatureFlagRequest,
@@ -41,6 +48,9 @@ export { AllocationExposureScheduleResponse } from "./models/AllocationExposureS
 export { AllocationResponse } from "./models/AllocationResponse";
 export { AllocationType } from "./models/AllocationType";
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { ApproveFlagSuggestionAttributes } from "./models/ApproveFlagSuggestionAttributes";
+export { ApproveFlagSuggestionData } from "./models/ApproveFlagSuggestionData";
+export { ApproveFlagSuggestionRequest } from "./models/ApproveFlagSuggestionRequest";
 export { Condition } from "./models/Condition";
 export { ConditionOperator } from "./models/ConditionOperator";
 export { ConditionRequest } from "./models/ConditionRequest";
@@ -54,6 +64,9 @@ export { CreateFeatureFlagData } from "./models/CreateFeatureFlagData";
 export { CreateFeatureFlagDataType } from "./models/CreateFeatureFlagDataType";
 export { CreateFeatureFlagRequest } from "./models/CreateFeatureFlagRequest";
 export { CreateFeatureFlagStalenessStatus } from "./models/CreateFeatureFlagStalenessStatus";
+export { CreateFlagSuggestionAttributes } from "./models/CreateFlagSuggestionAttributes";
+export { CreateFlagSuggestionData } from "./models/CreateFlagSuggestionData";
+export { CreateFlagSuggestionRequest } from "./models/CreateFlagSuggestionRequest";
 export { CreateVariant } from "./models/CreateVariant";
 export { CreateVariantData } from "./models/CreateVariantData";
 export { CreateVariantRequest } from "./models/CreateVariantRequest";
@@ -65,6 +78,11 @@ export { EnvironmentsPaginationMetaPage } from "./models/EnvironmentsPaginationM
 export { ExposureRolloutStepRequest } from "./models/ExposureRolloutStepRequest";
 export { ExposureScheduleRequest } from "./models/ExposureScheduleRequest";
 export { FeatureFlag } from "./models/FeatureFlag";
+export { FeatureFlagApprovalRequired } from "./models/FeatureFlagApprovalRequired";
+export { FeatureFlagApprovalRequiredAttributes } from "./models/FeatureFlagApprovalRequiredAttributes";
+export { FeatureFlagApprovalRequiredDataType } from "./models/FeatureFlagApprovalRequiredDataType";
+export { FeatureFlagApprovalRequiredResponse } from "./models/FeatureFlagApprovalRequiredResponse";
+export { FeatureFlagApprovalsDataType } from "./models/FeatureFlagApprovalsDataType";
 export { FeatureFlagAttributes } from "./models/FeatureFlagAttributes";
 export { FeatureFlagChangeEvent } from "./models/FeatureFlagChangeEvent";
 export { FeatureFlagChangeEventAction } from "./models/FeatureFlagChangeEventAction";
@@ -95,6 +113,15 @@ export { FeatureFlagStalenessRecommendedAction } from "./models/FeatureFlagStale
 export { FeatureFlagStalenessStatus } from "./models/FeatureFlagStalenessStatus";
 export { FeatureFlagStalenessStatusOverride } from "./models/FeatureFlagStalenessStatusOverride";
 export { FeatureFlagStatus } from "./models/FeatureFlagStatus";
+export { FeatureFlagSuggestion } from "./models/FeatureFlagSuggestion";
+export { FeatureFlagSuggestionAttributes } from "./models/FeatureFlagSuggestionAttributes";
+export { FeatureFlagSuggestionAttributesCurrentStatus } from "./models/FeatureFlagSuggestionAttributesCurrentStatus";
+export { FeatureFlagSuggestionAttributesLifecycleStatus } from "./models/FeatureFlagSuggestionAttributesLifecycleStatus";
+export { FeatureFlagSuggestionDataType } from "./models/FeatureFlagSuggestionDataType";
+export { FeatureFlagSuggestionExperimentAction } from "./models/FeatureFlagSuggestionExperimentAction";
+export { FeatureFlagSuggestionMetadata } from "./models/FeatureFlagSuggestionMetadata";
+export { FeatureFlagSuggestionMetadataRequest } from "./models/FeatureFlagSuggestionMetadataRequest";
+export { FeatureFlagSuggestionResponse } from "./models/FeatureFlagSuggestionResponse";
 export { GuardrailMetric } from "./models/GuardrailMetric";
 export { GuardrailMetricRequest } from "./models/GuardrailMetricRequest";
 export { GuardrailTriggerAction } from "./models/GuardrailTriggerAction";
@@ -111,6 +138,10 @@ export { PatchSavedFilterConflictResponse } from "./models/PatchSavedFilterConfl
 export { PatchSavedFilterData } from "./models/PatchSavedFilterData";
 export { PatchSavedFilterForbiddenResponse } from "./models/PatchSavedFilterForbiddenResponse";
 export { PatchSavedFilterRequest } from "./models/PatchSavedFilterRequest";
+export { RejectFlagSuggestionAttributes } from "./models/RejectFlagSuggestionAttributes";
+export { RejectFlagSuggestionData } from "./models/RejectFlagSuggestionData";
+export { RejectFlagSuggestionRequest } from "./models/RejectFlagSuggestionRequest";
+export { ReviewFlagSuggestionDataType } from "./models/ReviewFlagSuggestionDataType";
 export { RolloutOptions } from "./models/RolloutOptions";
 export { RolloutOptionsRequest } from "./models/RolloutOptionsRequest";
 export { RolloutStrategy } from "./models/RolloutStrategy";
@@ -141,10 +172,14 @@ export { UpdateEnvironmentAttributes } from "./models/UpdateEnvironmentAttribute
 export { UpdateEnvironmentData } from "./models/UpdateEnvironmentData";
 export { UpdateEnvironmentDataType } from "./models/UpdateEnvironmentDataType";
 export { UpdateEnvironmentRequest } from "./models/UpdateEnvironmentRequest";
+export { UpdateFeatureFlagApprovalsAttributes } from "./models/UpdateFeatureFlagApprovalsAttributes";
+export { UpdateFeatureFlagApprovalsData } from "./models/UpdateFeatureFlagApprovalsData";
+export { UpdateFeatureFlagApprovalsRequest } from "./models/UpdateFeatureFlagApprovalsRequest";
 export { UpdateFeatureFlagAttributes } from "./models/UpdateFeatureFlagAttributes";
 export { UpdateFeatureFlagData } from "./models/UpdateFeatureFlagData";
 export { UpdateFeatureFlagDataType } from "./models/UpdateFeatureFlagDataType";
 export { UpdateFeatureFlagRequest } from "./models/UpdateFeatureFlagRequest";
+export { UpdateFeatureFlagStalenessStatus } from "./models/UpdateFeatureFlagStalenessStatus";
 export { UpdateVariantAttributes } from "./models/UpdateVariantAttributes";
 export { UpdateVariantData } from "./models/UpdateVariantData";
 export { UpdateVariantRequest } from "./models/UpdateVariantRequest";

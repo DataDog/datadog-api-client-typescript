@@ -63,7 +63,9 @@ export class FeatureFlagAttributes {
    */
   "stalenessDetails"?: FeatureFlagStalenessDetails;
   /**
-   * Indicates the whether a feature flag is stale or not.
+   * Legacy status retained for compatibility. This field is always `ACTIVE`; use
+   * `staleness_details.staleness_status` for the computed status. Do not copy it into an update
+   * request: sending `ACTIVE` makes a `PERMANENT` flag temporary and clears any snooze.
    */
   "stalenessStatus"?: string;
   /**
