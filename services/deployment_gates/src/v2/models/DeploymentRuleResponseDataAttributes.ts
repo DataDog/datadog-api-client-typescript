@@ -31,6 +31,7 @@ export class DeploymentRuleResponseDataAttributes {
   "name": string;
   /**
    * Options for deployment rule response representing either faulty deployment detection or monitor options.
+   * Bits Deployment Analysis rules use the faulty deployment detection options shape and accept only `duration`.
    */
   "options": DeploymentRulesOptions;
   /**
