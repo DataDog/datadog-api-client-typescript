@@ -7,13 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * How a `data-jobs alert` job duration monitor detects a breach. Must match the
- * `.detection()` call in the monitor query. Required for job duration monitors.
+ * Type of the object.
  */
 
-export type MonitorFormulaAndFunctionDataQualityDetectionType =
-  | typeof STATIC
-  | typeof ANOMALY
+export type IssueImpactType =
+  | typeof ERROR_TRACKING_ISSUE_IMPACT
   | UnparsedObject;
-export const STATIC = "static";
-export const ANOMALY = "anomaly";
+export const ERROR_TRACKING_ISSUE_IMPACT = "error_tracking_issue_impact";

@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { MonitorFormulaAndFunctionDataJobsMonitorOptions } from "./MonitorFormulaAndFunctionDataJobsMonitorOptions";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -13,34 +12,23 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 export class MonitorFormulaAndFunctionDataJobsQueryDefinition {
   /**
    * The type of job being monitored. Valid values include:
-   * `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`.
-   * The `aastra` dialect also accepts `airflow.job`, `dbt.model`, and `dbt.test`.
+   * `databricks.job`, `spark.application`, `airflow.dag`,
+   * `dbt.job`, `dbt.model`, `dbt.test`, `glue.job`.
    * Custom job types are supported with the `custom.ol.` prefix.
    */
   "jobType": string;
   /**
-   * Filter expression used to select the jobs to monitor. Its syntax depends on `query_dialect`:
-   * a metric tag filter such as `job_name:smoke*` for `metric`, or an Aastra entity search
-   * such as ``search for databricks_job where `@team:data-eng` `` for `aastra`.
+   * Filter expression used to select the jobs to monitor.
    */
   "jobsQuery": string;
-  /**
-   * Monitor configuration options for data jobs queries.
-   */
-  "monitorOptions"?: MonitorFormulaAndFunctionDataJobsMonitorOptions;
   /**
    * Name of the query for use in formulas. Must be `run_query`.
    */
   "name": string;
   /**
-   * Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
+   * Query dialect for data jobs queries. Currently only `metric` is supported.
    */
   "queryDialect": string;
-  /**
-   * Optional filter on individual runs, using metrics filter syntax.
-   * Only supported with the `aastra` query dialect.
-   */
-  "runFilter"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -68,10 +56,6 @@ export class MonitorFormulaAndFunctionDataJobsQueryDefinition {
       type: "string",
       required: true,
     },
-    monitorOptions: {
-      baseName: "monitor_options",
-      type: "MonitorFormulaAndFunctionDataJobsMonitorOptions",
-    },
     name: {
       baseName: "name",
       type: "string",
@@ -81,10 +65,6 @@ export class MonitorFormulaAndFunctionDataJobsQueryDefinition {
       baseName: "query_dialect",
       type: "string",
       required: true,
-    },
-    runFilter: {
-      baseName: "run_filter",
-      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
