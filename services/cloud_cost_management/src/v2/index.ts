@@ -272,6 +272,7 @@ export { CustomCostsFileMetadata } from "./models/CustomCostsFileMetadata";
 export { CustomCostsFileMetadataHighLevel } from "./models/CustomCostsFileMetadataHighLevel";
 export { CustomCostsFileMetadataWithContent } from "./models/CustomCostsFileMetadataWithContent";
 export { CustomCostsFileMetadataWithContentHighLevel } from "./models/CustomCostsFileMetadataWithContentHighLevel";
+export { CustomCostsFilePreviewUnavailableReason } from "./models/CustomCostsFilePreviewUnavailableReason";
 export { CustomCostsFileUpdateAttributes } from "./models/CustomCostsFileUpdateAttributes";
 export { CustomCostsFileUpdateData } from "./models/CustomCostsFileUpdateData";
 export { CustomCostsFileUpdateRequest } from "./models/CustomCostsFileUpdateRequest";
