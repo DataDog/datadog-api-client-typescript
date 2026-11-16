@@ -1,6 +1,7 @@
 export {
   ErrorTrackingApiDeleteIssueAssigneeRequest,
   ErrorTrackingApiGetIssueRequest,
+  ErrorTrackingApiGetIssueImpactRequest,
   ErrorTrackingApiSearchIssuesRequest,
   ErrorTrackingApiUpdateIssueAssigneeRequest,
   ErrorTrackingApiUpdateIssueStateRequest,
@@ -29,6 +30,22 @@ export { IssueCaseReference } from "./models/IssueCaseReference";
 export { IssueCaseRelationship } from "./models/IssueCaseRelationship";
 export { IssueCaseRelationships } from "./models/IssueCaseRelationships";
 export { IssueCaseResourceType } from "./models/IssueCaseResourceType";
+export { IssueImpact } from "./models/IssueImpact";
+export { IssueImpactAccount } from "./models/IssueImpactAccount";
+export { IssueImpactAccounts } from "./models/IssueImpactAccounts";
+export { IssueImpactAttributes } from "./models/IssueImpactAttributes";
+export { IssueImpactEndpoint } from "./models/IssueImpactEndpoint";
+export { IssueImpactEndpoints } from "./models/IssueImpactEndpoints";
+export { IssueImpactErrorCounts } from "./models/IssueImpactErrorCounts";
+export { IssueImpactResponse } from "./models/IssueImpactResponse";
+export { IssueImpactSession } from "./models/IssueImpactSession";
+export { IssueImpactSessions } from "./models/IssueImpactSessions";
+export { IssueImpactType } from "./models/IssueImpactType";
+export { IssueImpactUser } from "./models/IssueImpactUser";
+export { IssueImpactUsers } from "./models/IssueImpactUsers";
+export { IssueImpactView } from "./models/IssueImpactView";
+export { IssueImpactViewCounts } from "./models/IssueImpactViewCounts";
+export { IssueImpactViews } from "./models/IssueImpactViews";
 export { IssueIncluded } from "./models/IssueIncluded";
 export { IssueLanguage } from "./models/IssueLanguage";
 export { IssuePlatform } from "./models/IssuePlatform";

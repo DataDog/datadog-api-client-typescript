@@ -24,6 +24,7 @@ import {
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { GetIssueIncludeQueryParameterItem } from "./models/GetIssueIncludeQueryParameterItem";
+import { IssueImpactResponse } from "./models/IssueImpactResponse";
 import { IssueResponse } from "./models/IssueResponse";
 import { IssueSampleBias } from "./models/IssueSampleBias";
 import { IssuesSearchRequest } from "./models/IssuesSearchRequest";
@@ -158,6 +159,91 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
           "",
         ),
         "csv",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getIssueImpact(
+    issueId: string,
+    filterFrom: number,
+    filterTo: number,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["ErrorTrackingApi.v2.getIssueImpact"]) {
+      throw new Error(
+        "Unstable operation 'getIssueImpact' is disabled. Enable it by setting `configuration.unstableOperations['ErrorTrackingApi.v2.getIssueImpact'] = true`",
+      );
+    }
+
+    // verify required parameter 'issueId' is not null or undefined
+    if (issueId === null || issueId === undefined) {
+      throw new RequiredError("issueId", "getIssueImpact");
+    }
+
+    // verify required parameter 'filterFrom' is not null or undefined
+    if (filterFrom === null || filterFrom === undefined) {
+      throw new RequiredError("filterFrom", "getIssueImpact");
+    }
+
+    // verify required parameter 'filterTo' is not null or undefined
+    if (filterTo === null || filterTo === undefined) {
+      throw new RequiredError("filterTo", "getIssueImpact");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/error-tracking/issues/{issue_id}/impact".replace(
+        "{issue_id}",
+        encodeURIComponent(String(issueId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ErrorTrackingApi.v2.getIssueImpact",
+      ErrorTrackingApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterFrom !== undefined) {
+      requestContext.setQueryParam(
+        "filter[from]",
+        serialize(filterFrom, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (filterTo !== undefined) {
+      requestContext.setQueryParam(
+        "filter[to]",
+        serialize(filterTo, TypingInfo, "number", "int64"),
+        "",
       );
     }
 
@@ -489,6 +575,68 @@ export class ErrorTrackingApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getIssueImpact
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIssueImpact(
+    response: ResponseContext,
+  ): Promise<IssueImpactResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IssueImpactResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IssueImpactResponse",
+      ) as IssueImpactResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IssueImpactResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IssueImpactResponse",
+        "",
+      ) as IssueImpactResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to searchIssues
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -699,6 +847,25 @@ export interface ErrorTrackingApiGetIssueRequest {
   filterSamplesBiases?: Array<IssueSampleBias>;
 }
 
+export interface ErrorTrackingApiGetIssueImpactRequest {
+  /**
+   * The identifier of the issue.
+   * @type string
+   */
+  issueId: string;
+  /**
+   * Start of the time window, in milliseconds since the Unix epoch. Must be before `filter[to]`.
+   * @type number
+   */
+  filterFrom: number;
+  /**
+   * End of the time window, in milliseconds since the Unix epoch. Use the issue's `last_seen` to end the window at
+   * its latest error.
+   * @type number
+   */
+  filterTo: number;
+}
+
 export interface ErrorTrackingApiSearchIssuesRequest {
   /**
    * Search issues request payload.
@@ -798,6 +965,32 @@ export class ErrorTrackingApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getIssue(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get an issue's impact over a time window: its error counts by source, and the users, sessions, accounts,
+   * RUM views, and endpoints it affects most.
+   * Returns 403 if the caller lacks the `error_tracking_read` permission or does not have access to the issue's
+   * data.
+   * @param param The request object
+   */
+  public getIssueImpact(
+    param: ErrorTrackingApiGetIssueImpactRequest,
+    options?: Configuration,
+  ): Promise<IssueImpactResponse> {
+    const requestContextPromise = this.requestFactory.getIssueImpact(
+      param.issueId,
+      param.filterFrom,
+      param.filterTo,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIssueImpact(responseContext);
         });
     });
   }
