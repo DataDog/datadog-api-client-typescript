@@ -5,11 +5,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class AiGatewayRateLimitInstanceAttributes {
   /**
-   * Priced spend, in microcents, counted in the rolling one-minute window. 0 when the rate limit doesn't limit cost.
+   * Priced spend, in microcents, counted in the rolling one-minute window. The value is 0 when the rate limit doesn't limit cost.
    */
   "costMicrocents"?: number;
   /**
-   * The rate limit's per-counter spend limit, in microcents. Null when it doesn't limit cost.
+   * The rate limit's per-counter spend limit, in microcents. Null when the rate limit doesn't limit cost.
    */
   "costMicrocentsPerMinute"?: number;
   /**
@@ -29,7 +29,7 @@ export class AiGatewayRateLimitInstanceAttributes {
    */
   "instanceKey": string;
   /**
-   * When the gateway last saw this counter hot, that is near or at a limit or limiting; up to a few minutes behind live traffic.
+   * When the gateway last recorded this counter as hot, meaning it was at 80% or more of a limit, or it limited or would have limited a request. This value can lag live traffic by a few minutes.
    */
   "lastSeen": Date;
   /**

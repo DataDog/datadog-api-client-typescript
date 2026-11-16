@@ -2,13 +2,14 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AiGatewayRateLimitMode } from "./AiGatewayRateLimitMode";
 import { AiGatewayRateLimitSelectorEntry } from "./AiGatewayRateLimitSelectorEntry";
+import { AiGatewayRateLimitWindowLimit } from "./AiGatewayRateLimitWindowLimit";
 
 /**
  * Attributes used to create an AI Gateway rate limit.
  */
 export class AiGatewayRateLimitCreateAttributes {
   /**
-   * Maximum priced spend per rolling minute, in microcents of 1e-8 USD each. At most 10000000000000, that is $100,000. In `ENFORCE` mode, requests to a model with no pricing are rejected, because their cost can't be counted.
+   * Maximum priced spend per rolling minute, in microcents of 1e-8 USD each. In `ENFORCE` mode, the gateway rejects requests to models with no pricing because their cost can't be counted.
    */
   "costMicrocentsPerMinute"?: number;
   /**
@@ -28,7 +29,7 @@ export class AiGatewayRateLimitCreateAttributes {
    */
   "outputTokensPerMinute"?: number;
   /**
-   * Maximum requests per rolling minute. At least one of `requests_per_minute`, `input_tokens_per_minute`, `output_tokens_per_minute`, and `cost_microcents_per_minute` is required.
+   * Maximum requests per rolling minute. At least one of `requests_per_minute`, `input_tokens_per_minute`, `output_tokens_per_minute`, `cost_microcents_per_minute`, or a non-empty `window_limits` is required.
    */
   "requestsPerMinute"?: number;
   /**
@@ -47,6 +48,10 @@ export class AiGatewayRateLimitCreateAttributes {
    * Optional UUID. Count only this user's requests.
    */
   "userId"?: string;
+  /**
+   * Limits over rolling windows longer than a minute, such as $20 of spend per 24 hours. This field is available only to organizations with the feature enabled. Other organizations receive a 400 Bad Request response for a non-empty list. Each limit counts the rule's matching traffic, or each counter of a template rate limit, over its window. Set per-minute limits in the `*_per_minute` fields. A rule can have at most four limits in total, including any per-minute limits that are set. Each metric and window pair can appear only once, and for the same metric, a longer window must have a larger amount. In `ENFORCE` mode, the gateway rejects a request that exceeds any limit with HTTP 429 and a `Retry-After` header. If the list includes a `cost` limit, the gateway also rejects requests to models with no pricing because their cost can't be counted.
+   */
+  "windowLimits"?: Array<AiGatewayRateLimitWindowLimit>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -108,6 +113,10 @@ export class AiGatewayRateLimitCreateAttributes {
       baseName: "user_id",
       type: "string",
       format: "uuid",
+    },
+    windowLimits: {
+      baseName: "window_limits",
+      type: "Array<AiGatewayRateLimitWindowLimit>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
