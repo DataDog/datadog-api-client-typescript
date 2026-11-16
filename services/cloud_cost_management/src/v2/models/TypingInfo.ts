@@ -304,6 +304,9 @@ export const TypingInfo: ModelTypingInfo = {
     CostTagMetadataMonthType: ["cost_tag_metadata_month"],
     CostTagType: ["cost_tag"],
     CreateRulesetRequestDataType: ["create_ruleset"],
+    CustomCostsFilePreviewUnavailableReason: [
+      "CHARGE_PERIOD_OUTSIDE_RETENTION_WINDOW",
+    ],
     CustomCostsFileUpdateType: ["cost_metadata"],
     CustomForecastType: ["custom_forecast"],
     DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],

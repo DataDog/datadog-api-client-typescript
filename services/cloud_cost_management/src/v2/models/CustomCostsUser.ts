@@ -5,11 +5,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class CustomCostsUser {
   /**
-   * The name of the Custom Costs file.
+   * Handle of the user. This is usually the user's email address, but can be another identifier (for example, a UUID for a service account).
    */
   "email"?: string;
   /**
-   * The name of the Custom Costs file.
+   * Icon of the user.
    */
   "icon"?: string;
   /**
