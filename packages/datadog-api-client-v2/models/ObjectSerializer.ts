@@ -7967,6 +7967,9 @@ const enumsMap: { [key: string]: any[] } = {
   CustomAttributeConfigResourceType: ["custom_attribute"],
   CustomAttributeType: ["URL", "TEXT", "NUMBER", "SELECT"],
   CustomConnectionType: ["custom_connections"],
+  CustomCostsFilePreviewUnavailableReason: [
+    "CHARGE_PERIOD_OUTSIDE_RETENTION_WINDOW",
+  ],
   CustomCostsFileUpdateType: ["cost_metadata"],
   CustomDestinationAttributeTagsRestrictionListType: [
     "ALLOW_LIST",
