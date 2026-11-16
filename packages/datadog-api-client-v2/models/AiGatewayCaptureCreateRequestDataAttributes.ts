@@ -15,7 +15,7 @@ import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
  */
 export class AiGatewayCaptureCreateRequestDataAttributes {
   /**
-   * Opaque revision of the organization default and all overrides. Writes require the revision returned by a current read or preview.
+   * Opaque revision of the organization default and all overrides, including hidden overrides. Writes require the revision returned by a current read or preview.
    */
   "configurationRevision": string;
   /**
