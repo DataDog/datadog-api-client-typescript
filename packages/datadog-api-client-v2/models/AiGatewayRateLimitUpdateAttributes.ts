@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AiGatewayRateLimitMode } from "./AiGatewayRateLimitMode";
+import { AiGatewayRateLimitWindowLimit } from "./AiGatewayRateLimitWindowLimit";
 
 import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
@@ -12,7 +13,7 @@ import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
  */
 export class AiGatewayRateLimitUpdateAttributes {
   /**
-   * Spend limit in microcents per rolling minute. Set to 0 to remove the cost limit. Null is ignored. At least one limit must remain.
+   * Spend limit in microcents per rolling minute. Set to 0 to remove the cost limit. Null is ignored. At least one limit, per-minute or in `window_limits`, must remain.
    */
   "costMicrocentsPerMinute"?: Int64;
   /**
@@ -20,7 +21,7 @@ export class AiGatewayRateLimitUpdateAttributes {
    */
   "enabled"?: boolean;
   /**
-   * Set to 0 to remove the request limit. Null is ignored. At least one limit must remain.
+   * Set to 0 to remove the input token limit. Null is ignored. At least one limit, per-minute or in `window_limits`, must remain.
    */
   "inputTokensPerMinute"?: Int64;
   /**
@@ -32,11 +33,11 @@ export class AiGatewayRateLimitUpdateAttributes {
    */
   "name"?: string;
   /**
-   * Set to 0 to remove the request limit. Null is ignored. At least one limit must remain.
+   * Set to 0 to remove the output token limit. Null is ignored. At least one limit, per-minute or in `window_limits`, must remain.
    */
   "outputTokensPerMinute"?: Int64;
   /**
-   * Set to 0 to remove the request limit. Null is ignored. At least one limit must remain.
+   * Set to 0 to remove the request limit. Null is ignored. At least one limit, per-minute or in `window_limits`, must remain.
    */
   "requestsPerMinute"?: Int64;
   /**
@@ -51,6 +52,10 @@ export class AiGatewayRateLimitUpdateAttributes {
    * Replaces the user scope. An empty string clears it. Null is ignored.
    */
   "userId"?: string;
+  /**
+   * Replaces all limits over rolling windows longer than a minute. If `window_limits` is null or omitted, the existing limits are unchanged. An empty array removes them all. This field is available only to organizations with the feature enabled. Other organizations receive a 400 Bad Request response for a non-empty list. The same rules as on create apply. A rule can have at most four limits in total, including any per-minute limits that are set. Each metric and window pair can appear only once, and for the same metric, a longer window must have a larger amount. In `ENFORCE` mode, if the list includes a `cost` limit, the gateway rejects requests to models with no pricing because their cost can't be counted.
+   */
+  "windowLimits"?: Array<AiGatewayRateLimitWindowLimit>;
 
   /**
    * A container for additional, undeclared properties.
@@ -111,6 +116,10 @@ export class AiGatewayRateLimitUpdateAttributes {
     userId: {
       baseName: "user_id",
       type: "string",
+    },
+    windowLimits: {
+      baseName: "window_limits",
+      type: "Array<AiGatewayRateLimitWindowLimit>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

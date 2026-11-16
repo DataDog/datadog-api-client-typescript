@@ -26,6 +26,13 @@ const params: v2.AIGatewayApiUpdateAiGatewayRateLimitRequest = {
         tags: undefined,
         teamId: undefined,
         userId: undefined,
+        windowLimits: [
+          {
+            amount: 2000000000,
+            metric: "cost",
+            window: "24h",
+          },
+        ],
       },
       id: "11111111-1111-1111-1111-111111111111",
       type: "rate-limits",

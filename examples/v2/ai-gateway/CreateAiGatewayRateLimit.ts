@@ -33,6 +33,13 @@ const params: v2.AIGatewayApiCreateAiGatewayRateLimitRequest = {
         ],
         teamId: "00000000-0000-4000-8000-000000000002",
         userId: "00000000-0000-4000-8000-000000000001",
+        windowLimits: [
+          {
+            amount: 2000000000,
+            metric: "cost",
+            window: "24h",
+          },
+        ],
       },
       type: "rate-limits",
     },

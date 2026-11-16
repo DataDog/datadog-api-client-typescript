@@ -2612,6 +2612,9 @@ export { AiGatewayRateLimitUsageAttributes } from "./models/AiGatewayRateLimitUs
 export { AiGatewayRateLimitUsageListResponse } from "./models/AiGatewayRateLimitUsageListResponse";
 export { AiGatewayRateLimitUsageResource } from "./models/AiGatewayRateLimitUsageResource";
 export { AiGatewayRateLimitUsageType } from "./models/AiGatewayRateLimitUsageType";
+export { AiGatewayRateLimitWindowLimit } from "./models/AiGatewayRateLimitWindowLimit";
+export { AiGatewayRateLimitWindowLimitMetric } from "./models/AiGatewayRateLimitWindowLimitMetric";
+export { AiGatewayRateLimitWindowLimitWindow } from "./models/AiGatewayRateLimitWindowLimitWindow";
 export { AiGatewayRestrictedDetailsMeta } from "./models/AiGatewayRestrictedDetailsMeta";
 export { AiGatewayRoutingClassifier } from "./models/AiGatewayRoutingClassifier";
 export { AiGatewayRoutingClassifierRequest } from "./models/AiGatewayRoutingClassifierRequest";

@@ -5,6 +5,7 @@
  */
 import { AiGatewayRateLimitMode } from "./AiGatewayRateLimitMode";
 import { AiGatewayRateLimitSelectorEntry } from "./AiGatewayRateLimitSelectorEntry";
+import { AiGatewayRateLimitWindowLimit } from "./AiGatewayRateLimitWindowLimit";
 
 import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
@@ -92,6 +93,10 @@ export class AiGatewayRateLimitAttributes {
    * Optional user UUID. Count only this user's requests.
    */
   "userId"?: string;
+  /**
+   * Limits over rolling windows longer than a minute. Each limit counts the rule's matching traffic, or each counter of a template rate limit, over its window. Per-minute limits are in the `*_per_minute` fields. This list is empty when the rule has no window limits.
+   */
+  "windowLimits"?: Array<AiGatewayRateLimitWindowLimit>;
 
   /**
    * A container for additional, undeclared properties.
@@ -210,6 +215,10 @@ export class AiGatewayRateLimitAttributes {
       baseName: "user_id",
       type: "string",
       format: "uuid",
+    },
+    windowLimits: {
+      baseName: "window_limits",
+      type: "Array<AiGatewayRateLimitWindowLimit>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
