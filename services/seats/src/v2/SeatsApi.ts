@@ -305,6 +305,7 @@ export class SeatsApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
@@ -466,6 +467,12 @@ export class SeatsApi {
 
   /**
    * Get the list of users assigned seats for a product code.
+   *
+   * This endpoint requires the `user_access_read` (User Access Read) permission
+   * in addition to at least one of `billing_read`, `incident_read`, or `on_call_read`.
+   * Scoped application keys, personal access tokens, and service access tokens
+   * must include the `user_access_read` scope. Credentials without this scope
+   * receive a `403 Forbidden` response.
    * @param param The request object
    */
   public getSeatsUsers(
