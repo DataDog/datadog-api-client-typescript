@@ -21,6 +21,7 @@ const params: v2.AgentObservabilityApiUpsertLLMObsAnnotationsRequest = {
       attributes: {
         annotations: [
           {
+            annotator: "Alex Contractor",
             interactionId: "00000000-0000-0000-0000-000000000001",
             labelValues: [
               {

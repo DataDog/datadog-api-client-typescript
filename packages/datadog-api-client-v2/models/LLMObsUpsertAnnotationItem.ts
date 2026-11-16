@@ -13,6 +13,16 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class LLMObsUpsertAnnotationItem {
   /**
+   * Caller-supplied name or identifier for the external person or automated system that produced the labels.
+   * The value is an opaque string with no required format. Use a stable, recognizable value for the same
+   * producer across annotations.
+   * The value is stored and returned as provided. It is not a Datadog user ID or login, and it is not
+   * resolved against Datadog users.
+   * Omit this field or set it to `null` to preserve existing attribution. Set it to an empty string to clear
+   * attribution.
+   */
+  "annotator"?: string;
+  /**
    * ID of the interaction to annotate.
    */
   "interactionId": string;
@@ -38,6 +48,10 @@ export class LLMObsUpsertAnnotationItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    annotator: {
+      baseName: "annotator",
+      type: "string",
+    },
     interactionId: {
       baseName: "interaction_id",
       type: "string",
