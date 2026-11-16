@@ -374,6 +374,8 @@ import { SecurityMonitoringBatchMigrationData } from "./SecurityMonitoringBatchM
 import { SecurityMonitoringBatchMigrationListMeta } from "./SecurityMonitoringBatchMigrationListMeta";
 import { SecurityMonitoringBatchMigrationPublishAttributes } from "./SecurityMonitoringBatchMigrationPublishAttributes";
 import { SecurityMonitoringBatchMigrationPublishData } from "./SecurityMonitoringBatchMigrationPublishData";
+import { SecurityMonitoringBatchMigrationPublishError } from "./SecurityMonitoringBatchMigrationPublishError";
+import { SecurityMonitoringBatchMigrationPublishErrorDetail } from "./SecurityMonitoringBatchMigrationPublishErrorDetail";
 import { SecurityMonitoringBatchMigrationPublishRequest } from "./SecurityMonitoringBatchMigrationPublishRequest";
 import { SecurityMonitoringBatchMigrationPublishResponse } from "./SecurityMonitoringBatchMigrationPublishResponse";
 import { SecurityMonitoringBatchMigrationPublishedResourceAttributes } from "./SecurityMonitoringBatchMigrationPublishedResourceAttributes";
@@ -1731,6 +1733,10 @@ export const TypingInfo: ModelTypingInfo = {
       SecurityMonitoringBatchMigrationPublishAttributes,
     SecurityMonitoringBatchMigrationPublishData:
       SecurityMonitoringBatchMigrationPublishData,
+    SecurityMonitoringBatchMigrationPublishError:
+      SecurityMonitoringBatchMigrationPublishError,
+    SecurityMonitoringBatchMigrationPublishErrorDetail:
+      SecurityMonitoringBatchMigrationPublishErrorDetail,
     SecurityMonitoringBatchMigrationPublishRequest:
       SecurityMonitoringBatchMigrationPublishRequest,
     SecurityMonitoringBatchMigrationPublishResponse:

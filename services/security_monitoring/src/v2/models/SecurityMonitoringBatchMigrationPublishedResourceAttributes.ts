@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { SecurityMonitoringBatchMigrationPublishedResourceStatus } from "./SecurityMonitoringBatchMigrationPublishedResourceStatus";
+import { SecurityMonitoringBatchMigrationPublishError } from "./SecurityMonitoringBatchMigrationPublishError";
 
 /**
  * Attributes of the publication outcome of a batch migration resource.
@@ -9,7 +10,7 @@ export class SecurityMonitoringBatchMigrationPublishedResourceAttributes {
   /**
    * The reason why the resource could not be published.
    */
-  "error"?: string;
+  "error"?: SecurityMonitoringBatchMigrationPublishError;
   /**
    * The ID of the created Cloud SIEM detection rule.
    */
@@ -35,7 +36,7 @@ export class SecurityMonitoringBatchMigrationPublishedResourceAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     error: {
       baseName: "error",
-      type: "string",
+      type: "SecurityMonitoringBatchMigrationPublishError",
     },
     ruleId: {
       baseName: "ruleId",
