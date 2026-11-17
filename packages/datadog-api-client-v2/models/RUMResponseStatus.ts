@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The status of the response.
+ * The status of the response. `timeout` means the query did not complete in time and the results are partial.
  */
 
 export type RUMResponseStatus = typeof DONE | typeof TIMEOUT | UnparsedObject;

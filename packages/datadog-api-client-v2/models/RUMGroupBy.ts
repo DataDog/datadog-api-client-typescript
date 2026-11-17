@@ -15,7 +15,7 @@ import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
  */
 export class RUMGroupBy {
   /**
-   * The name of the facet to use (required).
+   * The attribute to group by, for example `@view.name` or `@session.type` (required).
    */
   "facet": string;
   /**
@@ -28,7 +28,7 @@ export class RUMGroupBy {
    */
   "limit"?: Int64;
   /**
-   * The value to use for logs that don't have the facet used to group by.
+   * The value to use for events that don't have the facet used to group by.
    */
   "missing"?: RUMGroupByMissing;
   /**

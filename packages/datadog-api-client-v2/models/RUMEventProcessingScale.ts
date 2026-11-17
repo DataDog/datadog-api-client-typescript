@@ -16,7 +16,7 @@ export class RUMEventProcessingScale {
    */
   "lastModifiedAt"?: Int64;
   /**
-   * Configures which RUM events are processed and stored for the application.
+   * Configures which RUM events are processed and stored for the application. Defaults to `ALL` when creating an application.
    */
   "state"?: RUMEventProcessingState;
 
