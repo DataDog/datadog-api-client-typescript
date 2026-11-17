@@ -3,7 +3,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { AggregatedWaterfallPerformanceCriteriaMetric } from "./AggregatedWaterfallPerformanceCriteriaMetric";
 
 /**
- * Performance criteria to filter view instances by a metric threshold.
+ * Performance criteria to filter view instances by a metric threshold. When criteria are
+ * applied, specify at least one of `min` or `max`. When both are provided, `min` must be less
+ * than `max`.
  */
 export class AggregatedWaterfallPerformanceCriteria {
   /**
