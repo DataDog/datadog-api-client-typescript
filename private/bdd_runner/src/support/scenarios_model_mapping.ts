@@ -17132,6 +17132,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ProductAnalyticsTimeseriesResponse",
   },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsJourneyDropOff": {
+    body: {
+      type: "ProductAnalyticsJourneyDropOffRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsJourneyDropOffResponse",
+  },
   "ProductAnalyticsApi.V2.QueryProductAnalyticsJourneyFunnel": {
     body: {
       type: "ProductAnalyticsJourneyFunnelRequest",
@@ -17194,6 +17201,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "ProductAnalyticsSankeyResponse",
+  },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsFunnelSuggestions": {
+    body: {
+      type: "ProductAnalyticsFunnelSuggestionsRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsFunnelSuggestionsResponse",
+  },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsFunnelStepSuggestions": {
+    body: {
+      type: "ProductAnalyticsFunnelStepSuggestionsRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsFunnelStepSuggestionsResponse",
   },
   "RumAudienceManagementApi.V2.GetAccountFacetInfo": {
     body: {
