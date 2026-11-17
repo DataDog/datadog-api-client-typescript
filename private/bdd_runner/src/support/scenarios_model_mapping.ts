@@ -16228,6 +16228,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "OnCallPageResponse",
   },
+  "OnCallApi.V2.CreateOnCallPageComment": {
+    pageId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CreateOnCallPageCommentRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "OnCallApi.V2.ListOnCallSchedules": {
     pageSize: {
       type: "number",
