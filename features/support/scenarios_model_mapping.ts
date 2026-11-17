@@ -11034,6 +11034,74 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ExperimentsExperimentV2DTO",
     },
+    "v2.ListBandits": {
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "filterStatus": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterSubjectTypeId": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterTags": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsBanditV2ListDTOArray",
+    },
+    "v2.GetBandit": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsBanditV2DTO",
+    },
+    "v2.GetBanditResults": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "ExperimentsBanditResultsV2DTO",
+    },
+    "v2.GetBanditTrafficSummary": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "ExperimentsBanditTrafficSummaryV2DTO",
+    },
     "v2.ListExposureSQLModels": {
         "include": {
             "type": "Array<string>",
