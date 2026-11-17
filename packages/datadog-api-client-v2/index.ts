@@ -5220,6 +5220,9 @@ export { ExperimentsDatadogMetricAggregationInput } from "./models/ExperimentsDa
 export { ExperimentsDatadogMetricMeasureInput } from "./models/ExperimentsDatadogMetricMeasureInput";
 export { ExperimentsDatadogPercentileAggregationInput } from "./models/ExperimentsDatadogPercentileAggregationInput";
 export { ExperimentsDatadogPercentileMeasureInput } from "./models/ExperimentsDatadogPercentileMeasureInput";
+export { ExperimentsEVSIContext } from "./models/ExperimentsEVSIContext";
+export { ExperimentsEVSITrafficUnavailableReason } from "./models/ExperimentsEVSITrafficUnavailableReason";
+export { ExperimentsEVSIUnavailableReason } from "./models/ExperimentsEVSIUnavailableReason";
 export { ExperimentsExperimentDiagnosticsV2DTO } from "./models/ExperimentsExperimentDiagnosticsV2DTO";
 export { ExperimentsExperimentDiagnosticsV2DTOData } from "./models/ExperimentsExperimentDiagnosticsV2DTOData";
 export { ExperimentsExperimentDiagnosticsV2DTODataAttributes } from "./models/ExperimentsExperimentDiagnosticsV2DTODataAttributes";

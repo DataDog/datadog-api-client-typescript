@@ -17,7 +17,7 @@ export class ExperimentsVariantResultsV2DTOArray {
    */
   "data": Array<ExperimentsVariantResultsV2DTOData>;
   /**
-   * Information about when experiment results were updated and whether they are stale.
+   * Selected experiment result run, its recorded EVSI forecast, and results freshness.
    */
   "meta"?: ExperimentsExperimentResultsV2MetaDTO;
 

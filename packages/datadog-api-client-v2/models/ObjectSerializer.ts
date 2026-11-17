@@ -2256,6 +2256,7 @@ import { ExperimentsDatadogMetricAggregationInput } from "./ExperimentsDatadogMe
 import { ExperimentsDatadogMetricMeasureInput } from "./ExperimentsDatadogMetricMeasureInput";
 import { ExperimentsDatadogPercentileAggregationInput } from "./ExperimentsDatadogPercentileAggregationInput";
 import { ExperimentsDatadogPercentileMeasureInput } from "./ExperimentsDatadogPercentileMeasureInput";
+import { ExperimentsEVSIContext } from "./ExperimentsEVSIContext";
 import { ExperimentsExperimentDiagnosticsV2DTO } from "./ExperimentsExperimentDiagnosticsV2DTO";
 import { ExperimentsExperimentDiagnosticsV2DTOData } from "./ExperimentsExperimentDiagnosticsV2DTOData";
 import { ExperimentsExperimentDiagnosticsV2DTODataAttributes } from "./ExperimentsExperimentDiagnosticsV2DTODataAttributes";
@@ -8414,6 +8415,23 @@ const enumsMap: { [key: string]: any[] } = {
     "gt",
     "lt",
   ],
+  ExperimentsEVSITrafficUnavailableReason: [
+    "traffic_unavailable",
+    "insufficient_complete_days",
+    "no_total_exposures",
+    "no_lookback_exposures",
+    "invalid_traffic",
+  ],
+  ExperimentsEVSIUnavailableReason: [
+    "traffic_unavailable",
+    "insufficient_complete_days",
+    "no_total_exposures",
+    "no_lookback_exposures",
+    "invalid_traffic",
+    "invalid_standard_error",
+    "computation_failed",
+    "analysis_unavailable",
+  ],
   ExperimentsExperimentDiagnosticsV2DTODataAttributesDiagnosticsItemsSkippedReason:
     [
       "NO_ASSIGNMENTS",
@@ -14247,6 +14265,7 @@ const typeMap: { [index: string]: any } = {
     ExperimentsDatadogPercentileAggregationInput,
   ExperimentsDatadogPercentileMeasureInput:
     ExperimentsDatadogPercentileMeasureInput,
+  ExperimentsEVSIContext: ExperimentsEVSIContext,
   ExperimentsExperimentDiagnosticsV2DTO: ExperimentsExperimentDiagnosticsV2DTO,
   ExperimentsExperimentDiagnosticsV2DTOData:
     ExperimentsExperimentDiagnosticsV2DTOData,

@@ -3,18 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ExperimentsEVSIContext } from "./ExperimentsEVSIContext";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Information about when experiment results were updated and whether they are stale.
+ * Selected experiment result run, its recorded EVSI forecast, and results freshness.
  */
 export class ExperimentsExperimentResultsV2MetaDTO {
+  /**
+   * Forecast horizon and traffic counts used to calculate expected value of sample information (EVSI) for result_run_id. Assumes traffic continues at the rate observed during the lookback window. Omitted if the forecast was not recorded or could not be loaded.
+   */
+  "evsiContext"?: ExperimentsEVSIContext;
   /**
    * Whether the saved results require a refresh or their freshness cannot be confirmed. See stale_reasons for
    * details.
    */
   "isStale"?: boolean;
+  /**
+   * ID of the successful experiment run that produced these results.
+   */
+  "resultRunId": string;
   /**
    * Time when the experiment results were last updated.
    */
@@ -40,9 +49,19 @@ export class ExperimentsExperimentResultsV2MetaDTO {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    evsiContext: {
+      baseName: "evsi_context",
+      type: "ExperimentsEVSIContext",
+    },
     isStale: {
       baseName: "is_stale",
       type: "boolean",
+    },
+    resultRunId: {
+      baseName: "result_run_id",
+      type: "string",
+      required: true,
+      format: "uuid",
     },
     resultsLastUpdated: {
       baseName: "results_last_updated",
