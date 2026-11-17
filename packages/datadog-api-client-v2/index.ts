@@ -295,9 +295,13 @@ export {
 } from "./apis/BitsAIApi";
 
 export {
+  BitsSecurityAnalystApiAddSecurityAgentOutreachPolicyDomainRequest,
   BitsSecurityAnalystApiCountSecurityAgentInvestigationsRequest,
   BitsSecurityAnalystApiGetSecurityAgentInvestigationRequest,
   BitsSecurityAnalystApiListSecurityAgentInvestigationsRequest,
+  BitsSecurityAnalystApiRemoveSecurityAgentOutreachPolicyDomainRequest,
+  BitsSecurityAnalystApiUpdateSecurityAgentOutreachModeRequest,
+  BitsSecurityAnalystApiUpdateSecurityAgentOutreachPolicyRulesRequest,
   BitsSecurityAnalystApi,
 } from "./apis/BitsSecurityAnalystApi";
 
@@ -9607,6 +9611,26 @@ export { SecurityAgentInvestigationState } from "./models/SecurityAgentInvestiga
 export { SecurityAgentInvestigationStep } from "./models/SecurityAgentInvestigationStep";
 export { SecurityAgentInvestigationType } from "./models/SecurityAgentInvestigationType";
 export { SecurityAgentInvestigationVerdict } from "./models/SecurityAgentInvestigationVerdict";
+export { SecurityAgentOutreachDomainAddRequest } from "./models/SecurityAgentOutreachDomainAddRequest";
+export { SecurityAgentOutreachDomainAddRequestData } from "./models/SecurityAgentOutreachDomainAddRequestData";
+export { SecurityAgentOutreachDomainAddRequestDataAttributes } from "./models/SecurityAgentOutreachDomainAddRequestDataAttributes";
+export { SecurityAgentOutreachDomainAddType } from "./models/SecurityAgentOutreachDomainAddType";
+export { SecurityAgentOutreachMode } from "./models/SecurityAgentOutreachMode";
+export { SecurityAgentOutreachModeAttributes } from "./models/SecurityAgentOutreachModeAttributes";
+export { SecurityAgentOutreachModeResponse } from "./models/SecurityAgentOutreachModeResponse";
+export { SecurityAgentOutreachModeResponseData } from "./models/SecurityAgentOutreachModeResponseData";
+export { SecurityAgentOutreachModeUpdateData } from "./models/SecurityAgentOutreachModeUpdateData";
+export { SecurityAgentOutreachModeUpdateRequest } from "./models/SecurityAgentOutreachModeUpdateRequest";
+export { SecurityAgentOutreachPolicy } from "./models/SecurityAgentOutreachPolicy";
+export { SecurityAgentOutreachPolicyAttributes } from "./models/SecurityAgentOutreachPolicyAttributes";
+export { SecurityAgentOutreachPolicyResponse } from "./models/SecurityAgentOutreachPolicyResponse";
+export { SecurityAgentOutreachPolicyType } from "./models/SecurityAgentOutreachPolicyType";
+export { SecurityAgentOutreachRule } from "./models/SecurityAgentOutreachRule";
+export { SecurityAgentOutreachRulesUpdateAttributes } from "./models/SecurityAgentOutreachRulesUpdateAttributes";
+export { SecurityAgentOutreachRulesUpdateRequest } from "./models/SecurityAgentOutreachRulesUpdateRequest";
+export { SecurityAgentOutreachRulesUpdateRequestData } from "./models/SecurityAgentOutreachRulesUpdateRequestData";
+export { SecurityAgentOutreachRulesUpdateType } from "./models/SecurityAgentOutreachRulesUpdateType";
+export { SecurityAgentOutreachRuleUpdate } from "./models/SecurityAgentOutreachRuleUpdate";
 export { SecurityAutomationRulesLinks } from "./models/SecurityAutomationRulesLinks";
 export { SecurityAutomationRulesMeta } from "./models/SecurityAutomationRulesMeta";
 export { SecurityAutomationRulesPageInfo } from "./models/SecurityAutomationRulesPageInfo";
