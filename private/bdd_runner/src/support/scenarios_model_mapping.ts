@@ -11061,6 +11061,74 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ExperimentsExperimentV2DTO",
   },
+  "ExperimentsApi.V2.ListBandits": {
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    filterQuery: {
+      type: "string",
+      format: "",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    filterStatus: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterSubjectTypeId: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterTags: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "ExperimentsBanditV2ListDTOArray",
+  },
+  "ExperimentsApi.V2.GetBandit": {
+    banditId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "ExperimentsBanditV2DTO",
+  },
+  "ExperimentsApi.V2.GetBanditResults": {
+    banditId: {
+      type: "string",
+      format: "uuid",
+    },
+    filterFrom: {
+      type: "Date",
+      format: "date-time",
+    },
+    filterTo: {
+      type: "Date",
+      format: "date-time",
+    },
+    operationResponseType: "ExperimentsBanditResultsV2DTO",
+  },
+  "ExperimentsApi.V2.GetBanditTrafficSummary": {
+    banditId: {
+      type: "string",
+      format: "uuid",
+    },
+    filterFrom: {
+      type: "Date",
+      format: "date-time",
+    },
+    filterTo: {
+      type: "Date",
+      format: "date-time",
+    },
+    operationResponseType: "ExperimentsBanditTrafficSummaryV2DTO",
+  },
   "ExperimentsApi.V2.ListExposureSQLModels": {
     include: {
       type: "Array<string>",

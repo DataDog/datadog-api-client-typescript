@@ -10,6 +10,34 @@ import { ExperimentsAnalysisPlanWriteV2Request } from "./ExperimentsAnalysisPlan
 import { ExperimentsAnalysisPlanWriteV2RequestData } from "./ExperimentsAnalysisPlanWriteV2RequestData";
 import { ExperimentsAnalysisPlanWriteV2RequestDataAttributes } from "./ExperimentsAnalysisPlanWriteV2RequestDataAttributes";
 import { ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior } from "./ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior";
+import { ExperimentsBanditBayesianPriorV2 } from "./ExperimentsBanditBayesianPriorV2";
+import { ExperimentsBanditConfidenceIntervalV2 } from "./ExperimentsBanditConfidenceIntervalV2";
+import { ExperimentsBanditDailyTrafficV2 } from "./ExperimentsBanditDailyTrafficV2";
+import { ExperimentsBanditFlagConfigurationV2 } from "./ExperimentsBanditFlagConfigurationV2";
+import { ExperimentsBanditNullableConfidenceIntervalV2 } from "./ExperimentsBanditNullableConfidenceIntervalV2";
+import { ExperimentsBanditObservationCountsV2 } from "./ExperimentsBanditObservationCountsV2";
+import { ExperimentsBanditPointEstimateV2 } from "./ExperimentsBanditPointEstimateV2";
+import { ExperimentsBanditPolicyV2 } from "./ExperimentsBanditPolicyV2";
+import { ExperimentsBanditPolicyVariantV2 } from "./ExperimentsBanditPolicyVariantV2";
+import { ExperimentsBanditRefreshV2 } from "./ExperimentsBanditRefreshV2";
+import { ExperimentsBanditResultsV2DTO } from "./ExperimentsBanditResultsV2DTO";
+import { ExperimentsBanditResultsV2DTOData } from "./ExperimentsBanditResultsV2DTOData";
+import { ExperimentsBanditResultsV2DTODataAttributes } from "./ExperimentsBanditResultsV2DTODataAttributes";
+import { ExperimentsBanditScheduledEndFailureV2 } from "./ExperimentsBanditScheduledEndFailureV2";
+import { ExperimentsBanditTrafficSummaryV2DTO } from "./ExperimentsBanditTrafficSummaryV2DTO";
+import { ExperimentsBanditTrafficSummaryV2DTOData } from "./ExperimentsBanditTrafficSummaryV2DTOData";
+import { ExperimentsBanditTrafficSummaryV2DTODataAttributes } from "./ExperimentsBanditTrafficSummaryV2DTODataAttributes";
+import { ExperimentsBanditTrafficVariantV2 } from "./ExperimentsBanditTrafficVariantV2";
+import { ExperimentsBanditV2DTO } from "./ExperimentsBanditV2DTO";
+import { ExperimentsBanditV2DTOData } from "./ExperimentsBanditV2DTOData";
+import { ExperimentsBanditV2DTODataAttributes } from "./ExperimentsBanditV2DTODataAttributes";
+import { ExperimentsBanditV2ListDTOArray } from "./ExperimentsBanditV2ListDTOArray";
+import { ExperimentsBanditV2ListDTOData } from "./ExperimentsBanditV2ListDTOData";
+import { ExperimentsBanditV2ListDTODataAttributes } from "./ExperimentsBanditV2ListDTODataAttributes";
+import { ExperimentsBanditV2ReadMetaDTO } from "./ExperimentsBanditV2ReadMetaDTO";
+import { ExperimentsBanditV2WarningDTO } from "./ExperimentsBanditV2WarningDTO";
+import { ExperimentsBanditVariantResultV2 } from "./ExperimentsBanditVariantResultV2";
+import { ExperimentsBanditVariantV2 } from "./ExperimentsBanditVariantV2";
 import { ExperimentsCancelExperimentV2Request } from "./ExperimentsCancelExperimentV2Request";
 import { ExperimentsCancelExperimentV2RequestData } from "./ExperimentsCancelExperimentV2RequestData";
 import { ExperimentsCancelExperimentV2RequestDataAttributes } from "./ExperimentsCancelExperimentV2RequestDataAttributes";
@@ -222,6 +250,61 @@ export const TypingInfo: ModelTypingInfo = {
       "SequentialFixedHybrid",
     ],
     ExperimentsAnalysisPlanWriteV2RequestDataType: ["analysis-plans"],
+    ExperimentsBanditArmDataStatus: [
+      "usable",
+      "insufficient_data",
+      "zero_variance",
+      "pooled_within_variance",
+      "pooled_total_variance",
+    ],
+    ExperimentsBanditDesiredChange: ["METRIC_INCREASES", "METRIC_DECREASES"],
+    ExperimentsBanditOptimalVariantUnavailableReason: [
+      "NO_RESULTS_YET",
+      "WARMUP",
+      "NOT_ENOUGH_DATA",
+      "NO_DIFFERENCE",
+      "STATS_UNAVAILABLE",
+    ],
+    ExperimentsBanditPolicyKind: ["WARMUP", "ADAPTIVE", "FALLBACK"],
+    ExperimentsBanditPolicyReason: [
+      "ACTIVATION",
+      "REFRESH",
+      "ARM_CHANGE",
+      "SCHEDULED_END",
+      "STOP",
+    ],
+    ExperimentsBanditPosteriorUnavailableReason: [
+      "no_data",
+      "insufficient_data",
+      "zero_variance",
+    ],
+    ExperimentsBanditRefreshStatus: [
+      "PENDING",
+      "RUNNING",
+      "SUCCEEDED",
+      "FAILED",
+      "CANCELLED",
+    ],
+    ExperimentsBanditResultsState: [
+      "WAITING_FOR_FIRST_REFRESH",
+      "WARMUP",
+      "OPTIMIZING",
+      "STATS_UNAVAILABLE",
+      "ENDED",
+    ],
+    ExperimentsBanditResultsV2DTODataType: ["bandit-results"],
+    ExperimentsBanditStatisticsStatus: ["calculated", "failed"],
+    ExperimentsBanditStatus: [
+      "DRAFT",
+      "SCHEDULED",
+      "RUNNING",
+      "PAUSED",
+      "STOPPED",
+      "COMPLETED",
+    ],
+    ExperimentsBanditTrafficSummaryV2DTODataType: ["bandit-traffic-summary"],
+    ExperimentsBanditV2DTODataType: ["bandits"],
+    ExperimentsBanditV2WarningCode: ["datadog_flag_configuration_omitted"],
     ExperimentsCancelExperimentV2RequestDataType: ["cancel-experiment-request"],
     ExperimentsConcludeExperimentV2RequestDataType: [
       "conclude-experiment-request",
@@ -505,6 +588,41 @@ export const TypingInfo: ModelTypingInfo = {
       ExperimentsAnalysisPlanWriteV2RequestDataAttributes,
     ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior:
       ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior,
+    ExperimentsBanditBayesianPriorV2: ExperimentsBanditBayesianPriorV2,
+    ExperimentsBanditConfidenceIntervalV2:
+      ExperimentsBanditConfidenceIntervalV2,
+    ExperimentsBanditDailyTrafficV2: ExperimentsBanditDailyTrafficV2,
+    ExperimentsBanditFlagConfigurationV2: ExperimentsBanditFlagConfigurationV2,
+    ExperimentsBanditNullableConfidenceIntervalV2:
+      ExperimentsBanditNullableConfidenceIntervalV2,
+    ExperimentsBanditObservationCountsV2: ExperimentsBanditObservationCountsV2,
+    ExperimentsBanditPointEstimateV2: ExperimentsBanditPointEstimateV2,
+    ExperimentsBanditPolicyV2: ExperimentsBanditPolicyV2,
+    ExperimentsBanditPolicyVariantV2: ExperimentsBanditPolicyVariantV2,
+    ExperimentsBanditRefreshV2: ExperimentsBanditRefreshV2,
+    ExperimentsBanditResultsV2DTO: ExperimentsBanditResultsV2DTO,
+    ExperimentsBanditResultsV2DTOData: ExperimentsBanditResultsV2DTOData,
+    ExperimentsBanditResultsV2DTODataAttributes:
+      ExperimentsBanditResultsV2DTODataAttributes,
+    ExperimentsBanditScheduledEndFailureV2:
+      ExperimentsBanditScheduledEndFailureV2,
+    ExperimentsBanditTrafficSummaryV2DTO: ExperimentsBanditTrafficSummaryV2DTO,
+    ExperimentsBanditTrafficSummaryV2DTOData:
+      ExperimentsBanditTrafficSummaryV2DTOData,
+    ExperimentsBanditTrafficSummaryV2DTODataAttributes:
+      ExperimentsBanditTrafficSummaryV2DTODataAttributes,
+    ExperimentsBanditTrafficVariantV2: ExperimentsBanditTrafficVariantV2,
+    ExperimentsBanditV2DTO: ExperimentsBanditV2DTO,
+    ExperimentsBanditV2DTOData: ExperimentsBanditV2DTOData,
+    ExperimentsBanditV2DTODataAttributes: ExperimentsBanditV2DTODataAttributes,
+    ExperimentsBanditV2ListDTOArray: ExperimentsBanditV2ListDTOArray,
+    ExperimentsBanditV2ListDTOData: ExperimentsBanditV2ListDTOData,
+    ExperimentsBanditV2ListDTODataAttributes:
+      ExperimentsBanditV2ListDTODataAttributes,
+    ExperimentsBanditV2ReadMetaDTO: ExperimentsBanditV2ReadMetaDTO,
+    ExperimentsBanditV2WarningDTO: ExperimentsBanditV2WarningDTO,
+    ExperimentsBanditVariantResultV2: ExperimentsBanditVariantResultV2,
+    ExperimentsBanditVariantV2: ExperimentsBanditVariantV2,
     ExperimentsCancelExperimentV2Request: ExperimentsCancelExperimentV2Request,
     ExperimentsCancelExperimentV2RequestData:
       ExperimentsCancelExperimentV2RequestData,
