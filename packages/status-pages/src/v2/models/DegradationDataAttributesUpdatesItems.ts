@@ -1,0 +1,123 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { CreateDegradationRequestDataAttributesStatus } from "./CreateDegradationRequestDataAttributesStatus";
+import { DegradationDataAttributesUpdatesItemsComponentsAffectedItems } from "./DegradationDataAttributesUpdatesItemsComponentsAffectedItems";
+
+/**
+ * A status update recorded during a degradation.
+ */
+export class DegradationDataAttributesUpdatesItems {
+  /**
+   * The components affected at the time of the update.
+   */
+  "componentsAffected"?: Array<DegradationDataAttributesUpdatesItemsComponentsAffectedItems>;
+  /**
+   * Timestamp of when the update was created.
+   */
+  "createdAt"?: Date;
+  /**
+   * The date and time the resource was deleted.
+   */
+  "deletedAt"?: string;
+  /**
+   * UUID of the user who deleted the resource.
+   */
+  "deletedByUserUuid"?: string;
+  /**
+   * Description of the update.
+   */
+  "description"?: string;
+  /**
+   * Identifier of the update.
+   */
+  "id"?: string;
+  /**
+   * UUID of the user who last modified the resource.
+   */
+  "lastModifiedByUserUuid"?: string;
+  /**
+   * Timestamp of when the update was last modified.
+   */
+  "modifiedAt"?: Date;
+  /**
+   * Timestamp of when the update started.
+   */
+  "startedAt"?: Date;
+  /**
+   * The status of the degradation.
+   */
+  "status"?: CreateDegradationRequestDataAttributesStatus;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    componentsAffected: {
+      baseName: "components_affected",
+      type: "Array<DegradationDataAttributesUpdatesItemsComponentsAffectedItems>",
+    },
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      format: "date-time",
+    },
+    deletedAt: {
+      baseName: "deleted_at",
+      type: "string",
+    },
+    deletedByUserUuid: {
+      baseName: "deleted_by_user_uuid",
+      type: "string",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "uuid",
+    },
+    lastModifiedByUserUuid: {
+      baseName: "last_modified_by_user_uuid",
+      type: "string",
+    },
+    modifiedAt: {
+      baseName: "modified_at",
+      type: "Date",
+      format: "date-time",
+    },
+    startedAt: {
+      baseName: "started_at",
+      type: "Date",
+      format: "date-time",
+    },
+    status: {
+      baseName: "status",
+      type: "CreateDegradationRequestDataAttributesStatus",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return DegradationDataAttributesUpdatesItems.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

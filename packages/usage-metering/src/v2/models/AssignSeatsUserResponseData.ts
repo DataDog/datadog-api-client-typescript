@@ -1,0 +1,63 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { AssignSeatsUserResponseDataAttributes } from "./AssignSeatsUserResponseDataAttributes";
+import { SeatAssignmentsDataType } from "./SeatAssignmentsDataType";
+
+/**
+ * The response data object containing attributes of the seat assignment result.
+ */
+export class AssignSeatsUserResponseData {
+  /**
+   * Attributes of the assign seats response, including the list of users assigned and the product code.
+   */
+  "attributes"?: AssignSeatsUserResponseDataAttributes;
+  /**
+   * The ID of the assign seats user response.
+   */
+  "id"?: string;
+  /**
+   * Seat assignments resource type.
+   */
+  "type"?: SeatAssignmentsDataType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "AssignSeatsUserResponseDataAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    type: {
+      baseName: "type",
+      type: "SeatAssignmentsDataType",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return AssignSeatsUserResponseData.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

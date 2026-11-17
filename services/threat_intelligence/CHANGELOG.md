@@ -1,6 +1,0 @@
-# CHANGELOG
-
-## 0.0.1-beta.1/2026-09-24
-
-### Added
-* Publish unstable STIX ingestion API [#4962](https://github.com/DataDog/datadog-api-client-typescript/pull/4962)

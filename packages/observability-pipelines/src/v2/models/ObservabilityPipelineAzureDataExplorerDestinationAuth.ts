@@ -1,0 +1,20 @@
+import { UnparsedObject } from "@datadog/datadog-api-client-core";
+
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity";
+import { ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion } from "./ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion";
+
+/**
+ * Authentication configuration for Azure Data Explorer. The `azure_credential_kind` field selects the credential type.
+ */
+export type ObservabilityPipelineAzureDataExplorerDestinationAuth =
+  | ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli
+  | ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret
+  | ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate
+  | ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity
+  | ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
+  | ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity
+  | UnparsedObject;

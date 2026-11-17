@@ -1,0 +1,159 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { ObservabilityPipelineAmazonS3DestinationCompression } from "./ObservabilityPipelineAmazonS3DestinationCompression";
+import { ObservabilityPipelineAmazonS3DestinationServerSideEncryption } from "./ObservabilityPipelineAmazonS3DestinationServerSideEncryption";
+import { ObservabilityPipelineAmazonS3DestinationStorageClass } from "./ObservabilityPipelineAmazonS3DestinationStorageClass";
+import { ObservabilityPipelineAmazonS3DestinationType } from "./ObservabilityPipelineAmazonS3DestinationType";
+import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
+import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
+
+/**
+ * The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+ *
+ * **Supported pipeline types:** logs
+ */
+export class ObservabilityPipelineAmazonS3Destination {
+  /**
+   * AWS authentication credentials used for accessing AWS services such as S3.
+   * If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
+   */
+  "auth"?: ObservabilityPipelineAwsAuth;
+  /**
+   * S3 bucket name.
+   */
+  "bucket": string;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
+  /**
+   * Compression configuration for archived logs. When omitted, logs are compressed with gzip
+   * for backward compatibility.
+   */
+  "compression"?: ObservabilityPipelineAmazonS3DestinationCompression;
+  /**
+   * Unique identifier for the destination component.
+   */
+  "id": string;
+  /**
+   * A list of component IDs whose output is used as the `input` for this component.
+   */
+  "inputs": Array<string>;
+  /**
+   * Optional prefix for object keys.
+   */
+  "keyPrefix"?: string;
+  /**
+   * AWS region of the S3 bucket.
+   */
+  "region": string;
+  /**
+   * Server-side encryption type for Amazon S3.
+   */
+  "serverSideEncryption"?: ObservabilityPipelineAmazonS3DestinationServerSideEncryption;
+  /**
+   * The AWS KMS key ID used for SSE-KMS encryption.
+   * Only applies when `server_side_encryption` is set to `aws:kms`.
+   */
+  "ssekmsKeyId"?: string;
+  /**
+   * S3 storage class.
+   */
+  "storageClass": ObservabilityPipelineAmazonS3DestinationStorageClass;
+  /**
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   */
+  "tls"?: ObservabilityPipelineTls;
+  /**
+   * The destination type. Always `amazon_s3`.
+   */
+  "type": ObservabilityPipelineAmazonS3DestinationType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    auth: {
+      baseName: "auth",
+      type: "ObservabilityPipelineAwsAuth",
+    },
+    bucket: {
+      baseName: "bucket",
+      type: "string",
+      required: true,
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
+    compression: {
+      baseName: "compression",
+      type: "ObservabilityPipelineAmazonS3DestinationCompression",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    inputs: {
+      baseName: "inputs",
+      type: "Array<string>",
+      required: true,
+    },
+    keyPrefix: {
+      baseName: "key_prefix",
+      type: "string",
+    },
+    region: {
+      baseName: "region",
+      type: "string",
+      required: true,
+    },
+    serverSideEncryption: {
+      baseName: "server_side_encryption",
+      type: "ObservabilityPipelineAmazonS3DestinationServerSideEncryption",
+    },
+    ssekmsKeyId: {
+      baseName: "ssekms_key_id",
+      type: "string",
+    },
+    storageClass: {
+      baseName: "storage_class",
+      type: "ObservabilityPipelineAmazonS3DestinationStorageClass",
+      required: true,
+    },
+    tls: {
+      baseName: "tls",
+      type: "ObservabilityPipelineTls",
+    },
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineAmazonS3DestinationType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return ObservabilityPipelineAmazonS3Destination.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

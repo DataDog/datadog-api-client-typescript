@@ -1,0 +1,64 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { PlaylistsSessionDataAttributes } from "./PlaylistsSessionDataAttributes";
+import { ViewershipHistorySessionDataType } from "./ViewershipHistorySessionDataType";
+
+/**
+ * Data object representing a session within a playlist, including its identifier, type, and attributes.
+ */
+export class PlaylistsSessionData {
+  /**
+   * Attributes of a session within a playlist, including the session event data and its replay track.
+   */
+  "attributes"?: PlaylistsSessionDataAttributes;
+  /**
+   * Unique identifier of the RUM replay session.
+   */
+  "id"?: string;
+  /**
+   * Rum replay session resource type.
+   */
+  "type": ViewershipHistorySessionDataType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "PlaylistsSessionDataAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    type: {
+      baseName: "type",
+      type: "ViewershipHistorySessionDataType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return PlaylistsSessionData.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

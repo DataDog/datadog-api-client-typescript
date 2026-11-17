@@ -1,0 +1,16 @@
+import { UnparsedObject } from "@datadog/datadog-api-client-core";
+
+import { CustomDestinationResponseForwardDestinationElasticsearch } from "./CustomDestinationResponseForwardDestinationElasticsearch";
+import { CustomDestinationResponseForwardDestinationHttp } from "./CustomDestinationResponseForwardDestinationHttp";
+import { CustomDestinationResponseForwardDestinationMicrosoftSentinel } from "./CustomDestinationResponseForwardDestinationMicrosoftSentinel";
+import { CustomDestinationResponseForwardDestinationSplunk } from "./CustomDestinationResponseForwardDestinationSplunk";
+
+/**
+ * A custom destination's location to forward logs.
+ */
+export type CustomDestinationResponseForwardDestination =
+  | CustomDestinationResponseForwardDestinationHttp
+  | CustomDestinationResponseForwardDestinationSplunk
+  | CustomDestinationResponseForwardDestinationElasticsearch
+  | CustomDestinationResponseForwardDestinationMicrosoftSentinel
+  | UnparsedObject;

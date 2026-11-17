@@ -1,0 +1,66 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { LLMObsPromptDataAttributes } from "./LLMObsPromptDataAttributes";
+import { LLMObsPromptType } from "./LLMObsPromptType";
+
+/**
+ * Data object for an Agent Observability prompt.
+ */
+export class LLMObsPromptData {
+  /**
+   * Attributes of an Agent Observability prompt registry entry. Prompt list and metadata-update responses omit complete template and configuration data.
+   */
+  "attributes": LLMObsPromptDataAttributes;
+  /**
+   * Unique identifier of the prompt.
+   */
+  "id": string;
+  /**
+   * Resource type of an Agent Observability prompt.
+   */
+  "type": LLMObsPromptType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "LLMObsPromptDataAttributes",
+      required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "LLMObsPromptType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return LLMObsPromptData.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

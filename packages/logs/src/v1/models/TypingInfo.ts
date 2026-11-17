@@ -1,0 +1,200 @@
+import { ModelTypingInfo } from "@datadog/datadog-api-client-core";
+
+import { APIErrorResponse } from "./APIErrorResponse";
+import { HTTPLogError } from "./HTTPLogError";
+import { HTTPLogItem } from "./HTTPLogItem";
+import { Log } from "./Log";
+import { LogContent } from "./LogContent";
+import { LogsAPIError } from "./LogsAPIError";
+import { LogsAPIErrorResponse } from "./LogsAPIErrorResponse";
+import { LogsAPILimitReachedResponse } from "./LogsAPILimitReachedResponse";
+import { LogsArithmeticProcessor } from "./LogsArithmeticProcessor";
+import { LogsArrayMapArithmeticSubProcessor } from "./LogsArrayMapArithmeticSubProcessor";
+import { LogsArrayMapAttributeRemapper } from "./LogsArrayMapAttributeRemapper";
+import { LogsArrayMapCategorySubProcessor } from "./LogsArrayMapCategorySubProcessor";
+import { LogsArrayMapProcessor } from "./LogsArrayMapProcessor";
+import { LogsArrayMapStringBuilderSubProcessor } from "./LogsArrayMapStringBuilderSubProcessor";
+import { LogsArrayProcessor } from "./LogsArrayProcessor";
+import { LogsArrayProcessorOperationAppend } from "./LogsArrayProcessorOperationAppend";
+import { LogsArrayProcessorOperationExtractKeyValue } from "./LogsArrayProcessorOperationExtractKeyValue";
+import { LogsArrayProcessorOperationLength } from "./LogsArrayProcessorOperationLength";
+import { LogsArrayProcessorOperationSelect } from "./LogsArrayProcessorOperationSelect";
+import { LogsAttributeRemapper } from "./LogsAttributeRemapper";
+import { LogsCategoryProcessor } from "./LogsCategoryProcessor";
+import { LogsCategoryProcessorCategory } from "./LogsCategoryProcessorCategory";
+import { LogsDailyLimitReset } from "./LogsDailyLimitReset";
+import { LogsDateRemapper } from "./LogsDateRemapper";
+import { LogsDecoderProcessor } from "./LogsDecoderProcessor";
+import { LogsExcludeAttributeProcessor } from "./LogsExcludeAttributeProcessor";
+import { LogsExclusion } from "./LogsExclusion";
+import { LogsExclusionFilter } from "./LogsExclusionFilter";
+import { LogsFilter } from "./LogsFilter";
+import { LogsGeoIPParser } from "./LogsGeoIPParser";
+import { LogsGrokParser } from "./LogsGrokParser";
+import { LogsGrokParserRules } from "./LogsGrokParserRules";
+import { LogsIndex } from "./LogsIndex";
+import { LogsIndexListResponse } from "./LogsIndexListResponse";
+import { LogsIndexUpdateRequest } from "./LogsIndexUpdateRequest";
+import { LogsIndexesOrder } from "./LogsIndexesOrder";
+import { LogsListRequest } from "./LogsListRequest";
+import { LogsListRequestTime } from "./LogsListRequestTime";
+import { LogsListResponse } from "./LogsListResponse";
+import { LogsLookupProcessor } from "./LogsLookupProcessor";
+import { LogsMessageRemapper } from "./LogsMessageRemapper";
+import { LogsPipeline } from "./LogsPipeline";
+import { LogsPipelineProcessor } from "./LogsPipelineProcessor";
+import { LogsPipelinesOrder } from "./LogsPipelinesOrder";
+import { LogsSchemaCategoryMapper } from "./LogsSchemaCategoryMapper";
+import { LogsSchemaCategoryMapperCategory } from "./LogsSchemaCategoryMapperCategory";
+import { LogsSchemaCategoryMapperFallback } from "./LogsSchemaCategoryMapperFallback";
+import { LogsSchemaCategoryMapperTargets } from "./LogsSchemaCategoryMapperTargets";
+import { LogsSchemaData } from "./LogsSchemaData";
+import { LogsSchemaProcessor } from "./LogsSchemaProcessor";
+import { LogsSchemaRemapper } from "./LogsSchemaRemapper";
+import { LogsServiceRemapper } from "./LogsServiceRemapper";
+import { LogsSpanRemapper } from "./LogsSpanRemapper";
+import { LogsStatusRemapper } from "./LogsStatusRemapper";
+import { LogsStringBuilderProcessor } from "./LogsStringBuilderProcessor";
+import { LogsTraceRemapper } from "./LogsTraceRemapper";
+import { LogsURLParser } from "./LogsURLParser";
+import { LogsUserAgentParser } from "./LogsUserAgentParser";
+import { ReferenceTableLogsLookupProcessor } from "./ReferenceTableLogsLookupProcessor";
+
+export const TypingInfo: ModelTypingInfo = {
+  enumsMap: {
+    ContentEncoding: ["gzip", "deflate"],
+    LogsArithmeticProcessorType: ["arithmetic-processor"],
+    LogsArrayMapProcessorType: ["array-map-processor"],
+    LogsArrayProcessorOperationAppendType: ["append"],
+    LogsArrayProcessorOperationExtractKeyValueType: ["key-value"],
+    LogsArrayProcessorOperationLengthType: ["length"],
+    LogsArrayProcessorOperationSelectType: ["select"],
+    LogsArrayProcessorType: ["array-processor"],
+    LogsAttributeRemapperType: ["attribute-remapper"],
+    LogsCategoryProcessorType: ["category-processor"],
+    LogsDateRemapperType: ["date-remapper"],
+    LogsDecoderProcessorBinaryToTextEncoding: ["base64", "base16"],
+    LogsDecoderProcessorInputRepresentation: ["utf_8", "integer"],
+    LogsDecoderProcessorType: ["decoder-processor"],
+    LogsExcludeAttributeProcessorType: ["exclude-attribute"],
+    LogsGeoIPParserType: ["geo-ip-parser"],
+    LogsGrokParserType: ["grok-parser"],
+    LogsLookupProcessorType: ["lookup-processor"],
+    LogsMessageRemapperType: ["message-remapper"],
+    LogsPipelineProcessorType: ["pipeline"],
+    LogsSchemaCategoryMapperType: ["schema-category-mapper"],
+    LogsSchemaProcessorType: ["schema-processor"],
+    LogsSchemaRemapperType: ["schema-remapper"],
+    LogsServiceRemapperType: ["service-remapper"],
+    LogsSort: ["asc", "desc"],
+    LogsSpanRemapperType: ["span-id-remapper"],
+    LogsStatusRemapperType: ["status-remapper"],
+    LogsStringBuilderProcessorType: ["string-builder-processor"],
+    LogsTraceRemapperType: ["trace-id-remapper"],
+    LogsURLParserType: ["url-parser"],
+    LogsUserAgentParserType: ["user-agent-parser"],
+    TargetFormatType: ["auto", "string", "integer", "double"],
+  },
+  oneOfMap: {
+    LogsArrayMapSubProcessor: [
+      "LogsArrayMapAttributeRemapper",
+      "LogsArrayMapArithmeticSubProcessor",
+      "LogsArrayMapStringBuilderSubProcessor",
+      "LogsArrayMapCategorySubProcessor",
+    ],
+    LogsArrayProcessorOperation: [
+      "LogsArrayProcessorOperationAppend",
+      "LogsArrayProcessorOperationLength",
+      "LogsArrayProcessorOperationSelect",
+      "LogsArrayProcessorOperationExtractKeyValue",
+    ],
+    LogsProcessor: [
+      "LogsGrokParser",
+      "LogsDateRemapper",
+      "LogsStatusRemapper",
+      "LogsServiceRemapper",
+      "LogsMessageRemapper",
+      "LogsAttributeRemapper",
+      "LogsURLParser",
+      "LogsUserAgentParser",
+      "LogsCategoryProcessor",
+      "LogsArithmeticProcessor",
+      "LogsStringBuilderProcessor",
+      "LogsPipelineProcessor",
+      "LogsGeoIPParser",
+      "LogsLookupProcessor",
+      "ReferenceTableLogsLookupProcessor",
+      "LogsTraceRemapper",
+      "LogsSpanRemapper",
+      "LogsArrayProcessor",
+      "LogsDecoderProcessor",
+      "LogsSchemaProcessor",
+      "LogsExcludeAttributeProcessor",
+      "LogsArrayMapProcessor",
+    ],
+    LogsSchemaMapper: ["LogsSchemaRemapper", "LogsSchemaCategoryMapper"],
+  },
+  typeMap: {
+    APIErrorResponse: APIErrorResponse,
+    HTTPLogError: HTTPLogError,
+    HTTPLogItem: HTTPLogItem,
+    Log: Log,
+    LogContent: LogContent,
+    LogsAPIError: LogsAPIError,
+    LogsAPIErrorResponse: LogsAPIErrorResponse,
+    LogsAPILimitReachedResponse: LogsAPILimitReachedResponse,
+    LogsArithmeticProcessor: LogsArithmeticProcessor,
+    LogsArrayMapArithmeticSubProcessor: LogsArrayMapArithmeticSubProcessor,
+    LogsArrayMapAttributeRemapper: LogsArrayMapAttributeRemapper,
+    LogsArrayMapCategorySubProcessor: LogsArrayMapCategorySubProcessor,
+    LogsArrayMapProcessor: LogsArrayMapProcessor,
+    LogsArrayMapStringBuilderSubProcessor:
+      LogsArrayMapStringBuilderSubProcessor,
+    LogsArrayProcessor: LogsArrayProcessor,
+    LogsArrayProcessorOperationAppend: LogsArrayProcessorOperationAppend,
+    LogsArrayProcessorOperationExtractKeyValue:
+      LogsArrayProcessorOperationExtractKeyValue,
+    LogsArrayProcessorOperationLength: LogsArrayProcessorOperationLength,
+    LogsArrayProcessorOperationSelect: LogsArrayProcessorOperationSelect,
+    LogsAttributeRemapper: LogsAttributeRemapper,
+    LogsCategoryProcessor: LogsCategoryProcessor,
+    LogsCategoryProcessorCategory: LogsCategoryProcessorCategory,
+    LogsDailyLimitReset: LogsDailyLimitReset,
+    LogsDateRemapper: LogsDateRemapper,
+    LogsDecoderProcessor: LogsDecoderProcessor,
+    LogsExcludeAttributeProcessor: LogsExcludeAttributeProcessor,
+    LogsExclusion: LogsExclusion,
+    LogsExclusionFilter: LogsExclusionFilter,
+    LogsFilter: LogsFilter,
+    LogsGeoIPParser: LogsGeoIPParser,
+    LogsGrokParser: LogsGrokParser,
+    LogsGrokParserRules: LogsGrokParserRules,
+    LogsIndex: LogsIndex,
+    LogsIndexListResponse: LogsIndexListResponse,
+    LogsIndexUpdateRequest: LogsIndexUpdateRequest,
+    LogsIndexesOrder: LogsIndexesOrder,
+    LogsListRequest: LogsListRequest,
+    LogsListRequestTime: LogsListRequestTime,
+    LogsListResponse: LogsListResponse,
+    LogsLookupProcessor: LogsLookupProcessor,
+    LogsMessageRemapper: LogsMessageRemapper,
+    LogsPipeline: LogsPipeline,
+    LogsPipelineProcessor: LogsPipelineProcessor,
+    LogsPipelinesOrder: LogsPipelinesOrder,
+    LogsSchemaCategoryMapper: LogsSchemaCategoryMapper,
+    LogsSchemaCategoryMapperCategory: LogsSchemaCategoryMapperCategory,
+    LogsSchemaCategoryMapperFallback: LogsSchemaCategoryMapperFallback,
+    LogsSchemaCategoryMapperTargets: LogsSchemaCategoryMapperTargets,
+    LogsSchemaData: LogsSchemaData,
+    LogsSchemaProcessor: LogsSchemaProcessor,
+    LogsSchemaRemapper: LogsSchemaRemapper,
+    LogsServiceRemapper: LogsServiceRemapper,
+    LogsSpanRemapper: LogsSpanRemapper,
+    LogsStatusRemapper: LogsStatusRemapper,
+    LogsStringBuilderProcessor: LogsStringBuilderProcessor,
+    LogsTraceRemapper: LogsTraceRemapper,
+    LogsURLParser: LogsURLParser,
+    LogsUserAgentParser: LogsUserAgentParser,
+    ReferenceTableLogsLookupProcessor: ReferenceTableLogsLookupProcessor,
+  },
+};

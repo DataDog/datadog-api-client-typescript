@@ -1,0 +1,57 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { GeminiAPIKeyApiKey } from "./GeminiAPIKeyApiKey";
+import { GeminiAPIKeyType } from "./GeminiAPIKeyType";
+
+/**
+ * The definition of the `GeminiAPIKey` object.
+ */
+export class GeminiAPIKey {
+  /**
+   * The `GeminiAPIKey` `api_key`.
+   */
+  "apiKey": GeminiAPIKeyApiKey;
+  /**
+   * The definition of the `GeminiAPIKey` object.
+   */
+  "type": GeminiAPIKeyType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    apiKey: {
+      baseName: "api_key",
+      type: "GeminiAPIKeyApiKey",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "GeminiAPIKeyType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return GeminiAPIKey.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

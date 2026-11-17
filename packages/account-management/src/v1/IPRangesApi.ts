@@ -1,0 +1,190 @@
+import {
+  ApiException,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
+  buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
+  isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+} from "@datadog/datadog-api-client-core";
+
+import { TypingInfo } from "./models/TypingInfo";
+import { APIErrorResponse } from "./models/APIErrorResponse";
+import { IPRanges } from "./models/IPRanges";
+import { version } from "../version";
+
+export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("account-management", version);
+    }
+  }
+  public async getIPRanges(_options?: Configuration): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v1.IPRangesApi.getIPRanges",
+      IPRangesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    return requestContext;
+  }
+}
+
+export class IPRangesApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getIPRanges
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIPRanges(response: ResponseContext): Promise<IPRanges> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IPRanges = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IPRanges",
+      ) as IPRanges;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IPRanges = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IPRanges",
+        "",
+      ) as IPRanges;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+}
+
+export class IPRangesApi {
+  private requestFactory: IPRangesApiRequestFactory;
+  private responseProcessor: IPRangesApiResponseProcessor;
+  private configuration: Configuration;
+
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+    "v1.IPRangesApi.getIPRanges": [
+      new ServerConfiguration<{
+        site:
+          | "datadoghq.com"
+          | "us3.datadoghq.com"
+          | "us5.datadoghq.com"
+          | "ap1.datadoghq.com"
+          | "ap2.datadoghq.com"
+          | "uk1.datadoghq.com"
+          | "datadoghq.eu"
+          | "ddog-gov.com"
+          | "us2.ddog-gov.com";
+        subdomain: string;
+      }>("https://{subdomain}.{site}", {
+        site: "datadoghq.com",
+        subdomain: "ip-ranges",
+      }),
+      new ServerConfiguration<{
+        name: string;
+        protocol: string;
+      }>("{protocol}://{name}", {
+        name: "ip-ranges.datadoghq.com",
+        protocol: "https",
+      }),
+      new ServerConfiguration<{
+        subdomain: string;
+      }>("https://{subdomain}.datadoghq.com", {
+        subdomain: "ip-ranges",
+      }),
+    ],
+  };
+
+  public constructor(
+    configuration?: Configuration,
+    requestFactory?: IPRangesApiRequestFactory,
+    responseProcessor?: IPRangesApiResponseProcessor,
+  ) {
+    this.configuration = configuration || createConfiguration();
+    this.requestFactory =
+      requestFactory || new IPRangesApiRequestFactory(this.configuration);
+    this.responseProcessor =
+      responseProcessor || new IPRangesApiResponseProcessor();
+  }
+
+  /**
+   * Get information about Datadog IP ranges.
+   * @param param The request object
+   */
+  public getIPRanges(options?: Configuration): Promise<IPRanges> {
+    const requestContextPromise = this.requestFactory.getIPRanges(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIPRanges(responseContext);
+        });
+    });
+  }
+}

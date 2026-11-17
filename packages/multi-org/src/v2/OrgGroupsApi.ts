@@ -1,0 +1,4468 @@
+import {
+  ApiException,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
+  buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
+  isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
+} from "@datadog/datadog-api-client-core";
+
+import { TypingInfo } from "./models/TypingInfo";
+import { APIErrorResponse } from "./models/APIErrorResponse";
+import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+import { OrgGroupCreateRequest } from "./models/OrgGroupCreateRequest";
+import { OrgGroupListResponse } from "./models/OrgGroupListResponse";
+import { OrgGroupMembershipBulkDeleteRequest } from "./models/OrgGroupMembershipBulkDeleteRequest";
+import { OrgGroupMembershipBulkUpdateRequest } from "./models/OrgGroupMembershipBulkUpdateRequest";
+import { OrgGroupMembershipCreateRequest } from "./models/OrgGroupMembershipCreateRequest";
+import { OrgGroupMembershipListResponse } from "./models/OrgGroupMembershipListResponse";
+import { OrgGroupMembershipResponse } from "./models/OrgGroupMembershipResponse";
+import { OrgGroupMembershipSortOption } from "./models/OrgGroupMembershipSortOption";
+import { OrgGroupMembershipUpdateRequest } from "./models/OrgGroupMembershipUpdateRequest";
+import { OrgGroupPolicyConfigListResponse } from "./models/OrgGroupPolicyConfigListResponse";
+import { OrgGroupPolicyCreateRequest } from "./models/OrgGroupPolicyCreateRequest";
+import { OrgGroupPolicyFilterPolicyTypeValue } from "./models/OrgGroupPolicyFilterPolicyTypeValue";
+import { OrgGroupPolicyListResponse } from "./models/OrgGroupPolicyListResponse";
+import { OrgGroupPolicyOverrideCreateRequest } from "./models/OrgGroupPolicyOverrideCreateRequest";
+import { OrgGroupPolicyOverrideListResponse } from "./models/OrgGroupPolicyOverrideListResponse";
+import { OrgGroupPolicyOverrideResponse } from "./models/OrgGroupPolicyOverrideResponse";
+import { OrgGroupPolicyOverrideSortOption } from "./models/OrgGroupPolicyOverrideSortOption";
+import { OrgGroupPolicyOverrideUpdateRequest } from "./models/OrgGroupPolicyOverrideUpdateRequest";
+import { OrgGroupPolicyResponse } from "./models/OrgGroupPolicyResponse";
+import { OrgGroupPolicySortOption } from "./models/OrgGroupPolicySortOption";
+import { OrgGroupPolicySuggestionListResponse } from "./models/OrgGroupPolicySuggestionListResponse";
+import { OrgGroupPolicyUpdateRequest } from "./models/OrgGroupPolicyUpdateRequest";
+import { OrgGroupResponse } from "./models/OrgGroupResponse";
+import { OrgGroupSortOption } from "./models/OrgGroupSortOption";
+import { OrgGroupUpdateRequest } from "./models/OrgGroupUpdateRequest";
+import { version } from "../version";
+
+export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("multi-org", version);
+    }
+  }
+  public async bulkUpdateOrgGroupMemberships(
+    body: OrgGroupMembershipBulkUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'bulkUpdateOrgGroupMemberships'");
+    if (!_config.unstableOperations["v2.bulkUpdateOrgGroupMemberships"]) {
+      throw new Error(
+        "Unstable operation 'bulkUpdateOrgGroupMemberships' is disabled. Enable it by setting `configuration.unstableOperations['v2.bulkUpdateOrgGroupMemberships'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "bulkUpdateOrgGroupMemberships");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_group_memberships/bulk";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.bulkUpdateOrgGroupMemberships",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "OrgGroupMembershipBulkUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createOrgGroup(
+    body: OrgGroupCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createOrgGroup'");
+    if (!_config.unstableOperations["v2.createOrgGroup"]) {
+      throw new Error(
+        "Unstable operation 'createOrgGroup' is disabled. Enable it by setting `configuration.unstableOperations['v2.createOrgGroup'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createOrgGroup");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_groups";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.createOrgGroup",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "OrgGroupCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createOrgGroupMemberships(
+    body: OrgGroupMembershipCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createOrgGroupMemberships'");
+    if (!_config.unstableOperations["v2.createOrgGroupMemberships"]) {
+      throw new Error(
+        "Unstable operation 'createOrgGroupMemberships' is disabled. Enable it by setting `configuration.unstableOperations['v2.createOrgGroupMemberships'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createOrgGroupMemberships");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_group_memberships";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.createOrgGroupMemberships",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "OrgGroupMembershipCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createOrgGroupPolicy(
+    body: OrgGroupPolicyCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createOrgGroupPolicy'");
+    if (!_config.unstableOperations["v2.createOrgGroupPolicy"]) {
+      throw new Error(
+        "Unstable operation 'createOrgGroupPolicy' is disabled. Enable it by setting `configuration.unstableOperations['v2.createOrgGroupPolicy'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createOrgGroupPolicy");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_group_policies";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.createOrgGroupPolicy",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "OrgGroupPolicyCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createOrgGroupPolicyOverride(
+    body: OrgGroupPolicyOverrideCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createOrgGroupPolicyOverride'");
+    if (!_config.unstableOperations["v2.createOrgGroupPolicyOverride"]) {
+      throw new Error(
+        "Unstable operation 'createOrgGroupPolicyOverride' is disabled. Enable it by setting `configuration.unstableOperations['v2.createOrgGroupPolicyOverride'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createOrgGroupPolicyOverride");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_group_policy_overrides";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.createOrgGroupPolicyOverride",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "OrgGroupPolicyOverrideCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteOrgGroup(
+    orgGroupId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteOrgGroup'");
+    if (!_config.unstableOperations["v2.deleteOrgGroup"]) {
+      throw new Error(
+        "Unstable operation 'deleteOrgGroup' is disabled. Enable it by setting `configuration.unstableOperations['v2.deleteOrgGroup'] = true`",
+      );
+    }
+
+    // verify required parameter 'orgGroupId' is not null or undefined
+    if (orgGroupId === null || orgGroupId === undefined) {
+      throw new RequiredError("orgGroupId", "deleteOrgGroup");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_groups/{org_group_id}".replace(
+      "{org_group_id}",
+      encodeURIComponent(String(orgGroupId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.deleteOrgGroup",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteOrgGroupMembership(
+    orgGroupMembershipId: string,
+    filterOrgGroupId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteOrgGroupMembership'");
+    if (!_config.unstableOperations["v2.deleteOrgGroupMembership"]) {
+      throw new Error(
+        "Unstable operation 'deleteOrgGroupMembership' is disabled. Enable it by setting `configuration.unstableOperations['v2.deleteOrgGroupMembership'] = true`",
+      );
+    }
+
+    // verify required parameter 'orgGroupMembershipId' is not null or undefined
+    if (orgGroupMembershipId === null || orgGroupMembershipId === undefined) {
+      throw new RequiredError(
+        "orgGroupMembershipId",
+        "deleteOrgGroupMembership",
+      );
+    }
+
+    // verify required parameter 'filterOrgGroupId' is not null or undefined
+    if (filterOrgGroupId === null || filterOrgGroupId === undefined) {
+      throw new RequiredError("filterOrgGroupId", "deleteOrgGroupMembership");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/org_group_memberships/{org_group_membership_id}".replace(
+        "{org_group_membership_id}",
+        encodeURIComponent(String(orgGroupMembershipId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.deleteOrgGroupMembership",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterOrgGroupId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[org_group_id]",
+        serialize(filterOrgGroupId, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteOrgGroupMemberships(
+    filterOrgGroupId: string,
+    body: OrgGroupMembershipBulkDeleteRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteOrgGroupMemberships'");
+    if (!_config.unstableOperations["v2.deleteOrgGroupMemberships"]) {
+      throw new Error(
+        "Unstable operation 'deleteOrgGroupMemberships' is disabled. Enable it by setting `configuration.unstableOperations['v2.deleteOrgGroupMemberships'] = true`",
+      );
+    }
+
+    // verify required parameter 'filterOrgGroupId' is not null or undefined
+    if (filterOrgGroupId === null || filterOrgGroupId === undefined) {
+      throw new RequiredError("filterOrgGroupId", "deleteOrgGroupMemberships");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "deleteOrgGroupMemberships");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_group_memberships/bulk_delete";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.deleteOrgGroupMemberships",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterOrgGroupId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[org_group_id]",
+        serialize(filterOrgGroupId, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "OrgGroupMembershipBulkDeleteRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteOrgGroupPolicy(
+    orgGroupPolicyId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteOrgGroupPolicy'");
+    if (!_config.unstableOperations["v2.deleteOrgGroupPolicy"]) {
+      throw new Error(
+        "Unstable operation 'deleteOrgGroupPolicy' is disabled. Enable it by setting `configuration.unstableOperations['v2.deleteOrgGroupPolicy'] = true`",
+      );
+    }
+
+    // verify required parameter 'orgGroupPolicyId' is not null or undefined
+    if (orgGroupPolicyId === null || orgGroupPolicyId === undefined) {
+      throw new RequiredError("orgGroupPolicyId", "deleteOrgGroupPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/org_group_policies/{org_group_policy_id}".replace(
+        "{org_group_policy_id}",
+        encodeURIComponent(String(orgGroupPolicyId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.deleteOrgGroupPolicy",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteOrgGroupPolicyOverride(
+    orgGroupPolicyOverrideId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteOrgGroupPolicyOverride'");
+    if (!_config.unstableOperations["v2.deleteOrgGroupPolicyOverride"]) {
+      throw new Error(
+        "Unstable operation 'deleteOrgGroupPolicyOverride' is disabled. Enable it by setting `configuration.unstableOperations['v2.deleteOrgGroupPolicyOverride'] = true`",
+      );
+    }
+
+    // verify required parameter 'orgGroupPolicyOverrideId' is not null or undefined
+    if (
+      orgGroupPolicyOverrideId === null ||
+      orgGroupPolicyOverrideId === undefined
+    ) {
+      throw new RequiredError(
+        "orgGroupPolicyOverrideId",
+        "deleteOrgGroupPolicyOverride",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/org_group_policy_overrides/{org_group_policy_override_id}".replace(
+        "{org_group_policy_override_id}",
+        encodeURIComponent(String(orgGroupPolicyOverrideId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.deleteOrgGroupPolicyOverride",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getOrgGroup(
+    orgGroupId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getOrgGroup'");
+    if (!_config.unstableOperations["v2.getOrgGroup"]) {
+      throw new Error(
+        "Unstable operation 'getOrgGroup' is disabled. Enable it by setting `configuration.unstableOperations['v2.getOrgGroup'] = true`",
+      );
+    }
+
+    // verify required parameter 'orgGroupId' is not null or undefined
+    if (orgGroupId === null || orgGroupId === undefined) {
+      throw new RequiredError("orgGroupId", "getOrgGroup");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_groups/{org_group_id}".replace(
+      "{org_group_id}",
+      encodeURIComponent(String(orgGroupId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.getOrgGroup",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getOrgGroupMembership(
+    orgGroupMembershipId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getOrgGroupMembership'");
+    if (!_config.unstableOperations["v2.getOrgGroupMembership"]) {
+      throw new Error(
+        "Unstable operation 'getOrgGroupMembership' is disabled. Enable it by setting `configuration.unstableOperations['v2.getOrgGroupMembership'] = true`",
+      );
+    }
+
+    // verify required parameter 'orgGroupMembershipId' is not null or undefined
+    if (orgGroupMembershipId === null || orgGroupMembershipId === undefined) {
+      throw new RequiredError("orgGroupMembershipId", "getOrgGroupMembership");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/org_group_memberships/{org_group_membership_id}".replace(
+        "{org_group_membership_id}",
+        encodeURIComponent(String(orgGroupMembershipId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.getOrgGroupMembership",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getOrgGroupPolicy(
+    orgGroupPolicyId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getOrgGroupPolicy'");
+    if (!_config.unstableOperations["v2.getOrgGroupPolicy"]) {
+      throw new Error(
+        "Unstable operation 'getOrgGroupPolicy' is disabled. Enable it by setting `configuration.unstableOperations['v2.getOrgGroupPolicy'] = true`",
+      );
+    }
+
+    // verify required parameter 'orgGroupPolicyId' is not null or undefined
+    if (orgGroupPolicyId === null || orgGroupPolicyId === undefined) {
+      throw new RequiredError("orgGroupPolicyId", "getOrgGroupPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/org_group_policies/{org_group_policy_id}".replace(
+        "{org_group_policy_id}",
+        encodeURIComponent(String(orgGroupPolicyId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.getOrgGroupPolicy",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getOrgGroupPolicyOverride(
+    orgGroupPolicyOverrideId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getOrgGroupPolicyOverride'");
+    if (!_config.unstableOperations["v2.getOrgGroupPolicyOverride"]) {
+      throw new Error(
+        "Unstable operation 'getOrgGroupPolicyOverride' is disabled. Enable it by setting `configuration.unstableOperations['v2.getOrgGroupPolicyOverride'] = true`",
+      );
+    }
+
+    // verify required parameter 'orgGroupPolicyOverrideId' is not null or undefined
+    if (
+      orgGroupPolicyOverrideId === null ||
+      orgGroupPolicyOverrideId === undefined
+    ) {
+      throw new RequiredError(
+        "orgGroupPolicyOverrideId",
+        "getOrgGroupPolicyOverride",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/org_group_policy_overrides/{org_group_policy_override_id}".replace(
+        "{org_group_policy_override_id}",
+        encodeURIComponent(String(orgGroupPolicyOverrideId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.getOrgGroupPolicyOverride",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOrgGroupMemberships(
+    filterOrgGroupId?: string,
+    filterOrgUuid?: string,
+    pageNumber?: number,
+    pageSize?: number,
+    sort?: OrgGroupMembershipSortOption,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listOrgGroupMemberships'");
+    if (!_config.unstableOperations["v2.listOrgGroupMemberships"]) {
+      throw new Error(
+        "Unstable operation 'listOrgGroupMemberships' is disabled. Enable it by setting `configuration.unstableOperations['v2.listOrgGroupMemberships'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_group_memberships";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.listOrgGroupMemberships",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterOrgGroupId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[org_group_id]",
+        serialize(filterOrgGroupId, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+    if (filterOrgUuid !== undefined) {
+      requestContext.setQueryParam(
+        "filter[org_uuid]",
+        serialize(filterOrgUuid, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "OrgGroupMembershipSortOption", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOrgGroupPolicies(
+    filterOrgGroupId: string,
+    filterPolicyName?: string,
+    filterPolicyType?: OrgGroupPolicyFilterPolicyTypeValue,
+    pageNumber?: number,
+    pageSize?: number,
+    sort?: OrgGroupPolicySortOption,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listOrgGroupPolicies'");
+    if (!_config.unstableOperations["v2.listOrgGroupPolicies"]) {
+      throw new Error(
+        "Unstable operation 'listOrgGroupPolicies' is disabled. Enable it by setting `configuration.unstableOperations['v2.listOrgGroupPolicies'] = true`",
+      );
+    }
+
+    // verify required parameter 'filterOrgGroupId' is not null or undefined
+    if (filterOrgGroupId === null || filterOrgGroupId === undefined) {
+      throw new RequiredError("filterOrgGroupId", "listOrgGroupPolicies");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_group_policies";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.listOrgGroupPolicies",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterOrgGroupId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[org_group_id]",
+        serialize(filterOrgGroupId, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+    if (filterPolicyName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[policy_name]",
+        serialize(filterPolicyName, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterPolicyType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[policy_type]",
+        serialize(
+          filterPolicyType,
+          TypingInfo,
+          "OrgGroupPolicyFilterPolicyTypeValue",
+          "",
+        ),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "OrgGroupPolicySortOption", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOrgGroupPolicyConfigs(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listOrgGroupPolicyConfigs'");
+    if (!_config.unstableOperations["v2.listOrgGroupPolicyConfigs"]) {
+      throw new Error(
+        "Unstable operation 'listOrgGroupPolicyConfigs' is disabled. Enable it by setting `configuration.unstableOperations['v2.listOrgGroupPolicyConfigs'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_group_policy_configs";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.listOrgGroupPolicyConfigs",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOrgGroupPolicyOverrides(
+    filterOrgGroupId: string,
+    filterPolicyId?: string,
+    pageNumber?: number,
+    pageSize?: number,
+    sort?: OrgGroupPolicyOverrideSortOption,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listOrgGroupPolicyOverrides'");
+    if (!_config.unstableOperations["v2.listOrgGroupPolicyOverrides"]) {
+      throw new Error(
+        "Unstable operation 'listOrgGroupPolicyOverrides' is disabled. Enable it by setting `configuration.unstableOperations['v2.listOrgGroupPolicyOverrides'] = true`",
+      );
+    }
+
+    // verify required parameter 'filterOrgGroupId' is not null or undefined
+    if (filterOrgGroupId === null || filterOrgGroupId === undefined) {
+      throw new RequiredError(
+        "filterOrgGroupId",
+        "listOrgGroupPolicyOverrides",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_group_policy_overrides";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.listOrgGroupPolicyOverrides",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterOrgGroupId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[org_group_id]",
+        serialize(filterOrgGroupId, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+    if (filterPolicyId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[policy_id]",
+        serialize(filterPolicyId, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "OrgGroupPolicyOverrideSortOption", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOrgGroupPolicySuggestions(
+    filterOrgGroupId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listOrgGroupPolicySuggestions'");
+    if (!_config.unstableOperations["v2.listOrgGroupPolicySuggestions"]) {
+      throw new Error(
+        "Unstable operation 'listOrgGroupPolicySuggestions' is disabled. Enable it by setting `configuration.unstableOperations['v2.listOrgGroupPolicySuggestions'] = true`",
+      );
+    }
+
+    // verify required parameter 'filterOrgGroupId' is not null or undefined
+    if (filterOrgGroupId === null || filterOrgGroupId === undefined) {
+      throw new RequiredError(
+        "filterOrgGroupId",
+        "listOrgGroupPolicySuggestions",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_group_policy_suggestions";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.listOrgGroupPolicySuggestions",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterOrgGroupId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[org_group_id]",
+        serialize(filterOrgGroupId, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOrgGroups(
+    pageNumber?: number,
+    pageSize?: number,
+    sort?: OrgGroupSortOption,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listOrgGroups'");
+    if (!_config.unstableOperations["v2.listOrgGroups"]) {
+      throw new Error(
+        "Unstable operation 'listOrgGroups' is disabled. Enable it by setting `configuration.unstableOperations['v2.listOrgGroups'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_groups";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.listOrgGroups",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "OrgGroupSortOption", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateOrgGroup(
+    orgGroupId: string,
+    body: OrgGroupUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateOrgGroup'");
+    if (!_config.unstableOperations["v2.updateOrgGroup"]) {
+      throw new Error(
+        "Unstable operation 'updateOrgGroup' is disabled. Enable it by setting `configuration.unstableOperations['v2.updateOrgGroup'] = true`",
+      );
+    }
+
+    // verify required parameter 'orgGroupId' is not null or undefined
+    if (orgGroupId === null || orgGroupId === undefined) {
+      throw new RequiredError("orgGroupId", "updateOrgGroup");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateOrgGroup");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_groups/{org_group_id}".replace(
+      "{org_group_id}",
+      encodeURIComponent(String(orgGroupId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.updateOrgGroup",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "OrgGroupUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateOrgGroupMembership(
+    orgGroupMembershipId: string,
+    body: OrgGroupMembershipUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateOrgGroupMembership'");
+    if (!_config.unstableOperations["v2.updateOrgGroupMembership"]) {
+      throw new Error(
+        "Unstable operation 'updateOrgGroupMembership' is disabled. Enable it by setting `configuration.unstableOperations['v2.updateOrgGroupMembership'] = true`",
+      );
+    }
+
+    // verify required parameter 'orgGroupMembershipId' is not null or undefined
+    if (orgGroupMembershipId === null || orgGroupMembershipId === undefined) {
+      throw new RequiredError(
+        "orgGroupMembershipId",
+        "updateOrgGroupMembership",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateOrgGroupMembership");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/org_group_memberships/{org_group_membership_id}".replace(
+        "{org_group_membership_id}",
+        encodeURIComponent(String(orgGroupMembershipId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.updateOrgGroupMembership",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "OrgGroupMembershipUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateOrgGroupPolicy(
+    orgGroupPolicyId: string,
+    body: OrgGroupPolicyUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateOrgGroupPolicy'");
+    if (!_config.unstableOperations["v2.updateOrgGroupPolicy"]) {
+      throw new Error(
+        "Unstable operation 'updateOrgGroupPolicy' is disabled. Enable it by setting `configuration.unstableOperations['v2.updateOrgGroupPolicy'] = true`",
+      );
+    }
+
+    // verify required parameter 'orgGroupPolicyId' is not null or undefined
+    if (orgGroupPolicyId === null || orgGroupPolicyId === undefined) {
+      throw new RequiredError("orgGroupPolicyId", "updateOrgGroupPolicy");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateOrgGroupPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/org_group_policies/{org_group_policy_id}".replace(
+        "{org_group_policy_id}",
+        encodeURIComponent(String(orgGroupPolicyId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.updateOrgGroupPolicy",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "OrgGroupPolicyUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateOrgGroupPolicyOverride(
+    orgGroupPolicyOverrideId: string,
+    body: OrgGroupPolicyOverrideUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateOrgGroupPolicyOverride'");
+    if (!_config.unstableOperations["v2.updateOrgGroupPolicyOverride"]) {
+      throw new Error(
+        "Unstable operation 'updateOrgGroupPolicyOverride' is disabled. Enable it by setting `configuration.unstableOperations['v2.updateOrgGroupPolicyOverride'] = true`",
+      );
+    }
+
+    // verify required parameter 'orgGroupPolicyOverrideId' is not null or undefined
+    if (
+      orgGroupPolicyOverrideId === null ||
+      orgGroupPolicyOverrideId === undefined
+    ) {
+      throw new RequiredError(
+        "orgGroupPolicyOverrideId",
+        "updateOrgGroupPolicyOverride",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateOrgGroupPolicyOverride");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/org_group_policy_overrides/{org_group_policy_override_id}".replace(
+        "{org_group_policy_override_id}",
+        encodeURIComponent(String(orgGroupPolicyOverrideId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.OrgGroupsApi.updateOrgGroupPolicyOverride",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "OrgGroupPolicyOverrideUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+}
+
+export class OrgGroupsApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to bulkUpdateOrgGroupMemberships
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async bulkUpdateOrgGroupMemberships(
+    response: ResponseContext,
+  ): Promise<OrgGroupMembershipListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupMembershipListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupMembershipListResponse",
+      ) as OrgGroupMembershipListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupMembershipListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupMembershipListResponse",
+        "",
+      ) as OrgGroupMembershipListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createOrgGroup
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createOrgGroup(
+    response: ResponseContext,
+  ): Promise<OrgGroupResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: OrgGroupResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupResponse",
+      ) as OrgGroupResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupResponse",
+        "",
+      ) as OrgGroupResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createOrgGroupMemberships
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createOrgGroupMemberships(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createOrgGroupPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createOrgGroupPolicy(
+    response: ResponseContext,
+  ): Promise<OrgGroupPolicyResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: OrgGroupPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyResponse",
+      ) as OrgGroupPolicyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyResponse",
+        "",
+      ) as OrgGroupPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createOrgGroupPolicyOverride
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createOrgGroupPolicyOverride(
+    response: ResponseContext,
+  ): Promise<OrgGroupPolicyOverrideResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: OrgGroupPolicyOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyOverrideResponse",
+      ) as OrgGroupPolicyOverrideResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupPolicyOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyOverrideResponse",
+        "",
+      ) as OrgGroupPolicyOverrideResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteOrgGroup
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteOrgGroup(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteOrgGroupMembership
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteOrgGroupMembership(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteOrgGroupMemberships
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteOrgGroupMemberships(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteOrgGroupPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteOrgGroupPolicy(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteOrgGroupPolicyOverride
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteOrgGroupPolicyOverride(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getOrgGroup
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOrgGroup(
+    response: ResponseContext,
+  ): Promise<OrgGroupResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupResponse",
+      ) as OrgGroupResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupResponse",
+        "",
+      ) as OrgGroupResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getOrgGroupMembership
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOrgGroupMembership(
+    response: ResponseContext,
+  ): Promise<OrgGroupMembershipResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupMembershipResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupMembershipResponse",
+      ) as OrgGroupMembershipResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupMembershipResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupMembershipResponse",
+        "",
+      ) as OrgGroupMembershipResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getOrgGroupPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOrgGroupPolicy(
+    response: ResponseContext,
+  ): Promise<OrgGroupPolicyResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyResponse",
+      ) as OrgGroupPolicyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyResponse",
+        "",
+      ) as OrgGroupPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getOrgGroupPolicyOverride
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOrgGroupPolicyOverride(
+    response: ResponseContext,
+  ): Promise<OrgGroupPolicyOverrideResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupPolicyOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyOverrideResponse",
+      ) as OrgGroupPolicyOverrideResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupPolicyOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyOverrideResponse",
+        "",
+      ) as OrgGroupPolicyOverrideResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listOrgGroupMemberships
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOrgGroupMemberships(
+    response: ResponseContext,
+  ): Promise<OrgGroupMembershipListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupMembershipListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupMembershipListResponse",
+      ) as OrgGroupMembershipListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupMembershipListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupMembershipListResponse",
+        "",
+      ) as OrgGroupMembershipListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listOrgGroupPolicies
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOrgGroupPolicies(
+    response: ResponseContext,
+  ): Promise<OrgGroupPolicyListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupPolicyListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyListResponse",
+      ) as OrgGroupPolicyListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupPolicyListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyListResponse",
+        "",
+      ) as OrgGroupPolicyListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listOrgGroupPolicyConfigs
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOrgGroupPolicyConfigs(
+    response: ResponseContext,
+  ): Promise<OrgGroupPolicyConfigListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupPolicyConfigListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyConfigListResponse",
+      ) as OrgGroupPolicyConfigListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupPolicyConfigListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyConfigListResponse",
+        "",
+      ) as OrgGroupPolicyConfigListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listOrgGroupPolicyOverrides
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOrgGroupPolicyOverrides(
+    response: ResponseContext,
+  ): Promise<OrgGroupPolicyOverrideListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupPolicyOverrideListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyOverrideListResponse",
+      ) as OrgGroupPolicyOverrideListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupPolicyOverrideListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyOverrideListResponse",
+        "",
+      ) as OrgGroupPolicyOverrideListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listOrgGroupPolicySuggestions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOrgGroupPolicySuggestions(
+    response: ResponseContext,
+  ): Promise<OrgGroupPolicySuggestionListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupPolicySuggestionListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicySuggestionListResponse",
+      ) as OrgGroupPolicySuggestionListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupPolicySuggestionListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicySuggestionListResponse",
+        "",
+      ) as OrgGroupPolicySuggestionListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listOrgGroups
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOrgGroups(
+    response: ResponseContext,
+  ): Promise<OrgGroupListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupListResponse",
+      ) as OrgGroupListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupListResponse",
+        "",
+      ) as OrgGroupListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateOrgGroup
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateOrgGroup(
+    response: ResponseContext,
+  ): Promise<OrgGroupResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupResponse",
+      ) as OrgGroupResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupResponse",
+        "",
+      ) as OrgGroupResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateOrgGroupMembership
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateOrgGroupMembership(
+    response: ResponseContext,
+  ): Promise<OrgGroupMembershipResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupMembershipResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupMembershipResponse",
+      ) as OrgGroupMembershipResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupMembershipResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupMembershipResponse",
+        "",
+      ) as OrgGroupMembershipResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateOrgGroupPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateOrgGroupPolicy(
+    response: ResponseContext,
+  ): Promise<OrgGroupPolicyResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyResponse",
+      ) as OrgGroupPolicyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyResponse",
+        "",
+      ) as OrgGroupPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateOrgGroupPolicyOverride
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateOrgGroupPolicyOverride(
+    response: ResponseContext,
+  ): Promise<OrgGroupPolicyOverrideResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupPolicyOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyOverrideResponse",
+      ) as OrgGroupPolicyOverrideResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupPolicyOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicyOverrideResponse",
+        "",
+      ) as OrgGroupPolicyOverrideResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+}
+
+export interface OrgGroupsApiBulkUpdateOrgGroupMembershipsRequest {
+  /**
+   * @type OrgGroupMembershipBulkUpdateRequest
+   */
+  body: OrgGroupMembershipBulkUpdateRequest;
+}
+
+export interface OrgGroupsApiCreateOrgGroupRequest {
+  /**
+   * @type OrgGroupCreateRequest
+   */
+  body: OrgGroupCreateRequest;
+}
+
+export interface OrgGroupsApiCreateOrgGroupMembershipsRequest {
+  /**
+   * @type OrgGroupMembershipCreateRequest
+   */
+  body: OrgGroupMembershipCreateRequest;
+}
+
+export interface OrgGroupsApiCreateOrgGroupPolicyRequest {
+  /**
+   * @type OrgGroupPolicyCreateRequest
+   */
+  body: OrgGroupPolicyCreateRequest;
+}
+
+export interface OrgGroupsApiCreateOrgGroupPolicyOverrideRequest {
+  /**
+   * @type OrgGroupPolicyOverrideCreateRequest
+   */
+  body: OrgGroupPolicyOverrideCreateRequest;
+}
+
+export interface OrgGroupsApiDeleteOrgGroupRequest {
+  /**
+   * The ID of the org group.
+   * @type string
+   */
+  orgGroupId: string;
+}
+
+export interface OrgGroupsApiDeleteOrgGroupMembershipRequest {
+  /**
+   * The ID of the org group membership.
+   * @type string
+   */
+  orgGroupMembershipId: string;
+  /**
+   * The ID of the organization group that the memberships belong to.
+   * @type string
+   */
+  filterOrgGroupId: string;
+}
+
+export interface OrgGroupsApiDeleteOrgGroupMembershipsRequest {
+  /**
+   * The ID of the organization group that the memberships belong to.
+   * @type string
+   */
+  filterOrgGroupId: string;
+  /**
+   * @type OrgGroupMembershipBulkDeleteRequest
+   */
+  body: OrgGroupMembershipBulkDeleteRequest;
+}
+
+export interface OrgGroupsApiDeleteOrgGroupPolicyRequest {
+  /**
+   * The ID of the org group policy.
+   * @type string
+   */
+  orgGroupPolicyId: string;
+}
+
+export interface OrgGroupsApiDeleteOrgGroupPolicyOverrideRequest {
+  /**
+   * The ID of the org group policy override.
+   * @type string
+   */
+  orgGroupPolicyOverrideId: string;
+}
+
+export interface OrgGroupsApiGetOrgGroupRequest {
+  /**
+   * The ID of the org group.
+   * @type string
+   */
+  orgGroupId: string;
+}
+
+export interface OrgGroupsApiGetOrgGroupMembershipRequest {
+  /**
+   * The ID of the org group membership.
+   * @type string
+   */
+  orgGroupMembershipId: string;
+}
+
+export interface OrgGroupsApiGetOrgGroupPolicyRequest {
+  /**
+   * The ID of the org group policy.
+   * @type string
+   */
+  orgGroupPolicyId: string;
+}
+
+export interface OrgGroupsApiGetOrgGroupPolicyOverrideRequest {
+  /**
+   * The ID of the org group policy override.
+   * @type string
+   */
+  orgGroupPolicyOverrideId: string;
+}
+
+export interface OrgGroupsApiListOrgGroupMembershipsRequest {
+  /**
+   * Filter memberships by org group ID. Required when `filter[org_uuid]` is not provided.
+   * @type string
+   */
+  filterOrgGroupId?: string;
+  /**
+   * Filter memberships by org UUID. Returns a single-item list.
+   * @type string
+   */
+  filterOrgUuid?: string;
+  /**
+   * The page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * The number of items per page. Maximum is 1000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Field to sort memberships by. Supported values: `name`, `uuid`, `-name`, `-uuid`. Defaults to `uuid`.
+   * @type OrgGroupMembershipSortOption
+   */
+  sort?: OrgGroupMembershipSortOption;
+}
+
+export interface OrgGroupsApiListOrgGroupPoliciesRequest {
+  /**
+   * Filter policies by org group ID.
+   * @type string
+   */
+  filterOrgGroupId: string;
+  /**
+   * Filter policies by policy name.
+   * @type string
+   */
+  filterPolicyName?: string;
+  /**
+   * Filter policies by policy type. Supported values are `org_config` and `role`.
+   * @type OrgGroupPolicyFilterPolicyTypeValue
+   */
+  filterPolicyType?: OrgGroupPolicyFilterPolicyTypeValue;
+  /**
+   * The page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * The number of items per page. Maximum is 1000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Field to sort policies by. Supported values: `id`, `name`, `-id`, `-name`. Defaults to `id`.
+   * @type OrgGroupPolicySortOption
+   */
+  sort?: OrgGroupPolicySortOption;
+}
+
+export interface OrgGroupsApiListOrgGroupPolicyOverridesRequest {
+  /**
+   * Filter policy overrides by org group ID.
+   * @type string
+   */
+  filterOrgGroupId: string;
+  /**
+   * Filter policy overrides by policy ID.
+   * @type string
+   */
+  filterPolicyId?: string;
+  /**
+   * The page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * The number of items per page. Maximum is 1000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Field to sort overrides by. Supported values: `id`, `org_uuid`, `-id`, `-org_uuid`. Defaults to `id`.
+   * @type OrgGroupPolicyOverrideSortOption
+   */
+  sort?: OrgGroupPolicyOverrideSortOption;
+}
+
+export interface OrgGroupsApiListOrgGroupPolicySuggestionsRequest {
+  /**
+   * Filter policies by org group ID.
+   * @type string
+   */
+  filterOrgGroupId: string;
+}
+
+export interface OrgGroupsApiListOrgGroupsRequest {
+  /**
+   * The page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * The number of items per page. Maximum is 1000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Field to sort org groups by. Supported values: `name`, `uuid`, `-name`, `-uuid`. Defaults to `uuid`.
+   * @type OrgGroupSortOption
+   */
+  sort?: OrgGroupSortOption;
+}
+
+export interface OrgGroupsApiUpdateOrgGroupRequest {
+  /**
+   * The ID of the org group.
+   * @type string
+   */
+  orgGroupId: string;
+  /**
+   * @type OrgGroupUpdateRequest
+   */
+  body: OrgGroupUpdateRequest;
+}
+
+export interface OrgGroupsApiUpdateOrgGroupMembershipRequest {
+  /**
+   * The ID of the org group membership.
+   * @type string
+   */
+  orgGroupMembershipId: string;
+  /**
+   * @type OrgGroupMembershipUpdateRequest
+   */
+  body: OrgGroupMembershipUpdateRequest;
+}
+
+export interface OrgGroupsApiUpdateOrgGroupPolicyRequest {
+  /**
+   * The ID of the org group policy.
+   * @type string
+   */
+  orgGroupPolicyId: string;
+  /**
+   * @type OrgGroupPolicyUpdateRequest
+   */
+  body: OrgGroupPolicyUpdateRequest;
+}
+
+export interface OrgGroupsApiUpdateOrgGroupPolicyOverrideRequest {
+  /**
+   * The ID of the org group policy override.
+   * @type string
+   */
+  orgGroupPolicyOverrideId: string;
+  /**
+   * @type OrgGroupPolicyOverrideUpdateRequest
+   */
+  body: OrgGroupPolicyOverrideUpdateRequest;
+}
+
+export class OrgGroupsApi {
+  private requestFactory: OrgGroupsApiRequestFactory;
+  private responseProcessor: OrgGroupsApiResponseProcessor;
+  private configuration: Configuration;
+
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
+  public constructor(
+    configuration?: Configuration,
+    requestFactory?: OrgGroupsApiRequestFactory,
+    responseProcessor?: OrgGroupsApiResponseProcessor,
+  ) {
+    this.configuration = configuration || createConfiguration();
+    this.requestFactory =
+      requestFactory || new OrgGroupsApiRequestFactory(this.configuration);
+    this.responseProcessor =
+      responseProcessor || new OrgGroupsApiResponseProcessor();
+  }
+
+  /**
+   * Move a batch of organizations from one organization group to another. This is an atomic operation. Each request must include between 1 and 100 organizations. Each organization must be identified by a unique `org_uuid` and `org_site` pair, and must be in the same site as the requesting organization.
+   * @param param The request object
+   */
+  public bulkUpdateOrgGroupMemberships(
+    param: OrgGroupsApiBulkUpdateOrgGroupMembershipsRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupMembershipListResponse> {
+    const requestContextPromise =
+      this.requestFactory.bulkUpdateOrgGroupMemberships(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.bulkUpdateOrgGroupMemberships(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a new organization group.
+   * @param param The request object
+   */
+  public createOrgGroup(
+    param: OrgGroupsApiCreateOrgGroupRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupResponse> {
+    const requestContextPromise = this.requestFactory.createOrgGroup(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createOrgGroup(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Add a batch of organizations to an existing organization group. This operation is not supported for organization groups with `group_type` set to `config_management`. This is an atomic operation: either all organizations are added or none are. Each request must include between 1 and 100 organizations. Each organization must be identified by a unique `org_uuid` and `org_site` pair, and must be in the same site as the requesting organization. The requesting organization must own the organization group.
+   * @param param The request object
+   */
+  public createOrgGroupMemberships(
+    param: OrgGroupsApiCreateOrgGroupMembershipsRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.createOrgGroupMemberships(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createOrgGroupMemberships(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a new policy for an organization group.
+   * @param param The request object
+   */
+  public createOrgGroupPolicy(
+    param: OrgGroupsApiCreateOrgGroupPolicyRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupPolicyResponse> {
+    const requestContextPromise = this.requestFactory.createOrgGroupPolicy(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createOrgGroupPolicy(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a new policy override for an organization within an org group.
+   * @param param The request object
+   */
+  public createOrgGroupPolicyOverride(
+    param: OrgGroupsApiCreateOrgGroupPolicyOverrideRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupPolicyOverrideResponse> {
+    const requestContextPromise =
+      this.requestFactory.createOrgGroupPolicyOverride(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createOrgGroupPolicyOverride(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete an organization group by its ID.
+   * @param param The request object
+   */
+  public deleteOrgGroup(
+    param: OrgGroupsApiDeleteOrgGroupRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteOrgGroup(
+      param.orgGroupId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteOrgGroup(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Remove an organization from an organization group by deleting its membership. This operation is not supported for organization groups with `group_type` set to `config_management`. The organization group that the membership belongs to must be specified using `filter[org_group_id]`, and the requesting organization must own that organization group. Returns `404` if the membership does not exist, was already removed, or does not belong to the organization group.
+   * @param param The request object
+   */
+  public deleteOrgGroupMembership(
+    param: OrgGroupsApiDeleteOrgGroupMembershipRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteOrgGroupMembership(
+      param.orgGroupMembershipId,
+      param.filterOrgGroupId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteOrgGroupMembership(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a batch of memberships from an organization group. This operation is not supported for organization groups with `group_type` set to `config_management`. The memberships to delete are provided as membership resource identifiers, and the organization group they belong to must be specified using `filter[org_group_id]`. Each request must include between 1 and 100 unique membership IDs, and the requesting organization must own the organization group. The request does not fail if a membership ID refers to a membership that has already been deleted, does not exist, or does not belong to the organization group.
+   * @param param The request object
+   */
+  public deleteOrgGroupMemberships(
+    param: OrgGroupsApiDeleteOrgGroupMembershipsRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteOrgGroupMemberships(
+      param.filterOrgGroupId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteOrgGroupMemberships(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete an organization group policy by its ID.
+   * @param param The request object
+   */
+  public deleteOrgGroupPolicy(
+    param: OrgGroupsApiDeleteOrgGroupPolicyRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteOrgGroupPolicy(
+      param.orgGroupPolicyId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteOrgGroupPolicy(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete an organization group policy override by its ID.
+   * @param param The request object
+   */
+  public deleteOrgGroupPolicyOverride(
+    param: OrgGroupsApiDeleteOrgGroupPolicyOverrideRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteOrgGroupPolicyOverride(
+        param.orgGroupPolicyOverrideId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteOrgGroupPolicyOverride(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a specific organization group by its ID.
+   * @param param The request object
+   */
+  public getOrgGroup(
+    param: OrgGroupsApiGetOrgGroupRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupResponse> {
+    const requestContextPromise = this.requestFactory.getOrgGroup(
+      param.orgGroupId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOrgGroup(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a specific organization group membership by its ID.
+   * @param param The request object
+   */
+  public getOrgGroupMembership(
+    param: OrgGroupsApiGetOrgGroupMembershipRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupMembershipResponse> {
+    const requestContextPromise = this.requestFactory.getOrgGroupMembership(
+      param.orgGroupMembershipId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOrgGroupMembership(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a specific organization group policy by its ID.
+   * @param param The request object
+   */
+  public getOrgGroupPolicy(
+    param: OrgGroupsApiGetOrgGroupPolicyRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupPolicyResponse> {
+    const requestContextPromise = this.requestFactory.getOrgGroupPolicy(
+      param.orgGroupPolicyId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOrgGroupPolicy(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a specific organization group policy override by its ID.
+   * @param param The request object
+   */
+  public getOrgGroupPolicyOverride(
+    param: OrgGroupsApiGetOrgGroupPolicyOverrideRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupPolicyOverrideResponse> {
+    const requestContextPromise = this.requestFactory.getOrgGroupPolicyOverride(
+      param.orgGroupPolicyOverrideId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOrgGroupPolicyOverride(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List organization group memberships. Filter by org group ID or org UUID. At least one of `filter[org_group_id]` or `filter[org_uuid]` must be provided. When filtering by org UUID, returns a single-item list with the membership for that org.
+   * @param param The request object
+   */
+  public listOrgGroupMemberships(
+    param: OrgGroupsApiListOrgGroupMembershipsRequest = {},
+    options?: Configuration,
+  ): Promise<OrgGroupMembershipListResponse> {
+    const requestContextPromise = this.requestFactory.listOrgGroupMemberships(
+      param.filterOrgGroupId,
+      param.filterOrgUuid,
+      param.pageNumber,
+      param.pageSize,
+      param.sort,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOrgGroupMemberships(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List policies for an organization group. Requires a filter on org group ID.
+   * @param param The request object
+   */
+  public listOrgGroupPolicies(
+    param: OrgGroupsApiListOrgGroupPoliciesRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupPolicyListResponse> {
+    const requestContextPromise = this.requestFactory.listOrgGroupPolicies(
+      param.filterOrgGroupId,
+      param.filterPolicyName,
+      param.filterPolicyType,
+      param.pageNumber,
+      param.pageSize,
+      param.sort,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOrgGroupPolicies(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all org configs that are eligible to be used as organization group policies.
+   * @param param The request object
+   */
+  public listOrgGroupPolicyConfigs(
+    options?: Configuration,
+  ): Promise<OrgGroupPolicyConfigListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listOrgGroupPolicyConfigs(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOrgGroupPolicyConfigs(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List policy overrides for an organization group. Requires a filter on org group ID. Optionally filter by policy ID.
+   * @param param The request object
+   */
+  public listOrgGroupPolicyOverrides(
+    param: OrgGroupsApiListOrgGroupPolicyOverridesRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupPolicyOverrideListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listOrgGroupPolicyOverrides(
+        param.filterOrgGroupId,
+        param.filterPolicyId,
+        param.pageNumber,
+        param.pageSize,
+        param.sort,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOrgGroupPolicyOverrides(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List suggested organization group policies. Requires a filter on org group ID.
+   * @param param The request object
+   */
+  public listOrgGroupPolicySuggestions(
+    param: OrgGroupsApiListOrgGroupPolicySuggestionsRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupPolicySuggestionListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listOrgGroupPolicySuggestions(
+        param.filterOrgGroupId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOrgGroupPolicySuggestions(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List all organization groups that the requesting organization has access to.
+   * @param param The request object
+   */
+  public listOrgGroups(
+    param: OrgGroupsApiListOrgGroupsRequest = {},
+    options?: Configuration,
+  ): Promise<OrgGroupListResponse> {
+    const requestContextPromise = this.requestFactory.listOrgGroups(
+      param.pageNumber,
+      param.pageSize,
+      param.sort,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOrgGroups(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the name of an existing organization group.
+   * @param param The request object
+   */
+  public updateOrgGroup(
+    param: OrgGroupsApiUpdateOrgGroupRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupResponse> {
+    const requestContextPromise = this.requestFactory.updateOrgGroup(
+      param.orgGroupId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateOrgGroup(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Move an organization to a different org group by updating its membership.
+   * @param param The request object
+   */
+  public updateOrgGroupMembership(
+    param: OrgGroupsApiUpdateOrgGroupMembershipRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupMembershipResponse> {
+    const requestContextPromise = this.requestFactory.updateOrgGroupMembership(
+      param.orgGroupMembershipId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateOrgGroupMembership(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update an existing organization group policy.
+   * @param param The request object
+   */
+  public updateOrgGroupPolicy(
+    param: OrgGroupsApiUpdateOrgGroupPolicyRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupPolicyResponse> {
+    const requestContextPromise = this.requestFactory.updateOrgGroupPolicy(
+      param.orgGroupPolicyId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateOrgGroupPolicy(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update an existing organization group policy override.
+   * @param param The request object
+   */
+  public updateOrgGroupPolicyOverride(
+    param: OrgGroupsApiUpdateOrgGroupPolicyOverrideRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupPolicyOverrideResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateOrgGroupPolicyOverride(
+        param.orgGroupPolicyOverrideId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateOrgGroupPolicyOverride(
+            responseContext,
+          );
+        });
+    });
+  }
+}

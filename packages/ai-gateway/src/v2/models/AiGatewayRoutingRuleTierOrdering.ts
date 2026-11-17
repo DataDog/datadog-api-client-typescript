@@ -1,0 +1,13 @@
+import { UnparsedObject } from "@datadog/datadog-api-client-core";
+
+/**
+ * How a tier orders its targets.
+ */
+export type AiGatewayRoutingRuleTierOrdering =
+  | typeof CONFIGURED
+  | typeof WEIGHTED_AFFINITY
+  | typeof CLASSIFIED
+  | UnparsedObject;
+export const CONFIGURED = "configured";
+export const WEIGHTED_AFFINITY = "weighted_affinity";
+export const CLASSIFIED = "classified";

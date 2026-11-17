@@ -1,0 +1,48 @@
+# Product Analytics
+
+`@datadog/datadog-api-client-product-analytics`
+
+## Description
+
+Product Analytics queries and audience management.
+
+Products: Product Analytics
+
+Send server-side events to Product Analytics. Server-Side Events Ingestion allows you to collect custom events
+from any server-side source, and retains events for 15 months. Server-side events are helpful for understanding
+causes of a funnel drop-off which are external to the client-side (for example, payment processing error).
+
+**Note**: Sending server-side events impacts billing. Review the [pricing page](https://www.datadoghq.com/pricing/?product=product-analytics#products)
+and contact your Customer Success Manager for more information.
+
+Auto-generated tag Rum Audience Management
+
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
+## Installation
+
+```sh
+# NPM
+npm install @datadog/datadog-api-client-core @datadog/datadog-api-client-product-analytics
+# Yarn
+yarn add @datadog/datadog-api-client-core @datadog/datadog-api-client-product-analytics
+```
+
+## Getting Started
+```ts
+import { createConfiguration } from "@datadog/datadog-api-client-core";
+import { v2 } from "@datadog/datadog-api-client-product-analytics";
+
+const configuration = createConfiguration();
+const apiInstance = new v2.ProductAnalyticsApi(configuration);
+const params = {/* parameters */};
+
+apiInstance.submitProductAnalyticsEvent(params).then((data) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
+```

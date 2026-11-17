@@ -12,7 +12,7 @@ if [ "$USE_BUILT_PACKAGES" == "true" ]; then
     echo "Building packages"
     yarn build
 else
-    yarn workspace @datadog/datadog-api-client build
+    yarn workspace @datadog/datadog-api-client-core build
     # Generate version files
     yarn workspaces foreach -Ap run generate-version-files
 fi

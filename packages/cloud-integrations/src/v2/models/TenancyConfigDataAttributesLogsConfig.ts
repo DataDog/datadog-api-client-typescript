@@ -1,0 +1,68 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+/**
+ * Log collection configuration for an OCI tenancy, indicating which compartments and services have log collection enabled.
+ */
+export class TenancyConfigDataAttributesLogsConfig {
+  /**
+   * List of compartment tag filters scoping log collection to specific compartments.
+   */
+  "compartmentTagFilters"?: Array<string>;
+  /**
+   * Whether log collection is enabled for the tenancy.
+   */
+  "enabled"?: boolean;
+  /**
+   * List of OCI service names for which log collection is enabled.
+   */
+  "enabledServices"?: Array<string>;
+  /**
+   * Map of OCI service names to the resource tag filters that scope log collection for that service.
+   */
+  "resourceTagFilters"?: { [key: string]: Array<string> };
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    compartmentTagFilters: {
+      baseName: "compartment_tag_filters",
+      type: "Array<string>",
+    },
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
+    enabledServices: {
+      baseName: "enabled_services",
+      type: "Array<string>",
+    },
+    resourceTagFilters: {
+      baseName: "resource_tag_filters",
+      type: "{ [key: string]: Array<string>; }",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return TenancyConfigDataAttributesLogsConfig.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

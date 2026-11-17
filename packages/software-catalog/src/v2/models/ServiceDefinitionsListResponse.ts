@@ -1,0 +1,46 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { ServiceDefinitionData } from "./ServiceDefinitionData";
+
+/**
+ * Create service definitions response.
+ */
+export class ServiceDefinitionsListResponse {
+  /**
+   * Data representing service definitions.
+   */
+  "data"?: Array<ServiceDefinitionData>;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    data: {
+      baseName: "data",
+      type: "Array<ServiceDefinitionData>",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return ServiceDefinitionsListResponse.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

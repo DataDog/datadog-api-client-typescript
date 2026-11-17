@@ -1,0 +1,46 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { EntityResponseDataRelationshipsIncidentsDataItems } from "./EntityResponseDataRelationshipsIncidentsDataItems";
+
+/**
+ * Incidents relationship containing a list of incident resources associated with this entity.
+ */
+export class EntityResponseDataRelationshipsIncidents {
+  /**
+   * List of incident relationship data items.
+   */
+  "data"?: Array<EntityResponseDataRelationshipsIncidentsDataItems>;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    data: {
+      baseName: "data",
+      type: "Array<EntityResponseDataRelationshipsIncidentsDataItems>",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return EntityResponseDataRelationshipsIncidents.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

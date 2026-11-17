@@ -1,0 +1,11 @@
+import { UnparsedObject } from "@datadog/datadog-api-client-core";
+
+/**
+ * The type of automated action to perform when the rule triggers. `EXECUTE_WORKFLOW` runs a Datadog workflow; `ASSIGN_AGENT` assigns an AI agent to the work item.
+ */
+export type AutomationRuleActionType =
+  | typeof EXECUTE_WORKFLOW
+  | typeof ASSIGN_AGENT
+  | UnparsedObject;
+export const EXECUTE_WORKFLOW = "EXECUTE_WORKFLOW";
+export const ASSIGN_AGENT = "ASSIGN_AGENT";

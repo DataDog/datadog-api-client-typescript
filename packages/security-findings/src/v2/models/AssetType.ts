@@ -1,0 +1,19 @@
+import { UnparsedObject } from "@datadog/datadog-api-client-core";
+
+/**
+ * The asset type
+ */
+export type AssetType =
+  | typeof REPOSITORY
+  | typeof SERVICE
+  | typeof HOST
+  | typeof HOSTIMAGE
+  | typeof IMAGE
+  | typeof SERVERLESSFUNCTION
+  | UnparsedObject;
+export const REPOSITORY = "Repository";
+export const SERVICE = "Service";
+export const HOST = "Host";
+export const HOSTIMAGE = "HostImage";
+export const IMAGE = "Image";
+export const SERVERLESSFUNCTION = "ServerlessFunction";

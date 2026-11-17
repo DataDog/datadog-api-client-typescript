@@ -1,0 +1,57 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { CaseResourceType } from "./CaseResourceType";
+import { CaseUpdateDescriptionAttributes } from "./CaseUpdateDescriptionAttributes";
+
+/**
+ * Work item update description
+ */
+export class CaseUpdateDescription {
+  /**
+   * Work item update description attributes
+   */
+  "attributes": CaseUpdateDescriptionAttributes;
+  /**
+   * JSON:API resource type for work items.
+   */
+  "type": CaseResourceType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "CaseUpdateDescriptionAttributes",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "CaseResourceType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return CaseUpdateDescription.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

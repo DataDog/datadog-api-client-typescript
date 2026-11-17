@@ -1,0 +1,493 @@
+import { ModelTypingInfo } from "@datadog/datadog-api-client-core";
+
+import { APIErrorResponse } from "./APIErrorResponse";
+import { ApmDependencyStatsQuery } from "./ApmDependencyStatsQuery";
+import { ApmMetricsQuery } from "./ApmMetricsQuery";
+import { ApmResourceStatsQuery } from "./ApmResourceStatsQuery";
+import { ContainerScalarQuery } from "./ContainerScalarQuery";
+import { ContainerTimeseriesQuery } from "./ContainerTimeseriesQuery";
+import { DataScalarColumn } from "./DataScalarColumn";
+import { DerivedMetricAttributes } from "./DerivedMetricAttributes";
+import { DerivedMetricCreateData } from "./DerivedMetricCreateData";
+import { DerivedMetricCreateRequest } from "./DerivedMetricCreateRequest";
+import { DerivedMetricData } from "./DerivedMetricData";
+import { DerivedMetricDefinition } from "./DerivedMetricDefinition";
+import { DerivedMetricQuery } from "./DerivedMetricQuery";
+import { DerivedMetricResponse } from "./DerivedMetricResponse";
+import { EventsCompute } from "./EventsCompute";
+import { EventsGroupBy } from "./EventsGroupBy";
+import { EventsGroupBySort } from "./EventsGroupBySort";
+import { EventsScalarQuery } from "./EventsScalarQuery";
+import { EventsSearch } from "./EventsSearch";
+import { EventsTimeseriesQuery } from "./EventsTimeseriesQuery";
+import { FormulaLimit } from "./FormulaLimit";
+import { GroupScalarColumn } from "./GroupScalarColumn";
+import { HistoricalMetricsConfigurationAttributes } from "./HistoricalMetricsConfigurationAttributes";
+import { HistoricalMetricsConfigurationCreateData } from "./HistoricalMetricsConfigurationCreateData";
+import { HistoricalMetricsConfigurationCreateRequest } from "./HistoricalMetricsConfigurationCreateRequest";
+import { HistoricalMetricsConfigurationData } from "./HistoricalMetricsConfigurationData";
+import { HistoricalMetricsConfigurationResponse } from "./HistoricalMetricsConfigurationResponse";
+import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { Metric } from "./Metric";
+import { MetricAllTags } from "./MetricAllTags";
+import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
+import { MetricAllTagsResponse } from "./MetricAllTagsResponse";
+import { MetricAssetAttributes } from "./MetricAssetAttributes";
+import { MetricAssetDashboardRelationship } from "./MetricAssetDashboardRelationship";
+import { MetricAssetDashboardRelationships } from "./MetricAssetDashboardRelationships";
+import { MetricAssetMonitorRelationship } from "./MetricAssetMonitorRelationship";
+import { MetricAssetMonitorRelationships } from "./MetricAssetMonitorRelationships";
+import { MetricAssetNotebookRelationship } from "./MetricAssetNotebookRelationship";
+import { MetricAssetNotebookRelationships } from "./MetricAssetNotebookRelationships";
+import { MetricAssetResponseData } from "./MetricAssetResponseData";
+import { MetricAssetResponseRelationships } from "./MetricAssetResponseRelationships";
+import { MetricAssetSLORelationship } from "./MetricAssetSLORelationship";
+import { MetricAssetSLORelationships } from "./MetricAssetSLORelationships";
+import { MetricAssetsResponse } from "./MetricAssetsResponse";
+import { MetricCustomAggregation } from "./MetricCustomAggregation";
+import { MetricDashboardAsset } from "./MetricDashboardAsset";
+import { MetricDashboardAttributes } from "./MetricDashboardAttributes";
+import { MetricDistinctVolume } from "./MetricDistinctVolume";
+import { MetricDistinctVolumeAttributes } from "./MetricDistinctVolumeAttributes";
+import { MetricEstimate } from "./MetricEstimate";
+import { MetricEstimateAttributes } from "./MetricEstimateAttributes";
+import { MetricEstimateResponse } from "./MetricEstimateResponse";
+import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
+import { MetricIngestedIndexedVolumeAttributes } from "./MetricIngestedIndexedVolumeAttributes";
+import { MetricMetaPage } from "./MetricMetaPage";
+import { MetricMetadata } from "./MetricMetadata";
+import { MetricMonitorAsset } from "./MetricMonitorAsset";
+import { MetricNotebookAsset } from "./MetricNotebookAsset";
+import { MetricOrigin } from "./MetricOrigin";
+import { MetricPaginationMeta } from "./MetricPaginationMeta";
+import { MetricPayload } from "./MetricPayload";
+import { MetricPoint } from "./MetricPoint";
+import { MetricRelationships } from "./MetricRelationships";
+import { MetricResource } from "./MetricResource";
+import { MetricSLOAsset } from "./MetricSLOAsset";
+import { MetricSeries } from "./MetricSeries";
+import { MetricSuggestedTagsAndAggregations } from "./MetricSuggestedTagsAndAggregations";
+import { MetricSuggestedTagsAndAggregationsResponse } from "./MetricSuggestedTagsAndAggregationsResponse";
+import { MetricSuggestedTagsAttributes } from "./MetricSuggestedTagsAttributes";
+import { MetricTagCardinalitiesMeta } from "./MetricTagCardinalitiesMeta";
+import { MetricTagCardinalitiesResponse } from "./MetricTagCardinalitiesResponse";
+import { MetricTagCardinality } from "./MetricTagCardinality";
+import { MetricTagCardinalityAttributes } from "./MetricTagCardinalityAttributes";
+import { MetricTagConfiguration } from "./MetricTagConfiguration";
+import { MetricTagConfigurationAttributes } from "./MetricTagConfigurationAttributes";
+import { MetricTagConfigurationCreateAttributes } from "./MetricTagConfigurationCreateAttributes";
+import { MetricTagConfigurationCreateData } from "./MetricTagConfigurationCreateData";
+import { MetricTagConfigurationCreateRequest } from "./MetricTagConfigurationCreateRequest";
+import { MetricTagConfigurationResponse } from "./MetricTagConfigurationResponse";
+import { MetricTagConfigurationUpdateAttributes } from "./MetricTagConfigurationUpdateAttributes";
+import { MetricTagConfigurationUpdateData } from "./MetricTagConfigurationUpdateData";
+import { MetricTagConfigurationUpdateRequest } from "./MetricTagConfigurationUpdateRequest";
+import { MetricVolumesRelationship } from "./MetricVolumesRelationship";
+import { MetricVolumesRelationshipData } from "./MetricVolumesRelationshipData";
+import { MetricVolumesResponse } from "./MetricVolumesResponse";
+import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
+import { MetricsListResponseLinks } from "./MetricsListResponseLinks";
+import { MetricsScalarQuery } from "./MetricsScalarQuery";
+import { MetricsTimeseriesQuery } from "./MetricsTimeseriesQuery";
+import { ProcessScalarQuery } from "./ProcessScalarQuery";
+import { ProcessTimeseriesQuery } from "./ProcessTimeseriesQuery";
+import { QueryFormula } from "./QueryFormula";
+import { ScalarFormulaQueryRequest } from "./ScalarFormulaQueryRequest";
+import { ScalarFormulaQueryResponse } from "./ScalarFormulaQueryResponse";
+import { ScalarFormulaRequest } from "./ScalarFormulaRequest";
+import { ScalarFormulaRequestAttributes } from "./ScalarFormulaRequestAttributes";
+import { ScalarFormulaResponseAtrributes } from "./ScalarFormulaResponseAtrributes";
+import { ScalarMeta } from "./ScalarMeta";
+import { ScalarResponse } from "./ScalarResponse";
+import { SloQuery } from "./SloQuery";
+import { TagIndexingRuleAttributes } from "./TagIndexingRuleAttributes";
+import { TagIndexingRuleCreateAttributes } from "./TagIndexingRuleCreateAttributes";
+import { TagIndexingRuleCreateData } from "./TagIndexingRuleCreateData";
+import { TagIndexingRuleCreateRequest } from "./TagIndexingRuleCreateRequest";
+import { TagIndexingRuleData } from "./TagIndexingRuleData";
+import { TagIndexingRuleDynamicTags } from "./TagIndexingRuleDynamicTags";
+import { TagIndexingRuleExemptionAttributes } from "./TagIndexingRuleExemptionAttributes";
+import { TagIndexingRuleExemptionCreateAttributes } from "./TagIndexingRuleExemptionCreateAttributes";
+import { TagIndexingRuleExemptionCreateData } from "./TagIndexingRuleExemptionCreateData";
+import { TagIndexingRuleExemptionCreateRequest } from "./TagIndexingRuleExemptionCreateRequest";
+import { TagIndexingRuleExemptionData } from "./TagIndexingRuleExemptionData";
+import { TagIndexingRuleExemptionResponse } from "./TagIndexingRuleExemptionResponse";
+import { TagIndexingRuleExemptionUpdateAttributes } from "./TagIndexingRuleExemptionUpdateAttributes";
+import { TagIndexingRuleExemptionUpdateData } from "./TagIndexingRuleExemptionUpdateData";
+import { TagIndexingRuleExemptionUpdateRequest } from "./TagIndexingRuleExemptionUpdateRequest";
+import { TagIndexingRuleExemptionsResponse } from "./TagIndexingRuleExemptionsResponse";
+import { TagIndexingRuleMetricMatch } from "./TagIndexingRuleMetricMatch";
+import { TagIndexingRuleOptions } from "./TagIndexingRuleOptions";
+import { TagIndexingRuleOptionsData } from "./TagIndexingRuleOptionsData";
+import { TagIndexingRuleOrderAttributes } from "./TagIndexingRuleOrderAttributes";
+import { TagIndexingRuleOrderData } from "./TagIndexingRuleOrderData";
+import { TagIndexingRuleOrderRequest } from "./TagIndexingRuleOrderRequest";
+import { TagIndexingRuleResponse } from "./TagIndexingRuleResponse";
+import { TagIndexingRuleUpdateAttributes } from "./TagIndexingRuleUpdateAttributes";
+import { TagIndexingRuleUpdateData } from "./TagIndexingRuleUpdateData";
+import { TagIndexingRuleUpdateRequest } from "./TagIndexingRuleUpdateRequest";
+import { TagIndexingRulesResponse } from "./TagIndexingRulesResponse";
+import { TagIndexingRulesResponseMeta } from "./TagIndexingRulesResponseMeta";
+import { TimeseriesFormulaQueryRequest } from "./TimeseriesFormulaQueryRequest";
+import { TimeseriesFormulaQueryResponse } from "./TimeseriesFormulaQueryResponse";
+import { TimeseriesFormulaRequest } from "./TimeseriesFormulaRequest";
+import { TimeseriesFormulaRequestAttributes } from "./TimeseriesFormulaRequestAttributes";
+import { TimeseriesResponse } from "./TimeseriesResponse";
+import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
+import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
+import { Unit } from "./Unit";
+
+export const TypingInfo: ModelTypingInfo = {
+  enumsMap: {
+    ApmDependencyStatName: [
+      "avg_duration",
+      "avg_root_duration",
+      "avg_spans_per_trace",
+      "error_rate",
+      "pct_exec_time",
+      "pct_of_traces",
+      "total_traces_count",
+    ],
+    ApmDependencyStatsDataSource: ["apm_dependency_stats"],
+    ApmMetricsDataSource: ["apm_metrics"],
+    ApmMetricsSpanKind: [
+      "consumer",
+      "server",
+      "client",
+      "producer",
+      "internal",
+    ],
+    ApmMetricsStat: [
+      "error_rate",
+      "errors",
+      "errors_per_second",
+      "hits",
+      "hits_per_second",
+      "apdex",
+      "latency_avg",
+      "latency_max",
+      "latency_p50",
+      "latency_p75",
+      "latency_p90",
+      "latency_p95",
+      "latency_p99",
+      "latency_p999",
+      "latency_distribution",
+      "total_time",
+    ],
+    ApmResourceStatName: [
+      "error_rate",
+      "errors",
+      "hits",
+      "latency_avg",
+      "latency_max",
+      "latency_p50",
+      "latency_p75",
+      "latency_p90",
+      "latency_p95",
+      "latency_p99",
+      "latency_distribution",
+      "total_time",
+    ],
+    ApmResourceStatsDataSource: ["apm_resource_stats"],
+    ContainerDataSource: ["container"],
+    DerivedMetricsType: ["derived_metrics"],
+    EventsAggregation: [
+      "count",
+      "cardinality",
+      "pc75",
+      "pc90",
+      "pc95",
+      "pc98",
+      "pc99",
+      "sum",
+      "min",
+      "max",
+      "avg",
+    ],
+    EventsDataSource: [
+      "logs",
+      "spans",
+      "network",
+      "rum",
+      "security_signals",
+      "profiles",
+      "audit",
+      "events",
+      "ci_tests",
+      "ci_pipelines",
+      "incident_analytics",
+      "product_analytics",
+      "on_call_events",
+      "dora",
+    ],
+    EventsSortType: ["alphabetical", "measure"],
+    HistoricalMetricsConfigurationType: ["historical_metrics_configurations"],
+    MetricActiveConfigurationType: ["actively_queried_configurations"],
+    MetricContentEncoding: ["deflate", "zstd1", "gzip"],
+    MetricCustomSpaceAggregation: ["avg", "max", "min", "sum"],
+    MetricCustomTimeAggregation: ["avg", "count", "max", "min", "sum"],
+    MetricDashboardType: ["dashboards"],
+    MetricDistinctVolumeType: ["distinct_metric_volumes"],
+    MetricEstimateResourceType: ["metric_cardinality_estimate"],
+    MetricEstimateType: ["count_or_gauge", "distribution", "percentile"],
+    MetricIngestedIndexedVolumeType: ["metric_volumes"],
+    MetricIntakeType: [0, 1, 2, 3],
+    MetricMetaPageType: ["cursor_limit"],
+    MetricMonitorType: ["monitors"],
+    MetricNotebookType: ["notebooks"],
+    MetricSLOType: ["slos"],
+    MetricTagConfigurationMetricTypeCategory: [
+      "non_distribution",
+      "distribution",
+      "exponential_histogram",
+      "explicit_histogram",
+    ],
+    MetricTagConfigurationMetricTypes: [
+      "gauge",
+      "count",
+      "rate",
+      "distribution",
+      "exponential_histogram",
+      "explicit_histogram",
+    ],
+    MetricTagConfigurationType: ["manage_tags"],
+    MetricType: ["metrics"],
+    MetricsAggregator: [
+      "avg",
+      "min",
+      "max",
+      "sum",
+      "last",
+      "percentile",
+      "mean",
+      "l2norm",
+      "area",
+    ],
+    MetricsDataSource: ["metrics", "cloud_cost"],
+    ProcessDataSource: ["process"],
+    QuerySortOrder: ["asc", "desc"],
+    ScalarColumnTypeGroup: ["group"],
+    ScalarColumnTypeNumber: ["number"],
+    ScalarFormulaRequestType: ["scalar_request"],
+    ScalarFormulaResponseType: ["scalar_response"],
+    SloDataSource: ["slo"],
+    SlosGroupMode: ["overall", "components"],
+    SlosMeasure: [
+      "good_events",
+      "bad_events",
+      "slo_status",
+      "error_budget_remaining",
+      "error_budget_remaining_history",
+      "error_budget_burndown",
+      "burn_rate",
+      "slo_status_history",
+      "good_minutes",
+      "bad_minutes",
+    ],
+    SlosQueryType: ["metric", "time_slice", "monitor"],
+    TagIndexingRuleExemptionSort: [
+      "name",
+      "-name",
+      "estimated_change_in_volume",
+      "-estimated_change_in_volume",
+    ],
+    TagIndexingRuleExemptionType: ["tag_indexing_rule_exemptions"],
+    TagIndexingRuleExemptionVolumeStatus: [
+      "ok",
+      "unindexed_tags",
+      "unavailable",
+    ],
+    TagIndexingRuleType: ["tag_indexing_rules"],
+    TimeseriesFormulaRequestType: ["timeseries_request"],
+    TimeseriesFormulaResponseType: ["timeseries_response"],
+  },
+  oneOfMap: {
+    MetricAssetResponseIncluded: [
+      "MetricDashboardAsset",
+      "MetricMonitorAsset",
+      "MetricNotebookAsset",
+      "MetricSLOAsset",
+    ],
+    MetricVolumes: ["MetricDistinctVolume", "MetricIngestedIndexedVolume"],
+    MetricsAndMetricTagConfigurations: ["Metric", "MetricTagConfiguration"],
+    ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
+    ScalarQuery: [
+      "MetricsScalarQuery",
+      "EventsScalarQuery",
+      "ApmResourceStatsQuery",
+      "ApmMetricsQuery",
+      "ApmDependencyStatsQuery",
+      "SloQuery",
+      "ProcessScalarQuery",
+      "ContainerScalarQuery",
+    ],
+    TimeseriesQuery: [
+      "MetricsTimeseriesQuery",
+      "EventsTimeseriesQuery",
+      "ApmResourceStatsQuery",
+      "ApmMetricsQuery",
+      "ApmDependencyStatsQuery",
+      "SloQuery",
+      "ProcessTimeseriesQuery",
+      "ContainerTimeseriesQuery",
+    ],
+  },
+  typeMap: {
+    APIErrorResponse: APIErrorResponse,
+    ApmDependencyStatsQuery: ApmDependencyStatsQuery,
+    ApmMetricsQuery: ApmMetricsQuery,
+    ApmResourceStatsQuery: ApmResourceStatsQuery,
+    ContainerScalarQuery: ContainerScalarQuery,
+    ContainerTimeseriesQuery: ContainerTimeseriesQuery,
+    DataScalarColumn: DataScalarColumn,
+    DerivedMetricAttributes: DerivedMetricAttributes,
+    DerivedMetricCreateData: DerivedMetricCreateData,
+    DerivedMetricCreateRequest: DerivedMetricCreateRequest,
+    DerivedMetricData: DerivedMetricData,
+    DerivedMetricDefinition: DerivedMetricDefinition,
+    DerivedMetricQuery: DerivedMetricQuery,
+    DerivedMetricResponse: DerivedMetricResponse,
+    EventsCompute: EventsCompute,
+    EventsGroupBy: EventsGroupBy,
+    EventsGroupBySort: EventsGroupBySort,
+    EventsScalarQuery: EventsScalarQuery,
+    EventsSearch: EventsSearch,
+    EventsTimeseriesQuery: EventsTimeseriesQuery,
+    FormulaLimit: FormulaLimit,
+    GroupScalarColumn: GroupScalarColumn,
+    HistoricalMetricsConfigurationAttributes:
+      HistoricalMetricsConfigurationAttributes,
+    HistoricalMetricsConfigurationCreateData:
+      HistoricalMetricsConfigurationCreateData,
+    HistoricalMetricsConfigurationCreateRequest:
+      HistoricalMetricsConfigurationCreateRequest,
+    HistoricalMetricsConfigurationData: HistoricalMetricsConfigurationData,
+    HistoricalMetricsConfigurationResponse:
+      HistoricalMetricsConfigurationResponse,
+    IntakePayloadAccepted: IntakePayloadAccepted,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
+    Metric: Metric,
+    MetricAllTags: MetricAllTags,
+    MetricAllTagsAttributes: MetricAllTagsAttributes,
+    MetricAllTagsResponse: MetricAllTagsResponse,
+    MetricAssetAttributes: MetricAssetAttributes,
+    MetricAssetDashboardRelationship: MetricAssetDashboardRelationship,
+    MetricAssetDashboardRelationships: MetricAssetDashboardRelationships,
+    MetricAssetMonitorRelationship: MetricAssetMonitorRelationship,
+    MetricAssetMonitorRelationships: MetricAssetMonitorRelationships,
+    MetricAssetNotebookRelationship: MetricAssetNotebookRelationship,
+    MetricAssetNotebookRelationships: MetricAssetNotebookRelationships,
+    MetricAssetResponseData: MetricAssetResponseData,
+    MetricAssetResponseRelationships: MetricAssetResponseRelationships,
+    MetricAssetSLORelationship: MetricAssetSLORelationship,
+    MetricAssetSLORelationships: MetricAssetSLORelationships,
+    MetricAssetsResponse: MetricAssetsResponse,
+    MetricCustomAggregation: MetricCustomAggregation,
+    MetricDashboardAsset: MetricDashboardAsset,
+    MetricDashboardAttributes: MetricDashboardAttributes,
+    MetricDistinctVolume: MetricDistinctVolume,
+    MetricDistinctVolumeAttributes: MetricDistinctVolumeAttributes,
+    MetricEstimate: MetricEstimate,
+    MetricEstimateAttributes: MetricEstimateAttributes,
+    MetricEstimateResponse: MetricEstimateResponse,
+    MetricIngestedIndexedVolume: MetricIngestedIndexedVolume,
+    MetricIngestedIndexedVolumeAttributes:
+      MetricIngestedIndexedVolumeAttributes,
+    MetricMetaPage: MetricMetaPage,
+    MetricMetadata: MetricMetadata,
+    MetricMonitorAsset: MetricMonitorAsset,
+    MetricNotebookAsset: MetricNotebookAsset,
+    MetricOrigin: MetricOrigin,
+    MetricPaginationMeta: MetricPaginationMeta,
+    MetricPayload: MetricPayload,
+    MetricPoint: MetricPoint,
+    MetricRelationships: MetricRelationships,
+    MetricResource: MetricResource,
+    MetricSLOAsset: MetricSLOAsset,
+    MetricSeries: MetricSeries,
+    MetricSuggestedTagsAndAggregations: MetricSuggestedTagsAndAggregations,
+    MetricSuggestedTagsAndAggregationsResponse:
+      MetricSuggestedTagsAndAggregationsResponse,
+    MetricSuggestedTagsAttributes: MetricSuggestedTagsAttributes,
+    MetricTagCardinalitiesMeta: MetricTagCardinalitiesMeta,
+    MetricTagCardinalitiesResponse: MetricTagCardinalitiesResponse,
+    MetricTagCardinality: MetricTagCardinality,
+    MetricTagCardinalityAttributes: MetricTagCardinalityAttributes,
+    MetricTagConfiguration: MetricTagConfiguration,
+    MetricTagConfigurationAttributes: MetricTagConfigurationAttributes,
+    MetricTagConfigurationCreateAttributes:
+      MetricTagConfigurationCreateAttributes,
+    MetricTagConfigurationCreateData: MetricTagConfigurationCreateData,
+    MetricTagConfigurationCreateRequest: MetricTagConfigurationCreateRequest,
+    MetricTagConfigurationResponse: MetricTagConfigurationResponse,
+    MetricTagConfigurationUpdateAttributes:
+      MetricTagConfigurationUpdateAttributes,
+    MetricTagConfigurationUpdateData: MetricTagConfigurationUpdateData,
+    MetricTagConfigurationUpdateRequest: MetricTagConfigurationUpdateRequest,
+    MetricVolumesRelationship: MetricVolumesRelationship,
+    MetricVolumesRelationshipData: MetricVolumesRelationshipData,
+    MetricVolumesResponse: MetricVolumesResponse,
+    MetricsAndMetricTagConfigurationsResponse:
+      MetricsAndMetricTagConfigurationsResponse,
+    MetricsListResponseLinks: MetricsListResponseLinks,
+    MetricsScalarQuery: MetricsScalarQuery,
+    MetricsTimeseriesQuery: MetricsTimeseriesQuery,
+    ProcessScalarQuery: ProcessScalarQuery,
+    ProcessTimeseriesQuery: ProcessTimeseriesQuery,
+    QueryFormula: QueryFormula,
+    ScalarFormulaQueryRequest: ScalarFormulaQueryRequest,
+    ScalarFormulaQueryResponse: ScalarFormulaQueryResponse,
+    ScalarFormulaRequest: ScalarFormulaRequest,
+    ScalarFormulaRequestAttributes: ScalarFormulaRequestAttributes,
+    ScalarFormulaResponseAtrributes: ScalarFormulaResponseAtrributes,
+    ScalarMeta: ScalarMeta,
+    ScalarResponse: ScalarResponse,
+    SloQuery: SloQuery,
+    TagIndexingRuleAttributes: TagIndexingRuleAttributes,
+    TagIndexingRuleCreateAttributes: TagIndexingRuleCreateAttributes,
+    TagIndexingRuleCreateData: TagIndexingRuleCreateData,
+    TagIndexingRuleCreateRequest: TagIndexingRuleCreateRequest,
+    TagIndexingRuleData: TagIndexingRuleData,
+    TagIndexingRuleDynamicTags: TagIndexingRuleDynamicTags,
+    TagIndexingRuleExemptionAttributes: TagIndexingRuleExemptionAttributes,
+    TagIndexingRuleExemptionCreateAttributes:
+      TagIndexingRuleExemptionCreateAttributes,
+    TagIndexingRuleExemptionCreateData: TagIndexingRuleExemptionCreateData,
+    TagIndexingRuleExemptionCreateRequest:
+      TagIndexingRuleExemptionCreateRequest,
+    TagIndexingRuleExemptionData: TagIndexingRuleExemptionData,
+    TagIndexingRuleExemptionResponse: TagIndexingRuleExemptionResponse,
+    TagIndexingRuleExemptionUpdateAttributes:
+      TagIndexingRuleExemptionUpdateAttributes,
+    TagIndexingRuleExemptionUpdateData: TagIndexingRuleExemptionUpdateData,
+    TagIndexingRuleExemptionUpdateRequest:
+      TagIndexingRuleExemptionUpdateRequest,
+    TagIndexingRuleExemptionsResponse: TagIndexingRuleExemptionsResponse,
+    TagIndexingRuleMetricMatch: TagIndexingRuleMetricMatch,
+    TagIndexingRuleOptions: TagIndexingRuleOptions,
+    TagIndexingRuleOptionsData: TagIndexingRuleOptionsData,
+    TagIndexingRuleOrderAttributes: TagIndexingRuleOrderAttributes,
+    TagIndexingRuleOrderData: TagIndexingRuleOrderData,
+    TagIndexingRuleOrderRequest: TagIndexingRuleOrderRequest,
+    TagIndexingRuleResponse: TagIndexingRuleResponse,
+    TagIndexingRuleUpdateAttributes: TagIndexingRuleUpdateAttributes,
+    TagIndexingRuleUpdateData: TagIndexingRuleUpdateData,
+    TagIndexingRuleUpdateRequest: TagIndexingRuleUpdateRequest,
+    TagIndexingRulesResponse: TagIndexingRulesResponse,
+    TagIndexingRulesResponseMeta: TagIndexingRulesResponseMeta,
+    TimeseriesFormulaQueryRequest: TimeseriesFormulaQueryRequest,
+    TimeseriesFormulaQueryResponse: TimeseriesFormulaQueryResponse,
+    TimeseriesFormulaRequest: TimeseriesFormulaRequest,
+    TimeseriesFormulaRequestAttributes: TimeseriesFormulaRequestAttributes,
+    TimeseriesResponse: TimeseriesResponse,
+    TimeseriesResponseAttributes: TimeseriesResponseAttributes,
+    TimeseriesResponseSeries: TimeseriesResponseSeries,
+    Unit: Unit,
+  },
+};
