@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Attributes of a work item view, including the filter query and optional notification rule.
+ * Attributes of a work item view, including the filter query.
  */
 export class CaseViewAttributes {
   /**
@@ -17,7 +17,7 @@ export class CaseViewAttributes {
    */
   "name": string;
   /**
-   * The identifier of a notification rule linked to this view. When set, users subscribed to the view receive alerts for matching work items.
+   * Deprecated. Identifier of a legacy notification rule linked to this view, if any.
    */
   "npRuleId"?: string;
   /**

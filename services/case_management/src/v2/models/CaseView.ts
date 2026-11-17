@@ -9,7 +9,7 @@ import { CaseViewResourceType } from "./CaseViewResourceType";
  */
 export class CaseView {
   /**
-   * Attributes of a work item view, including the filter query and optional notification rule.
+   * Attributes of a work item view, including the filter query.
    */
   "attributes": CaseViewAttributes;
   /**
