@@ -386,6 +386,7 @@ apiInstance
 | Confluent Cloud | @datadog/datadog-api-client-confluent-cloud | [README.md](../../services/confluent-cloud/README.md) |
 | Container Images | @datadog/datadog-api-client-container-images | [README.md](../../services/container-images/README.md) |
 | Containers | @datadog/datadog-api-client-containers | [README.md](../../services/containers/README.md) |
+| CoreWeave Integration | @datadog/datadog-api-client-core-weave-integration | [README.md](../../services/core-weave-integration/README.md) |
 | CSM Agents | @datadog/datadog-api-client-csm-agents | [README.md](../../services/csm-agents/README.md) |
 | CSM Coverage Analysis | @datadog/datadog-api-client-csm-coverage-analysis | [README.md](../../services/csm-coverage-analysis/README.md) |
 | CSM Ownership | @datadog/datadog-api-client-csm-ownership | [README.md](../../services/csm-ownership/README.md) |
