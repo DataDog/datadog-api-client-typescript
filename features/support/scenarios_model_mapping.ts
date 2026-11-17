@@ -13557,6 +13557,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ChatGPTEnterpriseIntegrationAccountResponse",
     },
+    "v2.ListCoreWeaveCloudIntegrationAccounts": {
+        "operationResponseType": "CoreWeaveCloudIntegrationAccountsResponse",
+    },
+    "v2.CreateCoreWeaveCloudIntegrationAccount": {
+        "body": {
+            "type": "CoreWeaveCloudIntegrationAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CoreWeaveCloudIntegrationAccountResponse",
+    },
+    "v2.GetCoreWeaveCloudIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CoreWeaveCloudIntegrationAccountResponse",
+    },
+    "v2.DeleteCoreWeaveCloudIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateCoreWeaveCloudIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CoreWeaveCloudIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CoreWeaveCloudIntegrationAccountResponse",
+    },
     "v2.ListDatabricksIntegrationAccounts": {
         "operationResponseType": "DatabricksIntegrationAccountsResponse",
     },
