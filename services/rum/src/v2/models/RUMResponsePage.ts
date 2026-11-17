@@ -5,7 +5,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class RUMResponsePage {
   /**
-   * The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of `page[cursor]`.
+   * The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of `page[cursor]` (`page.cursor` for the POST endpoint). Absent on the last page.
    */
   "after"?: string;
   /**
