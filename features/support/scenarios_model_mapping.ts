@@ -17096,6 +17096,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProductAnalyticsTimeseriesResponse",
     },
+    "v2.QueryProductAnalyticsJourneyDropOff": {
+        "body": {
+            "type": "ProductAnalyticsJourneyDropOffRequest",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsJourneyDropOffResponse",
+    },
     "v2.QueryProductAnalyticsJourneyFunnel": {
         "body": {
             "type": "ProductAnalyticsJourneyFunnelRequest",
@@ -17158,6 +17165,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ProductAnalyticsSankeyResponse",
+    },
+    "v2.QueryProductAnalyticsFunnelSuggestions": {
+        "body": {
+            "type": "ProductAnalyticsFunnelSuggestionsRequest",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsFunnelSuggestionsResponse",
+    },
+    "v2.QueryProductAnalyticsFunnelStepSuggestions": {
+        "body": {
+            "type": "ProductAnalyticsFunnelStepSuggestionsRequest",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsFunnelStepSuggestionsResponse",
     },
     "v2.GetAccountFacetInfo": {
         "body": {

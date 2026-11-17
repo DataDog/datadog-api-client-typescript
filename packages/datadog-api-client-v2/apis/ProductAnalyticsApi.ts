@@ -22,6 +22,12 @@ import { ProductAnalyticsAnalyticsListResponse } from "../models/ProductAnalytic
 import { ProductAnalyticsAnalyticsRequest } from "../models/ProductAnalyticsAnalyticsRequest";
 import { ProductAnalyticsFormulaJourneyRequest } from "../models/ProductAnalyticsFormulaJourneyRequest";
 import { ProductAnalyticsFormulaRetentionRequest } from "../models/ProductAnalyticsFormulaRetentionRequest";
+import { ProductAnalyticsFunnelStepSuggestionsRequest } from "../models/ProductAnalyticsFunnelStepSuggestionsRequest";
+import { ProductAnalyticsFunnelStepSuggestionsResponse } from "../models/ProductAnalyticsFunnelStepSuggestionsResponse";
+import { ProductAnalyticsFunnelSuggestionsRequest } from "../models/ProductAnalyticsFunnelSuggestionsRequest";
+import { ProductAnalyticsFunnelSuggestionsResponse } from "../models/ProductAnalyticsFunnelSuggestionsResponse";
+import { ProductAnalyticsJourneyDropOffRequest } from "../models/ProductAnalyticsJourneyDropOffRequest";
+import { ProductAnalyticsJourneyDropOffResponse } from "../models/ProductAnalyticsJourneyDropOffResponse";
 import { ProductAnalyticsJourneyFunnelRequest } from "../models/ProductAnalyticsJourneyFunnelRequest";
 import { ProductAnalyticsJourneyFunnelResponse } from "../models/ProductAnalyticsJourneyFunnelResponse";
 import { ProductAnalyticsJourneyListRequest } from "../models/ProductAnalyticsJourneyListRequest";
@@ -41,6 +47,202 @@ import { ProductAnalyticsServerSideEventItem } from "../models/ProductAnalyticsS
 import { ProductAnalyticsTimeseriesResponse } from "../models/ProductAnalyticsTimeseriesResponse";
 
 export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
+  public async queryProductAnalyticsFunnelStepSuggestions(
+    body: ProductAnalyticsFunnelStepSuggestionsRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'queryProductAnalyticsFunnelStepSuggestions'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.queryProductAnalyticsFunnelStepSuggestions"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'queryProductAnalyticsFunnelStepSuggestions' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "queryProductAnalyticsFunnelStepSuggestions"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/suggestions/features/steps";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.ProductAnalyticsApi.queryProductAnalyticsFunnelStepSuggestions"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "ProductAnalyticsFunnelStepSuggestionsRequest",
+        ""
+      ),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async queryProductAnalyticsFunnelSuggestions(
+    body: ProductAnalyticsFunnelSuggestionsRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'queryProductAnalyticsFunnelSuggestions'"
+    );
+    if (
+      !_config.unstableOperations["v2.queryProductAnalyticsFunnelSuggestions"]
+    ) {
+      throw new Error(
+        "Unstable operation 'queryProductAnalyticsFunnelSuggestions' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "queryProductAnalyticsFunnelSuggestions");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/suggestions/features";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.ProductAnalyticsApi.queryProductAnalyticsFunnelSuggestions"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "ProductAnalyticsFunnelSuggestionsRequest",
+        ""
+      ),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async queryProductAnalyticsJourneyDropOff(
+    body: ProductAnalyticsJourneyDropOffRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'queryProductAnalyticsJourneyDropOff'"
+    );
+    if (!_config.unstableOperations["v2.queryProductAnalyticsJourneyDropOff"]) {
+      throw new Error(
+        "Unstable operation 'queryProductAnalyticsJourneyDropOff' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "queryProductAnalyticsJourneyDropOff");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/journey/drop_off_analysis";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.ProductAnalyticsApi.queryProductAnalyticsJourneyDropOff")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "ProductAnalyticsJourneyDropOffRequest",
+        ""
+      ),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async queryProductAnalyticsJourneyFunnel(
     body: ProductAnalyticsJourneyFunnelRequest,
     _options?: Configuration
@@ -804,6 +1006,240 @@ export class ProductAnalyticsApiResponseProcessor {
 
   public constructor(configuration?: Configuration) {
     this.configuration = configuration;
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to queryProductAnalyticsFunnelStepSuggestions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async queryProductAnalyticsFunnelStepSuggestions(
+    response: ResponseContext
+  ): Promise<ProductAnalyticsFunnelStepSuggestionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ProductAnalyticsFunnelStepSuggestionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsFunnelStepSuggestionsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ProductAnalyticsFunnelStepSuggestionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProductAnalyticsFunnelStepSuggestionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsFunnelStepSuggestionsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ProductAnalyticsFunnelStepSuggestionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to queryProductAnalyticsFunnelSuggestions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async queryProductAnalyticsFunnelSuggestions(
+    response: ResponseContext
+  ): Promise<ProductAnalyticsFunnelSuggestionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ProductAnalyticsFunnelSuggestionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsFunnelSuggestionsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ProductAnalyticsFunnelSuggestionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProductAnalyticsFunnelSuggestionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsFunnelSuggestionsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ProductAnalyticsFunnelSuggestionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to queryProductAnalyticsJourneyDropOff
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async queryProductAnalyticsJourneyDropOff(
+    response: ResponseContext
+  ): Promise<ProductAnalyticsJourneyDropOffResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ProductAnalyticsJourneyDropOffResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsJourneyDropOffResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ProductAnalyticsJourneyDropOffResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProductAnalyticsJourneyDropOffResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ProductAnalyticsJourneyDropOffResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ProductAnalyticsJourneyDropOffResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -1821,6 +2257,27 @@ export class ProductAnalyticsApiResponseProcessor {
   }
 }
 
+export interface ProductAnalyticsApiQueryProductAnalyticsFunnelStepSuggestionsRequest {
+  /**
+   * @type ProductAnalyticsFunnelStepSuggestionsRequest
+   */
+  body: ProductAnalyticsFunnelStepSuggestionsRequest;
+}
+
+export interface ProductAnalyticsApiQueryProductAnalyticsFunnelSuggestionsRequest {
+  /**
+   * @type ProductAnalyticsFunnelSuggestionsRequest
+   */
+  body: ProductAnalyticsFunnelSuggestionsRequest;
+}
+
+export interface ProductAnalyticsApiQueryProductAnalyticsJourneyDropOffRequest {
+  /**
+   * @type ProductAnalyticsJourneyDropOffRequest
+   */
+  body: ProductAnalyticsJourneyDropOffRequest;
+}
+
 export interface ProductAnalyticsApiQueryProductAnalyticsJourneyFunnelRequest {
   /**
    * @type ProductAnalyticsJourneyFunnelRequest
@@ -1934,6 +2391,86 @@ export class ProductAnalyticsApi {
     this.responseProcessor =
       responseProcessor ||
       new ProductAnalyticsApiResponseProcessor(configuration);
+  }
+
+  /**
+   * Get the steps that users most often take after the existing steps of a funnel.
+   * Suggestions come from the same precomputed journeys as feature suggestions.
+   * Returns an empty list when no journey starts with the given steps.
+   * @param param The request object
+   */
+  public queryProductAnalyticsFunnelStepSuggestions(
+    param: ProductAnalyticsApiQueryProductAnalyticsFunnelStepSuggestionsRequest,
+    options?: Configuration
+  ): Promise<ProductAnalyticsFunnelStepSuggestionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.queryProductAnalyticsFunnelStepSuggestions(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.queryProductAnalyticsFunnelStepSuggestions(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the features that Product Analytics detected in your applications, grouped by
+   * application and feature area. Each feature comes with a suggested journey that users
+   * follow to use it, which you can use as funnel steps.
+   * @param param The request object
+   */
+  public queryProductAnalyticsFunnelSuggestions(
+    param: ProductAnalyticsApiQueryProductAnalyticsFunnelSuggestionsRequest,
+    options?: Configuration
+  ): Promise<ProductAnalyticsFunnelSuggestionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.queryProductAnalyticsFunnelSuggestions(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.queryProductAnalyticsFunnelSuggestions(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Analyze the drop-off at a given step of the journey. The journey must have at least two
+   * steps, and only the `@session.id` join key is supported. Set `target` to the node to
+   * analyze. It can't be the first step. When `target` is omitted, the last step is used.
+   * Returns the number of sessions that reached the step before the target but not the target,
+   * together with the issues and frustration signals most associated with the drop-off.
+   * @param param The request object
+   */
+  public queryProductAnalyticsJourneyDropOff(
+    param: ProductAnalyticsApiQueryProductAnalyticsJourneyDropOffRequest,
+    options?: Configuration
+  ): Promise<ProductAnalyticsJourneyDropOffResponse> {
+    const requestContextPromise =
+      this.requestFactory.queryProductAnalyticsJourneyDropOff(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.queryProductAnalyticsJourneyDropOff(
+            responseContext
+          );
+        });
+    });
   }
 
   /**

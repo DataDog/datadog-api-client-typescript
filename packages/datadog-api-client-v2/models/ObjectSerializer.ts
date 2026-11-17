@@ -4763,6 +4763,7 @@ import { ProductAnalyticsAudienceSegmentSubquery } from "./ProductAnalyticsAudie
 import { ProductAnalyticsAudienceUserSubquery } from "./ProductAnalyticsAudienceUserSubquery";
 import { ProductAnalyticsCalendarInterval } from "./ProductAnalyticsCalendarInterval";
 import { ProductAnalyticsCompute } from "./ProductAnalyticsCompute";
+import { ProductAnalyticsCoreUserJourney } from "./ProductAnalyticsCoreUserJourney";
 import { ProductAnalyticsElapsedTime } from "./ProductAnalyticsElapsedTime";
 import { ProductAnalyticsEventQuery } from "./ProductAnalyticsEventQuery";
 import { ProductAnalyticsEventSearch } from "./ProductAnalyticsEventSearch";
@@ -4774,6 +4775,21 @@ import { ProductAnalyticsFormulaRetentionQuery } from "./ProductAnalyticsFormula
 import { ProductAnalyticsFormulaRetentionRequest } from "./ProductAnalyticsFormulaRetentionRequest";
 import { ProductAnalyticsFormulaRetentionRequestAttributes } from "./ProductAnalyticsFormulaRetentionRequestAttributes";
 import { ProductAnalyticsFormulaRetentionRequestData } from "./ProductAnalyticsFormulaRetentionRequestData";
+import { ProductAnalyticsFunnelStepSuggestionsRequest } from "./ProductAnalyticsFunnelStepSuggestionsRequest";
+import { ProductAnalyticsFunnelStepSuggestionsRequestAttributes } from "./ProductAnalyticsFunnelStepSuggestionsRequestAttributes";
+import { ProductAnalyticsFunnelStepSuggestionsRequestData } from "./ProductAnalyticsFunnelStepSuggestionsRequestData";
+import { ProductAnalyticsFunnelStepSuggestionsResponse } from "./ProductAnalyticsFunnelStepSuggestionsResponse";
+import { ProductAnalyticsFunnelStepSuggestionsResponseAttributes } from "./ProductAnalyticsFunnelStepSuggestionsResponseAttributes";
+import { ProductAnalyticsFunnelStepSuggestionsResponseData } from "./ProductAnalyticsFunnelStepSuggestionsResponseData";
+import { ProductAnalyticsFunnelSuggestionsApplication } from "./ProductAnalyticsFunnelSuggestionsApplication";
+import { ProductAnalyticsFunnelSuggestionsDomain } from "./ProductAnalyticsFunnelSuggestionsDomain";
+import { ProductAnalyticsFunnelSuggestionsFeature } from "./ProductAnalyticsFunnelSuggestionsFeature";
+import { ProductAnalyticsFunnelSuggestionsRequest } from "./ProductAnalyticsFunnelSuggestionsRequest";
+import { ProductAnalyticsFunnelSuggestionsRequestAttributes } from "./ProductAnalyticsFunnelSuggestionsRequestAttributes";
+import { ProductAnalyticsFunnelSuggestionsRequestData } from "./ProductAnalyticsFunnelSuggestionsRequestData";
+import { ProductAnalyticsFunnelSuggestionsResponse } from "./ProductAnalyticsFunnelSuggestionsResponse";
+import { ProductAnalyticsFunnelSuggestionsResponseAttributes } from "./ProductAnalyticsFunnelSuggestionsResponseAttributes";
+import { ProductAnalyticsFunnelSuggestionsResponseData } from "./ProductAnalyticsFunnelSuggestionsResponseData";
 import { ProductAnalyticsGraphQueryCompute } from "./ProductAnalyticsGraphQueryCompute";
 import { ProductAnalyticsGraphQueryGroupBy } from "./ProductAnalyticsGraphQueryGroupBy";
 import { ProductAnalyticsGroupBy } from "./ProductAnalyticsGroupBy";
@@ -4785,6 +4801,14 @@ import { ProductAnalyticsJourneyAudienceFilters } from "./ProductAnalyticsJourne
 import { ProductAnalyticsJourneyAudienceSegmentQuery } from "./ProductAnalyticsJourneyAudienceSegmentQuery";
 import { ProductAnalyticsJourneyAudienceUserQuery } from "./ProductAnalyticsJourneyAudienceUserQuery";
 import { ProductAnalyticsJourneyComputedColumn } from "./ProductAnalyticsJourneyComputedColumn";
+import { ProductAnalyticsJourneyDropOffIssue } from "./ProductAnalyticsJourneyDropOffIssue";
+import { ProductAnalyticsJourneyDropOffQuery } from "./ProductAnalyticsJourneyDropOffQuery";
+import { ProductAnalyticsJourneyDropOffRequest } from "./ProductAnalyticsJourneyDropOffRequest";
+import { ProductAnalyticsJourneyDropOffRequestAttributes } from "./ProductAnalyticsJourneyDropOffRequestAttributes";
+import { ProductAnalyticsJourneyDropOffRequestData } from "./ProductAnalyticsJourneyDropOffRequestData";
+import { ProductAnalyticsJourneyDropOffResponse } from "./ProductAnalyticsJourneyDropOffResponse";
+import { ProductAnalyticsJourneyDropOffResponseAttributes } from "./ProductAnalyticsJourneyDropOffResponseAttributes";
+import { ProductAnalyticsJourneyDropOffResponseData } from "./ProductAnalyticsJourneyDropOffResponseData";
 import { ProductAnalyticsJourneyFunnelCompute } from "./ProductAnalyticsJourneyFunnelCompute";
 import { ProductAnalyticsJourneyFunnelQuery } from "./ProductAnalyticsJourneyFunnelQuery";
 import { ProductAnalyticsJourneyFunnelRequest } from "./ProductAnalyticsJourneyFunnelRequest";
@@ -4853,6 +4877,7 @@ import { ProductAnalyticsRetentionPeriod } from "./ProductAnalyticsRetentionPeri
 import { ProductAnalyticsRetentionReturnCriteria } from "./ProductAnalyticsRetentionReturnCriteria";
 import { ProductAnalyticsRetentionReturnPeriodScope } from "./ProductAnalyticsRetentionReturnPeriodScope";
 import { ProductAnalyticsRetentionSearch } from "./ProductAnalyticsRetentionSearch";
+import { ProductAnalyticsSampling } from "./ProductAnalyticsSampling";
 import { ProductAnalyticsSankeyAggregatedNode } from "./ProductAnalyticsSankeyAggregatedNode";
 import { ProductAnalyticsSankeyDefinition } from "./ProductAnalyticsSankeyDefinition";
 import { ProductAnalyticsSankeyLink } from "./ProductAnalyticsSankeyLink";
@@ -10007,12 +10032,28 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ProductAnalyticsFormulaJourneyRequestType: ["formula_journey_request"],
   ProductAnalyticsFormulaRetentionRequestType: ["formula_retention_request"],
+  ProductAnalyticsFunnelStepSuggestionsRequestType: [
+    "funnel_suggestions_steps_request",
+  ],
+  ProductAnalyticsFunnelStepSuggestionsResponseType: [
+    "funnel_suggestions_steps_response",
+  ],
+  ProductAnalyticsFunnelSuggestionsRequestType: ["funnel_suggestions_request"],
+  ProductAnalyticsFunnelSuggestionsResponseType: [
+    "funnel_suggestions_response",
+  ],
   ProductAnalyticsGraphQueryGroupBySource: [
     "product_analytics_audience_filters.users",
     "product_analytics_audience_filters.accounts",
   ],
   ProductAnalyticsJourneyComputedColumnName: ["first_conversion_timestamps"],
   ProductAnalyticsJourneyConversionType: ["conversion", "drop-off"],
+  ProductAnalyticsJourneyDropOffRequestType: [
+    "journey_drop_off_analysis_request",
+  ],
+  ProductAnalyticsJourneyDropOffResponseType: [
+    "journey_drop_off_analysis_response",
+  ],
   ProductAnalyticsJourneyEntity: ["session", "user", "account"],
   ProductAnalyticsJourneyFunnelResponseType: ["funnel_response"],
   ProductAnalyticsJourneyListRequestType: ["journey_list_request"],
@@ -17301,6 +17342,7 @@ const typeMap: { [index: string]: any } = {
   ProductAnalyticsAudienceUserSubquery: ProductAnalyticsAudienceUserSubquery,
   ProductAnalyticsCalendarInterval: ProductAnalyticsCalendarInterval,
   ProductAnalyticsCompute: ProductAnalyticsCompute,
+  ProductAnalyticsCoreUserJourney: ProductAnalyticsCoreUserJourney,
   ProductAnalyticsElapsedTime: ProductAnalyticsElapsedTime,
   ProductAnalyticsEventQuery: ProductAnalyticsEventQuery,
   ProductAnalyticsEventSearch: ProductAnalyticsEventSearch,
@@ -17317,6 +17359,36 @@ const typeMap: { [index: string]: any } = {
     ProductAnalyticsFormulaRetentionRequestAttributes,
   ProductAnalyticsFormulaRetentionRequestData:
     ProductAnalyticsFormulaRetentionRequestData,
+  ProductAnalyticsFunnelStepSuggestionsRequest:
+    ProductAnalyticsFunnelStepSuggestionsRequest,
+  ProductAnalyticsFunnelStepSuggestionsRequestAttributes:
+    ProductAnalyticsFunnelStepSuggestionsRequestAttributes,
+  ProductAnalyticsFunnelStepSuggestionsRequestData:
+    ProductAnalyticsFunnelStepSuggestionsRequestData,
+  ProductAnalyticsFunnelStepSuggestionsResponse:
+    ProductAnalyticsFunnelStepSuggestionsResponse,
+  ProductAnalyticsFunnelStepSuggestionsResponseAttributes:
+    ProductAnalyticsFunnelStepSuggestionsResponseAttributes,
+  ProductAnalyticsFunnelStepSuggestionsResponseData:
+    ProductAnalyticsFunnelStepSuggestionsResponseData,
+  ProductAnalyticsFunnelSuggestionsApplication:
+    ProductAnalyticsFunnelSuggestionsApplication,
+  ProductAnalyticsFunnelSuggestionsDomain:
+    ProductAnalyticsFunnelSuggestionsDomain,
+  ProductAnalyticsFunnelSuggestionsFeature:
+    ProductAnalyticsFunnelSuggestionsFeature,
+  ProductAnalyticsFunnelSuggestionsRequest:
+    ProductAnalyticsFunnelSuggestionsRequest,
+  ProductAnalyticsFunnelSuggestionsRequestAttributes:
+    ProductAnalyticsFunnelSuggestionsRequestAttributes,
+  ProductAnalyticsFunnelSuggestionsRequestData:
+    ProductAnalyticsFunnelSuggestionsRequestData,
+  ProductAnalyticsFunnelSuggestionsResponse:
+    ProductAnalyticsFunnelSuggestionsResponse,
+  ProductAnalyticsFunnelSuggestionsResponseAttributes:
+    ProductAnalyticsFunnelSuggestionsResponseAttributes,
+  ProductAnalyticsFunnelSuggestionsResponseData:
+    ProductAnalyticsFunnelSuggestionsResponseData,
   ProductAnalyticsGraphQueryCompute: ProductAnalyticsGraphQueryCompute,
   ProductAnalyticsGraphQueryGroupBy: ProductAnalyticsGraphQueryGroupBy,
   ProductAnalyticsGroupBy: ProductAnalyticsGroupBy,
@@ -17332,6 +17404,19 @@ const typeMap: { [index: string]: any } = {
   ProductAnalyticsJourneyAudienceUserQuery:
     ProductAnalyticsJourneyAudienceUserQuery,
   ProductAnalyticsJourneyComputedColumn: ProductAnalyticsJourneyComputedColumn,
+  ProductAnalyticsJourneyDropOffIssue: ProductAnalyticsJourneyDropOffIssue,
+  ProductAnalyticsJourneyDropOffQuery: ProductAnalyticsJourneyDropOffQuery,
+  ProductAnalyticsJourneyDropOffRequest: ProductAnalyticsJourneyDropOffRequest,
+  ProductAnalyticsJourneyDropOffRequestAttributes:
+    ProductAnalyticsJourneyDropOffRequestAttributes,
+  ProductAnalyticsJourneyDropOffRequestData:
+    ProductAnalyticsJourneyDropOffRequestData,
+  ProductAnalyticsJourneyDropOffResponse:
+    ProductAnalyticsJourneyDropOffResponse,
+  ProductAnalyticsJourneyDropOffResponseAttributes:
+    ProductAnalyticsJourneyDropOffResponseAttributes,
+  ProductAnalyticsJourneyDropOffResponseData:
+    ProductAnalyticsJourneyDropOffResponseData,
   ProductAnalyticsJourneyFunnelCompute: ProductAnalyticsJourneyFunnelCompute,
   ProductAnalyticsJourneyFunnelQuery: ProductAnalyticsJourneyFunnelQuery,
   ProductAnalyticsJourneyFunnelRequest: ProductAnalyticsJourneyFunnelRequest,
@@ -17431,6 +17516,7 @@ const typeMap: { [index: string]: any } = {
   ProductAnalyticsRetentionReturnPeriodScope:
     ProductAnalyticsRetentionReturnPeriodScope,
   ProductAnalyticsRetentionSearch: ProductAnalyticsRetentionSearch,
+  ProductAnalyticsSampling: ProductAnalyticsSampling,
   ProductAnalyticsSankeyAggregatedNode: ProductAnalyticsSankeyAggregatedNode,
   ProductAnalyticsSankeyDefinition: ProductAnalyticsSankeyDefinition,
   ProductAnalyticsSankeyLink: ProductAnalyticsSankeyLink,
