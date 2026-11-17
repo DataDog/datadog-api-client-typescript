@@ -6,7 +6,7 @@ import { RUMQueryPageOptions } from "./RUMQueryPageOptions";
 import { RUMSort } from "./RUMSort";
 
 /**
- * The request for a RUM events list.
+ * The request for a RUM events list. All attributes are optional: without any, the request returns the first 10 events of the last 15 minutes.
  */
 export class RUMSearchEventsRequest {
   /**

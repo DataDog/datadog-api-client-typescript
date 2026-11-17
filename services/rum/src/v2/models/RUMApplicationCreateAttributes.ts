@@ -1,12 +1,22 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { RUMApplicationPlatformType } from "./RUMApplicationPlatformType";
 import { RUMEventProcessingState } from "./RUMEventProcessingState";
-import { RUMProductAnalyticsRetentionState } from "./RUMProductAnalyticsRetentionState";
+import { RUMProductAnalyticsRetentionStateRequest } from "./RUMProductAnalyticsRetentionStateRequest";
 
 /**
  * RUM application creation attributes.
+ * When `rum_event_processing_state` is omitted, it defaults to `ALL`. When `product_analytics_retention_state` is omitted, Product Analytics is not enabled. Setting it to `MAX` requires the `product_analytics_apps_write` permission.
  */
 export class RUMApplicationCreateAttributes {
+  /**
+   * Whether flat sampling of Session Replay for APM-correlated RUM sessions is enabled. Defaults to `true`.
+   */
+  "apmRumFlatSamplingReplayEnabled"?: boolean;
+  /**
+   * Fraction (0 to 1) of APM-correlated RUM sessions with Session Replay when flat sampling is enabled. Defaults to `1` (100%).
+   */
+  "apmRumFlatSamplingReplaySampleRate"?: number;
   /**
    * Whether to create the default retention filters when the application is created: `Sessions with errors` and `Sessions`, each with a 100% retention rate.
    * Set to `false` to create the application without them, for example when you add your own retention filters right after creating it. Until you add retention filters, the application only retains sessions matched by its [permanent retention filters](https://docs.datadoghq.com/real_user_monitoring/rum_without_limits/retention_filters/#permanent-retention-filters).
@@ -14,21 +24,33 @@ export class RUMApplicationCreateAttributes {
    */
   "createDefaultRetentionFilters"?: boolean;
   /**
-   * Name of the RUM application.
+   * Whether Error Tracking exclusion filters are enabled for the application. Defaults to `false`.
+   */
+  "errorTrackingExclusionFilterEnabled"?: boolean;
+  /**
+   * Name of the RUM application. Between 1 and 255 characters.
    */
   "name": string;
   /**
-   * Controls the retention policy for Product Analytics data derived from RUM events.
+   * Sample rate (0-100) of Session Replay for Product Analytics sessions. Defaults to `100`.
    */
-  "productAnalyticsRetentionState"?: RUMProductAnalyticsRetentionState;
+  "productAnalyticsReplaySampleRate"?: number;
   /**
-   * Configures which RUM events are processed and stored for the application.
+   * Retention policy to set for Product Analytics data derived from RUM events. `PREVIEW` is the initial state of a new application and is reported as `NONE` in responses. Setting `MAX` requires the `product_analytics_apps_write` permission.
+   */
+  "productAnalyticsRetentionState"?: RUMProductAnalyticsRetentionStateRequest;
+  /**
+   * Configures which RUM events are processed and stored for the application. Defaults to `ALL` when creating an application.
    */
   "rumEventProcessingState"?: RUMEventProcessingState;
   /**
-   * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
+   * List of tags to associate with the RUM application, in `key:value` format.
    */
-  "type"?: string;
+  "tags"?: Array<string>;
+  /**
+   * Type of the RUM application, that is the platform of the RUM SDK. Defaults to `browser` on create.
+   */
+  "type"?: RUMApplicationPlatformType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -44,8 +66,21 @@ export class RUMApplicationCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    apmRumFlatSamplingReplayEnabled: {
+      baseName: "apm_rum_flat_sampling_replay_enabled",
+      type: "boolean",
+    },
+    apmRumFlatSamplingReplaySampleRate: {
+      baseName: "apm_rum_flat_sampling_replay_sample_rate",
+      type: "number",
+      format: "double",
+    },
     createDefaultRetentionFilters: {
       baseName: "create_default_retention_filters",
+      type: "boolean",
+    },
+    errorTrackingExclusionFilterEnabled: {
+      baseName: "error_tracking_exclusion_filter_enabled",
       type: "boolean",
     },
     name: {
@@ -53,17 +88,26 @@ export class RUMApplicationCreateAttributes {
       type: "string",
       required: true,
     },
+    productAnalyticsReplaySampleRate: {
+      baseName: "product_analytics_replay_sample_rate",
+      type: "number",
+      format: "int32",
+    },
     productAnalyticsRetentionState: {
       baseName: "product_analytics_retention_state",
-      type: "RUMProductAnalyticsRetentionState",
+      type: "RUMProductAnalyticsRetentionStateRequest",
     },
     rumEventProcessingState: {
       baseName: "rum_event_processing_state",
       type: "RUMEventProcessingState",
     },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+    },
     type: {
       baseName: "type",
-      type: "string",
+      type: "RUMApplicationPlatformType",
     },
     additionalProperties: {
       baseName: "additionalProperties",

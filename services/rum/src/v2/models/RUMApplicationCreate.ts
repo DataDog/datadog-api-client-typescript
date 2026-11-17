@@ -9,6 +9,7 @@ import { RUMApplicationCreateType } from "./RUMApplicationCreateType";
 export class RUMApplicationCreate {
   /**
    * RUM application creation attributes.
+   * When `rum_event_processing_state` is omitted, it defaults to `ALL`. When `product_analytics_retention_state` is omitted, Product Analytics is not enabled. Setting it to `MAX` requires the `product_analytics_apps_write` permission.
    */
   "attributes": RUMApplicationCreateAttributes;
   /**

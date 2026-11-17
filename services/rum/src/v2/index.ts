@@ -4,6 +4,7 @@ export {
   RUMApiDeleteRUMApplicationRequest,
   RUMApiDeleteSourcemapsRequest,
   RUMApiGetRUMApplicationRequest,
+  RUMApiGetRUMApplicationsRequest,
   RUMApiGetServiceRepositoryInfoRequest,
   RUMApiGetSourcemapsRequest,
   RUMApiListRUMEventsRequest,
@@ -63,6 +64,7 @@ export { RUMApplicationCreateType } from "./models/RUMApplicationCreateType";
 export { RUMApplicationList } from "./models/RUMApplicationList";
 export { RUMApplicationListAttributes } from "./models/RUMApplicationListAttributes";
 export { RUMApplicationListType } from "./models/RUMApplicationListType";
+export { RUMApplicationPlatformType } from "./models/RUMApplicationPlatformType";
 export { RUMApplicationResponse } from "./models/RUMApplicationResponse";
 export { RUMApplicationsResponse } from "./models/RUMApplicationsResponse";
 export { RUMApplicationType } from "./models/RUMApplicationType";
@@ -86,6 +88,7 @@ export { RUMGroupByMissing } from "./models/RUMGroupByMissing";
 export { RUMGroupByTotal } from "./models/RUMGroupByTotal";
 export { RUMProductAnalyticsRetentionScale } from "./models/RUMProductAnalyticsRetentionScale";
 export { RUMProductAnalyticsRetentionState } from "./models/RUMProductAnalyticsRetentionState";
+export { RUMProductAnalyticsRetentionStateRequest } from "./models/RUMProductAnalyticsRetentionStateRequest";
 export { RUMProductScales } from "./models/RUMProductScales";
 export { RUMQueryFilter } from "./models/RUMQueryFilter";
 export { RUMQueryOptions } from "./models/RUMQueryOptions";
