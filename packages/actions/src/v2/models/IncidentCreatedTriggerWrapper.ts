@@ -1,0 +1,55 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { IncidentCreatedTrigger } from "./IncidentCreatedTrigger";
+
+/**
+ * Schema for an incident declared trigger.
+ */
+export class IncidentCreatedTriggerWrapper {
+  /**
+   * Trigger a workflow when an incident is declared.
+   */
+  "incidentCreatedTrigger": IncidentCreatedTrigger;
+  /**
+   * Names of existing workflow steps that run first after a trigger fires.
+   */
+  "startStepNames"?: Array<string>;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    incidentCreatedTrigger: {
+      baseName: "incidentCreatedTrigger",
+      type: "IncidentCreatedTrigger",
+      required: true,
+    },
+    startStepNames: {
+      baseName: "startStepNames",
+      type: "Array<string>",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return IncidentCreatedTriggerWrapper.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

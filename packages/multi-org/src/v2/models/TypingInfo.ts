@@ -1,0 +1,226 @@
+import { ModelTypingInfo } from "@datadog/datadog-api-client-core";
+
+import { APIErrorResponse } from "./APIErrorResponse";
+import { GlobalOrgIdentifier } from "./GlobalOrgIdentifier";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { OrgConnection } from "./OrgConnection";
+import { OrgConnectionAttributes } from "./OrgConnectionAttributes";
+import { OrgConnectionCreate } from "./OrgConnectionCreate";
+import { OrgConnectionCreateAttributes } from "./OrgConnectionCreateAttributes";
+import { OrgConnectionCreateRelationships } from "./OrgConnectionCreateRelationships";
+import { OrgConnectionCreateRequest } from "./OrgConnectionCreateRequest";
+import { OrgConnectionListResponse } from "./OrgConnectionListResponse";
+import { OrgConnectionListResponseMeta } from "./OrgConnectionListResponseMeta";
+import { OrgConnectionListResponseMetaPage } from "./OrgConnectionListResponseMetaPage";
+import { OrgConnectionOrgRelationship } from "./OrgConnectionOrgRelationship";
+import { OrgConnectionOrgRelationshipData } from "./OrgConnectionOrgRelationshipData";
+import { OrgConnectionRelationships } from "./OrgConnectionRelationships";
+import { OrgConnectionResponse } from "./OrgConnectionResponse";
+import { OrgConnectionUpdate } from "./OrgConnectionUpdate";
+import { OrgConnectionUpdateAttributes } from "./OrgConnectionUpdateAttributes";
+import { OrgConnectionUpdateRequest } from "./OrgConnectionUpdateRequest";
+import { OrgConnectionUserRelationship } from "./OrgConnectionUserRelationship";
+import { OrgConnectionUserRelationshipData } from "./OrgConnectionUserRelationshipData";
+import { OrgGroupAttributes } from "./OrgGroupAttributes";
+import { OrgGroupCreateAttributes } from "./OrgGroupCreateAttributes";
+import { OrgGroupCreateData } from "./OrgGroupCreateData";
+import { OrgGroupCreateRequest } from "./OrgGroupCreateRequest";
+import { OrgGroupData } from "./OrgGroupData";
+import { OrgGroupListResponse } from "./OrgGroupListResponse";
+import { OrgGroupMembershipAttributes } from "./OrgGroupMembershipAttributes";
+import { OrgGroupMembershipBulkDeleteRequest } from "./OrgGroupMembershipBulkDeleteRequest";
+import { OrgGroupMembershipBulkDeleteRequestData } from "./OrgGroupMembershipBulkDeleteRequestData";
+import { OrgGroupMembershipBulkUpdateAttributes } from "./OrgGroupMembershipBulkUpdateAttributes";
+import { OrgGroupMembershipBulkUpdateData } from "./OrgGroupMembershipBulkUpdateData";
+import { OrgGroupMembershipBulkUpdateRelationships } from "./OrgGroupMembershipBulkUpdateRelationships";
+import { OrgGroupMembershipBulkUpdateRequest } from "./OrgGroupMembershipBulkUpdateRequest";
+import { OrgGroupMembershipCreateAttributes } from "./OrgGroupMembershipCreateAttributes";
+import { OrgGroupMembershipCreateData } from "./OrgGroupMembershipCreateData";
+import { OrgGroupMembershipCreateRelationships } from "./OrgGroupMembershipCreateRelationships";
+import { OrgGroupMembershipCreateRequest } from "./OrgGroupMembershipCreateRequest";
+import { OrgGroupMembershipData } from "./OrgGroupMembershipData";
+import { OrgGroupMembershipListResponse } from "./OrgGroupMembershipListResponse";
+import { OrgGroupMembershipRelationships } from "./OrgGroupMembershipRelationships";
+import { OrgGroupMembershipResponse } from "./OrgGroupMembershipResponse";
+import { OrgGroupMembershipUpdateData } from "./OrgGroupMembershipUpdateData";
+import { OrgGroupMembershipUpdateRelationships } from "./OrgGroupMembershipUpdateRelationships";
+import { OrgGroupMembershipUpdateRequest } from "./OrgGroupMembershipUpdateRequest";
+import { OrgGroupPaginationLinks } from "./OrgGroupPaginationLinks";
+import { OrgGroupPaginationMeta } from "./OrgGroupPaginationMeta";
+import { OrgGroupPaginationMetaPage } from "./OrgGroupPaginationMetaPage";
+import { OrgGroupPolicyAttributes } from "./OrgGroupPolicyAttributes";
+import { OrgGroupPolicyConfigAttributes } from "./OrgGroupPolicyConfigAttributes";
+import { OrgGroupPolicyConfigData } from "./OrgGroupPolicyConfigData";
+import { OrgGroupPolicyConfigListResponse } from "./OrgGroupPolicyConfigListResponse";
+import { OrgGroupPolicyCreateAttributes } from "./OrgGroupPolicyCreateAttributes";
+import { OrgGroupPolicyCreateData } from "./OrgGroupPolicyCreateData";
+import { OrgGroupPolicyCreateRelationships } from "./OrgGroupPolicyCreateRelationships";
+import { OrgGroupPolicyCreateRequest } from "./OrgGroupPolicyCreateRequest";
+import { OrgGroupPolicyData } from "./OrgGroupPolicyData";
+import { OrgGroupPolicyListResponse } from "./OrgGroupPolicyListResponse";
+import { OrgGroupPolicyOverrideAttributes } from "./OrgGroupPolicyOverrideAttributes";
+import { OrgGroupPolicyOverrideCreateAttributes } from "./OrgGroupPolicyOverrideCreateAttributes";
+import { OrgGroupPolicyOverrideCreateData } from "./OrgGroupPolicyOverrideCreateData";
+import { OrgGroupPolicyOverrideCreateRelationships } from "./OrgGroupPolicyOverrideCreateRelationships";
+import { OrgGroupPolicyOverrideCreateRequest } from "./OrgGroupPolicyOverrideCreateRequest";
+import { OrgGroupPolicyOverrideData } from "./OrgGroupPolicyOverrideData";
+import { OrgGroupPolicyOverrideListResponse } from "./OrgGroupPolicyOverrideListResponse";
+import { OrgGroupPolicyOverrideRelationships } from "./OrgGroupPolicyOverrideRelationships";
+import { OrgGroupPolicyOverrideResponse } from "./OrgGroupPolicyOverrideResponse";
+import { OrgGroupPolicyOverrideUpdateAttributes } from "./OrgGroupPolicyOverrideUpdateAttributes";
+import { OrgGroupPolicyOverrideUpdateData } from "./OrgGroupPolicyOverrideUpdateData";
+import { OrgGroupPolicyOverrideUpdateRequest } from "./OrgGroupPolicyOverrideUpdateRequest";
+import { OrgGroupPolicyRelationshipToOne } from "./OrgGroupPolicyRelationshipToOne";
+import { OrgGroupPolicyRelationshipToOneData } from "./OrgGroupPolicyRelationshipToOneData";
+import { OrgGroupPolicyRelationships } from "./OrgGroupPolicyRelationships";
+import { OrgGroupPolicyResponse } from "./OrgGroupPolicyResponse";
+import { OrgGroupPolicySuggestionAttributes } from "./OrgGroupPolicySuggestionAttributes";
+import { OrgGroupPolicySuggestionData } from "./OrgGroupPolicySuggestionData";
+import { OrgGroupPolicySuggestionListResponse } from "./OrgGroupPolicySuggestionListResponse";
+import { OrgGroupPolicySuggestionRelationships } from "./OrgGroupPolicySuggestionRelationships";
+import { OrgGroupPolicyUpdateAttributes } from "./OrgGroupPolicyUpdateAttributes";
+import { OrgGroupPolicyUpdateData } from "./OrgGroupPolicyUpdateData";
+import { OrgGroupPolicyUpdateRequest } from "./OrgGroupPolicyUpdateRequest";
+import { OrgGroupRelationshipToOne } from "./OrgGroupRelationshipToOne";
+import { OrgGroupRelationshipToOneData } from "./OrgGroupRelationshipToOneData";
+import { OrgGroupResponse } from "./OrgGroupResponse";
+import { OrgGroupUpdateAttributes } from "./OrgGroupUpdateAttributes";
+import { OrgGroupUpdateData } from "./OrgGroupUpdateData";
+import { OrgGroupUpdateRequest } from "./OrgGroupUpdateRequest";
+
+export const TypingInfo: ModelTypingInfo = {
+  enumsMap: {
+    OrgConnectionOrgRelationshipDataType: ["orgs"],
+    OrgConnectionType: ["org_connection"],
+    OrgConnectionTypeEnum: [
+      "logs",
+      "metrics",
+      "audit",
+      "ci_pipelines",
+      "ci_tests",
+    ],
+    OrgConnectionUserRelationshipDataType: ["users"],
+    OrgGroupMembershipBulkUpdateType: ["org_group_membership_bulk_updates"],
+    OrgGroupMembershipSortOption: ["name", "-name", "uuid", "-uuid"],
+    OrgGroupMembershipType: ["org_group_memberships"],
+    OrgGroupPolicyConfigType: ["org_group_policy_configs"],
+    OrgGroupPolicyEnforcementTier: [
+      "OVERRIDE_ALLOWED",
+      "GROUP_MANAGED",
+      "DELEGATE",
+    ],
+    OrgGroupPolicyFilterPolicyTypeValue: ["org_config", "role"],
+    OrgGroupPolicyOverrideSortOption: ["id", "-id", "org_uuid", "-org_uuid"],
+    OrgGroupPolicyOverrideType: ["org_group_policy_overrides"],
+    OrgGroupPolicyPolicyType: ["org_config", "role"],
+    OrgGroupPolicySortOption: ["id", "-id", "name", "-name"],
+    OrgGroupPolicySuggestionStatus: ["pending", "accepted", "dismissed"],
+    OrgGroupPolicySuggestionType: ["org_group_policy_suggestions"],
+    OrgGroupPolicyType: ["org_group_policies"],
+    OrgGroupSortOption: ["name", "-name", "uuid", "-uuid"],
+    OrgGroupType: ["org_groups"],
+  },
+  oneOfMap: {},
+  typeMap: {
+    APIErrorResponse: APIErrorResponse,
+    GlobalOrgIdentifier: GlobalOrgIdentifier,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
+    OrgConnection: OrgConnection,
+    OrgConnectionAttributes: OrgConnectionAttributes,
+    OrgConnectionCreate: OrgConnectionCreate,
+    OrgConnectionCreateAttributes: OrgConnectionCreateAttributes,
+    OrgConnectionCreateRelationships: OrgConnectionCreateRelationships,
+    OrgConnectionCreateRequest: OrgConnectionCreateRequest,
+    OrgConnectionListResponse: OrgConnectionListResponse,
+    OrgConnectionListResponseMeta: OrgConnectionListResponseMeta,
+    OrgConnectionListResponseMetaPage: OrgConnectionListResponseMetaPage,
+    OrgConnectionOrgRelationship: OrgConnectionOrgRelationship,
+    OrgConnectionOrgRelationshipData: OrgConnectionOrgRelationshipData,
+    OrgConnectionRelationships: OrgConnectionRelationships,
+    OrgConnectionResponse: OrgConnectionResponse,
+    OrgConnectionUpdate: OrgConnectionUpdate,
+    OrgConnectionUpdateAttributes: OrgConnectionUpdateAttributes,
+    OrgConnectionUpdateRequest: OrgConnectionUpdateRequest,
+    OrgConnectionUserRelationship: OrgConnectionUserRelationship,
+    OrgConnectionUserRelationshipData: OrgConnectionUserRelationshipData,
+    OrgGroupAttributes: OrgGroupAttributes,
+    OrgGroupCreateAttributes: OrgGroupCreateAttributes,
+    OrgGroupCreateData: OrgGroupCreateData,
+    OrgGroupCreateRequest: OrgGroupCreateRequest,
+    OrgGroupData: OrgGroupData,
+    OrgGroupListResponse: OrgGroupListResponse,
+    OrgGroupMembershipAttributes: OrgGroupMembershipAttributes,
+    OrgGroupMembershipBulkDeleteRequest: OrgGroupMembershipBulkDeleteRequest,
+    OrgGroupMembershipBulkDeleteRequestData:
+      OrgGroupMembershipBulkDeleteRequestData,
+    OrgGroupMembershipBulkUpdateAttributes:
+      OrgGroupMembershipBulkUpdateAttributes,
+    OrgGroupMembershipBulkUpdateData: OrgGroupMembershipBulkUpdateData,
+    OrgGroupMembershipBulkUpdateRelationships:
+      OrgGroupMembershipBulkUpdateRelationships,
+    OrgGroupMembershipBulkUpdateRequest: OrgGroupMembershipBulkUpdateRequest,
+    OrgGroupMembershipCreateAttributes: OrgGroupMembershipCreateAttributes,
+    OrgGroupMembershipCreateData: OrgGroupMembershipCreateData,
+    OrgGroupMembershipCreateRelationships:
+      OrgGroupMembershipCreateRelationships,
+    OrgGroupMembershipCreateRequest: OrgGroupMembershipCreateRequest,
+    OrgGroupMembershipData: OrgGroupMembershipData,
+    OrgGroupMembershipListResponse: OrgGroupMembershipListResponse,
+    OrgGroupMembershipRelationships: OrgGroupMembershipRelationships,
+    OrgGroupMembershipResponse: OrgGroupMembershipResponse,
+    OrgGroupMembershipUpdateData: OrgGroupMembershipUpdateData,
+    OrgGroupMembershipUpdateRelationships:
+      OrgGroupMembershipUpdateRelationships,
+    OrgGroupMembershipUpdateRequest: OrgGroupMembershipUpdateRequest,
+    OrgGroupPaginationLinks: OrgGroupPaginationLinks,
+    OrgGroupPaginationMeta: OrgGroupPaginationMeta,
+    OrgGroupPaginationMetaPage: OrgGroupPaginationMetaPage,
+    OrgGroupPolicyAttributes: OrgGroupPolicyAttributes,
+    OrgGroupPolicyConfigAttributes: OrgGroupPolicyConfigAttributes,
+    OrgGroupPolicyConfigData: OrgGroupPolicyConfigData,
+    OrgGroupPolicyConfigListResponse: OrgGroupPolicyConfigListResponse,
+    OrgGroupPolicyCreateAttributes: OrgGroupPolicyCreateAttributes,
+    OrgGroupPolicyCreateData: OrgGroupPolicyCreateData,
+    OrgGroupPolicyCreateRelationships: OrgGroupPolicyCreateRelationships,
+    OrgGroupPolicyCreateRequest: OrgGroupPolicyCreateRequest,
+    OrgGroupPolicyData: OrgGroupPolicyData,
+    OrgGroupPolicyListResponse: OrgGroupPolicyListResponse,
+    OrgGroupPolicyOverrideAttributes: OrgGroupPolicyOverrideAttributes,
+    OrgGroupPolicyOverrideCreateAttributes:
+      OrgGroupPolicyOverrideCreateAttributes,
+    OrgGroupPolicyOverrideCreateData: OrgGroupPolicyOverrideCreateData,
+    OrgGroupPolicyOverrideCreateRelationships:
+      OrgGroupPolicyOverrideCreateRelationships,
+    OrgGroupPolicyOverrideCreateRequest: OrgGroupPolicyOverrideCreateRequest,
+    OrgGroupPolicyOverrideData: OrgGroupPolicyOverrideData,
+    OrgGroupPolicyOverrideListResponse: OrgGroupPolicyOverrideListResponse,
+    OrgGroupPolicyOverrideRelationships: OrgGroupPolicyOverrideRelationships,
+    OrgGroupPolicyOverrideResponse: OrgGroupPolicyOverrideResponse,
+    OrgGroupPolicyOverrideUpdateAttributes:
+      OrgGroupPolicyOverrideUpdateAttributes,
+    OrgGroupPolicyOverrideUpdateData: OrgGroupPolicyOverrideUpdateData,
+    OrgGroupPolicyOverrideUpdateRequest: OrgGroupPolicyOverrideUpdateRequest,
+    OrgGroupPolicyRelationshipToOne: OrgGroupPolicyRelationshipToOne,
+    OrgGroupPolicyRelationshipToOneData: OrgGroupPolicyRelationshipToOneData,
+    OrgGroupPolicyRelationships: OrgGroupPolicyRelationships,
+    OrgGroupPolicyResponse: OrgGroupPolicyResponse,
+    OrgGroupPolicySuggestionAttributes: OrgGroupPolicySuggestionAttributes,
+    OrgGroupPolicySuggestionData: OrgGroupPolicySuggestionData,
+    OrgGroupPolicySuggestionListResponse: OrgGroupPolicySuggestionListResponse,
+    OrgGroupPolicySuggestionRelationships:
+      OrgGroupPolicySuggestionRelationships,
+    OrgGroupPolicyUpdateAttributes: OrgGroupPolicyUpdateAttributes,
+    OrgGroupPolicyUpdateData: OrgGroupPolicyUpdateData,
+    OrgGroupPolicyUpdateRequest: OrgGroupPolicyUpdateRequest,
+    OrgGroupRelationshipToOne: OrgGroupRelationshipToOne,
+    OrgGroupRelationshipToOneData: OrgGroupRelationshipToOneData,
+    OrgGroupResponse: OrgGroupResponse,
+    OrgGroupUpdateAttributes: OrgGroupUpdateAttributes,
+    OrgGroupUpdateData: OrgGroupUpdateData,
+    OrgGroupUpdateRequest: OrgGroupUpdateRequest,
+  },
+};

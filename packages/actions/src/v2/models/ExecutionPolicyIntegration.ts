@@ -1,0 +1,15 @@
+import { UnparsedObject } from "@datadog/datadog-api-client-core";
+
+/**
+ * The integration the action pattern applies to.
+ */
+export type ExecutionPolicyIntegration =
+  | typeof INTEGRATION_KUBERNETES
+  | typeof INTEGRATION_SCRIPT
+  | typeof INTEGRATION_REMOTE_ACTION
+  | typeof INTEGRATION_SLACK
+  | UnparsedObject;
+export const INTEGRATION_KUBERNETES = "INTEGRATION_KUBERNETES";
+export const INTEGRATION_SCRIPT = "INTEGRATION_SCRIPT";
+export const INTEGRATION_REMOTE_ACTION = "INTEGRATION_REMOTE_ACTION";
+export const INTEGRATION_SLACK = "INTEGRATION_SLACK";

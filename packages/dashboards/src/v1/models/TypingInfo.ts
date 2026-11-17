@@ -1,0 +1,1272 @@
+import { ModelTypingInfo } from "@datadog/datadog-api-client-core";
+
+import { APIErrorResponse } from "./APIErrorResponse";
+import { AlertGraphWidgetDefinition } from "./AlertGraphWidgetDefinition";
+import { AlertValueWidgetDefinition } from "./AlertValueWidgetDefinition";
+import { ApmStatsQueryColumnType } from "./ApmStatsQueryColumnType";
+import { ApmStatsQueryDefinition } from "./ApmStatsQueryDefinition";
+import { BarChartWidgetDefinition } from "./BarChartWidgetDefinition";
+import { BarChartWidgetFlat } from "./BarChartWidgetFlat";
+import { BarChartWidgetRequest } from "./BarChartWidgetRequest";
+import { BarChartWidgetStacked } from "./BarChartWidgetStacked";
+import { BarChartWidgetStyle } from "./BarChartWidgetStyle";
+import { CalendarInterval } from "./CalendarInterval";
+import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
+import { ChangeWidgetRequest } from "./ChangeWidgetRequest";
+import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
+import { CohortWidgetDefinition } from "./CohortWidgetDefinition";
+import { ComparisonCustomTimeframe } from "./ComparisonCustomTimeframe";
+import { ComparisonDuration } from "./ComparisonDuration";
+import { Creator } from "./Creator";
+import { Dashboard } from "./Dashboard";
+import { DashboardBulkActionData } from "./DashboardBulkActionData";
+import { DashboardBulkDeleteRequest } from "./DashboardBulkDeleteRequest";
+import { DashboardDeleteResponse } from "./DashboardDeleteResponse";
+import { DashboardFixedTimeframe } from "./DashboardFixedTimeframe";
+import { DashboardGlobalTime } from "./DashboardGlobalTime";
+import { DashboardList } from "./DashboardList";
+import { DashboardListDeleteResponse } from "./DashboardListDeleteResponse";
+import { DashboardListListResponse } from "./DashboardListListResponse";
+import { DashboardLiveTimeframe } from "./DashboardLiveTimeframe";
+import { DashboardRestoreRequest } from "./DashboardRestoreRequest";
+import { DashboardSummary } from "./DashboardSummary";
+import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
+import { DashboardTab } from "./DashboardTab";
+import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
+import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
+import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
+import { DataProjectionQuery } from "./DataProjectionQuery";
+import { DatasetListQuery } from "./DatasetListQuery";
+import { DatasetListQuerySort } from "./DatasetListQuerySort";
+import { DatasetListQuerySortField } from "./DatasetListQuerySortField";
+import { DeleteSharedDashboardResponse } from "./DeleteSharedDashboardResponse";
+import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
+import { DistributionWidgetRequest } from "./DistributionWidgetRequest";
+import { DistributionWidgetXAxis } from "./DistributionWidgetXAxis";
+import { DistributionWidgetYAxis } from "./DistributionWidgetYAxis";
+import { EmbeddedAppWidgetDefinition } from "./EmbeddedAppWidgetDefinition";
+import { EmbeddedAppWidgetInput } from "./EmbeddedAppWidgetInput";
+import { EventQueryDefinition } from "./EventQueryDefinition";
+import { EventStreamWidgetDefinition } from "./EventStreamWidgetDefinition";
+import { EventTimelineWidgetDefinition } from "./EventTimelineWidgetDefinition";
+import { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./FormulaAndFunctionApmDependencyStatsQueryDefinition";
+import { FormulaAndFunctionApmMetricsQueryDefinition } from "./FormulaAndFunctionApmMetricsQueryDefinition";
+import { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./FormulaAndFunctionApmResourceStatsQueryDefinition";
+import { FormulaAndFunctionCloudCostQueryDefinition } from "./FormulaAndFunctionCloudCostQueryDefinition";
+import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
+import { FormulaAndFunctionEventQueryDefinitionCompute } from "./FormulaAndFunctionEventQueryDefinitionCompute";
+import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFunctionEventQueryDefinitionSearch";
+import { FormulaAndFunctionEventQueryGroupBy } from "./FormulaAndFunctionEventQueryGroupBy";
+import { FormulaAndFunctionEventQueryGroupByFields } from "./FormulaAndFunctionEventQueryGroupByFields";
+import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEventQueryGroupBySort";
+import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
+import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
+import { FormulaAndFunctionProductAnalyticsExtendedQueryDefinition } from "./FormulaAndFunctionProductAnalyticsExtendedQueryDefinition";
+import { FormulaAndFunctionRetentionQueryDefinition } from "./FormulaAndFunctionRetentionQueryDefinition";
+import { FormulaAndFunctionSLOQueryDefinition } from "./FormulaAndFunctionSLOQueryDefinition";
+import { FormulaAndFunctionUserJourneyQueryDefinition } from "./FormulaAndFunctionUserJourneyQueryDefinition";
+import { FreeTextWidgetDefinition } from "./FreeTextWidgetDefinition";
+import { FunnelComparisonCustomTimeframe } from "./FunnelComparisonCustomTimeframe";
+import { FunnelComparisonDuration } from "./FunnelComparisonDuration";
+import { FunnelQuery } from "./FunnelQuery";
+import { FunnelStep } from "./FunnelStep";
+import { FunnelWidgetDefinition } from "./FunnelWidgetDefinition";
+import { FunnelWidgetRequest } from "./FunnelWidgetRequest";
+import { GeomapWidgetDefinition } from "./GeomapWidgetDefinition";
+import { GeomapWidgetDefinitionStyle } from "./GeomapWidgetDefinitionStyle";
+import { GeomapWidgetDefinitionView } from "./GeomapWidgetDefinitionView";
+import { GeomapWidgetRequest } from "./GeomapWidgetRequest";
+import { GeomapWidgetRequestStyle } from "./GeomapWidgetRequestStyle";
+import { GraphSnapshot } from "./GraphSnapshot";
+import { GroupWidgetDefinition } from "./GroupWidgetDefinition";
+import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
+import { HeatMapWidgetRequest } from "./HeatMapWidgetRequest";
+import { HeatMapWidgetXAxis } from "./HeatMapWidgetXAxis";
+import { HeatgridColorBin } from "./HeatgridColorBin";
+import { HeatgridColorStop } from "./HeatgridColorStop";
+import { HeatgridDiscreteCustomColor } from "./HeatgridDiscreteCustomColor";
+import { HeatgridDiscretePresetColor } from "./HeatgridDiscretePresetColor";
+import { HeatgridGradientCustomColor } from "./HeatgridGradientCustomColor";
+import { HeatgridGradientPresetColor } from "./HeatgridGradientPresetColor";
+import { HeatgridLabelColumn } from "./HeatgridLabelColumn";
+import { HeatgridLegend } from "./HeatgridLegend";
+import { HeatgridSort } from "./HeatgridSort";
+import { HeatgridSortByLabel } from "./HeatgridSortByLabel";
+import { HeatgridSortByValue } from "./HeatgridSortByValue";
+import { HeatgridTextFormatMatch } from "./HeatgridTextFormatMatch";
+import { HeatgridTextFormatReplaceAll } from "./HeatgridTextFormatReplaceAll";
+import { HeatgridTextFormatReplaceSubstring } from "./HeatgridTextFormatReplaceSubstring";
+import { HeatgridTextFormatRule } from "./HeatgridTextFormatRule";
+import { HeatgridWidgetDefinition } from "./HeatgridWidgetDefinition";
+import { HeatgridWidgetFormula } from "./HeatgridWidgetFormula";
+import { HeatgridWidgetRequest } from "./HeatgridWidgetRequest";
+import { HostMapRequest } from "./HostMapRequest";
+import { HostMapWidgetDefinition } from "./HostMapWidgetDefinition";
+import { HostMapWidgetDefinitionRequests } from "./HostMapWidgetDefinitionRequests";
+import { HostMapWidgetDefinitionStyle } from "./HostMapWidgetDefinitionStyle";
+import { HostMapWidgetFormula } from "./HostMapWidgetFormula";
+import { HostMapWidgetGroupBy } from "./HostMapWidgetGroupBy";
+import { HostMapWidgetInfrastructureRequest } from "./HostMapWidgetInfrastructureRequest";
+import { HostMapWidgetInfrastructureRequestLeaf } from "./HostMapWidgetInfrastructureRequestLeaf";
+import { HostMapWidgetInfrastructureStyle } from "./HostMapWidgetInfrastructureStyle";
+import { HostMapWidgetProjection } from "./HostMapWidgetProjection";
+import { HostMapWidgetProjectionDimensionMapping } from "./HostMapWidgetProjectionDimensionMapping";
+import { HostMapWidgetScalarRequest } from "./HostMapWidgetScalarRequest";
+import { IFrameWidgetDefinition } from "./IFrameWidgetDefinition";
+import { ImageWidgetDefinition } from "./ImageWidgetDefinition";
+import { JourneyMapExpandedPrefix } from "./JourneyMapExpandedPrefix";
+import { JourneyMapGroupBy } from "./JourneyMapGroupBy";
+import { JourneyMapQuery } from "./JourneyMapQuery";
+import { JourneyMapTarget } from "./JourneyMapTarget";
+import { JourneyMapWidgetDefinition } from "./JourneyMapWidgetDefinition";
+import { JourneyMapWidgetRequest } from "./JourneyMapWidgetRequest";
+import { ListStreamColumn } from "./ListStreamColumn";
+import { ListStreamComputeItems } from "./ListStreamComputeItems";
+import { ListStreamGroupByItems } from "./ListStreamGroupByItems";
+import { ListStreamQuery } from "./ListStreamQuery";
+import { ListStreamWidgetDefinition } from "./ListStreamWidgetDefinition";
+import { ListStreamWidgetRequest } from "./ListStreamWidgetRequest";
+import { LogQueryDefinition } from "./LogQueryDefinition";
+import { LogQueryDefinitionGroupBy } from "./LogQueryDefinitionGroupBy";
+import { LogQueryDefinitionGroupBySort } from "./LogQueryDefinitionGroupBySort";
+import { LogQueryDefinitionSearch } from "./LogQueryDefinitionSearch";
+import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
+import { LogsQueryCompute } from "./LogsQueryCompute";
+import { MonitorSummaryWidgetDefinition } from "./MonitorSummaryWidgetDefinition";
+import { NoteWidgetDefinition } from "./NoteWidgetDefinition";
+import { NumberFormatUnitCanonical } from "./NumberFormatUnitCanonical";
+import { NumberFormatUnitCustom } from "./NumberFormatUnitCustom";
+import { NumberFormatUnitScale } from "./NumberFormatUnitScale";
+import { PointPlotProjection } from "./PointPlotProjection";
+import { PointPlotProjectionDimension } from "./PointPlotProjectionDimension";
+import { PointPlotWidgetDefinition } from "./PointPlotWidgetDefinition";
+import { PointPlotWidgetLegend } from "./PointPlotWidgetLegend";
+import { PointPlotWidgetRequest } from "./PointPlotWidgetRequest";
+import { PowerpackTemplateVariableContents } from "./PowerpackTemplateVariableContents";
+import { PowerpackTemplateVariables } from "./PowerpackTemplateVariables";
+import { PowerpackWidgetDefinition } from "./PowerpackWidgetDefinition";
+import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { ProductAnalyticsAudienceAccountSubquery } from "./ProductAnalyticsAudienceAccountSubquery";
+import { ProductAnalyticsAudienceFilters } from "./ProductAnalyticsAudienceFilters";
+import { ProductAnalyticsAudienceOccurrenceFilter } from "./ProductAnalyticsAudienceOccurrenceFilter";
+import { ProductAnalyticsAudienceSegmentSubquery } from "./ProductAnalyticsAudienceSegmentSubquery";
+import { ProductAnalyticsAudienceUserSubquery } from "./ProductAnalyticsAudienceUserSubquery";
+import { ProductAnalyticsExtendedCompute } from "./ProductAnalyticsExtendedCompute";
+import { ProductAnalyticsExtendedGroupBy } from "./ProductAnalyticsExtendedGroupBy";
+import { ProductAnalyticsFunnelCompute } from "./ProductAnalyticsFunnelCompute";
+import { ProductAnalyticsFunnelGroupBy } from "./ProductAnalyticsFunnelGroupBy";
+import { ProductAnalyticsFunnelGroupBySort } from "./ProductAnalyticsFunnelGroupBySort";
+import { ProductAnalyticsFunnelQuery } from "./ProductAnalyticsFunnelQuery";
+import { ProductAnalyticsFunnelRequest } from "./ProductAnalyticsFunnelRequest";
+import { ProductAnalyticsFunnelWidgetDefinition } from "./ProductAnalyticsFunnelWidgetDefinition";
+import { QueryValueWidgetComparison } from "./QueryValueWidgetComparison";
+import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
+import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
+import { RetentionCohortCriteria } from "./RetentionCohortCriteria";
+import { RetentionCohortCriteriaTimeInterval } from "./RetentionCohortCriteriaTimeInterval";
+import { RetentionCompute } from "./RetentionCompute";
+import { RetentionCurveStyle } from "./RetentionCurveStyle";
+import { RetentionCurveWidgetDefinition } from "./RetentionCurveWidgetDefinition";
+import { RetentionCurveWidgetRequest } from "./RetentionCurveWidgetRequest";
+import { RetentionFilters } from "./RetentionFilters";
+import { RetentionGridRequest } from "./RetentionGridRequest";
+import { RetentionGroupBy } from "./RetentionGroupBy";
+import { RetentionGroupBySort } from "./RetentionGroupBySort";
+import { RetentionQuery } from "./RetentionQuery";
+import { RetentionReturnCriteria } from "./RetentionReturnCriteria";
+import { RetentionReturnCriteriaTimeInterval } from "./RetentionReturnCriteriaTimeInterval";
+import { RetentionSearch } from "./RetentionSearch";
+import { RunWorkflowWidgetDefinition } from "./RunWorkflowWidgetDefinition";
+import { RunWorkflowWidgetInput } from "./RunWorkflowWidgetInput";
+import { SLOListWidgetDefinition } from "./SLOListWidgetDefinition";
+import { SLOListWidgetQuery } from "./SLOListWidgetQuery";
+import { SLOListWidgetRequest } from "./SLOListWidgetRequest";
+import { SLOWidgetDefinition } from "./SLOWidgetDefinition";
+import { SankeyJoinKeys } from "./SankeyJoinKeys";
+import { SankeyNetworkQuery } from "./SankeyNetworkQuery";
+import { SankeyNetworkQueryCompute } from "./SankeyNetworkQueryCompute";
+import { SankeyNetworkQuerySort } from "./SankeyNetworkQuerySort";
+import { SankeyNetworkRequest } from "./SankeyNetworkRequest";
+import { SankeyRumQuery } from "./SankeyRumQuery";
+import { SankeyRumRequest } from "./SankeyRumRequest";
+import { SankeyWidgetDefinition } from "./SankeyWidgetDefinition";
+import { ScatterPlotRequest } from "./ScatterPlotRequest";
+import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
+import { ScatterPlotWidgetDefinitionRequests } from "./ScatterPlotWidgetDefinitionRequests";
+import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
+import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
+import { SelectableTemplateVariableItems } from "./SelectableTemplateVariableItems";
+import { ServiceMapWidgetDefinition } from "./ServiceMapWidgetDefinition";
+import { ServiceSummaryWidgetDefinition } from "./ServiceSummaryWidgetDefinition";
+import { SharedDashboard } from "./SharedDashboard";
+import { SharedDashboardAuthor } from "./SharedDashboardAuthor";
+import { SharedDashboardInviteesItems } from "./SharedDashboardInviteesItems";
+import { SharedDashboardInvites } from "./SharedDashboardInvites";
+import { SharedDashboardInvitesDataObject } from "./SharedDashboardInvitesDataObject";
+import { SharedDashboardInvitesDataObjectAttributes } from "./SharedDashboardInvitesDataObjectAttributes";
+import { SharedDashboardInvitesMeta } from "./SharedDashboardInvitesMeta";
+import { SharedDashboardInvitesMetaPage } from "./SharedDashboardInvitesMetaPage";
+import { SharedDashboardUpdateRequest } from "./SharedDashboardUpdateRequest";
+import { SharedDashboardUpdateRequestGlobalTime } from "./SharedDashboardUpdateRequestGlobalTime";
+import { SplitConfig } from "./SplitConfig";
+import { SplitConfigSortCompute } from "./SplitConfigSortCompute";
+import { SplitDimension } from "./SplitDimension";
+import { SplitGraphWidgetDefinition } from "./SplitGraphWidgetDefinition";
+import { SplitSort } from "./SplitSort";
+import { SplitVectorEntryItem } from "./SplitVectorEntryItem";
+import { SunburstWidgetDefinition } from "./SunburstWidgetDefinition";
+import { SunburstWidgetLegendInlineAutomatic } from "./SunburstWidgetLegendInlineAutomatic";
+import { SunburstWidgetLegendTable } from "./SunburstWidgetLegendTable";
+import { SunburstWidgetRequest } from "./SunburstWidgetRequest";
+import { TableWidgetDefinition } from "./TableWidgetDefinition";
+import { TableWidgetRequest } from "./TableWidgetRequest";
+import { TableWidgetTextFormatMatch } from "./TableWidgetTextFormatMatch";
+import { TableWidgetTextFormatReplaceAll } from "./TableWidgetTextFormatReplaceAll";
+import { TableWidgetTextFormatReplaceSubstring } from "./TableWidgetTextFormatReplaceSubstring";
+import { TableWidgetTextFormatRule } from "./TableWidgetTextFormatRule";
+import { TimeseriesBackground } from "./TimeseriesBackground";
+import { TimeseriesRequestStyle } from "./TimeseriesRequestStyle";
+import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
+import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
+import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
+import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
+import { ToplistWidgetFlat } from "./ToplistWidgetFlat";
+import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
+import { ToplistWidgetStacked } from "./ToplistWidgetStacked";
+import { ToplistWidgetStyle } from "./ToplistWidgetStyle";
+import { TopologyMapInlineData } from "./TopologyMapInlineData";
+import { TopologyMapInlineEdgeColumn } from "./TopologyMapInlineEdgeColumn";
+import { TopologyMapInlineEdgesData } from "./TopologyMapInlineEdgesData";
+import { TopologyMapInlineNodeIdColumn } from "./TopologyMapInlineNodeIdColumn";
+import { TopologyMapInlineNodeStringColumn } from "./TopologyMapInlineNodeStringColumn";
+import { TopologyMapInlineNodeValueColumn } from "./TopologyMapInlineNodeValueColumn";
+import { TopologyMapInlineNodeValueColumnMeta } from "./TopologyMapInlineNodeValueColumnMeta";
+import { TopologyMapInlineNodesData } from "./TopologyMapInlineNodesData";
+import { TopologyMapLayout } from "./TopologyMapLayout";
+import { TopologyMapWidgetDefinitionCustom } from "./TopologyMapWidgetDefinitionCustom";
+import { TopologyMapWidgetDefinitionDataStreams } from "./TopologyMapWidgetDefinitionDataStreams";
+import { TopologyMapWidgetDefinitionServiceMap } from "./TopologyMapWidgetDefinitionServiceMap";
+import { TopologyQueryDataStreams } from "./TopologyQueryDataStreams";
+import { TopologyQueryServiceMap } from "./TopologyQueryServiceMap";
+import { TopologyRequestCustom } from "./TopologyRequestCustom";
+import { TopologyRequestCustomProjection } from "./TopologyRequestCustomProjection";
+import { TopologyRequestCustomProjectionDimension } from "./TopologyRequestCustomProjectionDimension";
+import { TopologyRequestDataStreams } from "./TopologyRequestDataStreams";
+import { TopologyRequestServiceMap } from "./TopologyRequestServiceMap";
+import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
+import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
+import { UserJourneyFormulaCompute } from "./UserJourneyFormulaCompute";
+import { UserJourneyFormulaGroupBy } from "./UserJourneyFormulaGroupBy";
+import { UserJourneyJoinKeys } from "./UserJourneyJoinKeys";
+import { UserJourneySearch } from "./UserJourneySearch";
+import { UserJourneySearchFilters } from "./UserJourneySearchFilters";
+import { UserJourneySearchGraphFilter } from "./UserJourneySearchGraphFilter";
+import { UserJourneySearchTarget } from "./UserJourneySearchTarget";
+import { ViewingPreferences } from "./ViewingPreferences";
+import { Widget } from "./Widget";
+import { WidgetAxis } from "./WidgetAxis";
+import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
+import { WidgetCustomLink } from "./WidgetCustomLink";
+import { WidgetEvent } from "./WidgetEvent";
+import { WidgetFieldSort } from "./WidgetFieldSort";
+import { WidgetFormula } from "./WidgetFormula";
+import { WidgetFormulaCellDisplayModeOptions } from "./WidgetFormulaCellDisplayModeOptions";
+import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
+import { WidgetFormulaSort } from "./WidgetFormulaSort";
+import { WidgetFormulaStyle } from "./WidgetFormulaStyle";
+import { WidgetGroupSort } from "./WidgetGroupSort";
+import { WidgetLayout } from "./WidgetLayout";
+import { WidgetLegacyLiveSpan } from "./WidgetLegacyLiveSpan";
+import { WidgetMarker } from "./WidgetMarker";
+import { WidgetNewFixedSpan } from "./WidgetNewFixedSpan";
+import { WidgetNewLiveSpan } from "./WidgetNewLiveSpan";
+import { WidgetNumberFormat } from "./WidgetNumberFormat";
+import { WidgetRequestStyle } from "./WidgetRequestStyle";
+import { WidgetSortBy } from "./WidgetSortBy";
+import { WidgetStyle } from "./WidgetStyle";
+import { WildcardWidgetDefinition } from "./WildcardWidgetDefinition";
+import { WildcardWidgetSpecification } from "./WildcardWidgetSpecification";
+
+export const TypingInfo: ModelTypingInfo = {
+  enumsMap: {
+    AlertGraphWidgetDefinitionType: ["alert_graph"],
+    AlertValueWidgetDefinitionType: ["alert_value"],
+    ApmStatsQueryRowType: ["service", "resource", "span"],
+    BarChartWidgetDefinitionType: ["bar_chart"],
+    BarChartWidgetFlatType: ["flat"],
+    BarChartWidgetLegend: ["automatic", "inline", "none"],
+    BarChartWidgetScaling: ["absolute", "relative"],
+    BarChartWidgetStackedType: ["stacked"],
+    CalendarIntervalType: [
+      "day",
+      "week",
+      "month",
+      "year",
+      "quarter",
+      "minute",
+      "hour",
+    ],
+    ChangeWidgetDefinitionType: ["change"],
+    CheckStatusWidgetDefinitionType: ["check_status"],
+    CohortWidgetDefinitionType: ["cohort"],
+    ComparisonDurationType: [
+      "previous_timeframe",
+      "custom_timeframe",
+      "previous_day",
+      "previous_week",
+      "previous_month",
+    ],
+    DashboardExperienceType: ["default", "product_analytics"],
+    DashboardFixedTimeframeType: ["fixed"],
+    DashboardGlobalTimeLiveSpan: [
+      "15m",
+      "1h",
+      "4h",
+      "1d",
+      "2d",
+      "1w",
+      "1mo",
+      "3mo",
+    ],
+    DashboardInviteType: ["public_dashboard_invitation"],
+    DashboardLayoutType: ["ordered", "free"],
+    DashboardLiveTimeframeType: ["live"],
+    DashboardReflowType: ["auto", "fixed"],
+    DashboardResourceType: ["dashboard"],
+    DashboardShareType: ["open", "invite", "embed"],
+    DashboardType: ["custom_timeboard", "custom_screenboard"],
+    DataProjectionRequestType: ["data_projection"],
+    DatasetListQueryDataSourceType: ["dataset"],
+    DistributionWidgetDefinitionType: ["distribution"],
+    EmbeddedAppWidgetDefinitionType: ["embedded_app"],
+    EventStreamWidgetDefinitionType: ["event_stream"],
+    EventTimelineWidgetDefinitionType: ["event_timeline"],
+    EventsAggregationValue: [
+      "avg",
+      "cardinality",
+      "count",
+      "delta",
+      "earliest",
+      "latest",
+      "max",
+      "median",
+      "min",
+      "most_frequent",
+      "sum",
+    ],
+    FormulaAndFunctionApmDependencyStatName: [
+      "avg_duration",
+      "avg_root_duration",
+      "avg_spans_per_trace",
+      "error_rate",
+      "pct_exec_time",
+      "pct_of_traces",
+      "total_traces_count",
+    ],
+    FormulaAndFunctionApmDependencyStatsDataSource: ["apm_dependency_stats"],
+    FormulaAndFunctionApmMetricStatName: [
+      "errors",
+      "error_rate",
+      "errors_per_second",
+      "latency_avg",
+      "latency_max",
+      "latency_p50",
+      "latency_p75",
+      "latency_p90",
+      "latency_p95",
+      "latency_p99",
+      "latency_p999",
+      "latency_distribution",
+      "hits",
+      "hits_per_second",
+      "total_time",
+      "apdex",
+    ],
+    FormulaAndFunctionApmMetricsDataSource: ["apm_metrics"],
+    FormulaAndFunctionApmMetricsSpanKind: [
+      "consumer",
+      "server",
+      "client",
+      "producer",
+      "internal",
+    ],
+    FormulaAndFunctionApmResourceStatName: [
+      "errors",
+      "error_rate",
+      "hits",
+      "latency_avg",
+      "latency_distribution",
+      "latency_max",
+      "latency_p50",
+      "latency_p75",
+      "latency_p90",
+      "latency_p95",
+      "latency_p99",
+    ],
+    FormulaAndFunctionApmResourceStatsDataSource: ["apm_resource_stats"],
+    FormulaAndFunctionCloudCostDataSource: ["cloud_cost"],
+    FormulaAndFunctionEventAggregation: [
+      "count",
+      "cardinality",
+      "median",
+      "pc75",
+      "pc90",
+      "pc95",
+      "pc98",
+      "pc99",
+      "sum",
+      "min",
+      "max",
+      "avg",
+    ],
+    FormulaAndFunctionEventsDataSource: [
+      "logs",
+      "spans",
+      "network",
+      "network_device_flows",
+      "rum",
+      "security_signals",
+      "profiles",
+      "audit",
+      "events",
+      "ci_tests",
+      "ci_pipelines",
+      "incident_analytics",
+      "product_analytics",
+      "on_call_events",
+      "errors",
+      "llm_observability",
+    ],
+    FormulaAndFunctionMetricAggregation: [
+      "avg",
+      "min",
+      "max",
+      "sum",
+      "last",
+      "area",
+      "l2norm",
+      "percentile",
+    ],
+    FormulaAndFunctionMetricDataSource: ["metrics"],
+    FormulaAndFunctionMetricSemanticMode: ["combined", "native"],
+    FormulaAndFunctionProcessQueryDataSource: ["process", "container"],
+    FormulaAndFunctionProductAnalyticsExtendedDataSource: [
+      "product_analytics_extended",
+    ],
+    FormulaAndFunctionProductAnalyticsExtendedQueryDefinitionIndexesItems: [
+      "*",
+    ],
+    FormulaAndFunctionResponseFormat: ["timeseries", "scalar", "event_list"],
+    FormulaAndFunctionSLODataSource: ["slo"],
+    FormulaAndFunctionSLOGroupMode: ["overall", "components"],
+    FormulaAndFunctionSLOMeasure: [
+      "good_events",
+      "bad_events",
+      "good_minutes",
+      "bad_minutes",
+      "slo_status",
+      "error_budget_remaining",
+      "burn_rate",
+      "error_budget_burndown",
+    ],
+    FormulaAndFunctionSLOQueryType: ["metric", "monitor", "time_slice"],
+    FormulaType: ["formula"],
+    FreeTextWidgetDefinitionType: ["free_text"],
+    FunnelComparisonDurationType: [
+      "previous_timeframe",
+      "custom_timeframe",
+      "previous_day",
+      "previous_week",
+      "previous_month",
+    ],
+    FunnelGroupedDisplay: ["stacked", "side_by_side"],
+    FunnelRequestType: ["funnel"],
+    FunnelSource: ["rum"],
+    FunnelWidgetDefinitionType: ["funnel"],
+    GeomapWidgetDefinitionType: ["geomap"],
+    GroupType: ["group"],
+    GroupWidgetDefinitionType: ["group"],
+    HeatMapWidgetDefinitionType: ["heatmap"],
+    HeatgridCustomColorSource: ["custom"],
+    HeatgridDiscreteMode: ["discrete"],
+    HeatgridGradientMode: ["gradient"],
+    HeatgridLabelColumnWidth: ["xs", "s", "m", "l", "xl"],
+    HeatgridNestingDisplay: ["flat"],
+    HeatgridPresetColorSource: ["preset"],
+    HeatgridSortAggregation: ["avg", "min", "max", "sum"],
+    HeatgridSortByLabelProperty: ["label"],
+    HeatgridSortByValueProperty: ["value"],
+    HeatgridSortOrder: ["asc", "desc"],
+    HeatgridTextFormatMatchType: [
+      "is",
+      "is_not",
+      "contains",
+      "does_not_contain",
+      "starts_with",
+      "ends_with",
+    ],
+    HeatgridTextFormatReplaceAllType: ["all"],
+    HeatgridTextFormatReplaceSubstringType: ["substring"],
+    HeatgridWidgetDefinitionType: ["heatgrid"],
+    HeatgridWidgetResponseFormat: ["timeseries"],
+    HostMapWidgetDefinitionRequestType: [
+      "infrastructure_hostmap",
+      "data_projection",
+    ],
+    HostMapWidgetDefinitionType: ["hostmap"],
+    HostMapWidgetDimension: ["node", "fill", "size", "group"],
+    HostMapWidgetInfrastructureRequestRequestType: ["infrastructure_hostmap"],
+    HostMapWidgetNodeType: ["host", "container", "pod", "cluster"],
+    HostMapWidgetProjectionType: ["hostmap"],
+    HostMapWidgetScalarRequestResponseFormat: ["scalar"],
+    IFrameWidgetDefinitionType: ["iframe"],
+    ImageWidgetDefinitionType: ["image"],
+    JourneyMapConversionType: ["conversion", "drop-off"],
+    JourneyMapCountingMethod: ["uniques", "totals"],
+    JourneyMapGroupByAudience: [
+      "product_analytics_audience_filters.users",
+      "product_analytics_audience_filters.accounts",
+    ],
+    JourneyMapRequestType: ["journey_map"],
+    JourneyMapWidgetDefinitionType: ["journey_map"],
+    ListStreamColumnWidth: ["auto", "compact", "full"],
+    ListStreamComputeAggregation: [
+      "count",
+      "cardinality",
+      "median",
+      "pc75",
+      "pc90",
+      "pc95",
+      "pc98",
+      "pc99",
+      "sum",
+      "min",
+      "max",
+      "avg",
+      "earliest",
+      "latest",
+      "most_frequent",
+    ],
+    ListStreamIssuePersona: ["all", "browser", "mobile", "backend"],
+    ListStreamIssueState: ["OPEN", "IGNORED", "ACKNOWLEDGED", "RESOLVED"],
+    ListStreamQueryVersion: ["sequential_query"],
+    ListStreamResponseFormat: ["event_list"],
+    ListStreamSource: [
+      "logs_stream",
+      "audit_stream",
+      "ci_pipeline_stream",
+      "ci_test_stream",
+      "rum_issue_stream",
+      "apm_issue_stream",
+      "trace_stream",
+      "logs_issue_stream",
+      "logs_pattern_stream",
+      "logs_transaction_stream",
+      "event_stream",
+      "rum_stream",
+      "llm_observability_stream",
+      "issue_stream",
+      "security_runtime_stream",
+      "security_signals_stream",
+      "incidents_stream",
+      "case_stream",
+    ],
+    ListStreamWidgetDefinitionType: ["list_stream"],
+    LogStreamWidgetDefinitionType: ["log_stream"],
+    MonitorSummaryWidgetDefinitionType: ["manage_status"],
+    NoteWidgetDefinitionType: ["note"],
+    NumberFormatUnitCustomType: ["custom_unit_label"],
+    NumberFormatUnitScaleType: ["canonical_unit"],
+    PointPlotDimension: ["group", "time", "y", "radius"],
+    PointPlotProjectionType: ["point_plot"],
+    PointPlotWidgetDefinitionType: ["point_plot"],
+    PointPlotWidgetLegendType: ["automatic", "none"],
+    PowerpackWidgetDefinitionType: ["powerpack"],
+    ProductAnalyticsFunnelComputeAggregation: ["cardinality", "count"],
+    ProductAnalyticsFunnelComputeMetric: [
+      "__dd.conversion",
+      "__dd.conversion_rate",
+    ],
+    ProductAnalyticsFunnelDataSource: ["product_analytics_journey"],
+    ProductAnalyticsFunnelRequestType: ["user_journey_funnel"],
+    PublishedDatasetProvider: ["ddsql_query"],
+    QuerySortOrder: ["asc", "desc"],
+    QueryValueWidgetComparisonDirectionality: [
+      "increase_better",
+      "decrease_better",
+      "neutral",
+    ],
+    QueryValueWidgetComparisonType: ["absolute", "relative", "both"],
+    QueryValueWidgetDefinitionType: ["query_value"],
+    RetentionCohortCriteriaTimeIntervalType: ["calendar"],
+    RetentionComputeMetric: ["__dd.retention", "__dd.retention_rate"],
+    RetentionCurveRequestType: ["retention_curve"],
+    RetentionCurveWidgetDefinitionType: ["retention_curve"],
+    RetentionDataSource: ["product_analytics_retention"],
+    RetentionEntity: ["@usr.id", "@account.id"],
+    RetentionGridRequestType: ["retention_grid"],
+    RetentionGroupByTarget: ["cohort", "return_period"],
+    RetentionReturnCondition: ["conversion_on", "conversion_on_or_after"],
+    RetentionReturnCriteriaTimeIntervalType: ["fixed"],
+    RetentionReturnCriteriaTimeIntervalUnit: ["day", "week", "month"],
+    RunWorkflowWidgetDefinitionType: ["run_workflow"],
+    SLOListWidgetDefinitionType: ["slo_list"],
+    SLOListWidgetRequestType: ["slo_list"],
+    SLOWidgetDefinitionType: ["slo"],
+    SankeyNetworkDataSource: ["network_device_flows", "network"],
+    SankeyNetworkQueryMode: ["target"],
+    SankeyNetworkRequestType: ["netflow_sankey"],
+    SankeyRumDataSource: ["rum", "product_analytics"],
+    SankeyRumQueryMode: ["source", "target"],
+    SankeyWidgetDefinitionType: ["sankey"],
+    ScatterPlotWidgetDefinitionType: ["scatterplot"],
+    ScatterplotDimension: ["x", "y", "radius", "color"],
+    ScatterplotWidgetAggregator: ["avg", "last", "max", "min", "sum"],
+    ServiceMapWidgetDefinitionType: ["servicemap"],
+    ServiceSummaryWidgetDefinitionType: ["trace_service"],
+    SharedDashboardStatus: ["active", "paused"],
+    SplitGraphVizSize: ["xs", "sm", "md", "lg"],
+    SplitGraphWidgetDefinitionType: ["split_group"],
+    SunburstWidgetDefinitionType: ["sunburst"],
+    SunburstWidgetLegendInlineAutomaticType: ["inline", "automatic"],
+    SunburstWidgetLegendTableType: ["table", "none"],
+    TableWidgetCellDisplayMode: ["number", "bar", "trend"],
+    TableWidgetDefinitionType: ["query_table"],
+    TableWidgetHasSearchBar: ["always", "never", "auto"],
+    TableWidgetTextFormatMatchType: [
+      "is",
+      "is_not",
+      "contains",
+      "does_not_contain",
+      "starts_with",
+      "ends_with",
+    ],
+    TableWidgetTextFormatPalette: [
+      "white_on_red",
+      "white_on_yellow",
+      "white_on_green",
+      "black_on_light_red",
+      "black_on_light_yellow",
+      "black_on_light_green",
+      "red_on_white",
+      "yellow_on_white",
+      "green_on_white",
+      "custom_bg",
+      "custom_text",
+    ],
+    TableWidgetTextFormatReplaceAllType: ["all"],
+    TableWidgetTextFormatReplaceSubstringType: ["substring"],
+    TimeseriesBackgroundType: ["bars", "area"],
+    TimeseriesWidgetDefinitionType: ["timeseries"],
+    TimeseriesWidgetLegendColumn: ["value", "avg", "sum", "min", "max"],
+    TimeseriesWidgetLegendLayout: ["auto", "horizontal", "vertical"],
+    ToplistWidgetDefinitionType: ["toplist"],
+    ToplistWidgetFlatType: ["flat"],
+    ToplistWidgetLegend: ["automatic", "inline", "none"],
+    ToplistWidgetScaling: ["absolute", "relative"],
+    ToplistWidgetStackedType: ["stacked"],
+    TopologyMapInlineColumnKindScalar: ["scalar"],
+    TopologyMapInlineColumnKindString: ["string"],
+    TopologyMapInlineEdgeColumnId: ["source", "target"],
+    TopologyMapInlineNodeIdColumnId: ["id"],
+    TopologyMapInlineNodeStringColumnId: ["title", "subtitle"],
+    TopologyMapLayoutDirection: [
+      "top-to-bottom",
+      "bottom-to-top",
+      "left-to-right",
+      "right-to-left",
+    ],
+    TopologyMapLayoutType: ["hierarchical"],
+    TopologyMapWidgetDefinitionType: ["topology_map"],
+    TopologyQueryDataStreamsDataSource: ["data_streams"],
+    TopologyQueryServiceMapDataSource: ["service_map"],
+    TopologyRequestCustomProjectionType: ["custom_topology_map_node"],
+    TopologyRequestCustomResponseFormat: ["scalar"],
+    TopologyRequestType: ["topology"],
+    TreeMapColorBy: ["user"],
+    TreeMapGroupBy: ["user", "family", "process"],
+    TreeMapSizeBy: ["pct_cpu", "pct_mem"],
+    TreeMapWidgetDefinitionType: ["treemap"],
+    UserJourneyFormulaComputeMetric: [
+      "__dd.conversion",
+      "__dd.conversion_rate",
+      "__dd.time_to_convert",
+    ],
+    ViewingPreferencesTheme: ["system", "light", "dark"],
+    WidgetAggregator: ["avg", "last", "max", "min", "sum", "percentile"],
+    WidgetChangeType: ["absolute", "relative"],
+    WidgetColorPreference: ["background", "text"],
+    WidgetComparator: ["=", ">", ">=", "<", "<="],
+    WidgetCompareTo: [
+      "hour_before",
+      "day_before",
+      "week_before",
+      "month_before",
+    ],
+    WidgetDisplayType: ["area", "bars", "line", "overlay"],
+    WidgetEventSize: ["s", "l"],
+    WidgetFormulaCellDisplayModeOptionsTrendType: ["area", "line", "bars"],
+    WidgetFormulaCellDisplayModeOptionsYScale: ["shared", "independent"],
+    WidgetGrouping: ["check", "cluster"],
+    WidgetHistogramRequestType: ["histogram"],
+    WidgetHorizontalAlign: ["center", "left", "right"],
+    WidgetImageSizing: [
+      "fill",
+      "contain",
+      "cover",
+      "none",
+      "scale-down",
+      "zoom",
+      "fit",
+      "center",
+    ],
+    WidgetLayoutType: ["ordered"],
+    WidgetLineType: ["dashed", "dotted", "solid"],
+    WidgetLineWidth: ["normal", "thick", "thin"],
+    WidgetLiveSpan: [
+      "1m",
+      "5m",
+      "10m",
+      "15m",
+      "30m",
+      "1h",
+      "4h",
+      "1d",
+      "2d",
+      "1w",
+      "1mo",
+      "3mo",
+      "6mo",
+      "week_to_date",
+      "month_to_date",
+      "1y",
+      "alert",
+    ],
+    WidgetLiveSpanUnit: ["minute", "hour", "day", "week", "month", "year"],
+    WidgetMargin: ["sm", "md", "lg", "small", "large"],
+    WidgetMessageDisplay: ["inline", "expanded-md", "expanded-lg"],
+    WidgetMonitorSummaryDisplayFormat: ["counts", "countsAndList", "list"],
+    WidgetMonitorSummarySort: [
+      "name",
+      "group",
+      "status",
+      "tags",
+      "triggered",
+      "group,asc",
+      "group,desc",
+      "name,asc",
+      "name,desc",
+      "status,asc",
+      "status,desc",
+      "tags,asc",
+      "tags,desc",
+      "triggered,asc",
+      "triggered,desc",
+      "priority,asc",
+      "priority,desc",
+    ],
+    WidgetNewFixedSpanType: ["fixed"],
+    WidgetNewLiveSpanType: ["live"],
+    WidgetNodeType: ["host", "container"],
+    WidgetOrderBy: ["change", "name", "present", "past"],
+    WidgetPalette: [
+      "blue",
+      "custom_bg",
+      "custom_image",
+      "custom_text",
+      "gray_on_white",
+      "grey",
+      "green",
+      "orange",
+      "red",
+      "red_on_white",
+      "white_on_gray",
+      "white_on_green",
+      "green_on_white",
+      "white_on_red",
+      "white_on_yellow",
+      "yellow_on_white",
+      "black_on_light_yellow",
+      "black_on_light_green",
+      "black_on_light_red",
+    ],
+    WidgetServiceSummaryDisplayFormat: [
+      "one_column",
+      "two_column",
+      "three_column",
+    ],
+    WidgetSizeFormat: ["small", "medium", "large"],
+    WidgetSort: ["asc", "desc"],
+    WidgetStyleOrderBy: ["tags", "values"],
+    WidgetSummaryType: ["monitors", "groups", "combined"],
+    WidgetTextAlign: ["center", "left", "right"],
+    WidgetTickEdge: ["bottom", "left", "right", "top"],
+    WidgetTimeWindows: [
+      "7d",
+      "30d",
+      "90d",
+      "week_to_date",
+      "previous_week",
+      "month_to_date",
+      "previous_month",
+      "global_time",
+    ],
+    WidgetVerticalAlign: ["center", "top", "bottom"],
+    WidgetViewMode: ["overall", "component", "both"],
+    WidgetVizType: ["timeseries", "toplist"],
+    WildcardWidgetDefinitionType: ["wildcard"],
+    WildcardWidgetSpecificationType: ["vega", "vega-lite"],
+  },
+  oneOfMap: {
+    BarChartWidgetDisplay: ["BarChartWidgetStacked", "BarChartWidgetFlat"],
+    DashboardDefaultTimeframeSetting: [
+      "DashboardLiveTimeframe",
+      "DashboardFixedTimeframe",
+    ],
+    DistributionWidgetHistogramRequestQuery: [
+      "FormulaAndFunctionMetricQueryDefinition",
+      "FormulaAndFunctionEventQueryDefinition",
+      "FormulaAndFunctionApmResourceStatsQueryDefinition",
+      "FormulaAndFunctionApmMetricsQueryDefinition",
+    ],
+    EventsAggregation: ["EventsAggregationValue", "string"],
+    FormulaAndFunctionEventQueryGroupByConfig: [
+      "Array<FormulaAndFunctionEventQueryGroupBy>",
+      "FormulaAndFunctionEventQueryGroupByFields",
+    ],
+    FormulaAndFunctionQueryDefinition: [
+      "FormulaAndFunctionMetricQueryDefinition",
+      "FormulaAndFunctionEventQueryDefinition",
+      "FormulaAndFunctionProcessQueryDefinition",
+      "FormulaAndFunctionApmDependencyStatsQueryDefinition",
+      "FormulaAndFunctionApmResourceStatsQueryDefinition",
+      "FormulaAndFunctionApmMetricsQueryDefinition",
+      "FormulaAndFunctionSLOQueryDefinition",
+      "FormulaAndFunctionCloudCostQueryDefinition",
+      "FormulaAndFunctionProductAnalyticsExtendedQueryDefinition",
+      "FormulaAndFunctionUserJourneyQueryDefinition",
+      "FormulaAndFunctionRetentionQueryDefinition",
+    ],
+    HeatgridColor: ["string", "[string, string]"],
+    HeatgridColorConfig: [
+      "HeatgridGradientCustomColor",
+      "HeatgridGradientPresetColor",
+      "HeatgridDiscreteCustomColor",
+      "HeatgridDiscretePresetColor",
+    ],
+    HeatgridSortBy: ["HeatgridSortByValue", "HeatgridSortByLabel"],
+    HeatgridTextFormatReplace: [
+      "HeatgridTextFormatReplaceAll",
+      "HeatgridTextFormatReplaceSubstring",
+    ],
+    NumberFormatUnit: ["NumberFormatUnitCanonical", "NumberFormatUnitCustom"],
+    SankeyWidgetRequest: ["SankeyRumRequest", "SankeyNetworkRequest"],
+    SharedDashboardInvitesData: [
+      "SharedDashboardInvitesDataObject",
+      "Array<SharedDashboardInvitesDataObject>",
+    ],
+    SplitGraphSourceWidgetDefinition: [
+      "BarChartWidgetDefinition",
+      "ChangeWidgetDefinition",
+      "GeomapWidgetDefinition",
+      "QueryValueWidgetDefinition",
+      "ScatterPlotWidgetDefinition",
+      "SunburstWidgetDefinition",
+      "TableWidgetDefinition",
+      "TimeseriesWidgetDefinition",
+      "ToplistWidgetDefinition",
+      "TreeMapWidgetDefinition",
+    ],
+    SunburstWidgetLegend: [
+      "SunburstWidgetLegendTable",
+      "SunburstWidgetLegendInlineAutomatic",
+    ],
+    TableWidgetTextFormatReplace: [
+      "TableWidgetTextFormatReplaceAll",
+      "TableWidgetTextFormatReplaceSubstring",
+    ],
+    ToplistWidgetDisplay: ["ToplistWidgetStacked", "ToplistWidgetFlat"],
+    TopologyMapInlineNodeColumn: [
+      "TopologyMapInlineNodeIdColumn",
+      "TopologyMapInlineNodeStringColumn",
+      "TopologyMapInlineNodeValueColumn",
+    ],
+    TopologyMapWidgetDefinition: [
+      "TopologyMapWidgetDefinitionDataStreams",
+      "TopologyMapWidgetDefinitionServiceMap",
+      "TopologyMapWidgetDefinitionCustom",
+    ],
+    WidgetDefinition: [
+      "AlertGraphWidgetDefinition",
+      "AlertValueWidgetDefinition",
+      "BarChartWidgetDefinition",
+      "ChangeWidgetDefinition",
+      "CheckStatusWidgetDefinition",
+      "CohortWidgetDefinition",
+      "DistributionWidgetDefinition",
+      "EmbeddedAppWidgetDefinition",
+      "EventStreamWidgetDefinition",
+      "EventTimelineWidgetDefinition",
+      "FreeTextWidgetDefinition",
+      "FunnelWidgetDefinition",
+      "ProductAnalyticsFunnelWidgetDefinition",
+      "GeomapWidgetDefinition",
+      "GroupWidgetDefinition",
+      "HeatgridWidgetDefinition",
+      "HeatMapWidgetDefinition",
+      "HostMapWidgetDefinition",
+      "IFrameWidgetDefinition",
+      "ImageWidgetDefinition",
+      "JourneyMapWidgetDefinition",
+      "ListStreamWidgetDefinition",
+      "LogStreamWidgetDefinition",
+      "MonitorSummaryWidgetDefinition",
+      "NoteWidgetDefinition",
+      "PowerpackWidgetDefinition",
+      "PointPlotWidgetDefinition",
+      "QueryValueWidgetDefinition",
+      "RetentionCurveWidgetDefinition",
+      "RunWorkflowWidgetDefinition",
+      "SLOListWidgetDefinition",
+      "SLOWidgetDefinition",
+      "ScatterPlotWidgetDefinition",
+      "SankeyWidgetDefinition",
+      "ServiceMapWidgetDefinition",
+      "ServiceSummaryWidgetDefinition",
+      "SplitGraphWidgetDefinition",
+      "SunburstWidgetDefinition",
+      "TableWidgetDefinition",
+      "TimeseriesWidgetDefinition",
+      "ToplistWidgetDefinition",
+      "TopologyMapWidgetDefinition",
+      "TreeMapWidgetDefinition",
+      "WildcardWidgetDefinition",
+    ],
+    WidgetSortOrderBy: ["WidgetFormulaSort", "WidgetGroupSort"],
+    WidgetTime: [
+      "WidgetLegacyLiveSpan",
+      "WidgetNewLiveSpan",
+      "WidgetNewFixedSpan",
+    ],
+    WildcardWidgetRequest: [
+      "TreeMapWidgetRequest",
+      "TimeseriesWidgetRequest",
+      "ListStreamWidgetRequest",
+      "DistributionWidgetRequest",
+    ],
+  },
+  typeMap: {
+    APIErrorResponse: APIErrorResponse,
+    AlertGraphWidgetDefinition: AlertGraphWidgetDefinition,
+    AlertValueWidgetDefinition: AlertValueWidgetDefinition,
+    ApmStatsQueryColumnType: ApmStatsQueryColumnType,
+    ApmStatsQueryDefinition: ApmStatsQueryDefinition,
+    BarChartWidgetDefinition: BarChartWidgetDefinition,
+    BarChartWidgetFlat: BarChartWidgetFlat,
+    BarChartWidgetRequest: BarChartWidgetRequest,
+    BarChartWidgetStacked: BarChartWidgetStacked,
+    BarChartWidgetStyle: BarChartWidgetStyle,
+    CalendarInterval: CalendarInterval,
+    ChangeWidgetDefinition: ChangeWidgetDefinition,
+    ChangeWidgetRequest: ChangeWidgetRequest,
+    CheckStatusWidgetDefinition: CheckStatusWidgetDefinition,
+    CohortWidgetDefinition: CohortWidgetDefinition,
+    ComparisonCustomTimeframe: ComparisonCustomTimeframe,
+    ComparisonDuration: ComparisonDuration,
+    Creator: Creator,
+    Dashboard: Dashboard,
+    DashboardBulkActionData: DashboardBulkActionData,
+    DashboardBulkDeleteRequest: DashboardBulkDeleteRequest,
+    DashboardDeleteResponse: DashboardDeleteResponse,
+    DashboardFixedTimeframe: DashboardFixedTimeframe,
+    DashboardGlobalTime: DashboardGlobalTime,
+    DashboardList: DashboardList,
+    DashboardListDeleteResponse: DashboardListDeleteResponse,
+    DashboardListListResponse: DashboardListListResponse,
+    DashboardLiveTimeframe: DashboardLiveTimeframe,
+    DashboardRestoreRequest: DashboardRestoreRequest,
+    DashboardSummary: DashboardSummary,
+    DashboardSummaryDefinition: DashboardSummaryDefinition,
+    DashboardTab: DashboardTab,
+    DashboardTemplateVariable: DashboardTemplateVariable,
+    DashboardTemplateVariablePreset: DashboardTemplateVariablePreset,
+    DashboardTemplateVariablePresetValue: DashboardTemplateVariablePresetValue,
+    DataProjectionQuery: DataProjectionQuery,
+    DatasetListQuery: DatasetListQuery,
+    DatasetListQuerySort: DatasetListQuerySort,
+    DatasetListQuerySortField: DatasetListQuerySortField,
+    DeleteSharedDashboardResponse: DeleteSharedDashboardResponse,
+    DistributionWidgetDefinition: DistributionWidgetDefinition,
+    DistributionWidgetRequest: DistributionWidgetRequest,
+    DistributionWidgetXAxis: DistributionWidgetXAxis,
+    DistributionWidgetYAxis: DistributionWidgetYAxis,
+    EmbeddedAppWidgetDefinition: EmbeddedAppWidgetDefinition,
+    EmbeddedAppWidgetInput: EmbeddedAppWidgetInput,
+    EventQueryDefinition: EventQueryDefinition,
+    EventStreamWidgetDefinition: EventStreamWidgetDefinition,
+    EventTimelineWidgetDefinition: EventTimelineWidgetDefinition,
+    FormulaAndFunctionApmDependencyStatsQueryDefinition:
+      FormulaAndFunctionApmDependencyStatsQueryDefinition,
+    FormulaAndFunctionApmMetricsQueryDefinition:
+      FormulaAndFunctionApmMetricsQueryDefinition,
+    FormulaAndFunctionApmResourceStatsQueryDefinition:
+      FormulaAndFunctionApmResourceStatsQueryDefinition,
+    FormulaAndFunctionCloudCostQueryDefinition:
+      FormulaAndFunctionCloudCostQueryDefinition,
+    FormulaAndFunctionEventQueryDefinition:
+      FormulaAndFunctionEventQueryDefinition,
+    FormulaAndFunctionEventQueryDefinitionCompute:
+      FormulaAndFunctionEventQueryDefinitionCompute,
+    FormulaAndFunctionEventQueryDefinitionSearch:
+      FormulaAndFunctionEventQueryDefinitionSearch,
+    FormulaAndFunctionEventQueryGroupBy: FormulaAndFunctionEventQueryGroupBy,
+    FormulaAndFunctionEventQueryGroupByFields:
+      FormulaAndFunctionEventQueryGroupByFields,
+    FormulaAndFunctionEventQueryGroupBySort:
+      FormulaAndFunctionEventQueryGroupBySort,
+    FormulaAndFunctionMetricQueryDefinition:
+      FormulaAndFunctionMetricQueryDefinition,
+    FormulaAndFunctionProcessQueryDefinition:
+      FormulaAndFunctionProcessQueryDefinition,
+    FormulaAndFunctionProductAnalyticsExtendedQueryDefinition:
+      FormulaAndFunctionProductAnalyticsExtendedQueryDefinition,
+    FormulaAndFunctionRetentionQueryDefinition:
+      FormulaAndFunctionRetentionQueryDefinition,
+    FormulaAndFunctionSLOQueryDefinition: FormulaAndFunctionSLOQueryDefinition,
+    FormulaAndFunctionUserJourneyQueryDefinition:
+      FormulaAndFunctionUserJourneyQueryDefinition,
+    FreeTextWidgetDefinition: FreeTextWidgetDefinition,
+    FunnelComparisonCustomTimeframe: FunnelComparisonCustomTimeframe,
+    FunnelComparisonDuration: FunnelComparisonDuration,
+    FunnelQuery: FunnelQuery,
+    FunnelStep: FunnelStep,
+    FunnelWidgetDefinition: FunnelWidgetDefinition,
+    FunnelWidgetRequest: FunnelWidgetRequest,
+    GeomapWidgetDefinition: GeomapWidgetDefinition,
+    GeomapWidgetDefinitionStyle: GeomapWidgetDefinitionStyle,
+    GeomapWidgetDefinitionView: GeomapWidgetDefinitionView,
+    GeomapWidgetRequest: GeomapWidgetRequest,
+    GeomapWidgetRequestStyle: GeomapWidgetRequestStyle,
+    GraphSnapshot: GraphSnapshot,
+    GroupWidgetDefinition: GroupWidgetDefinition,
+    HeatMapWidgetDefinition: HeatMapWidgetDefinition,
+    HeatMapWidgetRequest: HeatMapWidgetRequest,
+    HeatMapWidgetXAxis: HeatMapWidgetXAxis,
+    HeatgridColorBin: HeatgridColorBin,
+    HeatgridColorStop: HeatgridColorStop,
+    HeatgridDiscreteCustomColor: HeatgridDiscreteCustomColor,
+    HeatgridDiscretePresetColor: HeatgridDiscretePresetColor,
+    HeatgridGradientCustomColor: HeatgridGradientCustomColor,
+    HeatgridGradientPresetColor: HeatgridGradientPresetColor,
+    HeatgridLabelColumn: HeatgridLabelColumn,
+    HeatgridLegend: HeatgridLegend,
+    HeatgridSort: HeatgridSort,
+    HeatgridSortByLabel: HeatgridSortByLabel,
+    HeatgridSortByValue: HeatgridSortByValue,
+    HeatgridTextFormatMatch: HeatgridTextFormatMatch,
+    HeatgridTextFormatReplaceAll: HeatgridTextFormatReplaceAll,
+    HeatgridTextFormatReplaceSubstring: HeatgridTextFormatReplaceSubstring,
+    HeatgridTextFormatRule: HeatgridTextFormatRule,
+    HeatgridWidgetDefinition: HeatgridWidgetDefinition,
+    HeatgridWidgetFormula: HeatgridWidgetFormula,
+    HeatgridWidgetRequest: HeatgridWidgetRequest,
+    HostMapRequest: HostMapRequest,
+    HostMapWidgetDefinition: HostMapWidgetDefinition,
+    HostMapWidgetDefinitionRequests: HostMapWidgetDefinitionRequests,
+    HostMapWidgetDefinitionStyle: HostMapWidgetDefinitionStyle,
+    HostMapWidgetFormula: HostMapWidgetFormula,
+    HostMapWidgetGroupBy: HostMapWidgetGroupBy,
+    HostMapWidgetInfrastructureRequest: HostMapWidgetInfrastructureRequest,
+    HostMapWidgetInfrastructureRequestLeaf:
+      HostMapWidgetInfrastructureRequestLeaf,
+    HostMapWidgetInfrastructureStyle: HostMapWidgetInfrastructureStyle,
+    HostMapWidgetProjection: HostMapWidgetProjection,
+    HostMapWidgetProjectionDimensionMapping:
+      HostMapWidgetProjectionDimensionMapping,
+    HostMapWidgetScalarRequest: HostMapWidgetScalarRequest,
+    IFrameWidgetDefinition: IFrameWidgetDefinition,
+    ImageWidgetDefinition: ImageWidgetDefinition,
+    JourneyMapExpandedPrefix: JourneyMapExpandedPrefix,
+    JourneyMapGroupBy: JourneyMapGroupBy,
+    JourneyMapQuery: JourneyMapQuery,
+    JourneyMapTarget: JourneyMapTarget,
+    JourneyMapWidgetDefinition: JourneyMapWidgetDefinition,
+    JourneyMapWidgetRequest: JourneyMapWidgetRequest,
+    ListStreamColumn: ListStreamColumn,
+    ListStreamComputeItems: ListStreamComputeItems,
+    ListStreamGroupByItems: ListStreamGroupByItems,
+    ListStreamQuery: ListStreamQuery,
+    ListStreamWidgetDefinition: ListStreamWidgetDefinition,
+    ListStreamWidgetRequest: ListStreamWidgetRequest,
+    LogQueryDefinition: LogQueryDefinition,
+    LogQueryDefinitionGroupBy: LogQueryDefinitionGroupBy,
+    LogQueryDefinitionGroupBySort: LogQueryDefinitionGroupBySort,
+    LogQueryDefinitionSearch: LogQueryDefinitionSearch,
+    LogStreamWidgetDefinition: LogStreamWidgetDefinition,
+    LogsQueryCompute: LogsQueryCompute,
+    MonitorSummaryWidgetDefinition: MonitorSummaryWidgetDefinition,
+    NoteWidgetDefinition: NoteWidgetDefinition,
+    NumberFormatUnitCanonical: NumberFormatUnitCanonical,
+    NumberFormatUnitCustom: NumberFormatUnitCustom,
+    NumberFormatUnitScale: NumberFormatUnitScale,
+    PointPlotProjection: PointPlotProjection,
+    PointPlotProjectionDimension: PointPlotProjectionDimension,
+    PointPlotWidgetDefinition: PointPlotWidgetDefinition,
+    PointPlotWidgetLegend: PointPlotWidgetLegend,
+    PointPlotWidgetRequest: PointPlotWidgetRequest,
+    PowerpackTemplateVariableContents: PowerpackTemplateVariableContents,
+    PowerpackTemplateVariables: PowerpackTemplateVariables,
+    PowerpackWidgetDefinition: PowerpackWidgetDefinition,
+    ProcessQueryDefinition: ProcessQueryDefinition,
+    ProductAnalyticsAudienceAccountSubquery:
+      ProductAnalyticsAudienceAccountSubquery,
+    ProductAnalyticsAudienceFilters: ProductAnalyticsAudienceFilters,
+    ProductAnalyticsAudienceOccurrenceFilter:
+      ProductAnalyticsAudienceOccurrenceFilter,
+    ProductAnalyticsAudienceSegmentSubquery:
+      ProductAnalyticsAudienceSegmentSubquery,
+    ProductAnalyticsAudienceUserSubquery: ProductAnalyticsAudienceUserSubquery,
+    ProductAnalyticsExtendedCompute: ProductAnalyticsExtendedCompute,
+    ProductAnalyticsExtendedGroupBy: ProductAnalyticsExtendedGroupBy,
+    ProductAnalyticsFunnelCompute: ProductAnalyticsFunnelCompute,
+    ProductAnalyticsFunnelGroupBy: ProductAnalyticsFunnelGroupBy,
+    ProductAnalyticsFunnelGroupBySort: ProductAnalyticsFunnelGroupBySort,
+    ProductAnalyticsFunnelQuery: ProductAnalyticsFunnelQuery,
+    ProductAnalyticsFunnelRequest: ProductAnalyticsFunnelRequest,
+    ProductAnalyticsFunnelWidgetDefinition:
+      ProductAnalyticsFunnelWidgetDefinition,
+    QueryValueWidgetComparison: QueryValueWidgetComparison,
+    QueryValueWidgetDefinition: QueryValueWidgetDefinition,
+    QueryValueWidgetRequest: QueryValueWidgetRequest,
+    RetentionCohortCriteria: RetentionCohortCriteria,
+    RetentionCohortCriteriaTimeInterval: RetentionCohortCriteriaTimeInterval,
+    RetentionCompute: RetentionCompute,
+    RetentionCurveStyle: RetentionCurveStyle,
+    RetentionCurveWidgetDefinition: RetentionCurveWidgetDefinition,
+    RetentionCurveWidgetRequest: RetentionCurveWidgetRequest,
+    RetentionFilters: RetentionFilters,
+    RetentionGridRequest: RetentionGridRequest,
+    RetentionGroupBy: RetentionGroupBy,
+    RetentionGroupBySort: RetentionGroupBySort,
+    RetentionQuery: RetentionQuery,
+    RetentionReturnCriteria: RetentionReturnCriteria,
+    RetentionReturnCriteriaTimeInterval: RetentionReturnCriteriaTimeInterval,
+    RetentionSearch: RetentionSearch,
+    RunWorkflowWidgetDefinition: RunWorkflowWidgetDefinition,
+    RunWorkflowWidgetInput: RunWorkflowWidgetInput,
+    SLOListWidgetDefinition: SLOListWidgetDefinition,
+    SLOListWidgetQuery: SLOListWidgetQuery,
+    SLOListWidgetRequest: SLOListWidgetRequest,
+    SLOWidgetDefinition: SLOWidgetDefinition,
+    SankeyJoinKeys: SankeyJoinKeys,
+    SankeyNetworkQuery: SankeyNetworkQuery,
+    SankeyNetworkQueryCompute: SankeyNetworkQueryCompute,
+    SankeyNetworkQuerySort: SankeyNetworkQuerySort,
+    SankeyNetworkRequest: SankeyNetworkRequest,
+    SankeyRumQuery: SankeyRumQuery,
+    SankeyRumRequest: SankeyRumRequest,
+    SankeyWidgetDefinition: SankeyWidgetDefinition,
+    ScatterPlotRequest: ScatterPlotRequest,
+    ScatterPlotWidgetDefinition: ScatterPlotWidgetDefinition,
+    ScatterPlotWidgetDefinitionRequests: ScatterPlotWidgetDefinitionRequests,
+    ScatterplotTableRequest: ScatterplotTableRequest,
+    ScatterplotWidgetFormula: ScatterplotWidgetFormula,
+    SelectableTemplateVariableItems: SelectableTemplateVariableItems,
+    ServiceMapWidgetDefinition: ServiceMapWidgetDefinition,
+    ServiceSummaryWidgetDefinition: ServiceSummaryWidgetDefinition,
+    SharedDashboard: SharedDashboard,
+    SharedDashboardAuthor: SharedDashboardAuthor,
+    SharedDashboardInviteesItems: SharedDashboardInviteesItems,
+    SharedDashboardInvites: SharedDashboardInvites,
+    SharedDashboardInvitesDataObject: SharedDashboardInvitesDataObject,
+    SharedDashboardInvitesDataObjectAttributes:
+      SharedDashboardInvitesDataObjectAttributes,
+    SharedDashboardInvitesMeta: SharedDashboardInvitesMeta,
+    SharedDashboardInvitesMetaPage: SharedDashboardInvitesMetaPage,
+    SharedDashboardUpdateRequest: SharedDashboardUpdateRequest,
+    SharedDashboardUpdateRequestGlobalTime:
+      SharedDashboardUpdateRequestGlobalTime,
+    SplitConfig: SplitConfig,
+    SplitConfigSortCompute: SplitConfigSortCompute,
+    SplitDimension: SplitDimension,
+    SplitGraphWidgetDefinition: SplitGraphWidgetDefinition,
+    SplitSort: SplitSort,
+    SplitVectorEntryItem: SplitVectorEntryItem,
+    SunburstWidgetDefinition: SunburstWidgetDefinition,
+    SunburstWidgetLegendInlineAutomatic: SunburstWidgetLegendInlineAutomatic,
+    SunburstWidgetLegendTable: SunburstWidgetLegendTable,
+    SunburstWidgetRequest: SunburstWidgetRequest,
+    TableWidgetDefinition: TableWidgetDefinition,
+    TableWidgetRequest: TableWidgetRequest,
+    TableWidgetTextFormatMatch: TableWidgetTextFormatMatch,
+    TableWidgetTextFormatReplaceAll: TableWidgetTextFormatReplaceAll,
+    TableWidgetTextFormatReplaceSubstring:
+      TableWidgetTextFormatReplaceSubstring,
+    TableWidgetTextFormatRule: TableWidgetTextFormatRule,
+    TimeseriesBackground: TimeseriesBackground,
+    TimeseriesRequestStyle: TimeseriesRequestStyle,
+    TimeseriesWidgetDefinition: TimeseriesWidgetDefinition,
+    TimeseriesWidgetExpressionAlias: TimeseriesWidgetExpressionAlias,
+    TimeseriesWidgetRequest: TimeseriesWidgetRequest,
+    ToplistWidgetDefinition: ToplistWidgetDefinition,
+    ToplistWidgetFlat: ToplistWidgetFlat,
+    ToplistWidgetRequest: ToplistWidgetRequest,
+    ToplistWidgetStacked: ToplistWidgetStacked,
+    ToplistWidgetStyle: ToplistWidgetStyle,
+    TopologyMapInlineData: TopologyMapInlineData,
+    TopologyMapInlineEdgeColumn: TopologyMapInlineEdgeColumn,
+    TopologyMapInlineEdgesData: TopologyMapInlineEdgesData,
+    TopologyMapInlineNodeIdColumn: TopologyMapInlineNodeIdColumn,
+    TopologyMapInlineNodeStringColumn: TopologyMapInlineNodeStringColumn,
+    TopologyMapInlineNodeValueColumn: TopologyMapInlineNodeValueColumn,
+    TopologyMapInlineNodeValueColumnMeta: TopologyMapInlineNodeValueColumnMeta,
+    TopologyMapInlineNodesData: TopologyMapInlineNodesData,
+    TopologyMapLayout: TopologyMapLayout,
+    TopologyMapWidgetDefinitionCustom: TopologyMapWidgetDefinitionCustom,
+    TopologyMapWidgetDefinitionDataStreams:
+      TopologyMapWidgetDefinitionDataStreams,
+    TopologyMapWidgetDefinitionServiceMap:
+      TopologyMapWidgetDefinitionServiceMap,
+    TopologyQueryDataStreams: TopologyQueryDataStreams,
+    TopologyQueryServiceMap: TopologyQueryServiceMap,
+    TopologyRequestCustom: TopologyRequestCustom,
+    TopologyRequestCustomProjection: TopologyRequestCustomProjection,
+    TopologyRequestCustomProjectionDimension:
+      TopologyRequestCustomProjectionDimension,
+    TopologyRequestDataStreams: TopologyRequestDataStreams,
+    TopologyRequestServiceMap: TopologyRequestServiceMap,
+    TreeMapWidgetDefinition: TreeMapWidgetDefinition,
+    TreeMapWidgetRequest: TreeMapWidgetRequest,
+    UserJourneyFormulaCompute: UserJourneyFormulaCompute,
+    UserJourneyFormulaGroupBy: UserJourneyFormulaGroupBy,
+    UserJourneyJoinKeys: UserJourneyJoinKeys,
+    UserJourneySearch: UserJourneySearch,
+    UserJourneySearchFilters: UserJourneySearchFilters,
+    UserJourneySearchGraphFilter: UserJourneySearchGraphFilter,
+    UserJourneySearchTarget: UserJourneySearchTarget,
+    ViewingPreferences: ViewingPreferences,
+    Widget: Widget,
+    WidgetAxis: WidgetAxis,
+    WidgetConditionalFormat: WidgetConditionalFormat,
+    WidgetCustomLink: WidgetCustomLink,
+    WidgetEvent: WidgetEvent,
+    WidgetFieldSort: WidgetFieldSort,
+    WidgetFormula: WidgetFormula,
+    WidgetFormulaCellDisplayModeOptions: WidgetFormulaCellDisplayModeOptions,
+    WidgetFormulaLimit: WidgetFormulaLimit,
+    WidgetFormulaSort: WidgetFormulaSort,
+    WidgetFormulaStyle: WidgetFormulaStyle,
+    WidgetGroupSort: WidgetGroupSort,
+    WidgetLayout: WidgetLayout,
+    WidgetLegacyLiveSpan: WidgetLegacyLiveSpan,
+    WidgetMarker: WidgetMarker,
+    WidgetNewFixedSpan: WidgetNewFixedSpan,
+    WidgetNewLiveSpan: WidgetNewLiveSpan,
+    WidgetNumberFormat: WidgetNumberFormat,
+    WidgetRequestStyle: WidgetRequestStyle,
+    WidgetSortBy: WidgetSortBy,
+    WidgetStyle: WidgetStyle,
+    WildcardWidgetDefinition: WildcardWidgetDefinition,
+    WildcardWidgetSpecification: WildcardWidgetSpecification,
+  },
+};

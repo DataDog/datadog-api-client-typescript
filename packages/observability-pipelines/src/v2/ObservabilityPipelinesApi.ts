@@ -1,0 +1,971 @@
+import {
+  ApiException,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
+  buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
+  isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
+} from "@datadog/datadog-api-client-core";
+
+import { TypingInfo } from "./models/TypingInfo";
+import { APIErrorResponse } from "./models/APIErrorResponse";
+import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+import { ListPipelinesResponse } from "./models/ListPipelinesResponse";
+import { ObservabilityPipeline } from "./models/ObservabilityPipeline";
+import { ObservabilityPipelineSpec } from "./models/ObservabilityPipelineSpec";
+import { ValidationResponse } from "./models/ValidationResponse";
+import { version } from "../version";
+
+export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("observability-pipelines", version);
+    }
+  }
+  public async createPipeline(
+    body: ObservabilityPipelineSpec,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createPipeline");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/obs-pipelines/pipelines";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.ObservabilityPipelinesApi.createPipeline",
+      ObservabilityPipelinesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ObservabilityPipelineSpec", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deletePipeline(
+    pipelineId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'pipelineId' is not null or undefined
+    if (pipelineId === null || pipelineId === undefined) {
+      throw new RequiredError("pipelineId", "deletePipeline");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/obs-pipelines/pipelines/{pipeline_id}".replace(
+        "{pipeline_id}",
+        encodeURIComponent(String(pipelineId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.ObservabilityPipelinesApi.deletePipeline",
+      ObservabilityPipelinesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getPipeline(
+    pipelineId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'pipelineId' is not null or undefined
+    if (pipelineId === null || pipelineId === undefined) {
+      throw new RequiredError("pipelineId", "getPipeline");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/obs-pipelines/pipelines/{pipeline_id}".replace(
+        "{pipeline_id}",
+        encodeURIComponent(String(pipelineId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.ObservabilityPipelinesApi.getPipeline",
+      ObservabilityPipelinesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listPipelines(
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/obs-pipelines/pipelines";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.ObservabilityPipelinesApi.listPipelines",
+      ObservabilityPipelinesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updatePipeline(
+    pipelineId: string,
+    body: ObservabilityPipeline,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'pipelineId' is not null or undefined
+    if (pipelineId === null || pipelineId === undefined) {
+      throw new RequiredError("pipelineId", "updatePipeline");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updatePipeline");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/obs-pipelines/pipelines/{pipeline_id}".replace(
+        "{pipeline_id}",
+        encodeURIComponent(String(pipelineId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.ObservabilityPipelinesApi.updatePipeline",
+      ObservabilityPipelinesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ObservabilityPipeline", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async validatePipeline(
+    body: ObservabilityPipelineSpec,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "validatePipeline");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/obs-pipelines/pipelines/validate";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.ObservabilityPipelinesApi.validatePipeline",
+      ObservabilityPipelinesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ObservabilityPipelineSpec", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+}
+
+export class ObservabilityPipelinesApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createPipeline
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createPipeline(
+    response: ResponseContext,
+  ): Promise<ObservabilityPipeline> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: ObservabilityPipeline = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ObservabilityPipeline",
+      ) as ObservabilityPipeline;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ObservabilityPipeline = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ObservabilityPipeline",
+        "",
+      ) as ObservabilityPipeline;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deletePipeline
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deletePipeline(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getPipeline
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getPipeline(
+    response: ResponseContext,
+  ): Promise<ObservabilityPipeline> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ObservabilityPipeline = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ObservabilityPipeline",
+      ) as ObservabilityPipeline;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ObservabilityPipeline = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ObservabilityPipeline",
+        "",
+      ) as ObservabilityPipeline;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listPipelines
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listPipelines(
+    response: ResponseContext,
+  ): Promise<ListPipelinesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ListPipelinesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListPipelinesResponse",
+      ) as ListPipelinesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListPipelinesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListPipelinesResponse",
+        "",
+      ) as ListPipelinesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updatePipeline
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updatePipeline(
+    response: ResponseContext,
+  ): Promise<ObservabilityPipeline> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ObservabilityPipeline = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ObservabilityPipeline",
+      ) as ObservabilityPipeline;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ObservabilityPipeline = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ObservabilityPipeline",
+        "",
+      ) as ObservabilityPipeline;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to validatePipeline
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async validatePipeline(
+    response: ResponseContext,
+  ): Promise<ValidationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ValidationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ValidationResponse",
+      ) as ValidationResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ValidationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ValidationResponse",
+        "",
+      ) as ValidationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+}
+
+export interface ObservabilityPipelinesApiCreatePipelineRequest {
+  /**
+   * @type ObservabilityPipelineSpec
+   */
+  body: ObservabilityPipelineSpec;
+}
+
+export interface ObservabilityPipelinesApiDeletePipelineRequest {
+  /**
+   * The ID of the pipeline to delete.
+   * @type string
+   */
+  pipelineId: string;
+}
+
+export interface ObservabilityPipelinesApiGetPipelineRequest {
+  /**
+   * The ID of the pipeline to retrieve.
+   * @type string
+   */
+  pipelineId: string;
+}
+
+export interface ObservabilityPipelinesApiListPipelinesRequest {
+  /**
+   * Number of items to return per page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+}
+
+export interface ObservabilityPipelinesApiUpdatePipelineRequest {
+  /**
+   * The ID of the pipeline to update.
+   * @type string
+   */
+  pipelineId: string;
+  /**
+   * @type ObservabilityPipeline
+   */
+  body: ObservabilityPipeline;
+}
+
+export interface ObservabilityPipelinesApiValidatePipelineRequest {
+  /**
+   * @type ObservabilityPipelineSpec
+   */
+  body: ObservabilityPipelineSpec;
+}
+
+export class ObservabilityPipelinesApi {
+  private requestFactory: ObservabilityPipelinesApiRequestFactory;
+  private responseProcessor: ObservabilityPipelinesApiResponseProcessor;
+  private configuration: Configuration;
+
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
+  public constructor(
+    configuration?: Configuration,
+    requestFactory?: ObservabilityPipelinesApiRequestFactory,
+    responseProcessor?: ObservabilityPipelinesApiResponseProcessor,
+  ) {
+    this.configuration = configuration || createConfiguration();
+    this.requestFactory =
+      requestFactory ||
+      new ObservabilityPipelinesApiRequestFactory(this.configuration);
+    this.responseProcessor =
+      responseProcessor || new ObservabilityPipelinesApiResponseProcessor();
+  }
+
+  /**
+   * Create a new pipeline.
+   * @param param The request object
+   */
+  public createPipeline(
+    param: ObservabilityPipelinesApiCreatePipelineRequest,
+    options?: Configuration,
+  ): Promise<ObservabilityPipeline> {
+    const requestContextPromise = this.requestFactory.createPipeline(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createPipeline(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a pipeline.
+   * @param param The request object
+   */
+  public deletePipeline(
+    param: ObservabilityPipelinesApiDeletePipelineRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deletePipeline(
+      param.pipelineId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deletePipeline(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a specific pipeline by its ID.
+   * @param param The request object
+   */
+  public getPipeline(
+    param: ObservabilityPipelinesApiGetPipelineRequest,
+    options?: Configuration,
+  ): Promise<ObservabilityPipeline> {
+    const requestContextPromise = this.requestFactory.getPipeline(
+      param.pipelineId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getPipeline(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Retrieve a list of pipelines.
+   * @param param The request object
+   */
+  public listPipelines(
+    param: ObservabilityPipelinesApiListPipelinesRequest = {},
+    options?: Configuration,
+  ): Promise<ListPipelinesResponse> {
+    const requestContextPromise = this.requestFactory.listPipelines(
+      param.pageSize,
+      param.pageNumber,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listPipelines(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a pipeline.
+   * @param param The request object
+   */
+  public updatePipeline(
+    param: ObservabilityPipelinesApiUpdatePipelineRequest,
+    options?: Configuration,
+  ): Promise<ObservabilityPipeline> {
+    const requestContextPromise = this.requestFactory.updatePipeline(
+      param.pipelineId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updatePipeline(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Validates a pipeline configuration without creating or updating any resources.
+   * Returns a list of validation errors, if any.
+   * @param param The request object
+   */
+  public validatePipeline(
+    param: ObservabilityPipelinesApiValidatePipelineRequest,
+    options?: Configuration,
+  ): Promise<ValidationResponse> {
+    const requestContextPromise = this.requestFactory.validatePipeline(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.validatePipeline(responseContext);
+        });
+    });
+  }
+}

@@ -1,0 +1,126 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
+
+/**
+ * Update an existing Cloud Workload Security Agent rule
+ */
+export class CloudWorkloadSecurityAgentRuleUpdateAttributes {
+  /**
+   * The array of actions the rule can perform if triggered
+   */
+  "actions"?: Array<CloudWorkloadSecurityAgentRuleAction>;
+  /**
+   * Constrain the rule to specific versions of the Datadog Agent
+   */
+  "agentVersion"?: string;
+  /**
+   * The blocking policies that the rule belongs to
+   */
+  "blocking"?: Array<string>;
+  /**
+   * The description of the Agent rule
+   */
+  "description"?: string;
+  /**
+   * The disabled policies that the rule belongs to
+   */
+  "disabled"?: Array<string>;
+  /**
+   * Whether the Agent rule is enabled
+   */
+  "enabled"?: boolean;
+  /**
+   * The SECL expression of the Agent rule
+   */
+  "expression"?: string;
+  /**
+   * The monitoring policies that the rule belongs to
+   */
+  "monitoring"?: Array<string>;
+  /**
+   * The ID of the policy where the Agent rule is saved
+   */
+  "policyId"?: string;
+  /**
+   * The list of product tags associated with the rule
+   */
+  "productTags"?: Array<string>;
+  /**
+   * Whether the rule is silent.
+   */
+  "silent"?: boolean;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    actions: {
+      baseName: "actions",
+      type: "Array<CloudWorkloadSecurityAgentRuleAction>",
+    },
+    agentVersion: {
+      baseName: "agent_version",
+      type: "string",
+    },
+    blocking: {
+      baseName: "blocking",
+      type: "Array<string>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
+    },
+    disabled: {
+      baseName: "disabled",
+      type: "Array<string>",
+    },
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
+    expression: {
+      baseName: "expression",
+      type: "string",
+    },
+    monitoring: {
+      baseName: "monitoring",
+      type: "Array<string>",
+    },
+    policyId: {
+      baseName: "policy_id",
+      type: "string",
+    },
+    productTags: {
+      baseName: "product_tags",
+      type: "Array<string>",
+    },
+    silent: {
+      baseName: "silent",
+      type: "boolean",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return CloudWorkloadSecurityAgentRuleUpdateAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

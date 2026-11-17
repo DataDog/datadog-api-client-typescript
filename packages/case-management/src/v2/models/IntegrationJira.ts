@@ -1,0 +1,72 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { IntegrationJiraAutoCreation } from "./IntegrationJiraAutoCreation";
+import { IntegrationJiraMetadata } from "./IntegrationJiraMetadata";
+import { IntegrationJiraSync } from "./IntegrationJiraSync";
+
+/**
+ * Jira integration settings.
+ */
+export class IntegrationJira {
+  /**
+   * Auto-creation settings for Jira issues from work items.
+   */
+  "autoCreation"?: IntegrationJiraAutoCreation;
+  /**
+   * Whether Jira integration is enabled.
+   */
+  "enabled"?: boolean;
+  /**
+   * Metadata for connecting a Work Management project to a Jira project.
+   */
+  "metadata"?: IntegrationJiraMetadata;
+  /**
+   * Synchronization configuration for Jira integration.
+   */
+  "sync"?: IntegrationJiraSync;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    autoCreation: {
+      baseName: "auto_creation",
+      type: "IntegrationJiraAutoCreation",
+    },
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
+    metadata: {
+      baseName: "metadata",
+      type: "IntegrationJiraMetadata",
+    },
+    sync: {
+      baseName: "sync",
+      type: "IntegrationJiraSync",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return IntegrationJira.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

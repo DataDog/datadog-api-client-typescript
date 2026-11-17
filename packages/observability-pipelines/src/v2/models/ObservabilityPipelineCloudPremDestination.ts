@@ -1,0 +1,93 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
+import { ObservabilityPipelineClientTls } from "./ObservabilityPipelineClientTls";
+import { ObservabilityPipelineCloudPremDestinationType } from "./ObservabilityPipelineCloudPremDestinationType";
+
+/**
+ * The `cloud_prem` destination sends logs to Datadog CloudPrem.
+ *
+ * **Supported pipeline types:** logs
+ */
+export class ObservabilityPipelineCloudPremDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
+  /**
+   * Name of the environment variable or secret that holds the CloudPrem endpoint URL.
+   */
+  "endpointUrlKey"?: string;
+  /**
+   * The unique identifier for this component.
+   */
+  "id": string;
+  /**
+   * A list of component IDs whose output is used as the `input` for this component.
+   */
+  "inputs": Array<string>;
+  /**
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   */
+  "tls"?: ObservabilityPipelineClientTls;
+  /**
+   * The destination type. The value should always be `cloud_prem`.
+   */
+  "type": ObservabilityPipelineCloudPremDestinationType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
+    endpointUrlKey: {
+      baseName: "endpoint_url_key",
+      type: "string",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    inputs: {
+      baseName: "inputs",
+      type: "Array<string>",
+      required: true,
+    },
+    tls: {
+      baseName: "tls",
+      type: "ObservabilityPipelineClientTls",
+    },
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineCloudPremDestinationType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return ObservabilityPipelineCloudPremDestination.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

@@ -1,0 +1,65 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { DegradationData } from "./DegradationData";
+import { DegradationIncluded } from "./DegradationIncluded";
+import { PaginationMeta } from "./PaginationMeta";
+
+/**
+ * Response object for a list of degradations.
+ */
+export class DegradationArray {
+  /**
+   * A list of degradation data objects.
+   */
+  "data": Array<DegradationData>;
+  /**
+   * The included related resources of a degradation. Client must explicitly request these resources by name in the `include` query parameter.
+   */
+  "included"?: Array<DegradationIncluded>;
+  /**
+   * Response metadata.
+   */
+  "meta"?: PaginationMeta;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    data: {
+      baseName: "data",
+      type: "Array<DegradationData>",
+      required: true,
+    },
+    included: {
+      baseName: "included",
+      type: "Array<DegradationIncluded>",
+    },
+    meta: {
+      baseName: "meta",
+      type: "PaginationMeta",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return DegradationArray.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

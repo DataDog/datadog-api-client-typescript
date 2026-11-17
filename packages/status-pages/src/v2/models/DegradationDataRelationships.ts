@@ -1,0 +1,73 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { DegradationDataRelationshipsCreatedByUser } from "./DegradationDataRelationshipsCreatedByUser";
+import { DegradationDataRelationshipsLastModifiedByUser } from "./DegradationDataRelationshipsLastModifiedByUser";
+import { DegradationDataRelationshipsStatusPage } from "./DegradationDataRelationshipsStatusPage";
+import { DegradationDataRelationshipsTemplate } from "./DegradationDataRelationshipsTemplate";
+
+/**
+ * The relationships of a degradation.
+ */
+export class DegradationDataRelationships {
+  /**
+   * The Datadog user who created the degradation.
+   */
+  "createdByUser"?: DegradationDataRelationshipsCreatedByUser;
+  /**
+   * The Datadog user who last modified the degradation.
+   */
+  "lastModifiedByUser"?: DegradationDataRelationshipsLastModifiedByUser;
+  /**
+   * The status page the degradation belongs to.
+   */
+  "statusPage"?: DegradationDataRelationshipsStatusPage;
+  /**
+   * The template the degradation was created from.
+   */
+  "template"?: DegradationDataRelationshipsTemplate;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    createdByUser: {
+      baseName: "created_by_user",
+      type: "DegradationDataRelationshipsCreatedByUser",
+    },
+    lastModifiedByUser: {
+      baseName: "last_modified_by_user",
+      type: "DegradationDataRelationshipsLastModifiedByUser",
+    },
+    statusPage: {
+      baseName: "status_page",
+      type: "DegradationDataRelationshipsStatusPage",
+    },
+    template: {
+      baseName: "template",
+      type: "DegradationDataRelationshipsTemplate",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return DegradationDataRelationships.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

@@ -1,0 +1,46 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { DeletedTestResponseData } from "./DeletedTestResponseData";
+
+/**
+ * Response containing the list of deleted Synthetic tests.
+ */
+export class DeletedTestsResponse {
+  /**
+   * List of deleted Synthetic test data objects.
+   */
+  "data"?: Array<DeletedTestResponseData>;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    data: {
+      baseName: "data",
+      type: "Array<DeletedTestResponseData>",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return DeletedTestsResponse.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

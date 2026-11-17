@@ -1,0 +1,94 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { CustomRuleNullableRevisionEmbedded } from "./CustomRuleNullableRevisionEmbedded";
+import { CustomRuleRevisionEmbedded } from "./CustomRuleRevisionEmbedded";
+
+/**
+ * A custom static analysis rule as embedded in the rules list of a ruleset response.
+ */
+export class CustomRulesetRuleEmbedded {
+  /**
+   * Creation timestamp
+   */
+  "createdAt": Date;
+  /**
+   * Creator identifier
+   */
+  "createdBy": string;
+  /**
+   * Rule identifier, which is the same as the rule name.
+   */
+  "id": string;
+  /**
+   * The most recent revision of the rule, or null when the rule has no revisions.
+   */
+  "lastRevision": CustomRuleNullableRevisionEmbedded | null;
+  /**
+   * Rule name
+   */
+  "name": string;
+  /**
+   * Revision history of the rule.
+   */
+  "revisions": Array<CustomRuleRevisionEmbedded> | null;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      required: true,
+      format: "date-time",
+    },
+    createdBy: {
+      baseName: "created_by",
+      type: "string",
+      required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    lastRevision: {
+      baseName: "last_revision",
+      type: "CustomRuleNullableRevisionEmbedded",
+      required: true,
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
+    },
+    revisions: {
+      baseName: "revisions",
+      type: "Array<CustomRuleRevisionEmbedded>",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return CustomRulesetRuleEmbedded.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

@@ -1,0 +1,2249 @@
+import {
+  ApiException,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
+  buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
+  isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
+} from "@datadog/datadog-api-client-core";
+
+import { TypingInfo } from "./models/TypingInfo";
+import { APIErrorResponse } from "./models/APIErrorResponse";
+import { PermissionsResponse } from "./models/PermissionsResponse";
+import { RelationshipToPermission } from "./models/RelationshipToPermission";
+import { RelationshipToUser } from "./models/RelationshipToUser";
+import { RoleCloneRequest } from "./models/RoleCloneRequest";
+import { RoleCreateRequest } from "./models/RoleCreateRequest";
+import { RoleCreateResponse } from "./models/RoleCreateResponse";
+import { RoleResponse } from "./models/RoleResponse";
+import { RolesResponse } from "./models/RolesResponse";
+import { RolesSort } from "./models/RolesSort";
+import { RoleTemplateArray } from "./models/RoleTemplateArray";
+import { RoleUpdateRequest } from "./models/RoleUpdateRequest";
+import { RoleUpdateResponse } from "./models/RoleUpdateResponse";
+import { UsersResponse } from "./models/UsersResponse";
+import { version } from "../version";
+
+export class RolesApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("account-management", version);
+    }
+  }
+  public async addPermissionToRole(
+    roleId: string,
+    body: RelationshipToPermission,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "addPermissionToRole");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "addPermissionToRole");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/roles/{role_id}/permissions".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.addPermissionToRole",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RelationshipToPermission", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async addUserToRole(
+    roleId: string,
+    body: RelationshipToUser,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "addUserToRole");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "addUserToRole");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/roles/{role_id}/users".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.addUserToRole",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RelationshipToUser", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async cloneRole(
+    roleId: string,
+    body: RoleCloneRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "cloneRole");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "cloneRole");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/roles/{role_id}/clone".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.cloneRole",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RoleCloneRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createRole(
+    body: RoleCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createRole");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/roles";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.createRole",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RoleCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteRole(
+    roleId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "deleteRole");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/roles/{role_id}".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.deleteRole",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getRole(
+    roleId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "getRole");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/roles/{role_id}".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.getRole",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listPermissions(
+    includeScopes?: boolean,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/permissions";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.listPermissions",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (includeScopes !== undefined) {
+      requestContext.setQueryParam(
+        "include_scopes",
+        serialize(includeScopes, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listRolePermissions(
+    roleId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "listRolePermissions");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/roles/{role_id}/permissions".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.listRolePermissions",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listRoles(
+    pageSize?: number,
+    pageNumber?: number,
+    sort?: RolesSort,
+    filter?: string,
+    filterId?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/roles";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.listRoles",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "RolesSort", ""),
+        "",
+      );
+    }
+    if (filter !== undefined) {
+      requestContext.setQueryParam(
+        "filter",
+        serialize(filter, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[id]",
+        serialize(filterId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listRoleTemplates(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listRoleTemplates'");
+    if (!_config.unstableOperations["v2.listRoleTemplates"]) {
+      throw new Error(
+        "Unstable operation 'listRoleTemplates' is disabled. Enable it by setting `configuration.unstableOperations['v2.listRoleTemplates'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/roles/templates";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.listRoleTemplates",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listRoleUsers(
+    roleId: string,
+    pageSize?: number,
+    pageNumber?: number,
+    sort?: string,
+    filter?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "listRoleUsers");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/roles/{role_id}/users".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.listRoleUsers",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filter !== undefined) {
+      requestContext.setQueryParam(
+        "filter",
+        serialize(filter, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async removePermissionFromRole(
+    roleId: string,
+    body: RelationshipToPermission,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "removePermissionFromRole");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "removePermissionFromRole");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/roles/{role_id}/permissions".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.removePermissionFromRole",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RelationshipToPermission", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async removeUserFromRole(
+    roleId: string,
+    body: RelationshipToUser,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "removeUserFromRole");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "removeUserFromRole");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/roles/{role_id}/users".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.removeUserFromRole",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RelationshipToUser", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateRole(
+    roleId: string,
+    body: RoleUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "updateRole");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateRole");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/roles/{role_id}".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "v2.RolesApi.updateRole",
+      RolesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RoleUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+}
+
+export class RolesApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to addPermissionToRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async addPermissionToRole(
+    response: ResponseContext,
+  ): Promise<PermissionsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PermissionsResponse",
+      ) as PermissionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PermissionsResponse",
+        "",
+      ) as PermissionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to addUserToRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async addUserToRole(
+    response: ResponseContext,
+  ): Promise<UsersResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "UsersResponse",
+      ) as UsersResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "UsersResponse",
+        "",
+      ) as UsersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to cloneRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async cloneRole(response: ResponseContext): Promise<RoleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: RoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RoleResponse",
+      ) as RoleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RoleResponse",
+        "",
+      ) as RoleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createRole(
+    response: ResponseContext,
+  ): Promise<RoleCreateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: RoleCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RoleCreateResponse",
+      ) as RoleCreateResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RoleCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RoleCreateResponse",
+        "",
+      ) as RoleCreateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteRole(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getRole(response: ResponseContext): Promise<RoleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: RoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RoleResponse",
+      ) as RoleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RoleResponse",
+        "",
+      ) as RoleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listPermissions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listPermissions(
+    response: ResponseContext,
+  ): Promise<PermissionsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PermissionsResponse",
+      ) as PermissionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PermissionsResponse",
+        "",
+      ) as PermissionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listRolePermissions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listRolePermissions(
+    response: ResponseContext,
+  ): Promise<PermissionsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PermissionsResponse",
+      ) as PermissionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PermissionsResponse",
+        "",
+      ) as PermissionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listRoles
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listRoles(response: ResponseContext): Promise<RolesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: RolesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RolesResponse",
+      ) as RolesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RolesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RolesResponse",
+        "",
+      ) as RolesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listRoleTemplates
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listRoleTemplates(
+    response: ResponseContext,
+  ): Promise<RoleTemplateArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: RoleTemplateArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RoleTemplateArray",
+      ) as RoleTemplateArray;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RoleTemplateArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RoleTemplateArray",
+        "",
+      ) as RoleTemplateArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listRoleUsers
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listRoleUsers(
+    response: ResponseContext,
+  ): Promise<UsersResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "UsersResponse",
+      ) as UsersResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "UsersResponse",
+        "",
+      ) as UsersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to removePermissionFromRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async removePermissionFromRole(
+    response: ResponseContext,
+  ): Promise<PermissionsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PermissionsResponse",
+      ) as PermissionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PermissionsResponse",
+        "",
+      ) as PermissionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to removeUserFromRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async removeUserFromRole(
+    response: ResponseContext,
+  ): Promise<UsersResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "UsersResponse",
+      ) as UsersResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "UsersResponse",
+        "",
+      ) as UsersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateRole(
+    response: ResponseContext,
+  ): Promise<RoleUpdateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: RoleUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RoleUpdateResponse",
+      ) as RoleUpdateResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 422 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RoleUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RoleUpdateResponse",
+        "",
+      ) as RoleUpdateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+}
+
+export interface RolesApiAddPermissionToRoleRequest {
+  /**
+   * The unique identifier of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   * @type RelationshipToPermission
+   */
+  body: RelationshipToPermission;
+}
+
+export interface RolesApiAddUserToRoleRequest {
+  /**
+   * The unique identifier of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   * @type RelationshipToUser
+   */
+  body: RelationshipToUser;
+}
+
+export interface RolesApiCloneRoleRequest {
+  /**
+   * The unique identifier of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   * @type RoleCloneRequest
+   */
+  body: RoleCloneRequest;
+}
+
+export interface RolesApiCreateRoleRequest {
+  /**
+   * @type RoleCreateRequest
+   */
+  body: RoleCreateRequest;
+}
+
+export interface RolesApiDeleteRoleRequest {
+  /**
+   * The unique identifier of the role.
+   * @type string
+   */
+  roleId: string;
+}
+
+export interface RolesApiGetRoleRequest {
+  /**
+   * The unique identifier of the role.
+   * @type string
+   */
+  roleId: string;
+}
+
+export interface RolesApiListPermissionsRequest {
+  /**
+   * Set to `true` to return all permissions, including both permissions
+   * that can be assigned to user roles and permissions that can only be
+   * used as scopes for OAuth clients and scoped credentials. When `false`
+   * (default), only permissions that can be assigned to user roles are
+   * returned.
+   * @type boolean
+   */
+  includeScopes?: boolean;
+}
+
+export interface RolesApiListRolePermissionsRequest {
+  /**
+   * The unique identifier of the role.
+   * @type string
+   */
+  roleId: string;
+}
+
+export interface RolesApiListRolesRequest {
+  /**
+   * Number of items to return per page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Sort roles depending on the given field. Sort order is **ascending** by default.
+   * Sort order is **descending** if the field is prefixed by a negative sign, for example:
+   * `sort=-name`.
+   * @type RolesSort
+   */
+  sort?: RolesSort;
+  /**
+   * Filter all roles by the given string.
+   * @type string
+   */
+  filter?: string;
+  /**
+   * Filter all roles by the given list of role IDs.
+   * @type string
+   */
+  filterId?: string;
+}
+
+export interface RolesApiListRoleUsersRequest {
+  /**
+   * The unique identifier of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   * Number of items to return per page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * User attribute to order results by. Sort order is **ascending** by default.
+   * Sort order is **descending** if the field is prefixed by a negative sign,
+   * for example `sort=-name`. Options: `name`, `email`, `status`.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * Filter all users by the given string. Defaults to no filtering.
+   * @type string
+   */
+  filter?: string;
+}
+
+export interface RolesApiRemovePermissionFromRoleRequest {
+  /**
+   * The unique identifier of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   * @type RelationshipToPermission
+   */
+  body: RelationshipToPermission;
+}
+
+export interface RolesApiRemoveUserFromRoleRequest {
+  /**
+   * The unique identifier of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   * @type RelationshipToUser
+   */
+  body: RelationshipToUser;
+}
+
+export interface RolesApiUpdateRoleRequest {
+  /**
+   * The unique identifier of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   * @type RoleUpdateRequest
+   */
+  body: RoleUpdateRequest;
+}
+
+export class RolesApi {
+  private requestFactory: RolesApiRequestFactory;
+  private responseProcessor: RolesApiResponseProcessor;
+  private configuration: Configuration;
+
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
+  public constructor(
+    configuration?: Configuration,
+    requestFactory?: RolesApiRequestFactory,
+    responseProcessor?: RolesApiResponseProcessor,
+  ) {
+    this.configuration = configuration || createConfiguration();
+    this.requestFactory =
+      requestFactory || new RolesApiRequestFactory(this.configuration);
+    this.responseProcessor =
+      responseProcessor || new RolesApiResponseProcessor();
+  }
+
+  /**
+   * Adds a permission to a role.
+   * @param param The request object
+   */
+  public addPermissionToRole(
+    param: RolesApiAddPermissionToRoleRequest,
+    options?: Configuration,
+  ): Promise<PermissionsResponse> {
+    const requestContextPromise = this.requestFactory.addPermissionToRole(
+      param.roleId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.addPermissionToRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Adds a user to a role.
+   * @param param The request object
+   */
+  public addUserToRole(
+    param: RolesApiAddUserToRoleRequest,
+    options?: Configuration,
+  ): Promise<UsersResponse> {
+    const requestContextPromise = this.requestFactory.addUserToRole(
+      param.roleId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.addUserToRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Clone an existing role
+   * @param param The request object
+   */
+  public cloneRole(
+    param: RolesApiCloneRoleRequest,
+    options?: Configuration,
+  ): Promise<RoleResponse> {
+    const requestContextPromise = this.requestFactory.cloneRole(
+      param.roleId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.cloneRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a new role for your organization.
+   *
+   * [Restricted permissions](https://docs.datadoghq.com/account_management/rbac/permissions/#restricted-permissions),
+   * such as Dashboards Read and Monitors Read, are added to every new role by default, even if they are omitted from
+   * the request. To exclude them, set `default_permissions_opt_out` to `true`.
+   * @param param The request object
+   */
+  public createRole(
+    param: RolesApiCreateRoleRequest,
+    options?: Configuration,
+  ): Promise<RoleCreateResponse> {
+    const requestContextPromise = this.requestFactory.createRole(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Disables a role.
+   * @param param The request object
+   */
+  public deleteRole(
+    param: RolesApiDeleteRoleRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteRole(
+      param.roleId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a role in the organization specified by the role’s `role_id`.
+   * @param param The request object
+   */
+  public getRole(
+    param: RolesApiGetRoleRequest,
+    options?: Configuration,
+  ): Promise<RoleResponse> {
+    const requestContextPromise = this.requestFactory.getRole(
+      param.roleId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns a list of all permissions, including name, description, and ID.
+   * @param param The request object
+   */
+  public listPermissions(
+    param: RolesApiListPermissionsRequest = {},
+    options?: Configuration,
+  ): Promise<PermissionsResponse> {
+    const requestContextPromise = this.requestFactory.listPermissions(
+      param.includeScopes,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listPermissions(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns a list of all permissions for a single role.
+   * @param param The request object
+   */
+  public listRolePermissions(
+    param: RolesApiListRolePermissionsRequest,
+    options?: Configuration,
+  ): Promise<PermissionsResponse> {
+    const requestContextPromise = this.requestFactory.listRolePermissions(
+      param.roleId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listRolePermissions(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns all roles, including their names and their unique identifiers.
+   * @param param The request object
+   */
+  public listRoles(
+    param: RolesApiListRolesRequest = {},
+    options?: Configuration,
+  ): Promise<RolesResponse> {
+    const requestContextPromise = this.requestFactory.listRoles(
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filter,
+      param.filterId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listRoles(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all role templates
+   * @param param The request object
+   */
+  public listRoleTemplates(
+    options?: Configuration,
+  ): Promise<RoleTemplateArray> {
+    const requestContextPromise =
+      this.requestFactory.listRoleTemplates(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listRoleTemplates(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Gets all users of a role.
+   * @param param The request object
+   */
+  public listRoleUsers(
+    param: RolesApiListRoleUsersRequest,
+    options?: Configuration,
+  ): Promise<UsersResponse> {
+    const requestContextPromise = this.requestFactory.listRoleUsers(
+      param.roleId,
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filter,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listRoleUsers(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Removes a permission from a role.
+   * @param param The request object
+   */
+  public removePermissionFromRole(
+    param: RolesApiRemovePermissionFromRoleRequest,
+    options?: Configuration,
+  ): Promise<PermissionsResponse> {
+    const requestContextPromise = this.requestFactory.removePermissionFromRole(
+      param.roleId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.removePermissionFromRole(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Removes a user from a role.
+   * @param param The request object
+   */
+  public removeUserFromRole(
+    param: RolesApiRemoveUserFromRoleRequest,
+    options?: Configuration,
+  ): Promise<UsersResponse> {
+    const requestContextPromise = this.requestFactory.removeUserFromRole(
+      param.roleId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.removeUserFromRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Edit a role. Can only be used with application keys belonging to administrators.
+   *
+   * [Restricted permissions](https://docs.datadoghq.com/account_management/rbac/permissions/#restricted-permissions),
+   * such as Dashboards Read and Monitors Read, remain on the role by default, even if they are omitted from
+   * the request. To exclude them, set `default_permissions_opt_out` to `true`.
+   *
+   * Omitting the `permissions` relationship from the request leaves the role's existing permissions
+   * unchanged. Sending `"permissions": {"data": []}` removes all permissions except restricted default
+   * permissions, which remain unless `default_permissions_opt_out` is `true`. Some restricted permissions
+   * can only be excluded after Minimal Access Roles is enabled for the organization.
+   * @param param The request object
+   */
+  public updateRole(
+    param: RolesApiUpdateRoleRequest,
+    options?: Configuration,
+  ): Promise<RoleUpdateResponse> {
+    const requestContextPromise = this.requestFactory.updateRole(
+      param.roleId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateRole(responseContext);
+        });
+    });
+  }
+}

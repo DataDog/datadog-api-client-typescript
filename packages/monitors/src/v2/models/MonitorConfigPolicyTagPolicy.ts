@@ -1,0 +1,50 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+/**
+ * Tag attributes of a monitor configuration policy.
+ */
+export class MonitorConfigPolicyTagPolicy {
+  /**
+   * The key of the tag.
+   */
+  "tagKey"?: string;
+  /**
+   * If a tag key is required for monitor creation.
+   */
+  "tagKeyRequired"?: boolean;
+  /**
+   * Valid values for the tag.
+   */
+  "validTagValues"?: Array<string>;
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    tagKey: {
+      baseName: "tag_key",
+      type: "string",
+    },
+    tagKeyRequired: {
+      baseName: "tag_key_required",
+      type: "boolean",
+    },
+    validTagValues: {
+      baseName: "valid_tag_values",
+      type: "Array<string>",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return MonitorConfigPolicyTagPolicy.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

@@ -1,0 +1,63 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { SensitiveDataScannerGetConfigIncludedItem } from "./SensitiveDataScannerGetConfigIncludedItem";
+import { SensitiveDataScannerGetConfigResponseData } from "./SensitiveDataScannerGetConfigResponseData";
+
+/**
+ * Get all groups response.
+ */
+export class SensitiveDataScannerGetConfigResponse {
+  /**
+   * Response data related to the scanning groups.
+   */
+  "data"?: SensitiveDataScannerGetConfigResponseData;
+  /**
+   * Included objects from relationships.
+   */
+  "included"?: Array<SensitiveDataScannerGetConfigIncludedItem>;
+  /**
+   * Meta response. Always an empty object.
+   */
+  "meta"?: { [key: string]: any };
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    data: {
+      baseName: "data",
+      type: "SensitiveDataScannerGetConfigResponseData",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<SensitiveDataScannerGetConfigIncludedItem>",
+    },
+    meta: {
+      baseName: "meta",
+      type: "{ [key: string]: any; }",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return SensitiveDataScannerGetConfigResponse.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

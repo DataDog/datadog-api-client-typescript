@@ -1,0 +1,46 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { CreateConnectionRequestData } from "./CreateConnectionRequestData";
+
+/**
+ * Request body for creating a new data source connection for an entity.
+ */
+export class CreateConnectionRequest {
+  /**
+   * The data object containing the resource type and attributes for creating a new connection.
+   */
+  "data"?: CreateConnectionRequestData;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    data: {
+      baseName: "data",
+      type: "CreateConnectionRequestData",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return CreateConnectionRequest.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

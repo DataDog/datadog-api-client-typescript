@@ -1,0 +1,11 @@
+import { UnparsedObject } from "@datadog/datadog-api-client-core";
+
+/**
+ * The type of compute.
+ */
+export type SpansComputeType =
+  | typeof TIMESERIES
+  | typeof TOTAL
+  | UnparsedObject;
+export const TIMESERIES = "timeseries";
+export const TOTAL = "total";

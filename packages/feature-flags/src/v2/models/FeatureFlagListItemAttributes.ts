@@ -1,0 +1,204 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { FeatureFlagEnvironmentListItem } from "./FeatureFlagEnvironmentListItem";
+import { FeatureFlagStalenessDetails } from "./FeatureFlagStalenessDetails";
+import { FeatureFlagStalenessStatusOverride } from "./FeatureFlagStalenessStatusOverride";
+import { ValueType } from "./ValueType";
+import { Variant } from "./Variant";
+
+/**
+ * Attributes of a feature flag in list responses.
+ */
+export class FeatureFlagListItemAttributes {
+  /**
+   * The timestamp when the feature flag was archived.
+   */
+  "archivedAt"?: Date;
+  /**
+   * The timestamp when the feature flag was created.
+   */
+  "createdAt"?: Date;
+  /**
+   * The ID of the user who created the feature flag.
+   */
+  "createdBy"?: string;
+  /**
+   * The description of the feature flag.
+   */
+  "description": string;
+  /**
+   * Distribution channel for the feature flag.
+   */
+  "distributionChannel"?: string;
+  /**
+   * Environment-specific settings for the feature flag.
+   */
+  "featureFlagEnvironments"?: Array<FeatureFlagEnvironmentListItem>;
+  /**
+   * Indicates whether the current user has marked the feature flag as a favorite.
+   */
+  "isFavorite"?: boolean;
+  /**
+   * JSON schema for validation when value_type is JSON.
+   */
+  "jsonSchema"?: string;
+  /**
+   * The unique key of the feature flag.
+   */
+  "key": string;
+  /**
+   * The ID of the user who last updated the feature flag.
+   */
+  "lastUpdatedBy"?: string;
+  /**
+   * The name of the feature flag.
+   */
+  "name": string;
+  /**
+   * Indicates whether this feature flag requires approval for changes.
+   */
+  "requireApproval"?: boolean;
+  /**
+   * The feature flag's current staleness state and suggested actions.
+   */
+  "stalenessDetails"?: FeatureFlagStalenessDetails;
+  /**
+   * Legacy status retained for compatibility. This field is always `ACTIVE`; use `staleness_details.staleness_status` for the computed status.
+   */
+  "stalenessStatus"?: string;
+  /**
+   * An explicit staleness status override. Omitted when no override is set.
+   */
+  "stalenessStatusOverride"?: FeatureFlagStalenessStatusOverride;
+  /**
+   * Tags associated with the feature flag.
+   */
+  "tags"?: Array<string>;
+  /**
+   * The timestamp when the feature flag was last updated.
+   */
+  "updatedAt"?: Date;
+  /**
+   * The type of values for the feature flag variants.
+   */
+  "valueType": ValueType;
+  /**
+   * The variants of the feature flag.
+   */
+  "variants": Array<Variant>;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    archivedAt: {
+      baseName: "archived_at",
+      type: "Date",
+      format: "date-time",
+    },
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      format: "date-time",
+    },
+    createdBy: {
+      baseName: "created_by",
+      type: "string",
+      format: "uuid",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
+      required: true,
+    },
+    distributionChannel: {
+      baseName: "distribution_channel",
+      type: "string",
+    },
+    featureFlagEnvironments: {
+      baseName: "feature_flag_environments",
+      type: "Array<FeatureFlagEnvironmentListItem>",
+    },
+    isFavorite: {
+      baseName: "is_favorite",
+      type: "boolean",
+    },
+    jsonSchema: {
+      baseName: "json_schema",
+      type: "string",
+    },
+    key: {
+      baseName: "key",
+      type: "string",
+      required: true,
+    },
+    lastUpdatedBy: {
+      baseName: "last_updated_by",
+      type: "string",
+      format: "uuid",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
+    },
+    requireApproval: {
+      baseName: "require_approval",
+      type: "boolean",
+    },
+    stalenessDetails: {
+      baseName: "staleness_details",
+      type: "FeatureFlagStalenessDetails",
+    },
+    stalenessStatus: {
+      baseName: "staleness_status",
+      type: "string",
+    },
+    stalenessStatusOverride: {
+      baseName: "staleness_status_override",
+      type: "FeatureFlagStalenessStatusOverride",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+    },
+    updatedAt: {
+      baseName: "updated_at",
+      type: "Date",
+      format: "date-time",
+    },
+    valueType: {
+      baseName: "value_type",
+      type: "ValueType",
+      required: true,
+    },
+    variants: {
+      baseName: "variants",
+      type: "Array<Variant>",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return FeatureFlagListItemAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

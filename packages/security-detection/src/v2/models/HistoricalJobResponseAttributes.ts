@@ -1,0 +1,128 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { HistoricalJobFailure } from "./HistoricalJobFailure";
+import { JobDefinition } from "./JobDefinition";
+
+/**
+ * Historical job attributes.
+ */
+export class HistoricalJobResponseAttributes {
+  /**
+   * Time when the job was created.
+   */
+  "createdAt"?: string;
+  /**
+   * The handle of the user who created the job.
+   */
+  "createdByHandle"?: string;
+  /**
+   * The name of the user who created the job.
+   */
+  "createdByName"?: string;
+  /**
+   * ID of the rule used to create the job (if it is created from a rule).
+   */
+  "createdFromRuleId"?: string;
+  /**
+   * Details about why the job failed. Only present when the job has failed and won't be retried.
+   */
+  "failure"?: HistoricalJobFailure;
+  /**
+   * Definition of a historical job.
+   */
+  "jobDefinition"?: JobDefinition;
+  /**
+   * Job name.
+   */
+  "jobName"?: string;
+  /**
+   * Job status.
+   */
+  "jobStatus"?: string;
+  /**
+   * Last modification time of the job.
+   */
+  "modifiedAt"?: string;
+  /**
+   * Job execution progress as a value between 0 and 1. Available for ongoing jobs.
+   */
+  "progressRate"?: number;
+  /**
+   * Whether the job outputs signals.
+   */
+  "signalOutput"?: boolean;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    createdAt: {
+      baseName: "createdAt",
+      type: "string",
+    },
+    createdByHandle: {
+      baseName: "createdByHandle",
+      type: "string",
+    },
+    createdByName: {
+      baseName: "createdByName",
+      type: "string",
+    },
+    createdFromRuleId: {
+      baseName: "createdFromRuleId",
+      type: "string",
+    },
+    failure: {
+      baseName: "failure",
+      type: "HistoricalJobFailure",
+    },
+    jobDefinition: {
+      baseName: "jobDefinition",
+      type: "JobDefinition",
+    },
+    jobName: {
+      baseName: "jobName",
+      type: "string",
+    },
+    jobStatus: {
+      baseName: "jobStatus",
+      type: "string",
+    },
+    modifiedAt: {
+      baseName: "modifiedAt",
+      type: "string",
+    },
+    progressRate: {
+      baseName: "progressRate",
+      type: "number",
+      format: "double",
+    },
+    signalOutput: {
+      baseName: "signalOutput",
+      type: "boolean",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return HistoricalJobResponseAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

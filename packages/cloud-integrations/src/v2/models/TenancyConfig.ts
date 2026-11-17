@@ -1,0 +1,46 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { TenancyConfigData } from "./TenancyConfigData";
+
+/**
+ * Response containing a single OCI tenancy integration configuration.
+ */
+export class TenancyConfig {
+  /**
+   * A single OCI tenancy integration configuration resource object containing the tenancy ID, type, and configuration attributes.
+   */
+  "data"?: TenancyConfigData;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    data: {
+      baseName: "data",
+      type: "TenancyConfigData",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return TenancyConfig.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

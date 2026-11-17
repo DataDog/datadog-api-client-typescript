@@ -1,0 +1,47 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { ViewershipHistorySessionData } from "./ViewershipHistorySessionData";
+
+/**
+ * A list of RUM replay sessions from a user's viewership history.
+ */
+export class ViewershipHistorySessionArray {
+  /**
+   * Array of viewership history session data objects.
+   */
+  "data": Array<ViewershipHistorySessionData>;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    data: {
+      baseName: "data",
+      type: "Array<ViewershipHistorySessionData>",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return ViewershipHistorySessionArray.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

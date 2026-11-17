@@ -1,0 +1,1248 @@
+import { ModelTypingInfo } from "@datadog/datadog-api-client-core";
+
+import { APIErrorResponse } from "./APIErrorResponse";
+import { AzureStorageDestination } from "./AzureStorageDestination";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { ListPipelinesResponse } from "./ListPipelinesResponse";
+import { ListPipelinesResponseMeta } from "./ListPipelinesResponseMeta";
+import { MicrosoftSentinelDestination } from "./MicrosoftSentinelDestination";
+import { ObservabilityPipeline } from "./ObservabilityPipeline";
+import { ObservabilityPipelineAddEnvVarsProcessor } from "./ObservabilityPipelineAddEnvVarsProcessor";
+import { ObservabilityPipelineAddEnvVarsProcessorVariable } from "./ObservabilityPipelineAddEnvVarsProcessorVariable";
+import { ObservabilityPipelineAddFieldsProcessor } from "./ObservabilityPipelineAddFieldsProcessor";
+import { ObservabilityPipelineAddHostnameProcessor } from "./ObservabilityPipelineAddHostnameProcessor";
+import { ObservabilityPipelineAddMetricTagsProcessor } from "./ObservabilityPipelineAddMetricTagsProcessor";
+import { ObservabilityPipelineAggregateProcessor } from "./ObservabilityPipelineAggregateProcessor";
+import { ObservabilityPipelineAggregateProcessorAggregationTiming } from "./ObservabilityPipelineAggregateProcessorAggregationTiming";
+import { ObservabilityPipelineAmazonDataFirehoseSource } from "./ObservabilityPipelineAmazonDataFirehoseSource";
+import { ObservabilityPipelineAmazonOpenSearchDestination } from "./ObservabilityPipelineAmazonOpenSearchDestination";
+import { ObservabilityPipelineAmazonOpenSearchDestinationAuth } from "./ObservabilityPipelineAmazonOpenSearchDestinationAuth";
+import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelineAmazonS3Destination";
+import { ObservabilityPipelineAmazonS3DestinationCompressionGzip } from "./ObservabilityPipelineAmazonS3DestinationCompressionGzip";
+import { ObservabilityPipelineAmazonS3DestinationCompressionZstd } from "./ObservabilityPipelineAmazonS3DestinationCompressionZstd";
+import { ObservabilityPipelineAmazonS3GenericBatchSettings } from "./ObservabilityPipelineAmazonS3GenericBatchSettings";
+import { ObservabilityPipelineAmazonS3GenericCompressionGzip } from "./ObservabilityPipelineAmazonS3GenericCompressionGzip";
+import { ObservabilityPipelineAmazonS3GenericCompressionSnappy } from "./ObservabilityPipelineAmazonS3GenericCompressionSnappy";
+import { ObservabilityPipelineAmazonS3GenericCompressionZstd } from "./ObservabilityPipelineAmazonS3GenericCompressionZstd";
+import { ObservabilityPipelineAmazonS3GenericDestination } from "./ObservabilityPipelineAmazonS3GenericDestination";
+import { ObservabilityPipelineAmazonS3GenericEncodingJson } from "./ObservabilityPipelineAmazonS3GenericEncodingJson";
+import { ObservabilityPipelineAmazonS3GenericEncodingParquet } from "./ObservabilityPipelineAmazonS3GenericEncodingParquet";
+import { ObservabilityPipelineAmazonS3Source } from "./ObservabilityPipelineAmazonS3Source";
+import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
+import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
+import { ObservabilityPipelineAzureDataExplorerDestination } from "./ObservabilityPipelineAzureDataExplorerDestination";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity";
+import { ObservabilityPipelineAzureDataExplorerDestinationBatch } from "./ObservabilityPipelineAzureDataExplorerDestinationBatch";
+import { ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion } from "./ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion";
+import { ObservabilityPipelineAzureStorageDestinationCompressionGzip } from "./ObservabilityPipelineAzureStorageDestinationCompressionGzip";
+import { ObservabilityPipelineAzureStorageDestinationCompressionZstd } from "./ObservabilityPipelineAzureStorageDestinationCompressionZstd";
+import { ObservabilityPipelineClickhouseDestination } from "./ObservabilityPipelineClickhouseDestination";
+import { ObservabilityPipelineClickhouseDestinationAuth } from "./ObservabilityPipelineClickhouseDestinationAuth";
+import { ObservabilityPipelineClickhouseDestinationBatch } from "./ObservabilityPipelineClickhouseDestinationBatch";
+import { ObservabilityPipelineClickhouseDestinationBatchEncoding } from "./ObservabilityPipelineClickhouseDestinationBatchEncoding";
+import { ObservabilityPipelineClickhouseDestinationCompressionObject } from "./ObservabilityPipelineClickhouseDestinationCompressionObject";
+import { ObservabilityPipelineClientTls } from "./ObservabilityPipelineClientTls";
+import { ObservabilityPipelineCloudPremDestination } from "./ObservabilityPipelineCloudPremDestination";
+import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
+import { ObservabilityPipelineConfigProcessorGroup } from "./ObservabilityPipelineConfigProcessorGroup";
+import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
+import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression";
+import { ObservabilityPipelineCustomProcessor } from "./ObservabilityPipelineCustomProcessor";
+import { ObservabilityPipelineCustomProcessorRemap } from "./ObservabilityPipelineCustomProcessorRemap";
+import { ObservabilityPipelineData } from "./ObservabilityPipelineData";
+import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineDataAttributes";
+import { ObservabilityPipelineDatabricksZerobusDestination } from "./ObservabilityPipelineDatabricksZerobusDestination";
+import { ObservabilityPipelineDatabricksZerobusDestinationAuth } from "./ObservabilityPipelineDatabricksZerobusDestinationAuth";
+import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
+import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
+import { ObservabilityPipelineDatadogLogsDestinationRoute } from "./ObservabilityPipelineDatadogLogsDestinationRoute";
+import { ObservabilityPipelineDatadogMetricsDestination } from "./ObservabilityPipelineDatadogMetricsDestination";
+import { ObservabilityPipelineDatadogTagsProcessor } from "./ObservabilityPipelineDatadogTagsProcessor";
+import { ObservabilityPipelineDatadogTracesDestination } from "./ObservabilityPipelineDatadogTracesDestination";
+import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
+import { ObservabilityPipelineDedupeProcessorCache } from "./ObservabilityPipelineDedupeProcessorCache";
+import { ObservabilityPipelineDiskBufferOptions } from "./ObservabilityPipelineDiskBufferOptions";
+import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
+import { ObservabilityPipelineElasticsearchDestinationAuth } from "./ObservabilityPipelineElasticsearchDestinationAuth";
+import { ObservabilityPipelineElasticsearchDestinationCompression } from "./ObservabilityPipelineElasticsearchDestinationCompression";
+import { ObservabilityPipelineElasticsearchDestinationDataStream } from "./ObservabilityPipelineElasticsearchDestinationDataStream";
+import { ObservabilityPipelineEnrichmentTableFieldEventLookup } from "./ObservabilityPipelineEnrichmentTableFieldEventLookup";
+import { ObservabilityPipelineEnrichmentTableFieldSecretLookup } from "./ObservabilityPipelineEnrichmentTableFieldSecretLookup";
+import { ObservabilityPipelineEnrichmentTableFieldVrlLookup } from "./ObservabilityPipelineEnrichmentTableFieldVrlLookup";
+import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
+import { ObservabilityPipelineEnrichmentTableFileEncoding } from "./ObservabilityPipelineEnrichmentTableFileEncoding";
+import { ObservabilityPipelineEnrichmentTableFileKeyItems } from "./ObservabilityPipelineEnrichmentTableFileKeyItems";
+import { ObservabilityPipelineEnrichmentTableFileSchemaItems } from "./ObservabilityPipelineEnrichmentTableFileSchemaItems";
+import { ObservabilityPipelineEnrichmentTableGeoIp } from "./ObservabilityPipelineEnrichmentTableGeoIp";
+import { ObservabilityPipelineEnrichmentTableProcessor } from "./ObservabilityPipelineEnrichmentTableProcessor";
+import { ObservabilityPipelineEnrichmentTableReferenceTable } from "./ObservabilityPipelineEnrichmentTableReferenceTable";
+import { ObservabilityPipelineFieldValue } from "./ObservabilityPipelineFieldValue";
+import { ObservabilityPipelineFilterProcessor } from "./ObservabilityPipelineFilterProcessor";
+import { ObservabilityPipelineFluentBitSource } from "./ObservabilityPipelineFluentBitSource";
+import { ObservabilityPipelineFluentdSource } from "./ObservabilityPipelineFluentdSource";
+import { ObservabilityPipelineGcpAuth } from "./ObservabilityPipelineGcpAuth";
+import { ObservabilityPipelineGenerateMetricsProcessor } from "./ObservabilityPipelineGenerateMetricsProcessor";
+import { ObservabilityPipelineGenerateMetricsV2Processor } from "./ObservabilityPipelineGenerateMetricsV2Processor";
+import { ObservabilityPipelineGeneratedMetric } from "./ObservabilityPipelineGeneratedMetric";
+import { ObservabilityPipelineGeneratedMetricIncrementByField } from "./ObservabilityPipelineGeneratedMetricIncrementByField";
+import { ObservabilityPipelineGeneratedMetricIncrementByOne } from "./ObservabilityPipelineGeneratedMetricIncrementByOne";
+import { ObservabilityPipelineGoogleChronicleDestination } from "./ObservabilityPipelineGoogleChronicleDestination";
+import { ObservabilityPipelineGoogleCloudStorageDestination } from "./ObservabilityPipelineGoogleCloudStorageDestination";
+import { ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzip } from "./ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzip";
+import { ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstd } from "./ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstd";
+import { ObservabilityPipelineGooglePubSubDestination } from "./ObservabilityPipelineGooglePubSubDestination";
+import { ObservabilityPipelineGooglePubSubSource } from "./ObservabilityPipelineGooglePubSubSource";
+import { ObservabilityPipelineHttpClientDestination } from "./ObservabilityPipelineHttpClientDestination";
+import { ObservabilityPipelineHttpClientDestinationCompression } from "./ObservabilityPipelineHttpClientDestinationCompression";
+import { ObservabilityPipelineHttpClientSource } from "./ObservabilityPipelineHttpClientSource";
+import { ObservabilityPipelineHttpServerSource } from "./ObservabilityPipelineHttpServerSource";
+import { ObservabilityPipelineHttpServerSourceValidToken } from "./ObservabilityPipelineHttpServerSourceValidToken";
+import { ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader } from "./ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader";
+import { ObservabilityPipelineKafkaDestination } from "./ObservabilityPipelineKafkaDestination";
+import { ObservabilityPipelineKafkaLibrdkafkaOption } from "./ObservabilityPipelineKafkaLibrdkafkaOption";
+import { ObservabilityPipelineKafkaSasl } from "./ObservabilityPipelineKafkaSasl";
+import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
+import { ObservabilityPipelineLogstashSource } from "./ObservabilityPipelineLogstashSource";
+import { ObservabilityPipelineMemoryBufferOptions } from "./ObservabilityPipelineMemoryBufferOptions";
+import { ObservabilityPipelineMemoryBufferSizeOptions } from "./ObservabilityPipelineMemoryBufferSizeOptions";
+import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetadataEntry";
+import { ObservabilityPipelineMetricEnrichmentTableFile } from "./ObservabilityPipelineMetricEnrichmentTableFile";
+import { ObservabilityPipelineMetricEnrichmentTableFileKey } from "./ObservabilityPipelineMetricEnrichmentTableFileKey";
+import { ObservabilityPipelineMetricEnrichmentTableFileProcessor } from "./ObservabilityPipelineMetricEnrichmentTableFileProcessor";
+import { ObservabilityPipelineMetricEnrichmentTableMetricNameLookup } from "./ObservabilityPipelineMetricEnrichmentTableMetricNameLookup";
+import { ObservabilityPipelineMetricEnrichmentTableReferenceKey } from "./ObservabilityPipelineMetricEnrichmentTableReferenceKey";
+import { ObservabilityPipelineMetricEnrichmentTableReferenceTable } from "./ObservabilityPipelineMetricEnrichmentTableReferenceTable";
+import { ObservabilityPipelineMetricEnrichmentTableReferenceTableProcessor } from "./ObservabilityPipelineMetricEnrichmentTableReferenceTableProcessor";
+import { ObservabilityPipelineMetricEnrichmentTableTagLookup } from "./ObservabilityPipelineMetricEnrichmentTableTagLookup";
+import { ObservabilityPipelineMetricTagsProcessor } from "./ObservabilityPipelineMetricTagsProcessor";
+import { ObservabilityPipelineMetricTagsProcessorRule } from "./ObservabilityPipelineMetricTagsProcessorRule";
+import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
+import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
+import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
+import { ObservabilityPipelineOcsfMapperProcessorMapping } from "./ObservabilityPipelineOcsfMapperProcessorMapping";
+import { ObservabilityPipelineOcsfMappingCustom } from "./ObservabilityPipelineOcsfMappingCustom";
+import { ObservabilityPipelineOcsfMappingCustomFieldMapping } from "./ObservabilityPipelineOcsfMappingCustomFieldMapping";
+import { ObservabilityPipelineOcsfMappingCustomLookup } from "./ObservabilityPipelineOcsfMappingCustomLookup";
+import { ObservabilityPipelineOcsfMappingCustomLookupTableEntry } from "./ObservabilityPipelineOcsfMappingCustomLookupTableEntry";
+import { ObservabilityPipelineOcsfMappingCustomMetadata } from "./ObservabilityPipelineOcsfMappingCustomMetadata";
+import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
+import { ObservabilityPipelineOpenSearchDestinationDataStream } from "./ObservabilityPipelineOpenSearchDestinationDataStream";
+import { ObservabilityPipelineOpentelemetryDestination } from "./ObservabilityPipelineOpentelemetryDestination";
+import { ObservabilityPipelineOpentelemetrySource } from "./ObservabilityPipelineOpentelemetrySource";
+import { ObservabilityPipelineParseGrokProcessor } from "./ObservabilityPipelineParseGrokProcessor";
+import { ObservabilityPipelineParseGrokProcessorIncludeRule } from "./ObservabilityPipelineParseGrokProcessorIncludeRule";
+import { ObservabilityPipelineParseGrokProcessorRule } from "./ObservabilityPipelineParseGrokProcessorRule";
+import { ObservabilityPipelineParseGrokProcessorRuleMatchRule } from "./ObservabilityPipelineParseGrokProcessorRuleMatchRule";
+import { ObservabilityPipelineParseGrokProcessorRuleSupportRule } from "./ObservabilityPipelineParseGrokProcessorRuleSupportRule";
+import { ObservabilityPipelineParseJSONProcessor } from "./ObservabilityPipelineParseJSONProcessor";
+import { ObservabilityPipelineParseXMLProcessor } from "./ObservabilityPipelineParseXMLProcessor";
+import { ObservabilityPipelinePrometheusRemoteWriteDestination } from "./ObservabilityPipelinePrometheusRemoteWriteDestination";
+import { ObservabilityPipelinePrometheusRemoteWriteSource } from "./ObservabilityPipelinePrometheusRemoteWriteSource";
+import { ObservabilityPipelinePrometheusRemoteWriteSourceValidToken } from "./ObservabilityPipelinePrometheusRemoteWriteSourceValidToken";
+import { ObservabilityPipelineQuotaProcessor } from "./ObservabilityPipelineQuotaProcessor";
+import { ObservabilityPipelineQuotaProcessorLimit } from "./ObservabilityPipelineQuotaProcessorLimit";
+import { ObservabilityPipelineQuotaProcessorOverride } from "./ObservabilityPipelineQuotaProcessorOverride";
+import { ObservabilityPipelineReduceProcessor } from "./ObservabilityPipelineReduceProcessor";
+import { ObservabilityPipelineReduceProcessorMergeStrategy } from "./ObservabilityPipelineReduceProcessorMergeStrategy";
+import { ObservabilityPipelineRemoveFieldsProcessor } from "./ObservabilityPipelineRemoveFieldsProcessor";
+import { ObservabilityPipelineRenameFieldsProcessor } from "./ObservabilityPipelineRenameFieldsProcessor";
+import { ObservabilityPipelineRenameFieldsProcessorField } from "./ObservabilityPipelineRenameFieldsProcessorField";
+import { ObservabilityPipelineRenameMetricTagsProcessor } from "./ObservabilityPipelineRenameMetricTagsProcessor";
+import { ObservabilityPipelineRenameMetricTagsProcessorTag } from "./ObservabilityPipelineRenameMetricTagsProcessorTag";
+import { ObservabilityPipelineRsyslogDestination } from "./ObservabilityPipelineRsyslogDestination";
+import { ObservabilityPipelineRsyslogSource } from "./ObservabilityPipelineRsyslogSource";
+import { ObservabilityPipelineSampleProcessor } from "./ObservabilityPipelineSampleProcessor";
+import { ObservabilityPipelineSensitiveDataScannerProcessor } from "./ObservabilityPipelineSensitiveDataScannerProcessor";
+import { ObservabilityPipelineSensitiveDataScannerProcessorActionHash } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionHash";
+import { ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact";
+import { ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions";
+import { ObservabilityPipelineSensitiveDataScannerProcessorActionRedact } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionRedact";
+import { ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions";
+import { ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern } from "./ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern";
+import { ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions";
+import { ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions";
+import { ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern } from "./ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern";
+import { ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions";
+import { ObservabilityPipelineSensitiveDataScannerProcessorRule } from "./ObservabilityPipelineSensitiveDataScannerProcessorRule";
+import { ObservabilityPipelineSensitiveDataScannerProcessorScopeAll } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeAll";
+import { ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude";
+import { ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude";
+import { ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions";
+import { ObservabilityPipelineSentinelOneDestination } from "./ObservabilityPipelineSentinelOneDestination";
+import { ObservabilityPipelineSocketDestination } from "./ObservabilityPipelineSocketDestination";
+import { ObservabilityPipelineSocketDestinationFramingBytes } from "./ObservabilityPipelineSocketDestinationFramingBytes";
+import { ObservabilityPipelineSocketDestinationFramingCharacterDelimited } from "./ObservabilityPipelineSocketDestinationFramingCharacterDelimited";
+import { ObservabilityPipelineSocketDestinationFramingNewlineDelimited } from "./ObservabilityPipelineSocketDestinationFramingNewlineDelimited";
+import { ObservabilityPipelineSocketSource } from "./ObservabilityPipelineSocketSource";
+import { ObservabilityPipelineSocketSourceFramingBytes } from "./ObservabilityPipelineSocketSourceFramingBytes";
+import { ObservabilityPipelineSocketSourceFramingCharacterDelimited } from "./ObservabilityPipelineSocketSourceFramingCharacterDelimited";
+import { ObservabilityPipelineSocketSourceFramingChunkedGelf } from "./ObservabilityPipelineSocketSourceFramingChunkedGelf";
+import { ObservabilityPipelineSocketSourceFramingNewlineDelimited } from "./ObservabilityPipelineSocketSourceFramingNewlineDelimited";
+import { ObservabilityPipelineSocketSourceFramingOctetCounting } from "./ObservabilityPipelineSocketSourceFramingOctetCounting";
+import { ObservabilityPipelineSourceValidTokenFieldToAdd } from "./ObservabilityPipelineSourceValidTokenFieldToAdd";
+import { ObservabilityPipelineSpec } from "./ObservabilityPipelineSpec";
+import { ObservabilityPipelineSpecData } from "./ObservabilityPipelineSpecData";
+import { ObservabilityPipelineSpikeProtectionProcessor } from "./ObservabilityPipelineSpikeProtectionProcessor";
+import { ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep } from "./ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep";
+import { ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes } from "./ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes";
+import { ObservabilityPipelineSpikeProtectionProcessorThresholdOverride } from "./ObservabilityPipelineSpikeProtectionProcessorThresholdOverride";
+import { ObservabilityPipelineSplitArrayProcessor } from "./ObservabilityPipelineSplitArrayProcessor";
+import { ObservabilityPipelineSplitArrayProcessorArrayConfig } from "./ObservabilityPipelineSplitArrayProcessorArrayConfig";
+import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
+import { ObservabilityPipelineSplunkHecMetricsDestination } from "./ObservabilityPipelineSplunkHecMetricsDestination";
+import { ObservabilityPipelineSplunkHecSource } from "./ObservabilityPipelineSplunkHecSource";
+import { ObservabilityPipelineSplunkHecSourceValidToken } from "./ObservabilityPipelineSplunkHecSourceValidToken";
+import { ObservabilityPipelineSplunkTcpSource } from "./ObservabilityPipelineSplunkTcpSource";
+import { ObservabilityPipelineSumoLogicDestination } from "./ObservabilityPipelineSumoLogicDestination";
+import { ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem } from "./ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem";
+import { ObservabilityPipelineSumoLogicSource } from "./ObservabilityPipelineSumoLogicSource";
+import { ObservabilityPipelineSyslogNgDestination } from "./ObservabilityPipelineSyslogNgDestination";
+import { ObservabilityPipelineSyslogNgSource } from "./ObservabilityPipelineSyslogNgSource";
+import { ObservabilityPipelineTagCardinalityLimitProcessor } from "./ObservabilityPipelineTagCardinalityLimitProcessor";
+import { ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit } from "./ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit";
+import { ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit } from "./ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit";
+import { ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode } from "./ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode";
+import { ObservabilityPipelineThrottleProcessor } from "./ObservabilityPipelineThrottleProcessor";
+import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
+import { ObservabilityPipelineWebsocketSource } from "./ObservabilityPipelineWebsocketSource";
+import { ObservabilityPipelineWebsocketSourceTlsEnabled } from "./ObservabilityPipelineWebsocketSourceTlsEnabled";
+import { ObservabilityPipelineWebsocketSourceTlsWithClientCert } from "./ObservabilityPipelineWebsocketSourceTlsWithClientCert";
+import { ValidationError } from "./ValidationError";
+import { ValidationErrorMeta } from "./ValidationErrorMeta";
+import { ValidationResponse } from "./ValidationResponse";
+
+export const TypingInfo: ModelTypingInfo = {
+  enumsMap: {
+    AzureStorageDestinationType: ["azure_storage"],
+    MicrosoftSentinelDestinationType: ["microsoft_sentinel"],
+    ObservabilityPipelineAddEnvVarsProcessorType: ["add_env_vars"],
+    ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
+    ObservabilityPipelineAddHostnameProcessorType: ["add_hostname"],
+    ObservabilityPipelineAddMetricTagsProcessorType: ["add_metric_tags"],
+    ObservabilityPipelineAggregateProcessorAggregationTimingType: [
+      "system_time",
+      "event_time",
+    ],
+    ObservabilityPipelineAggregateProcessorMode: [
+      "auto",
+      "sum",
+      "latest",
+      "count",
+      "max",
+      "min",
+      "mean",
+    ],
+    ObservabilityPipelineAggregateProcessorType: ["aggregate"],
+    ObservabilityPipelineAmazonDataFirehoseSourceType: ["amazon_data_firehose"],
+    ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy: [
+      "basic",
+      "aws",
+    ],
+    ObservabilityPipelineAmazonOpenSearchDestinationType: ["amazon_opensearch"],
+    ObservabilityPipelineAmazonS3DestinationCompressionGzipType: ["gzip"],
+    ObservabilityPipelineAmazonS3DestinationCompressionZstdType: ["zstd"],
+    ObservabilityPipelineAmazonS3DestinationServerSideEncryption: [
+      "aws:kms",
+      "AES256",
+    ],
+    ObservabilityPipelineAmazonS3DestinationStorageClass: [
+      "STANDARD",
+      "REDUCED_REDUNDANCY",
+      "INTELLIGENT_TIERING",
+      "STANDARD_IA",
+      "EXPRESS_ONEZONE",
+      "ONEZONE_IA",
+      "GLACIER",
+      "GLACIER_IR",
+      "DEEP_ARCHIVE",
+    ],
+    ObservabilityPipelineAmazonS3DestinationType: ["amazon_s3"],
+    ObservabilityPipelineAmazonS3GenericCompressionGzipType: ["gzip"],
+    ObservabilityPipelineAmazonS3GenericCompressionSnappyType: ["snappy"],
+    ObservabilityPipelineAmazonS3GenericCompressionZstdType: ["zstd"],
+    ObservabilityPipelineAmazonS3GenericDestinationType: ["amazon_s3_generic"],
+    ObservabilityPipelineAmazonS3GenericEncodingJsonType: ["json"],
+    ObservabilityPipelineAmazonS3GenericEncodingParquetType: ["parquet"],
+    ObservabilityPipelineAmazonS3SourceCompression: [
+      "auto",
+      "none",
+      "gzip",
+      "zstd",
+    ],
+    ObservabilityPipelineAmazonS3SourceType: ["amazon_s3"],
+    ObservabilityPipelineAmazonSecurityLakeDestinationType: [
+      "amazon_security_lake",
+    ],
+    ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCliKind: [
+      "azure_cli",
+    ],
+    ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificateKind:
+      ["client_certificate_credential"],
+    ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecretKind: [
+      "client_secret_credential",
+    ],
+    ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityKind: [
+      "managed_identity",
+    ],
+    ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentityKind: [
+      "workload_identity",
+    ],
+    ObservabilityPipelineAzureDataExplorerDestinationIngestionMode: [
+      "streaming",
+      "queue",
+    ],
+    ObservabilityPipelineAzureDataExplorerDestinationManagedIdentityIdType: [
+      "client_id",
+      "object_id",
+      "resource_id",
+    ],
+    ObservabilityPipelineAzureDataExplorerDestinationType: [
+      "azure_data_explorer",
+    ],
+    ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind: [
+      "managed_identity_client_assertion",
+    ],
+    ObservabilityPipelineAzureStorageDestinationCompressionGzipType: ["gzip"],
+    ObservabilityPipelineAzureStorageDestinationCompressionZstdType: ["zstd"],
+    ObservabilityPipelineBufferOptionsDiskType: ["disk"],
+    ObservabilityPipelineBufferOptionsMemoryType: ["memory"],
+    ObservabilityPipelineBufferOptionsWhenFull: ["block", "drop_newest"],
+    ObservabilityPipelineClickhouseDestinationAuthStrategy: ["basic"],
+    ObservabilityPipelineClickhouseDestinationBatchEncodingCodec: [
+      "arrow_stream",
+    ],
+    ObservabilityPipelineClickhouseDestinationCompressionAlgorithm: [
+      "gzip",
+      "none",
+    ],
+    ObservabilityPipelineClickhouseDestinationFormat: [
+      "json_each_row",
+      "json_as_object",
+      "json_as_string",
+      "arrow_stream",
+    ],
+    ObservabilityPipelineClickhouseDestinationType: ["clickhouse"],
+    ObservabilityPipelineCloudPremDestinationType: ["cloud_prem"],
+    ObservabilityPipelineConfigPipelineType: ["logs", "metrics", "traces"],
+    ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm:
+      ["gzip", "zlib"],
+    ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding: [
+      "json",
+      "raw_message",
+    ],
+    ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType: [
+      "crowdstrike_next_gen_siem",
+    ],
+    ObservabilityPipelineCustomProcessorType: ["custom_processor"],
+    ObservabilityPipelineDatabricksZerobusDestinationType: [
+      "databricks_zerobus",
+    ],
+    ObservabilityPipelineDatadogAgentSourceType: ["datadog_agent"],
+    ObservabilityPipelineDatadogLogsDestinationType: ["datadog_logs"],
+    ObservabilityPipelineDatadogMetricsDestinationType: ["datadog_metrics"],
+    ObservabilityPipelineDatadogTagsProcessorAction: ["include", "exclude"],
+    ObservabilityPipelineDatadogTagsProcessorMode: ["filter"],
+    ObservabilityPipelineDatadogTagsProcessorType: ["datadog_tags"],
+    ObservabilityPipelineDatadogTracesDestinationType: ["datadog_traces"],
+    ObservabilityPipelineDecoding: ["bytes", "gelf", "json", "syslog"],
+    ObservabilityPipelineDedupeProcessorMode: ["match", "ignore"],
+    ObservabilityPipelineDedupeProcessorType: ["dedupe"],
+    ObservabilityPipelineElasticsearchDestinationApiVersion: [
+      "auto",
+      "v6",
+      "v7",
+      "v8",
+    ],
+    ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm: [
+      "none",
+      "gzip",
+      "zlib",
+      "zstd",
+      "snappy",
+    ],
+    ObservabilityPipelineElasticsearchDestinationType: ["elasticsearch"],
+    ObservabilityPipelineEnrichmentTableFileEncodingType: ["csv"],
+    ObservabilityPipelineEnrichmentTableFileKeyItemsComparison: ["equals"],
+    ObservabilityPipelineEnrichmentTableFileSchemaItemsType: [
+      "string",
+      "boolean",
+      "integer",
+      "float",
+      "date",
+      "timestamp",
+    ],
+    ObservabilityPipelineEnrichmentTableProcessorType: ["enrichment_table"],
+    ObservabilityPipelineFilterProcessorType: ["filter"],
+    ObservabilityPipelineFluentBitSourceType: ["fluent_bit"],
+    ObservabilityPipelineFluentdSourceType: ["fluentd"],
+    ObservabilityPipelineGenerateMetricsProcessorType: [
+      "generate_datadog_metrics",
+    ],
+    ObservabilityPipelineGenerateMetricsV2ProcessorType: ["generate_metrics"],
+    ObservabilityPipelineGeneratedMetricIncrementByFieldStrategy: [
+      "increment_by_field",
+    ],
+    ObservabilityPipelineGeneratedMetricIncrementByOneStrategy: [
+      "increment_by_one",
+    ],
+    ObservabilityPipelineGeneratedMetricMetricType: [
+      "count",
+      "gauge",
+      "distribution",
+    ],
+    ObservabilityPipelineGoogleChronicleDestinationEncoding: [
+      "json",
+      "raw_message",
+    ],
+    ObservabilityPipelineGoogleChronicleDestinationType: ["google_chronicle"],
+    ObservabilityPipelineGoogleCloudStorageDestinationAcl: [
+      "private",
+      "project-private",
+      "public-read",
+      "authenticated-read",
+      "bucket-owner-read",
+      "bucket-owner-full-control",
+    ],
+    ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzipType: [
+      "gzip",
+    ],
+    ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstdType: [
+      "zstd",
+    ],
+    ObservabilityPipelineGoogleCloudStorageDestinationStorageClass: [
+      "STANDARD",
+      "NEARLINE",
+      "COLDLINE",
+      "ARCHIVE",
+    ],
+    ObservabilityPipelineGoogleCloudStorageDestinationType: [
+      "google_cloud_storage",
+    ],
+    ObservabilityPipelineGooglePubSubDestinationEncoding: [
+      "json",
+      "raw_message",
+    ],
+    ObservabilityPipelineGooglePubSubDestinationType: ["google_pubsub"],
+    ObservabilityPipelineGooglePubSubSourceType: ["google_pubsub"],
+    ObservabilityPipelineHttpClientDestinationAuthStrategy: [
+      "none",
+      "basic",
+      "bearer",
+      "custom",
+    ],
+    ObservabilityPipelineHttpClientDestinationCompressionAlgorithm: ["gzip"],
+    ObservabilityPipelineHttpClientDestinationEncoding: ["json"],
+    ObservabilityPipelineHttpClientDestinationType: ["http_client"],
+    ObservabilityPipelineHttpClientSourceAuthStrategy: [
+      "none",
+      "basic",
+      "bearer",
+      "custom",
+    ],
+    ObservabilityPipelineHttpClientSourceType: ["http_client"],
+    ObservabilityPipelineHttpServerSourceAuthStrategy: ["none", "plain"],
+    ObservabilityPipelineHttpServerSourceType: ["http_server"],
+    ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation: [
+      "path",
+      "address",
+    ],
+    ObservabilityPipelineKafkaDestinationCompression: [
+      "none",
+      "gzip",
+      "snappy",
+      "lz4",
+      "zstd",
+    ],
+    ObservabilityPipelineKafkaDestinationEncoding: ["json", "raw_message"],
+    ObservabilityPipelineKafkaDestinationType: ["kafka"],
+    ObservabilityPipelineKafkaSaslMechanism: [
+      "PLAIN",
+      "SCRAM-SHA-256",
+      "SCRAM-SHA-512",
+    ],
+    ObservabilityPipelineKafkaSourceType: ["kafka"],
+    ObservabilityPipelineLogstashSourceType: ["logstash"],
+    ObservabilityPipelineMetricEnrichmentTableMetricNameLookupType: [
+      "metric_name",
+    ],
+    ObservabilityPipelineMetricEnrichmentTableTagLookupType: ["tag"],
+    ObservabilityPipelineMetricTagsProcessorRuleAction: ["include", "exclude"],
+    ObservabilityPipelineMetricTagsProcessorRuleMode: ["filter"],
+    ObservabilityPipelineMetricTagsProcessorType: ["metric_tags"],
+    ObservabilityPipelineNewRelicDestinationRegion: ["us", "eu"],
+    ObservabilityPipelineNewRelicDestinationType: ["new_relic"],
+    ObservabilityPipelineOcsfMapperProcessorType: ["ocsf_mapper"],
+    ObservabilityPipelineOcsfMappingLibrary: [
+      "CloudTrail Account Change",
+      "GCP Cloud Audit CreateBucket",
+      "GCP Cloud Audit CreateSink",
+      "GCP Cloud Audit SetIamPolicy",
+      "GCP Cloud Audit UpdateSink",
+      "Github Audit Log API Activity",
+      "Google Workspace Admin Audit addPrivilege",
+      "Microsoft 365 Defender Incident",
+      "Microsoft 365 Defender UserLoggedIn",
+      "Okta System Log Authentication",
+      "Palo Alto Networks Firewall Traffic",
+    ],
+    ObservabilityPipelineOpenSearchDestinationType: ["opensearch"],
+    ObservabilityPipelineOpentelemetryDestinationType: ["opentelemetry"],
+    ObservabilityPipelineOpentelemetrySourceType: ["opentelemetry"],
+    ObservabilityPipelineParseGrokProcessorType: ["parse_grok"],
+    ObservabilityPipelineParseJSONProcessorType: ["parse_json"],
+    ObservabilityPipelineParseXMLProcessorType: ["parse_xml"],
+    ObservabilityPipelinePrometheusRemoteWriteDestinationAuthStrategy: [
+      "none",
+      "basic",
+      "bearer",
+    ],
+    ObservabilityPipelinePrometheusRemoteWriteDestinationType: [
+      "prometheus_remote_write",
+    ],
+    ObservabilityPipelinePrometheusRemoteWriteSourceAuthStrategy: [
+      "none",
+      "plain",
+    ],
+    ObservabilityPipelinePrometheusRemoteWriteSourceType: [
+      "prometheus_remote_write",
+    ],
+    ObservabilityPipelineQuotaProcessorLimitEnforceType: ["bytes", "events"],
+    ObservabilityPipelineQuotaProcessorOverflowAction: [
+      "drop",
+      "no_action",
+      "overflow_routing",
+    ],
+    ObservabilityPipelineQuotaProcessorType: ["quota"],
+    ObservabilityPipelineReduceProcessorMergeStrategyStrategy: [
+      "discard",
+      "retain",
+      "sum",
+      "max",
+      "min",
+      "array",
+      "concat",
+      "concat_newline",
+      "concat_raw",
+      "shortest_array",
+      "longest_array",
+      "flat_unique",
+    ],
+    ObservabilityPipelineReduceProcessorType: ["reduce"],
+    ObservabilityPipelineRemoveFieldsProcessorType: ["remove_fields"],
+    ObservabilityPipelineRenameFieldsProcessorType: ["rename_fields"],
+    ObservabilityPipelineRenameMetricTagsProcessorType: ["rename_metric_tags"],
+    ObservabilityPipelineRsyslogDestinationType: ["rsyslog"],
+    ObservabilityPipelineRsyslogSourceType: ["rsyslog"],
+    ObservabilityPipelineSampleProcessorType: ["sample"],
+    ObservabilityPipelineSensitiveDataScannerProcessorActionHashAction: [
+      "hash",
+    ],
+    ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactAction:
+      ["partial_redact"],
+    ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection:
+      ["first", "last"],
+    ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction: [
+      "redact",
+    ],
+    ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternType: [
+      "custom",
+    ],
+    ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType: [
+      "library",
+    ],
+    ObservabilityPipelineSensitiveDataScannerProcessorScopeAllTarget: ["all"],
+    ObservabilityPipelineSensitiveDataScannerProcessorScopeExcludeTarget: [
+      "exclude",
+    ],
+    ObservabilityPipelineSensitiveDataScannerProcessorScopeIncludeTarget: [
+      "include",
+    ],
+    ObservabilityPipelineSensitiveDataScannerProcessorType: [
+      "sensitive_data_scanner",
+    ],
+    ObservabilityPipelineSentinelOneDestinationRegion: [
+      "us",
+      "eu",
+      "ca",
+      "data_set_us",
+    ],
+    ObservabilityPipelineSentinelOneDestinationType: ["sentinel_one"],
+    ObservabilityPipelineSocketDestinationEncoding: ["json", "raw_message"],
+    ObservabilityPipelineSocketDestinationFramingBytesMethod: ["bytes"],
+    ObservabilityPipelineSocketDestinationFramingCharacterDelimitedMethod: [
+      "character_delimited",
+    ],
+    ObservabilityPipelineSocketDestinationFramingNewlineDelimitedMethod: [
+      "newline_delimited",
+    ],
+    ObservabilityPipelineSocketDestinationMode: ["tcp", "udp"],
+    ObservabilityPipelineSocketDestinationType: ["socket"],
+    ObservabilityPipelineSocketSourceFramingBytesMethod: ["bytes"],
+    ObservabilityPipelineSocketSourceFramingCharacterDelimitedMethod: [
+      "character_delimited",
+    ],
+    ObservabilityPipelineSocketSourceFramingChunkedGelfMethod: ["chunked_gelf"],
+    ObservabilityPipelineSocketSourceFramingNewlineDelimitedMethod: [
+      "newline_delimited",
+    ],
+    ObservabilityPipelineSocketSourceFramingOctetCountingMethod: [
+      "octet_counting",
+    ],
+    ObservabilityPipelineSocketSourceMode: ["tcp", "udp"],
+    ObservabilityPipelineSocketSourceType: ["socket"],
+    ObservabilityPipelineSpikeProtectionProcessorActionWhenMissingPartitions: [
+      "ignore",
+      "default_bucket",
+    ],
+    ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeepType:
+      ["always_keep"],
+    ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytesType: [
+      "threshold",
+    ],
+    ObservabilityPipelineSpikeProtectionProcessorSpikeAction: [
+      "drop",
+      "no_action",
+      "overflow_routing",
+    ],
+    ObservabilityPipelineSpikeProtectionProcessorType: ["spike_protection"],
+    ObservabilityPipelineSplitArrayProcessorType: ["split_array"],
+    ObservabilityPipelineSplunkHecDestinationEncoding: ["json", "raw_message"],
+    ObservabilityPipelineSplunkHecDestinationEndpointTarget: ["event", "raw"],
+    ObservabilityPipelineSplunkHecDestinationTokenStrategy: [
+      "custom",
+      "from_source",
+    ],
+    ObservabilityPipelineSplunkHecDestinationType: ["splunk_hec"],
+    ObservabilityPipelineSplunkHecMetricsDestinationCompression: [
+      "none",
+      "gzip",
+    ],
+    ObservabilityPipelineSplunkHecMetricsDestinationType: [
+      "splunk_hec_metrics",
+    ],
+    ObservabilityPipelineSplunkHecSourceType: ["splunk_hec"],
+    ObservabilityPipelineSplunkTcpSourceType: ["splunk_tcp"],
+    ObservabilityPipelineSumoLogicDestinationEncoding: [
+      "json",
+      "raw_message",
+      "logfmt",
+    ],
+    ObservabilityPipelineSumoLogicDestinationType: ["sumo_logic"],
+    ObservabilityPipelineSumoLogicSourceType: ["sumo_logic"],
+    ObservabilityPipelineSyslogNgDestinationType: ["syslog_ng"],
+    ObservabilityPipelineSyslogNgSourceType: ["syslog_ng"],
+    ObservabilityPipelineSyslogSourceMode: ["tcp", "udp"],
+    ObservabilityPipelineTagCardinalityLimitProcessorAction: [
+      "drop_tag",
+      "drop_event",
+    ],
+    ObservabilityPipelineTagCardinalityLimitProcessorOverrideType: [
+      "limit_override",
+      "excluded",
+    ],
+    ObservabilityPipelineTagCardinalityLimitProcessorTrackingModeMode: [
+      "exact_fingerprint",
+      "probabilistic",
+    ],
+    ObservabilityPipelineTagCardinalityLimitProcessorType: [
+      "tag_cardinality_limit",
+    ],
+    ObservabilityPipelineThrottleProcessorType: ["throttle"],
+    ObservabilityPipelineWebsocketSourceAuthStrategy: [
+      "none",
+      "basic",
+      "bearer",
+      "custom",
+    ],
+    ObservabilityPipelineWebsocketSourceTlsEnabledMode: ["enabled"],
+    ObservabilityPipelineWebsocketSourceTlsWithClientCertMode: [
+      "with_client_cert",
+    ],
+    ObservabilityPipelineWebsocketSourceType: ["websocket"],
+  },
+  oneOfMap: {
+    ObservabilityPipelineAmazonS3DestinationCompression: [
+      "ObservabilityPipelineAmazonS3DestinationCompressionZstd",
+      "ObservabilityPipelineAmazonS3DestinationCompressionGzip",
+    ],
+    ObservabilityPipelineAmazonS3GenericCompression: [
+      "ObservabilityPipelineAmazonS3GenericCompressionZstd",
+      "ObservabilityPipelineAmazonS3GenericCompressionGzip",
+      "ObservabilityPipelineAmazonS3GenericCompressionSnappy",
+    ],
+    ObservabilityPipelineAmazonS3GenericEncoding: [
+      "ObservabilityPipelineAmazonS3GenericEncodingJson",
+      "ObservabilityPipelineAmazonS3GenericEncodingParquet",
+    ],
+    ObservabilityPipelineAzureDataExplorerDestinationAuth: [
+      "ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli",
+      "ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret",
+      "ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate",
+      "ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity",
+      "ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion",
+      "ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity",
+    ],
+    ObservabilityPipelineAzureStorageDestinationCompression: [
+      "ObservabilityPipelineAzureStorageDestinationCompressionZstd",
+      "ObservabilityPipelineAzureStorageDestinationCompressionGzip",
+    ],
+    ObservabilityPipelineBufferOptions: [
+      "ObservabilityPipelineDiskBufferOptions",
+      "ObservabilityPipelineMemoryBufferOptions",
+      "ObservabilityPipelineMemoryBufferSizeOptions",
+    ],
+    ObservabilityPipelineClickhouseDestinationCompression: [
+      "ObservabilityPipelineClickhouseDestinationCompressionAlgorithm",
+      "ObservabilityPipelineClickhouseDestinationCompressionObject",
+    ],
+    ObservabilityPipelineConfigDestinationItem: [
+      "ObservabilityPipelineElasticsearchDestination",
+      "ObservabilityPipelineHttpClientDestination",
+      "ObservabilityPipelineAmazonOpenSearchDestination",
+      "ObservabilityPipelineAmazonS3Destination",
+      "ObservabilityPipelineAmazonS3GenericDestination",
+      "ObservabilityPipelineAmazonSecurityLakeDestination",
+      "AzureStorageDestination",
+      "ObservabilityPipelineAzureDataExplorerDestination",
+      "ObservabilityPipelineClickhouseDestination",
+      "ObservabilityPipelineCloudPremDestination",
+      "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
+      "ObservabilityPipelineDatadogLogsDestination",
+      "ObservabilityPipelineGoogleChronicleDestination",
+      "ObservabilityPipelineGoogleCloudStorageDestination",
+      "ObservabilityPipelineGooglePubSubDestination",
+      "ObservabilityPipelineKafkaDestination",
+      "MicrosoftSentinelDestination",
+      "ObservabilityPipelineNewRelicDestination",
+      "ObservabilityPipelineOpenSearchDestination",
+      "ObservabilityPipelineRsyslogDestination",
+      "ObservabilityPipelineSentinelOneDestination",
+      "ObservabilityPipelineSocketDestination",
+      "ObservabilityPipelineSplunkHecDestination",
+      "ObservabilityPipelineSumoLogicDestination",
+      "ObservabilityPipelineSyslogNgDestination",
+      "ObservabilityPipelineDatabricksZerobusDestination",
+      "ObservabilityPipelineDatadogMetricsDestination",
+      "ObservabilityPipelinePrometheusRemoteWriteDestination",
+      "ObservabilityPipelineSplunkHecMetricsDestination",
+      "ObservabilityPipelineOpentelemetryDestination",
+      "ObservabilityPipelineDatadogTracesDestination",
+    ],
+    ObservabilityPipelineConfigProcessorItem: [
+      "ObservabilityPipelineFilterProcessor",
+      "ObservabilityPipelineAddEnvVarsProcessor",
+      "ObservabilityPipelineAddFieldsProcessor",
+      "ObservabilityPipelineAddHostnameProcessor",
+      "ObservabilityPipelineDatadogTagsProcessor",
+      "ObservabilityPipelineDedupeProcessor",
+      "ObservabilityPipelineEnrichmentTableProcessor",
+      "ObservabilityPipelineGenerateMetricsProcessor",
+      "ObservabilityPipelineOcsfMapperProcessor",
+      "ObservabilityPipelineParseGrokProcessor",
+      "ObservabilityPipelineParseJSONProcessor",
+      "ObservabilityPipelineParseXMLProcessor",
+      "ObservabilityPipelineQuotaProcessor",
+      "ObservabilityPipelineReduceProcessor",
+      "ObservabilityPipelineRemoveFieldsProcessor",
+      "ObservabilityPipelineRenameFieldsProcessor",
+      "ObservabilityPipelineSpikeProtectionProcessor",
+      "ObservabilityPipelineSplitArrayProcessor",
+      "ObservabilityPipelineThrottleProcessor",
+      "ObservabilityPipelineCustomProcessor",
+      "ObservabilityPipelineGenerateMetricsV2Processor",
+      "ObservabilityPipelineSampleProcessor",
+      "ObservabilityPipelineSensitiveDataScannerProcessor",
+      "ObservabilityPipelineAddMetricTagsProcessor",
+      "ObservabilityPipelineAggregateProcessor",
+      "ObservabilityPipelineMetricEnrichmentTableProcessor",
+      "ObservabilityPipelineMetricTagsProcessor",
+      "ObservabilityPipelineRenameMetricTagsProcessor",
+      "ObservabilityPipelineTagCardinalityLimitProcessor",
+    ],
+    ObservabilityPipelineConfigSourceItem: [
+      "ObservabilityPipelineDatadogAgentSource",
+      "ObservabilityPipelineOpentelemetrySource",
+      "ObservabilityPipelineAmazonDataFirehoseSource",
+      "ObservabilityPipelineAmazonS3Source",
+      "ObservabilityPipelineFluentBitSource",
+      "ObservabilityPipelineFluentdSource",
+      "ObservabilityPipelineGooglePubSubSource",
+      "ObservabilityPipelineHttpClientSource",
+      "ObservabilityPipelineHttpServerSource",
+      "ObservabilityPipelineKafkaSource",
+      "ObservabilityPipelineLogstashSource",
+      "ObservabilityPipelineRsyslogSource",
+      "ObservabilityPipelineSocketSource",
+      "ObservabilityPipelineSplunkHecSource",
+      "ObservabilityPipelineSplunkTcpSource",
+      "ObservabilityPipelineSumoLogicSource",
+      "ObservabilityPipelineSyslogNgSource",
+      "ObservabilityPipelineWebsocketSource",
+      "ObservabilityPipelinePrometheusRemoteWriteSource",
+    ],
+    ObservabilityPipelineEnrichmentTableFileKeyItemField: [
+      "string",
+      "ObservabilityPipelineEnrichmentTableFieldEventLookup",
+      "ObservabilityPipelineEnrichmentTableFieldVrlLookup",
+      "ObservabilityPipelineEnrichmentTableFieldSecretLookup",
+    ],
+    ObservabilityPipelineGoogleCloudStorageDestinationCompression: [
+      "ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstd",
+      "ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzip",
+    ],
+    ObservabilityPipelineHttpServerSourceValidTokenPathToToken: [
+      "ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation",
+      "ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader",
+    ],
+    ObservabilityPipelineMetricEnrichmentTableLookupSource: [
+      "ObservabilityPipelineMetricEnrichmentTableMetricNameLookup",
+      "ObservabilityPipelineMetricEnrichmentTableTagLookup",
+    ],
+    ObservabilityPipelineMetricEnrichmentTableProcessor: [
+      "ObservabilityPipelineMetricEnrichmentTableFileProcessor",
+      "ObservabilityPipelineMetricEnrichmentTableReferenceTableProcessor",
+    ],
+    ObservabilityPipelineMetricValue: [
+      "ObservabilityPipelineGeneratedMetricIncrementByOne",
+      "ObservabilityPipelineGeneratedMetricIncrementByField",
+    ],
+    ObservabilityPipelineOcsfMapperProcessorMappingMapping: [
+      "ObservabilityPipelineOcsfMappingLibrary",
+      "ObservabilityPipelineOcsfMappingCustom",
+    ],
+    ObservabilityPipelineParseGrokProcessorRuleItem: [
+      "ObservabilityPipelineParseGrokProcessorRule",
+      "ObservabilityPipelineParseGrokProcessorIncludeRule",
+    ],
+    ObservabilityPipelineSensitiveDataScannerProcessorAction: [
+      "ObservabilityPipelineSensitiveDataScannerProcessorActionRedact",
+      "ObservabilityPipelineSensitiveDataScannerProcessorActionHash",
+      "ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact",
+    ],
+    ObservabilityPipelineSensitiveDataScannerProcessorPattern: [
+      "ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern",
+      "ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern",
+    ],
+    ObservabilityPipelineSensitiveDataScannerProcessorScope: [
+      "ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude",
+      "ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude",
+      "ObservabilityPipelineSensitiveDataScannerProcessorScopeAll",
+    ],
+    ObservabilityPipelineSocketDestinationFraming: [
+      "ObservabilityPipelineSocketDestinationFramingNewlineDelimited",
+      "ObservabilityPipelineSocketDestinationFramingBytes",
+      "ObservabilityPipelineSocketDestinationFramingCharacterDelimited",
+    ],
+    ObservabilityPipelineSocketSourceFraming: [
+      "ObservabilityPipelineSocketSourceFramingNewlineDelimited",
+      "ObservabilityPipelineSocketSourceFramingBytes",
+      "ObservabilityPipelineSocketSourceFramingCharacterDelimited",
+      "ObservabilityPipelineSocketSourceFramingOctetCounting",
+      "ObservabilityPipelineSocketSourceFramingChunkedGelf",
+    ],
+    ObservabilityPipelineSpikeProtectionProcessorMinimalThreshold: [
+      "ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes",
+      "ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep",
+    ],
+    ObservabilityPipelineWebsocketSourceTls: [
+      "ObservabilityPipelineWebsocketSourceTlsEnabled",
+      "ObservabilityPipelineWebsocketSourceTlsWithClientCert",
+    ],
+  },
+  typeMap: {
+    APIErrorResponse: APIErrorResponse,
+    AzureStorageDestination: AzureStorageDestination,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
+    ListPipelinesResponse: ListPipelinesResponse,
+    ListPipelinesResponseMeta: ListPipelinesResponseMeta,
+    MicrosoftSentinelDestination: MicrosoftSentinelDestination,
+    ObservabilityPipeline: ObservabilityPipeline,
+    ObservabilityPipelineAddEnvVarsProcessor:
+      ObservabilityPipelineAddEnvVarsProcessor,
+    ObservabilityPipelineAddEnvVarsProcessorVariable:
+      ObservabilityPipelineAddEnvVarsProcessorVariable,
+    ObservabilityPipelineAddFieldsProcessor:
+      ObservabilityPipelineAddFieldsProcessor,
+    ObservabilityPipelineAddHostnameProcessor:
+      ObservabilityPipelineAddHostnameProcessor,
+    ObservabilityPipelineAddMetricTagsProcessor:
+      ObservabilityPipelineAddMetricTagsProcessor,
+    ObservabilityPipelineAggregateProcessor:
+      ObservabilityPipelineAggregateProcessor,
+    ObservabilityPipelineAggregateProcessorAggregationTiming:
+      ObservabilityPipelineAggregateProcessorAggregationTiming,
+    ObservabilityPipelineAmazonDataFirehoseSource:
+      ObservabilityPipelineAmazonDataFirehoseSource,
+    ObservabilityPipelineAmazonOpenSearchDestination:
+      ObservabilityPipelineAmazonOpenSearchDestination,
+    ObservabilityPipelineAmazonOpenSearchDestinationAuth:
+      ObservabilityPipelineAmazonOpenSearchDestinationAuth,
+    ObservabilityPipelineAmazonS3Destination:
+      ObservabilityPipelineAmazonS3Destination,
+    ObservabilityPipelineAmazonS3DestinationCompressionGzip:
+      ObservabilityPipelineAmazonS3DestinationCompressionGzip,
+    ObservabilityPipelineAmazonS3DestinationCompressionZstd:
+      ObservabilityPipelineAmazonS3DestinationCompressionZstd,
+    ObservabilityPipelineAmazonS3GenericBatchSettings:
+      ObservabilityPipelineAmazonS3GenericBatchSettings,
+    ObservabilityPipelineAmazonS3GenericCompressionGzip:
+      ObservabilityPipelineAmazonS3GenericCompressionGzip,
+    ObservabilityPipelineAmazonS3GenericCompressionSnappy:
+      ObservabilityPipelineAmazonS3GenericCompressionSnappy,
+    ObservabilityPipelineAmazonS3GenericCompressionZstd:
+      ObservabilityPipelineAmazonS3GenericCompressionZstd,
+    ObservabilityPipelineAmazonS3GenericDestination:
+      ObservabilityPipelineAmazonS3GenericDestination,
+    ObservabilityPipelineAmazonS3GenericEncodingJson:
+      ObservabilityPipelineAmazonS3GenericEncodingJson,
+    ObservabilityPipelineAmazonS3GenericEncodingParquet:
+      ObservabilityPipelineAmazonS3GenericEncodingParquet,
+    ObservabilityPipelineAmazonS3Source: ObservabilityPipelineAmazonS3Source,
+    ObservabilityPipelineAmazonSecurityLakeDestination:
+      ObservabilityPipelineAmazonSecurityLakeDestination,
+    ObservabilityPipelineAwsAuth: ObservabilityPipelineAwsAuth,
+    ObservabilityPipelineAzureDataExplorerDestination:
+      ObservabilityPipelineAzureDataExplorerDestination,
+    ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli:
+      ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli,
+    ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate:
+      ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate,
+    ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret:
+      ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret,
+    ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity:
+      ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity,
+    ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity:
+      ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity,
+    ObservabilityPipelineAzureDataExplorerDestinationBatch:
+      ObservabilityPipelineAzureDataExplorerDestinationBatch,
+    ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion:
+      ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion,
+    ObservabilityPipelineAzureStorageDestinationCompressionGzip:
+      ObservabilityPipelineAzureStorageDestinationCompressionGzip,
+    ObservabilityPipelineAzureStorageDestinationCompressionZstd:
+      ObservabilityPipelineAzureStorageDestinationCompressionZstd,
+    ObservabilityPipelineClickhouseDestination:
+      ObservabilityPipelineClickhouseDestination,
+    ObservabilityPipelineClickhouseDestinationAuth:
+      ObservabilityPipelineClickhouseDestinationAuth,
+    ObservabilityPipelineClickhouseDestinationBatch:
+      ObservabilityPipelineClickhouseDestinationBatch,
+    ObservabilityPipelineClickhouseDestinationBatchEncoding:
+      ObservabilityPipelineClickhouseDestinationBatchEncoding,
+    ObservabilityPipelineClickhouseDestinationCompressionObject:
+      ObservabilityPipelineClickhouseDestinationCompressionObject,
+    ObservabilityPipelineClientTls: ObservabilityPipelineClientTls,
+    ObservabilityPipelineCloudPremDestination:
+      ObservabilityPipelineCloudPremDestination,
+    ObservabilityPipelineConfig: ObservabilityPipelineConfig,
+    ObservabilityPipelineConfigProcessorGroup:
+      ObservabilityPipelineConfigProcessorGroup,
+    ObservabilityPipelineCrowdStrikeNextGenSiemDestination:
+      ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
+    ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression:
+      ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression,
+    ObservabilityPipelineCustomProcessor: ObservabilityPipelineCustomProcessor,
+    ObservabilityPipelineCustomProcessorRemap:
+      ObservabilityPipelineCustomProcessorRemap,
+    ObservabilityPipelineData: ObservabilityPipelineData,
+    ObservabilityPipelineDataAttributes: ObservabilityPipelineDataAttributes,
+    ObservabilityPipelineDatabricksZerobusDestination:
+      ObservabilityPipelineDatabricksZerobusDestination,
+    ObservabilityPipelineDatabricksZerobusDestinationAuth:
+      ObservabilityPipelineDatabricksZerobusDestinationAuth,
+    ObservabilityPipelineDatadogAgentSource:
+      ObservabilityPipelineDatadogAgentSource,
+    ObservabilityPipelineDatadogLogsDestination:
+      ObservabilityPipelineDatadogLogsDestination,
+    ObservabilityPipelineDatadogLogsDestinationRoute:
+      ObservabilityPipelineDatadogLogsDestinationRoute,
+    ObservabilityPipelineDatadogMetricsDestination:
+      ObservabilityPipelineDatadogMetricsDestination,
+    ObservabilityPipelineDatadogTagsProcessor:
+      ObservabilityPipelineDatadogTagsProcessor,
+    ObservabilityPipelineDatadogTracesDestination:
+      ObservabilityPipelineDatadogTracesDestination,
+    ObservabilityPipelineDedupeProcessor: ObservabilityPipelineDedupeProcessor,
+    ObservabilityPipelineDedupeProcessorCache:
+      ObservabilityPipelineDedupeProcessorCache,
+    ObservabilityPipelineDiskBufferOptions:
+      ObservabilityPipelineDiskBufferOptions,
+    ObservabilityPipelineElasticsearchDestination:
+      ObservabilityPipelineElasticsearchDestination,
+    ObservabilityPipelineElasticsearchDestinationAuth:
+      ObservabilityPipelineElasticsearchDestinationAuth,
+    ObservabilityPipelineElasticsearchDestinationCompression:
+      ObservabilityPipelineElasticsearchDestinationCompression,
+    ObservabilityPipelineElasticsearchDestinationDataStream:
+      ObservabilityPipelineElasticsearchDestinationDataStream,
+    ObservabilityPipelineEnrichmentTableFieldEventLookup:
+      ObservabilityPipelineEnrichmentTableFieldEventLookup,
+    ObservabilityPipelineEnrichmentTableFieldSecretLookup:
+      ObservabilityPipelineEnrichmentTableFieldSecretLookup,
+    ObservabilityPipelineEnrichmentTableFieldVrlLookup:
+      ObservabilityPipelineEnrichmentTableFieldVrlLookup,
+    ObservabilityPipelineEnrichmentTableFile:
+      ObservabilityPipelineEnrichmentTableFile,
+    ObservabilityPipelineEnrichmentTableFileEncoding:
+      ObservabilityPipelineEnrichmentTableFileEncoding,
+    ObservabilityPipelineEnrichmentTableFileKeyItems:
+      ObservabilityPipelineEnrichmentTableFileKeyItems,
+    ObservabilityPipelineEnrichmentTableFileSchemaItems:
+      ObservabilityPipelineEnrichmentTableFileSchemaItems,
+    ObservabilityPipelineEnrichmentTableGeoIp:
+      ObservabilityPipelineEnrichmentTableGeoIp,
+    ObservabilityPipelineEnrichmentTableProcessor:
+      ObservabilityPipelineEnrichmentTableProcessor,
+    ObservabilityPipelineEnrichmentTableReferenceTable:
+      ObservabilityPipelineEnrichmentTableReferenceTable,
+    ObservabilityPipelineFieldValue: ObservabilityPipelineFieldValue,
+    ObservabilityPipelineFilterProcessor: ObservabilityPipelineFilterProcessor,
+    ObservabilityPipelineFluentBitSource: ObservabilityPipelineFluentBitSource,
+    ObservabilityPipelineFluentdSource: ObservabilityPipelineFluentdSource,
+    ObservabilityPipelineGcpAuth: ObservabilityPipelineGcpAuth,
+    ObservabilityPipelineGenerateMetricsProcessor:
+      ObservabilityPipelineGenerateMetricsProcessor,
+    ObservabilityPipelineGenerateMetricsV2Processor:
+      ObservabilityPipelineGenerateMetricsV2Processor,
+    ObservabilityPipelineGeneratedMetric: ObservabilityPipelineGeneratedMetric,
+    ObservabilityPipelineGeneratedMetricIncrementByField:
+      ObservabilityPipelineGeneratedMetricIncrementByField,
+    ObservabilityPipelineGeneratedMetricIncrementByOne:
+      ObservabilityPipelineGeneratedMetricIncrementByOne,
+    ObservabilityPipelineGoogleChronicleDestination:
+      ObservabilityPipelineGoogleChronicleDestination,
+    ObservabilityPipelineGoogleCloudStorageDestination:
+      ObservabilityPipelineGoogleCloudStorageDestination,
+    ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzip:
+      ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzip,
+    ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstd:
+      ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstd,
+    ObservabilityPipelineGooglePubSubDestination:
+      ObservabilityPipelineGooglePubSubDestination,
+    ObservabilityPipelineGooglePubSubSource:
+      ObservabilityPipelineGooglePubSubSource,
+    ObservabilityPipelineHttpClientDestination:
+      ObservabilityPipelineHttpClientDestination,
+    ObservabilityPipelineHttpClientDestinationCompression:
+      ObservabilityPipelineHttpClientDestinationCompression,
+    ObservabilityPipelineHttpClientSource:
+      ObservabilityPipelineHttpClientSource,
+    ObservabilityPipelineHttpServerSource:
+      ObservabilityPipelineHttpServerSource,
+    ObservabilityPipelineHttpServerSourceValidToken:
+      ObservabilityPipelineHttpServerSourceValidToken,
+    ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader:
+      ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader,
+    ObservabilityPipelineKafkaDestination:
+      ObservabilityPipelineKafkaDestination,
+    ObservabilityPipelineKafkaLibrdkafkaOption:
+      ObservabilityPipelineKafkaLibrdkafkaOption,
+    ObservabilityPipelineKafkaSasl: ObservabilityPipelineKafkaSasl,
+    ObservabilityPipelineKafkaSource: ObservabilityPipelineKafkaSource,
+    ObservabilityPipelineLogstashSource: ObservabilityPipelineLogstashSource,
+    ObservabilityPipelineMemoryBufferOptions:
+      ObservabilityPipelineMemoryBufferOptions,
+    ObservabilityPipelineMemoryBufferSizeOptions:
+      ObservabilityPipelineMemoryBufferSizeOptions,
+    ObservabilityPipelineMetadataEntry: ObservabilityPipelineMetadataEntry,
+    ObservabilityPipelineMetricEnrichmentTableFile:
+      ObservabilityPipelineMetricEnrichmentTableFile,
+    ObservabilityPipelineMetricEnrichmentTableFileKey:
+      ObservabilityPipelineMetricEnrichmentTableFileKey,
+    ObservabilityPipelineMetricEnrichmentTableFileProcessor:
+      ObservabilityPipelineMetricEnrichmentTableFileProcessor,
+    ObservabilityPipelineMetricEnrichmentTableMetricNameLookup:
+      ObservabilityPipelineMetricEnrichmentTableMetricNameLookup,
+    ObservabilityPipelineMetricEnrichmentTableReferenceKey:
+      ObservabilityPipelineMetricEnrichmentTableReferenceKey,
+    ObservabilityPipelineMetricEnrichmentTableReferenceTable:
+      ObservabilityPipelineMetricEnrichmentTableReferenceTable,
+    ObservabilityPipelineMetricEnrichmentTableReferenceTableProcessor:
+      ObservabilityPipelineMetricEnrichmentTableReferenceTableProcessor,
+    ObservabilityPipelineMetricEnrichmentTableTagLookup:
+      ObservabilityPipelineMetricEnrichmentTableTagLookup,
+    ObservabilityPipelineMetricTagsProcessor:
+      ObservabilityPipelineMetricTagsProcessor,
+    ObservabilityPipelineMetricTagsProcessorRule:
+      ObservabilityPipelineMetricTagsProcessorRule,
+    ObservabilityPipelineMtlsServerTls: ObservabilityPipelineMtlsServerTls,
+    ObservabilityPipelineNewRelicDestination:
+      ObservabilityPipelineNewRelicDestination,
+    ObservabilityPipelineOcsfMapperProcessor:
+      ObservabilityPipelineOcsfMapperProcessor,
+    ObservabilityPipelineOcsfMapperProcessorMapping:
+      ObservabilityPipelineOcsfMapperProcessorMapping,
+    ObservabilityPipelineOcsfMappingCustom:
+      ObservabilityPipelineOcsfMappingCustom,
+    ObservabilityPipelineOcsfMappingCustomFieldMapping:
+      ObservabilityPipelineOcsfMappingCustomFieldMapping,
+    ObservabilityPipelineOcsfMappingCustomLookup:
+      ObservabilityPipelineOcsfMappingCustomLookup,
+    ObservabilityPipelineOcsfMappingCustomLookupTableEntry:
+      ObservabilityPipelineOcsfMappingCustomLookupTableEntry,
+    ObservabilityPipelineOcsfMappingCustomMetadata:
+      ObservabilityPipelineOcsfMappingCustomMetadata,
+    ObservabilityPipelineOpenSearchDestination:
+      ObservabilityPipelineOpenSearchDestination,
+    ObservabilityPipelineOpenSearchDestinationDataStream:
+      ObservabilityPipelineOpenSearchDestinationDataStream,
+    ObservabilityPipelineOpentelemetryDestination:
+      ObservabilityPipelineOpentelemetryDestination,
+    ObservabilityPipelineOpentelemetrySource:
+      ObservabilityPipelineOpentelemetrySource,
+    ObservabilityPipelineParseGrokProcessor:
+      ObservabilityPipelineParseGrokProcessor,
+    ObservabilityPipelineParseGrokProcessorIncludeRule:
+      ObservabilityPipelineParseGrokProcessorIncludeRule,
+    ObservabilityPipelineParseGrokProcessorRule:
+      ObservabilityPipelineParseGrokProcessorRule,
+    ObservabilityPipelineParseGrokProcessorRuleMatchRule:
+      ObservabilityPipelineParseGrokProcessorRuleMatchRule,
+    ObservabilityPipelineParseGrokProcessorRuleSupportRule:
+      ObservabilityPipelineParseGrokProcessorRuleSupportRule,
+    ObservabilityPipelineParseJSONProcessor:
+      ObservabilityPipelineParseJSONProcessor,
+    ObservabilityPipelineParseXMLProcessor:
+      ObservabilityPipelineParseXMLProcessor,
+    ObservabilityPipelinePrometheusRemoteWriteDestination:
+      ObservabilityPipelinePrometheusRemoteWriteDestination,
+    ObservabilityPipelinePrometheusRemoteWriteSource:
+      ObservabilityPipelinePrometheusRemoteWriteSource,
+    ObservabilityPipelinePrometheusRemoteWriteSourceValidToken:
+      ObservabilityPipelinePrometheusRemoteWriteSourceValidToken,
+    ObservabilityPipelineQuotaProcessor: ObservabilityPipelineQuotaProcessor,
+    ObservabilityPipelineQuotaProcessorLimit:
+      ObservabilityPipelineQuotaProcessorLimit,
+    ObservabilityPipelineQuotaProcessorOverride:
+      ObservabilityPipelineQuotaProcessorOverride,
+    ObservabilityPipelineReduceProcessor: ObservabilityPipelineReduceProcessor,
+    ObservabilityPipelineReduceProcessorMergeStrategy:
+      ObservabilityPipelineReduceProcessorMergeStrategy,
+    ObservabilityPipelineRemoveFieldsProcessor:
+      ObservabilityPipelineRemoveFieldsProcessor,
+    ObservabilityPipelineRenameFieldsProcessor:
+      ObservabilityPipelineRenameFieldsProcessor,
+    ObservabilityPipelineRenameFieldsProcessorField:
+      ObservabilityPipelineRenameFieldsProcessorField,
+    ObservabilityPipelineRenameMetricTagsProcessor:
+      ObservabilityPipelineRenameMetricTagsProcessor,
+    ObservabilityPipelineRenameMetricTagsProcessorTag:
+      ObservabilityPipelineRenameMetricTagsProcessorTag,
+    ObservabilityPipelineRsyslogDestination:
+      ObservabilityPipelineRsyslogDestination,
+    ObservabilityPipelineRsyslogSource: ObservabilityPipelineRsyslogSource,
+    ObservabilityPipelineSampleProcessor: ObservabilityPipelineSampleProcessor,
+    ObservabilityPipelineSensitiveDataScannerProcessor:
+      ObservabilityPipelineSensitiveDataScannerProcessor,
+    ObservabilityPipelineSensitiveDataScannerProcessorActionHash:
+      ObservabilityPipelineSensitiveDataScannerProcessorActionHash,
+    ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact:
+      ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact,
+    ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions:
+      ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions,
+    ObservabilityPipelineSensitiveDataScannerProcessorActionRedact:
+      ObservabilityPipelineSensitiveDataScannerProcessorActionRedact,
+    ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions:
+      ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions,
+    ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern:
+      ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern,
+    ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions:
+      ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions,
+    ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions:
+      ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions,
+    ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern:
+      ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern,
+    ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions:
+      ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions,
+    ObservabilityPipelineSensitiveDataScannerProcessorRule:
+      ObservabilityPipelineSensitiveDataScannerProcessorRule,
+    ObservabilityPipelineSensitiveDataScannerProcessorScopeAll:
+      ObservabilityPipelineSensitiveDataScannerProcessorScopeAll,
+    ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude:
+      ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude,
+    ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude:
+      ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude,
+    ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions:
+      ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions,
+    ObservabilityPipelineSentinelOneDestination:
+      ObservabilityPipelineSentinelOneDestination,
+    ObservabilityPipelineSocketDestination:
+      ObservabilityPipelineSocketDestination,
+    ObservabilityPipelineSocketDestinationFramingBytes:
+      ObservabilityPipelineSocketDestinationFramingBytes,
+    ObservabilityPipelineSocketDestinationFramingCharacterDelimited:
+      ObservabilityPipelineSocketDestinationFramingCharacterDelimited,
+    ObservabilityPipelineSocketDestinationFramingNewlineDelimited:
+      ObservabilityPipelineSocketDestinationFramingNewlineDelimited,
+    ObservabilityPipelineSocketSource: ObservabilityPipelineSocketSource,
+    ObservabilityPipelineSocketSourceFramingBytes:
+      ObservabilityPipelineSocketSourceFramingBytes,
+    ObservabilityPipelineSocketSourceFramingCharacterDelimited:
+      ObservabilityPipelineSocketSourceFramingCharacterDelimited,
+    ObservabilityPipelineSocketSourceFramingChunkedGelf:
+      ObservabilityPipelineSocketSourceFramingChunkedGelf,
+    ObservabilityPipelineSocketSourceFramingNewlineDelimited:
+      ObservabilityPipelineSocketSourceFramingNewlineDelimited,
+    ObservabilityPipelineSocketSourceFramingOctetCounting:
+      ObservabilityPipelineSocketSourceFramingOctetCounting,
+    ObservabilityPipelineSourceValidTokenFieldToAdd:
+      ObservabilityPipelineSourceValidTokenFieldToAdd,
+    ObservabilityPipelineSpec: ObservabilityPipelineSpec,
+    ObservabilityPipelineSpecData: ObservabilityPipelineSpecData,
+    ObservabilityPipelineSpikeProtectionProcessor:
+      ObservabilityPipelineSpikeProtectionProcessor,
+    ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep:
+      ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep,
+    ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes:
+      ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes,
+    ObservabilityPipelineSpikeProtectionProcessorThresholdOverride:
+      ObservabilityPipelineSpikeProtectionProcessorThresholdOverride,
+    ObservabilityPipelineSplitArrayProcessor:
+      ObservabilityPipelineSplitArrayProcessor,
+    ObservabilityPipelineSplitArrayProcessorArrayConfig:
+      ObservabilityPipelineSplitArrayProcessorArrayConfig,
+    ObservabilityPipelineSplunkHecDestination:
+      ObservabilityPipelineSplunkHecDestination,
+    ObservabilityPipelineSplunkHecMetricsDestination:
+      ObservabilityPipelineSplunkHecMetricsDestination,
+    ObservabilityPipelineSplunkHecSource: ObservabilityPipelineSplunkHecSource,
+    ObservabilityPipelineSplunkHecSourceValidToken:
+      ObservabilityPipelineSplunkHecSourceValidToken,
+    ObservabilityPipelineSplunkTcpSource: ObservabilityPipelineSplunkTcpSource,
+    ObservabilityPipelineSumoLogicDestination:
+      ObservabilityPipelineSumoLogicDestination,
+    ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem:
+      ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem,
+    ObservabilityPipelineSumoLogicSource: ObservabilityPipelineSumoLogicSource,
+    ObservabilityPipelineSyslogNgDestination:
+      ObservabilityPipelineSyslogNgDestination,
+    ObservabilityPipelineSyslogNgSource: ObservabilityPipelineSyslogNgSource,
+    ObservabilityPipelineTagCardinalityLimitProcessor:
+      ObservabilityPipelineTagCardinalityLimitProcessor,
+    ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit:
+      ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit,
+    ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit:
+      ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit,
+    ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode:
+      ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode,
+    ObservabilityPipelineThrottleProcessor:
+      ObservabilityPipelineThrottleProcessor,
+    ObservabilityPipelineTls: ObservabilityPipelineTls,
+    ObservabilityPipelineWebsocketSource: ObservabilityPipelineWebsocketSource,
+    ObservabilityPipelineWebsocketSourceTlsEnabled:
+      ObservabilityPipelineWebsocketSourceTlsEnabled,
+    ObservabilityPipelineWebsocketSourceTlsWithClientCert:
+      ObservabilityPipelineWebsocketSourceTlsWithClientCert,
+    ValidationError: ValidationError,
+    ValidationErrorMeta: ValidationErrorMeta,
+    ValidationResponse: ValidationResponse,
+  },
+};

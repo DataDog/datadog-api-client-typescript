@@ -1,0 +1,65 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { OktaAPITokenType } from "./OktaAPITokenType";
+import { OktaAPITokenUpdateApiToken } from "./OktaAPITokenUpdateApiToken";
+import { OktaAPITokenUpdateDomain } from "./OktaAPITokenUpdateDomain";
+
+/**
+ * The definition of the `OktaAPIToken` object.
+ */
+export class OktaAPITokenUpdate {
+  /**
+   * The `OktaAPITokenUpdate` `api_token`.
+   */
+  "apiToken"?: OktaAPITokenUpdateApiToken;
+  /**
+   * The `OktaAPITokenUpdate` `domain`.
+   */
+  "domain"?: OktaAPITokenUpdateDomain;
+  /**
+   * The definition of the `OktaAPIToken` object.
+   */
+  "type": OktaAPITokenType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    apiToken: {
+      baseName: "api_token",
+      type: "OktaAPITokenUpdateApiToken",
+    },
+    domain: {
+      baseName: "domain",
+      type: "OktaAPITokenUpdateDomain",
+    },
+    type: {
+      baseName: "type",
+      type: "OktaAPITokenType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return OktaAPITokenUpdate.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

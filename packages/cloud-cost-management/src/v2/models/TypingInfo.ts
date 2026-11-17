@@ -1,0 +1,654 @@
+import { ModelTypingInfo } from "@datadog/datadog-api-client-core";
+
+import { APIErrorResponse } from "./APIErrorResponse";
+import { AccountFilteringConfig } from "./AccountFilteringConfig";
+import { AccountFilters } from "./AccountFilters";
+import { AccountFiltersAttributes } from "./AccountFiltersAttributes";
+import { AccountFiltersPatchData } from "./AccountFiltersPatchData";
+import { AccountFiltersPatchRequest } from "./AccountFiltersPatchRequest";
+import { AccountFiltersPatchRequestAttributes } from "./AccountFiltersPatchRequestAttributes";
+import { AccountFiltersResponse } from "./AccountFiltersResponse";
+import { ArbitraryCostUpsertRequest } from "./ArbitraryCostUpsertRequest";
+import { ArbitraryCostUpsertRequestData } from "./ArbitraryCostUpsertRequestData";
+import { ArbitraryCostUpsertRequestDataAttributes } from "./ArbitraryCostUpsertRequestDataAttributes";
+import { ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems } from "./ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategy } from "./ArbitraryCostUpsertRequestDataAttributesStrategy";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems";
+import { ArbitraryRuleMappingTransform } from "./ArbitraryRuleMappingTransform";
+import { ArbitraryRuleResponse } from "./ArbitraryRuleResponse";
+import { ArbitraryRuleResponseArray } from "./ArbitraryRuleResponseArray";
+import { ArbitraryRuleResponseArrayMeta } from "./ArbitraryRuleResponseArrayMeta";
+import { ArbitraryRuleResponseData } from "./ArbitraryRuleResponseData";
+import { ArbitraryRuleResponseDataAttributes } from "./ArbitraryRuleResponseDataAttributes";
+import { ArbitraryRuleResponseDataAttributesCostsToAllocateItems } from "./ArbitraryRuleResponseDataAttributesCostsToAllocateItems";
+import { ArbitraryRuleResponseDataAttributesStrategy } from "./ArbitraryRuleResponseDataAttributesStrategy";
+import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems";
+import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems";
+import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems";
+import { ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems } from "./ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems";
+import { ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems";
+import { ArbitraryRuleStatusResponseArray } from "./ArbitraryRuleStatusResponseArray";
+import { ArbitraryRuleStatusResponseData } from "./ArbitraryRuleStatusResponseData";
+import { ArbitraryRuleStatusResponseDataAttributes } from "./ArbitraryRuleStatusResponseDataAttributes";
+import { ArbitraryRuleTagTransforms } from "./ArbitraryRuleTagTransforms";
+import { ArbitraryRuleTagValueTransform } from "./ArbitraryRuleTagValueTransform";
+import { AwsCURConfig } from "./AwsCURConfig";
+import { AwsCURConfigAttributes } from "./AwsCURConfigAttributes";
+import { AwsCURConfigPatchData } from "./AwsCURConfigPatchData";
+import { AwsCURConfigPatchRequest } from "./AwsCURConfigPatchRequest";
+import { AwsCURConfigPatchRequestAttributes } from "./AwsCURConfigPatchRequestAttributes";
+import { AwsCURConfigPostData } from "./AwsCURConfigPostData";
+import { AwsCURConfigPostRequest } from "./AwsCURConfigPostRequest";
+import { AwsCURConfigPostRequestAttributes } from "./AwsCURConfigPostRequestAttributes";
+import { AwsCURConfigsResponse } from "./AwsCURConfigsResponse";
+import { AwsCurConfigResponse } from "./AwsCurConfigResponse";
+import { AwsCurConfigResponseData } from "./AwsCurConfigResponseData";
+import { AwsCurConfigResponseDataAttributes } from "./AwsCurConfigResponseDataAttributes";
+import { AwsCurConfigResponseDataAttributesAccountFilters } from "./AwsCurConfigResponseDataAttributesAccountFilters";
+import { AzureUCConfig } from "./AzureUCConfig";
+import { AzureUCConfigPair } from "./AzureUCConfigPair";
+import { AzureUCConfigPairAttributes } from "./AzureUCConfigPairAttributes";
+import { AzureUCConfigPairsResponse } from "./AzureUCConfigPairsResponse";
+import { AzureUCConfigPatchData } from "./AzureUCConfigPatchData";
+import { AzureUCConfigPatchRequest } from "./AzureUCConfigPatchRequest";
+import { AzureUCConfigPatchRequestAttributes } from "./AzureUCConfigPatchRequestAttributes";
+import { AzureUCConfigPostData } from "./AzureUCConfigPostData";
+import { AzureUCConfigPostRequest } from "./AzureUCConfigPostRequest";
+import { AzureUCConfigPostRequestAttributes } from "./AzureUCConfigPostRequestAttributes";
+import { AzureUCConfigsResponse } from "./AzureUCConfigsResponse";
+import { BillConfig } from "./BillConfig";
+import { Budget } from "./Budget";
+import { BudgetArray } from "./BudgetArray";
+import { BudgetAttributes } from "./BudgetAttributes";
+import { BudgetAttributesCosts } from "./BudgetAttributesCosts";
+import { BudgetAttributesCostsUnit } from "./BudgetAttributesCostsUnit";
+import { BudgetValidationRequest } from "./BudgetValidationRequest";
+import { BudgetValidationRequestData } from "./BudgetValidationRequestData";
+import { BudgetValidationResponse } from "./BudgetValidationResponse";
+import { BudgetValidationResponseData } from "./BudgetValidationResponseData";
+import { BudgetValidationResponseDataAttributes } from "./BudgetValidationResponseDataAttributes";
+import { BudgetWithEntries } from "./BudgetWithEntries";
+import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
+import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttributes";
+import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
+import { BudgetWithEntriesDataAttributesEntriesItemsCosts } from "./BudgetWithEntriesDataAttributesEntriesItemsCosts";
+import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
+import { BudgetWithEntriesMeta } from "./BudgetWithEntriesMeta";
+import { CloudCostAccount } from "./CloudCostAccount";
+import { CloudCostAccountAttributes } from "./CloudCostAccountAttributes";
+import { CloudCostAccountsResponse } from "./CloudCostAccountsResponse";
+import { CommitmentsAwsEC2RICommitment } from "./CommitmentsAwsEC2RICommitment";
+import { CommitmentsAwsElasticacheRICommitment } from "./CommitmentsAwsElasticacheRICommitment";
+import { CommitmentsAwsRDSRICommitment } from "./CommitmentsAwsRDSRICommitment";
+import { CommitmentsAwsSPCommitment } from "./CommitmentsAwsSPCommitment";
+import { CommitmentsAzureComputeSPCommitment } from "./CommitmentsAzureComputeSPCommitment";
+import { CommitmentsAzureVMRICommitment } from "./CommitmentsAzureVMRICommitment";
+import { CommitmentsCoverageScalarResponse } from "./CommitmentsCoverageScalarResponse";
+import { CommitmentsCoverageTimeseriesResponse } from "./CommitmentsCoverageTimeseriesResponse";
+import { CommitmentsListMeta } from "./CommitmentsListMeta";
+import { CommitmentsListResponse } from "./CommitmentsListResponse";
+import { CommitmentsListResponseAttributes } from "./CommitmentsListResponseAttributes";
+import { CommitmentsListResponseData } from "./CommitmentsListResponseData";
+import { CommitmentsOnDemandHotspotsScalarMeta } from "./CommitmentsOnDemandHotspotsScalarMeta";
+import { CommitmentsOnDemandHotspotsScalarResponse } from "./CommitmentsOnDemandHotspotsScalarResponse";
+import { CommitmentsQueryDefinition } from "./CommitmentsQueryDefinition";
+import { CommitmentsQueryDefinitionFormula } from "./CommitmentsQueryDefinitionFormula";
+import { CommitmentsQueryDefinitionQuery } from "./CommitmentsQueryDefinitionQuery";
+import { CommitmentsSavingsScalarResponse } from "./CommitmentsSavingsScalarResponse";
+import { CommitmentsSavingsTimeseriesResponse } from "./CommitmentsSavingsTimeseriesResponse";
+import { CommitmentsScalarColumn } from "./CommitmentsScalarColumn";
+import { CommitmentsScalarColumnMeta } from "./CommitmentsScalarColumnMeta";
+import { CommitmentsTimeseriesMetric } from "./CommitmentsTimeseriesMetric";
+import { CommitmentsUnit } from "./CommitmentsUnit";
+import { CommitmentsUtilizationScalarProductBreakdownEntry } from "./CommitmentsUtilizationScalarProductBreakdownEntry";
+import { CommitmentsUtilizationScalarResponse } from "./CommitmentsUtilizationScalarResponse";
+import { CommitmentsUtilizationTimeseriesResponse } from "./CommitmentsUtilizationTimeseriesResponse";
+import { CostAnomaliesResponse } from "./CostAnomaliesResponse";
+import { CostAnomaliesResponseData } from "./CostAnomaliesResponseData";
+import { CostAnomaliesResponseDataAttributes } from "./CostAnomaliesResponseDataAttributes";
+import { CostAnomaly } from "./CostAnomaly";
+import { CostAnomalyDismissal } from "./CostAnomalyDismissal";
+import { CostAnomalyResponse } from "./CostAnomalyResponse";
+import { CostAnomalyResponseData } from "./CostAnomalyResponseData";
+import { CostCurrency } from "./CostCurrency";
+import { CostCurrencyResponse } from "./CostCurrencyResponse";
+import { CostMetric } from "./CostMetric";
+import { CostMetricsResponse } from "./CostMetricsResponse";
+import { CostOrchestrator } from "./CostOrchestrator";
+import { CostOrchestratorsResponse } from "./CostOrchestratorsResponse";
+import { CostRecommendationArray } from "./CostRecommendationArray";
+import { CostRecommendationData } from "./CostRecommendationData";
+import { CostRecommendationDataAttributes } from "./CostRecommendationDataAttributes";
+import { CostRecommendationDataAttributesPotentialDailySavings } from "./CostRecommendationDataAttributesPotentialDailySavings";
+import { CostTag } from "./CostTag";
+import { CostTagAttributes } from "./CostTagAttributes";
+import { CostTagDescription } from "./CostTagDescription";
+import { CostTagDescriptionAttributes } from "./CostTagDescriptionAttributes";
+import { CostTagDescriptionResponse } from "./CostTagDescriptionResponse";
+import { CostTagDescriptionUpsertRequest } from "./CostTagDescriptionUpsertRequest";
+import { CostTagDescriptionUpsertRequestData } from "./CostTagDescriptionUpsertRequestData";
+import { CostTagDescriptionUpsertRequestDataAttributes } from "./CostTagDescriptionUpsertRequestDataAttributes";
+import { CostTagDescriptionsResponse } from "./CostTagDescriptionsResponse";
+import { CostTagKey } from "./CostTagKey";
+import { CostTagKeyAttributes } from "./CostTagKeyAttributes";
+import { CostTagKeyDetails } from "./CostTagKeyDetails";
+import { CostTagKeyMetadata } from "./CostTagKeyMetadata";
+import { CostTagKeyMetadataAttributes } from "./CostTagKeyMetadataAttributes";
+import { CostTagKeyMetadataResponse } from "./CostTagKeyMetadataResponse";
+import { CostTagKeyResponse } from "./CostTagKeyResponse";
+import { CostTagKeySource } from "./CostTagKeySource";
+import { CostTagKeySourceAttributes } from "./CostTagKeySourceAttributes";
+import { CostTagKeySourcesResponse } from "./CostTagKeySourcesResponse";
+import { CostTagKeysResponse } from "./CostTagKeysResponse";
+import { CostTagMetadataMonth } from "./CostTagMetadataMonth";
+import { CostTagMetadataMonthsResponse } from "./CostTagMetadataMonthsResponse";
+import { CostTagsResponse } from "./CostTagsResponse";
+import { CreateRulesetRequest } from "./CreateRulesetRequest";
+import { CreateRulesetRequestData } from "./CreateRulesetRequestData";
+import { CreateRulesetRequestDataAttributes } from "./CreateRulesetRequestDataAttributes";
+import { CreateRulesetRequestDataAttributesRulesItems } from "./CreateRulesetRequestDataAttributesRulesItems";
+import { CreateRulesetRequestDataAttributesRulesItemsQuery } from "./CreateRulesetRequestDataAttributesRulesItemsQuery";
+import { CreateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./CreateRulesetRequestDataAttributesRulesItemsQueryAddition";
+import { CreateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTable";
+import { CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
+import { CustomCostGetResponseMeta } from "./CustomCostGetResponseMeta";
+import { CustomCostListResponseMeta } from "./CustomCostListResponseMeta";
+import { CustomCostUploadResponseMeta } from "./CustomCostUploadResponseMeta";
+import { CustomCostsFileGetResponse } from "./CustomCostsFileGetResponse";
+import { CustomCostsFileLineItem } from "./CustomCostsFileLineItem";
+import { CustomCostsFileListResponse } from "./CustomCostsFileListResponse";
+import { CustomCostsFileMetadata } from "./CustomCostsFileMetadata";
+import { CustomCostsFileMetadataHighLevel } from "./CustomCostsFileMetadataHighLevel";
+import { CustomCostsFileMetadataWithContent } from "./CustomCostsFileMetadataWithContent";
+import { CustomCostsFileMetadataWithContentHighLevel } from "./CustomCostsFileMetadataWithContentHighLevel";
+import { CustomCostsFileUpdateAttributes } from "./CustomCostsFileUpdateAttributes";
+import { CustomCostsFileUpdateData } from "./CustomCostsFileUpdateData";
+import { CustomCostsFileUpdateRequest } from "./CustomCostsFileUpdateRequest";
+import { CustomCostsFileUploadResponse } from "./CustomCostsFileUploadResponse";
+import { CustomCostsFileUsageChargePeriod } from "./CustomCostsFileUsageChargePeriod";
+import { CustomCostsUser } from "./CustomCostsUser";
+import { CustomForecastEntry } from "./CustomForecastEntry";
+import { CustomForecastEntryTagFilter } from "./CustomForecastEntryTagFilter";
+import { CustomForecastResponse } from "./CustomForecastResponse";
+import { CustomForecastResponseData } from "./CustomForecastResponseData";
+import { CustomForecastResponseDataAttributes } from "./CustomForecastResponseDataAttributes";
+import { CustomForecastUpsertRequest } from "./CustomForecastUpsertRequest";
+import { CustomForecastUpsertRequestData } from "./CustomForecastUpsertRequestData";
+import { CustomForecastUpsertRequestDataAttributes } from "./CustomForecastUpsertRequestDataAttributes";
+import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMapping";
+import { GCPCudMetadataConfig } from "./GCPCudMetadataConfig";
+import { GCPUsageCostConfig } from "./GCPUsageCostConfig";
+import { GCPUsageCostConfigAttributes } from "./GCPUsageCostConfigAttributes";
+import { GCPUsageCostConfigPatchData } from "./GCPUsageCostConfigPatchData";
+import { GCPUsageCostConfigPatchRequest } from "./GCPUsageCostConfigPatchRequest";
+import { GCPUsageCostConfigPatchRequestAttributes } from "./GCPUsageCostConfigPatchRequestAttributes";
+import { GCPUsageCostConfigPostData } from "./GCPUsageCostConfigPostData";
+import { GCPUsageCostConfigPostRequest } from "./GCPUsageCostConfigPostRequest";
+import { GCPUsageCostConfigPostRequestAttributes } from "./GCPUsageCostConfigPostRequestAttributes";
+import { GCPUsageCostConfigResponse } from "./GCPUsageCostConfigResponse";
+import { GCPUsageCostConfigsResponse } from "./GCPUsageCostConfigsResponse";
+import { GcpUcConfigResponse } from "./GcpUcConfigResponse";
+import { GcpUcConfigResponseData } from "./GcpUcConfigResponseData";
+import { GcpUcConfigResponseDataAttributes } from "./GcpUcConfigResponseDataAttributes";
+import { GenerateCostTagDescriptionResponse } from "./GenerateCostTagDescriptionResponse";
+import { GeneratedCostTagDescription } from "./GeneratedCostTagDescription";
+import { GeneratedCostTagDescriptionAttributes } from "./GeneratedCostTagDescriptionAttributes";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { OCIConfig } from "./OCIConfig";
+import { OCIConfigAttributes } from "./OCIConfigAttributes";
+import { OCIConfigsResponse } from "./OCIConfigsResponse";
+import { RecommendationsFilterRequest } from "./RecommendationsFilterRequest";
+import { RecommendationsFilterRequestData } from "./RecommendationsFilterRequestData";
+import { RecommendationsFilterRequestDataAttributes } from "./RecommendationsFilterRequestDataAttributes";
+import { RecommendationsFilterRequestSortItems } from "./RecommendationsFilterRequestSortItems";
+import { RecommendationsPageMeta } from "./RecommendationsPageMeta";
+import { RecommendationsPageMetaPage } from "./RecommendationsPageMetaPage";
+import { ReorderRuleResourceArray } from "./ReorderRuleResourceArray";
+import { ReorderRuleResourceData } from "./ReorderRuleResourceData";
+import { ReorderRulesetResourceArray } from "./ReorderRulesetResourceArray";
+import { ReorderRulesetResourceData } from "./ReorderRulesetResourceData";
+import { RulesValidateQueryRequest } from "./RulesValidateQueryRequest";
+import { RulesValidateQueryRequestData } from "./RulesValidateQueryRequestData";
+import { RulesValidateQueryRequestDataAttributes } from "./RulesValidateQueryRequestDataAttributes";
+import { RulesValidateQueryResponse } from "./RulesValidateQueryResponse";
+import { RulesValidateQueryResponseData } from "./RulesValidateQueryResponseData";
+import { RulesValidateQueryResponseDataAttributes } from "./RulesValidateQueryResponseDataAttributes";
+import { RulesetResp } from "./RulesetResp";
+import { RulesetRespArray } from "./RulesetRespArray";
+import { RulesetRespData } from "./RulesetRespData";
+import { RulesetRespDataAttributes } from "./RulesetRespDataAttributes";
+import { RulesetRespDataAttributesCreated } from "./RulesetRespDataAttributesCreated";
+import { RulesetRespDataAttributesModified } from "./RulesetRespDataAttributesModified";
+import { RulesetRespDataAttributesRulesItems } from "./RulesetRespDataAttributesRulesItems";
+import { RulesetRespDataAttributesRulesItemsQuery } from "./RulesetRespDataAttributesRulesItemsQuery";
+import { RulesetRespDataAttributesRulesItemsQueryAddition } from "./RulesetRespDataAttributesRulesItemsQueryAddition";
+import { RulesetRespDataAttributesRulesItemsReferenceTable } from "./RulesetRespDataAttributesRulesItemsReferenceTable";
+import { RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems";
+import { RulesetStatusRespArray } from "./RulesetStatusRespArray";
+import { RulesetStatusRespData } from "./RulesetStatusRespData";
+import { RulesetStatusRespDataAttributes } from "./RulesetStatusRespDataAttributes";
+import { UCConfigPair } from "./UCConfigPair";
+import { UCConfigPairData } from "./UCConfigPairData";
+import { UCConfigPairDataAttributes } from "./UCConfigPairDataAttributes";
+import { UCConfigPairDataAttributesConfigsItems } from "./UCConfigPairDataAttributesConfigsItems";
+import { UnitCostCreateRequest } from "./UnitCostCreateRequest";
+import { UnitCostCreateRequestData } from "./UnitCostCreateRequestData";
+import { UnitCostDataAttributesResponse } from "./UnitCostDataAttributesResponse";
+import { UnitCostDataResponse } from "./UnitCostDataResponse";
+import { UnitCostQueryDefinition } from "./UnitCostQueryDefinition";
+import { UnitCostRequestAttributes } from "./UnitCostRequestAttributes";
+import { UnitCostResponse } from "./UnitCostResponse";
+import { UnitCostUpdateRequest } from "./UnitCostUpdateRequest";
+import { UnitCostUpdateRequestData } from "./UnitCostUpdateRequestData";
+import { UnitCostsResponse } from "./UnitCostsResponse";
+import { UpdateRulesetRequest } from "./UpdateRulesetRequest";
+import { UpdateRulesetRequestData } from "./UpdateRulesetRequestData";
+import { UpdateRulesetRequestDataAttributes } from "./UpdateRulesetRequestDataAttributes";
+import { UpdateRulesetRequestDataAttributesRulesItems } from "./UpdateRulesetRequestDataAttributesRulesItems";
+import { UpdateRulesetRequestDataAttributesRulesItemsQuery } from "./UpdateRulesetRequestDataAttributesRulesItemsQuery";
+import { UpdateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./UpdateRulesetRequestDataAttributesRulesItemsQueryAddition";
+import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTable";
+import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
+import { ValidationError } from "./ValidationError";
+import { ValidationErrorMeta } from "./ValidationErrorMeta";
+import { ValidationResponse } from "./ValidationResponse";
+
+export const TypingInfo: ModelTypingInfo = {
+  enumsMap: {
+    AccountFiltersPatchRequestType: ["account_filters_patch_request"],
+    AccountFiltersType: ["account_filters"],
+    ArbitraryCostUpsertRequestDataType: ["upsert_arbitrary_rule"],
+    ArbitraryRuleResponseDataAttributesRuleCategory: ["custom", "ai_gateway"],
+    ArbitraryRuleResponseDataType: ["arbitrary_rule"],
+    ArbitraryRuleStatusResponseDataType: ["arbitrary_rule_status"],
+    ArbitraryRuleTagValueTransformType: [
+      "string_replace",
+      "regex_extract",
+      "regex_replace",
+      "lookup_map",
+    ],
+    AwsCURConfigPatchRequestType: ["aws_cur_config_patch_request"],
+    AwsCURConfigPostRequestType: ["aws_cur_config_post_request"],
+    AwsCURConfigType: ["aws_cur_config"],
+    AwsCurConfigResponseDataType: ["aws_cur_config"],
+    AzureUCConfigPairType: ["azure_uc_configs"],
+    AzureUCConfigPatchRequestType: ["azure_uc_config_patch_request"],
+    AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
+    BudgetValidationResponseDataType: ["budget_validation"],
+    BudgetWithEntriesDataType: ["budget"],
+    CloudCostAccountType: ["cloud_account"],
+    CommitmentsAzureVMRIStatus: ["running", "expired", "cancelled"],
+    CommitmentsCommitmentType: ["ri", "sp"],
+    CommitmentsListResponseType: ["commitments_list_response"],
+    CommitmentsProvider: ["aws", "azure"],
+    CommitmentsQueryDefinitionAggregator: ["sum", "avg", "min", "max"],
+    CommitmentsQueryDefinitionDataSource: ["cloud_cost", "metrics"],
+    CommitmentsScalarColumnType: ["group", "number"],
+    CostAnomaliesResponseDataType: ["anomalies"],
+    CostCurrencyType: ["cost_currency"],
+    CostMetricType: ["cost_metric"],
+    CostOrchestratorType: ["cost_orchestrator"],
+    CostRecommendationDataType: ["recommendation"],
+    CostTagDescriptionSource: ["human", "ai_generated", "datadog"],
+    CostTagDescriptionType: ["cost_tag_description"],
+    CostTagKeyMetadataType: ["cost_tag_key_metadata"],
+    CostTagKeySourceType: ["cost_tag_key_source"],
+    CostTagKeyType: ["cost_tag_key"],
+    CostTagMetadataDailyFilter: ["true", "false"],
+    CostTagMetadataMonthType: ["cost_tag_metadata_month"],
+    CostTagType: ["cost_tag"],
+    CreateRulesetRequestDataType: ["create_ruleset"],
+    CustomCostsFilePreviewUnavailableReason: [
+      "CHARGE_PERIOD_OUTSIDE_RETENTION_WINDOW",
+    ],
+    CustomCostsFileUpdateType: ["cost_metadata"],
+    CustomForecastType: ["custom_forecast"],
+    DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
+    GCPUsageCostConfigPatchRequestType: ["gcp_uc_config_patch_request"],
+    GCPUsageCostConfigPostRequestType: ["gcp_uc_config_post_request"],
+    GCPUsageCostConfigType: ["gcp_uc_config"],
+    GcpUcConfigResponseDataType: ["gcp_uc_config"],
+    GeneratedCostTagDescriptionType: ["cost_generated_tag_description"],
+    OCIConfigType: ["oci_config"],
+    RecommendationsFilterRequestDataType: ["recommendations_filter"],
+    RecommendationsFilterRequestScope: ["ccm", "experiment", "*", ""],
+    ReorderRuleResourceDataType: ["arbitrary_rule"],
+    ReorderRulesetResourceDataType: ["ruleset"],
+    RulesValidateQueryRequestDataType: ["validate_query"],
+    RulesValidateQueryResponseDataType: ["validate_response"],
+    RulesetRespDataType: ["ruleset"],
+    RulesetStatusRespDataType: ["ruleset_status"],
+    UCConfigPairDataType: ["azure_uc_configs"],
+    UnitCostType: ["unit_cost"],
+    UpdateRulesetRequestDataType: ["update_ruleset"],
+  },
+  oneOfMap: {
+    CommitmentsListItem: [
+      "CommitmentsAwsEC2RICommitment",
+      "CommitmentsAwsRDSRICommitment",
+      "CommitmentsAwsElasticacheRICommitment",
+      "CommitmentsAwsSPCommitment",
+      "CommitmentsAzureVMRICommitment",
+      "CommitmentsAzureComputeSPCommitment",
+    ],
+  },
+  typeMap: {
+    APIErrorResponse: APIErrorResponse,
+    AccountFilteringConfig: AccountFilteringConfig,
+    AccountFilters: AccountFilters,
+    AccountFiltersAttributes: AccountFiltersAttributes,
+    AccountFiltersPatchData: AccountFiltersPatchData,
+    AccountFiltersPatchRequest: AccountFiltersPatchRequest,
+    AccountFiltersPatchRequestAttributes: AccountFiltersPatchRequestAttributes,
+    AccountFiltersResponse: AccountFiltersResponse,
+    ArbitraryCostUpsertRequest: ArbitraryCostUpsertRequest,
+    ArbitraryCostUpsertRequestData: ArbitraryCostUpsertRequestData,
+    ArbitraryCostUpsertRequestDataAttributes:
+      ArbitraryCostUpsertRequestDataAttributes,
+    ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems:
+      ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems,
+    ArbitraryCostUpsertRequestDataAttributesStrategy:
+      ArbitraryCostUpsertRequestDataAttributesStrategy,
+    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems:
+      ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems,
+    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems:
+      ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems,
+    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems:
+      ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems,
+    ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems:
+      ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems,
+    ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems:
+      ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems,
+    ArbitraryRuleMappingTransform: ArbitraryRuleMappingTransform,
+    ArbitraryRuleResponse: ArbitraryRuleResponse,
+    ArbitraryRuleResponseArray: ArbitraryRuleResponseArray,
+    ArbitraryRuleResponseArrayMeta: ArbitraryRuleResponseArrayMeta,
+    ArbitraryRuleResponseData: ArbitraryRuleResponseData,
+    ArbitraryRuleResponseDataAttributes: ArbitraryRuleResponseDataAttributes,
+    ArbitraryRuleResponseDataAttributesCostsToAllocateItems:
+      ArbitraryRuleResponseDataAttributesCostsToAllocateItems,
+    ArbitraryRuleResponseDataAttributesStrategy:
+      ArbitraryRuleResponseDataAttributesStrategy,
+    ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems:
+      ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems,
+    ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems:
+      ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems,
+    ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems:
+      ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems,
+    ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems:
+      ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems,
+    ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems:
+      ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems,
+    ArbitraryRuleStatusResponseArray: ArbitraryRuleStatusResponseArray,
+    ArbitraryRuleStatusResponseData: ArbitraryRuleStatusResponseData,
+    ArbitraryRuleStatusResponseDataAttributes:
+      ArbitraryRuleStatusResponseDataAttributes,
+    ArbitraryRuleTagTransforms: ArbitraryRuleTagTransforms,
+    ArbitraryRuleTagValueTransform: ArbitraryRuleTagValueTransform,
+    AwsCURConfig: AwsCURConfig,
+    AwsCURConfigAttributes: AwsCURConfigAttributes,
+    AwsCURConfigPatchData: AwsCURConfigPatchData,
+    AwsCURConfigPatchRequest: AwsCURConfigPatchRequest,
+    AwsCURConfigPatchRequestAttributes: AwsCURConfigPatchRequestAttributes,
+    AwsCURConfigPostData: AwsCURConfigPostData,
+    AwsCURConfigPostRequest: AwsCURConfigPostRequest,
+    AwsCURConfigPostRequestAttributes: AwsCURConfigPostRequestAttributes,
+    AwsCURConfigsResponse: AwsCURConfigsResponse,
+    AwsCurConfigResponse: AwsCurConfigResponse,
+    AwsCurConfigResponseData: AwsCurConfigResponseData,
+    AwsCurConfigResponseDataAttributes: AwsCurConfigResponseDataAttributes,
+    AwsCurConfigResponseDataAttributesAccountFilters:
+      AwsCurConfigResponseDataAttributesAccountFilters,
+    AzureUCConfig: AzureUCConfig,
+    AzureUCConfigPair: AzureUCConfigPair,
+    AzureUCConfigPairAttributes: AzureUCConfigPairAttributes,
+    AzureUCConfigPairsResponse: AzureUCConfigPairsResponse,
+    AzureUCConfigPatchData: AzureUCConfigPatchData,
+    AzureUCConfigPatchRequest: AzureUCConfigPatchRequest,
+    AzureUCConfigPatchRequestAttributes: AzureUCConfigPatchRequestAttributes,
+    AzureUCConfigPostData: AzureUCConfigPostData,
+    AzureUCConfigPostRequest: AzureUCConfigPostRequest,
+    AzureUCConfigPostRequestAttributes: AzureUCConfigPostRequestAttributes,
+    AzureUCConfigsResponse: AzureUCConfigsResponse,
+    BillConfig: BillConfig,
+    Budget: Budget,
+    BudgetArray: BudgetArray,
+    BudgetAttributes: BudgetAttributes,
+    BudgetAttributesCosts: BudgetAttributesCosts,
+    BudgetAttributesCostsUnit: BudgetAttributesCostsUnit,
+    BudgetValidationRequest: BudgetValidationRequest,
+    BudgetValidationRequestData: BudgetValidationRequestData,
+    BudgetValidationResponse: BudgetValidationResponse,
+    BudgetValidationResponseData: BudgetValidationResponseData,
+    BudgetValidationResponseDataAttributes:
+      BudgetValidationResponseDataAttributes,
+    BudgetWithEntries: BudgetWithEntries,
+    BudgetWithEntriesData: BudgetWithEntriesData,
+    BudgetWithEntriesDataAttributes: BudgetWithEntriesDataAttributes,
+    BudgetWithEntriesDataAttributesEntriesItems:
+      BudgetWithEntriesDataAttributesEntriesItems,
+    BudgetWithEntriesDataAttributesEntriesItemsCosts:
+      BudgetWithEntriesDataAttributesEntriesItemsCosts,
+    BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems:
+      BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
+    BudgetWithEntriesMeta: BudgetWithEntriesMeta,
+    CloudCostAccount: CloudCostAccount,
+    CloudCostAccountAttributes: CloudCostAccountAttributes,
+    CloudCostAccountsResponse: CloudCostAccountsResponse,
+    CommitmentsAwsEC2RICommitment: CommitmentsAwsEC2RICommitment,
+    CommitmentsAwsElasticacheRICommitment:
+      CommitmentsAwsElasticacheRICommitment,
+    CommitmentsAwsRDSRICommitment: CommitmentsAwsRDSRICommitment,
+    CommitmentsAwsSPCommitment: CommitmentsAwsSPCommitment,
+    CommitmentsAzureComputeSPCommitment: CommitmentsAzureComputeSPCommitment,
+    CommitmentsAzureVMRICommitment: CommitmentsAzureVMRICommitment,
+    CommitmentsCoverageScalarResponse: CommitmentsCoverageScalarResponse,
+    CommitmentsCoverageTimeseriesResponse:
+      CommitmentsCoverageTimeseriesResponse,
+    CommitmentsListMeta: CommitmentsListMeta,
+    CommitmentsListResponse: CommitmentsListResponse,
+    CommitmentsListResponseAttributes: CommitmentsListResponseAttributes,
+    CommitmentsListResponseData: CommitmentsListResponseData,
+    CommitmentsOnDemandHotspotsScalarMeta:
+      CommitmentsOnDemandHotspotsScalarMeta,
+    CommitmentsOnDemandHotspotsScalarResponse:
+      CommitmentsOnDemandHotspotsScalarResponse,
+    CommitmentsQueryDefinition: CommitmentsQueryDefinition,
+    CommitmentsQueryDefinitionFormula: CommitmentsQueryDefinitionFormula,
+    CommitmentsQueryDefinitionQuery: CommitmentsQueryDefinitionQuery,
+    CommitmentsSavingsScalarResponse: CommitmentsSavingsScalarResponse,
+    CommitmentsSavingsTimeseriesResponse: CommitmentsSavingsTimeseriesResponse,
+    CommitmentsScalarColumn: CommitmentsScalarColumn,
+    CommitmentsScalarColumnMeta: CommitmentsScalarColumnMeta,
+    CommitmentsTimeseriesMetric: CommitmentsTimeseriesMetric,
+    CommitmentsUnit: CommitmentsUnit,
+    CommitmentsUtilizationScalarProductBreakdownEntry:
+      CommitmentsUtilizationScalarProductBreakdownEntry,
+    CommitmentsUtilizationScalarResponse: CommitmentsUtilizationScalarResponse,
+    CommitmentsUtilizationTimeseriesResponse:
+      CommitmentsUtilizationTimeseriesResponse,
+    CostAnomaliesResponse: CostAnomaliesResponse,
+    CostAnomaliesResponseData: CostAnomaliesResponseData,
+    CostAnomaliesResponseDataAttributes: CostAnomaliesResponseDataAttributes,
+    CostAnomaly: CostAnomaly,
+    CostAnomalyDismissal: CostAnomalyDismissal,
+    CostAnomalyResponse: CostAnomalyResponse,
+    CostAnomalyResponseData: CostAnomalyResponseData,
+    CostCurrency: CostCurrency,
+    CostCurrencyResponse: CostCurrencyResponse,
+    CostMetric: CostMetric,
+    CostMetricsResponse: CostMetricsResponse,
+    CostOrchestrator: CostOrchestrator,
+    CostOrchestratorsResponse: CostOrchestratorsResponse,
+    CostRecommendationArray: CostRecommendationArray,
+    CostRecommendationData: CostRecommendationData,
+    CostRecommendationDataAttributes: CostRecommendationDataAttributes,
+    CostRecommendationDataAttributesPotentialDailySavings:
+      CostRecommendationDataAttributesPotentialDailySavings,
+    CostTag: CostTag,
+    CostTagAttributes: CostTagAttributes,
+    CostTagDescription: CostTagDescription,
+    CostTagDescriptionAttributes: CostTagDescriptionAttributes,
+    CostTagDescriptionResponse: CostTagDescriptionResponse,
+    CostTagDescriptionUpsertRequest: CostTagDescriptionUpsertRequest,
+    CostTagDescriptionUpsertRequestData: CostTagDescriptionUpsertRequestData,
+    CostTagDescriptionUpsertRequestDataAttributes:
+      CostTagDescriptionUpsertRequestDataAttributes,
+    CostTagDescriptionsResponse: CostTagDescriptionsResponse,
+    CostTagKey: CostTagKey,
+    CostTagKeyAttributes: CostTagKeyAttributes,
+    CostTagKeyDetails: CostTagKeyDetails,
+    CostTagKeyMetadata: CostTagKeyMetadata,
+    CostTagKeyMetadataAttributes: CostTagKeyMetadataAttributes,
+    CostTagKeyMetadataResponse: CostTagKeyMetadataResponse,
+    CostTagKeyResponse: CostTagKeyResponse,
+    CostTagKeySource: CostTagKeySource,
+    CostTagKeySourceAttributes: CostTagKeySourceAttributes,
+    CostTagKeySourcesResponse: CostTagKeySourcesResponse,
+    CostTagKeysResponse: CostTagKeysResponse,
+    CostTagMetadataMonth: CostTagMetadataMonth,
+    CostTagMetadataMonthsResponse: CostTagMetadataMonthsResponse,
+    CostTagsResponse: CostTagsResponse,
+    CreateRulesetRequest: CreateRulesetRequest,
+    CreateRulesetRequestData: CreateRulesetRequestData,
+    CreateRulesetRequestDataAttributes: CreateRulesetRequestDataAttributes,
+    CreateRulesetRequestDataAttributesRulesItems:
+      CreateRulesetRequestDataAttributesRulesItems,
+    CreateRulesetRequestDataAttributesRulesItemsQuery:
+      CreateRulesetRequestDataAttributesRulesItemsQuery,
+    CreateRulesetRequestDataAttributesRulesItemsQueryAddition:
+      CreateRulesetRequestDataAttributesRulesItemsQueryAddition,
+    CreateRulesetRequestDataAttributesRulesItemsReferenceTable:
+      CreateRulesetRequestDataAttributesRulesItemsReferenceTable,
+    CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems:
+      CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
+    CustomCostGetResponseMeta: CustomCostGetResponseMeta,
+    CustomCostListResponseMeta: CustomCostListResponseMeta,
+    CustomCostUploadResponseMeta: CustomCostUploadResponseMeta,
+    CustomCostsFileGetResponse: CustomCostsFileGetResponse,
+    CustomCostsFileLineItem: CustomCostsFileLineItem,
+    CustomCostsFileListResponse: CustomCostsFileListResponse,
+    CustomCostsFileMetadata: CustomCostsFileMetadata,
+    CustomCostsFileMetadataHighLevel: CustomCostsFileMetadataHighLevel,
+    CustomCostsFileMetadataWithContent: CustomCostsFileMetadataWithContent,
+    CustomCostsFileMetadataWithContentHighLevel:
+      CustomCostsFileMetadataWithContentHighLevel,
+    CustomCostsFileUpdateAttributes: CustomCostsFileUpdateAttributes,
+    CustomCostsFileUpdateData: CustomCostsFileUpdateData,
+    CustomCostsFileUpdateRequest: CustomCostsFileUpdateRequest,
+    CustomCostsFileUploadResponse: CustomCostsFileUploadResponse,
+    CustomCostsFileUsageChargePeriod: CustomCostsFileUsageChargePeriod,
+    CustomCostsUser: CustomCostsUser,
+    CustomForecastEntry: CustomForecastEntry,
+    CustomForecastEntryTagFilter: CustomForecastEntryTagFilter,
+    CustomForecastResponse: CustomForecastResponse,
+    CustomForecastResponseData: CustomForecastResponseData,
+    CustomForecastResponseDataAttributes: CustomForecastResponseDataAttributes,
+    CustomForecastUpsertRequest: CustomForecastUpsertRequest,
+    CustomForecastUpsertRequestData: CustomForecastUpsertRequestData,
+    CustomForecastUpsertRequestDataAttributes:
+      CustomForecastUpsertRequestDataAttributes,
+    DataAttributesRulesItemsMapping: DataAttributesRulesItemsMapping,
+    GCPCudMetadataConfig: GCPCudMetadataConfig,
+    GCPUsageCostConfig: GCPUsageCostConfig,
+    GCPUsageCostConfigAttributes: GCPUsageCostConfigAttributes,
+    GCPUsageCostConfigPatchData: GCPUsageCostConfigPatchData,
+    GCPUsageCostConfigPatchRequest: GCPUsageCostConfigPatchRequest,
+    GCPUsageCostConfigPatchRequestAttributes:
+      GCPUsageCostConfigPatchRequestAttributes,
+    GCPUsageCostConfigPostData: GCPUsageCostConfigPostData,
+    GCPUsageCostConfigPostRequest: GCPUsageCostConfigPostRequest,
+    GCPUsageCostConfigPostRequestAttributes:
+      GCPUsageCostConfigPostRequestAttributes,
+    GCPUsageCostConfigResponse: GCPUsageCostConfigResponse,
+    GCPUsageCostConfigsResponse: GCPUsageCostConfigsResponse,
+    GcpUcConfigResponse: GcpUcConfigResponse,
+    GcpUcConfigResponseData: GcpUcConfigResponseData,
+    GcpUcConfigResponseDataAttributes: GcpUcConfigResponseDataAttributes,
+    GenerateCostTagDescriptionResponse: GenerateCostTagDescriptionResponse,
+    GeneratedCostTagDescription: GeneratedCostTagDescription,
+    GeneratedCostTagDescriptionAttributes:
+      GeneratedCostTagDescriptionAttributes,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
+    OCIConfig: OCIConfig,
+    OCIConfigAttributes: OCIConfigAttributes,
+    OCIConfigsResponse: OCIConfigsResponse,
+    RecommendationsFilterRequest: RecommendationsFilterRequest,
+    RecommendationsFilterRequestData: RecommendationsFilterRequestData,
+    RecommendationsFilterRequestDataAttributes:
+      RecommendationsFilterRequestDataAttributes,
+    RecommendationsFilterRequestSortItems:
+      RecommendationsFilterRequestSortItems,
+    RecommendationsPageMeta: RecommendationsPageMeta,
+    RecommendationsPageMetaPage: RecommendationsPageMetaPage,
+    ReorderRuleResourceArray: ReorderRuleResourceArray,
+    ReorderRuleResourceData: ReorderRuleResourceData,
+    ReorderRulesetResourceArray: ReorderRulesetResourceArray,
+    ReorderRulesetResourceData: ReorderRulesetResourceData,
+    RulesValidateQueryRequest: RulesValidateQueryRequest,
+    RulesValidateQueryRequestData: RulesValidateQueryRequestData,
+    RulesValidateQueryRequestDataAttributes:
+      RulesValidateQueryRequestDataAttributes,
+    RulesValidateQueryResponse: RulesValidateQueryResponse,
+    RulesValidateQueryResponseData: RulesValidateQueryResponseData,
+    RulesValidateQueryResponseDataAttributes:
+      RulesValidateQueryResponseDataAttributes,
+    RulesetResp: RulesetResp,
+    RulesetRespArray: RulesetRespArray,
+    RulesetRespData: RulesetRespData,
+    RulesetRespDataAttributes: RulesetRespDataAttributes,
+    RulesetRespDataAttributesCreated: RulesetRespDataAttributesCreated,
+    RulesetRespDataAttributesModified: RulesetRespDataAttributesModified,
+    RulesetRespDataAttributesRulesItems: RulesetRespDataAttributesRulesItems,
+    RulesetRespDataAttributesRulesItemsQuery:
+      RulesetRespDataAttributesRulesItemsQuery,
+    RulesetRespDataAttributesRulesItemsQueryAddition:
+      RulesetRespDataAttributesRulesItemsQueryAddition,
+    RulesetRespDataAttributesRulesItemsReferenceTable:
+      RulesetRespDataAttributesRulesItemsReferenceTable,
+    RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems:
+      RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems,
+    RulesetStatusRespArray: RulesetStatusRespArray,
+    RulesetStatusRespData: RulesetStatusRespData,
+    RulesetStatusRespDataAttributes: RulesetStatusRespDataAttributes,
+    UCConfigPair: UCConfigPair,
+    UCConfigPairData: UCConfigPairData,
+    UCConfigPairDataAttributes: UCConfigPairDataAttributes,
+    UCConfigPairDataAttributesConfigsItems:
+      UCConfigPairDataAttributesConfigsItems,
+    UnitCostCreateRequest: UnitCostCreateRequest,
+    UnitCostCreateRequestData: UnitCostCreateRequestData,
+    UnitCostDataAttributesResponse: UnitCostDataAttributesResponse,
+    UnitCostDataResponse: UnitCostDataResponse,
+    UnitCostQueryDefinition: UnitCostQueryDefinition,
+    UnitCostRequestAttributes: UnitCostRequestAttributes,
+    UnitCostResponse: UnitCostResponse,
+    UnitCostUpdateRequest: UnitCostUpdateRequest,
+    UnitCostUpdateRequestData: UnitCostUpdateRequestData,
+    UnitCostsResponse: UnitCostsResponse,
+    UpdateRulesetRequest: UpdateRulesetRequest,
+    UpdateRulesetRequestData: UpdateRulesetRequestData,
+    UpdateRulesetRequestDataAttributes: UpdateRulesetRequestDataAttributes,
+    UpdateRulesetRequestDataAttributesRulesItems:
+      UpdateRulesetRequestDataAttributesRulesItems,
+    UpdateRulesetRequestDataAttributesRulesItemsQuery:
+      UpdateRulesetRequestDataAttributesRulesItemsQuery,
+    UpdateRulesetRequestDataAttributesRulesItemsQueryAddition:
+      UpdateRulesetRequestDataAttributesRulesItemsQueryAddition,
+    UpdateRulesetRequestDataAttributesRulesItemsReferenceTable:
+      UpdateRulesetRequestDataAttributesRulesItemsReferenceTable,
+    UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems:
+      UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
+    ValidationError: ValidationError,
+    ValidationErrorMeta: ValidationErrorMeta,
+    ValidationResponse: ValidationResponse,
+  },
+};

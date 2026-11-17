@@ -1,0 +1,254 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client-core";
+
+import { RUMProductScales } from "./RUMProductScales";
+
+/**
+ * RUM application attributes.
+ */
+export class RUMApplicationAttributes {
+  /**
+   * ID of the API key associated with the application.
+   */
+  "apiKeyId"?: number;
+  /**
+   * Indicates if flat sampling of Session Replay for APM-correlated RUM sessions is enabled.
+   */
+  "apmRumFlatSamplingReplayEnabled"?: boolean;
+  /**
+   * Sample rate (0-100) of Session Replay for APM-correlated RUM sessions when flat sampling is enabled.
+   */
+  "apmRumFlatSamplingReplaySampleRate"?: number;
+  /**
+   * ID of the RUM application.
+   */
+  "applicationId": string;
+  /**
+   * Client token of the RUM application.
+   */
+  "clientToken": string;
+  /**
+   * Timestamp in ms of the creation date.
+   */
+  "createdAt": number;
+  /**
+   * Handle of the creator user.
+   */
+  "createdByHandle": string;
+  /**
+   * Timestamp in ms of the date the RUM application was disabled. Only present if the application was disabled.
+   */
+  "disabledAt"?: number;
+  /**
+   * Handle of the user who disabled the RUM application. Only present if the application was disabled.
+   */
+  "disabledByHandle"?: string;
+  /**
+   * Indicates if Error Tracking exclusion filters are enabled for the application.
+   */
+  "errorTrackingExclusionFilterEnabled"?: boolean;
+  /**
+   * Non-native ingestion paths the RUM application sends its data through. `otel` means the application sends RUM data through OpenTelemetry instead of the Datadog RUM SDK.
+   */
+  "externalFeeds"?: Array<string>;
+  /**
+   * Hash of the RUM application. Optional.
+   */
+  "hash"?: string;
+  /**
+   * Indicates if the RUM application is active.
+   */
+  "isActive"?: boolean;
+  /**
+   * Name of the RUM application.
+   */
+  "name": string;
+  /**
+   * Indicates if the out-of-the-box RUM metrics are installed for the application.
+   */
+  "ootbMetricsInstalled"?: boolean;
+  /**
+   * Org ID of the RUM application.
+   */
+  "orgId": number;
+  /**
+   * Indicates that the Product Analytics preview is disabled for the application. Only present (and `true`) when the Product Analytics retention state is not preview.
+   */
+  "productAnalyticsPreviewDisabled"?: boolean;
+  /**
+   * Sample rate (0-100) of Session Replay for Product Analytics sessions.
+   */
+  "productAnalyticsReplaySampleRate"?: number;
+  /**
+   * Product Scales configuration for the RUM application.
+   */
+  "productScales"?: RUMProductScales;
+  /**
+   * ID of the RUM SDK remote configuration for the application, if one exists.
+   */
+  "remoteConfigId"?: string;
+  /**
+   * Short name of the RUM application.
+   */
+  "shortName"?: string;
+  /**
+   * List of tags associated with the RUM application.
+   */
+  "tags"?: Array<string>;
+  /**
+   * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
+   */
+  "type": string;
+  /**
+   * Timestamp in ms of the last update date.
+   */
+  "updatedAt": number;
+  /**
+   * Handle of the updater user.
+   */
+  "updatedByHandle": string;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    apiKeyId: {
+      baseName: "api_key_id",
+      type: "number",
+      format: "int32",
+    },
+    apmRumFlatSamplingReplayEnabled: {
+      baseName: "apm_rum_flat_sampling_replay_enabled",
+      type: "boolean",
+    },
+    apmRumFlatSamplingReplaySampleRate: {
+      baseName: "apm_rum_flat_sampling_replay_sample_rate",
+      type: "number",
+      format: "double",
+    },
+    applicationId: {
+      baseName: "application_id",
+      type: "string",
+      required: true,
+    },
+    clientToken: {
+      baseName: "client_token",
+      type: "string",
+      required: true,
+    },
+    createdAt: {
+      baseName: "created_at",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    createdByHandle: {
+      baseName: "created_by_handle",
+      type: "string",
+      required: true,
+    },
+    disabledAt: {
+      baseName: "disabled_at",
+      type: "number",
+      format: "int64",
+    },
+    disabledByHandle: {
+      baseName: "disabled_by_handle",
+      type: "string",
+    },
+    errorTrackingExclusionFilterEnabled: {
+      baseName: "error_tracking_exclusion_filter_enabled",
+      type: "boolean",
+    },
+    externalFeeds: {
+      baseName: "external_feeds",
+      type: "Array<string>",
+    },
+    hash: {
+      baseName: "hash",
+      type: "string",
+    },
+    isActive: {
+      baseName: "is_active",
+      type: "boolean",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
+    },
+    ootbMetricsInstalled: {
+      baseName: "ootb_metrics_installed",
+      type: "boolean",
+    },
+    orgId: {
+      baseName: "org_id",
+      type: "number",
+      required: true,
+      format: "int32",
+    },
+    productAnalyticsPreviewDisabled: {
+      baseName: "product_analytics_preview_disabled",
+      type: "boolean",
+    },
+    productAnalyticsReplaySampleRate: {
+      baseName: "product_analytics_replay_sample_rate",
+      type: "number",
+      format: "int32",
+    },
+    productScales: {
+      baseName: "product_scales",
+      type: "RUMProductScales",
+    },
+    remoteConfigId: {
+      baseName: "remote_config_id",
+      type: "string",
+    },
+    shortName: {
+      baseName: "short_name",
+      type: "string",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+    },
+    type: {
+      baseName: "type",
+      type: "string",
+      required: true,
+    },
+    updatedAt: {
+      baseName: "updated_at",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    updatedByHandle: {
+      baseName: "updated_by_handle",
+      type: "string",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return RUMApplicationAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
