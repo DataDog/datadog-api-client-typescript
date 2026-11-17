@@ -28,6 +28,7 @@ import { AiGatewayBudgetListResponse } from "./AiGatewayBudgetListResponse";
 import { AiGatewayBudgetPeriodAttributes } from "./AiGatewayBudgetPeriodAttributes";
 import { AiGatewayBudgetPeriodResource } from "./AiGatewayBudgetPeriodResource";
 import { AiGatewayBudgetPeriodResponse } from "./AiGatewayBudgetPeriodResponse";
+import { AiGatewayBudgetReportingSummary } from "./AiGatewayBudgetReportingSummary";
 import { AiGatewayBudgetResource } from "./AiGatewayBudgetResource";
 import { AiGatewayBudgetResponse } from "./AiGatewayBudgetResponse";
 import { AiGatewayBudgetSelectorEntry } from "./AiGatewayBudgetSelectorEntry";
@@ -61,6 +62,12 @@ import { AiGatewayGovernanceReplaceData } from "./AiGatewayGovernanceReplaceData
 import { AiGatewayGovernanceReplaceRequest } from "./AiGatewayGovernanceReplaceRequest";
 import { AiGatewayGovernanceResource } from "./AiGatewayGovernanceResource";
 import { AiGatewayGovernanceResponse } from "./AiGatewayGovernanceResponse";
+import { AiGatewayModelAutomaticPricing } from "./AiGatewayModelAutomaticPricing";
+import { AiGatewayModelAutomaticPricingFieldMatch } from "./AiGatewayModelAutomaticPricingFieldMatch";
+import { AiGatewayModelAutomaticPricingMapping } from "./AiGatewayModelAutomaticPricingMapping";
+import { AiGatewayModelAutomaticPricingModeTrigger } from "./AiGatewayModelAutomaticPricingModeTrigger";
+import { AiGatewayModelAutomaticPricingRate } from "./AiGatewayModelAutomaticPricingRate";
+import { AiGatewayModelAutomaticPricingSource } from "./AiGatewayModelAutomaticPricingSource";
 import { AiGatewayModelCapabilities } from "./AiGatewayModelCapabilities";
 import { AiGatewayModelCatalogEntryAttributes } from "./AiGatewayModelCatalogEntryAttributes";
 import { AiGatewayModelCatalogEntryIdentifier } from "./AiGatewayModelCatalogEntryIdentifier";
@@ -109,6 +116,7 @@ import { AiGatewayModelReferencePrice } from "./AiGatewayModelReferencePrice";
 import { AiGatewayModelUpdateAttributes } from "./AiGatewayModelUpdateAttributes";
 import { AiGatewayModelUpdateData } from "./AiGatewayModelUpdateData";
 import { AiGatewayModelUpdateRequest } from "./AiGatewayModelUpdateRequest";
+import { AiGatewayModelZdr } from "./AiGatewayModelZdr";
 import { AiGatewayModelsBulkCreateAttributes } from "./AiGatewayModelsBulkCreateAttributes";
 import { AiGatewayModelsBulkCreateData } from "./AiGatewayModelsBulkCreateData";
 import { AiGatewayModelsBulkCreateRequest } from "./AiGatewayModelsBulkCreateRequest";
@@ -138,6 +146,7 @@ import { AiGatewayProviderModelsRelationship } from "./AiGatewayProviderModelsRe
 import { AiGatewayProviderRelationships } from "./AiGatewayProviderRelationships";
 import { AiGatewayProviderResource } from "./AiGatewayProviderResource";
 import { AiGatewayProviderResponse } from "./AiGatewayProviderResponse";
+import { AiGatewayProviderStatus } from "./AiGatewayProviderStatus";
 import { AiGatewayProviderUpdateAttributes } from "./AiGatewayProviderUpdateAttributes";
 import { AiGatewayProviderUpdateData } from "./AiGatewayProviderUpdateData";
 import { AiGatewayProviderUpdateRequest } from "./AiGatewayProviderUpdateRequest";
@@ -191,6 +200,7 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayBudgetInstanceSort: ["spend_desc", "spend_asc", "key_asc"],
     AiGatewayBudgetInstanceType: ["budget-instances"],
     AiGatewayBudgetInstancesSummaryType: ["budget-instances-summary"],
+    AiGatewayBudgetLimitMode: ["shared", "per_instance"],
     AiGatewayBudgetPeriodType: ["budget-periods"],
     AiGatewayBudgetType: ["budgets"],
     AiGatewayBudgetWindowPolicy: ["DAILY", "WEEKLY", "MONTHLY"],
@@ -301,12 +311,16 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayModelPricingEffectiveSource: [
       "catalog_auto",
       "model_override",
+      "models_dev",
+      "unpriced",
       "unknown",
     ],
     AiGatewayModelPricingSourceType: ["catalog", "custom"],
+    AiGatewayModelPricingStatus: ["priced", "unpriced"],
     AiGatewayModelPricingType: ["model-pricing"],
     AiGatewayModelReasoningControlType: ["toggle", "effort", "budget_tokens"],
     AiGatewayModelSource: ["discovered", "manual"],
+    AiGatewayModelZdrCoverage: ["full", "partial", "none"],
     AiGatewayModelsByCanonicalType: ["models-by-canonical"],
     AiGatewayNullableMaxReasoningLevel: [
       "none",
@@ -323,7 +337,13 @@ export const TypingInfo: ModelTypingInfo = {
       "classified",
     ],
     AiGatewayPolicyType: ["routing-documents"],
+    AiGatewayProviderCreateCredentialSource: [
+      "integration_account",
+      "subscription",
+    ],
+    AiGatewayProviderCredentialSource: ["integration_account", "subscription"],
     AiGatewayProviderInitialBindingRelation: ["viewer", "editor"],
+    AiGatewayProviderStatusState: ["ok", "invalid", "checking"],
     AiGatewayProviderType: ["providers"],
     AiGatewayRateLimitInstanceSort: [
       "utilization_desc",
@@ -426,6 +446,7 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayBudgetPeriodAttributes: AiGatewayBudgetPeriodAttributes,
     AiGatewayBudgetPeriodResource: AiGatewayBudgetPeriodResource,
     AiGatewayBudgetPeriodResponse: AiGatewayBudgetPeriodResponse,
+    AiGatewayBudgetReportingSummary: AiGatewayBudgetReportingSummary,
     AiGatewayBudgetResource: AiGatewayBudgetResource,
     AiGatewayBudgetResponse: AiGatewayBudgetResponse,
     AiGatewayBudgetSelectorEntry: AiGatewayBudgetSelectorEntry,
@@ -466,6 +487,15 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayGovernanceReplaceRequest: AiGatewayGovernanceReplaceRequest,
     AiGatewayGovernanceResource: AiGatewayGovernanceResource,
     AiGatewayGovernanceResponse: AiGatewayGovernanceResponse,
+    AiGatewayModelAutomaticPricing: AiGatewayModelAutomaticPricing,
+    AiGatewayModelAutomaticPricingFieldMatch:
+      AiGatewayModelAutomaticPricingFieldMatch,
+    AiGatewayModelAutomaticPricingMapping:
+      AiGatewayModelAutomaticPricingMapping,
+    AiGatewayModelAutomaticPricingModeTrigger:
+      AiGatewayModelAutomaticPricingModeTrigger,
+    AiGatewayModelAutomaticPricingRate: AiGatewayModelAutomaticPricingRate,
+    AiGatewayModelAutomaticPricingSource: AiGatewayModelAutomaticPricingSource,
     AiGatewayModelCapabilities: AiGatewayModelCapabilities,
     AiGatewayModelCatalogEntryAttributes: AiGatewayModelCatalogEntryAttributes,
     AiGatewayModelCatalogEntryIdentifier: AiGatewayModelCatalogEntryIdentifier,
@@ -520,6 +550,7 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayModelUpdateAttributes: AiGatewayModelUpdateAttributes,
     AiGatewayModelUpdateData: AiGatewayModelUpdateData,
     AiGatewayModelUpdateRequest: AiGatewayModelUpdateRequest,
+    AiGatewayModelZdr: AiGatewayModelZdr,
     AiGatewayModelsBulkCreateAttributes: AiGatewayModelsBulkCreateAttributes,
     AiGatewayModelsBulkCreateData: AiGatewayModelsBulkCreateData,
     AiGatewayModelsBulkCreateRequest: AiGatewayModelsBulkCreateRequest,
@@ -550,6 +581,7 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayProviderRelationships: AiGatewayProviderRelationships,
     AiGatewayProviderResource: AiGatewayProviderResource,
     AiGatewayProviderResponse: AiGatewayProviderResponse,
+    AiGatewayProviderStatus: AiGatewayProviderStatus,
     AiGatewayProviderUpdateAttributes: AiGatewayProviderUpdateAttributes,
     AiGatewayProviderUpdateData: AiGatewayProviderUpdateData,
     AiGatewayProviderUpdateRequest: AiGatewayProviderUpdateRequest,

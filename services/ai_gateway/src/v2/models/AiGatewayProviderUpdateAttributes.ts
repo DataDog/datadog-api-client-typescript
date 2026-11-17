@@ -13,6 +13,10 @@ export class AiGatewayProviderUpdateAttributes {
    */
   "name"?: string;
   /**
+   * Whether this provider connection is covered by a zero data retention agreement. Omit to leave unchanged.
+   */
+  "zdrEligible"?: boolean;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -35,6 +39,10 @@ export class AiGatewayProviderUpdateAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    zdrEligible: {
+      baseName: "zdr_eligible",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
