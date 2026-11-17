@@ -1379,6 +1379,9 @@ import { CreateNotificationRuleParametersData } from "./CreateNotificationRulePa
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
 import { CreateOnCallNotificationRuleRequest } from "./CreateOnCallNotificationRuleRequest";
 import { CreateOnCallNotificationRuleRequestData } from "./CreateOnCallNotificationRuleRequestData";
+import { CreateOnCallPageCommentRequest } from "./CreateOnCallPageCommentRequest";
+import { CreateOnCallPageCommentRequestAttributes } from "./CreateOnCallPageCommentRequestAttributes";
+import { CreateOnCallPageCommentRequestData } from "./CreateOnCallPageCommentRequestData";
 import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
 import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
 import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
@@ -9866,6 +9869,7 @@ const enumsMap: { [key: string]: any[] } = {
   OktaIntegrationType: ["Okta"],
   OnCallNotificationRuleCategory: ["high_urgency", "low_urgency"],
   OnCallNotificationRuleType: ["notification_rules"],
+  OnCallPageCommentType: ["comments"],
   OnCallPageDataType: ["pages"],
   OnCallPageJiraIssueType: ["jira_issues"],
   OnCallPageLinkEntityType: ["case", "incident", "page", "agent_conversation"],
@@ -13164,6 +13168,10 @@ const typeMap: { [index: string]: any } = {
   CreateOnCallNotificationRuleRequest: CreateOnCallNotificationRuleRequest,
   CreateOnCallNotificationRuleRequestData:
     CreateOnCallNotificationRuleRequestData,
+  CreateOnCallPageCommentRequest: CreateOnCallPageCommentRequest,
+  CreateOnCallPageCommentRequestAttributes:
+    CreateOnCallPageCommentRequestAttributes,
+  CreateOnCallPageCommentRequestData: CreateOnCallPageCommentRequestData,
   CreateOpenAPIResponse: CreateOpenAPIResponse,
   CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
   CreateOpenAPIResponseData: CreateOpenAPIResponseData,
