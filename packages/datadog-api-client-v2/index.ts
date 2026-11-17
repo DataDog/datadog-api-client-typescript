@@ -1435,6 +1435,14 @@ export {
 } from "./apis/ProcessesApi";
 
 export {
+  ProductAnalyticsApiCreateProductAnalyticsLaunchRequest,
+  ProductAnalyticsApiCreateProductAnalyticsMonitorRequest,
+  ProductAnalyticsApiDeleteProductAnalyticsLaunchRequest,
+  ProductAnalyticsApiDeleteProductAnalyticsMonitorRequest,
+  ProductAnalyticsApiGetProductAnalyticsLaunchRequest,
+  ProductAnalyticsApiGetProductAnalyticsMonitorRequest,
+  ProductAnalyticsApiListProductAnalyticsLaunchesRequest,
+  ProductAnalyticsApiListProductAnalyticsMonitorsRequest,
   ProductAnalyticsApiQueryProductAnalyticsJourneyFunnelRequest,
   ProductAnalyticsApiQueryProductAnalyticsJourneyListRequest,
   ProductAnalyticsApiQueryProductAnalyticsJourneyScalarRequest,
@@ -1447,7 +1455,10 @@ export {
   ProductAnalyticsApiQueryProductAnalyticsSankeyRequest,
   ProductAnalyticsApiQueryProductAnalyticsScalarRequest,
   ProductAnalyticsApiQueryProductAnalyticsTimeseriesRequest,
+  ProductAnalyticsApiRemoveChartFromProductAnalyticsMonitorRequest,
   ProductAnalyticsApiSubmitProductAnalyticsEventRequest,
+  ProductAnalyticsApiUpdateProductAnalyticsLaunchRequest,
+  ProductAnalyticsApiUpdateProductAnalyticsMonitorRequest,
   ProductAnalyticsApi,
 } from "./apis/ProductAnalyticsApi";
 
@@ -1588,16 +1599,22 @@ export {
 
 export {
   RumAudienceManagementApiCreateConnectionRequest,
+  RumAudienceManagementApiCreateProductAnalyticsSegmentRequest,
   RumAudienceManagementApiDeleteConnectionRequest,
+  RumAudienceManagementApiDeleteProductAnalyticsSegmentRequest,
   RumAudienceManagementApiDeleteUserProfileRequest,
   RumAudienceManagementApiGetAccountFacetInfoRequest,
   RumAudienceManagementApiGetMappingRequest,
+  RumAudienceManagementApiGetProductAnalyticsSegmentRequest,
   RumAudienceManagementApiGetUserFacetInfoRequest,
   RumAudienceManagementApiListConnectionsRequest,
+  RumAudienceManagementApiListProductAnalyticsSegmentsRequest,
+  RumAudienceManagementApiPreviewProductAnalyticsSegmentRequest,
   RumAudienceManagementApiQueryAccountsRequest,
   RumAudienceManagementApiQueryEventFilteredUsersRequest,
   RumAudienceManagementApiQueryUsersRequest,
   RumAudienceManagementApiUpdateConnectionRequest,
+  RumAudienceManagementApiUpdateProductAnalyticsSegmentRequest,
   RumAudienceManagementApi,
 } from "./apis/RumAudienceManagementApi";
 
@@ -8615,6 +8632,59 @@ export { ProductAnalyticsJourneyTarget } from "./models/ProductAnalyticsJourneyT
 export { ProductAnalyticsJourneyTimeseriesResponse } from "./models/ProductAnalyticsJourneyTimeseriesResponse";
 export { ProductAnalyticsJourneyTimeseriesResponseData } from "./models/ProductAnalyticsJourneyTimeseriesResponseData";
 export { ProductAnalyticsJourneyTimeseriesResponseType } from "./models/ProductAnalyticsJourneyTimeseriesResponseType";
+export { ProductAnalyticsLaunchAttributes } from "./models/ProductAnalyticsLaunchAttributes";
+export { ProductAnalyticsLaunchCodeAnalysis } from "./models/ProductAnalyticsLaunchCodeAnalysis";
+export { ProductAnalyticsLaunchCodeStatus } from "./models/ProductAnalyticsLaunchCodeStatus";
+export { ProductAnalyticsLaunchCreateData } from "./models/ProductAnalyticsLaunchCreateData";
+export { ProductAnalyticsLaunchCreateRequest } from "./models/ProductAnalyticsLaunchCreateRequest";
+export { ProductAnalyticsLaunchDashboardStep } from "./models/ProductAnalyticsLaunchDashboardStep";
+export { ProductAnalyticsLaunchData } from "./models/ProductAnalyticsLaunchData";
+export { ProductAnalyticsLaunchesResponse } from "./models/ProductAnalyticsLaunchesResponse";
+export { ProductAnalyticsLaunchEvent } from "./models/ProductAnalyticsLaunchEvent";
+export { ProductAnalyticsLaunchEventFinding } from "./models/ProductAnalyticsLaunchEventFinding";
+export { ProductAnalyticsLaunchEventProperty } from "./models/ProductAnalyticsLaunchEventProperty";
+export { ProductAnalyticsLaunchExperimentStep } from "./models/ProductAnalyticsLaunchExperimentStep";
+export { ProductAnalyticsLaunchFunnelStep } from "./models/ProductAnalyticsLaunchFunnelStep";
+export { ProductAnalyticsLaunchKPI } from "./models/ProductAnalyticsLaunchKPI";
+export { ProductAnalyticsLaunchListScope } from "./models/ProductAnalyticsLaunchListScope";
+export { ProductAnalyticsLaunchPatchAttributes } from "./models/ProductAnalyticsLaunchPatchAttributes";
+export { ProductAnalyticsLaunchPatchData } from "./models/ProductAnalyticsLaunchPatchData";
+export { ProductAnalyticsLaunchPatchRequest } from "./models/ProductAnalyticsLaunchPatchRequest";
+export { ProductAnalyticsLaunchPatchSteps } from "./models/ProductAnalyticsLaunchPatchSteps";
+export { ProductAnalyticsLaunchPhase } from "./models/ProductAnalyticsLaunchPhase";
+export { ProductAnalyticsLaunchProperty } from "./models/ProductAnalyticsLaunchProperty";
+export { ProductAnalyticsLaunchPropertyFinding } from "./models/ProductAnalyticsLaunchPropertyFinding";
+export { ProductAnalyticsLaunchRequestAttributes } from "./models/ProductAnalyticsLaunchRequestAttributes";
+export { ProductAnalyticsLaunchResponse } from "./models/ProductAnalyticsLaunchResponse";
+export { ProductAnalyticsLaunchSteps } from "./models/ProductAnalyticsLaunchSteps";
+export { ProductAnalyticsLaunchStepsRequest } from "./models/ProductAnalyticsLaunchStepsRequest";
+export { ProductAnalyticsLaunchTrackingPlan } from "./models/ProductAnalyticsLaunchTrackingPlan";
+export { ProductAnalyticsLaunchTrackingPlanRequest } from "./models/ProductAnalyticsLaunchTrackingPlanRequest";
+export { ProductAnalyticsLaunchType } from "./models/ProductAnalyticsLaunchType";
+export { ProductAnalyticsMonitorAttributes } from "./models/ProductAnalyticsMonitorAttributes";
+export { ProductAnalyticsMonitorCreateAttributes } from "./models/ProductAnalyticsMonitorCreateAttributes";
+export { ProductAnalyticsMonitorCreateData } from "./models/ProductAnalyticsMonitorCreateData";
+export { ProductAnalyticsMonitorCreateRequest } from "./models/ProductAnalyticsMonitorCreateRequest";
+export { ProductAnalyticsMonitorCreator } from "./models/ProductAnalyticsMonitorCreator";
+export { ProductAnalyticsMonitorData } from "./models/ProductAnalyticsMonitorData";
+export { ProductAnalyticsMonitorListAttributes } from "./models/ProductAnalyticsMonitorListAttributes";
+export { ProductAnalyticsMonitorListData } from "./models/ProductAnalyticsMonitorListData";
+export { ProductAnalyticsMonitorListItem } from "./models/ProductAnalyticsMonitorListItem";
+export { ProductAnalyticsMonitorListResponse } from "./models/ProductAnalyticsMonitorListResponse";
+export { ProductAnalyticsMonitorListType } from "./models/ProductAnalyticsMonitorListType";
+export { ProductAnalyticsMonitorOptions } from "./models/ProductAnalyticsMonitorOptions";
+export { ProductAnalyticsMonitorRequestType } from "./models/ProductAnalyticsMonitorRequestType";
+export { ProductAnalyticsMonitorResponse } from "./models/ProductAnalyticsMonitorResponse";
+export { ProductAnalyticsMonitorStatus } from "./models/ProductAnalyticsMonitorStatus";
+export { ProductAnalyticsMonitorThresholds } from "./models/ProductAnalyticsMonitorThresholds";
+export { ProductAnalyticsMonitorType } from "./models/ProductAnalyticsMonitorType";
+export { ProductAnalyticsMonitorUnlinkAttributes } from "./models/ProductAnalyticsMonitorUnlinkAttributes";
+export { ProductAnalyticsMonitorUnlinkData } from "./models/ProductAnalyticsMonitorUnlinkData";
+export { ProductAnalyticsMonitorUnlinkRequest } from "./models/ProductAnalyticsMonitorUnlinkRequest";
+export { ProductAnalyticsMonitorUnlinkRequestType } from "./models/ProductAnalyticsMonitorUnlinkRequestType";
+export { ProductAnalyticsMonitorUpdateAttributes } from "./models/ProductAnalyticsMonitorUpdateAttributes";
+export { ProductAnalyticsMonitorUpdateData } from "./models/ProductAnalyticsMonitorUpdateData";
+export { ProductAnalyticsMonitorUpdateRequest } from "./models/ProductAnalyticsMonitorUpdateRequest";
 export { ProductAnalyticsOccurrenceFilter } from "./models/ProductAnalyticsOccurrenceFilter";
 export { ProductAnalyticsOccurrenceQuery } from "./models/ProductAnalyticsOccurrenceQuery";
 export { ProductAnalyticsOccurrenceQueryDataSource } from "./models/ProductAnalyticsOccurrenceQueryDataSource";
@@ -9945,6 +10015,43 @@ export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageU
 export { SecurityMonitoringUser } from "./models/SecurityMonitoringUser";
 export { SecurityTrigger } from "./models/SecurityTrigger";
 export { SecurityTriggerWrapper } from "./models/SecurityTriggerWrapper";
+export { SegmentAttributes } from "./models/SegmentAttributes";
+export { SegmentCreateAttributes } from "./models/SegmentCreateAttributes";
+export { SegmentCreateData } from "./models/SegmentCreateData";
+export { SegmentCreateRequest } from "./models/SegmentCreateRequest";
+export { SegmentData } from "./models/SegmentData";
+export { SegmentDataQuery } from "./models/SegmentDataQuery";
+export { SegmentDeleteAttributes } from "./models/SegmentDeleteAttributes";
+export { SegmentDeleteData } from "./models/SegmentDeleteData";
+export { SegmentDeletedType } from "./models/SegmentDeletedType";
+export { SegmentDeleteResponse } from "./models/SegmentDeleteResponse";
+export { SegmentEntity } from "./models/SegmentEntity";
+export { SegmentEventPlatformBlock } from "./models/SegmentEventPlatformBlock";
+export { SegmentJourneyBlock } from "./models/SegmentJourneyBlock";
+export { SegmentPreviewAttributes } from "./models/SegmentPreviewAttributes";
+export { SegmentPreviewData } from "./models/SegmentPreviewData";
+export { SegmentPreviewRequest } from "./models/SegmentPreviewRequest";
+export { SegmentPreviewRequestType } from "./models/SegmentPreviewRequestType";
+export { SegmentPreviewResponse } from "./models/SegmentPreviewResponse";
+export { SegmentPreviewResponseAttributes } from "./models/SegmentPreviewResponseAttributes";
+export { SegmentPreviewResponseData } from "./models/SegmentPreviewResponseData";
+export { SegmentPreviewResponseType } from "./models/SegmentPreviewResponseType";
+export { SegmentProfileStoreBlock } from "./models/SegmentProfileStoreBlock";
+export { SegmentReferenceTableBlock } from "./models/SegmentReferenceTableBlock";
+export { SegmentReferenceTableColumn } from "./models/SegmentReferenceTableColumn";
+export { SegmentReferenceTableJoinCondition } from "./models/SegmentReferenceTableJoinCondition";
+export { SegmentResourceType } from "./models/SegmentResourceType";
+export { SegmentResponse } from "./models/SegmentResponse";
+export { SegmentSortColumn } from "./models/SegmentSortColumn";
+export { SegmentsResponse } from "./models/SegmentsResponse";
+export { SegmentStaticBlock } from "./models/SegmentStaticBlock";
+export { SegmentSummaryAttributes } from "./models/SegmentSummaryAttributes";
+export { SegmentSummaryData } from "./models/SegmentSummaryData";
+export { SegmentTemplateBlock } from "./models/SegmentTemplateBlock";
+export { SegmentUpdateAttributes } from "./models/SegmentUpdateAttributes";
+export { SegmentUpdateData } from "./models/SegmentUpdateData";
+export { SegmentUpdateRequest } from "./models/SegmentUpdateRequest";
+export { SegmentUser } from "./models/SegmentUser";
 export { Selectors } from "./models/Selectors";
 export { SelfServiceTriggerWrapper } from "./models/SelfServiceTriggerWrapper";
 export { SendSlackMessageAction } from "./models/SendSlackMessageAction";
