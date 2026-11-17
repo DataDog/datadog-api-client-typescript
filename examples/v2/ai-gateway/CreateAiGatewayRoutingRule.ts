@@ -18,6 +18,12 @@ const params: v2.AIGatewayApiCreateAiGatewayRoutingRuleRequest = {
   body: {
     data: {
       attributes: {
+        initialBindings: [
+          {
+            principals: ["org:11111111-1111-1111-1111-111111111111"],
+            relation: "viewer",
+          },
+        ],
         slug: "coding",
         tiers: [
           {

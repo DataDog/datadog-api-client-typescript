@@ -31,6 +31,10 @@ export class AiGatewayBudgetInstancesSummaryAttributes {
    */
   "restrictedDetails": boolean;
   /**
+   * Sum of the capacity of every matching instance in the window, including per-instance overrides.
+   */
+  "totalCapacityMicrocents"?: Int64;
+  /**
    * Spend summed across all instances, in microcents.
    */
   "totalSpendMicrocents": Int64;
@@ -83,6 +87,11 @@ export class AiGatewayBudgetInstancesSummaryAttributes {
       baseName: "restricted_details",
       type: "boolean",
       required: true,
+    },
+    totalCapacityMicrocents: {
+      baseName: "total_capacity_microcents",
+      type: "number",
+      format: "int64",
     },
     totalSpendMicrocents: {
       baseName: "total_spend_microcents",

@@ -20,6 +20,7 @@ const params: v2.AIGatewayApiUpdateAiGatewayProviderRequest = {
       attributes: {
         costMultiplier: 1.0,
         name: "production-us-v2",
+        zdrEligible: false,
       },
       id: "42",
       type: "providers",

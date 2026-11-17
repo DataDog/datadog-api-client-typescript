@@ -4,7 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AiGatewayKnownProvider } from "./AiGatewayKnownProvider";
+import { AiGatewayProviderCredentialSource } from "./AiGatewayProviderCredentialSource";
 import { AiGatewayProviderIntegrationConfig } from "./AiGatewayProviderIntegrationConfig";
+import { AiGatewayProviderStatus } from "./AiGatewayProviderStatus";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -20,6 +22,12 @@ export class AiGatewayProviderAttributes {
    * Time when the resource was created.
    */
   "createdAt": Date;
+  /**
+   * Whose credential the gateway sends to the provider. `integration_account` sends the integration
+   * account's credential. `subscription` forwards each caller's own subscription sign-in (`ChatGPT` for
+   * `openai`, `claude.ai` for `anthropic`) and needs no integration account.
+   */
+  "credentialSource"?: AiGatewayProviderCredentialSource;
   /**
    * Provider integration account identifier.
    */
@@ -41,9 +49,19 @@ export class AiGatewayProviderAttributes {
    */
   "slug": string;
   /**
+   * Read-only. Whether the provider is working, based on the model sync and live calls. Omitted for
+   * providers that are never checked, which include providers without an integration account, and
+   * Azure OpenAI and Gemini providers until live traffic records a status.
+   */
+  "status"?: AiGatewayProviderStatus;
+  /**
    * Time when the resource was last updated.
    */
   "updatedAt": Date;
+  /**
+   * Whether this provider connection is covered by a zero data retention agreement.
+   */
+  "zdrEligible"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -73,6 +91,10 @@ export class AiGatewayProviderAttributes {
       required: true,
       format: "date-time",
     },
+    credentialSource: {
+      baseName: "credential_source",
+      type: "AiGatewayProviderCredentialSource",
+    },
     integrationAccountId: {
       baseName: "integration_account_id",
       type: "string",
@@ -97,11 +119,19 @@ export class AiGatewayProviderAttributes {
       type: "string",
       required: true,
     },
+    status: {
+      baseName: "status",
+      type: "AiGatewayProviderStatus",
+    },
     updatedAt: {
       baseName: "updated_at",
       type: "Date",
       required: true,
       format: "date-time",
+    },
+    zdrEligible: {
+      baseName: "zdr_eligible",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",

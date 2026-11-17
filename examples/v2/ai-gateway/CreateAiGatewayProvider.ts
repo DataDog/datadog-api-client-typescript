@@ -19,6 +19,7 @@ const params: v2.AIGatewayApiCreateAiGatewayProviderRequest = {
     data: {
       attributes: {
         costMultiplier: 1.0,
+        credentialSource: "integration_account",
         initialBindings: [
           {
             principals: ["org:11111111-1111-1111-1111-111111111111"],
@@ -45,6 +46,7 @@ const params: v2.AIGatewayApiCreateAiGatewayProviderRequest = {
         ],
         name: "production-us",
         slug: "prod-us",
+        zdrEligible: false,
       },
       type: "providers",
     },
