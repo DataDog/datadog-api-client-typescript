@@ -385,7 +385,7 @@ export class RestrictionPoliciesApiResponseProcessor {
 
 export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `ai-gateway-provider`, `ai-gateway-route`, `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `powerpack`, `reference-table`, `security-rule`, `slo`, `synthetics-global-variable`, `synthetics-test`, `synthetics-private-location`, `monitor`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules`, `logs-pipeline`, `case-management-project`, `monitor-notification-rule`, `status-page`, `feature-flag`, `network-path-config`.
+   * Identifier, formatted as `type:id`. Supported types: `ai-gateway-provider`, `ai-gateway-route`, `ai-gateway-capture-override`, `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `powerpack`, `reference-table`, `security-rule`, `slo`, `synthetics-global-variable`, `synthetics-test`, `synthetics-private-location`, `monitor`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules`, `logs-pipeline`, `case-management-project`, `monitor-notification-rule`, `status-page`, `feature-flag`, `network-path-config`.
    * @type string
    */
   resourceId: string;
@@ -393,7 +393,7 @@ export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `ai-gateway-provider`, `ai-gateway-route`, `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `powerpack`, `reference-table`, `security-rule`, `slo`, `synthetics-global-variable`, `synthetics-test`, `synthetics-private-location`, `monitor`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules`, `logs-pipeline`, `case-management-project`, `monitor-notification-rule`, `status-page`, `feature-flag`, `network-path-config`.
+   * Identifier, formatted as `type:id`. Supported types: `ai-gateway-provider`, `ai-gateway-route`, `ai-gateway-capture-override`, `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `powerpack`, `reference-table`, `security-rule`, `slo`, `synthetics-global-variable`, `synthetics-test`, `synthetics-private-location`, `monitor`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules`, `logs-pipeline`, `case-management-project`, `monitor-notification-rule`, `status-page`, `feature-flag`, `network-path-config`.
    * @type string
    */
   resourceId: string;
@@ -401,7 +401,7 @@ export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiUpdateRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `ai-gateway-provider`, `ai-gateway-route`, `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `powerpack`, `reference-table`, `security-rule`, `slo`, `synthetics-global-variable`, `synthetics-test`, `synthetics-private-location`, `monitor`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules`, `logs-pipeline`, `case-management-project`, `monitor-notification-rule`, `status-page`, `feature-flag`, `network-path-config`.
+   * Identifier, formatted as `type:id`. Supported types: `ai-gateway-provider`, `ai-gateway-route`, `ai-gateway-capture-override`, `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `powerpack`, `reference-table`, `security-rule`, `slo`, `synthetics-global-variable`, `synthetics-test`, `synthetics-private-location`, `monitor`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules`, `logs-pipeline`, `case-management-project`, `monitor-notification-rule`, `status-page`, `feature-flag`, `network-path-config`.
    * @type string
    */
   resourceId: string;
@@ -491,6 +491,7 @@ export class RestrictionPoliciesApi {
    * Restriction policies can be applied to the following resources:
    * - AI Gateway Providers: `ai-gateway-provider`
    * - AI Gateway Routes: `ai-gateway-route`
+   * - AI Gateway Capture Overrides: `ai-gateway-capture-override`
    * - Dashboards: `dashboard`
    * - Integration Services: `integration-service`
    * - Integration Webhooks: `integration-webhook`
@@ -521,17 +522,19 @@ export class RestrictionPoliciesApi {
    * - Network Path Configs: `network-path-config`
    *
    * AI Gateway provider policies control configuration and inherited model/catalog/pricing visibility. Route policies control route configuration and identifying nested references.
-   * The editor relation includes View. Providers and routes have no Run relation; restriction policies don't affect inference.
-   * Reading provider or route policies requires `ai_gateway_config_read`. Updating or deleting them requires
+   * Capture override policies control who can view and edit override configuration. Hidden overrides remain effective for traffic.
+   * The editor relation includes View. Providers, routes, and capture overrides have no Run relation; restriction policies don't affect inference.
+   * Reading provider, route, or capture override policies requires `ai_gateway_config_read`. Updating or deleting them requires
    * `ai_gateway_config_write` and follows standard restriction-policy authorization, including
    * administrator recovery and self-lockout checks.
-   * Providers and routes without a restriction policy retain the normal unrestricted defaults.
+   * Providers, routes, and capture overrides without a restriction policy retain the normal unrestricted defaults.
    *
    * #### Supported relations for resources
    * Resource Type               | Supported Relations
    * ----------------------------|--------------------------
    * AI Gateway Providers        | `viewer`, `editor`
    * AI Gateway Routes           | `viewer`, `editor`
+   * AI Gateway Capture Overrides | `viewer`, `editor`
    * Dashboards                  | `viewer`, `editor`
    * Integration Services        | `viewer`, `editor`
    * Integration Webhooks        | `viewer`, `editor`

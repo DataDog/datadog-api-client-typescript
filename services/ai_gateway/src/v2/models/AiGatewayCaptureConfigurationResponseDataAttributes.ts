@@ -9,7 +9,7 @@ import { AiGatewayMetadataCaptureItem } from "./AiGatewayMetadataCaptureItem";
  */
 export class AiGatewayCaptureConfigurationResponseDataAttributes {
   /**
-   * Opaque revision of the organization default and all overrides. Writes require the revision returned by a current read or preview.
+   * Opaque revision of the organization default and all overrides, including hidden overrides. Writes require the revision returned by a current read or preview.
    */
   "configurationRevision": string;
   /**
@@ -21,7 +21,7 @@ export class AiGatewayCaptureConfigurationResponseDataAttributes {
    */
   "defaultMode": AiGatewayCaptureConfigurationResponseDataAttributesDefaultMode;
   /**
-   * Scoped overrides currently configured for the organization.
+   * Overrides the caller can View. Hidden overrides still apply to traffic; an empty list does not prove that no overrides exist.
    */
   "overrides": Array<AiGatewayCaptureOverride>;
   /**
