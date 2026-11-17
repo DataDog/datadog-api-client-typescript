@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AiGatewayBudgetEnforcement } from "./AiGatewayBudgetEnforcement";
+import { AiGatewayBudgetReportingSummary } from "./AiGatewayBudgetReportingSummary";
 import { AiGatewayBudgetSelectorEntry } from "./AiGatewayBudgetSelectorEntry";
 import { AiGatewayBudgetWindowPolicy } from "./AiGatewayBudgetWindowPolicy";
 
@@ -44,6 +45,10 @@ export class AiGatewayBudgetListAttributes {
    * Human-readable resource name.
    */
   "name": string;
+  /**
+   * Health across all counters in the active accounting window. Includes hidden counters; contains no scope values or identities.
+   */
+  "reportingSummary"?: AiGatewayBudgetReportingSummary;
   /**
    * Whether provider or model scope metadata was withheld. Omit unchanged scope fields on an unrelated update to preserve their saved values.
    */
@@ -148,6 +153,10 @@ export class AiGatewayBudgetListAttributes {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    reportingSummary: {
+      baseName: "reporting_summary",
+      type: "AiGatewayBudgetReportingSummary",
     },
     scopeRestricted: {
       baseName: "scope_restricted",

@@ -1,7 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AiGatewayModelMetadata } from "./AiGatewayModelMetadata";
+import { AiGatewayModelPricingAttributes } from "./AiGatewayModelPricingAttributes";
 import { AiGatewayModelSource } from "./AiGatewayModelSource";
+import { AiGatewayModelZdr } from "./AiGatewayModelZdr";
 import { AiGatewaySupportedOperation } from "./AiGatewaySupportedOperation";
 
 /**
@@ -29,6 +31,10 @@ export class AiGatewayProviderModelEntry {
    */
   "modelIdWire": string;
   /**
+   * Attributes of a model pricing resource.
+   */
+  "pricing"?: AiGatewayModelPricingAttributes;
+  /**
    * Provider identifier.
    */
   "providerId": number;
@@ -44,6 +50,11 @@ export class AiGatewayProviderModelEntry {
    * Time when the resource was last updated.
    */
   "updatedAt": Date;
+  /**
+   * The Datadog side of a model's zero data retention eligibility. The customer side is the provider's
+   * `zdr_eligible` setting.
+   */
+  "zdr"?: AiGatewayModelZdr;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -84,6 +95,10 @@ export class AiGatewayProviderModelEntry {
       type: "string",
       required: true,
     },
+    pricing: {
+      baseName: "pricing",
+      type: "AiGatewayModelPricingAttributes",
+    },
     providerId: {
       baseName: "provider_id",
       type: "number",
@@ -105,6 +120,10 @@ export class AiGatewayProviderModelEntry {
       type: "Date",
       required: true,
       format: "date-time",
+    },
+    zdr: {
+      baseName: "zdr",
+      type: "AiGatewayModelZdr",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AiGatewayKnownProvider } from "./AiGatewayKnownProvider";
 import { AiGatewayModelInput } from "./AiGatewayModelInput";
+import { AiGatewayProviderCreateCredentialSource } from "./AiGatewayProviderCreateCredentialSource";
 import { AiGatewayProviderInitialBinding } from "./AiGatewayProviderInitialBinding";
 import { AiGatewayProviderIntegrationConfig } from "./AiGatewayProviderIntegrationConfig";
 
@@ -13,6 +14,15 @@ export class AiGatewayProviderCreateAttributes {
    * Multiplier applied to provider costs. Must be greater than 0 and at most 1000000.
    */
   "costMultiplier"?: number;
+  /**
+   * Whose credential the gateway sends to the provider. Defaults to `integration_account`, which sends
+   * the integration account's credential. `subscription` forwards each caller's own subscription sign-in
+   * (`ChatGPT` for `openai`, `claude.ai` for `anthropic`) and needs no integration account; it is available
+   * only to organizations with subscription providers enabled. A subscription provider's models are
+   * optional: callers can use any model their subscription includes, and a model you add sets its
+   * pricing. Immutable.
+   */
+  "credentialSource"?: AiGatewayProviderCreateCredentialSource;
   /**
    * Reserved for initial View/Edit permissions. Supplying this attribute, including an empty array or null, returns HTTP 503 before discovery or persistence. Omit it for normal creation.
    */
@@ -42,6 +52,12 @@ export class AiGatewayProviderCreateAttributes {
    */
   "slug": string;
   /**
+   * Whether this provider connection is covered by a zero data retention agreement. Defaults to `false`.
+   * For Bedrock, zero data retention is granted per region, so configure one provider per region and set
+   * this only on the covered ones.
+   */
+  "zdrEligible"?: boolean;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -60,6 +76,10 @@ export class AiGatewayProviderCreateAttributes {
       baseName: "cost_multiplier",
       type: "number",
       format: "double",
+    },
+    credentialSource: {
+      baseName: "credential_source",
+      type: "AiGatewayProviderCreateCredentialSource",
     },
     initialBindings: {
       baseName: "initial_bindings",
@@ -90,6 +110,10 @@ export class AiGatewayProviderCreateAttributes {
       baseName: "slug",
       type: "string",
       required: true,
+    },
+    zdrEligible: {
+      baseName: "zdr_eligible",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
