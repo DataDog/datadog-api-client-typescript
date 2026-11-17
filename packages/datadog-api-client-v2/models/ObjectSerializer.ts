@@ -1188,6 +1188,28 @@ import { ControlNotificationTarget } from "./ControlNotificationTarget";
 import { ConvertJobResultsToSignalsAttributes } from "./ConvertJobResultsToSignalsAttributes";
 import { ConvertJobResultsToSignalsData } from "./ConvertJobResultsToSignalsData";
 import { ConvertJobResultsToSignalsRequest } from "./ConvertJobResultsToSignalsRequest";
+import { CoreWeaveCloudIntegrationAccountAPITokenAuthRequest } from "./CoreWeaveCloudIntegrationAccountAPITokenAuthRequest";
+import { CoreWeaveCloudIntegrationAccountAPITokenAuthResponse } from "./CoreWeaveCloudIntegrationAccountAPITokenAuthResponse";
+import { CoreWeaveCloudIntegrationAccountAPITokenAuthUpdate } from "./CoreWeaveCloudIntegrationAccountAPITokenAuthUpdate";
+import { CoreWeaveCloudIntegrationAccountCreateAttributes } from "./CoreWeaveCloudIntegrationAccountCreateAttributes";
+import { CoreWeaveCloudIntegrationAccountCreateData } from "./CoreWeaveCloudIntegrationAccountCreateData";
+import { CoreWeaveCloudIntegrationAccountCreateRequest } from "./CoreWeaveCloudIntegrationAccountCreateRequest";
+import { CoreWeaveCloudIntegrationAccountResponse } from "./CoreWeaveCloudIntegrationAccountResponse";
+import { CoreWeaveCloudIntegrationAccountResponseAttributes } from "./CoreWeaveCloudIntegrationAccountResponseAttributes";
+import { CoreWeaveCloudIntegrationAccountResponseData } from "./CoreWeaveCloudIntegrationAccountResponseData";
+import { CoreWeaveCloudIntegrationAccountSettingsRequest } from "./CoreWeaveCloudIntegrationAccountSettingsRequest";
+import { CoreWeaveCloudIntegrationAccountSettingsResponse } from "./CoreWeaveCloudIntegrationAccountSettingsResponse";
+import { CoreWeaveCloudIntegrationAccountSettingsUpdate } from "./CoreWeaveCloudIntegrationAccountSettingsUpdate";
+import { CoreWeaveCloudIntegrationAccountUpdateAttributes } from "./CoreWeaveCloudIntegrationAccountUpdateAttributes";
+import { CoreWeaveCloudIntegrationAccountUpdateData } from "./CoreWeaveCloudIntegrationAccountUpdateData";
+import { CoreWeaveCloudIntegrationAccountUpdateRequest } from "./CoreWeaveCloudIntegrationAccountUpdateRequest";
+import { CoreWeaveCloudIntegrationAccountsResponse } from "./CoreWeaveCloudIntegrationAccountsResponse";
+import { CoreWeaveCloudIntegrationDataflowsRequest } from "./CoreWeaveCloudIntegrationDataflowsRequest";
+import { CoreWeaveCloudIntegrationDataflowsResponse } from "./CoreWeaveCloudIntegrationDataflowsResponse";
+import { CoreWeaveCloudLogsIntegrationDataflowRequest } from "./CoreWeaveCloudLogsIntegrationDataflowRequest";
+import { CoreWeaveCloudLogsIntegrationDataflowResponse } from "./CoreWeaveCloudLogsIntegrationDataflowResponse";
+import { CoreWeaveCloudMetricsIntegrationDataflowRequest } from "./CoreWeaveCloudMetricsIntegrationDataflowRequest";
+import { CoreWeaveCloudMetricsIntegrationDataflowResponse } from "./CoreWeaveCloudMetricsIntegrationDataflowResponse";
 import { CostAnomaliesResponse } from "./CostAnomaliesResponse";
 import { CostAnomaliesResponseData } from "./CostAnomaliesResponseData";
 import { CostAnomaliesResponseDataAttributes } from "./CostAnomaliesResponseDataAttributes";
@@ -7951,6 +7973,7 @@ const enumsMap: { [key: string]: any[] } = {
   ConvertJobResultsToSignalsDataType: [
     "historicalDetectionsJobResultSignalConversion",
   ],
+  CoreWeaveCloudIntegrationAccountAPITokenAuthType: ["coreweave_api_token"],
   CostAggregationType: ["cumulative"],
   CostAnomaliesResponseDataType: ["anomalies"],
   CostAttributionType: ["cost_by_tag"],
@@ -12832,6 +12855,50 @@ const typeMap: { [index: string]: any } = {
   ConvertJobResultsToSignalsAttributes: ConvertJobResultsToSignalsAttributes,
   ConvertJobResultsToSignalsData: ConvertJobResultsToSignalsData,
   ConvertJobResultsToSignalsRequest: ConvertJobResultsToSignalsRequest,
+  CoreWeaveCloudIntegrationAccountAPITokenAuthRequest:
+    CoreWeaveCloudIntegrationAccountAPITokenAuthRequest,
+  CoreWeaveCloudIntegrationAccountAPITokenAuthResponse:
+    CoreWeaveCloudIntegrationAccountAPITokenAuthResponse,
+  CoreWeaveCloudIntegrationAccountAPITokenAuthUpdate:
+    CoreWeaveCloudIntegrationAccountAPITokenAuthUpdate,
+  CoreWeaveCloudIntegrationAccountCreateAttributes:
+    CoreWeaveCloudIntegrationAccountCreateAttributes,
+  CoreWeaveCloudIntegrationAccountCreateData:
+    CoreWeaveCloudIntegrationAccountCreateData,
+  CoreWeaveCloudIntegrationAccountCreateRequest:
+    CoreWeaveCloudIntegrationAccountCreateRequest,
+  CoreWeaveCloudIntegrationAccountResponse:
+    CoreWeaveCloudIntegrationAccountResponse,
+  CoreWeaveCloudIntegrationAccountResponseAttributes:
+    CoreWeaveCloudIntegrationAccountResponseAttributes,
+  CoreWeaveCloudIntegrationAccountResponseData:
+    CoreWeaveCloudIntegrationAccountResponseData,
+  CoreWeaveCloudIntegrationAccountSettingsRequest:
+    CoreWeaveCloudIntegrationAccountSettingsRequest,
+  CoreWeaveCloudIntegrationAccountSettingsResponse:
+    CoreWeaveCloudIntegrationAccountSettingsResponse,
+  CoreWeaveCloudIntegrationAccountSettingsUpdate:
+    CoreWeaveCloudIntegrationAccountSettingsUpdate,
+  CoreWeaveCloudIntegrationAccountUpdateAttributes:
+    CoreWeaveCloudIntegrationAccountUpdateAttributes,
+  CoreWeaveCloudIntegrationAccountUpdateData:
+    CoreWeaveCloudIntegrationAccountUpdateData,
+  CoreWeaveCloudIntegrationAccountUpdateRequest:
+    CoreWeaveCloudIntegrationAccountUpdateRequest,
+  CoreWeaveCloudIntegrationAccountsResponse:
+    CoreWeaveCloudIntegrationAccountsResponse,
+  CoreWeaveCloudIntegrationDataflowsRequest:
+    CoreWeaveCloudIntegrationDataflowsRequest,
+  CoreWeaveCloudIntegrationDataflowsResponse:
+    CoreWeaveCloudIntegrationDataflowsResponse,
+  CoreWeaveCloudLogsIntegrationDataflowRequest:
+    CoreWeaveCloudLogsIntegrationDataflowRequest,
+  CoreWeaveCloudLogsIntegrationDataflowResponse:
+    CoreWeaveCloudLogsIntegrationDataflowResponse,
+  CoreWeaveCloudMetricsIntegrationDataflowRequest:
+    CoreWeaveCloudMetricsIntegrationDataflowRequest,
+  CoreWeaveCloudMetricsIntegrationDataflowResponse:
+    CoreWeaveCloudMetricsIntegrationDataflowResponse,
   CostAnomaliesResponse: CostAnomaliesResponse,
   CostAnomaliesResponseData: CostAnomaliesResponseData,
   CostAnomaliesResponseDataAttributes: CostAnomaliesResponseDataAttributes,
@@ -20631,6 +20698,15 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   ContainerImageItem: ["ContainerImage", "ContainerImageGroup"],
   ContainerItem: ["Container", "ContainerGroup"],
+  CoreWeaveCloudIntegrationAccountAuthenticationRequest: [
+    "CoreWeaveCloudIntegrationAccountAPITokenAuthRequest",
+  ],
+  CoreWeaveCloudIntegrationAccountAuthenticationResponse: [
+    "CoreWeaveCloudIntegrationAccountAPITokenAuthResponse",
+  ],
+  CoreWeaveCloudIntegrationAccountAuthenticationUpdate: [
+    "CoreWeaveCloudIntegrationAccountAPITokenAuthUpdate",
+  ],
   CreateNotificationChannelConfig: [
     "CreatePhoneNotificationChannelConfig",
     "CreateEmailNotificationChannelConfig",
