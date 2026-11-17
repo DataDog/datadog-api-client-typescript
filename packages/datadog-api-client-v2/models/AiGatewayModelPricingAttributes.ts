@@ -3,8 +3,10 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AiGatewayModelAutomaticPricing } from "./AiGatewayModelAutomaticPricing";
 import { AiGatewayModelPricingConfig } from "./AiGatewayModelPricingConfig";
 import { AiGatewayModelPricingEffectiveSource } from "./AiGatewayModelPricingEffectiveSource";
+import { AiGatewayModelPricingStatus } from "./AiGatewayModelPricingStatus";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -13,6 +15,28 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AiGatewayModelPricingAttributes {
   /**
+   * True when models.dev pricing is authoritative for this organization and provider.
+   */
+  "authoritative"?: boolean;
+  /**
+   * The published models.dev price. Present only when it is the effective price.
+   */
+  "automaticPricing"?: AiGatewayModelAutomaticPricing;
+  /**
+   * True when a `BLOCK` budget covering this model rejects its requests before they reach the provider.
+   */
+  "blocksBudgetedRequests"?: boolean;
+  /**
+   * Effective provider multiplier applied to every reported rate.
+   */
+  "costMultiplier"?: number;
+  /**
+   * True when the provider bills this model per minute of audio instead of per token, as with transcription
+   * models. The gateway prices only per token, so it can't charge for these models, and a per-token
+   * override can't express their rate.
+   */
+  "durationPriced"?: boolean;
+  /**
    * Effective source of the model pricing data.
    */
   "effectiveSource"?: AiGatewayModelPricingEffectiveSource;
@@ -20,6 +44,18 @@ export class AiGatewayModelPricingAttributes {
    * Pricing configuration for a model.
    */
   "pricingConfig"?: AiGatewayModelPricingConfig;
+  /**
+   * Whether the gateway has a price for the model.
+   */
+  "status"?: AiGatewayModelPricingStatus;
+  /**
+   * Human-readable sentence for `unpriced_reason`. Omitted when the model is priced or the code has no description yet.
+   */
+  "unpricedDescription"?: string;
+  /**
+   * Stable code explaining why the model has no price, such as `automatic_price_absent`. Omitted when the model is priced.
+   */
+  "unpricedReason"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,6 +73,27 @@ export class AiGatewayModelPricingAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    authoritative: {
+      baseName: "authoritative",
+      type: "boolean",
+    },
+    automaticPricing: {
+      baseName: "automatic_pricing",
+      type: "AiGatewayModelAutomaticPricing",
+    },
+    blocksBudgetedRequests: {
+      baseName: "blocks_budgeted_requests",
+      type: "boolean",
+    },
+    costMultiplier: {
+      baseName: "cost_multiplier",
+      type: "number",
+      format: "double",
+    },
+    durationPriced: {
+      baseName: "duration_priced",
+      type: "boolean",
+    },
     effectiveSource: {
       baseName: "effective_source",
       type: "AiGatewayModelPricingEffectiveSource",
@@ -44,6 +101,18 @@ export class AiGatewayModelPricingAttributes {
     pricingConfig: {
       baseName: "pricing_config",
       type: "AiGatewayModelPricingConfig",
+    },
+    status: {
+      baseName: "status",
+      type: "AiGatewayModelPricingStatus",
+    },
+    unpricedDescription: {
+      baseName: "unpriced_description",
+      type: "string",
+    },
+    unpricedReason: {
+      baseName: "unpriced_reason",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -4,7 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AiGatewayModelMetadata } from "./AiGatewayModelMetadata";
+import { AiGatewayModelPricingAttributes } from "./AiGatewayModelPricingAttributes";
 import { AiGatewayModelSource } from "./AiGatewayModelSource";
+import { AiGatewayModelZdr } from "./AiGatewayModelZdr";
 import { AiGatewaySupportedOperation } from "./AiGatewaySupportedOperation";
 
 import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
@@ -34,6 +36,10 @@ export class AiGatewayProviderModelEntry {
    */
   "modelIdWire": string;
   /**
+   * Attributes of a model pricing resource.
+   */
+  "pricing"?: AiGatewayModelPricingAttributes;
+  /**
    * Provider identifier.
    */
   "providerId": Int64;
@@ -49,6 +55,11 @@ export class AiGatewayProviderModelEntry {
    * Time when the resource was last updated.
    */
   "updatedAt": Date;
+  /**
+   * The Datadog side of a model's zero data retention eligibility. The customer side is the provider's
+   * `zdr_eligible` setting.
+   */
+  "zdr"?: AiGatewayModelZdr;
 
   /**
    * A container for additional, undeclared properties.
@@ -91,6 +102,10 @@ export class AiGatewayProviderModelEntry {
       type: "string",
       required: true,
     },
+    pricing: {
+      baseName: "pricing",
+      type: "AiGatewayModelPricingAttributes",
+    },
     providerId: {
       baseName: "provider_id",
       type: "number",
@@ -112,6 +127,10 @@ export class AiGatewayProviderModelEntry {
       type: "Date",
       required: true,
       format: "date-time",
+    },
+    zdr: {
+      baseName: "zdr",
+      type: "AiGatewayModelZdr",
     },
     additionalProperties: {
       baseName: "additionalProperties",

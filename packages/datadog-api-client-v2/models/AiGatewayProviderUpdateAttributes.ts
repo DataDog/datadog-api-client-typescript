@@ -18,6 +18,10 @@ export class AiGatewayProviderUpdateAttributes {
    * Human-readable resource name.
    */
   "name"?: string;
+  /**
+   * Whether this provider connection is covered by a zero data retention agreement. Omit to leave unchanged.
+   */
+  "zdrEligible"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,6 +47,10 @@ export class AiGatewayProviderUpdateAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    zdrEligible: {
+      baseName: "zdr_eligible",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",

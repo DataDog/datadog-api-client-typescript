@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AiGatewayProviderInitialBinding } from "./AiGatewayProviderInitialBinding";
 import { AiGatewayRoutingRuleTierRequest } from "./AiGatewayRoutingRuleTierRequest";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -11,6 +12,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Attributes used to create an AI Gateway routing rule.
  */
 export class AiGatewayRoutingRuleCreateAttributes {
+  /**
+   * Reserved for initial View and Edit permissions. Supplying this attribute returns HTTP 400 and doesn't
+   * create the route. Create the route, then set its permissions through the restriction policy API.
+   */
+  "initialBindings"?: Array<AiGatewayProviderInitialBinding>;
   /**
    * Organization-unique resource slug.
    */
@@ -33,6 +39,10 @@ export class AiGatewayRoutingRuleCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    initialBindings: {
+      baseName: "initial_bindings",
+      type: "Array<AiGatewayProviderInitialBinding>",
+    },
     slug: {
       baseName: "slug",
       type: "string",
