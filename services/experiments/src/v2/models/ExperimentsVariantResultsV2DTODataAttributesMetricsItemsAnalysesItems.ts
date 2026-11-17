@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ExperimentsConfidenceInterval } from "./ExperimentsConfidenceInterval";
+import { ExperimentsEVSIUnavailableReason } from "./ExperimentsEVSIUnavailableReason";
 import { ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsLiftType } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsLiftType";
 import { ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsMethod } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsMethod";
 import { ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsUnreliableReason } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsUnreliableReason";
@@ -18,9 +19,17 @@ export class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
    */
   "confidenceLevel"?: number;
   /**
-   * Expected reduction in minimum expected regret from collecting more sample data.
+   * Expected value of sample information: expected reduction in minimum expected regret from additional data over the recorded horizon. Uses the analysis estimand units; relative lift is a fraction, not a percentage. Zero is a valid estimate. Omitted when unavailable or unrecorded.
    */
   "evsi"?: number;
+  /**
+   * Standard error of the hypothetical additional-data estimate used for EVSI, in the same estimand units and CUPED setting. May be present when EVSI computation failed. Omitted when unavailable or unrecorded.
+   */
+  "evsiFutureSe"?: number;
+  /**
+   * Recorded reason this analysis has no EVSI estimate. Omitted when unrecorded; absence does not establish availability for historical or imported results. Controls and non-Bayesian analyses omit this field.
+   */
+  "evsiUnavailableReason"?: ExperimentsEVSIUnavailableReason;
   /**
    * Expected effect when the effect is positive.
    */
@@ -121,6 +130,15 @@ export class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
       baseName: "evsi",
       type: "number",
       format: "double",
+    },
+    evsiFutureSe: {
+      baseName: "evsi_future_se",
+      type: "number",
+      format: "double",
+    },
+    evsiUnavailableReason: {
+      baseName: "evsi_unavailable_reason",
+      type: "ExperimentsEVSIUnavailableReason",
     },
     expectationAboveZero: {
       baseName: "expectation_above_zero",
