@@ -437,6 +437,7 @@ export function createConfiguration(
       "v2.disableSecurityFindingsAutomationDefaultInboxRule": false,
       "v2.enableSecurityFindingsAutomationDefaultInboxRule": false,
       "v2.exportSecurityMonitoringTerraformResource": false,
+      "v2.getAWSIdentityCenterAWSAccounts": false,
       "v2.getContentPacksStates": false,
       "v2.getEntityContext": false,
       "v2.getEntityContextRecentlyUpdated": false,

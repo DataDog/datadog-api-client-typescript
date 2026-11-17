@@ -127,6 +127,7 @@ import { SecurityFindingsSearchRequestData } from "../models/SecurityFindingsSea
 import { SecurityFindingsSearchRequestDataAttributes } from "../models/SecurityFindingsSearchRequestDataAttributes";
 import { SecurityFindingsSearchRequestPage } from "../models/SecurityFindingsSearchRequestPage";
 import { SecurityFindingsSort } from "../models/SecurityFindingsSort";
+import { SecurityMonitoringAWSIdentityCenterAWSAccountsResponse } from "../models/SecurityMonitoringAWSIdentityCenterAWSAccountsResponse";
 import { SecurityMonitoringBatchMigrationCreateRequest } from "../models/SecurityMonitoringBatchMigrationCreateRequest";
 import { SecurityMonitoringBatchMigrationPublishRequest } from "../models/SecurityMonitoringBatchMigrationPublishRequest";
 import { SecurityMonitoringBatchMigrationPublishResponse } from "../models/SecurityMonitoringBatchMigrationPublishResponse";
@@ -4311,6 +4312,44 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       .getServer(
         "v2.SecurityMonitoringApi.exportSecurityMonitoringTerraformResource"
       )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getAWSIdentityCenterAWSAccounts(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getAWSIdentityCenterAWSAccounts'");
+    if (!_config.unstableOperations["v2.getAWSIdentityCenterAWSAccounts"]) {
+      throw new Error(
+        "Unstable operation 'getAWSIdentityCenterAWSAccounts' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/integration_config/aws_identity_center/aws_accounts";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getAWSIdentityCenterAWSAccounts")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -17467,6 +17506,80 @@ export class SecurityMonitoringApiResponseProcessor {
           "",
           this.configuration?.preserveLargeIntegers
         ) as SecurityMonitoringTerraformExportResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getAWSIdentityCenterAWSAccounts
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getAWSIdentityCenterAWSAccounts(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringAWSIdentityCenterAWSAccountsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringAWSIdentityCenterAWSAccountsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityMonitoringAWSIdentityCenterAWSAccountsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityMonitoringAWSIdentityCenterAWSAccountsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringAWSIdentityCenterAWSAccountsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityMonitoringAWSIdentityCenterAWSAccountsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityMonitoringAWSIdentityCenterAWSAccountsResponse;
       return body;
     }
 
@@ -31426,6 +31539,29 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.exportSecurityMonitoringTerraformResource(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the integrated AWS accounts that the AWS IAM Identity Center entity context sync reads users from, and
+   * whether users have been collected from them. Collected users are a prerequisite for creating or enabling the
+   * AWS IAM Identity Center entity context sync configuration. The accounts include AWS Organization management
+   * accounts and any accounts that users were collected from.
+   * @param param The request object
+   */
+  public getAWSIdentityCenterAWSAccounts(
+    options?: Configuration
+  ): Promise<SecurityMonitoringAWSIdentityCenterAWSAccountsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getAWSIdentityCenterAWSAccounts(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAWSIdentityCenterAWSAccounts(
             responseContext
           );
         });
