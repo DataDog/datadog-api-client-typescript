@@ -1,15 +1,21 @@
 export {
   RumAudienceManagementApiCreateConnectionRequest,
+  RumAudienceManagementApiCreateProductAnalyticsSegmentRequest,
   RumAudienceManagementApiDeleteConnectionRequest,
+  RumAudienceManagementApiDeleteProductAnalyticsSegmentRequest,
   RumAudienceManagementApiDeleteUserProfileRequest,
   RumAudienceManagementApiGetAccountFacetInfoRequest,
   RumAudienceManagementApiGetMappingRequest,
+  RumAudienceManagementApiGetProductAnalyticsSegmentRequest,
   RumAudienceManagementApiGetUserFacetInfoRequest,
   RumAudienceManagementApiListConnectionsRequest,
+  RumAudienceManagementApiListProductAnalyticsSegmentsRequest,
+  RumAudienceManagementApiPreviewProductAnalyticsSegmentRequest,
   RumAudienceManagementApiQueryAccountsRequest,
   RumAudienceManagementApiQueryEventFilteredUsersRequest,
   RumAudienceManagementApiQueryUsersRequest,
   RumAudienceManagementApiUpdateConnectionRequest,
+  RumAudienceManagementApiUpdateProductAnalyticsSegmentRequest,
   RumAudienceManagementApi,
 } from "./RumAudienceManagementApi";
 
@@ -48,6 +54,7 @@ export { ListConnectionsResponseDataAttributesConnectionsItemsDetailsRefTable } 
 export { ListConnectionsResponseDataAttributesConnectionsItemsDetailsSnowflake } from "./models/ListConnectionsResponseDataAttributesConnectionsItemsDetailsSnowflake";
 export { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./models/ListConnectionsResponseDataAttributesConnectionsItemsJoin";
 export { ListConnectionsResponseDataType } from "./models/ListConnectionsResponseDataType";
+export { ProductAnalyticsJourneyConversionType } from "./models/ProductAnalyticsJourneyConversionType";
 export { QueryAccountRequest } from "./models/QueryAccountRequest";
 export { QueryAccountRequestData } from "./models/QueryAccountRequestData";
 export { QueryAccountRequestDataAttributes } from "./models/QueryAccountRequestDataAttributes";
@@ -63,11 +70,49 @@ export { QueryResponse } from "./models/QueryResponse";
 export { QueryResponseData } from "./models/QueryResponseData";
 export { QueryResponseDataAttributes } from "./models/QueryResponseDataAttributes";
 export { QueryResponseDataType } from "./models/QueryResponseDataType";
+export { QuerySortOrder } from "./models/QuerySortOrder";
 export { QueryUsersRequest } from "./models/QueryUsersRequest";
 export { QueryUsersRequestData } from "./models/QueryUsersRequestData";
 export { QueryUsersRequestDataAttributes } from "./models/QueryUsersRequestDataAttributes";
 export { QueryUsersRequestDataAttributesSort } from "./models/QueryUsersRequestDataAttributesSort";
 export { QueryUsersRequestDataType } from "./models/QueryUsersRequestDataType";
+export { SegmentAttributes } from "./models/SegmentAttributes";
+export { SegmentCreateAttributes } from "./models/SegmentCreateAttributes";
+export { SegmentCreateData } from "./models/SegmentCreateData";
+export { SegmentCreateRequest } from "./models/SegmentCreateRequest";
+export { SegmentData } from "./models/SegmentData";
+export { SegmentDataQuery } from "./models/SegmentDataQuery";
+export { SegmentDeleteAttributes } from "./models/SegmentDeleteAttributes";
+export { SegmentDeleteData } from "./models/SegmentDeleteData";
+export { SegmentDeletedType } from "./models/SegmentDeletedType";
+export { SegmentDeleteResponse } from "./models/SegmentDeleteResponse";
+export { SegmentEntity } from "./models/SegmentEntity";
+export { SegmentEventPlatformBlock } from "./models/SegmentEventPlatformBlock";
+export { SegmentJourneyBlock } from "./models/SegmentJourneyBlock";
+export { SegmentPreviewAttributes } from "./models/SegmentPreviewAttributes";
+export { SegmentPreviewData } from "./models/SegmentPreviewData";
+export { SegmentPreviewRequest } from "./models/SegmentPreviewRequest";
+export { SegmentPreviewRequestType } from "./models/SegmentPreviewRequestType";
+export { SegmentPreviewResponse } from "./models/SegmentPreviewResponse";
+export { SegmentPreviewResponseAttributes } from "./models/SegmentPreviewResponseAttributes";
+export { SegmentPreviewResponseData } from "./models/SegmentPreviewResponseData";
+export { SegmentPreviewResponseType } from "./models/SegmentPreviewResponseType";
+export { SegmentProfileStoreBlock } from "./models/SegmentProfileStoreBlock";
+export { SegmentReferenceTableBlock } from "./models/SegmentReferenceTableBlock";
+export { SegmentReferenceTableColumn } from "./models/SegmentReferenceTableColumn";
+export { SegmentReferenceTableJoinCondition } from "./models/SegmentReferenceTableJoinCondition";
+export { SegmentResourceType } from "./models/SegmentResourceType";
+export { SegmentResponse } from "./models/SegmentResponse";
+export { SegmentSortColumn } from "./models/SegmentSortColumn";
+export { SegmentsResponse } from "./models/SegmentsResponse";
+export { SegmentStaticBlock } from "./models/SegmentStaticBlock";
+export { SegmentSummaryAttributes } from "./models/SegmentSummaryAttributes";
+export { SegmentSummaryData } from "./models/SegmentSummaryData";
+export { SegmentTemplateBlock } from "./models/SegmentTemplateBlock";
+export { SegmentUpdateAttributes } from "./models/SegmentUpdateAttributes";
+export { SegmentUpdateData } from "./models/SegmentUpdateData";
+export { SegmentUpdateRequest } from "./models/SegmentUpdateRequest";
+export { SegmentUser } from "./models/SegmentUser";
 export { UpdateConnectionRequest } from "./models/UpdateConnectionRequest";
 export { UpdateConnectionRequestData } from "./models/UpdateConnectionRequestData";
 export { UpdateConnectionRequestDataAttributes } from "./models/UpdateConnectionRequestDataAttributes";

@@ -23,6 +23,7 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { ProductAnalyticsAnalyticsListRequest } from "./models/ProductAnalyticsAnalyticsListRequest";
 import { ProductAnalyticsAnalyticsListResponse } from "./models/ProductAnalyticsAnalyticsListResponse";
 import { ProductAnalyticsAnalyticsRequest } from "./models/ProductAnalyticsAnalyticsRequest";
@@ -35,6 +36,17 @@ import { ProductAnalyticsJourneyListResponse } from "./models/ProductAnalyticsJo
 import { ProductAnalyticsJourneyScalarRequest } from "./models/ProductAnalyticsJourneyScalarRequest";
 import { ProductAnalyticsJourneyScalarResponse } from "./models/ProductAnalyticsJourneyScalarResponse";
 import { ProductAnalyticsJourneyTimeseriesResponse } from "./models/ProductAnalyticsJourneyTimeseriesResponse";
+import { ProductAnalyticsLaunchCreateRequest } from "./models/ProductAnalyticsLaunchCreateRequest";
+import { ProductAnalyticsLaunchesResponse } from "./models/ProductAnalyticsLaunchesResponse";
+import { ProductAnalyticsLaunchListScope } from "./models/ProductAnalyticsLaunchListScope";
+import { ProductAnalyticsLaunchPatchRequest } from "./models/ProductAnalyticsLaunchPatchRequest";
+import { ProductAnalyticsLaunchPhase } from "./models/ProductAnalyticsLaunchPhase";
+import { ProductAnalyticsLaunchResponse } from "./models/ProductAnalyticsLaunchResponse";
+import { ProductAnalyticsMonitorCreateRequest } from "./models/ProductAnalyticsMonitorCreateRequest";
+import { ProductAnalyticsMonitorListResponse } from "./models/ProductAnalyticsMonitorListResponse";
+import { ProductAnalyticsMonitorResponse } from "./models/ProductAnalyticsMonitorResponse";
+import { ProductAnalyticsMonitorUnlinkRequest } from "./models/ProductAnalyticsMonitorUnlinkRequest";
+import { ProductAnalyticsMonitorUpdateRequest } from "./models/ProductAnalyticsMonitorUpdateRequest";
 import { ProductAnalyticsRetentionGridRequest } from "./models/ProductAnalyticsRetentionGridRequest";
 import { ProductAnalyticsRetentionGridResponse } from "./models/ProductAnalyticsRetentionGridResponse";
 import { ProductAnalyticsRetentionListRequest } from "./models/ProductAnalyticsRetentionListRequest";
@@ -56,6 +68,554 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
       this.userAgent = buildUserAgent("product-analytics", version);
     }
   }
+  public async createProductAnalyticsLaunch(
+    body: ProductAnalyticsLaunchCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "ProductAnalyticsApi.v2.createProductAnalyticsLaunch"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createProductAnalyticsLaunch' is disabled. Enable it by setting `configuration.unstableOperations['ProductAnalyticsApi.v2.createProductAnalyticsLaunch'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createProductAnalyticsLaunch");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/launches";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ProductAnalyticsApi.v2.createProductAnalyticsLaunch",
+      ProductAnalyticsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ProductAnalyticsLaunchCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createProductAnalyticsMonitor(
+    body: ProductAnalyticsMonitorCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "ProductAnalyticsApi.v2.createProductAnalyticsMonitor"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createProductAnalyticsMonitor' is disabled. Enable it by setting `configuration.unstableOperations['ProductAnalyticsApi.v2.createProductAnalyticsMonitor'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createProductAnalyticsMonitor");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/monitors";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ProductAnalyticsApi.v2.createProductAnalyticsMonitor",
+      ProductAnalyticsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ProductAnalyticsMonitorCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteProductAnalyticsLaunch(
+    id: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "ProductAnalyticsApi.v2.deleteProductAnalyticsLaunch"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteProductAnalyticsLaunch' is disabled. Enable it by setting `configuration.unstableOperations['ProductAnalyticsApi.v2.deleteProductAnalyticsLaunch'] = true`",
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "deleteProductAnalyticsLaunch");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/launches/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ProductAnalyticsApi.v2.deleteProductAnalyticsLaunch",
+      ProductAnalyticsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteProductAnalyticsMonitor(
+    monitorId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "ProductAnalyticsApi.v2.deleteProductAnalyticsMonitor"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteProductAnalyticsMonitor' is disabled. Enable it by setting `configuration.unstableOperations['ProductAnalyticsApi.v2.deleteProductAnalyticsMonitor'] = true`",
+      );
+    }
+
+    // verify required parameter 'monitorId' is not null or undefined
+    if (monitorId === null || monitorId === undefined) {
+      throw new RequiredError("monitorId", "deleteProductAnalyticsMonitor");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/product-analytics/monitors/{monitor_id}".replace(
+        "{monitor_id}",
+        encodeURIComponent(String(monitorId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ProductAnalyticsApi.v2.deleteProductAnalyticsMonitor",
+      ProductAnalyticsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getProductAnalyticsLaunch(
+    id: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "ProductAnalyticsApi.v2.getProductAnalyticsLaunch"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getProductAnalyticsLaunch' is disabled. Enable it by setting `configuration.unstableOperations['ProductAnalyticsApi.v2.getProductAnalyticsLaunch'] = true`",
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "getProductAnalyticsLaunch");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/launches/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ProductAnalyticsApi.v2.getProductAnalyticsLaunch",
+      ProductAnalyticsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getProductAnalyticsMonitor(
+    monitorId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "ProductAnalyticsApi.v2.getProductAnalyticsMonitor"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getProductAnalyticsMonitor' is disabled. Enable it by setting `configuration.unstableOperations['ProductAnalyticsApi.v2.getProductAnalyticsMonitor'] = true`",
+      );
+    }
+
+    // verify required parameter 'monitorId' is not null or undefined
+    if (monitorId === null || monitorId === undefined) {
+      throw new RequiredError("monitorId", "getProductAnalyticsMonitor");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/product-analytics/monitors/{monitor_id}".replace(
+        "{monitor_id}",
+        encodeURIComponent(String(monitorId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ProductAnalyticsApi.v2.getProductAnalyticsMonitor",
+      ProductAnalyticsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listProductAnalyticsLaunches(
+    sort?: string,
+    scope?: ProductAnalyticsLaunchListScope,
+    phase?: Array<ProductAnalyticsLaunchPhase>,
+    applicationId?: string,
+    name?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "ProductAnalyticsApi.v2.listProductAnalyticsLaunches"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listProductAnalyticsLaunches' is disabled. Enable it by setting `configuration.unstableOperations['ProductAnalyticsApi.v2.listProductAnalyticsLaunches'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/launches";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ProductAnalyticsApi.v2.listProductAnalyticsLaunches",
+      ProductAnalyticsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (scope !== undefined) {
+      requestContext.setQueryParam(
+        "scope",
+        serialize(scope, TypingInfo, "ProductAnalyticsLaunchListScope", ""),
+        "",
+      );
+    }
+    if (phase !== undefined) {
+      requestContext.setQueryParam(
+        "phase",
+        serialize(phase, TypingInfo, "Array<ProductAnalyticsLaunchPhase>", ""),
+        "multi",
+      );
+    }
+    if (applicationId !== undefined) {
+      requestContext.setQueryParam(
+        "application_id",
+        serialize(applicationId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (name !== undefined) {
+      requestContext.setQueryParam(
+        "name",
+        serialize(name, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listProductAnalyticsMonitors(
+    pageSize?: number,
+    pageNumber?: number,
+    chartId?: string,
+    dashboardId?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "ProductAnalyticsApi.v2.listProductAnalyticsMonitors"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listProductAnalyticsMonitors' is disabled. Enable it by setting `configuration.unstableOperations['ProductAnalyticsApi.v2.listProductAnalyticsMonitors'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/monitors";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ProductAnalyticsApi.v2.listProductAnalyticsMonitors",
+      ProductAnalyticsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (chartId !== undefined) {
+      requestContext.setQueryParam(
+        "chart_id",
+        serialize(chartId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (dashboardId !== undefined) {
+      requestContext.setQueryParam(
+        "dashboard_id",
+        serialize(dashboardId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async queryProductAnalyticsJourneyFunnel(
     body: ProductAnalyticsJourneyFunnelRequest,
     _options?: Configuration,
@@ -841,6 +1401,84 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async removeChartFromProductAnalyticsMonitor(
+    monitorId: string,
+    body: ProductAnalyticsMonitorUnlinkRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "ProductAnalyticsApi.v2.removeChartFromProductAnalyticsMonitor"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'removeChartFromProductAnalyticsMonitor' is disabled. Enable it by setting `configuration.unstableOperations['ProductAnalyticsApi.v2.removeChartFromProductAnalyticsMonitor'] = true`",
+      );
+    }
+
+    // verify required parameter 'monitorId' is not null or undefined
+    if (monitorId === null || monitorId === undefined) {
+      throw new RequiredError(
+        "monitorId",
+        "removeChartFromProductAnalyticsMonitor",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "removeChartFromProductAnalyticsMonitor");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/product-analytics/monitors/{monitor_id}/unlink".replace(
+        "{monitor_id}",
+        encodeURIComponent(String(monitorId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ProductAnalyticsApi.v2.removeChartFromProductAnalyticsMonitor",
+      ProductAnalyticsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ProductAnalyticsMonitorUnlinkRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async submitProductAnalyticsEvent(
     body: ProductAnalyticsServerSideEventItem,
     _options?: Configuration,
@@ -892,9 +1530,769 @@ export class ProductAnalyticsApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async updateProductAnalyticsLaunch(
+    id: string,
+    body: ProductAnalyticsLaunchPatchRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "ProductAnalyticsApi.v2.updateProductAnalyticsLaunch"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateProductAnalyticsLaunch' is disabled. Enable it by setting `configuration.unstableOperations['ProductAnalyticsApi.v2.updateProductAnalyticsLaunch'] = true`",
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "updateProductAnalyticsLaunch");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateProductAnalyticsLaunch");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/launches/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ProductAnalyticsApi.v2.updateProductAnalyticsLaunch",
+      ProductAnalyticsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ProductAnalyticsLaunchPatchRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateProductAnalyticsMonitor(
+    monitorId: string,
+    body: ProductAnalyticsMonitorUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "ProductAnalyticsApi.v2.updateProductAnalyticsMonitor"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateProductAnalyticsMonitor' is disabled. Enable it by setting `configuration.unstableOperations['ProductAnalyticsApi.v2.updateProductAnalyticsMonitor'] = true`",
+      );
+    }
+
+    // verify required parameter 'monitorId' is not null or undefined
+    if (monitorId === null || monitorId === undefined) {
+      throw new RequiredError("monitorId", "updateProductAnalyticsMonitor");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateProductAnalyticsMonitor");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/product-analytics/monitors/{monitor_id}".replace(
+        "{monitor_id}",
+        encodeURIComponent(String(monitorId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ProductAnalyticsApi.v2.updateProductAnalyticsMonitor",
+      ProductAnalyticsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ProductAnalyticsMonitorUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class ProductAnalyticsApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createProductAnalyticsLaunch
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createProductAnalyticsLaunch(
+    response: ResponseContext,
+  ): Promise<ProductAnalyticsLaunchResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: ProductAnalyticsLaunchResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsLaunchResponse",
+      ) as ProductAnalyticsLaunchResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProductAnalyticsLaunchResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsLaunchResponse",
+        "",
+      ) as ProductAnalyticsLaunchResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createProductAnalyticsMonitor
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createProductAnalyticsMonitor(
+    response: ResponseContext,
+  ): Promise<ProductAnalyticsMonitorResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: ProductAnalyticsMonitorResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsMonitorResponse",
+      ) as ProductAnalyticsMonitorResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProductAnalyticsMonitorResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsMonitorResponse",
+        "",
+      ) as ProductAnalyticsMonitorResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteProductAnalyticsLaunch
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteProductAnalyticsLaunch(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteProductAnalyticsMonitor
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteProductAnalyticsMonitor(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getProductAnalyticsLaunch
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getProductAnalyticsLaunch(
+    response: ResponseContext,
+  ): Promise<ProductAnalyticsLaunchResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ProductAnalyticsLaunchResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsLaunchResponse",
+      ) as ProductAnalyticsLaunchResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProductAnalyticsLaunchResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsLaunchResponse",
+        "",
+      ) as ProductAnalyticsLaunchResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getProductAnalyticsMonitor
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getProductAnalyticsMonitor(
+    response: ResponseContext,
+  ): Promise<ProductAnalyticsMonitorResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ProductAnalyticsMonitorResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsMonitorResponse",
+      ) as ProductAnalyticsMonitorResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProductAnalyticsMonitorResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsMonitorResponse",
+        "",
+      ) as ProductAnalyticsMonitorResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listProductAnalyticsLaunches
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listProductAnalyticsLaunches(
+    response: ResponseContext,
+  ): Promise<ProductAnalyticsLaunchesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ProductAnalyticsLaunchesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsLaunchesResponse",
+      ) as ProductAnalyticsLaunchesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProductAnalyticsLaunchesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsLaunchesResponse",
+        "",
+      ) as ProductAnalyticsLaunchesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listProductAnalyticsMonitors
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listProductAnalyticsMonitors(
+    response: ResponseContext,
+  ): Promise<ProductAnalyticsMonitorListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ProductAnalyticsMonitorListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsMonitorListResponse",
+      ) as ProductAnalyticsMonitorListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProductAnalyticsMonitorListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsMonitorListResponse",
+        "",
+      ) as ProductAnalyticsMonitorListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1619,6 +3017,77 @@ export class ProductAnalyticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to removeChartFromProductAnalyticsMonitor
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async removeChartFromProductAnalyticsMonitor(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to submitProductAnalyticsEvent
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1682,6 +3151,268 @@ export class ProductAnalyticsApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateProductAnalyticsLaunch
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateProductAnalyticsLaunch(
+    response: ResponseContext,
+  ): Promise<ProductAnalyticsLaunchResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ProductAnalyticsLaunchResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsLaunchResponse",
+      ) as ProductAnalyticsLaunchResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProductAnalyticsLaunchResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsLaunchResponse",
+        "",
+      ) as ProductAnalyticsLaunchResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateProductAnalyticsMonitor
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateProductAnalyticsMonitor(
+    response: ResponseContext,
+  ): Promise<ProductAnalyticsMonitorResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ProductAnalyticsMonitorResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsMonitorResponse",
+      ) as ProductAnalyticsMonitorResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProductAnalyticsMonitorResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProductAnalyticsMonitorResponse",
+        "",
+      ) as ProductAnalyticsMonitorResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+}
+
+export interface ProductAnalyticsApiCreateProductAnalyticsLaunchRequest {
+  /**
+   * @type ProductAnalyticsLaunchCreateRequest
+   */
+  body: ProductAnalyticsLaunchCreateRequest;
+}
+
+export interface ProductAnalyticsApiCreateProductAnalyticsMonitorRequest {
+  /**
+   * @type ProductAnalyticsMonitorCreateRequest
+   */
+  body: ProductAnalyticsMonitorCreateRequest;
+}
+
+export interface ProductAnalyticsApiDeleteProductAnalyticsLaunchRequest {
+  /**
+   * UUID of the launch.
+   * @type string
+   */
+  id: string;
+}
+
+export interface ProductAnalyticsApiDeleteProductAnalyticsMonitorRequest {
+  /**
+   * Numeric ID of the monitor.
+   * @type string
+   */
+  monitorId: string;
+}
+
+export interface ProductAnalyticsApiGetProductAnalyticsLaunchRequest {
+  /**
+   * UUID of the launch.
+   * @type string
+   */
+  id: string;
+}
+
+export interface ProductAnalyticsApiGetProductAnalyticsMonitorRequest {
+  /**
+   * Numeric ID of the monitor.
+   * @type string
+   */
+  monitorId: string;
+}
+
+export interface ProductAnalyticsApiListProductAnalyticsLaunchesRequest {
+  /**
+   * Comma-separated fields to sort by: `id`, `phase`, `feature_flag_id`, `name`, `application_id`,
+   * `description`, `created_by`, `created_at`, `updated_by`, or `updated_at`. Prefix a field with `-` to sort
+   * in descending order.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * Set to `liftoffs` to leave out launches in the `plan` phase.
+   * @type ProductAnalyticsLaunchListScope
+   */
+  scope?: ProductAnalyticsLaunchListScope;
+  /**
+   * Return only launches in these phases. Repeat the parameter to pass several phases.
+   * @type Array<ProductAnalyticsLaunchPhase>
+   */
+  phase?: Array<ProductAnalyticsLaunchPhase>;
+  /**
+   * Return only launches of this RUM application UUID.
+   * @type string
+   */
+  applicationId?: string;
+  /**
+   * Return only launches whose name contains this value, ignoring case.
+   * @type string
+   */
+  name?: string;
+}
+
+export interface ProductAnalyticsApiListProductAnalyticsMonitorsRequest {
+  /**
+   * Maximum number of monitors per page, from 1 to 1000. Ignored when `chart_id` is set.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Page number, starting at 1. Ignored when `chart_id` is set.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Return only the monitors linked to this chart. Turns off pagination.
+   * @type string
+   */
+  chartId?: string;
+  /**
+   * Return only the monitors linked to this dashboard. Requires `chart_id`.
+   * @type string
+   */
+  dashboardId?: string;
 }
 
 export interface ProductAnalyticsApiQueryProductAnalyticsJourneyFunnelRequest {
@@ -1773,12 +3504,48 @@ export interface ProductAnalyticsApiQueryProductAnalyticsTimeseriesRequest {
   body: ProductAnalyticsAnalyticsRequest;
 }
 
+export interface ProductAnalyticsApiRemoveChartFromProductAnalyticsMonitorRequest {
+  /**
+   * Numeric ID of the monitor.
+   * @type string
+   */
+  monitorId: string;
+  /**
+   * @type ProductAnalyticsMonitorUnlinkRequest
+   */
+  body: ProductAnalyticsMonitorUnlinkRequest;
+}
+
 export interface ProductAnalyticsApiSubmitProductAnalyticsEventRequest {
   /**
    * Server-side event to send (JSON format).
    * @type ProductAnalyticsServerSideEventItem
    */
   body: ProductAnalyticsServerSideEventItem;
+}
+
+export interface ProductAnalyticsApiUpdateProductAnalyticsLaunchRequest {
+  /**
+   * UUID of the launch.
+   * @type string
+   */
+  id: string;
+  /**
+   * @type ProductAnalyticsLaunchPatchRequest
+   */
+  body: ProductAnalyticsLaunchPatchRequest;
+}
+
+export interface ProductAnalyticsApiUpdateProductAnalyticsMonitorRequest {
+  /**
+   * Numeric ID of the monitor.
+   * @type string
+   */
+  monitorId: string;
+  /**
+   * @type ProductAnalyticsMonitorUpdateRequest
+   */
+  body: ProductAnalyticsMonitorUpdateRequest;
 }
 
 export class ProductAnalyticsApi {
@@ -1828,6 +3595,201 @@ export class ProductAnalyticsApi {
       new ProductAnalyticsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ProductAnalyticsApiResponseProcessor();
+  }
+
+  /**
+   * Create a Product Analytics launch and its tracking plan.
+   * The tracking plan lists the events and event properties to instrument. Events can only reference properties
+   * and KPIs defined in the launch.
+   * @param param The request object
+   */
+  public createProductAnalyticsLaunch(
+    param: ProductAnalyticsApiCreateProductAnalyticsLaunchRequest,
+    options?: Configuration,
+  ): Promise<ProductAnalyticsLaunchResponse> {
+    const requestContextPromise =
+      this.requestFactory.createProductAnalyticsLaunch(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createProductAnalyticsLaunch(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a Product Analytics monitor that alerts on a Product Analytics query, such as a funnel conversion rate.
+   * Link it to the chart it was created from with the `chart_id` and `dashboard_id` tags.
+   * @param param The request object
+   */
+  public createProductAnalyticsMonitor(
+    param: ProductAnalyticsApiCreateProductAnalyticsMonitorRequest,
+    options?: Configuration,
+  ): Promise<ProductAnalyticsMonitorResponse> {
+    const requestContextPromise =
+      this.requestFactory.createProductAnalyticsMonitor(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createProductAnalyticsMonitor(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a Product Analytics launch and its tracking plan.
+   * @param param The request object
+   */
+  public deleteProductAnalyticsLaunch(
+    param: ProductAnalyticsApiDeleteProductAnalyticsLaunchRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteProductAnalyticsLaunch(param.id, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteProductAnalyticsLaunch(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a Product Analytics monitor.
+   * @param param The request object
+   */
+  public deleteProductAnalyticsMonitor(
+    param: ProductAnalyticsApiDeleteProductAnalyticsMonitorRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteProductAnalyticsMonitor(
+        param.monitorId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteProductAnalyticsMonitor(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a Product Analytics launch and its tracking plan by UUID.
+   * @param param The request object
+   */
+  public getProductAnalyticsLaunch(
+    param: ProductAnalyticsApiGetProductAnalyticsLaunchRequest,
+    options?: Configuration,
+  ): Promise<ProductAnalyticsLaunchResponse> {
+    const requestContextPromise = this.requestFactory.getProductAnalyticsLaunch(
+      param.id,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getProductAnalyticsLaunch(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a Product Analytics monitor by its ID.
+   * @param param The request object
+   */
+  public getProductAnalyticsMonitor(
+    param: ProductAnalyticsApiGetProductAnalyticsMonitorRequest,
+    options?: Configuration,
+  ): Promise<ProductAnalyticsMonitorResponse> {
+    const requestContextPromise =
+      this.requestFactory.getProductAnalyticsMonitor(param.monitorId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getProductAnalyticsMonitor(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List the Product Analytics launches of your organization. A launch tracks a feature release with its phase,
+   * KPIs, and tracking plan.
+   * Results are sorted by `-created_at` by default.
+   * @param param The request object
+   */
+  public listProductAnalyticsLaunches(
+    param: ProductAnalyticsApiListProductAnalyticsLaunchesRequest = {},
+    options?: Configuration,
+  ): Promise<ProductAnalyticsLaunchesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listProductAnalyticsLaunches(
+        param.sort,
+        param.scope,
+        param.phase,
+        param.applicationId,
+        param.name,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listProductAnalyticsLaunches(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List the Product Analytics monitors of your organization, one page at a time.
+   * When `chart_id` is set, optionally with `dashboard_id`, the response includes every monitor linked to that
+   * chart, without pagination.
+   * With `chart_id` alone, monitors created from a dashboard widget are not returned.
+   * Monitors created in the last few seconds may be missing.
+   * @param param The request object
+   */
+  public listProductAnalyticsMonitors(
+    param: ProductAnalyticsApiListProductAnalyticsMonitorsRequest = {},
+    options?: Configuration,
+  ): Promise<ProductAnalyticsMonitorListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listProductAnalyticsMonitors(
+        param.pageSize,
+        param.pageNumber,
+        param.chartId,
+        param.dashboardId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listProductAnalyticsMonitors(
+            responseContext,
+          );
+        });
+    });
   }
 
   /**
@@ -2121,6 +4083,33 @@ export class ProductAnalyticsApi {
   }
 
   /**
+   * Remove the `chart_id` and `dashboard_id` tags from a Product Analytics monitor. The monitor and the rest of
+   * its configuration are kept.
+   * The request must name the stored link exactly. A monitor with no link is left unchanged.
+   * @param param The request object
+   */
+  public removeChartFromProductAnalyticsMonitor(
+    param: ProductAnalyticsApiRemoveChartFromProductAnalyticsMonitorRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.removeChartFromProductAnalyticsMonitor(
+        param.monitorId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.removeChartFromProductAnalyticsMonitor(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Send server-side events to Product Analytics. Server-side events are retained for 15 months.
    *
    * Server-Side events in Product Analytics are helpful for tracking events that occur on the server,
@@ -2163,6 +4152,61 @@ export class ProductAnalyticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.submitProductAnalyticsEvent(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update some fields of a Product Analytics launch. Fields that are not set are left unchanged. The `id` in
+   * the body must match the one in the path.
+   * Setting `steps.tracking_plan` replaces the whole stored tracking plan, not only the fields you send.
+   * Returns `409` when the launch changed during the update; fetch it again and retry.
+   * @param param The request object
+   */
+  public updateProductAnalyticsLaunch(
+    param: ProductAnalyticsApiUpdateProductAnalyticsLaunchRequest,
+    options?: Configuration,
+  ): Promise<ProductAnalyticsLaunchResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateProductAnalyticsLaunch(
+        param.id,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateProductAnalyticsLaunch(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a Product Analytics monitor. Fields that are not set are left unchanged, and at least one field
+   * must be set. When set, `tags` replaces the monitor tags except `chart_id` and `dashboard_id`, which this
+   * endpoint ignores. To remove them, use the unlink endpoint.
+   * @param param The request object
+   */
+  public updateProductAnalyticsMonitor(
+    param: ProductAnalyticsApiUpdateProductAnalyticsMonitorRequest,
+    options?: Configuration,
+  ): Promise<ProductAnalyticsMonitorResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateProductAnalyticsMonitor(
+        param.monitorId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateProductAnalyticsMonitor(
             responseContext,
           );
         });
