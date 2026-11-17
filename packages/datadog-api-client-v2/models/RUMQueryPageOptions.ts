@@ -11,11 +11,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RUMQueryPageOptions {
   /**
-   * List following results with a cursor provided in the previous query.
+   * Cursor to get the next page of results, taken from `meta.page.after` of the previous response. Send it with the same `filter` and `sort` as the request that returned it.
    */
   "cursor"?: string;
   /**
-   * Maximum number of events in the response.
+   * Maximum number of events in the response. Between 1 and 1000.
    */
   "limit"?: number;
 
