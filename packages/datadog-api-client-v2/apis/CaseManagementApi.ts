@@ -9450,7 +9450,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Creates a new saved work item view with a name, filter query, and associated project. Optionally, a notification rule can be linked to the view.
+   * Creates a new saved work item view with a name, filter query, and associated project.
    * @param param The request object
    */
   public createCaseView(
@@ -10511,7 +10511,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Updates the name, query, or notification rule of an existing work item view.
+   * Updates the name or query of an existing work item view.
    * @param param The request object
    */
   public updateCaseView(
