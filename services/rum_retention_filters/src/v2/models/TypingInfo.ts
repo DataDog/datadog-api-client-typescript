@@ -28,6 +28,7 @@ import { RumRetentionFilterCreateAttributes } from "./RumRetentionFilterCreateAt
 import { RumRetentionFilterCreateData } from "./RumRetentionFilterCreateData";
 import { RumRetentionFilterCreateRequest } from "./RumRetentionFilterCreateRequest";
 import { RumRetentionFilterData } from "./RumRetentionFilterData";
+import { RumRetentionFilterMeta } from "./RumRetentionFilterMeta";
 import { RumRetentionFilterResponse } from "./RumRetentionFilterResponse";
 import { RumRetentionFilterUpdateAttributes } from "./RumRetentionFilterUpdateAttributes";
 import { RumRetentionFilterUpdateData } from "./RumRetentionFilterUpdateData";
@@ -55,6 +56,7 @@ export const TypingInfo: ModelTypingInfo = {
       "forced_replay_sessions",
     ],
     RumPermanentRetentionFilterType: ["permanent_retention_filters"],
+    RumRetentionFilterEditionMode: ["unknown", "complete", "limited"],
     RumRetentionFilterEventType: [
       "session",
       "view",
@@ -64,6 +66,8 @@ export const TypingInfo: ModelTypingInfo = {
       "long_task",
       "vital",
     ],
+    RumRetentionFilterMetaSource: ["default", "ui", "terraform", "unknown"],
+    RumRetentionFilterTrack: ["rum", "product_analytics"],
     RumRetentionFilterType: ["retention_filters"],
   },
   oneOfMap: {},
@@ -101,6 +105,7 @@ export const TypingInfo: ModelTypingInfo = {
     RumRetentionFilterCreateData: RumRetentionFilterCreateData,
     RumRetentionFilterCreateRequest: RumRetentionFilterCreateRequest,
     RumRetentionFilterData: RumRetentionFilterData,
+    RumRetentionFilterMeta: RumRetentionFilterMeta,
     RumRetentionFilterResponse: RumRetentionFilterResponse,
     RumRetentionFilterUpdateAttributes: RumRetentionFilterUpdateAttributes,
     RumRetentionFilterUpdateData: RumRetentionFilterUpdateData,

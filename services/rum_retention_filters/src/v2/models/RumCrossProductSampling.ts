@@ -5,6 +5,15 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class RumCrossProductSampling {
   /**
+   * Whether the cross-product retention filter for Session Replay is enabled.
+   */
+  "sessionReplayEnabled"?: boolean;
+  /**
+   * The percentage (0-100) of retained sessions with an ingested replay that keep their replay data.
+   * Values returned by the API are rounded to two decimal places.
+   */
+  "sessionReplaySampleRate"?: number;
+  /**
    * Whether the cross-product retention filter for APM traces is enabled.
    */
   "traceEnabled"?: boolean;
@@ -27,6 +36,15 @@ export class RumCrossProductSampling {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    sessionReplayEnabled: {
+      baseName: "session_replay_enabled",
+      type: "boolean",
+    },
+    sessionReplaySampleRate: {
+      baseName: "session_replay_sample_rate",
+      type: "number",
+      format: "double",
+    },
     traceEnabled: {
       baseName: "trace_enabled",
       type: "boolean",
