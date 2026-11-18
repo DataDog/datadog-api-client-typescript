@@ -5425,6 +5425,7 @@ import { RumRetentionFilterCreateAttributes } from "./RumRetentionFilterCreateAt
 import { RumRetentionFilterCreateData } from "./RumRetentionFilterCreateData";
 import { RumRetentionFilterCreateRequest } from "./RumRetentionFilterCreateRequest";
 import { RumRetentionFilterData } from "./RumRetentionFilterData";
+import { RumRetentionFilterMeta } from "./RumRetentionFilterMeta";
 import { RumRetentionFilterResponse } from "./RumRetentionFilterResponse";
 import { RumRetentionFilterUpdateAttributes } from "./RumRetentionFilterUpdateAttributes";
 import { RumRetentionFilterUpdateData } from "./RumRetentionFilterUpdateData";
@@ -10450,6 +10451,7 @@ const enumsMap: { [key: string]: any[] } = {
     "CANCELLED",
   ],
   RumRecoverySessionsRequestType: ["sessions"],
+  RumRetentionFilterEditionMode: ["unknown", "complete", "limited"],
   RumRetentionFilterEventType: [
     "session",
     "view",
@@ -10459,6 +10461,8 @@ const enumsMap: { [key: string]: any[] } = {
     "long_task",
     "vital",
   ],
+  RumRetentionFilterMetaSource: ["default", "ui", "terraform", "unknown"],
+  RumRetentionFilterTrack: ["rum", "product_analytics"],
   RumRetentionFilterType: ["retention_filters"],
   RumRetentionQuotaConfigType: ["rum_quota_config"],
   RumRetentionQuotaMode: ["custom"],
@@ -18286,6 +18290,7 @@ const typeMap: { [index: string]: any } = {
   RumRetentionFilterCreateData: RumRetentionFilterCreateData,
   RumRetentionFilterCreateRequest: RumRetentionFilterCreateRequest,
   RumRetentionFilterData: RumRetentionFilterData,
+  RumRetentionFilterMeta: RumRetentionFilterMeta,
   RumRetentionFilterResponse: RumRetentionFilterResponse,
   RumRetentionFilterUpdateAttributes: RumRetentionFilterUpdateAttributes,
   RumRetentionFilterUpdateData: RumRetentionFilterUpdateData,
