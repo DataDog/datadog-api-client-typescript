@@ -192,9 +192,17 @@ export interface ProcessesApiListProcessesRequest {
    */
   search?: string;
   /**
-   * Comma-separated `key:value` tags. A process must match every tag. Wildcards, negation
-   * (`-key:value`), spaces, and `IN (...)` are not supported. To cover several hosts, make one
-   * request per host.
+   * Comma-separated `key:value` tags. A process must match every tag. Each tag starts with a letter and
+   * contains only letters, digits, `_`, `-`, `.`, `/`, `@`, and `:`. Values match exactly and are
+   * case-sensitive (tags are usually lowercase, so `env:PROD` matches nothing if the tag is `env:prod`).
+   * In a value, `*` matches any run of characters, including none. It can appear anywhere in the value and
+   * more than once, and it can't be escaped. For example, `env:prod*` matches `env:prod` and `env:prod-eu`,
+   * `service:*web*` matches `service:checkout-web-1`, and `env:*` matches any process with an `env` tag.
+   * These return `400 Bad Request`, with the reason in `errors[0].detail`: a `*` in a key or in a tag
+   * without `:` (`kube_*:prod`, `*:prod`, `prod*`), a `?`, a leading `-` (negation), spaces (so `OR` and
+   * `IN (...)` can't be used), an empty value (`env:`), and more than 1024 characters in total. A `*` in the
+   * value of `started`, `infra_type`, or `apm_instrumented` also returns 400, but its `detail` is only
+   * `Bad Request`. To match unrelated values of one key, make one request per value.
    * @type string
    */
   tags?: string;
