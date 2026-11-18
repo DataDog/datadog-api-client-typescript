@@ -21,6 +21,7 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { SecurityAgentInvestigationCountField } from "../models/SecurityAgentInvestigationCountField";
 import { SecurityAgentInvestigationCountsResponse } from "../models/SecurityAgentInvestigationCountsResponse";
+import { SecurityAgentInvestigationCreateRequest } from "../models/SecurityAgentInvestigationCreateRequest";
 import { SecurityAgentInvestigationField } from "../models/SecurityAgentInvestigationField";
 import { SecurityAgentInvestigationResponse } from "../models/SecurityAgentInvestigationResponse";
 import { SecurityAgentInvestigationsListResponse } from "../models/SecurityAgentInvestigationsListResponse";
@@ -152,6 +153,66 @@ export class BitsSecurityAnalystApiRequestFactory extends BaseAPIRequestFactory 
         ""
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createSecurityAgentInvestigation(
+    body: SecurityAgentInvestigationCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createSecurityAgentInvestigation'");
+    if (!_config.unstableOperations["v2.createSecurityAgentInvestigation"]) {
+      throw new Error(
+        "Unstable operation 'createSecurityAgentInvestigation' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createSecurityAgentInvestigation");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/security_agent/investigations";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.BitsSecurityAnalystApi.createSecurityAgentInvestigation")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityAgentInvestigationCreateRequest",
+        ""
+      ),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -499,6 +560,112 @@ export class BitsSecurityAnalystApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createSecurityAgentInvestigation
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSecurityAgentInvestigation(
+    response: ResponseContext
+  ): Promise<SecurityAgentInvestigationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityAgentInvestigationResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityAgentInvestigationResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityAgentInvestigationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 422
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityAgentInvestigationResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityAgentInvestigationResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityAgentInvestigationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSecurityAgentInvestigation
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -766,6 +933,13 @@ export interface BitsSecurityAnalystApiCountSecurityAgentInvestigationsRequest {
   filterEntity?: string;
 }
 
+export interface BitsSecurityAnalystApiCreateSecurityAgentInvestigationRequest {
+  /**
+   * @type SecurityAgentInvestigationCreateRequest
+   */
+  body: SecurityAgentInvestigationCreateRequest;
+}
+
 export interface BitsSecurityAnalystApiGetSecurityAgentInvestigationRequest {
   /**
    * The ID of the investigation, as returned by the list.
@@ -918,6 +1092,41 @@ export class BitsSecurityAnalystApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.countSecurityAgentInvestigations(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Start a Bits Security Analyst investigation of a signal, or get its investigation if it already has one.
+   *
+   * If the signal already has an investigation, in any state, the response has its latest investigation.
+   * Otherwise, an investigation starts, and the response has the new investigation in the `investigating` state.
+   * Set `rerun` to `true` to start a new investigation of a signal that already has one. If the signal's
+   * investigation is still running, the response has that investigation, and no new one starts.
+   * While the investigation is `investigating`, the response has a `Retry-After` header.
+   * `GET /api/v2/security_monitoring/security_agent/investigations/{investigation_id}` reads it right away.
+   *
+   * The response doesn't have the investigation's content: `conclusion`, `signal`, `key_entities`, `key_evidence`,
+   * `steps`, and `response_suggestions`. Get the investigation for its content.
+   *
+   * This endpoint is rate limited to `30` requests per minute per organization. Every investigation it starts,
+   * including a rerun, counts toward the organization's monthly investigation limit. Starting an investigation
+   * returns `429` with the code `monthly_limit_reached` once the organization has reached that limit.
+   * @param param The request object
+   */
+  public createSecurityAgentInvestigation(
+    param: BitsSecurityAnalystApiCreateSecurityAgentInvestigationRequest,
+    options?: Configuration
+  ): Promise<SecurityAgentInvestigationResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSecurityAgentInvestigation(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSecurityAgentInvestigation(
             responseContext
           );
         });

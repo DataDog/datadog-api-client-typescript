@@ -296,6 +296,7 @@ export {
 
 export {
   BitsSecurityAnalystApiCountSecurityAgentInvestigationsRequest,
+  BitsSecurityAnalystApiCreateSecurityAgentInvestigationRequest,
   BitsSecurityAnalystApiGetSecurityAgentInvestigationRequest,
   BitsSecurityAnalystApiListSecurityAgentInvestigationsRequest,
   BitsSecurityAnalystApi,
@@ -9652,6 +9653,9 @@ export { SecurityAgentInvestigationCountsAttributes } from "./models/SecurityAge
 export { SecurityAgentInvestigationCountsData } from "./models/SecurityAgentInvestigationCountsData";
 export { SecurityAgentInvestigationCountsResponse } from "./models/SecurityAgentInvestigationCountsResponse";
 export { SecurityAgentInvestigationCountsType } from "./models/SecurityAgentInvestigationCountsType";
+export { SecurityAgentInvestigationCreateAttributes } from "./models/SecurityAgentInvestigationCreateAttributes";
+export { SecurityAgentInvestigationCreateData } from "./models/SecurityAgentInvestigationCreateData";
+export { SecurityAgentInvestigationCreateRequest } from "./models/SecurityAgentInvestigationCreateRequest";
 export { SecurityAgentInvestigationData } from "./models/SecurityAgentInvestigationData";
 export { SecurityAgentInvestigationEntity } from "./models/SecurityAgentInvestigationEntity";
 export { SecurityAgentInvestigationField } from "./models/SecurityAgentInvestigationField";

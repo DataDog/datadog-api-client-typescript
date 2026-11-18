@@ -19470,6 +19470,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityAgentInvestigationsListResponse",
     },
+    "v2.CreateSecurityAgentInvestigation": {
+        "body": {
+            "type": "SecurityAgentInvestigationCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityAgentInvestigationResponse",
+    },
     "v2.CountSecurityAgentInvestigations": {
         "field": {
             "type": "SecurityAgentInvestigationCountField",
