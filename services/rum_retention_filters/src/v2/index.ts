@@ -48,12 +48,16 @@ export { RumRetentionFilterCreateAttributes } from "./models/RumRetentionFilterC
 export { RumRetentionFilterCreateData } from "./models/RumRetentionFilterCreateData";
 export { RumRetentionFilterCreateRequest } from "./models/RumRetentionFilterCreateRequest";
 export { RumRetentionFilterData } from "./models/RumRetentionFilterData";
+export { RumRetentionFilterEditionMode } from "./models/RumRetentionFilterEditionMode";
 export { RumRetentionFilterEventType } from "./models/RumRetentionFilterEventType";
+export { RumRetentionFilterMeta } from "./models/RumRetentionFilterMeta";
+export { RumRetentionFilterMetaSource } from "./models/RumRetentionFilterMetaSource";
 export { RumRetentionFilterResponse } from "./models/RumRetentionFilterResponse";
 export { RumRetentionFiltersOrderData } from "./models/RumRetentionFiltersOrderData";
 export { RumRetentionFiltersOrderRequest } from "./models/RumRetentionFiltersOrderRequest";
 export { RumRetentionFiltersOrderResponse } from "./models/RumRetentionFiltersOrderResponse";
 export { RumRetentionFiltersResponse } from "./models/RumRetentionFiltersResponse";
+export { RumRetentionFilterTrack } from "./models/RumRetentionFilterTrack";
 export { RumRetentionFilterType } from "./models/RumRetentionFilterType";
 export { RumRetentionFilterUpdateAttributes } from "./models/RumRetentionFilterUpdateAttributes";
 export { RumRetentionFilterUpdateData } from "./models/RumRetentionFilterUpdateData";
