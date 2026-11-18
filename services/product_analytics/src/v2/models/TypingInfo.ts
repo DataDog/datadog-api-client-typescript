@@ -1,6 +1,9 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { ProductAnalyticsAnalyticsListQuery } from "./ProductAnalyticsAnalyticsListQuery";
 import { ProductAnalyticsAnalyticsListRequest } from "./ProductAnalyticsAnalyticsListRequest";
 import { ProductAnalyticsAnalyticsListRequestAttributes } from "./ProductAnalyticsAnalyticsListRequestAttributes";
@@ -73,6 +76,50 @@ import { ProductAnalyticsJourneySearchFilters } from "./ProductAnalyticsJourneyS
 import { ProductAnalyticsJourneySearchGraphFilter } from "./ProductAnalyticsJourneySearchGraphFilter";
 import { ProductAnalyticsJourneyTimeseriesResponse } from "./ProductAnalyticsJourneyTimeseriesResponse";
 import { ProductAnalyticsJourneyTimeseriesResponseData } from "./ProductAnalyticsJourneyTimeseriesResponseData";
+import { ProductAnalyticsLaunchAttributes } from "./ProductAnalyticsLaunchAttributes";
+import { ProductAnalyticsLaunchCodeAnalysis } from "./ProductAnalyticsLaunchCodeAnalysis";
+import { ProductAnalyticsLaunchCreateData } from "./ProductAnalyticsLaunchCreateData";
+import { ProductAnalyticsLaunchCreateRequest } from "./ProductAnalyticsLaunchCreateRequest";
+import { ProductAnalyticsLaunchDashboardStep } from "./ProductAnalyticsLaunchDashboardStep";
+import { ProductAnalyticsLaunchData } from "./ProductAnalyticsLaunchData";
+import { ProductAnalyticsLaunchEvent } from "./ProductAnalyticsLaunchEvent";
+import { ProductAnalyticsLaunchEventFinding } from "./ProductAnalyticsLaunchEventFinding";
+import { ProductAnalyticsLaunchEventProperty } from "./ProductAnalyticsLaunchEventProperty";
+import { ProductAnalyticsLaunchExperimentStep } from "./ProductAnalyticsLaunchExperimentStep";
+import { ProductAnalyticsLaunchFunnelStep } from "./ProductAnalyticsLaunchFunnelStep";
+import { ProductAnalyticsLaunchKPI } from "./ProductAnalyticsLaunchKPI";
+import { ProductAnalyticsLaunchPatchAttributes } from "./ProductAnalyticsLaunchPatchAttributes";
+import { ProductAnalyticsLaunchPatchData } from "./ProductAnalyticsLaunchPatchData";
+import { ProductAnalyticsLaunchPatchRequest } from "./ProductAnalyticsLaunchPatchRequest";
+import { ProductAnalyticsLaunchPatchSteps } from "./ProductAnalyticsLaunchPatchSteps";
+import { ProductAnalyticsLaunchProperty } from "./ProductAnalyticsLaunchProperty";
+import { ProductAnalyticsLaunchPropertyFinding } from "./ProductAnalyticsLaunchPropertyFinding";
+import { ProductAnalyticsLaunchRequestAttributes } from "./ProductAnalyticsLaunchRequestAttributes";
+import { ProductAnalyticsLaunchResponse } from "./ProductAnalyticsLaunchResponse";
+import { ProductAnalyticsLaunchSteps } from "./ProductAnalyticsLaunchSteps";
+import { ProductAnalyticsLaunchStepsRequest } from "./ProductAnalyticsLaunchStepsRequest";
+import { ProductAnalyticsLaunchTrackingPlan } from "./ProductAnalyticsLaunchTrackingPlan";
+import { ProductAnalyticsLaunchTrackingPlanRequest } from "./ProductAnalyticsLaunchTrackingPlanRequest";
+import { ProductAnalyticsLaunchesResponse } from "./ProductAnalyticsLaunchesResponse";
+import { ProductAnalyticsMonitorAttributes } from "./ProductAnalyticsMonitorAttributes";
+import { ProductAnalyticsMonitorCreateAttributes } from "./ProductAnalyticsMonitorCreateAttributes";
+import { ProductAnalyticsMonitorCreateData } from "./ProductAnalyticsMonitorCreateData";
+import { ProductAnalyticsMonitorCreateRequest } from "./ProductAnalyticsMonitorCreateRequest";
+import { ProductAnalyticsMonitorCreator } from "./ProductAnalyticsMonitorCreator";
+import { ProductAnalyticsMonitorData } from "./ProductAnalyticsMonitorData";
+import { ProductAnalyticsMonitorListAttributes } from "./ProductAnalyticsMonitorListAttributes";
+import { ProductAnalyticsMonitorListData } from "./ProductAnalyticsMonitorListData";
+import { ProductAnalyticsMonitorListItem } from "./ProductAnalyticsMonitorListItem";
+import { ProductAnalyticsMonitorListResponse } from "./ProductAnalyticsMonitorListResponse";
+import { ProductAnalyticsMonitorOptions } from "./ProductAnalyticsMonitorOptions";
+import { ProductAnalyticsMonitorResponse } from "./ProductAnalyticsMonitorResponse";
+import { ProductAnalyticsMonitorThresholds } from "./ProductAnalyticsMonitorThresholds";
+import { ProductAnalyticsMonitorUnlinkAttributes } from "./ProductAnalyticsMonitorUnlinkAttributes";
+import { ProductAnalyticsMonitorUnlinkData } from "./ProductAnalyticsMonitorUnlinkData";
+import { ProductAnalyticsMonitorUnlinkRequest } from "./ProductAnalyticsMonitorUnlinkRequest";
+import { ProductAnalyticsMonitorUpdateAttributes } from "./ProductAnalyticsMonitorUpdateAttributes";
+import { ProductAnalyticsMonitorUpdateData } from "./ProductAnalyticsMonitorUpdateData";
+import { ProductAnalyticsMonitorUpdateRequest } from "./ProductAnalyticsMonitorUpdateRequest";
 import { ProductAnalyticsOccurrenceFilter } from "./ProductAnalyticsOccurrenceFilter";
 import { ProductAnalyticsOccurrenceQuery } from "./ProductAnalyticsOccurrenceQuery";
 import { ProductAnalyticsOccurrenceSearch } from "./ProductAnalyticsOccurrenceSearch";
@@ -197,6 +244,15 @@ export const TypingInfo: ModelTypingInfo = {
     ProductAnalyticsJourneyTimeseriesResponseType: [
       "journey_timeseries_response",
     ],
+    ProductAnalyticsLaunchCodeStatus: ["found", "not_found"],
+    ProductAnalyticsLaunchListScope: ["liftoffs"],
+    ProductAnalyticsLaunchPhase: ["plan", "setup", "ready", "launched"],
+    ProductAnalyticsLaunchType: ["liftoff"],
+    ProductAnalyticsMonitorListType: ["pa_monitor_list"],
+    ProductAnalyticsMonitorRequestType: ["pa_monitor_request"],
+    ProductAnalyticsMonitorStatus: ["OK", "Alert", "Warn", "No Data"],
+    ProductAnalyticsMonitorType: ["pa_monitor"],
+    ProductAnalyticsMonitorUnlinkRequestType: ["pa_monitor_unlink_request"],
     ProductAnalyticsOccurrenceQueryDataSource: ["product_analytics_occurrence"],
     ProductAnalyticsResponseMetaStatus: ["done", "running", "timeout"],
     ProductAnalyticsRetentionAggregationTargetType: ["aggregation"],
@@ -257,6 +313,9 @@ export const TypingInfo: ModelTypingInfo = {
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     ProductAnalyticsAnalyticsListQuery: ProductAnalyticsAnalyticsListQuery,
     ProductAnalyticsAnalyticsListRequest: ProductAnalyticsAnalyticsListRequest,
     ProductAnalyticsAnalyticsListRequestAttributes:
@@ -366,6 +425,58 @@ export const TypingInfo: ModelTypingInfo = {
       ProductAnalyticsJourneyTimeseriesResponse,
     ProductAnalyticsJourneyTimeseriesResponseData:
       ProductAnalyticsJourneyTimeseriesResponseData,
+    ProductAnalyticsLaunchAttributes: ProductAnalyticsLaunchAttributes,
+    ProductAnalyticsLaunchCodeAnalysis: ProductAnalyticsLaunchCodeAnalysis,
+    ProductAnalyticsLaunchCreateData: ProductAnalyticsLaunchCreateData,
+    ProductAnalyticsLaunchCreateRequest: ProductAnalyticsLaunchCreateRequest,
+    ProductAnalyticsLaunchDashboardStep: ProductAnalyticsLaunchDashboardStep,
+    ProductAnalyticsLaunchData: ProductAnalyticsLaunchData,
+    ProductAnalyticsLaunchEvent: ProductAnalyticsLaunchEvent,
+    ProductAnalyticsLaunchEventFinding: ProductAnalyticsLaunchEventFinding,
+    ProductAnalyticsLaunchEventProperty: ProductAnalyticsLaunchEventProperty,
+    ProductAnalyticsLaunchExperimentStep: ProductAnalyticsLaunchExperimentStep,
+    ProductAnalyticsLaunchFunnelStep: ProductAnalyticsLaunchFunnelStep,
+    ProductAnalyticsLaunchKPI: ProductAnalyticsLaunchKPI,
+    ProductAnalyticsLaunchPatchAttributes:
+      ProductAnalyticsLaunchPatchAttributes,
+    ProductAnalyticsLaunchPatchData: ProductAnalyticsLaunchPatchData,
+    ProductAnalyticsLaunchPatchRequest: ProductAnalyticsLaunchPatchRequest,
+    ProductAnalyticsLaunchPatchSteps: ProductAnalyticsLaunchPatchSteps,
+    ProductAnalyticsLaunchProperty: ProductAnalyticsLaunchProperty,
+    ProductAnalyticsLaunchPropertyFinding:
+      ProductAnalyticsLaunchPropertyFinding,
+    ProductAnalyticsLaunchRequestAttributes:
+      ProductAnalyticsLaunchRequestAttributes,
+    ProductAnalyticsLaunchResponse: ProductAnalyticsLaunchResponse,
+    ProductAnalyticsLaunchSteps: ProductAnalyticsLaunchSteps,
+    ProductAnalyticsLaunchStepsRequest: ProductAnalyticsLaunchStepsRequest,
+    ProductAnalyticsLaunchTrackingPlan: ProductAnalyticsLaunchTrackingPlan,
+    ProductAnalyticsLaunchTrackingPlanRequest:
+      ProductAnalyticsLaunchTrackingPlanRequest,
+    ProductAnalyticsLaunchesResponse: ProductAnalyticsLaunchesResponse,
+    ProductAnalyticsMonitorAttributes: ProductAnalyticsMonitorAttributes,
+    ProductAnalyticsMonitorCreateAttributes:
+      ProductAnalyticsMonitorCreateAttributes,
+    ProductAnalyticsMonitorCreateData: ProductAnalyticsMonitorCreateData,
+    ProductAnalyticsMonitorCreateRequest: ProductAnalyticsMonitorCreateRequest,
+    ProductAnalyticsMonitorCreator: ProductAnalyticsMonitorCreator,
+    ProductAnalyticsMonitorData: ProductAnalyticsMonitorData,
+    ProductAnalyticsMonitorListAttributes:
+      ProductAnalyticsMonitorListAttributes,
+    ProductAnalyticsMonitorListData: ProductAnalyticsMonitorListData,
+    ProductAnalyticsMonitorListItem: ProductAnalyticsMonitorListItem,
+    ProductAnalyticsMonitorListResponse: ProductAnalyticsMonitorListResponse,
+    ProductAnalyticsMonitorOptions: ProductAnalyticsMonitorOptions,
+    ProductAnalyticsMonitorResponse: ProductAnalyticsMonitorResponse,
+    ProductAnalyticsMonitorThresholds: ProductAnalyticsMonitorThresholds,
+    ProductAnalyticsMonitorUnlinkAttributes:
+      ProductAnalyticsMonitorUnlinkAttributes,
+    ProductAnalyticsMonitorUnlinkData: ProductAnalyticsMonitorUnlinkData,
+    ProductAnalyticsMonitorUnlinkRequest: ProductAnalyticsMonitorUnlinkRequest,
+    ProductAnalyticsMonitorUpdateAttributes:
+      ProductAnalyticsMonitorUpdateAttributes,
+    ProductAnalyticsMonitorUpdateData: ProductAnalyticsMonitorUpdateData,
+    ProductAnalyticsMonitorUpdateRequest: ProductAnalyticsMonitorUpdateRequest,
     ProductAnalyticsOccurrenceFilter: ProductAnalyticsOccurrenceFilter,
     ProductAnalyticsOccurrenceQuery: ProductAnalyticsOccurrenceQuery,
     ProductAnalyticsOccurrenceSearch: ProductAnalyticsOccurrenceSearch,

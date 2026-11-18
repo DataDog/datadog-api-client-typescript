@@ -17268,6 +17268,123 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ProductAnalyticsJourneyTimeseriesResponse",
   },
+  "ProductAnalyticsApi.V2.ListProductAnalyticsLaunches": {
+    sort: {
+      type: "string",
+      format: "",
+    },
+    scope: {
+      type: "ProductAnalyticsLaunchListScope",
+      format: "",
+    },
+    phase: {
+      type: "Array<ProductAnalyticsLaunchPhase>",
+      format: "",
+    },
+    applicationId: {
+      type: "string",
+      format: "",
+    },
+    name: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsLaunchesResponse",
+  },
+  "ProductAnalyticsApi.V2.CreateProductAnalyticsLaunch": {
+    body: {
+      type: "ProductAnalyticsLaunchCreateRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsLaunchResponse",
+  },
+  "ProductAnalyticsApi.V2.GetProductAnalyticsLaunch": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsLaunchResponse",
+  },
+  "ProductAnalyticsApi.V2.DeleteProductAnalyticsLaunch": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ProductAnalyticsApi.V2.UpdateProductAnalyticsLaunch": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ProductAnalyticsLaunchPatchRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsLaunchResponse",
+  },
+  "ProductAnalyticsApi.V2.ListProductAnalyticsMonitors": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    chartId: {
+      type: "string",
+      format: "",
+    },
+    dashboardId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsMonitorListResponse",
+  },
+  "ProductAnalyticsApi.V2.CreateProductAnalyticsMonitor": {
+    body: {
+      type: "ProductAnalyticsMonitorCreateRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsMonitorResponse",
+  },
+  "ProductAnalyticsApi.V2.GetProductAnalyticsMonitor": {
+    monitorId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsMonitorResponse",
+  },
+  "ProductAnalyticsApi.V2.UpdateProductAnalyticsMonitor": {
+    monitorId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ProductAnalyticsMonitorUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsMonitorResponse",
+  },
+  "ProductAnalyticsApi.V2.DeleteProductAnalyticsMonitor": {
+    monitorId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ProductAnalyticsApi.V2.RemoveChartFromProductAnalyticsMonitor": {
+    monitorId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ProductAnalyticsMonitorUnlinkRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "ProductAnalyticsApi.V2.QueryProductAnalyticsRetentionGrid": {
     body: {
       type: "ProductAnalyticsRetentionGridRequest",
@@ -17316,6 +17433,76 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "QueryResponse",
+  },
+  "RumAudienceManagementApi.V2.ListProductAnalyticsSegments": {
+    filterEntity: {
+      type: "SegmentEntity",
+      format: "",
+    },
+    filterType: {
+      type: "string",
+      format: "",
+    },
+    filterIds: {
+      type: "string",
+      format: "",
+    },
+    filterDisabled: {
+      type: "boolean",
+      format: "",
+    },
+    sortColumn: {
+      type: "SegmentSortColumn",
+      format: "",
+    },
+    sortOrder: {
+      type: "QuerySortOrder",
+      format: "",
+    },
+    limit: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "SegmentsResponse",
+  },
+  "RumAudienceManagementApi.V2.CreateProductAnalyticsSegment": {
+    body: {
+      type: "SegmentCreateRequest",
+      format: "",
+    },
+    operationResponseType: "SegmentResponse",
+  },
+  "RumAudienceManagementApi.V2.GetProductAnalyticsSegment": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SegmentResponse",
+  },
+  "RumAudienceManagementApi.V2.UpdateProductAnalyticsSegment": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SegmentUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "RumAudienceManagementApi.V2.DeleteProductAnalyticsSegment": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SegmentDeleteResponse",
+  },
+  "RumAudienceManagementApi.V2.PreviewProductAnalyticsSegment": {
+    body: {
+      type: "SegmentPreviewRequest",
+      format: "",
+    },
+    operationResponseType: "SegmentPreviewResponse",
   },
   "RumAudienceManagementApi.V2.QueryEventFilteredUsers": {
     body: {

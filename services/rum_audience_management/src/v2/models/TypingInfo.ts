@@ -47,6 +47,37 @@ import { QueryUsersRequest } from "./QueryUsersRequest";
 import { QueryUsersRequestData } from "./QueryUsersRequestData";
 import { QueryUsersRequestDataAttributes } from "./QueryUsersRequestDataAttributes";
 import { QueryUsersRequestDataAttributesSort } from "./QueryUsersRequestDataAttributesSort";
+import { SegmentAttributes } from "./SegmentAttributes";
+import { SegmentCreateAttributes } from "./SegmentCreateAttributes";
+import { SegmentCreateData } from "./SegmentCreateData";
+import { SegmentCreateRequest } from "./SegmentCreateRequest";
+import { SegmentData } from "./SegmentData";
+import { SegmentDataQuery } from "./SegmentDataQuery";
+import { SegmentDeleteAttributes } from "./SegmentDeleteAttributes";
+import { SegmentDeleteData } from "./SegmentDeleteData";
+import { SegmentDeleteResponse } from "./SegmentDeleteResponse";
+import { SegmentEventPlatformBlock } from "./SegmentEventPlatformBlock";
+import { SegmentJourneyBlock } from "./SegmentJourneyBlock";
+import { SegmentPreviewAttributes } from "./SegmentPreviewAttributes";
+import { SegmentPreviewData } from "./SegmentPreviewData";
+import { SegmentPreviewRequest } from "./SegmentPreviewRequest";
+import { SegmentPreviewResponse } from "./SegmentPreviewResponse";
+import { SegmentPreviewResponseAttributes } from "./SegmentPreviewResponseAttributes";
+import { SegmentPreviewResponseData } from "./SegmentPreviewResponseData";
+import { SegmentProfileStoreBlock } from "./SegmentProfileStoreBlock";
+import { SegmentReferenceTableBlock } from "./SegmentReferenceTableBlock";
+import { SegmentReferenceTableColumn } from "./SegmentReferenceTableColumn";
+import { SegmentReferenceTableJoinCondition } from "./SegmentReferenceTableJoinCondition";
+import { SegmentResponse } from "./SegmentResponse";
+import { SegmentStaticBlock } from "./SegmentStaticBlock";
+import { SegmentSummaryAttributes } from "./SegmentSummaryAttributes";
+import { SegmentSummaryData } from "./SegmentSummaryData";
+import { SegmentTemplateBlock } from "./SegmentTemplateBlock";
+import { SegmentUpdateAttributes } from "./SegmentUpdateAttributes";
+import { SegmentUpdateData } from "./SegmentUpdateData";
+import { SegmentUpdateRequest } from "./SegmentUpdateRequest";
+import { SegmentUser } from "./SegmentUser";
+import { SegmentsResponse } from "./SegmentsResponse";
 import { UpdateConnectionRequest } from "./UpdateConnectionRequest";
 import { UpdateConnectionRequestData } from "./UpdateConnectionRequestData";
 import { UpdateConnectionRequestDataAttributes } from "./UpdateConnectionRequestDataAttributes";
@@ -61,12 +92,30 @@ export const TypingInfo: ModelTypingInfo = {
     FacetInfoResponseDataType: ["users_facet_info", "accounts_facet_info"],
     GetMappingResponseDataType: ["get_mappings_response"],
     ListConnectionsResponseDataType: ["list_connections_response"],
+    ProductAnalyticsJourneyConversionType: ["conversion", "drop-off"],
     QueryAccountRequestDataType: ["query_account_request"],
     QueryEventFilteredUsersRequestDataType: [
       "query_event_filtered_users_request",
     ],
     QueryResponseDataType: ["query_response"],
+    QuerySortOrder: ["asc", "desc"],
     QueryUsersRequestDataType: ["query_users_request"],
+    SegmentDeletedType: ["deleted_segment"],
+    SegmentEntity: ["user", "account"],
+    SegmentPreviewRequestType: ["segment_preview_request"],
+    SegmentPreviewResponseType: ["unified_segment_preview_response"],
+    SegmentResourceType: ["segment"],
+    SegmentSortColumn: [
+      "name",
+      "description",
+      "created_by",
+      "created_at",
+      "modified_by",
+      "modified_at",
+      "disabled_by",
+      "disabled_at",
+      "uuid",
+    ],
     UpdateConnectionRequestDataType: ["connection_id"],
   },
   oneOfMap: {},
@@ -135,6 +184,37 @@ export const TypingInfo: ModelTypingInfo = {
     QueryUsersRequestData: QueryUsersRequestData,
     QueryUsersRequestDataAttributes: QueryUsersRequestDataAttributes,
     QueryUsersRequestDataAttributesSort: QueryUsersRequestDataAttributesSort,
+    SegmentAttributes: SegmentAttributes,
+    SegmentCreateAttributes: SegmentCreateAttributes,
+    SegmentCreateData: SegmentCreateData,
+    SegmentCreateRequest: SegmentCreateRequest,
+    SegmentData: SegmentData,
+    SegmentDataQuery: SegmentDataQuery,
+    SegmentDeleteAttributes: SegmentDeleteAttributes,
+    SegmentDeleteData: SegmentDeleteData,
+    SegmentDeleteResponse: SegmentDeleteResponse,
+    SegmentEventPlatformBlock: SegmentEventPlatformBlock,
+    SegmentJourneyBlock: SegmentJourneyBlock,
+    SegmentPreviewAttributes: SegmentPreviewAttributes,
+    SegmentPreviewData: SegmentPreviewData,
+    SegmentPreviewRequest: SegmentPreviewRequest,
+    SegmentPreviewResponse: SegmentPreviewResponse,
+    SegmentPreviewResponseAttributes: SegmentPreviewResponseAttributes,
+    SegmentPreviewResponseData: SegmentPreviewResponseData,
+    SegmentProfileStoreBlock: SegmentProfileStoreBlock,
+    SegmentReferenceTableBlock: SegmentReferenceTableBlock,
+    SegmentReferenceTableColumn: SegmentReferenceTableColumn,
+    SegmentReferenceTableJoinCondition: SegmentReferenceTableJoinCondition,
+    SegmentResponse: SegmentResponse,
+    SegmentStaticBlock: SegmentStaticBlock,
+    SegmentSummaryAttributes: SegmentSummaryAttributes,
+    SegmentSummaryData: SegmentSummaryData,
+    SegmentTemplateBlock: SegmentTemplateBlock,
+    SegmentUpdateAttributes: SegmentUpdateAttributes,
+    SegmentUpdateData: SegmentUpdateData,
+    SegmentUpdateRequest: SegmentUpdateRequest,
+    SegmentUser: SegmentUser,
+    SegmentsResponse: SegmentsResponse,
     UpdateConnectionRequest: UpdateConnectionRequest,
     UpdateConnectionRequestData: UpdateConnectionRequestData,
     UpdateConnectionRequestDataAttributes:
