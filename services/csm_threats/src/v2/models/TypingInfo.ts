@@ -33,6 +33,9 @@ import { CloudWorkloadSecurityAgentRuleUpdateData } from "./CloudWorkloadSecurit
 import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./CloudWorkloadSecurityAgentRuleUpdateRequest";
 import { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./CloudWorkloadSecurityAgentRuleUpdaterAttributes";
 import { CloudWorkloadSecurityAgentRulesListResponse } from "./CloudWorkloadSecurityAgentRulesListResponse";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -108,5 +111,8 @@ export const TypingInfo: ModelTypingInfo = {
       CloudWorkloadSecurityAgentRuleUpdaterAttributes,
     CloudWorkloadSecurityAgentRulesListResponse:
       CloudWorkloadSecurityAgentRulesListResponse,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
   },
 };
