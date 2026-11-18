@@ -3,20 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CostRecommendationCustomRuleAttributes } from "./CostRecommendationCustomRuleAttributes";
+import { CostRecommendationCustomRuleType } from "./CostRecommendationCustomRuleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Monitor configuration options for data jobs queries.
+ * A custom recommendation rule.
  */
-export class MonitorFormulaAndFunctionDataJobsMonitorOptions {
+export class CostRecommendationCustomRuleData {
   /**
-   * Alert separately for each failed run instead of on the count of trailing failures.
-   * Only supported for `failed_runs` monitors with the `aastra` query dialect. It requires
-   * a `> 0` threshold with no warning threshold, an evaluation window of at most two days,
-   * and renotification disabled.
+   * Attributes of a custom recommendation rule.
    */
-  "alertOnEveryFailure"?: boolean;
+  "attributes": CostRecommendationCustomRuleAttributes;
+  /**
+   * The ID of the custom rule.
+   */
+  "id": string;
+  /**
+   * Custom recommendation rule resource type.
+   */
+  "type": CostRecommendationCustomRuleType;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,9 +41,20 @@ export class MonitorFormulaAndFunctionDataJobsMonitorOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    alertOnEveryFailure: {
-      baseName: "alert_on_every_failure",
-      type: "boolean",
+    attributes: {
+      baseName: "attributes",
+      type: "CostRecommendationCustomRuleAttributes",
+      required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "CostRecommendationCustomRuleType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +66,7 @@ export class MonitorFormulaAndFunctionDataJobsMonitorOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorFormulaAndFunctionDataJobsMonitorOptions.attributeTypeMap;
+    return CostRecommendationCustomRuleData.attributeTypeMap;
   }
 
   public constructor() {}

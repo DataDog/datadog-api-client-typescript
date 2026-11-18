@@ -9270,6 +9270,76 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CostRecommendationArray",
     },
+    "v2.ListCostRecommendationCustomRules": {
+        "operationResponseType": "CostRecommendationCustomRulesResponse",
+    },
+    "v2.CreateCostRecommendationCustomRule": {
+        "body": {
+            "type": "CostRecommendationCustomRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CostRecommendationCustomRuleResponse",
+    },
+    "v2.GetCostRecommendationCustomRule": {
+        "customRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CostRecommendationCustomRuleResponse",
+    },
+    "v2.DeleteCostRecommendationCustomRule": {
+        "customRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateCostRecommendationCustomRule": {
+        "customRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CostRecommendationCustomRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CostRecommendationCustomRuleResponse",
+    },
+    "v2.ListCostRecommendationNotificationRules": {
+        "operationResponseType": "CostRecommendationNotificationRulesResponse",
+    },
+    "v2.CreateCostRecommendationNotificationRule": {
+        "body": {
+            "type": "CostRecommendationNotificationRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CostRecommendationNotificationRuleResponse",
+    },
+    "v2.GetCostRecommendationNotificationRule": {
+        "notificationRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CostRecommendationNotificationRuleResponse",
+    },
+    "v2.DeleteCostRecommendationNotificationRule": {
+        "notificationRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateCostRecommendationNotificationRule": {
+        "notificationRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CostRecommendationNotificationRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CostRecommendationNotificationRuleResponse",
+    },
     "v2.ListCostTagDescriptions": {
         "filterCloud": {
             "type": "string",

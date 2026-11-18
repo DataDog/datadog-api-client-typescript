@@ -7,13 +7,13 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * How a `data-jobs alert` job duration monitor detects a breach. Must match the
- * `.detection()` call in the monitor query. Required for job duration monitors.
+ * Where the digest is sent. `slack` requires `workspace_id` and `channel_id`; `teams` requires the
+ * `teams_*` attributes. Defaults to `slack`.
  */
 
-export type MonitorFormulaAndFunctionDataQualityDetectionType =
-  | typeof STATIC
-  | typeof ANOMALY
+export type CostRecommendationNotificationRuleDestinationType =
+  | typeof SLACK
+  | typeof TEAMS
   | UnparsedObject;
-export const STATIC = "static";
-export const ANOMALY = "anomaly";
+export const SLACK = "slack";
+export const TEAMS = "teams";
