@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AgentHealthIssueDetailData } from "./AgentHealthIssueDetailData";
+import { AgentHealthIssueData } from "./AgentHealthIssueData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +14,7 @@ export class AgentHealthIssueResponse {
   /**
    * An open Agent Health issue with available remediation.
    */
-  "data": AgentHealthIssueDetailData;
+  "data": AgentHealthIssueData;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class AgentHealthIssueResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "AgentHealthIssueDetailData",
+      type: "AgentHealthIssueData",
       required: true,
     },
     additionalProperties: {

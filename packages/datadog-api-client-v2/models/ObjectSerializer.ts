@@ -165,8 +165,6 @@ import { AgentHealthHostIssuesData } from "./AgentHealthHostIssuesData";
 import { AgentHealthHostIssuesResponse } from "./AgentHealthHostIssuesResponse";
 import { AgentHealthIssueAttributes } from "./AgentHealthIssueAttributes";
 import { AgentHealthIssueData } from "./AgentHealthIssueData";
-import { AgentHealthIssueDetailAttributes } from "./AgentHealthIssueDetailAttributes";
-import { AgentHealthIssueDetailData } from "./AgentHealthIssueDetailData";
 import { AgentHealthIssueResponse } from "./AgentHealthIssueResponse";
 import { AgentHealthIssuesResponse } from "./AgentHealthIssuesResponse";
 import { AgentHealthIssuesResponseMeta } from "./AgentHealthIssuesResponseMeta";
@@ -7284,6 +7282,7 @@ const enumsMap: { [key: string]: any[] } = {
   AgentHealthAgentType: ["node", "cluster"],
   AgentHealthHostIssuesType: ["agent_health_issues"],
   AgentHealthIssueResourceType: ["agent_health_issues"],
+  AgentHealthIssuesCountBy: ["issue_type"],
   AggregatedLongTasksRequestType: ["aggregated_long_tasks"],
   AggregatedWaterfallPerformanceCriteriaMetric: [
     "loading_time",
@@ -11699,8 +11698,6 @@ const typeMap: { [index: string]: any } = {
   AgentHealthHostIssuesResponse: AgentHealthHostIssuesResponse,
   AgentHealthIssueAttributes: AgentHealthIssueAttributes,
   AgentHealthIssueData: AgentHealthIssueData,
-  AgentHealthIssueDetailAttributes: AgentHealthIssueDetailAttributes,
-  AgentHealthIssueDetailData: AgentHealthIssueDetailData,
   AgentHealthIssueResponse: AgentHealthIssueResponse,
   AgentHealthIssuesResponse: AgentHealthIssuesResponse,
   AgentHealthIssuesResponseMeta: AgentHealthIssuesResponseMeta,
