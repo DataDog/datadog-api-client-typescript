@@ -3665,13 +3665,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "AgentHealthHostIssuesResponse",
   },
   "AgentHealthApi.V2.ListAgentHealthIssues": {
-    pageSize: {
-      type: "number",
-      format: "int64",
-    },
-    pageNumber: {
-      type: "number",
-      format: "int64",
+    countBy: {
+      type: "AgentHealthIssuesCountBy",
+      format: "",
     },
     filterSeverity: {
       type: "string",

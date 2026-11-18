@@ -8,6 +8,10 @@ import { AgentHealthRemediationStep } from "./AgentHealthRemediationStep";
  */
 export class AgentHealthRemediation {
   /**
+   * A suggested prompt for an AI assistant to help remediate the issue.
+   */
+  "aiPrompt"?: string;
+  /**
    * A script that can be used to remediate the issue.
    */
   "script"?: AgentHealthRemediationScript;
@@ -34,6 +38,10 @@ export class AgentHealthRemediation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    aiPrompt: {
+      baseName: "ai_prompt",
+      type: "string",
+    },
     script: {
       baseName: "script",
       type: "AgentHealthRemediationScript",

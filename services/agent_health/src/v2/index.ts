@@ -13,10 +13,9 @@ export { AgentHealthHostIssuesResponse } from "./models/AgentHealthHostIssuesRes
 export { AgentHealthHostIssuesType } from "./models/AgentHealthHostIssuesType";
 export { AgentHealthIssueAttributes } from "./models/AgentHealthIssueAttributes";
 export { AgentHealthIssueData } from "./models/AgentHealthIssueData";
-export { AgentHealthIssueDetailAttributes } from "./models/AgentHealthIssueDetailAttributes";
-export { AgentHealthIssueDetailData } from "./models/AgentHealthIssueDetailData";
 export { AgentHealthIssueResourceType } from "./models/AgentHealthIssueResourceType";
 export { AgentHealthIssueResponse } from "./models/AgentHealthIssueResponse";
+export { AgentHealthIssuesCountBy } from "./models/AgentHealthIssuesCountBy";
 export { AgentHealthIssuesResponse } from "./models/AgentHealthIssuesResponse";
 export { AgentHealthIssuesResponseMeta } from "./models/AgentHealthIssuesResponseMeta";
 export { AgentHealthIssuesResponsePage } from "./models/AgentHealthIssuesResponsePage";

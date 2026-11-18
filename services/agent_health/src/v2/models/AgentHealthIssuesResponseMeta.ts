@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { AgentHealthIssuesResponsePage } from "./AgentHealthIssuesResponsePage";
 
 /**
- * Pagination metadata for the matching Agent Health issues.
+ * Aggregate counts for the matching Agent Health issues. Present only when `count_by=issue_type` is requested.
  */
 export class AgentHealthIssuesResponseMeta {
   /**
-   * Pagination counts for the Agent Health issues.
+   * Counts for the matching Agent Health issues.
    */
   "page": AgentHealthIssuesResponsePage;
   /**

@@ -1,17 +1,17 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Pagination counts for the Agent Health issues.
+ * Counts for the matching Agent Health issues.
  */
 export class AgentHealthIssuesResponsePage {
   /**
-   * The total number of open issues in the organization, ignoring filters.
+   * The number of open issues matching the filters in each issue-type group.
+   */
+  "countsByIssueType": { [key: string]: number };
+  /**
+   * The total number of open issues matching the filters.
    */
   "totalCount": number;
-  /**
-   * The total number of open issues matching the filters, across all pages.
-   */
-  "totalFilteredCount": number;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,14 +27,13 @@ export class AgentHealthIssuesResponsePage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    countsByIssueType: {
+      baseName: "counts_by_issue_type",
+      type: "{ [key: string]: number; }",
+      required: true,
+    },
     totalCount: {
       baseName: "total_count",
-      type: "number",
-      required: true,
-      format: "int64",
-    },
-    totalFilteredCount: {
-      baseName: "total_filtered_count",
       type: "number",
       required: true,
       format: "int64",
