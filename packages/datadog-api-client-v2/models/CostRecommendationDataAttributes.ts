@@ -24,6 +24,11 @@ export class CostRecommendationDataAttributes {
    */
   "recommendationType"?: string;
   /**
+   * ID of the recommender that produced the recommendation (for example,
+   * `aws_ec2_instance_downsize`).
+   */
+  "recommenderId"?: string;
+  /**
    * Cloud provider identifier of the resource.
    */
   "resourceId"?: string;
@@ -62,6 +67,10 @@ export class CostRecommendationDataAttributes {
     },
     recommendationType: {
       baseName: "recommendation_type",
+      type: "string",
+    },
+    recommenderId: {
+      baseName: "recommender_id",
       type: "string",
     },
     resourceId: {
