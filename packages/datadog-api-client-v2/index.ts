@@ -9716,6 +9716,13 @@ export { SecurityFindingsSearchRequestPage } from "./models/SecurityFindingsSear
 export { SecurityFindingsSort } from "./models/SecurityFindingsSort";
 export { SecurityFindingsStatus } from "./models/SecurityFindingsStatus";
 export { SecurityFindingType } from "./models/SecurityFindingType";
+export { SecurityMonitoringAWSIdentityCenterAWSAccount } from "./models/SecurityMonitoringAWSIdentityCenterAWSAccount";
+export { SecurityMonitoringAWSIdentityCenterAWSAccountsAttributes } from "./models/SecurityMonitoringAWSIdentityCenterAWSAccountsAttributes";
+export { SecurityMonitoringAWSIdentityCenterAWSAccountsData } from "./models/SecurityMonitoringAWSIdentityCenterAWSAccountsData";
+export { SecurityMonitoringAWSIdentityCenterAWSAccountsResourceType } from "./models/SecurityMonitoringAWSIdentityCenterAWSAccountsResourceType";
+export { SecurityMonitoringAWSIdentityCenterAWSAccountsResponse } from "./models/SecurityMonitoringAWSIdentityCenterAWSAccountsResponse";
+export { SecurityMonitoringAWSIdentityCenterIntegrationConfigCreateAttributes } from "./models/SecurityMonitoringAWSIdentityCenterIntegrationConfigCreateAttributes";
+export { SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes } from "./models/SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes";
 export { SecurityMonitoringAzureAppRegistration } from "./models/SecurityMonitoringAzureAppRegistration";
 export { SecurityMonitoringBatchMigrationAttributes } from "./models/SecurityMonitoringBatchMigrationAttributes";
 export { SecurityMonitoringBatchMigrationCreateAttributes } from "./models/SecurityMonitoringBatchMigrationCreateAttributes";
@@ -9869,6 +9876,7 @@ export { SecurityMonitoringIntegrationCredentialsValidateAttributes } from "./mo
 export { SecurityMonitoringIntegrationCredentialsValidateData } from "./models/SecurityMonitoringIntegrationCredentialsValidateData";
 export { SecurityMonitoringIntegrationCredentialsValidateRequest } from "./models/SecurityMonitoringIntegrationCredentialsValidateRequest";
 export { SecurityMonitoringIntegrationType } from "./models/SecurityMonitoringIntegrationType";
+export { SecurityMonitoringIntegrationTypeAWSIdentityCenter } from "./models/SecurityMonitoringIntegrationTypeAWSIdentityCenter";
 export { SecurityMonitoringIntegrationTypeCrowdStrike } from "./models/SecurityMonitoringIntegrationTypeCrowdStrike";
 export { SecurityMonitoringIntegrationTypeEntraId } from "./models/SecurityMonitoringIntegrationTypeEntraId";
 export { SecurityMonitoringIntegrationTypeGoogleWorkspace } from "./models/SecurityMonitoringIntegrationTypeGoogleWorkspace";
