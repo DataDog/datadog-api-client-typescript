@@ -1,5 +1,6 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
+import { SecurityMonitoringAWSIdentityCenterIntegrationConfigCreateAttributes } from "./SecurityMonitoringAWSIdentityCenterIntegrationConfigCreateAttributes";
 import { SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes } from "./SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes";
 import { SecurityMonitoringEntraIdIntegrationConfigCreateAttributes } from "./SecurityMonitoringEntraIdIntegrationConfigCreateAttributes";
 import { SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes } from "./SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes";
@@ -13,6 +14,7 @@ export type SecurityMonitoringIntegrationConfigCreateAttributes =
   | SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes
   | SecurityMonitoringOktaIntegrationConfigCreateAttributes
   | SecurityMonitoringEntraIdIntegrationConfigCreateAttributes
+  | SecurityMonitoringAWSIdentityCenterIntegrationConfigCreateAttributes
   | SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes
   | SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes
   | UnparsedObject;

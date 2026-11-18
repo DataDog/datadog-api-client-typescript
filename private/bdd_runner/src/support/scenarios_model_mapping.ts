@@ -7675,6 +7675,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SecurityMonitoringIntegrationConfigResponse",
   },
+  "SecurityMonitoringApi.V2.GetAWSIdentityCenterAWSAccounts": {
+    operationResponseType:
+      "SecurityMonitoringAWSIdentityCenterAWSAccountsResponse",
+  },
   "SecurityMonitoringApi.V2.GetEntraIdAzureAppRegistrations": {
     operationResponseType:
       "SecurityMonitoringEntraIdAzureAppRegistrationsResponse",
