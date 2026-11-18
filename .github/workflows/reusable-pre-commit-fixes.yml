@@ -1,0 +1,67 @@
+name: Push Pre-commit Fixes
+
+on:
+  workflow_call:
+    inputs:
+      artifact-id:
+        description: "Artifact containing a single fix commit based on the PR head"
+        required: true
+        type: string
+
+jobs:
+  push-fixes:
+    # Keep this guard in the trusted workflow: a PR may modify its caller.
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.repository == 'DataDog/datadog-api-client-typescript' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref != github.event.pull_request.base.ref
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Download fixes
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          artifact-ids: ${{ inputs.artifact-id }}
+          path: ${{ runner.temp }}/pre-commit-fixes
+          merge-multiple: true
+      - name: Validate fixes
+        id: fixes
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          REPOSITORY_URL: https://github.com/DataDog/datadog-api-client-typescript.git
+        run: |
+          # Import objects into a clean repository without checking out or running PR code.
+          git check-ref-format "refs/heads/$HEAD_REF"
+          git init "$RUNNER_TEMP/pre-commit-repository"
+          cd "$RUNNER_TEMP/pre-commit-repository"
+          git config core.hooksPath /dev/null
+          git remote add origin "$REPOSITORY_URL"
+          git fetch --no-tags --depth=1 origin "$HEAD_SHA"
+          git fetch --no-tags "$RUNNER_TEMP/pre-commit-fixes/fixes.bundle" HEAD
+          FIX_SHA=$(git rev-parse FETCH_HEAD)
+          # Reject rewritten history, merge commits, and fixes for another PR revision.
+          test "$(git rev-list --parents -n 1 "$FIX_SHA")" = "$FIX_SHA $HEAD_SHA"
+          echo "sha=$FIX_SHA" >> "$GITHUB_OUTPUT"
+      - name: Get GitHub App token
+        id: get_token
+        uses: DataDog/dd-octo-sts-action@96a25462dbcb10ebf0bfd6e2ccc917d2ab235b9a # v1.0.4
+        with:
+          scope: DataDog/datadog-api-client-typescript
+          policy: self.github.pre-commit.pull-requests
+      - name: Push fixes
+        env:
+          TOKEN: ${{ steps.get_token.outputs.token }}
+          FIX_SHA: ${{ steps.fixes.outputs.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          cd "$RUNNER_TEMP/pre-commit-repository"
+          AUTH=$(printf 'x-access-token:%s' "$TOKEN" | base64 -w 0)
+          # Refuse to overwrite changes pushed while pre-commit was running.
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $AUTH" \
+            push --force-with-lease="refs/heads/$HEAD_REF:$HEAD_SHA" \
+            origin "$FIX_SHA:refs/heads/$HEAD_REF"
