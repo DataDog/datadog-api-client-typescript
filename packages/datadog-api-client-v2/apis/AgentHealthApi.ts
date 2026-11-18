@@ -15,11 +15,11 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { AgentHealthAgentType } from "../models/AgentHealthAgentType";
 import { AgentHealthHostIssuesResponse } from "../models/AgentHealthHostIssuesResponse";
 import { AgentHealthIssueResponse } from "../models/AgentHealthIssueResponse";
+import { AgentHealthIssuesCountBy } from "../models/AgentHealthIssuesCountBy";
 import { AgentHealthIssuesResponse } from "../models/AgentHealthIssuesResponse";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
@@ -116,8 +116,7 @@ export class AgentHealthApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listAgentHealthIssues(
-    pageSize?: Int64Input,
-    pageNumber?: Int64Input,
+    countBy?: AgentHealthIssuesCountBy,
     filterSeverity?: string,
     filterCategory?: string,
     filterIssueType?: string,
@@ -148,17 +147,10 @@ export class AgentHealthApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Query Params
-    if (pageSize !== undefined) {
+    if (countBy !== undefined) {
       requestContext.setQueryParam(
-        "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
-        ""
-      );
-    }
-    if (pageNumber !== undefined) {
-      requestContext.setQueryParam(
-        "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        "count_by",
+        ObjectSerializer.serialize(countBy, "AgentHealthIssuesCountBy", ""),
         ""
       );
     }
@@ -521,15 +513,10 @@ export interface AgentHealthApiListAgentHealthHostIssuesRequest {
 
 export interface AgentHealthApiListAgentHealthIssuesRequest {
   /**
-   * The number of issues to return per page, from 1 to 100. Defaults to 25.
-   * @type Int64Input
+   * Set to `issue_type` to include `meta.page` with `total_count` and per-issue-type counts. If you don't set this parameter, the response omits `meta`. Only `issue_type` is supported.
+   * @type AgentHealthIssuesCountBy
    */
-  pageSize?: Int64Input;
-  /**
-   * The zero-based page number, from 0 to 1000000. Defaults to 0.
-   * @type Int64Input
-   */
-  pageNumber?: Int64Input;
+  countBy?: AgentHealthIssuesCountBy;
   /**
    * Filter by a comma-separated list of exact `severity` values, up to 50 values
    * of at most 256 characters each. Values are combined with OR within this filter and AND across filters.
@@ -636,15 +623,17 @@ export class AgentHealthApi {
   }
 
   /**
-   * List Agent Health issues across your organization. Only open issues are returned.
-   * Returns `403` if you lack the `hosts_read` permission.
+   * List open Agent Health issues across your organization. Returns `403` if you
+   * lack the `hosts_read` permission.
    *
-   * Results use a stable order: severity rank (`high`, `medium`, `low`, then other values),
-   * then `first_seen_at` descending with missing timestamps last, then issue ID ascending.
-   * Use `page[size]` and the zero-based `page[number]` to paginate. Invalid page values
-   * return a `400` JSON:API error response. `meta.page.total_filtered_count` is the number
-   * of issues matching the filters, and `meta.page.total_count` the number of open issues
-   * in the organization.
+   * Each item in `data` is a JSON:API resource object whose `attributes` hold the issue
+   * fields, including its `issue_type`. Issues use a stable order: severity rank
+   * (`high`, `medium`, `low`, then other values), then `first_seen_at` descending with
+   * missing timestamps last, then issue ID ascending.
+   *
+   * Set `count_by=issue_type` to include `meta.page`, where `total_count` is the number of
+   * open issues matching the filters and `counts_by_issue_type` holds the per-type counts.
+   * `meta` is omitted when `count_by` is not requested.
    *
    * Each filter accepts up to 50 comma-separated exact values of at most 256 characters
    * each, combined with OR within a filter and AND across filters. Blank entries are ignored; an all-blank filter
@@ -656,8 +645,7 @@ export class AgentHealthApi {
     options?: Configuration
   ): Promise<AgentHealthIssuesResponse> {
     const requestContextPromise = this.requestFactory.listAgentHealthIssues(
-      param.pageSize,
-      param.pageNumber,
+      param.countBy,
       param.filterSeverity,
       param.filterCategory,
       param.filterIssueType,

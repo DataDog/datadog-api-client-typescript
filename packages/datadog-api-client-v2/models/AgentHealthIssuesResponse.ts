@@ -9,17 +9,17 @@ import { AgentHealthIssuesResponseMeta } from "./AgentHealthIssuesResponseMeta";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A paginated response containing open Agent Health issues.
+ * A response containing open Agent Health issues.
  */
 export class AgentHealthIssuesResponse {
   /**
-   * The open Agent Health issues on this page.
+   * The open Agent Health issues matching the request.
    */
   "data": Array<AgentHealthIssueData>;
   /**
-   * Pagination metadata for the matching Agent Health issues.
+   * Aggregate counts for the matching Agent Health issues. Present only when `count_by=issue_type` is requested.
    */
-  "meta": AgentHealthIssuesResponseMeta;
+  "meta"?: AgentHealthIssuesResponseMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -45,7 +45,6 @@ export class AgentHealthIssuesResponse {
     meta: {
       baseName: "meta",
       type: "AgentHealthIssuesResponseMeta",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
