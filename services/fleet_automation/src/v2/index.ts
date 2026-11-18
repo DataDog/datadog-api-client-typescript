@@ -1,9 +1,12 @@
 export {
   FleetAutomationApiCancelFleetDeploymentV2Request,
+  FleetAutomationApiCreateFleetAccessScopeRequest,
   FleetAutomationApiCreateFleetDeploymentConfigureV2Request,
   FleetAutomationApiCreateFleetDeploymentUpgradeV2Request,
   FleetAutomationApiCreateFleetScheduleRequest,
+  FleetAutomationApiDeleteFleetAccessScopeRequest,
   FleetAutomationApiDeleteFleetScheduleRequest,
+  FleetAutomationApiGetFleetAccessScopeRequest,
   FleetAutomationApiGetFleetAgentDetailV2Request,
   FleetAutomationApiGetFleetDeploymentV2Request,
   FleetAutomationApiGetFleetScheduleV2Request,
@@ -12,11 +15,23 @@ export {
   FleetAutomationApiListFleetDeploymentsV2Request,
   FleetAutomationApiListFleetTracersRequest,
   FleetAutomationApiTriggerFleetScheduleRequest,
+  FleetAutomationApiUpdateFleetAccessScopeRequest,
   FleetAutomationApiUpdateFleetScheduleRequest,
   FleetAutomationApi,
 } from "./FleetAutomationApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { FleetAccessScope } from "./models/FleetAccessScope";
+export { FleetAccessScopeAttributes } from "./models/FleetAccessScopeAttributes";
+export { FleetAccessScopeFeatures } from "./models/FleetAccessScopeFeatures";
+export { FleetAccessScopeResourceType } from "./models/FleetAccessScopeResourceType";
+export { FleetAccessScopeResponse } from "./models/FleetAccessScopeResponse";
+export { FleetAccessScopeResponseAttributes } from "./models/FleetAccessScopeResponseAttributes";
+export { FleetAccessScopesPage } from "./models/FleetAccessScopesPage";
+export { FleetAccessScopesResponse } from "./models/FleetAccessScopesResponse";
+export { FleetAccessScopesResponseMeta } from "./models/FleetAccessScopesResponseMeta";
+export { FleetAccessScopeWrite } from "./models/FleetAccessScopeWrite";
+export { FleetAccessScopeWriteRequest } from "./models/FleetAccessScopeWriteRequest";
 export { FleetAgentAttributesTagsItems } from "./models/FleetAgentAttributesTagsItems";
 export { FleetAgentConfigurationFilesV2 } from "./models/FleetAgentConfigurationFilesV2";
 export { FleetAgentDetailV2 } from "./models/FleetAgentDetailV2";
@@ -102,3 +117,6 @@ export { FleetTracersResponse } from "./models/FleetTracersResponse";
 export { FleetTracersResponseData } from "./models/FleetTracersResponseData";
 export { FleetTracersResponseDataAttributes } from "./models/FleetTracersResponseDataAttributes";
 export { FleetTracersResponseMeta } from "./models/FleetTracersResponseMeta";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";

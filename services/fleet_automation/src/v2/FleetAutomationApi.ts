@@ -23,6 +23,9 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { FleetAccessScopeResponse } from "./models/FleetAccessScopeResponse";
+import { FleetAccessScopesResponse } from "./models/FleetAccessScopesResponse";
+import { FleetAccessScopeWriteRequest } from "./models/FleetAccessScopeWriteRequest";
 import { FleetAgentDetailV2Response } from "./models/FleetAgentDetailV2Response";
 import { FleetAgentsV2Response } from "./models/FleetAgentsV2Response";
 import { FleetAgentVersionsV2Response } from "./models/FleetAgentVersionsV2Response";
@@ -40,6 +43,7 @@ import { FleetScheduleResponse } from "./models/FleetScheduleResponse";
 import { FleetSchedulesV2Response } from "./models/FleetSchedulesV2Response";
 import { FleetScheduleV2Response } from "./models/FleetScheduleV2Response";
 import { FleetTracersResponse } from "./models/FleetTracersResponse";
+import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { version } from "../version";
 
 export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
@@ -91,6 +95,72 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createFleetAccessScope(
+    body: FleetAccessScopeWriteRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "FleetAutomationApi.v2.createFleetAccessScope"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createFleetAccessScope' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.createFleetAccessScope'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createFleetAccessScope");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/fleet/access_scopes";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FleetAutomationApi.v2.createFleetAccessScope",
+      FleetAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "FleetAccessScopeWriteRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -288,6 +358,67 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteFleetAccessScope(
+    accessScopeId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "FleetAutomationApi.v2.deleteFleetAccessScope"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteFleetAccessScope' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.deleteFleetAccessScope'] = true`",
+      );
+    }
+
+    // verify required parameter 'accessScopeId' is not null or undefined
+    if (accessScopeId === null || accessScopeId === undefined) {
+      throw new RequiredError("accessScopeId", "deleteFleetAccessScope");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/fleet/access_scopes/{access_scope_id}".replace(
+        "{access_scope_id}",
+        encodeURIComponent(String(accessScopeId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FleetAutomationApi.v2.deleteFleetAccessScope",
+      FleetAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteFleetSchedule(
     id: string,
     _options?: Configuration,
@@ -324,6 +455,65 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
       overrides,
     );
     requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getFleetAccessScope(
+    accessScopeId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["FleetAutomationApi.v2.getFleetAccessScope"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getFleetAccessScope' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.getFleetAccessScope'] = true`",
+      );
+    }
+
+    // verify required parameter 'accessScopeId' is not null or undefined
+    if (accessScopeId === null || accessScopeId === undefined) {
+      throw new RequiredError("accessScopeId", "getFleetAccessScope");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/fleet/access_scopes/{access_scope_id}".replace(
+        "{access_scope_id}",
+        encodeURIComponent(String(accessScopeId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FleetAutomationApi.v2.getFleetAccessScope",
+      FleetAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -476,6 +666,55 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "FleetAutomationApi.v2.getFleetScheduleV2",
+      FleetAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listFleetAccessScopes(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["FleetAutomationApi.v2.listFleetAccessScopes"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listFleetAccessScopes' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetAccessScopes'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/fleet/access_scopes";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FleetAutomationApi.v2.listFleetAccessScopes",
       FleetAutomationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -1002,6 +1241,82 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateFleetAccessScope(
+    accessScopeId: string,
+    body: FleetAccessScopeWriteRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "FleetAutomationApi.v2.updateFleetAccessScope"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateFleetAccessScope' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.updateFleetAccessScope'] = true`",
+      );
+    }
+
+    // verify required parameter 'accessScopeId' is not null or undefined
+    if (accessScopeId === null || accessScopeId === undefined) {
+      throw new RequiredError("accessScopeId", "updateFleetAccessScope");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateFleetAccessScope");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/fleet/access_scopes/{access_scope_id}".replace(
+        "{access_scope_id}",
+        encodeURIComponent(String(accessScopeId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FleetAutomationApi.v2.updateFleetAccessScope",
+      FleetAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "FleetAccessScopeWriteRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateFleetSchedule(
     id: string,
     body: FleetSchedulePatchRequest,
@@ -1129,6 +1444,87 @@ export class FleetAutomationApiResponseProcessor {
         "FleetDeploymentV2CancelResponse",
         "",
       ) as FleetDeploymentV2CancelResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createFleetAccessScope
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createFleetAccessScope(
+    response: ResponseContext,
+  ): Promise<FleetAccessScopeResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: FleetAccessScopeResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetAccessScopeResponse",
+      ) as FleetAccessScopeResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FleetAccessScopeResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetAccessScopeResponse",
+        "",
+      ) as FleetAccessScopeResponse;
       return body;
     }
 
@@ -1335,6 +1731,76 @@ export class FleetAutomationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteFleetAccessScope
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteFleetAccessScope(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteFleetSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1371,6 +1837,87 @@ export class FleetAutomationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getFleetAccessScope
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getFleetAccessScope(
+    response: ResponseContext,
+  ): Promise<FleetAccessScopeResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FleetAccessScopeResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetAccessScopeResponse",
+      ) as FleetAccessScopeResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FleetAccessScopeResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetAccessScopeResponse",
+        "",
+      ) as FleetAccessScopeResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -1556,6 +2103,87 @@ export class FleetAutomationApiResponseProcessor {
         "FleetScheduleV2Response",
         "",
       ) as FleetScheduleV2Response;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listFleetAccessScopes
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listFleetAccessScopes(
+    response: ResponseContext,
+  ): Promise<FleetAccessScopesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FleetAccessScopesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetAccessScopesResponse",
+      ) as FleetAccessScopesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FleetAccessScopesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetAccessScopesResponse",
+        "",
+      ) as FleetAccessScopesResponse;
       return body;
     }
 
@@ -2000,6 +2628,87 @@ export class FleetAutomationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateFleetAccessScope
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateFleetAccessScope(
+    response: ResponseContext,
+  ): Promise<FleetAccessScopeResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FleetAccessScopeResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetAccessScopeResponse",
+      ) as FleetAccessScopeResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FleetAccessScopeResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetAccessScopeResponse",
+        "",
+      ) as FleetAccessScopeResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateFleetSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2067,6 +2776,13 @@ export interface FleetAutomationApiCancelFleetDeploymentV2Request {
   deploymentId: string;
 }
 
+export interface FleetAutomationApiCreateFleetAccessScopeRequest {
+  /**
+   * @type FleetAccessScopeWriteRequest
+   */
+  body: FleetAccessScopeWriteRequest;
+}
+
 export interface FleetAutomationApiCreateFleetDeploymentConfigureV2Request {
   /**
    * Request payload containing the deployment details.
@@ -2091,12 +2807,28 @@ export interface FleetAutomationApiCreateFleetScheduleRequest {
   body: FleetScheduleCreateRequest;
 }
 
+export interface FleetAutomationApiDeleteFleetAccessScopeRequest {
+  /**
+   * The unique identifier of the fleet access scope.
+   * @type string
+   */
+  accessScopeId: string;
+}
+
 export interface FleetAutomationApiDeleteFleetScheduleRequest {
   /**
    * The unique identifier of the schedule to delete.
    * @type string
    */
   id: string;
+}
+
+export interface FleetAutomationApiGetFleetAccessScopeRequest {
+  /**
+   * The unique identifier of the fleet access scope.
+   * @type string
+   */
+  accessScopeId: string;
 }
 
 export interface FleetAutomationApiGetFleetAgentDetailV2Request {
@@ -2259,6 +2991,18 @@ export interface FleetAutomationApiTriggerFleetScheduleRequest {
   id: string;
 }
 
+export interface FleetAutomationApiUpdateFleetAccessScopeRequest {
+  /**
+   * The unique identifier of the fleet access scope.
+   * @type string
+   */
+  accessScopeId: string;
+  /**
+   * @type FleetAccessScopeWriteRequest
+   */
+  body: FleetAccessScopeWriteRequest;
+}
+
 export interface FleetAutomationApiUpdateFleetScheduleRequest {
   /**
    * The unique identifier of the schedule to update.
@@ -2320,6 +3064,27 @@ export class FleetAutomationApi {
           return this.responseProcessor.cancelFleetDeploymentV2(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Create an access scope defining which fleet actions can be performed on matching agents. Manage its principals separately with a restriction policy on `fleet-scope:<id>`.
+   * @param param The request object
+   */
+  public createFleetAccessScope(
+    param: FleetAutomationApiCreateFleetAccessScopeRequest,
+    options?: Configuration,
+  ): Promise<FleetAccessScopeResponse> {
+    const requestContextPromise = this.requestFactory.createFleetAccessScope(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createFleetAccessScope(responseContext);
         });
     });
   }
@@ -2424,6 +3189,27 @@ export class FleetAutomationApi {
   }
 
   /**
+   * Delete an access scope. The associated restriction policy is deleted on a best-effort basis. Listing scopes after the last scope is deleted initializes the default scope again.
+   * @param param The request object
+   */
+  public deleteFleetAccessScope(
+    param: FleetAutomationApiDeleteFleetAccessScopeRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteFleetAccessScope(
+      param.accessScopeId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteFleetAccessScope(responseContext);
+        });
+    });
+  }
+
+  /**
    * Delete a schedule permanently.
    *
    * When you delete a schedule:
@@ -2448,6 +3234,27 @@ export class FleetAutomationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteFleetSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Retrieve an access scope by its unique identifier.
+   * @param param The request object
+   */
+  public getFleetAccessScope(
+    param: FleetAutomationApiGetFleetAccessScopeRequest,
+    options?: Configuration,
+  ): Promise<FleetAccessScopeResponse> {
+    const requestContextPromise = this.requestFactory.getFleetAccessScope(
+      param.accessScopeId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getFleetAccessScope(responseContext);
         });
     });
   }
@@ -2518,6 +3325,24 @@ export class FleetAutomationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getFleetScheduleV2(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Retrieve all access scopes in the organization. This endpoint is not paginated. If the organization has no scopes, listing initializes its default scope, including after the final scope has been deleted.
+   * @param param The request object
+   */
+  public listFleetAccessScopes(
+    options?: Configuration,
+  ): Promise<FleetAccessScopesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listFleetAccessScopes(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listFleetAccessScopes(responseContext);
         });
     });
   }
@@ -2712,6 +3537,28 @@ export class FleetAutomationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.triggerFleetSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Replace the mutable attributes of an access scope selected by its path ID. Omitted strings become empty; omitted feature flags become false. Existing restriction policy bindings are preserved.
+   * @param param The request object
+   */
+  public updateFleetAccessScope(
+    param: FleetAutomationApiUpdateFleetAccessScopeRequest,
+    options?: Configuration,
+  ): Promise<FleetAccessScopeResponse> {
+    const requestContextPromise = this.requestFactory.updateFleetAccessScope(
+      param.accessScopeId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateFleetAccessScope(responseContext);
         });
     });
   }
