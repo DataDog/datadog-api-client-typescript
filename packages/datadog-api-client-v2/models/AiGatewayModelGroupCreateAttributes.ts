@@ -33,7 +33,7 @@ export class AiGatewayModelGroupCreateAttributes {
    */
   "name": string;
   /**
-   * Explicit provider selections, including current and future models. Omit to preserve selections on update; an empty array clears them. Null is invalid. New selections require provider View; saved hidden IDs can be retained or removed.
+   * Explicit provider selections, including current and future models. Replaces visible selections and preserves saved hidden selections. Omit to preserve the complete selection; an empty array clears only visible selections. Null is invalid. New selections require provider View.
    */
   "providerIds"?: Array<Int64>;
   /**
