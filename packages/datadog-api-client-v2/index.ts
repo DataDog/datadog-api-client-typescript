@@ -4842,8 +4842,6 @@ export { DowntimeResponseAttributes } from "./models/DowntimeResponseAttributes"
 export { DowntimeResponseData } from "./models/DowntimeResponseData";
 export { DowntimeResponseIncludedItem } from "./models/DowntimeResponseIncludedItem";
 export { DowntimeRunAsItem } from "./models/DowntimeRunAsItem";
-export { DowntimeRunAsPrincipal } from "./models/DowntimeRunAsPrincipal";
-export { DowntimeRunAsPrincipalType } from "./models/DowntimeRunAsPrincipalType";
 export { DowntimeScheduleCreateRequest } from "./models/DowntimeScheduleCreateRequest";
 export { DowntimeScheduleCurrentDowntimeResponse } from "./models/DowntimeScheduleCurrentDowntimeResponse";
 export { DowntimeScheduleOneTimeCreateUpdateRequest } from "./models/DowntimeScheduleOneTimeCreateUpdateRequest";
