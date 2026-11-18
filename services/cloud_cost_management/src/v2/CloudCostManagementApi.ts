@@ -58,6 +58,14 @@ import { CostCurrencyResponse } from "./models/CostCurrencyResponse";
 import { CostMetricsResponse } from "./models/CostMetricsResponse";
 import { CostOrchestratorsResponse } from "./models/CostOrchestratorsResponse";
 import { CostRecommendationArray } from "./models/CostRecommendationArray";
+import { CostRecommendationCustomRuleCreateRequest } from "./models/CostRecommendationCustomRuleCreateRequest";
+import { CostRecommendationCustomRuleResponse } from "./models/CostRecommendationCustomRuleResponse";
+import { CostRecommendationCustomRulesResponse } from "./models/CostRecommendationCustomRulesResponse";
+import { CostRecommendationCustomRuleUpdateRequest } from "./models/CostRecommendationCustomRuleUpdateRequest";
+import { CostRecommendationNotificationRuleCreateRequest } from "./models/CostRecommendationNotificationRuleCreateRequest";
+import { CostRecommendationNotificationRuleResponse } from "./models/CostRecommendationNotificationRuleResponse";
+import { CostRecommendationNotificationRulesResponse } from "./models/CostRecommendationNotificationRulesResponse";
+import { CostRecommendationNotificationRuleUpdateRequest } from "./models/CostRecommendationNotificationRuleUpdateRequest";
 import { CostTagDescriptionResponse } from "./models/CostTagDescriptionResponse";
 import { CostTagDescriptionsResponse } from "./models/CostTagDescriptionsResponse";
 import { CostTagDescriptionUpsertRequest } from "./models/CostTagDescriptionUpsertRequest";
@@ -264,6 +272,151 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "GCPUsageCostConfigPostRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createCostRecommendationCustomRule(
+    body: CostRecommendationCustomRuleCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.createCostRecommendationCustomRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createCostRecommendationCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.createCostRecommendationCustomRule'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createCostRecommendationCustomRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/recommendations/custom_rules";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.createCostRecommendationCustomRule",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "CostRecommendationCustomRuleCreateRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createCostRecommendationNotificationRule(
+    body: CostRecommendationNotificationRuleCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.createCostRecommendationNotificationRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createCostRecommendationNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.createCostRecommendationNotificationRule'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "createCostRecommendationNotificationRule",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/recommendations/notification_rules";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.createCostRecommendationNotificationRule",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "CostRecommendationNotificationRuleCreateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -627,6 +780,134 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.deleteCostGCPUsageCostConfig",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteCostRecommendationCustomRule(
+    customRuleId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.deleteCostRecommendationCustomRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteCostRecommendationCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.deleteCostRecommendationCustomRule'] = true`",
+      );
+    }
+
+    // verify required parameter 'customRuleId' is not null or undefined
+    if (customRuleId === null || customRuleId === undefined) {
+      throw new RequiredError(
+        "customRuleId",
+        "deleteCostRecommendationCustomRule",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cost/recommendations/custom_rules/{custom_rule_id}".replace(
+        "{custom_rule_id}",
+        encodeURIComponent(String(customRuleId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.deleteCostRecommendationCustomRule",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteCostRecommendationNotificationRule(
+    notificationRuleId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.deleteCostRecommendationNotificationRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteCostRecommendationNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.deleteCostRecommendationNotificationRule'] = true`",
+      );
+    }
+
+    // verify required parameter 'notificationRuleId' is not null or undefined
+    if (notificationRuleId === null || notificationRuleId === undefined) {
+      throw new RequiredError(
+        "notificationRuleId",
+        "deleteCostRecommendationNotificationRule",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cost/recommendations/notification_rules/{notification_rule_id}".replace(
+        "{notification_rule_id}",
+        encodeURIComponent(String(notificationRuleId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.deleteCostRecommendationNotificationRule",
       CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -2310,6 +2591,134 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getCostRecommendationCustomRule(
+    customRuleId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.getCostRecommendationCustomRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getCostRecommendationCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCostRecommendationCustomRule'] = true`",
+      );
+    }
+
+    // verify required parameter 'customRuleId' is not null or undefined
+    if (customRuleId === null || customRuleId === undefined) {
+      throw new RequiredError(
+        "customRuleId",
+        "getCostRecommendationCustomRule",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cost/recommendations/custom_rules/{custom_rule_id}".replace(
+        "{custom_rule_id}",
+        encodeURIComponent(String(customRuleId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.getCostRecommendationCustomRule",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getCostRecommendationNotificationRule(
+    notificationRuleId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.getCostRecommendationNotificationRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getCostRecommendationNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCostRecommendationNotificationRule'] = true`",
+      );
+    }
+
+    // verify required parameter 'notificationRuleId' is not null or undefined
+    if (notificationRuleId === null || notificationRuleId === undefined) {
+      throw new RequiredError(
+        "notificationRuleId",
+        "getCostRecommendationNotificationRule",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cost/recommendations/notification_rules/{notification_rule_id}".replace(
+        "{notification_rule_id}",
+        encodeURIComponent(String(notificationRuleId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.getCostRecommendationNotificationRule",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCostTagDescriptionByKey(
     tagKey: string,
     filterCloud?: string,
@@ -3132,6 +3541,108 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.listCostOCIConfigs",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCostRecommendationCustomRules(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.listCostRecommendationCustomRules"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listCostRecommendationCustomRules' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostRecommendationCustomRules'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/recommendations/custom_rules";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCostRecommendationCustomRules",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCostRecommendationNotificationRules(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.listCostRecommendationNotificationRules"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listCostRecommendationNotificationRules' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostRecommendationNotificationRules'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/recommendations/notification_rules";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCostRecommendationNotificationRules",
       CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -4516,6 +5027,177 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async updateCostRecommendationCustomRule(
+    customRuleId: string,
+    body: CostRecommendationCustomRuleUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.updateCostRecommendationCustomRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateCostRecommendationCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.updateCostRecommendationCustomRule'] = true`",
+      );
+    }
+
+    // verify required parameter 'customRuleId' is not null or undefined
+    if (customRuleId === null || customRuleId === undefined) {
+      throw new RequiredError(
+        "customRuleId",
+        "updateCostRecommendationCustomRule",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateCostRecommendationCustomRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cost/recommendations/custom_rules/{custom_rule_id}".replace(
+        "{custom_rule_id}",
+        encodeURIComponent(String(customRuleId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.updateCostRecommendationCustomRule",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "CostRecommendationCustomRuleUpdateRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateCostRecommendationNotificationRule(
+    notificationRuleId: string,
+    body: CostRecommendationNotificationRuleUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.updateCostRecommendationNotificationRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateCostRecommendationNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.updateCostRecommendationNotificationRule'] = true`",
+      );
+    }
+
+    // verify required parameter 'notificationRuleId' is not null or undefined
+    if (notificationRuleId === null || notificationRuleId === undefined) {
+      throw new RequiredError(
+        "notificationRuleId",
+        "updateCostRecommendationNotificationRule",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateCostRecommendationNotificationRule",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cost/recommendations/notification_rules/{notification_rule_id}".replace(
+        "{notification_rule_id}",
+        encodeURIComponent(String(notificationRuleId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.updateCostRecommendationNotificationRule",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "CostRecommendationNotificationRuleUpdateRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateCustomAllocationRule(
     ruleId: number,
     body: ArbitraryCostUpsertRequest,
@@ -5359,6 +6041,164 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createCostRecommendationCustomRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createCostRecommendationCustomRule(
+    response: ResponseContext,
+  ): Promise<CostRecommendationCustomRuleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: CostRecommendationCustomRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationCustomRuleResponse",
+      ) as CostRecommendationCustomRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostRecommendationCustomRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationCustomRuleResponse",
+        "",
+      ) as CostRecommendationCustomRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createCostRecommendationNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createCostRecommendationNotificationRule(
+    response: ResponseContext,
+  ): Promise<CostRecommendationNotificationRuleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: CostRecommendationNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationNotificationRuleResponse",
+      ) as CostRecommendationNotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostRecommendationNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationNotificationRuleResponse",
+        "",
+      ) as CostRecommendationNotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createCustomAllocationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5704,6 +6544,146 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteCostRecommendationCustomRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteCostRecommendationCustomRule(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteCostRecommendationNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteCostRecommendationNotificationRule(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -7099,6 +8079,168 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getCostRecommendationCustomRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCostRecommendationCustomRule(
+    response: ResponseContext,
+  ): Promise<CostRecommendationCustomRuleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostRecommendationCustomRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationCustomRuleResponse",
+      ) as CostRecommendationCustomRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostRecommendationCustomRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationCustomRuleResponse",
+        "",
+      ) as CostRecommendationCustomRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCostRecommendationNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCostRecommendationNotificationRule(
+    response: ResponseContext,
+  ): Promise<CostRecommendationNotificationRuleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostRecommendationNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationNotificationRuleResponse",
+      ) as CostRecommendationNotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostRecommendationNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationNotificationRuleResponse",
+        "",
+      ) as CostRecommendationNotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getCostTagDescriptionByKey
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -8032,6 +9174,160 @@ export class CloudCostManagementApiResponseProcessor {
         "OCIConfigsResponse",
         "",
       ) as OCIConfigsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listCostRecommendationCustomRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostRecommendationCustomRules(
+    response: ResponseContext,
+  ): Promise<CostRecommendationCustomRulesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostRecommendationCustomRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationCustomRulesResponse",
+      ) as CostRecommendationCustomRulesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostRecommendationCustomRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationCustomRulesResponse",
+        "",
+      ) as CostRecommendationCustomRulesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listCostRecommendationNotificationRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostRecommendationNotificationRules(
+    response: ResponseContext,
+  ): Promise<CostRecommendationNotificationRulesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostRecommendationNotificationRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationNotificationRulesResponse",
+      ) as CostRecommendationNotificationRulesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostRecommendationNotificationRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationNotificationRulesResponse",
+        "",
+      ) as CostRecommendationNotificationRulesResponse;
       return body;
     }
 
@@ -9344,6 +10640,169 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateCostRecommendationCustomRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateCostRecommendationCustomRule(
+    response: ResponseContext,
+  ): Promise<CostRecommendationCustomRuleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostRecommendationCustomRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationCustomRuleResponse",
+      ) as CostRecommendationCustomRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostRecommendationCustomRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationCustomRuleResponse",
+        "",
+      ) as CostRecommendationCustomRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateCostRecommendationNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateCostRecommendationNotificationRule(
+    response: ResponseContext,
+  ): Promise<CostRecommendationNotificationRuleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostRecommendationNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationNotificationRuleResponse",
+      ) as CostRecommendationNotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostRecommendationNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationNotificationRuleResponse",
+        "",
+      ) as CostRecommendationNotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateCustomAllocationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -10046,6 +11505,20 @@ export interface CloudCostManagementApiCreateCostGCPUsageCostConfigRequest {
   body: GCPUsageCostConfigPostRequest;
 }
 
+export interface CloudCostManagementApiCreateCostRecommendationCustomRuleRequest {
+  /**
+   * @type CostRecommendationCustomRuleCreateRequest
+   */
+  body: CostRecommendationCustomRuleCreateRequest;
+}
+
+export interface CloudCostManagementApiCreateCostRecommendationNotificationRuleRequest {
+  /**
+   * @type CostRecommendationNotificationRuleCreateRequest
+   */
+  body: CostRecommendationNotificationRuleCreateRequest;
+}
+
 export interface CloudCostManagementApiCreateCustomAllocationRuleRequest {
   /**
    * @type ArbitraryCostUpsertRequest
@@ -10097,6 +11570,22 @@ export interface CloudCostManagementApiDeleteCostGCPUsageCostConfigRequest {
    * @type number
    */
   cloudAccountId: number;
+}
+
+export interface CloudCostManagementApiDeleteCostRecommendationCustomRuleRequest {
+  /**
+   * The ID of the custom rule.
+   * @type string
+   */
+  customRuleId: string;
+}
+
+export interface CloudCostManagementApiDeleteCostRecommendationNotificationRuleRequest {
+  /**
+   * The ID of the notification rule.
+   * @type string
+   */
+  notificationRuleId: string;
 }
 
 export interface CloudCostManagementApiDeleteCostTagDescriptionByKeyRequest {
@@ -10465,6 +11954,22 @@ export interface CloudCostManagementApiGetCostGCPUsageCostConfigRequest {
    * @type number
    */
   cloudAccountId: number;
+}
+
+export interface CloudCostManagementApiGetCostRecommendationCustomRuleRequest {
+  /**
+   * The ID of the custom rule.
+   * @type string
+   */
+  customRuleId: string;
+}
+
+export interface CloudCostManagementApiGetCostRecommendationNotificationRuleRequest {
+  /**
+   * The ID of the notification rule.
+   * @type string
+   */
+  notificationRuleId: string;
 }
 
 export interface CloudCostManagementApiGetCostTagDescriptionByKeyRequest {
@@ -10861,6 +12366,30 @@ export interface CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest {
   body: GCPUsageCostConfigPatchRequest;
 }
 
+export interface CloudCostManagementApiUpdateCostRecommendationCustomRuleRequest {
+  /**
+   * The ID of the custom rule.
+   * @type string
+   */
+  customRuleId: string;
+  /**
+   * @type CostRecommendationCustomRuleUpdateRequest
+   */
+  body: CostRecommendationCustomRuleUpdateRequest;
+}
+
+export interface CloudCostManagementApiUpdateCostRecommendationNotificationRuleRequest {
+  /**
+   * The ID of the notification rule.
+   * @type string
+   */
+  notificationRuleId: string;
+  /**
+   * @type CostRecommendationNotificationRuleUpdateRequest
+   */
+  body: CostRecommendationNotificationRuleUpdateRequest;
+}
+
 export interface CloudCostManagementApiUpdateCustomAllocationRuleRequest {
   /**
    * The unique identifier of the custom allocation rule
@@ -11047,6 +12576,54 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Create a custom recommendation rule. The rule overrides the settings it lists for the resources its tag filters match; every other setting keeps the recommender default. Only the settings in the request are stored.
+   * @param param The request object
+   */
+  public createCostRecommendationCustomRule(
+    param: CloudCostManagementApiCreateCostRecommendationCustomRuleRequest,
+    options?: Configuration,
+  ): Promise<CostRecommendationCustomRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createCostRecommendationCustomRule(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createCostRecommendationCustomRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a rule that sends a digest of the cost recommendations matching `scope_query` to Slack or Microsoft Teams on a schedule.
+   * @param param The request object
+   */
+  public createCostRecommendationNotificationRule(
+    param: CloudCostManagementApiCreateCostRecommendationNotificationRuleRequest,
+    options?: Configuration,
+  ): Promise<CostRecommendationNotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createCostRecommendationNotificationRule(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createCostRecommendationNotificationRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Create a new custom allocation rule with the specified filters and allocation strategy.
    *
    * **Strategy Methods:**
@@ -11206,6 +12783,54 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteCostGCPUsageCostConfig(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a custom recommendation rule.
+   * @param param The request object
+   */
+  public deleteCostRecommendationCustomRule(
+    param: CloudCostManagementApiDeleteCostRecommendationCustomRuleRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteCostRecommendationCustomRule(
+        param.customRuleId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteCostRecommendationCustomRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a recommendation notification rule.
+   * @param param The request object
+   */
+  public deleteCostRecommendationNotificationRule(
+    param: CloudCostManagementApiDeleteCostRecommendationNotificationRuleRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteCostRecommendationNotificationRule(
+        param.notificationRuleId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteCostRecommendationNotificationRule(
             responseContext,
           );
         });
@@ -11728,6 +13353,54 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Get a custom recommendation rule.
+   * @param param The request object
+   */
+  public getCostRecommendationCustomRule(
+    param: CloudCostManagementApiGetCostRecommendationCustomRuleRequest,
+    options?: Configuration,
+  ): Promise<CostRecommendationCustomRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCostRecommendationCustomRule(
+        param.customRuleId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCostRecommendationCustomRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a recommendation notification rule.
+   * @param param The request object
+   */
+  public getCostRecommendationNotificationRule(
+    param: CloudCostManagementApiGetCostRecommendationNotificationRuleRequest,
+    options?: Configuration,
+  ): Promise<CostRecommendationNotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCostRecommendationNotificationRule(
+        param.notificationRuleId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCostRecommendationNotificationRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Get the Cloud Cost Management description for a single tag key. Use `filter[cloud]` to scope the lookup to a specific cloud provider; when omitted, the response resolves the description in fallback order (cloud-specific organization override, then cloudless organization default, then Datadog's global default).
    * @param param The request object
    */
@@ -12057,6 +13730,46 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listCostOCIConfigs(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List the custom recommendation rules of the organization. A custom rule overrides recommender settings for the resources its tag filters match.
+   * @param param The request object
+   */
+  public listCostRecommendationCustomRules(
+    options?: Configuration,
+  ): Promise<CostRecommendationCustomRulesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listCostRecommendationCustomRules(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostRecommendationCustomRules(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List the recommendation notification rules of the organization. A notification rule sends a digest of the cost recommendations that match its query to Slack or Microsoft Teams on a schedule.
+   * @param param The request object
+   */
+  public listCostRecommendationNotificationRules(
+    options?: Configuration,
+  ): Promise<CostRecommendationNotificationRulesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listCostRecommendationNotificationRules(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostRecommendationNotificationRules(
+            responseContext,
+          );
         });
     });
   }
@@ -12536,6 +14249,56 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateCostGCPUsageCostConfig(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a custom recommendation rule. Attributes left out keep their value; `filters` and `settings` replace the stored list and map when sent. The recommender of a rule cannot change.
+   * @param param The request object
+   */
+  public updateCostRecommendationCustomRule(
+    param: CloudCostManagementApiUpdateCostRecommendationCustomRuleRequest,
+    options?: Configuration,
+  ): Promise<CostRecommendationCustomRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateCostRecommendationCustomRule(
+        param.customRuleId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateCostRecommendationCustomRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a recommendation notification rule. Attributes left out keep their value.
+   * @param param The request object
+   */
+  public updateCostRecommendationNotificationRule(
+    param: CloudCostManagementApiUpdateCostRecommendationNotificationRuleRequest,
+    options?: Configuration,
+  ): Promise<CostRecommendationNotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateCostRecommendationNotificationRule(
+        param.notificationRuleId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateCostRecommendationNotificationRule(
             responseContext,
           );
         });

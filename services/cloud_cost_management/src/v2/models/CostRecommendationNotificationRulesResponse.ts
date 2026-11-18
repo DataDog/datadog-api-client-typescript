@@ -1,16 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { CostRecommendationNotificationRuleData } from "./CostRecommendationNotificationRuleData";
+
 /**
- * Monitor configuration options for data jobs queries.
+ * The recommendation notification rules of the organization.
  */
-export class MonitorFormulaAndFunctionDataJobsMonitorOptions {
+export class CostRecommendationNotificationRulesResponse {
   /**
-   * Alert separately for each failed run instead of on the count of trailing failures.
-   * Only supported for `failed_runs` monitors with the `aastra` query dialect. It requires
-   * a `> 0` threshold with no warning threshold, an evaluation window of at most two days,
-   * and renotification disabled.
+   * The notification rules.
    */
-  "alertOnEveryFailure"?: boolean;
+  "data": Array<CostRecommendationNotificationRuleData>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -26,9 +25,10 @@ export class MonitorFormulaAndFunctionDataJobsMonitorOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    alertOnEveryFailure: {
-      baseName: "alert_on_every_failure",
-      type: "boolean",
+    data: {
+      baseName: "data",
+      type: "Array<CostRecommendationNotificationRuleData>",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -40,7 +40,7 @@ export class MonitorFormulaAndFunctionDataJobsMonitorOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorFormulaAndFunctionDataJobsMonitorOptions.attributeTypeMap;
+    return CostRecommendationNotificationRulesResponse.attributeTypeMap;
   }
 
   public constructor() {}

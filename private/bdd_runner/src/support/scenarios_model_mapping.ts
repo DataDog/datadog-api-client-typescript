@@ -9297,6 +9297,76 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CostRecommendationArray",
   },
+  "CloudCostManagementApi.V2.ListCostRecommendationCustomRules": {
+    operationResponseType: "CostRecommendationCustomRulesResponse",
+  },
+  "CloudCostManagementApi.V2.CreateCostRecommendationCustomRule": {
+    body: {
+      type: "CostRecommendationCustomRuleCreateRequest",
+      format: "",
+    },
+    operationResponseType: "CostRecommendationCustomRuleResponse",
+  },
+  "CloudCostManagementApi.V2.GetCostRecommendationCustomRule": {
+    customRuleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CostRecommendationCustomRuleResponse",
+  },
+  "CloudCostManagementApi.V2.DeleteCostRecommendationCustomRule": {
+    customRuleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.UpdateCostRecommendationCustomRule": {
+    customRuleId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CostRecommendationCustomRuleUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "CostRecommendationCustomRuleResponse",
+  },
+  "CloudCostManagementApi.V2.ListCostRecommendationNotificationRules": {
+    operationResponseType: "CostRecommendationNotificationRulesResponse",
+  },
+  "CloudCostManagementApi.V2.CreateCostRecommendationNotificationRule": {
+    body: {
+      type: "CostRecommendationNotificationRuleCreateRequest",
+      format: "",
+    },
+    operationResponseType: "CostRecommendationNotificationRuleResponse",
+  },
+  "CloudCostManagementApi.V2.GetCostRecommendationNotificationRule": {
+    notificationRuleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CostRecommendationNotificationRuleResponse",
+  },
+  "CloudCostManagementApi.V2.DeleteCostRecommendationNotificationRule": {
+    notificationRuleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.UpdateCostRecommendationNotificationRule": {
+    notificationRuleId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CostRecommendationNotificationRuleUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "CostRecommendationNotificationRuleResponse",
+  },
   "CloudCostManagementApi.V2.ListCostTagDescriptions": {
     filterCloud: {
       type: "string",

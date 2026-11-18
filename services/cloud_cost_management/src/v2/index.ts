@@ -2,6 +2,8 @@ export {
   CloudCostManagementApiCreateCostAWSCURConfigRequest,
   CloudCostManagementApiCreateCostAzureUCConfigsRequest,
   CloudCostManagementApiCreateCostGCPUsageCostConfigRequest,
+  CloudCostManagementApiCreateCostRecommendationCustomRuleRequest,
+  CloudCostManagementApiCreateCostRecommendationNotificationRuleRequest,
   CloudCostManagementApiCreateCustomAllocationRuleRequest,
   CloudCostManagementApiCreateTagPipelinesRulesetRequest,
   CloudCostManagementApiCreateUnitCostRequest,
@@ -9,6 +11,8 @@ export {
   CloudCostManagementApiDeleteCostAWSCURConfigRequest,
   CloudCostManagementApiDeleteCostAzureUCConfigRequest,
   CloudCostManagementApiDeleteCostGCPUsageCostConfigRequest,
+  CloudCostManagementApiDeleteCostRecommendationCustomRuleRequest,
+  CloudCostManagementApiDeleteCostRecommendationNotificationRuleRequest,
   CloudCostManagementApiDeleteCostTagDescriptionByKeyRequest,
   CloudCostManagementApiDeleteCustomAllocationRuleRequest,
   CloudCostManagementApiDeleteCustomCostsFileRequest,
@@ -30,6 +34,8 @@ export {
   CloudCostManagementApiGetCostAnomalyRequest,
   CloudCostManagementApiGetCostAzureUCConfigRequest,
   CloudCostManagementApiGetCostGCPUsageCostConfigRequest,
+  CloudCostManagementApiGetCostRecommendationCustomRuleRequest,
+  CloudCostManagementApiGetCostRecommendationNotificationRuleRequest,
   CloudCostManagementApiGetCostTagDescriptionByKeyRequest,
   CloudCostManagementApiGetCostTagKeyRequest,
   CloudCostManagementApiGetCostTagMetadataCurrencyRequest,
@@ -56,6 +62,8 @@ export {
   CloudCostManagementApiUpdateCostAccountFiltersRequest,
   CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
   CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest,
+  CloudCostManagementApiUpdateCostRecommendationCustomRuleRequest,
+  CloudCostManagementApiUpdateCostRecommendationNotificationRuleRequest,
   CloudCostManagementApiUpdateCustomAllocationRuleRequest,
   CloudCostManagementApiUpdateCustomCostsFileRequest,
   CloudCostManagementApiUpdateTagPipelinesRulesetRequest,
@@ -219,10 +227,42 @@ export { CostOrchestrator } from "./models/CostOrchestrator";
 export { CostOrchestratorsResponse } from "./models/CostOrchestratorsResponse";
 export { CostOrchestratorType } from "./models/CostOrchestratorType";
 export { CostRecommendationArray } from "./models/CostRecommendationArray";
+export { CostRecommendationCustomRuleAttributes } from "./models/CostRecommendationCustomRuleAttributes";
+export { CostRecommendationCustomRuleCreateAttributes } from "./models/CostRecommendationCustomRuleCreateAttributes";
+export { CostRecommendationCustomRuleCreateData } from "./models/CostRecommendationCustomRuleCreateData";
+export { CostRecommendationCustomRuleCreateRequest } from "./models/CostRecommendationCustomRuleCreateRequest";
+export { CostRecommendationCustomRuleData } from "./models/CostRecommendationCustomRuleData";
+export { CostRecommendationCustomRuleFilter } from "./models/CostRecommendationCustomRuleFilter";
+export { CostRecommendationCustomRuleFilterType } from "./models/CostRecommendationCustomRuleFilterType";
+export { CostRecommendationCustomRuleResponse } from "./models/CostRecommendationCustomRuleResponse";
+export { CostRecommendationCustomRulesResponse } from "./models/CostRecommendationCustomRulesResponse";
+export { CostRecommendationCustomRuleType } from "./models/CostRecommendationCustomRuleType";
+export { CostRecommendationCustomRuleUpdateAttributes } from "./models/CostRecommendationCustomRuleUpdateAttributes";
+export { CostRecommendationCustomRuleUpdateData } from "./models/CostRecommendationCustomRuleUpdateData";
+export { CostRecommendationCustomRuleUpdateRequest } from "./models/CostRecommendationCustomRuleUpdateRequest";
 export { CostRecommendationData } from "./models/CostRecommendationData";
 export { CostRecommendationDataAttributes } from "./models/CostRecommendationDataAttributes";
 export { CostRecommendationDataAttributesPotentialDailySavings } from "./models/CostRecommendationDataAttributesPotentialDailySavings";
 export { CostRecommendationDataType } from "./models/CostRecommendationDataType";
+export { CostRecommendationNotificationRuleAttributes } from "./models/CostRecommendationNotificationRuleAttributes";
+export { CostRecommendationNotificationRuleCreateAttributes } from "./models/CostRecommendationNotificationRuleCreateAttributes";
+export { CostRecommendationNotificationRuleCreateData } from "./models/CostRecommendationNotificationRuleCreateData";
+export { CostRecommendationNotificationRuleCreateRequest } from "./models/CostRecommendationNotificationRuleCreateRequest";
+export { CostRecommendationNotificationRuleData } from "./models/CostRecommendationNotificationRuleData";
+export { CostRecommendationNotificationRuleDestinationType } from "./models/CostRecommendationNotificationRuleDestinationType";
+export { CostRecommendationNotificationRuleFrequency } from "./models/CostRecommendationNotificationRuleFrequency";
+export { CostRecommendationNotificationRuleMessageAction } from "./models/CostRecommendationNotificationRuleMessageAction";
+export { CostRecommendationNotificationRuleMessageActions } from "./models/CostRecommendationNotificationRuleMessageActions";
+export { CostRecommendationNotificationRuleMessageCustomization } from "./models/CostRecommendationNotificationRuleMessageCustomization";
+export { CostRecommendationNotificationRuleMessageCustomizationHeader } from "./models/CostRecommendationNotificationRuleMessageCustomizationHeader";
+export { CostRecommendationNotificationRuleMessageCustomizationMode } from "./models/CostRecommendationNotificationRuleMessageCustomizationMode";
+export { CostRecommendationNotificationRuleMessageCustomizationPerRec } from "./models/CostRecommendationNotificationRuleMessageCustomizationPerRec";
+export { CostRecommendationNotificationRuleResponse } from "./models/CostRecommendationNotificationRuleResponse";
+export { CostRecommendationNotificationRulesResponse } from "./models/CostRecommendationNotificationRulesResponse";
+export { CostRecommendationNotificationRuleType } from "./models/CostRecommendationNotificationRuleType";
+export { CostRecommendationNotificationRuleUpdateAttributes } from "./models/CostRecommendationNotificationRuleUpdateAttributes";
+export { CostRecommendationNotificationRuleUpdateData } from "./models/CostRecommendationNotificationRuleUpdateData";
+export { CostRecommendationNotificationRuleUpdateRequest } from "./models/CostRecommendationNotificationRuleUpdateRequest";
 export { CostTag } from "./models/CostTag";
 export { CostTagAttributes } from "./models/CostTagAttributes";
 export { CostTagDescription } from "./models/CostTagDescription";
