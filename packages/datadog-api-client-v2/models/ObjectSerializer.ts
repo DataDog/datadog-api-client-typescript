@@ -4876,6 +4876,50 @@ import { ProductAnalyticsJourneySearchFilters } from "./ProductAnalyticsJourneyS
 import { ProductAnalyticsJourneySearchGraphFilter } from "./ProductAnalyticsJourneySearchGraphFilter";
 import { ProductAnalyticsJourneyTimeseriesResponse } from "./ProductAnalyticsJourneyTimeseriesResponse";
 import { ProductAnalyticsJourneyTimeseriesResponseData } from "./ProductAnalyticsJourneyTimeseriesResponseData";
+import { ProductAnalyticsLaunchAttributes } from "./ProductAnalyticsLaunchAttributes";
+import { ProductAnalyticsLaunchCodeAnalysis } from "./ProductAnalyticsLaunchCodeAnalysis";
+import { ProductAnalyticsLaunchCreateData } from "./ProductAnalyticsLaunchCreateData";
+import { ProductAnalyticsLaunchCreateRequest } from "./ProductAnalyticsLaunchCreateRequest";
+import { ProductAnalyticsLaunchDashboardStep } from "./ProductAnalyticsLaunchDashboardStep";
+import { ProductAnalyticsLaunchData } from "./ProductAnalyticsLaunchData";
+import { ProductAnalyticsLaunchEvent } from "./ProductAnalyticsLaunchEvent";
+import { ProductAnalyticsLaunchEventFinding } from "./ProductAnalyticsLaunchEventFinding";
+import { ProductAnalyticsLaunchEventProperty } from "./ProductAnalyticsLaunchEventProperty";
+import { ProductAnalyticsLaunchExperimentStep } from "./ProductAnalyticsLaunchExperimentStep";
+import { ProductAnalyticsLaunchFunnelStep } from "./ProductAnalyticsLaunchFunnelStep";
+import { ProductAnalyticsLaunchKPI } from "./ProductAnalyticsLaunchKPI";
+import { ProductAnalyticsLaunchPatchAttributes } from "./ProductAnalyticsLaunchPatchAttributes";
+import { ProductAnalyticsLaunchPatchData } from "./ProductAnalyticsLaunchPatchData";
+import { ProductAnalyticsLaunchPatchRequest } from "./ProductAnalyticsLaunchPatchRequest";
+import { ProductAnalyticsLaunchPatchSteps } from "./ProductAnalyticsLaunchPatchSteps";
+import { ProductAnalyticsLaunchProperty } from "./ProductAnalyticsLaunchProperty";
+import { ProductAnalyticsLaunchPropertyFinding } from "./ProductAnalyticsLaunchPropertyFinding";
+import { ProductAnalyticsLaunchRequestAttributes } from "./ProductAnalyticsLaunchRequestAttributes";
+import { ProductAnalyticsLaunchResponse } from "./ProductAnalyticsLaunchResponse";
+import { ProductAnalyticsLaunchSteps } from "./ProductAnalyticsLaunchSteps";
+import { ProductAnalyticsLaunchStepsRequest } from "./ProductAnalyticsLaunchStepsRequest";
+import { ProductAnalyticsLaunchTrackingPlan } from "./ProductAnalyticsLaunchTrackingPlan";
+import { ProductAnalyticsLaunchTrackingPlanRequest } from "./ProductAnalyticsLaunchTrackingPlanRequest";
+import { ProductAnalyticsLaunchesResponse } from "./ProductAnalyticsLaunchesResponse";
+import { ProductAnalyticsMonitorAttributes } from "./ProductAnalyticsMonitorAttributes";
+import { ProductAnalyticsMonitorCreateAttributes } from "./ProductAnalyticsMonitorCreateAttributes";
+import { ProductAnalyticsMonitorCreateData } from "./ProductAnalyticsMonitorCreateData";
+import { ProductAnalyticsMonitorCreateRequest } from "./ProductAnalyticsMonitorCreateRequest";
+import { ProductAnalyticsMonitorCreator } from "./ProductAnalyticsMonitorCreator";
+import { ProductAnalyticsMonitorData } from "./ProductAnalyticsMonitorData";
+import { ProductAnalyticsMonitorListAttributes } from "./ProductAnalyticsMonitorListAttributes";
+import { ProductAnalyticsMonitorListData } from "./ProductAnalyticsMonitorListData";
+import { ProductAnalyticsMonitorListItem } from "./ProductAnalyticsMonitorListItem";
+import { ProductAnalyticsMonitorListResponse } from "./ProductAnalyticsMonitorListResponse";
+import { ProductAnalyticsMonitorOptions } from "./ProductAnalyticsMonitorOptions";
+import { ProductAnalyticsMonitorResponse } from "./ProductAnalyticsMonitorResponse";
+import { ProductAnalyticsMonitorThresholds } from "./ProductAnalyticsMonitorThresholds";
+import { ProductAnalyticsMonitorUnlinkAttributes } from "./ProductAnalyticsMonitorUnlinkAttributes";
+import { ProductAnalyticsMonitorUnlinkData } from "./ProductAnalyticsMonitorUnlinkData";
+import { ProductAnalyticsMonitorUnlinkRequest } from "./ProductAnalyticsMonitorUnlinkRequest";
+import { ProductAnalyticsMonitorUpdateAttributes } from "./ProductAnalyticsMonitorUpdateAttributes";
+import { ProductAnalyticsMonitorUpdateData } from "./ProductAnalyticsMonitorUpdateData";
+import { ProductAnalyticsMonitorUpdateRequest } from "./ProductAnalyticsMonitorUpdateRequest";
 import { ProductAnalyticsOccurrenceFilter } from "./ProductAnalyticsOccurrenceFilter";
 import { ProductAnalyticsOccurrenceQuery } from "./ProductAnalyticsOccurrenceQuery";
 import { ProductAnalyticsOccurrenceSearch } from "./ProductAnalyticsOccurrenceSearch";
@@ -5901,6 +5945,37 @@ import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
 import { SecurityTrigger } from "./SecurityTrigger";
 import { SecurityTriggerWrapper } from "./SecurityTriggerWrapper";
+import { SegmentAttributes } from "./SegmentAttributes";
+import { SegmentCreateAttributes } from "./SegmentCreateAttributes";
+import { SegmentCreateData } from "./SegmentCreateData";
+import { SegmentCreateRequest } from "./SegmentCreateRequest";
+import { SegmentData } from "./SegmentData";
+import { SegmentDataQuery } from "./SegmentDataQuery";
+import { SegmentDeleteAttributes } from "./SegmentDeleteAttributes";
+import { SegmentDeleteData } from "./SegmentDeleteData";
+import { SegmentDeleteResponse } from "./SegmentDeleteResponse";
+import { SegmentEventPlatformBlock } from "./SegmentEventPlatformBlock";
+import { SegmentJourneyBlock } from "./SegmentJourneyBlock";
+import { SegmentPreviewAttributes } from "./SegmentPreviewAttributes";
+import { SegmentPreviewData } from "./SegmentPreviewData";
+import { SegmentPreviewRequest } from "./SegmentPreviewRequest";
+import { SegmentPreviewResponse } from "./SegmentPreviewResponse";
+import { SegmentPreviewResponseAttributes } from "./SegmentPreviewResponseAttributes";
+import { SegmentPreviewResponseData } from "./SegmentPreviewResponseData";
+import { SegmentProfileStoreBlock } from "./SegmentProfileStoreBlock";
+import { SegmentReferenceTableBlock } from "./SegmentReferenceTableBlock";
+import { SegmentReferenceTableColumn } from "./SegmentReferenceTableColumn";
+import { SegmentReferenceTableJoinCondition } from "./SegmentReferenceTableJoinCondition";
+import { SegmentResponse } from "./SegmentResponse";
+import { SegmentStaticBlock } from "./SegmentStaticBlock";
+import { SegmentSummaryAttributes } from "./SegmentSummaryAttributes";
+import { SegmentSummaryData } from "./SegmentSummaryData";
+import { SegmentTemplateBlock } from "./SegmentTemplateBlock";
+import { SegmentUpdateAttributes } from "./SegmentUpdateAttributes";
+import { SegmentUpdateData } from "./SegmentUpdateData";
+import { SegmentUpdateRequest } from "./SegmentUpdateRequest";
+import { SegmentUser } from "./SegmentUser";
+import { SegmentsResponse } from "./SegmentsResponse";
 import { Selectors } from "./Selectors";
 import { SelfServiceTriggerWrapper } from "./SelfServiceTriggerWrapper";
 import { SendSlackMessageAction } from "./SendSlackMessageAction";
@@ -10106,6 +10181,15 @@ const enumsMap: { [key: string]: any[] } = {
   ProductAnalyticsJourneyTimeseriesResponseType: [
     "journey_timeseries_response",
   ],
+  ProductAnalyticsLaunchCodeStatus: ["found", "not_found"],
+  ProductAnalyticsLaunchListScope: ["liftoffs"],
+  ProductAnalyticsLaunchPhase: ["plan", "setup", "ready", "launched"],
+  ProductAnalyticsLaunchType: ["liftoff"],
+  ProductAnalyticsMonitorListType: ["pa_monitor_list"],
+  ProductAnalyticsMonitorRequestType: ["pa_monitor_request"],
+  ProductAnalyticsMonitorStatus: ["OK", "Alert", "Warn", "No Data"],
+  ProductAnalyticsMonitorType: ["pa_monitor"],
+  ProductAnalyticsMonitorUnlinkRequestType: ["pa_monitor_unlink_request"],
   ProductAnalyticsOccurrenceQueryDataSource: ["product_analytics_occurrence"],
   ProductAnalyticsResponseMetaStatus: ["done", "running", "timeout"],
   ProductAnalyticsRetentionAggregationTargetType: ["aggregation"],
@@ -10891,6 +10975,22 @@ const enumsMap: { [key: string]: any[] } = {
     "critical_assets",
     "security_filters",
     "rules",
+  ],
+  SegmentDeletedType: ["deleted_segment"],
+  SegmentEntity: ["user", "account"],
+  SegmentPreviewRequestType: ["segment_preview_request"],
+  SegmentPreviewResponseType: ["unified_segment_preview_response"],
+  SegmentResourceType: ["segment"],
+  SegmentSortColumn: [
+    "name",
+    "description",
+    "created_by",
+    "created_at",
+    "modified_by",
+    "modified_at",
+    "disabled_by",
+    "disabled_at",
+    "uuid",
   ],
   SendSlackMessageActionType: ["send_slack_message"],
   SendTeamsMessageActionType: ["send_teams_message"],
@@ -17584,6 +17684,55 @@ const typeMap: { [index: string]: any } = {
     ProductAnalyticsJourneyTimeseriesResponse,
   ProductAnalyticsJourneyTimeseriesResponseData:
     ProductAnalyticsJourneyTimeseriesResponseData,
+  ProductAnalyticsLaunchAttributes: ProductAnalyticsLaunchAttributes,
+  ProductAnalyticsLaunchCodeAnalysis: ProductAnalyticsLaunchCodeAnalysis,
+  ProductAnalyticsLaunchCreateData: ProductAnalyticsLaunchCreateData,
+  ProductAnalyticsLaunchCreateRequest: ProductAnalyticsLaunchCreateRequest,
+  ProductAnalyticsLaunchDashboardStep: ProductAnalyticsLaunchDashboardStep,
+  ProductAnalyticsLaunchData: ProductAnalyticsLaunchData,
+  ProductAnalyticsLaunchEvent: ProductAnalyticsLaunchEvent,
+  ProductAnalyticsLaunchEventFinding: ProductAnalyticsLaunchEventFinding,
+  ProductAnalyticsLaunchEventProperty: ProductAnalyticsLaunchEventProperty,
+  ProductAnalyticsLaunchExperimentStep: ProductAnalyticsLaunchExperimentStep,
+  ProductAnalyticsLaunchFunnelStep: ProductAnalyticsLaunchFunnelStep,
+  ProductAnalyticsLaunchKPI: ProductAnalyticsLaunchKPI,
+  ProductAnalyticsLaunchPatchAttributes: ProductAnalyticsLaunchPatchAttributes,
+  ProductAnalyticsLaunchPatchData: ProductAnalyticsLaunchPatchData,
+  ProductAnalyticsLaunchPatchRequest: ProductAnalyticsLaunchPatchRequest,
+  ProductAnalyticsLaunchPatchSteps: ProductAnalyticsLaunchPatchSteps,
+  ProductAnalyticsLaunchProperty: ProductAnalyticsLaunchProperty,
+  ProductAnalyticsLaunchPropertyFinding: ProductAnalyticsLaunchPropertyFinding,
+  ProductAnalyticsLaunchRequestAttributes:
+    ProductAnalyticsLaunchRequestAttributes,
+  ProductAnalyticsLaunchResponse: ProductAnalyticsLaunchResponse,
+  ProductAnalyticsLaunchSteps: ProductAnalyticsLaunchSteps,
+  ProductAnalyticsLaunchStepsRequest: ProductAnalyticsLaunchStepsRequest,
+  ProductAnalyticsLaunchTrackingPlan: ProductAnalyticsLaunchTrackingPlan,
+  ProductAnalyticsLaunchTrackingPlanRequest:
+    ProductAnalyticsLaunchTrackingPlanRequest,
+  ProductAnalyticsLaunchesResponse: ProductAnalyticsLaunchesResponse,
+  ProductAnalyticsMonitorAttributes: ProductAnalyticsMonitorAttributes,
+  ProductAnalyticsMonitorCreateAttributes:
+    ProductAnalyticsMonitorCreateAttributes,
+  ProductAnalyticsMonitorCreateData: ProductAnalyticsMonitorCreateData,
+  ProductAnalyticsMonitorCreateRequest: ProductAnalyticsMonitorCreateRequest,
+  ProductAnalyticsMonitorCreator: ProductAnalyticsMonitorCreator,
+  ProductAnalyticsMonitorData: ProductAnalyticsMonitorData,
+  ProductAnalyticsMonitorListAttributes: ProductAnalyticsMonitorListAttributes,
+  ProductAnalyticsMonitorListData: ProductAnalyticsMonitorListData,
+  ProductAnalyticsMonitorListItem: ProductAnalyticsMonitorListItem,
+  ProductAnalyticsMonitorListResponse: ProductAnalyticsMonitorListResponse,
+  ProductAnalyticsMonitorOptions: ProductAnalyticsMonitorOptions,
+  ProductAnalyticsMonitorResponse: ProductAnalyticsMonitorResponse,
+  ProductAnalyticsMonitorThresholds: ProductAnalyticsMonitorThresholds,
+  ProductAnalyticsMonitorUnlinkAttributes:
+    ProductAnalyticsMonitorUnlinkAttributes,
+  ProductAnalyticsMonitorUnlinkData: ProductAnalyticsMonitorUnlinkData,
+  ProductAnalyticsMonitorUnlinkRequest: ProductAnalyticsMonitorUnlinkRequest,
+  ProductAnalyticsMonitorUpdateAttributes:
+    ProductAnalyticsMonitorUpdateAttributes,
+  ProductAnalyticsMonitorUpdateData: ProductAnalyticsMonitorUpdateData,
+  ProductAnalyticsMonitorUpdateRequest: ProductAnalyticsMonitorUpdateRequest,
   ProductAnalyticsOccurrenceFilter: ProductAnalyticsOccurrenceFilter,
   ProductAnalyticsOccurrenceQuery: ProductAnalyticsOccurrenceQuery,
   ProductAnalyticsOccurrenceSearch: ProductAnalyticsOccurrenceSearch,
@@ -18922,6 +19071,37 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringUser: SecurityMonitoringUser,
   SecurityTrigger: SecurityTrigger,
   SecurityTriggerWrapper: SecurityTriggerWrapper,
+  SegmentAttributes: SegmentAttributes,
+  SegmentCreateAttributes: SegmentCreateAttributes,
+  SegmentCreateData: SegmentCreateData,
+  SegmentCreateRequest: SegmentCreateRequest,
+  SegmentData: SegmentData,
+  SegmentDataQuery: SegmentDataQuery,
+  SegmentDeleteAttributes: SegmentDeleteAttributes,
+  SegmentDeleteData: SegmentDeleteData,
+  SegmentDeleteResponse: SegmentDeleteResponse,
+  SegmentEventPlatformBlock: SegmentEventPlatformBlock,
+  SegmentJourneyBlock: SegmentJourneyBlock,
+  SegmentPreviewAttributes: SegmentPreviewAttributes,
+  SegmentPreviewData: SegmentPreviewData,
+  SegmentPreviewRequest: SegmentPreviewRequest,
+  SegmentPreviewResponse: SegmentPreviewResponse,
+  SegmentPreviewResponseAttributes: SegmentPreviewResponseAttributes,
+  SegmentPreviewResponseData: SegmentPreviewResponseData,
+  SegmentProfileStoreBlock: SegmentProfileStoreBlock,
+  SegmentReferenceTableBlock: SegmentReferenceTableBlock,
+  SegmentReferenceTableColumn: SegmentReferenceTableColumn,
+  SegmentReferenceTableJoinCondition: SegmentReferenceTableJoinCondition,
+  SegmentResponse: SegmentResponse,
+  SegmentStaticBlock: SegmentStaticBlock,
+  SegmentSummaryAttributes: SegmentSummaryAttributes,
+  SegmentSummaryData: SegmentSummaryData,
+  SegmentTemplateBlock: SegmentTemplateBlock,
+  SegmentUpdateAttributes: SegmentUpdateAttributes,
+  SegmentUpdateData: SegmentUpdateData,
+  SegmentUpdateRequest: SegmentUpdateRequest,
+  SegmentUser: SegmentUser,
+  SegmentsResponse: SegmentsResponse,
   Selectors: Selectors,
   SelfServiceTriggerWrapper: SelfServiceTriggerWrapper,
   SendSlackMessageAction: SendSlackMessageAction,

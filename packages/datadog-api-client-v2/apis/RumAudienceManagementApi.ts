@@ -15,6 +15,7 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CreateConnectionRequest } from "../models/CreateConnectionRequest";
@@ -26,7 +27,17 @@ import { ListConnectionsResponse } from "../models/ListConnectionsResponse";
 import { QueryAccountRequest } from "../models/QueryAccountRequest";
 import { QueryEventFilteredUsersRequest } from "../models/QueryEventFilteredUsersRequest";
 import { QueryResponse } from "../models/QueryResponse";
+import { QuerySortOrder } from "../models/QuerySortOrder";
 import { QueryUsersRequest } from "../models/QueryUsersRequest";
+import { SegmentCreateRequest } from "../models/SegmentCreateRequest";
+import { SegmentDeleteResponse } from "../models/SegmentDeleteResponse";
+import { SegmentEntity } from "../models/SegmentEntity";
+import { SegmentPreviewRequest } from "../models/SegmentPreviewRequest";
+import { SegmentPreviewResponse } from "../models/SegmentPreviewResponse";
+import { SegmentResponse } from "../models/SegmentResponse";
+import { SegmentSortColumn } from "../models/SegmentSortColumn";
+import { SegmentsResponse } from "../models/SegmentsResponse";
+import { SegmentUpdateRequest } from "../models/SegmentUpdateRequest";
 import { UpdateConnectionRequest } from "../models/UpdateConnectionRequest";
 
 export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactory {
@@ -93,6 +104,61 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     return requestContext;
   }
 
+  public async createProductAnalyticsSegment(
+    body: SegmentCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createProductAnalyticsSegment'");
+    if (!_config.unstableOperations["v2.createProductAnalyticsSegment"]) {
+      throw new Error(
+        "Unstable operation 'createProductAnalyticsSegment' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createProductAnalyticsSegment");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/segment";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RumAudienceManagementApi.createProductAnalyticsSegment")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SegmentCreateRequest", ""),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteConnection(
     id: string,
     entity: string,
@@ -126,6 +192,52 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
       .getServer("v2.RumAudienceManagementApi.deleteConnection")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteProductAnalyticsSegment(
+    id: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteProductAnalyticsSegment'");
+    if (!_config.unstableOperations["v2.deleteProductAnalyticsSegment"]) {
+      throw new Error(
+        "Unstable operation 'deleteProductAnalyticsSegment' is disabled"
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "deleteProductAnalyticsSegment");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/segment/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RumAudienceManagementApi.deleteProductAnalyticsSegment")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set IaC header
@@ -284,6 +396,52 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     return requestContext;
   }
 
+  public async getProductAnalyticsSegment(
+    id: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getProductAnalyticsSegment'");
+    if (!_config.unstableOperations["v2.getProductAnalyticsSegment"]) {
+      throw new Error(
+        "Unstable operation 'getProductAnalyticsSegment' is disabled"
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "getProductAnalyticsSegment");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/segment/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RumAudienceManagementApi.getProductAnalyticsSegment")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getUserFacetInfo(
     body: FacetInfoRequest,
     _options?: Configuration
@@ -371,6 +529,156 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listProductAnalyticsSegments(
+    filterEntity?: SegmentEntity,
+    filterType?: string,
+    filterIds?: string,
+    filterDisabled?: boolean,
+    sortColumn?: SegmentSortColumn,
+    sortOrder?: QuerySortOrder,
+    limit?: Int64Input,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listProductAnalyticsSegments'");
+    if (!_config.unstableOperations["v2.listProductAnalyticsSegments"]) {
+      throw new Error(
+        "Unstable operation 'listProductAnalyticsSegments' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/segment";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RumAudienceManagementApi.listProductAnalyticsSegments")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterEntity !== undefined) {
+      requestContext.setQueryParam(
+        "filter[entity]",
+        ObjectSerializer.serialize(filterEntity, "SegmentEntity", ""),
+        ""
+      );
+    }
+    if (filterType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[type]",
+        ObjectSerializer.serialize(filterType, "string", ""),
+        ""
+      );
+    }
+    if (filterIds !== undefined) {
+      requestContext.setQueryParam(
+        "filter[ids]",
+        ObjectSerializer.serialize(filterIds, "string", ""),
+        ""
+      );
+    }
+    if (filterDisabled !== undefined) {
+      requestContext.setQueryParam(
+        "filter[disabled]",
+        ObjectSerializer.serialize(filterDisabled, "boolean", ""),
+        ""
+      );
+    }
+    if (sortColumn !== undefined) {
+      requestContext.setQueryParam(
+        "sort[column]",
+        ObjectSerializer.serialize(sortColumn, "SegmentSortColumn", ""),
+        ""
+      );
+    }
+    if (sortOrder !== undefined) {
+      requestContext.setQueryParam(
+        "sort[order]",
+        ObjectSerializer.serialize(sortOrder, "QuerySortOrder", ""),
+        ""
+      );
+    }
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int64"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async previewProductAnalyticsSegment(
+    body: SegmentPreviewRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'previewProductAnalyticsSegment'");
+    if (!_config.unstableOperations["v2.previewProductAnalyticsSegment"]) {
+      throw new Error(
+        "Unstable operation 'previewProductAnalyticsSegment' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "previewProductAnalyticsSegment");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/segments/preview";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RumAudienceManagementApi.previewProductAnalyticsSegment")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SegmentPreviewRequest", ""),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -605,6 +913,70 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
 
     return requestContext;
   }
+
+  public async updateProductAnalyticsSegment(
+    id: string,
+    body: SegmentUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateProductAnalyticsSegment'");
+    if (!_config.unstableOperations["v2.updateProductAnalyticsSegment"]) {
+      throw new Error(
+        "Unstable operation 'updateProductAnalyticsSegment' is disabled"
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "updateProductAnalyticsSegment");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateProductAnalyticsSegment");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/product-analytics/segment/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RumAudienceManagementApi.updateProductAnalyticsSegment")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SegmentUpdateRequest", ""),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class RumAudienceManagementApiResponseProcessor {
@@ -668,6 +1040,108 @@ export class RumAudienceManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createProductAnalyticsSegment
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createProductAnalyticsSegment(
+    response: ResponseContext
+  ): Promise<SegmentResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: SegmentResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SegmentResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as SegmentResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SegmentResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SegmentResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as SegmentResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteConnection
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -705,6 +1179,104 @@ export class RumAudienceManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteProductAnalyticsSegment
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteProductAnalyticsSegment(
+    response: ResponseContext
+  ): Promise<SegmentDeleteResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SegmentDeleteResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SegmentDeleteResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as SegmentDeleteResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SegmentDeleteResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SegmentDeleteResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as SegmentDeleteResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -938,6 +1510,108 @@ export class RumAudienceManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getProductAnalyticsSegment
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getProductAnalyticsSegment(
+    response: ResponseContext
+  ): Promise<SegmentResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SegmentResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SegmentResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as SegmentResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SegmentResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SegmentResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as SegmentResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getUserFacetInfo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1068,6 +1742,202 @@ export class RumAudienceManagementApiResponseProcessor {
         "",
         this.configuration?.preserveLargeIntegers
       ) as ListConnectionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listProductAnalyticsSegments
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listProductAnalyticsSegments(
+    response: ResponseContext
+  ): Promise<SegmentsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SegmentsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SegmentsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as SegmentsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SegmentsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SegmentsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as SegmentsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to previewProductAnalyticsSegment
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async previewProductAnalyticsSegment(
+    response: ResponseContext
+  ): Promise<SegmentPreviewResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SegmentPreviewResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SegmentPreviewResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as SegmentPreviewResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SegmentPreviewResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "SegmentPreviewResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as SegmentPreviewResponse;
       return body;
     }
 
@@ -1341,6 +2211,89 @@ export class RumAudienceManagementApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateProductAnalyticsSegment
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateProductAnalyticsSegment(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface RumAudienceManagementApiCreateConnectionRequest {
@@ -1355,6 +2308,13 @@ export interface RumAudienceManagementApiCreateConnectionRequest {
   body: CreateConnectionRequest;
 }
 
+export interface RumAudienceManagementApiCreateProductAnalyticsSegmentRequest {
+  /**
+   * @type SegmentCreateRequest
+   */
+  body: SegmentCreateRequest;
+}
+
 export interface RumAudienceManagementApiDeleteConnectionRequest {
   /**
    * The connection ID to delete
@@ -1366,6 +2326,14 @@ export interface RumAudienceManagementApiDeleteConnectionRequest {
    * @type string
    */
   entity: string;
+}
+
+export interface RumAudienceManagementApiDeleteProductAnalyticsSegmentRequest {
+  /**
+   * ID of the segment.
+   * @type string
+   */
+  id: string;
 }
 
 export interface RumAudienceManagementApiDeleteUserProfileRequest {
@@ -1391,6 +2359,14 @@ export interface RumAudienceManagementApiGetMappingRequest {
   entity: string;
 }
 
+export interface RumAudienceManagementApiGetProductAnalyticsSegmentRequest {
+  /**
+   * ID of the segment.
+   * @type string
+   */
+  id: string;
+}
+
 export interface RumAudienceManagementApiGetUserFacetInfoRequest {
   /**
    * @type FacetInfoRequest
@@ -1404,6 +2380,52 @@ export interface RumAudienceManagementApiListConnectionsRequest {
    * @type string
    */
   entity: string;
+}
+
+export interface RumAudienceManagementApiListProductAnalyticsSegmentsRequest {
+  /**
+   * Return only segments of this entity kind. Other values are ignored.
+   * @type SegmentEntity
+   */
+  filterEntity?: SegmentEntity;
+  /**
+   * Comma-separated segment kinds to return: `event_platform`, `user_store`, `account_store`, `reference_table`,
+   * `static`, `template`, `combination`, `journey`, or `retention`.
+   * @type string
+   */
+  filterType?: string;
+  /**
+   * Comma-separated segment IDs to return, up to 1000.
+   * @type string
+   */
+  filterIds?: string;
+  /**
+   * Set to `false` to include disabled segments.
+   * @type boolean
+   */
+  filterDisabled?: boolean;
+  /**
+   * Column to sort by. Other values are ignored.
+   * @type SegmentSortColumn
+   */
+  sortColumn?: SegmentSortColumn;
+  /**
+   * Sort order. Only used with `sort[column]`.
+   * @type QuerySortOrder
+   */
+  sortOrder?: QuerySortOrder;
+  /**
+   * Maximum number of segments to return. Returns all segments when not set.
+   * @type Int64Input
+   */
+  limit?: Int64Input;
+}
+
+export interface RumAudienceManagementApiPreviewProductAnalyticsSegmentRequest {
+  /**
+   * @type SegmentPreviewRequest
+   */
+  body: SegmentPreviewRequest;
 }
 
 export interface RumAudienceManagementApiQueryAccountsRequest {
@@ -1437,6 +2459,18 @@ export interface RumAudienceManagementApiUpdateConnectionRequest {
    * @type UpdateConnectionRequest
    */
   body: UpdateConnectionRequest;
+}
+
+export interface RumAudienceManagementApiUpdateProductAnalyticsSegmentRequest {
+  /**
+   * ID of the segment.
+   * @type string
+   */
+  id: string;
+  /**
+   * @type SegmentUpdateRequest
+   */
+  body: SegmentUpdateRequest;
 }
 
 export class RumAudienceManagementApi {
@@ -1481,6 +2515,28 @@ export class RumAudienceManagementApi {
   }
 
   /**
+   * Create a user or account segment. The `data_query` defines who belongs to the segment.
+   * Segment names must be unique in the organization.
+   * @param param The request object
+   */
+  public createProductAnalyticsSegment(
+    param: RumAudienceManagementApiCreateProductAnalyticsSegmentRequest,
+    options?: Configuration
+  ): Promise<SegmentResponse> {
+    const requestContextPromise =
+      this.requestFactory.createProductAnalyticsSegment(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createProductAnalyticsSegment(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete an existing data connection for an entity
    * @param param The request object
    */
@@ -1503,8 +2559,31 @@ export class RumAudienceManagementApi {
   }
 
   /**
+   * Delete a segment. Segments created by users are deleted permanently.
+   * Segments created by Datadog, and segments based on an uploaded list, are disabled instead.
+   * @param param The request object
+   */
+  public deleteProductAnalyticsSegment(
+    param: RumAudienceManagementApiDeleteProductAnalyticsSegmentRequest,
+    options?: Configuration
+  ): Promise<SegmentDeleteResponse> {
+    const requestContextPromise =
+      this.requestFactory.deleteProductAnalyticsSegment(param.id, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteProductAnalyticsSegment(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete a Product Analytics user profile.
-   * Deletion is asynchronous: the request is accepted and the profile is removed shortly after, usually within a few minutes.
+   * Deletion is asynchronous: the request is accepted and the profile is removed shortly after, usually within a few
+   * minutes.
    * This only deletes the user profile. To delete the RUM events of the user, use the RUM data deletion API.
    * @param param The request object
    */
@@ -1568,6 +2647,27 @@ export class RumAudienceManagementApi {
   }
 
   /**
+   * Get a segment by ID, including its definition.
+   * @param param The request object
+   */
+  public getProductAnalyticsSegment(
+    param: RumAudienceManagementApiGetProductAnalyticsSegmentRequest,
+    options?: Configuration
+  ): Promise<SegmentResponse> {
+    const requestContextPromise =
+      this.requestFactory.getProductAnalyticsSegment(param.id, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getProductAnalyticsSegment(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get facet information for user attributes including possible values and counts
    * @param param The request object
    */
@@ -1605,6 +2705,60 @@ export class RumAudienceManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listConnections(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List the user and account segments of your organization. Disabled segments are left out unless
+   * `filter[disabled]` is `false`.
+   * The list does not include segment definitions; get a segment by ID to see its `data_query`.
+   * @param param The request object
+   */
+  public listProductAnalyticsSegments(
+    param: RumAudienceManagementApiListProductAnalyticsSegmentsRequest = {},
+    options?: Configuration
+  ): Promise<SegmentsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listProductAnalyticsSegments(
+        param.filterEntity,
+        param.filterType,
+        param.filterIds,
+        param.filterDisabled,
+        param.sortColumn,
+        param.sortOrder,
+        param.limit,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listProductAnalyticsSegments(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Preview the users or accounts that match a segment definition, without saving it.
+   * Returns up to 1000 rows and the total number of matching entities.
+   * @param param The request object
+   */
+  public previewProductAnalyticsSegment(
+    param: RumAudienceManagementApiPreviewProductAnalyticsSegmentRequest,
+    options?: Configuration
+  ): Promise<SegmentPreviewResponse> {
+    const requestContextPromise =
+      this.requestFactory.previewProductAnalyticsSegment(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.previewProductAnalyticsSegment(
+            responseContext
+          );
         });
     });
   }
@@ -1692,6 +2846,33 @@ export class RumAudienceManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateConnection(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a segment. Fields that are not set are left unchanged. The `id` in the body must match the one in the
+   * path.
+   * The response has no body; get the segment to see the result.
+   * @param param The request object
+   */
+  public updateProductAnalyticsSegment(
+    param: RumAudienceManagementApiUpdateProductAnalyticsSegmentRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.updateProductAnalyticsSegment(
+        param.id,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateProductAnalyticsSegment(
+            responseContext
+          );
         });
     });
   }

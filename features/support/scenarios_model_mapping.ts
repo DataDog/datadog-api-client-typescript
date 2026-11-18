@@ -17228,6 +17228,123 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProductAnalyticsJourneyTimeseriesResponse",
     },
+    "v2.ListProductAnalyticsLaunches": {
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "scope": {
+            "type": "ProductAnalyticsLaunchListScope",
+            "format": "",
+            },
+        "phase": {
+            "type": "Array<ProductAnalyticsLaunchPhase>",
+            "format": "",
+            },
+        "applicationId": {
+            "type": "string",
+            "format": "",
+            },
+        "name": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsLaunchesResponse",
+    },
+    "v2.CreateProductAnalyticsLaunch": {
+        "body": {
+            "type": "ProductAnalyticsLaunchCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsLaunchResponse",
+    },
+    "v2.GetProductAnalyticsLaunch": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsLaunchResponse",
+    },
+    "v2.DeleteProductAnalyticsLaunch": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateProductAnalyticsLaunch": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ProductAnalyticsLaunchPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsLaunchResponse",
+    },
+    "v2.ListProductAnalyticsMonitors": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "chartId": {
+            "type": "string",
+            "format": "",
+            },
+        "dashboardId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsMonitorListResponse",
+    },
+    "v2.CreateProductAnalyticsMonitor": {
+        "body": {
+            "type": "ProductAnalyticsMonitorCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsMonitorResponse",
+    },
+    "v2.GetProductAnalyticsMonitor": {
+        "monitorId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsMonitorResponse",
+    },
+    "v2.UpdateProductAnalyticsMonitor": {
+        "monitorId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ProductAnalyticsMonitorUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsMonitorResponse",
+    },
+    "v2.DeleteProductAnalyticsMonitor": {
+        "monitorId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.RemoveChartFromProductAnalyticsMonitor": {
+        "monitorId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ProductAnalyticsMonitorUnlinkRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.QueryProductAnalyticsRetentionGrid": {
         "body": {
             "type": "ProductAnalyticsRetentionGridRequest",
@@ -17276,6 +17393,76 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "QueryResponse",
+    },
+    "v2.ListProductAnalyticsSegments": {
+        "filterEntity": {
+            "type": "SegmentEntity",
+            "format": "",
+            },
+        "filterType": {
+            "type": "string",
+            "format": "",
+            },
+        "filterIds": {
+            "type": "string",
+            "format": "",
+            },
+        "filterDisabled": {
+            "type": "boolean",
+            "format": "",
+            },
+        "sortColumn": {
+            "type": "SegmentSortColumn",
+            "format": "",
+            },
+        "sortOrder": {
+            "type": "QuerySortOrder",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SegmentsResponse",
+    },
+    "v2.CreateProductAnalyticsSegment": {
+        "body": {
+            "type": "SegmentCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SegmentResponse",
+    },
+    "v2.GetProductAnalyticsSegment": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SegmentResponse",
+    },
+    "v2.UpdateProductAnalyticsSegment": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SegmentUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.DeleteProductAnalyticsSegment": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SegmentDeleteResponse",
+    },
+    "v2.PreviewProductAnalyticsSegment": {
+        "body": {
+            "type": "SegmentPreviewRequest",
+            "format": "",
+            },
+        "operationResponseType": "SegmentPreviewResponse",
     },
     "v2.QueryEventFilteredUsers": {
         "body": {
