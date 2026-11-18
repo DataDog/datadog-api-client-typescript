@@ -48,3 +48,6 @@ export { CloudWorkloadSecurityAgentRuleUpdateAttributes } from "./models/CloudWo
 export { CloudWorkloadSecurityAgentRuleUpdateData } from "./models/CloudWorkloadSecurityAgentRuleUpdateData";
 export { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./models/CloudWorkloadSecurityAgentRuleUpdaterAttributes";
 export { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./models/CloudWorkloadSecurityAgentRuleUpdateRequest";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
