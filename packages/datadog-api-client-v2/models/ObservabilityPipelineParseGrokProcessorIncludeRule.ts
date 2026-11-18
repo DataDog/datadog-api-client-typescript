@@ -23,6 +23,11 @@ export class ObservabilityPipelineParseGrokProcessorIncludeRule {
    */
   "matchRules": Array<ObservabilityPipelineParseGrokProcessorRuleMatchRule>;
   /**
+   * Optional name identifying this include-based Grok rule in worker diagnostics.
+   * Names must be unique within the processor.
+   */
+  "name"?: string;
+  /**
    * A list of Grok helper rules that can be referenced by the parsing rules.
    */
   "supportRules"?: Array<ObservabilityPipelineParseGrokProcessorRuleSupportRule>;
@@ -52,6 +57,10 @@ export class ObservabilityPipelineParseGrokProcessorIncludeRule {
       baseName: "match_rules",
       type: "Array<ObservabilityPipelineParseGrokProcessorRuleMatchRule>",
       required: true,
+    },
+    name: {
+      baseName: "name",
+      type: "string",
     },
     supportRules: {
       baseName: "support_rules",
