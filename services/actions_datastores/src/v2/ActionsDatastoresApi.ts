@@ -1703,7 +1703,7 @@ export class ActionsDatastoresApi {
   }
 
   /**
-   * Lists all datastores for the organization.
+   * Lists all datastores in the organization.
    * @param param The request object
    */
   public listDatastores(options?: Configuration): Promise<DatastoreArray> {

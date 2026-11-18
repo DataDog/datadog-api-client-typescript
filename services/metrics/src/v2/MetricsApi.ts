@@ -5101,7 +5101,7 @@ export class MetricsApi {
   }
 
   /**
-   * Get the definition of a derived metric by name.
+   * Get the definition of a derived metric from its name.
    * @param param The request object
    */
   public getDerivedMetric(
