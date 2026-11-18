@@ -2426,6 +2426,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FleetTracersResponse",
     },
+    "v2.ListFleetAccessScopes": {
+        "operationResponseType": "FleetAccessScopesResponse",
+    },
+    "v2.CreateFleetAccessScope": {
+        "body": {
+            "type": "FleetAccessScopeWriteRequest",
+            "format": "",
+            },
+        "operationResponseType": "FleetAccessScopeResponse",
+    },
+    "v2.GetFleetAccessScope": {
+        "accessScopeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "FleetAccessScopeResponse",
+    },
+    "v2.UpdateFleetAccessScope": {
+        "accessScopeId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "FleetAccessScopeWriteRequest",
+            "format": "",
+            },
+        "operationResponseType": "FleetAccessScopeResponse",
+    },
+    "v2.DeleteFleetAccessScope": {
+        "accessScopeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListFleetAgentVersionsV2": {
         "operationResponseType": "FleetAgentVersionsV2Response",
     },

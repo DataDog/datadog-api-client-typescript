@@ -915,10 +915,13 @@ export {
 
 export {
   FleetAutomationApiCancelFleetDeploymentV2Request,
+  FleetAutomationApiCreateFleetAccessScopeRequest,
   FleetAutomationApiCreateFleetDeploymentConfigureV2Request,
   FleetAutomationApiCreateFleetDeploymentUpgradeV2Request,
   FleetAutomationApiCreateFleetScheduleRequest,
+  FleetAutomationApiDeleteFleetAccessScopeRequest,
   FleetAutomationApiDeleteFleetScheduleRequest,
+  FleetAutomationApiGetFleetAccessScopeRequest,
   FleetAutomationApiGetFleetAgentDetailV2Request,
   FleetAutomationApiGetFleetDeploymentV2Request,
   FleetAutomationApiGetFleetScheduleV2Request,
@@ -927,6 +930,7 @@ export {
   FleetAutomationApiListFleetDeploymentsV2Request,
   FleetAutomationApiListFleetTracersRequest,
   FleetAutomationApiTriggerFleetScheduleRequest,
+  FleetAutomationApiUpdateFleetAccessScopeRequest,
   FleetAutomationApiUpdateFleetScheduleRequest,
   FleetAutomationApi,
 } from "./apis/FleetAutomationApi";
@@ -5571,6 +5575,17 @@ export { FlakyTestsSearchResponseMeta } from "./models/FlakyTestsSearchResponseM
 export { FlakyTestsSearchSort } from "./models/FlakyTestsSearchSort";
 export { FlakyTestStats } from "./models/FlakyTestStats";
 export { FlakyTestType } from "./models/FlakyTestType";
+export { FleetAccessScope } from "./models/FleetAccessScope";
+export { FleetAccessScopeAttributes } from "./models/FleetAccessScopeAttributes";
+export { FleetAccessScopeFeatures } from "./models/FleetAccessScopeFeatures";
+export { FleetAccessScopeResourceType } from "./models/FleetAccessScopeResourceType";
+export { FleetAccessScopeResponse } from "./models/FleetAccessScopeResponse";
+export { FleetAccessScopeResponseAttributes } from "./models/FleetAccessScopeResponseAttributes";
+export { FleetAccessScopesPage } from "./models/FleetAccessScopesPage";
+export { FleetAccessScopesResponse } from "./models/FleetAccessScopesResponse";
+export { FleetAccessScopesResponseMeta } from "./models/FleetAccessScopesResponseMeta";
+export { FleetAccessScopeWrite } from "./models/FleetAccessScopeWrite";
+export { FleetAccessScopeWriteRequest } from "./models/FleetAccessScopeWriteRequest";
 export { FleetAgentAttributesTagsItems } from "./models/FleetAgentAttributesTagsItems";
 export { FleetAgentConfigurationFilesV2 } from "./models/FleetAgentConfigurationFilesV2";
 export { FleetAgentDetailV2 } from "./models/FleetAgentDetailV2";

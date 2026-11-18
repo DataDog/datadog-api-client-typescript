@@ -2513,6 +2513,16 @@ import { FlakyTestsSearchRequestAttributes } from "./FlakyTestsSearchRequestAttr
 import { FlakyTestsSearchRequestData } from "./FlakyTestsSearchRequestData";
 import { FlakyTestsSearchResponse } from "./FlakyTestsSearchResponse";
 import { FlakyTestsSearchResponseMeta } from "./FlakyTestsSearchResponseMeta";
+import { FleetAccessScope } from "./FleetAccessScope";
+import { FleetAccessScopeAttributes } from "./FleetAccessScopeAttributes";
+import { FleetAccessScopeFeatures } from "./FleetAccessScopeFeatures";
+import { FleetAccessScopeResponse } from "./FleetAccessScopeResponse";
+import { FleetAccessScopeResponseAttributes } from "./FleetAccessScopeResponseAttributes";
+import { FleetAccessScopeWrite } from "./FleetAccessScopeWrite";
+import { FleetAccessScopeWriteRequest } from "./FleetAccessScopeWriteRequest";
+import { FleetAccessScopesPage } from "./FleetAccessScopesPage";
+import { FleetAccessScopesResponse } from "./FleetAccessScopesResponse";
+import { FleetAccessScopesResponseMeta } from "./FleetAccessScopesResponseMeta";
 import { FleetAgentAttributesTagsItems } from "./FleetAgentAttributesTagsItems";
 import { FleetAgentConfigurationFilesV2 } from "./FleetAgentConfigurationFilesV2";
 import { FleetAgentDetailV2 } from "./FleetAgentDetailV2";
@@ -8783,6 +8793,7 @@ const enumsMap: { [key: string]: any[] } = {
     "pipelines_duration_lost",
     "-pipelines_duration_lost",
   ],
+  FleetAccessScopeResourceType: ["access_scope"],
   FleetAgentV2AttributesInstrumentationStatus: ["success", "failure"],
   FleetAgentV2ResourceType: ["agent"],
   FleetAgentVersionV2ResourceType: ["agent_version"],
@@ -14705,6 +14716,16 @@ const typeMap: { [index: string]: any } = {
   FlakyTestsSearchRequestData: FlakyTestsSearchRequestData,
   FlakyTestsSearchResponse: FlakyTestsSearchResponse,
   FlakyTestsSearchResponseMeta: FlakyTestsSearchResponseMeta,
+  FleetAccessScope: FleetAccessScope,
+  FleetAccessScopeAttributes: FleetAccessScopeAttributes,
+  FleetAccessScopeFeatures: FleetAccessScopeFeatures,
+  FleetAccessScopeResponse: FleetAccessScopeResponse,
+  FleetAccessScopeResponseAttributes: FleetAccessScopeResponseAttributes,
+  FleetAccessScopeWrite: FleetAccessScopeWrite,
+  FleetAccessScopeWriteRequest: FleetAccessScopeWriteRequest,
+  FleetAccessScopesPage: FleetAccessScopesPage,
+  FleetAccessScopesResponse: FleetAccessScopesResponse,
+  FleetAccessScopesResponseMeta: FleetAccessScopesResponseMeta,
   FleetAgentAttributesTagsItems: FleetAgentAttributesTagsItems,
   FleetAgentConfigurationFilesV2: FleetAgentConfigurationFilesV2,
   FleetAgentDetailV2: FleetAgentDetailV2,
