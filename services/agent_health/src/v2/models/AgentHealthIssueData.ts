@@ -4,11 +4,11 @@ import { AgentHealthIssueAttributes } from "./AgentHealthIssueAttributes";
 import { AgentHealthIssueResourceType } from "./AgentHealthIssueResourceType";
 
 /**
- * An open Agent Health issue.
+ * An open Agent Health issue with available remediation.
  */
 export class AgentHealthIssueData {
   /**
-   * Attributes of an open Agent Health issue.
+   * Attributes of an open Agent Health issue, including available remediation.
    */
   "attributes": AgentHealthIssueAttributes;
   /**

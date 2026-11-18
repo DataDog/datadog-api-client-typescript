@@ -1,7 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { AgentHealthRemediation } from "./AgentHealthRemediation";
+
 /**
- * Attributes of an open Agent Health issue.
+ * Attributes of an open Agent Health issue, including available remediation.
  */
 export class AgentHealthIssueAttributes {
   /**
@@ -12,6 +14,10 @@ export class AgentHealthIssueAttributes {
    * The description of the issue. Omitted when empty.
    */
   "description"?: string;
+  /**
+   * Free-form, issue-type-specific context. Keys are not part of the stable schema. Omitted when empty.
+   */
+  "extra"?: { [key: string]: any };
   /**
    * The time the issue was first seen, in RFC 3339 format. Omitted when empty.
    */
@@ -24,6 +30,10 @@ export class AgentHealthIssueAttributes {
    * The machine-readable type of the issue.
    */
   "issueType": string;
+  /**
+   * Remediation for the issue. Omitted when no remediation is available.
+   */
+  "remediation"?: AgentHealthRemediation;
   /**
    * The identifier of the affected resource, interpreted according to `resource_kind`: hostname for `host`, DaemonSet UID for `deployment` (node Agent), cluster UUID for `cluster`, hostname of the host running the Cluster Agent for `cluster_agent`, or OpenTelemetry collector ID for `otel`.
    */
@@ -79,6 +89,10 @@ export class AgentHealthIssueAttributes {
       baseName: "description",
       type: "string",
     },
+    extra: {
+      baseName: "extra",
+      type: "{ [key: string]: any; }",
+    },
     firstSeenAt: {
       baseName: "first_seen_at",
       type: "Date",
@@ -93,6 +107,10 @@ export class AgentHealthIssueAttributes {
       baseName: "issue_type",
       type: "string",
       required: true,
+    },
+    remediation: {
+      baseName: "remediation",
+      type: "AgentHealthRemediation",
     },
     resourceId: {
       baseName: "resource_id",
