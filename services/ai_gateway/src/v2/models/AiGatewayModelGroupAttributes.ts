@@ -22,25 +22,35 @@ export class AiGatewayModelGroupAttributes {
    */
   "maxReasoningLevel": AiGatewayNullableMaxReasoningLevel | null;
   /**
-   * All saved model catalog IDs, including selections whose provider metadata is hidden. Preserve these IDs independently of the visible catalog.
+   * Saved model catalog IDs whose providers the caller can view. Hidden identities are omitted. The
+   * `models_restricted` field indicates hidden membership.
    */
   "modelIds": Array<number>;
   /**
-   * Metadata for saved model selections whose providers the caller can view. Missing metadata does not remove a saved ID.
+   * Metadata for saved model selections whose providers the caller can view. Hidden model identities and metadata are omitted.
    */
   "models": Array<AiGatewayModelGroupModel>;
+  /**
+   * Whether some saved models are hidden from the caller. Hidden identities, names, and counts are omitted. Editing visible selections preserves hidden memberships.
+   */
+  "modelsRestricted"?: boolean;
   /**
    * Human-readable resource name.
    */
   "name": string;
   /**
-   * All explicitly selected provider IDs, including hidden providers. Embedded provider metadata includes only viewable providers.
+   * Explicitly selected provider IDs the caller can view. Hidden identities are omitted. The
+   * `providers_restricted` field indicates hidden membership.
    */
   "providerIds": Array<number>;
   /**
-   * Viewable explicitly selected providers, separate from individually selected models. Use provider_ids to retain all selections.
+   * Viewable explicitly selected providers, separate from individually selected models. Hidden provider identities and metadata are omitted.
    */
   "providers": Array<AiGatewayModelGroupProvider>;
+  /**
+   * Whether some saved providers are hidden from the caller. Hidden identities, names, and counts are omitted. Editing visible selections preserves hidden memberships.
+   */
+  "providersRestricted"?: boolean;
   /**
    * Revision of the organization-wide policy. Present for the default model group and absent for named policies.
    */
@@ -96,6 +106,10 @@ export class AiGatewayModelGroupAttributes {
       type: "Array<AiGatewayModelGroupModel>",
       required: true,
     },
+    modelsRestricted: {
+      baseName: "models_restricted",
+      type: "boolean",
+    },
     name: {
       baseName: "name",
       type: "string",
@@ -111,6 +125,10 @@ export class AiGatewayModelGroupAttributes {
       baseName: "providers",
       type: "Array<AiGatewayModelGroupProvider>",
       required: true,
+    },
+    providersRestricted: {
+      baseName: "providers_restricted",
+      type: "boolean",
     },
     revision: {
       baseName: "revision",
