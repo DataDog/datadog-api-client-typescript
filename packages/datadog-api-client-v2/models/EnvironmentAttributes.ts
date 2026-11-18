@@ -15,17 +15,9 @@ export class EnvironmentAttributes {
    */
   "createdAt"?: Date;
   /**
-   * The description of the environment.
-   */
-  "description"?: string;
-  /**
    * Indicates whether this is a production environment.
    */
   "isProduction"?: boolean;
-  /**
-   * The unique key of the environment.
-   */
-  "key"?: string;
   /**
    * The name of the environment.
    */
@@ -68,17 +60,9 @@ export class EnvironmentAttributes {
       type: "Date",
       format: "date-time",
     },
-    description: {
-      baseName: "description",
-      type: "string",
-    },
     isProduction: {
       baseName: "is_production",
       type: "boolean",
-    },
-    key: {
-      baseName: "key",
-      type: "string",
     },
     name: {
       baseName: "name",
