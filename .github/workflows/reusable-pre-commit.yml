@@ -4,12 +4,12 @@ on:
   workflow_call:
     inputs:
       target-branch:
-        description: 'Branch to checkout and test (defaults to the calling branch)'
+        description: "Branch to checkout and test (defaults to the calling branch)"
         required: false
         type: string
-        default: ''
+        default: ""
       enable-commit-changes:
-        description: 'Whether to commit and push pre-commit fixes'
+        description: "Whether to commit and push pre-commit fixes"
         required: false
         type: boolean
         default: true
@@ -21,28 +21,25 @@ env:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
+    outputs:
+      fixes-artifact-id: ${{ steps.upload_fixes.outputs.artifact-id }}
     permissions:
-      id-token: write
       contents: read
     steps:
-      - name: Get GitHub App token
-        id: get_token
-        if: inputs.enable-commit-changes && github.event_name == 'pull_request'
-        uses: DataDog/dd-octo-sts-action@96a25462dbcb10ebf0bfd6e2ccc917d2ab235b9a # v1.0.4
-        with:
-          scope: DataDog/datadog-api-client-typescript
-          policy: self.github.pre-commit.pull-requests
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
           repository: DataDog/datadog-api-client-typescript
           ref: ${{ inputs.target-branch || github.event.pull_request.head.sha || github.ref }}
-          token: ${{ inputs.enable-commit-changes && steps.get_token.outputs.token || github.token }}
+          persist-credentials: false
       - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
         with:
-          python-version: '3.11'
+          python-version: "3.11"
       - name: Install pre-commit
         run: python -m pip install pre-commit
+      - name: Test CI security boundaries
+        if: hashFiles('tests/ci/test_pre_commit_workflow.py') != ''
+        run: python -m unittest discover -s tests/ci -v
       - name: set PY
         run: echo "PY=$(python -c 'import hashlib, sys, platform;print(hashlib.sha256(platform.python_version().encode()+sys.executable.encode()).hexdigest())')" >> $GITHUB_ENV
       - uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
@@ -64,19 +61,48 @@ jobs:
         env:
           FROM_REF: ${{ steps.commit_range.outputs.from_ref }}
           TO_REF: ${{ steps.commit_range.outputs.to_ref }}
-      - name: Commit changes
-        if: ${{ failure() && inputs.enable-commit-changes }}
+      - name: Prepare fixes
+        id: fixes
+        if: >-
+          failure() && steps.pre_commit.outcome == 'failure' &&
+          inputs.enable-commit-changes && github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.full_name == github.repository
         run: |-
+          test "$(git rev-parse HEAD)" = "$HEAD_SHA"
           git add -A
+          if git diff --cached --quiet; then
+            exit 0
+          fi
           git config user.name "${GIT_AUTHOR_NAME}"
           git config user.email "${GIT_AUTHOR_EMAIL}"
-          git commit -m "pre-commit fixes"
-          git push origin "HEAD:${HEAD_REF}"
-          exit 1
+          git -c core.hooksPath=/dev/null commit -m "pre-commit fixes"
+          mkdir -p "$RUNNER_TEMP/pre-commit-fixes"
+          git bundle create "$RUNNER_TEMP/pre-commit-fixes/fixes.bundle" HEAD "^$HEAD_SHA"
+          echo "created=true" >> "$GITHUB_OUTPUT"
         env:
-          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      - name: Upload fixes
+        id: upload_fixes
+        if: failure() && steps.fixes.outputs.created == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pre-commit-fixes-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/pre-commit-fixes/fixes.bundle
+          retention-days: 1
+          if-no-files-found: error
       - id: pre_commit_schedule
         name: Run pre-commit in schedule
         if: github.event_name == 'schedule'
         run: |
           pre-commit run --all-files --show-diff-on-failure --color=always
+
+  push-fixes:
+    needs: pre-commit
+    if: always() && needs.pre-commit.outputs.fixes-artifact-id != ''
+    permissions:
+      contents: read
+      id-token: write
+    # Only this immutable workflow revision is authorized to push fixes.
+    uses: DataDog/datadog-api-client-typescript/.github/workflows/reusable-pre-commit-fixes.yml@dba58fc114cd51f0cb10b9a41e9afb81e0787ad7
+    with:
+      artifact-id: ${{ needs.pre-commit.outputs.fixes-artifact-id }}

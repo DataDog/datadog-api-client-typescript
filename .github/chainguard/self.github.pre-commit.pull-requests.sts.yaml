@@ -1,14 +1,15 @@
 # Trust policy for pre-commit fixes on pull requests
 # Allows pushing pre-commit fixes back to PR branches
-# Will be called in reusable-pre-commit.yml
+# Only the pinned, isolated fix-push workflow may obtain this token.
+# The job executing PR hooks has neither OIDC nor repository write access.
 issuer: https://token.actions.githubusercontent.com
 subject: repo:DataDog/datadog-api-client-typescript:pull_request
 
 claim_pattern:
-  event_name: pull_request
-  job_workflow_ref: DataDog/datadog-api-client-typescript/\.github/workflows/reusable-pre-commit\.yml@refs/pull/[0-9]+/merge
-  ref: refs/pull/[0-9]+/merge
-  repository: DataDog/datadog-api-client-typescript
+  event_name: ^pull_request$
+  job_workflow_ref: ^DataDog/datadog-api-client-typescript/\.github/workflows/reusable-pre-commit-fixes\.yml@dba58fc114cd51f0cb10b9a41e9afb81e0787ad7$
+  ref: ^refs/pull/[0-9]+/merge$
+  repository: ^DataDog/datadog-api-client-typescript$
 
 permissions:
   contents: write # Required for pushing pre-commit fixes
