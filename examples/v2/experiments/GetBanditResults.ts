@@ -11,11 +11,15 @@ const configuration = client.createConfiguration({
     },
   },
 });
+configuration.unstableOperations["v2.createBandit"] = true;
 configuration.unstableOperations["v2.getBanditResults"] = true;
 const apiInstance = new v2.ExperimentsApi(configuration);
 
+// there is a valid "bandit" in the system
+const BANDIT_DATA_ID = process.env.BANDIT_DATA_ID as string;
+
 const params: v2.ExperimentsApiGetBanditResultsRequest = {
-  banditId: "4b1f3c2e-8d5a-4f6b-9c7e-1a2b3c4d5e6f",
+  banditId: BANDIT_DATA_ID,
 };
 
 apiInstance

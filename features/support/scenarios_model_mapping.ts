@@ -11088,12 +11088,82 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ExperimentsBanditV2ListDTOArray",
     },
+    "v2.CreateBandit": {
+        "body": {
+            "type": "ExperimentsCreateBanditV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsBanditV2DTO",
+    },
     "v2.GetBandit": {
         "banditId": {
             "type": "string",
             "format": "uuid",
             },
         "operationResponseType": "ExperimentsBanditV2DTO",
+    },
+    "v2.DeleteBandit": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.PatchBandit": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsPatchBanditV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsBanditV2DTO",
+    },
+    "v2.PauseBandit": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListBanditPolicies": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsBanditPolicyHistoryV2DTOArray",
+    },
+    "v2.RefreshBandit": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "fullRefresh": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsBanditRefreshV2DTO",
     },
     "v2.GetBanditResults": {
         "banditId": {
@@ -11109,6 +11179,31 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "date-time",
             },
         "operationResponseType": "ExperimentsBanditResultsV2DTO",
+    },
+    "v2.ResumeBandit": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.StartBandit": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.StopBandit": {
+        "banditId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsStopBanditV2Request",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.GetBanditTrafficSummary": {
         "banditId": {
