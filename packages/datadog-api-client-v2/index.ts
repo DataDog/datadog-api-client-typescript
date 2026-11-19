@@ -5487,6 +5487,7 @@ export { FastlyServicesResponse } from "./models/FastlyServicesResponse";
 export { FastlyServiceType } from "./models/FastlyServiceType";
 export { FeatureFlag } from "./models/FeatureFlag";
 export { FeatureFlagAttributes } from "./models/FeatureFlagAttributes";
+export { FeatureFlagBucketingMode } from "./models/FeatureFlagBucketingMode";
 export { FeatureFlagChangeEvent } from "./models/FeatureFlagChangeEvent";
 export { FeatureFlagChangeEventAction } from "./models/FeatureFlagChangeEventAction";
 export { FeatureFlagChangeEventAttributes } from "./models/FeatureFlagChangeEventAttributes";
