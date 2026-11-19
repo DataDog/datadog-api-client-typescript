@@ -162031,6 +162031,11 @@ paths:
       summary: List datastores
       tags:
         - Actions Datastores
+      x-datadog-generators:
+        generators:
+          pup: true
+          terraform: true
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -162078,6 +162083,9 @@ paths:
       summary: Create datastore
       tags:
         - Actions Datastores
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -162107,6 +162115,9 @@ paths:
       summary: Delete datastore
       tags:
         - Actions Datastores
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -162159,6 +162170,9 @@ paths:
       summary: Get datastore
       tags:
         - Actions Datastores
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -162222,6 +162236,9 @@ paths:
       summary: Update datastore
       tags:
         - Actions Datastores
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -162281,6 +162298,9 @@ paths:
       summary: Delete datastore item
       tags:
         - Actions Datastores
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -162364,6 +162384,9 @@ paths:
       summary: List datastore items
       tags:
         - Actions Datastores
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -162434,6 +162457,9 @@ paths:
       summary: Update datastore item
       tags:
         - Actions Datastores
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -162497,6 +162523,9 @@ paths:
       summary: Bulk delete datastore items
       tags:
         - Actions Datastores
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -162560,6 +162589,9 @@ paths:
       summary: Bulk write datastore items
       tags:
         - Actions Datastores
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -163580,6 +163612,10 @@ paths:
       summary: List Agent Health issues
       tags:
         - Agent Health
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: OR
         permissions:
@@ -163676,6 +163712,10 @@ paths:
       summary: Get an Agent Health issue
       tags:
         - Agent Health
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: OR
         permissions:
@@ -167864,6 +167904,9 @@ paths:
       summary: List all AuthN Mappings
       tags:
         - AuthN Mappings
+      x-datadog-generators:
+        generators:
+          pup: true
       "x-permission":
         operator: OR
         permissions:
@@ -167925,6 +167968,9 @@ paths:
       tags:
         - AuthN Mappings
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
       "x-permission":
         operator: OR
         permissions:
@@ -167955,6 +168001,9 @@ paths:
       summary: Delete an AuthN Mapping
       tags:
         - AuthN Mappings
+      x-datadog-generators:
+        generators:
+          pup: true
       "x-permission":
         operator: OR
         permissions:
@@ -167997,6 +168046,9 @@ paths:
       summary: Get an AuthN Mapping by UUID
       tags:
         - AuthN Mappings
+      x-datadog-generators:
+        generators:
+          pup: true
       "x-permission":
         operator: OR
         permissions:
@@ -168073,6 +168125,9 @@ paths:
       tags:
         - AuthN Mappings
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
       "x-permission":
         operator: OR
         permissions:
@@ -174660,6 +174715,8 @@ paths:
       summary: Create a custom framework
       tags: ["Security Monitoring"]
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Compliance
       "x-permission":
         operator: AND
         permissions:
@@ -174704,6 +174761,8 @@ paths:
       summary: Delete a custom framework
       tags: ["Security Monitoring"]
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Compliance
       "x-permission":
         operator: AND
         permissions:
@@ -174752,6 +174811,8 @@ paths:
       summary: Get a custom framework
       tags: ["Security Monitoring"]
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Compliance
       "x-permission":
         operator: OR
         permissions:
@@ -174814,6 +174875,8 @@ paths:
       summary: Update a custom framework
       tags: ["Security Monitoring"]
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Compliance
       "x-permission":
         operator: AND
         permissions:
@@ -174858,6 +174921,8 @@ paths:
             - security_monitoring_filters_read
       summary: List resource filters
       tags: ["Security Monitoring"]
+      x-datadog-generators:
+        package_tag: CSM Settings
       "x-permission":
         operator: OR
         permissions:
@@ -174920,6 +174985,8 @@ paths:
       summary: Update resource filters
       tags: ["Security Monitoring"]
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: CSM Settings
       "x-permission":
         operator: OR
         permissions:
@@ -182980,6 +183047,8 @@ paths:
       summary: Execute a tabular DDSQL query
       tags:
         - DDSQL
+      x-datadog-generators:
+        public: true
       "x-permission":
         operator: OR
         permissions:
@@ -183102,6 +183171,8 @@ paths:
       summary: Fetch the result of a DDSQL query
       tags:
         - DDSQL
+      x-datadog-generators:
+        public: true
       "x-permission":
         operator: OR
         permissions:
@@ -185545,6 +185616,9 @@ paths:
       summary: Get Domain Allowlist
       tags:
         - Domain Allowlist
+      x-datadog-generators:
+        generators:
+          pup: true
       "x-permission":
         operator: OR
         permissions:
@@ -186307,6 +186381,9 @@ paths:
       summary: Get all downtimes
       tags:
         - Downtimes
+      x-datadog-generators:
+        generators:
+          pup: true
       x-pagination:
         limitParam: page[limit]
         pageOffsetParam: page[offset]
@@ -186398,6 +186475,9 @@ paths:
       tags:
         - Downtimes
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
       "x-permission":
         operator: OR
         permissions:
@@ -186442,6 +186522,9 @@ paths:
       summary: Cancel a downtime
       tags:
         - Downtimes
+      x-datadog-generators:
+        generators:
+          pup: true
       "x-permission":
         operator: OR
         permissions:
@@ -186535,6 +186618,9 @@ paths:
       summary: Get a downtime
       tags:
         - Downtimes
+      x-datadog-generators:
+        generators:
+          pup: true
       "x-permission":
         operator: OR
         permissions:
@@ -187489,6 +187575,10 @@ paths:
       summary: Post an event
       tags: ["Events"]
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          postman: false
+        postman_exclusion_reason: older_version_preferred
   /api/v2/events/search:
     post:
       description: |-
@@ -188211,6 +188301,10 @@ paths:
       summary: List bandits
       tags:
         - Experiments
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: AND
         permissions:
@@ -188355,6 +188449,10 @@ paths:
       summary: Create bandit
       tags:
         - Experiments
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: AND
         permissions:
@@ -188423,6 +188521,10 @@ paths:
       summary: Delete bandit
       tags:
         - Experiments
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: AND
         permissions:
@@ -188556,6 +188658,10 @@ paths:
       summary: Get bandit
       tags:
         - Experiments
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: AND
         permissions:
@@ -188721,6 +188827,10 @@ paths:
       summary: Update bandit
       tags:
         - Experiments
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: AND
         permissions:
@@ -188788,6 +188898,10 @@ paths:
       summary: Pause bandit
       tags:
         - Experiments
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: AND
         permissions:
@@ -188949,6 +189063,10 @@ paths:
       summary: List bandit policies
       tags:
         - Experiments
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: AND
         permissions:
@@ -189037,6 +189155,10 @@ paths:
       summary: Refresh bandit
       tags:
         - Experiments
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: AND
         permissions:
@@ -189172,6 +189294,10 @@ paths:
       summary: Get bandit results
       tags:
         - Experiments
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: AND
         permissions:
@@ -189239,6 +189365,10 @@ paths:
       summary: Resume bandit
       tags:
         - Experiments
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: AND
         permissions:
@@ -189307,6 +189437,10 @@ paths:
       summary: Start bandit
       tags:
         - Experiments
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: AND
         permissions:
@@ -189395,6 +189529,10 @@ paths:
       summary: Stop bandit
       tags:
         - Experiments
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: AND
         permissions:
@@ -189516,6 +189654,10 @@ paths:
       summary: Get bandit traffic summary
       tags:
         - Experiments
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: AND
         permissions:
@@ -203869,6 +204011,8 @@ paths:
       summary: List incident user-defined roles
       tags:
         - Incidents
+      x-datadog-generators:
+        public: true
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -203946,6 +204090,8 @@ paths:
       summary: Create an incident user-defined role
       tags:
         - Incidents
+      x-datadog-generators:
+        public: true
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -203980,6 +204126,8 @@ paths:
       summary: Delete an incident user-defined role
       tags:
         - Incidents
+      x-datadog-generators:
+        public: true
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -204037,6 +204185,8 @@ paths:
       summary: Get an incident user-defined role
       tags:
         - Incidents
+      x-datadog-generators:
+        public: true
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -204107,6 +204257,8 @@ paths:
       summary: Update an incident user-defined role
       tags:
         - Incidents
+      x-datadog-generators:
+        public: true
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -205043,6 +205195,10 @@ paths:
       summary: List an incident's impacts
       tags:
         - Incidents
+      x-datadog-generators:
+        generators:
+          postman: false
+        postman_exclusion_reason: partial_surface
       "x-permission":
         operator: OR
         permissions:
@@ -205110,6 +205266,10 @@ paths:
       tags:
         - Incidents
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          postman: false
+        postman_exclusion_reason: partial_surface
       "x-permission":
         operator: OR
         permissions:
@@ -205140,6 +205300,10 @@ paths:
       summary: Delete an incident impact
       tags:
         - Incidents
+      x-datadog-generators:
+        generators:
+          postman: false
+        postman_exclusion_reason: partial_surface
       "x-permission":
         operator: OR
         permissions:
@@ -206459,6 +206623,9 @@ paths:
       tags:
         - ChatGPT Enterprise Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -206486,6 +206653,9 @@ paths:
       summary: Delete a ChatGPT Enterprise integration account
       tags:
         - ChatGPT Enterprise Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -206539,6 +206709,9 @@ paths:
       summary: Get a ChatGPT Enterprise integration account
       tags:
         - ChatGPT Enterprise Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -206601,6 +206774,9 @@ paths:
       tags:
         - ChatGPT Enterprise Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -206705,6 +206881,9 @@ paths:
       tags:
         - CoreWeave Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -206732,6 +206911,9 @@ paths:
       summary: Delete a CoreWeave integration account
       tags:
         - CoreWeave Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -206781,6 +206963,9 @@ paths:
       summary: Get a CoreWeave integration account
       tags:
         - CoreWeave Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -206839,6 +207024,9 @@ paths:
       tags:
         - CoreWeave Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -206973,6 +207161,10 @@ paths:
       tags:
         - Databricks Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
+        public: true
       "x-permission":
         operator: OR
         permissions:
@@ -207000,6 +207192,10 @@ paths:
       summary: Delete a Databricks integration account
       tags:
         - Databricks Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
+        public: true
       "x-permission":
         operator: OR
         permissions:
@@ -207064,6 +207260,10 @@ paths:
       summary: Get a Databricks integration account
       tags:
         - Databricks Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
+        public: true
       "x-permission":
         operator: OR
         permissions:
@@ -207137,6 +207337,10 @@ paths:
       tags:
         - Databricks Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
+        public: true
       "x-permission":
         operator: OR
         permissions:
@@ -207247,6 +207451,9 @@ paths:
       tags:
         - Elastic Cloud Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -207274,6 +207481,9 @@ paths:
       summary: Delete an Elastic Cloud integration account
       tags:
         - Elastic Cloud Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -207326,6 +207536,9 @@ paths:
       summary: Get an Elastic Cloud integration account
       tags:
         - Elastic Cloud Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -207387,6 +207600,9 @@ paths:
       tags:
         - Elastic Cloud Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -207525,6 +207741,9 @@ paths:
       tags:
         - Nebius Cloud Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -207552,6 +207771,9 @@ paths:
       summary: Delete a Nebius Cloud integration account
       tags:
         - Nebius Cloud Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -207618,6 +207840,9 @@ paths:
       summary: Get a Nebius Cloud integration account
       tags:
         - Nebius Cloud Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -207693,6 +207918,9 @@ paths:
       tags:
         - Nebius Cloud Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -207815,6 +208043,9 @@ paths:
       tags:
         - OpenAI Codex Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -207842,6 +208073,9 @@ paths:
       summary: Delete an OpenAI Codex integration account
       tags:
         - OpenAI Codex Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -207900,6 +208134,9 @@ paths:
       summary: Get an OpenAI Codex integration account
       tags:
         - OpenAI Codex Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -207967,6 +208204,9 @@ paths:
       tags:
         - OpenAI Codex Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -208139,6 +208379,9 @@ paths:
       tags:
         - Snowflake Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -208166,6 +208409,9 @@ paths:
       summary: Delete a Snowflake integration account
       tags:
         - Snowflake Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -208249,6 +208495,9 @@ paths:
       summary: Get a Snowflake integration account
       tags:
         - Snowflake Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -208341,6 +208590,9 @@ paths:
       tags:
         - Snowflake Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -208445,6 +208697,9 @@ paths:
       tags:
         - Temporal Cloud OpenMetrics Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -208472,6 +208727,9 @@ paths:
       summary: Delete a Temporal Cloud OpenMetrics account
       tags:
         - Temporal Cloud OpenMetrics Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -208521,6 +208779,9 @@ paths:
       summary: Get a Temporal Cloud OpenMetrics account
       tags:
         - Temporal Cloud OpenMetrics Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -208579,6 +208840,9 @@ paths:
       tags:
         - Temporal Cloud OpenMetrics Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -208685,6 +208949,9 @@ paths:
       tags:
         - Twilio Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -208712,6 +208979,9 @@ paths:
       summary: Delete a Twilio integration account
       tags:
         - Twilio Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -208762,6 +209032,9 @@ paths:
       summary: Get a Twilio integration account
       tags:
         - Twilio Integration
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -208821,6 +209094,9 @@ paths:
       tags:
         - Twilio Integration
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -223445,6 +223721,9 @@ paths:
       tags:
         - Metrics
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -223476,6 +223755,9 @@ paths:
       summary: Delete a derived metric
       tags:
         - Metrics
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -223527,6 +223809,9 @@ paths:
       summary: Get a derived metric
       tags:
         - Metrics
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -223600,6 +223885,9 @@ paths:
       tags:
         - Metrics
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          terraform: true
       "x-permission":
         operator: OR
         permissions:
@@ -229815,6 +230103,10 @@ paths:
       summary: Create On-Call Page
       tags:
         - On-Call Paging
+      x-datadog-generators:
+        generators:
+          postman: false
+        postman_exclusion_reason: unsupported_url
   /api/v2/on-call/pages/{page_id}:
     get:
       description: Get the details of an On-Call Page.
@@ -230017,6 +230309,10 @@ paths:
       summary: Acknowledge On-Call Page
       tags:
         - On-Call Paging
+      x-datadog-generators:
+        generators:
+          postman: false
+        postman_exclusion_reason: unsupported_url
   /api/v2/on-call/pages/{page_id}/comments:
     post:
       description: Add a comment to the timeline of an On-Call Page.
@@ -230179,6 +230475,10 @@ paths:
       summary: Escalate On-Call Page
       tags:
         - On-Call Paging
+      x-datadog-generators:
+        generators:
+          postman: false
+        postman_exclusion_reason: unsupported_url
   /api/v2/on-call/pages/{page_id}/reroute:
     post:
       description: |-
@@ -230315,6 +230615,10 @@ paths:
       summary: Reroute On-Call Page
       tags:
         - On-Call Paging
+      x-datadog-generators:
+        generators:
+          postman: false
+        postman_exclusion_reason: unsupported_url
   /api/v2/on-call/pages/{page_id}/resolve:
     post:
       description: |-
@@ -230417,6 +230721,10 @@ paths:
       summary: Resolve On-Call Page
       tags:
         - On-Call Paging
+      x-datadog-generators:
+        generators:
+          postman: false
+        postman_exclusion_reason: unsupported_url
   /api/v2/on-call/schedules:
     get:
       description: Retrieve a list of On-Call schedules.
@@ -235337,6 +235645,8 @@ paths:
       summary: List findings
       tags:
         - "Security Monitoring"
+      x-datadog-generators:
+        package_tag: Security Findings
       x-pagination:
         cursorParam: page[cursor]
         cursorPath: meta.page.cursor
@@ -235402,6 +235712,8 @@ paths:
       summary: Get a finding
       tags:
         - "Security Monitoring"
+      x-datadog-generators:
+        package_tag: Security Findings
       x-unstable: |-
         **Note**: This endpoint uses the legacy security findings data model and is planned for deprecation.
         Use the [search security findings endpoint](https://docs.datadoghq.com/api/latest/security-monitoring/#search-security-findings),
@@ -236091,6 +236403,10 @@ paths:
       tags:
         - Product Analytics
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          postman: false
+        postman_exclusion_reason: unsupported_url
   /api/v2/product-analytics/accounts/facet_info:
     post:
       description: Get facet information for account attributes including possible values and counts
@@ -238851,6 +239167,10 @@ paths:
       summary: List AI Gateway rate limit counter summaries
       tags:
         - AI Gateway
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: OR
         permissions:
@@ -241546,6 +241866,8 @@ paths:
       summary: List dataset report schedules
       tags:
         - Report Schedules
+      x-datadog-generators:
+        public: true
   /api/v2/reporting/print:
     post:
       description: |-
@@ -241628,6 +241950,8 @@ paths:
       tags:
         - Report Schedules
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        public: true
   /api/v2/reporting/schedule:
     post:
       description: |-
@@ -241732,6 +242056,8 @@ paths:
       tags:
         - Report Schedules
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        public: true
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -241883,6 +242209,8 @@ paths:
       summary: List report schedules
       tags:
         - Report Schedules
+      x-datadog-generators:
+        public: true
   /api/v2/reporting/schedule/{resource_type}/{resource_id}:
     get:
       description: |-
@@ -241964,6 +242292,8 @@ paths:
       summary: Get report schedules for a resource
       tags:
         - Report Schedules
+      x-datadog-generators:
+        public: true
   /api/v2/reporting/schedule/{schedule_uuid}:
     delete:
       description: |-
@@ -242039,6 +242369,8 @@ paths:
       summary: Delete a report schedule
       tags:
         - Report Schedules
+      x-datadog-generators:
+        public: true
     get:
       description: |-
         Get a report schedule by its unique identifier.
@@ -242113,6 +242445,8 @@ paths:
       summary: Get a report schedule
       tags:
         - Report Schedules
+      x-datadog-generators:
+        public: true
     patch:
       description: |-
         Update an existing scheduled report by its identifier. The editable attributes
@@ -242223,6 +242557,8 @@ paths:
       tags:
         - Report Schedules
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        public: true
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -242315,6 +242651,8 @@ paths:
       tags:
         - Report Schedules
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        public: true
   /api/v2/restriction_policy/{resource_id}:
     delete:
       description: |-
@@ -250546,6 +250884,8 @@ paths:
       summary: List security findings
       tags:
         - "Security Monitoring"
+      x-datadog-generators:
+        package_tag: Security Findings
       x-pagination:
         cursorParam: page[cursor]
         cursorPath: meta.page.after
@@ -250611,6 +250951,10 @@ paths:
       tags:
         - "Security Monitoring"
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
+        package_tag: Security Findings
       "x-permission":
         operator: OR
         permissions:
@@ -250686,6 +251030,9 @@ paths:
       summary: Get all default inbox rules
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -250760,6 +251107,9 @@ paths:
       summary: Get a default inbox rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -250831,6 +251181,9 @@ paths:
       summary: Disable a default inbox rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -250902,6 +251255,9 @@ paths:
       summary: Enable a default inbox rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -250989,6 +251345,9 @@ paths:
       summary: Get all due date rules
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -251085,6 +251444,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -251149,6 +251511,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -251185,6 +251550,9 @@ paths:
       summary: Delete a due date rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -251254,6 +251622,9 @@ paths:
       summary: Get a due date rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -251366,6 +251737,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -251448,6 +251822,9 @@ paths:
       summary: Get all inbox rules
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -251534,6 +251911,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -251598,6 +251978,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -251634,6 +252017,9 @@ paths:
       summary: Delete an inbox rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -251698,6 +252084,9 @@ paths:
       summary: Get an inbox rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -251796,6 +252185,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -251880,6 +252272,9 @@ paths:
       summary: Get all mute rules
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -251970,6 +252365,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252034,6 +252432,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252070,6 +252471,9 @@ paths:
       summary: Delete a mute rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252136,6 +252540,9 @@ paths:
       summary: Get a mute rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252234,6 +252641,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252320,6 +252730,9 @@ paths:
       summary: Get all severity modifier rules
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252410,6 +252823,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252474,6 +252890,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252516,6 +252935,9 @@ paths:
       summary: Delete a severity modifier rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252588,6 +253010,9 @@ paths:
       summary: Get a severity modifier rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252688,6 +253113,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252772,6 +253200,9 @@ paths:
       summary: Get all ticket creation rules
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252862,6 +253293,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252926,6 +253360,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -252962,6 +253399,9 @@ paths:
       summary: Delete a ticket creation rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -253028,6 +253468,9 @@ paths:
       summary: Get a ticket creation rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -253130,6 +253573,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -253178,6 +253624,10 @@ paths:
       tags:
         - "Security Monitoring"
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
+        package_tag: Security Findings
       "x-permission":
         operator: OR
         permissions:
@@ -253247,6 +253697,10 @@ paths:
       tags:
         - "Security Monitoring"
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
+        package_tag: Security Findings
       "x-permission":
         operator: OR
         permissions:
@@ -253316,6 +253770,10 @@ paths:
       tags:
         - "Security Monitoring"
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
+        package_tag: Security Findings
       "x-permission":
         operator: OR
         permissions:
@@ -253383,6 +253841,10 @@ paths:
       tags:
         - "Security Monitoring"
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
+        package_tag: Security Findings
       "x-permission":
         operator: OR
         permissions:
@@ -253454,6 +253916,10 @@ paths:
       tags:
         - "Security Monitoring"
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
+        package_tag: Security Findings
       "x-permission":
         operator: OR
         permissions:
@@ -253522,6 +253988,10 @@ paths:
       tags:
         - "Security Monitoring"
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
+        package_tag: Security Findings
       "x-permission":
         operator: OR
         permissions:
@@ -253595,6 +254065,10 @@ paths:
       tags:
         - "Security Monitoring"
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
+        package_tag: Security Findings
       "x-permission":
         operator: OR
         permissions:
@@ -253666,6 +254140,10 @@ paths:
       tags:
         - "Security Monitoring"
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
+        package_tag: Security Findings
       "x-permission":
         operator: OR
         permissions:
@@ -253736,6 +254214,8 @@ paths:
       tags:
         - "Security Monitoring"
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Security Findings
       x-pagination:
         cursorParam: body.data.attributes.page.cursor
         cursorPath: meta.page.after
@@ -253809,6 +254289,10 @@ paths:
       tags:
         - "Security Monitoring"
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
+        package_tag: Security Findings
       "x-permission":
         operator: OR
         permissions:
@@ -253879,6 +254363,10 @@ paths:
       tags:
         - "Security Monitoring"
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
+        package_tag: Security Findings
       "x-permission":
         operator: OR
         permissions:
@@ -253978,6 +254466,10 @@ paths:
       tags:
         - "Security Monitoring"
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
+        package_tag: Security Findings
       "x-permission":
         operator: OR
         permissions:
@@ -254590,6 +255082,8 @@ paths:
       summary: List assets SBOMs
       tags:
         - "Security Monitoring"
+      x-datadog-generators:
+        package_tag: Vulnerabilities
       x-permission:
         operator: OR
         permissions:
@@ -254679,6 +255173,8 @@ paths:
       summary: Get SBOM
       tags:
         - "Security Monitoring"
+      x-datadog-generators:
+        package_tag: Vulnerabilities
       x-permission:
         operator: OR
         permissions:
@@ -254823,6 +255319,8 @@ paths:
       summary: List scanned assets metadata
       tags:
         - "Security Monitoring"
+      x-datadog-generators:
+        package_tag: Vulnerabilities
       x-permission:
         operator: OR
         permissions:
@@ -255922,6 +256420,8 @@ paths:
       summary: List vulnerabilities
       tags:
         - "Security Monitoring"
+      x-datadog-generators:
+        package_tag: Vulnerabilities
       x-permission:
         operator: OR
         permissions:
@@ -256007,6 +256507,8 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        package_tag: Vulnerabilities
       "x-permission":
         operator: OR
         permissions:
@@ -256486,6 +256988,8 @@ paths:
       summary: List vulnerable assets
       tags:
         - "Security Monitoring"
+      x-datadog-generators:
+        package_tag: Vulnerabilities
       x-permission:
         operator: OR
         permissions:
@@ -257402,6 +257906,9 @@ paths:
       summary: Get all critical assets
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -257465,6 +257972,9 @@ paths:
       tags:
         - Security Monitoring
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -257508,6 +258018,9 @@ paths:
       summary: Get critical assets affecting a specific rule
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -257535,6 +258048,9 @@ paths:
       summary: Delete a critical asset
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -257577,6 +258093,9 @@ paths:
       summary: Get a critical asset
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -257644,6 +258163,9 @@ paths:
       summary: Update a critical asset
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        generators:
+          pup: true
       x-permission:
         operator: OR
         permissions:
@@ -267817,6 +268339,8 @@ paths:
       summary: List codegen rulesets
       tags:
         - "Security Monitoring"
+      x-datadog-generators:
+        package_tag: Static Analysis
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -268654,6 +269178,8 @@ paths:
       summary: Get default rulesets for a language
       tags:
         - "Security Monitoring"
+      x-datadog-generators:
+        package_tag: Static Analysis
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -268697,6 +269223,8 @@ paths:
       summary: Ruleset get multiple
       tags:
         - "Security Monitoring"
+      x-datadog-generators:
+        package_tag: Static Analysis
       x-unstable: "**Note**: This endpoint may be subject to changes."
   /api/v2/static-analysis/rulesets/{ruleset_name}:
     get:
@@ -268762,6 +269290,8 @@ paths:
       summary: Get a SAST ruleset
       tags:
         - "Security Monitoring"
+      x-datadog-generators:
+        package_tag: Static Analysis
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -268798,6 +269328,8 @@ paths:
       summary: Returns a list of Secrets rules
       tags:
         - "Security Monitoring"
+      x-datadog-generators:
+        package_tag: Static Analysis
       x-unstable: "**Note**: This endpoint may be subject to changes."
   /api/v2/static-analysis/static-analysis-server/analyze:
     post:
@@ -268858,6 +269390,8 @@ paths:
       summary: Analyze code
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Static Analysis
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -268925,6 +269459,8 @@ paths:
       summary: Get AST for source code
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Static Analysis
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -268977,6 +269513,8 @@ paths:
       summary: Get node types for a language
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Static Analysis
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -269025,6 +269563,8 @@ paths:
       summary: Get tree-sitter WASM file
       tags:
         - Security Monitoring
+      x-datadog-generators:
+        package_tag: Static Analysis
       x-unstable: |-
         **Note**: This endpoint is in preview and is subject to change.
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
@@ -271674,6 +272214,12 @@ paths:
       summary: List Synthetics downtimes
       tags:
         - Synthetics
+      x-datadog-generators:
+        public: true
+        public_exemption:
+          reason: >-
+            Synthetics downtime management is in beta testing and not yet available to all customers.
+          type: beta
       x-permission:
         operator: AND
         permissions:
@@ -271759,6 +272305,12 @@ paths:
       summary: Create a Synthetics downtime
       tags:
         - Synthetics
+      x-datadog-generators:
+        public: true
+        public_exemption:
+          reason: >-
+            Synthetics downtime management is in beta testing and not yet available to all customers.
+          type: beta
       x-permission:
         operator: AND
         permissions:
@@ -271802,6 +272354,12 @@ paths:
       summary: Delete a Synthetics downtime
       tags:
         - Synthetics
+      x-datadog-generators:
+        public: true
+        public_exemption:
+          reason: >-
+            Synthetics downtime management is in beta testing and not yet available to all customers.
+          type: beta
       x-permission:
         operator: AND
         permissions:
@@ -271877,6 +272435,12 @@ paths:
       summary: Get a Synthetics downtime
       tags:
         - Synthetics
+      x-datadog-generators:
+        public: true
+        public_exemption:
+          reason: >-
+            Synthetics downtime management is in beta testing and not yet available to all customers.
+          type: beta
       x-permission:
         operator: AND
         permissions:
@@ -271976,6 +272540,12 @@ paths:
       summary: Update a Synthetics downtime
       tags:
         - Synthetics
+      x-datadog-generators:
+        public: true
+        public_exemption:
+          reason: >-
+            Synthetics downtime management is in beta testing and not yet available to all customers.
+          type: beta
       x-permission:
         operator: AND
         permissions:
@@ -272059,6 +272629,12 @@ paths:
       summary: Remove a test from a Synthetics downtime
       tags:
         - Synthetics
+      x-datadog-generators:
+        public: true
+        public_exemption:
+          reason: >-
+            Synthetics downtime management is in beta testing and not yet available to all customers.
+          type: beta
       x-permission:
         operator: AND
         permissions:
@@ -272140,6 +272716,12 @@ paths:
       summary: Add a test to a Synthetics downtime
       tags:
         - Synthetics
+      x-datadog-generators:
+        public: true
+        public_exemption:
+          reason: >-
+            Synthetics downtime management is in beta testing and not yet available to all customers.
+          type: beta
       x-permission:
         operator: AND
         permissions:
@@ -277120,6 +277702,8 @@ paths:
       summary: List organization temporary grant requests
       tags:
         - Usage Metering
+      x-datadog-generators:
+        public: true
       x-pagination:
         cursorParam: page[cursor]
         cursorPath: meta.page.next_cursor
@@ -277208,6 +277792,8 @@ paths:
       summary: Get an organization temporary grant request
       tags:
         - Usage Metering
+      x-datadog-generators:
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -277307,6 +277893,8 @@ paths:
       summary: Decide a temporary grant request
       tags:
         - Usage Metering
+      x-datadog-generators:
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -277371,6 +277959,8 @@ paths:
       summary: Revoke a requested temporary grant
       tags:
         - Usage Metering
+      x-datadog-generators:
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -278511,6 +279101,10 @@ paths:
       summary: Create or update usage quotas
       tags:
         - Usage Metering
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       "x-permission":
         operator: OR
         permissions:
@@ -279019,6 +279613,8 @@ paths:
       summary: List your temporary grant requests
       tags:
         - Usage Metering
+      x-datadog-generators:
+        public: true
       x-pagination:
         cursorParam: page[cursor]
         cursorPath: meta.page.next_cursor
@@ -279126,6 +279722,8 @@ paths:
       summary: Create a temporary grant request
       tags:
         - Usage Metering
+      x-datadog-generators:
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -279205,6 +279803,8 @@ paths:
       summary: Cancel your temporary grant request
       tags:
         - Usage Metering
+      x-datadog-generators:
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -279302,6 +279902,8 @@ paths:
       summary: Get your temporary grant request
       tags:
         - Usage Metering
+      x-datadog-generators:
+        public: true
       x-permission:
         operator: OR
         permissions:
@@ -280429,6 +281031,13 @@ paths:
       summary: List web integration accounts
       tags:
         - Web Integrations
+      x-datadog-generators:
+        generators:
+          documentation: false
+        public: true
+        public_exemption:
+          reason: "Consumed by the Datadog Terraform provider via the auto-generated Go SDK; not part of the public, stable API contract."
+          type: datadog-internal
       "x-permission":
         operator: OR
         permissions:
@@ -280493,6 +281102,13 @@ paths:
       tags:
         - Web Integrations
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          documentation: false
+        public: true
+        public_exemption:
+          reason: "Consumed by the Datadog Terraform provider via the auto-generated Go SDK; not part of the public, stable API contract."
+          type: datadog-internal
       "x-permission":
         operator: OR
         permissions:
@@ -280530,6 +281146,13 @@ paths:
       summary: Delete a web integration account
       tags:
         - Web Integrations
+      x-datadog-generators:
+        generators:
+          documentation: false
+        public: true
+        public_exemption:
+          reason: "Consumed by the Datadog Terraform provider via the auto-generated Go SDK; not part of the public, stable API contract."
+          type: datadog-internal
       "x-permission":
         operator: OR
         permissions:
@@ -280580,6 +281203,13 @@ paths:
       summary: Get a web integration account
       tags:
         - Web Integrations
+      x-datadog-generators:
+        generators:
+          documentation: false
+        public: true
+        public_exemption:
+          reason: "Consumed by the Datadog Terraform provider via the auto-generated Go SDK; not part of the public, stable API contract."
+          type: datadog-internal
       "x-permission":
         operator: OR
         permissions:
@@ -280650,6 +281280,13 @@ paths:
       tags:
         - Web Integrations
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          documentation: false
+        public: true
+        public_exemption:
+          reason: "Consumed by the Datadog Terraform provider via the auto-generated Go SDK; not part of the public, stable API contract."
+          type: datadog-internal
       "x-permission":
         operator: OR
         permissions:
@@ -281159,6 +281796,10 @@ paths:
       summary: List AWS cloud authentication intake mappings
       tags:
         - Cloud Authentication
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-unstable: "**Note**: This endpoint is in public beta and is subject to change.\nIf you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/)."
     post:
       description: Create an AWS cloud authentication intake mapping to authorize an AWS ARN pattern for Agent authentication. The AWS account must already be integrated with Datadog, and managed API key rotation must be enabled for the organization. Patterns that conflict with existing intake or persona mappings are rejected.
@@ -281215,6 +281856,10 @@ paths:
       tags:
         - Cloud Authentication
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-unstable: "**Note**: This endpoint is in public beta and is subject to change.\nIf you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/)."
   /api/v2/wif/aws/intake_mapping/{intake_mapping_id}:
     delete:
@@ -281242,6 +281887,10 @@ paths:
       summary: Delete an AWS cloud authentication intake mapping
       tags:
         - Cloud Authentication
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-unstable: "**Note**: This endpoint is in public beta and is subject to change.\nIf you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/)."
     get:
       description: Get an AWS cloud authentication intake mapping by ID.
@@ -281280,6 +281929,10 @@ paths:
       summary: Get an AWS cloud authentication intake mapping
       tags:
         - Cloud Authentication
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-unstable: "**Note**: This endpoint is in public beta and is subject to change.\nIf you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/)."
   /api/v2/wif/aws/persona_mapping:
     get:
@@ -281872,6 +282525,10 @@ paths:
       summary: List all Custom OIDC persona mappings
       tags:
         - Cloud Authentication
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: OR
         permissions:
@@ -281951,6 +282608,10 @@ paths:
       tags:
         - Cloud Authentication
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: OR
         permissions:
@@ -282001,6 +282662,10 @@ paths:
       summary: Delete a Custom OIDC persona mapping
       tags:
         - Cloud Authentication
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: OR
         permissions:
@@ -282068,6 +282733,10 @@ paths:
       summary: Get a Custom OIDC persona mapping
       tags:
         - Cloud Authentication
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: OR
         permissions:
@@ -282121,6 +282790,10 @@ paths:
       summary: List all Custom OIDC providers
       tags:
         - Cloud Authentication
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: OR
         permissions:
@@ -282198,6 +282871,10 @@ paths:
       tags:
         - Cloud Authentication
       x-codegen-request-body-name: body
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: OR
         permissions:
@@ -282254,6 +282931,10 @@ paths:
       summary: Delete a Custom OIDC provider
       tags:
         - Cloud Authentication
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: OR
         permissions:
@@ -282320,6 +283001,10 @@ paths:
       summary: Get a Custom OIDC provider
       tags:
         - Cloud Authentication
+      x-datadog-generators:
+        generators:
+          pup: false
+        pup_exclusion_reason: unsupported
       x-permission:
         operator: OR
         permissions:
@@ -282988,31 +283673,39 @@ tags:
       - Budgets and rate limits: spending caps and request limits, and their current usage.
       - Data capture and governance: what request data is recorded, and organization-wide controls.
     name: AI Gateway
+    x-datadog-package: ai-gateway
   - description: Evaluate LLM interactions for security threats such as prompt injection and jailbreak attempts.
     name: AI Guard
+    x-datadog-package: ai-guard
   - description: |-
       Configure your API endpoints through the Datadog API.
     name: API Management
+    x-datadog-package: software-catalog
   - description: Observe, troubleshoot, and improve cloud-scale applications with all telemetry in context
     name: APM
+    x-datadog-package: apm
   - description: |-
       Manage configuration of [APM retention filters](https://app.datadoghq.com/apm/traces/retention-filters) for your organization. You need an API and application key with Admin rights to interact with this endpoint. See [retention filters](https://docs.datadoghq.com/tracing/trace_pipeline/trace_retention/#retention-filters) on the Trace Retention page for more information.
     externalDocs:
       description: Find out more at
       url: https://docs.datadoghq.com/tracing/trace_pipeline/trace_retention/
     name: APM Retention Filters
+    x-datadog-package: apm
   - description: Retrieve full or pruned APM traces by trace ID.
     name: APM Trace
+    x-datadog-package: apm
   - description: |-
       Configure your Datadog-AWS integration directly through the Datadog API.
       For more information, see the [AWS integration page](https://docs.datadoghq.com/integrations/amazon_web_services).
     name: AWS Integration
+    x-datadog-package: cloud-integrations
   - description: |-
       Configure your Datadog-AWS-Logs integration directly through Datadog API.
       For more information, see the [AWS integration page](https://docs.datadoghq.com/integrations/amazon_web_services/#log-collection).
     externalDocs:
       url: https://docs.datadoghq.com/integrations/amazon_web_services/#log-collection
     name: AWS Logs Integration
+    x-datadog-package: cloud-integrations
   - description: |-
       Action connections extend your installed integrations and allow you to take action in your third-party systems
       (e.g. AWS, GitLab, and Statuspage) with Datadog’s Workflow Automation and App Builder products.
@@ -283028,18 +283721,22 @@ tags:
       description: Find out more at
       url: https://docs.datadoghq.com/service_management/workflows/connections/
     name: Action Connection
+    x-datadog-package: actions
   - description: |-
       Leverage the Actions Datastore API to create, modify, and delete
       items in datastores owned by your organization.
     externalDocs:
       url: https://docs.datadoghq.com/actions/datastore
     name: Actions Datastores
+    x-datadog-package: actions
   - description: >-
       List open Agent Health issues across your organization and get an issue with its available remediation. Issues are reported by node Agents, Cluster Agents, and OpenTelemetry collectors. The meaning of `resource_id` depends on `resource_kind`: hostname for `host`, DaemonSet UID for `deployment` (node Agent), cluster UUID for `cluster`, hostname of the host running the Cluster Agent for `cluster_agent`, or OpenTelemetry collector ID for `otel`.
     name: Agent Health
+    x-datadog-package: fleet-automation
   - description: >-
       Manage Agent Observability spans, data, projects, datasets, dataset records, experiments, prompts, and annotations.
     name: Agent Observability
+    x-datadog-package: ai-observability
   - description: |-
       Datadog Agentless Scanning provides visibility into risks and vulnerabilities
       within your hosts, running containers, and serverless functions—all without
@@ -283047,11 +283744,14 @@ tags:
       Agentless offers also Sensitive Data Scanning capabilities on your storage.
       Go to https://www.datadoghq.com/blog/agentless-scanning/ to learn more.
     name: "Agentless Scanning"
+    x-datadog-package: cloud-security
   - description: Add annotations to dashboards and notebooks to mark events such as deployments, incidents, or other notable moments in time.
     name: Annotations
+    x-datadog-package: dashboards
   - description: |-
       Datadog App Builder provides a low-code solution to rapidly develop and integrate secure, customized applications into your monitoring stack that are built to accelerate remediation at scale. These API endpoints allow you to create, read, update, delete, and publish apps.
     name: App Builder
+    x-datadog-package: actions
   - description: |-
       [Datadog Application Security](https://docs.datadoghq.com/security/application_security/) provides protection against
       application-level attacks that aim to exploit code-level vulnerabilities,
@@ -283063,46 +283763,57 @@ tags:
       description: Find out more at
       url: https://docs.datadoghq.com/security/application_security/
     name: "Application Security"
+    x-datadog-package: app-api-protection
   - description: |-
       Search your Audit Logs events over HTTP.
     name: Audit
+    x-datadog-package: governance
   - description: |-
       [The AuthN Mappings API](https://docs.datadoghq.com/account_management/authn_mapping/?tab=example)
       is used to automatically map groups of users to roles in Datadog using attributes
       sent from Identity Providers. Use these endpoints to manage your AuthN Mappings.
     name: AuthN Mappings
+    x-datadog-package: account-management
   - description: |-
       Use the Bits AI endpoints to retrieve AI-powered investigations.
     name: Bits AI
+    x-datadog-package: bits-ai
   - description: |-
       Use the Bits Security Analyst endpoints to find the investigations of your Cloud SIEM signals, read an
       investigation's verdict and findings, and count investigations.
     name: Bits Security Analyst
+    x-datadog-package: bits-ai
   - description: |-
       Manage CI Visibility opt-in status for your GitHub accounts and repositories. See the
       [CI Visibility GitHub Actions setup page](https://docs.datadoghq.com/continuous_integration/pipelines/github/)
       for more information.
     name: CI Visibility GitHub Accounts
+    x-datadog-package: ci-visibility
   - description: Send CI job logs over HTTP for CI Visibility.
     name: CI Visibility Logs
+    x-datadog-package: ci-visibility
   - description: |-
       Search or aggregate your CI Visibility pipeline events and send them to your Datadog site over HTTP. See the [CI Pipeline Visibility in Datadog page](https://docs.datadoghq.com/continuous_integration/pipelines/) for more information.
     name: CI Visibility Pipelines
+    x-datadog-package: ci-visibility
   - description: |-
       Search or aggregate your CI Visibility test events over HTTP. See the [Test Visibility in Datadog page](https://docs.datadoghq.com/tests/) for more information.
     name: CI Visibility Tests
+    x-datadog-package: test-optimization
   - description: |-
       Datadog Cloud Security Management (CSM) delivers real-time threat detection
       and continuous configuration audits across your entire cloud infrastructure,
       all in a unified view for seamless collaboration and faster remediation.
       Go to https://docs.datadoghq.com/security/cloud_security_management to learn more
     name: "CSM Agents"
+    x-datadog-package: cloud-security
   - description: |-
       Datadog Cloud Security Management (CSM) delivers real-time threat detection
       and continuous configuration audits across your entire cloud infrastructure,
       all in a unified view for seamless collaboration and faster remediation.
       Go to https://docs.datadoghq.com/security/cloud_security_management to learn more.
     name: "CSM Coverage Analysis"
+    x-datadog-package: cloud-security
   - description: |-
       Datadog Cloud Security Management (CSM) Ownership infers the most likely owner
       for a cloud resource by combining ownership signals from across the platform,
@@ -283110,28 +283821,35 @@ tags:
       persist, override, or correct the inferred owner.
       For more information, see [Cloud Security Management](https://docs.datadoghq.com/security/cloud_security_management).
     name: "CSM Ownership"
+    x-datadog-package: cloud-security
   - description: |-
       Datadog Cloud Security Management (CSM) Settings APIs allow you to list and filter
       your cloud hosts monitored by CSM, covering both agentless and agent-based discovery.
       For more information, see [Cloud Security Management](https://docs.datadoghq.com/security/cloud_security_management).
     name: "CSM Settings"
+    x-datadog-package: cloud-security
   - description: |-
       Workload Protection monitors file, network, and process activity across your environment to detect real-time threats to your infrastructure. See [Workload Protection](https://docs.datadoghq.com/security/workload_protection/) for more information on setting up Workload Protection.
 
       **Note**: These endpoints are split based on whether you are using the US1-FED site or not. Please reference the specific resource for the site you are using.
     name: "CSM Threats"
+    x-datadog-package: workload-protection
   - description: >-
       View and manage work items and projects within Work Management. API paths, resource types, and permissions retain `case` terminology. For more information, see [Work Management](https://docs.datadoghq.com/incident_response/work_management/).
     name: Case Management
+    x-datadog-package: case-management
   - description: >-
       View and configure custom attributes within Work Management. See the [Work Management page](https://docs.datadoghq.com/incident_response/work_management/) for more information.
     name: Case Management Attribute
+    x-datadog-package: case-management
   - description: >-
       View and configure work item types within Work Management. See the [Work Management page](https://docs.datadoghq.com/incident_response/work_management/) for more information.
     name: Case Management Type
+    x-datadog-package: case-management
   - description: >-
       View and manage change requests within Change Management. See the [Case Management page](https://docs.datadoghq.com/service_management/case_management/) for more information.
     name: Change Management
+    x-datadog-package: case-management
   - description: |-
       Manage your Datadog ChatGPT Enterprise integration accounts and account resources
       directly through the Datadog API. See the
@@ -283141,37 +283859,47 @@ tags:
       description: ChatGPT Enterprise integration.
       url: https://docs.datadoghq.com/integrations/chatgpt-enterprise/
     name: ChatGPT Enterprise Integration
+    x-datadog-package: integrations
   - description: |-
       Configure AWS, GitHub, and Custom OIDC cloud authentication for persona and intake authentication through the Datadog API.
     name: Cloud Authentication
+    x-datadog-package: account-management
   - description: |-
       The Cloud Cost Management API allows you to set up, edit, and delete Cloud Cost Management accounts for AWS, Azure, and Google Cloud. You can query your cost data by using the [Metrics endpoint](https://docs.datadoghq.com/api/latest/metrics/#query-timeseries-data-across-multiple-products) and the `cloud_cost` data source. For more information, see the [Cloud Cost Management documentation](https://docs.datadoghq.com/cloud_cost_management/).
     name: Cloud Cost Management
+    x-datadog-package: cloud-cost-management
   - description: |-
       The Cloud Network Monitoring API allows you to fetch aggregated connections and DNS traffic with their attributes. See the [Cloud Network Monitoring page](https://docs.datadoghq.com/network_monitoring/cloud_network_monitoring/) and [DNS Monitoring page](https://docs.datadoghq.com/network_monitoring/dns/) for more information.
     name: Cloud Network Monitoring
+    x-datadog-package: network-monitoring
   - description: |-
       Manage your Datadog Cloudflare integration directly through the Datadog API. See the [Cloudflare integration page](https://docs.datadoghq.com/integrations/cloudflare/) for more information.
     name: Cloudflare Integration
+    x-datadog-package: integrations
   - description: |-
       Retrieve and analyze code coverage data from Code Coverage. See the [Code Coverage page](https://docs.datadoghq.com/code_coverage/) for more information.
     name: Code Coverage
+    x-datadog-package: test-optimization
   - description: |-
       Datadog Cloud Security Misconfigurations provides aggregated views of
       compliance rules and findings across your cloud resources, helping you assess
       posture against industry frameworks (such as HIPAA, SOC 2, ISO 27001) and custom
       frameworks. Learn more at https://docs.datadoghq.com/security/cloud_security_management/misconfigurations/#maintain-compliance-with-industry-frameworks-and-benchmarks.
     name: "Compliance"
+    x-datadog-package: cloud-security
   - description: |-
       Manage your Datadog Confluent Cloud integration accounts and account resources directly through the Datadog API. See the [Confluent Cloud page](https://docs.datadoghq.com/integrations/confluent_cloud/) for more information.
     name: Confluent Cloud
+    x-datadog-package: integrations
   - description: |-
       The Container Images API allows you to query Container Image data for your organization. See the [Container Images View page](https://docs.datadoghq.com/infrastructure/containers/container_images/) for more information.
     name: Container Images
+    x-datadog-package: containers
   - description: |-
       The Containers API allows you to query container data for your organization.
       See the [Container Monitoring page](https://docs.datadoghq.com/containers/) for more information.
     name: Containers
+    x-datadog-package: containers
   - description: |-
       Manage your Datadog CoreWeave integration accounts and account resources
       directly through the Datadog API. See the
@@ -283181,23 +283909,28 @@ tags:
       description: CoreWeave integration.
       url: https://docs.datadoghq.com/integrations/coreweave/
     name: CoreWeave Integration
+    x-datadog-package: integrations
   - description: |-
       Programmatic management of a customer's Datadog organization. Use this API to perform
       self-service organization lifecycle actions such as disabling the authenticated org.
     name: Customer Org
+    x-datadog-package: account-management
   - description: |-
       Execute DDSQL queries against the Datadog data catalog and poll for their results.
       Queries are dispatched asynchronously: the initial request may return a `running` state with
       a `query_id`, and clients poll the fetch endpoint until the response transitions to
       `completed` with a column-major result set.
     name: DDSQL
+    x-datadog-package: ddsql
   - description: Manage Digital Experience Monitoring journeys.
     name: DEM
+    x-datadog-package: synthetics
   - description: |-
       Interact with your dashboard lists through the API to
       organize, find, and share all of your dashboards with your team and
       organization.
     name: Dashboard Lists
+    x-datadog-package: dashboards
   - description: |-
       Manage securely embedded Datadog dashboards. Secure embeds use HMAC-SHA256 signed sessions
       for authentication, enabling customers to embed dashboards in their own applications with
@@ -283208,19 +283941,24 @@ tags:
       - **Embed** sharing must be enabled under **Organization Settings** > **Public Sharing** > **Shared Dashboards**.
       - You need [an API key and an application key](https://docs.datadoghq.com/account_management/api-app-keys/) to interact with these endpoints.
     name: Dashboard Secure Embed
+    x-datadog-package: dashboards
   - description: Manage dashboard sharing configurations.
     name: Dashboard Sharing
+    x-datadog-package: dashboards
   - description: |-
       Get usage statistics for the dashboards in your organization, including view
       counts, last-edit times, widget counts, and quality scores. See the
       [Dashboards documentation](https://docs.datadoghq.com/dashboards/) for more
       information.
     name: Dashboards
+    x-datadog-package: dashboards
   - description: |-
       The Data Deletion API allows the user to target and delete data from the allowed products. It's enabled for Logs and depends on the `logs_delete_data` permission.
     name: Data Deletion
+    x-datadog-package: governance
   - description: Manage and run data observability monitors.
     name: Data Observability
+    x-datadog-package: data-quality-monitoring
   - description: |-
       Manage your Datadog Databricks integration accounts and account resources directly
       through the Datadog API. See the
@@ -283230,24 +283968,29 @@ tags:
       description: Databricks integration.
       url: https://docs.datadoghq.com/integrations/databricks/
     name: Databricks Integration
+    x-datadog-package: integrations
   - description: |-
       Data Access Controls in Datadog is a feature that allows administrators and access managers to regulate
       access to sensitive data. By defining Restricted Datasets, you can ensure that only specific teams or roles can
       view certain types of telemetry (for example, logs, traces, metrics, and RUM data).
     name: Datasets
+    x-datadog-package: account-management
   - description: |-
       Search, send, or delete events for Delivery Performance (formerly DORA Metrics) to measure and improve your software delivery performance. See the [Delivery Performance page](https://docs.datadoghq.com/delivery_performance/) for more information.
 
       **Note**: Delivery Performance is not available in the US1-FED site.
     name: Delivery Performance
+    x-datadog-package: delivery-performance
   - description: |-
       Manage Deployment Gates using this API to reduce the likelihood and impact of incidents caused by deployments. See the [Deployment Gates documentation](https://docs.datadoghq.com/deployment_gates/) for more information.
     name: Deployment Gates
+    x-datadog-package: deployment-gates
   - description: |-
       Configure your Datadog Email Domain Allowlist directly through the Datadog API.
       The Email Domain Allowlist controls the domains that certain datadog emails can be sent to.
       For more information, see the [Domain Allowlist docs page](https://docs.datadoghq.com/account_management/org_settings/domain_allowlist)
     name: Domain Allowlist
+    x-datadog-package: account-management
   - description: |-
       **Note**: Downtime V2 is currently in private beta. To request access, contact [Datadog support](https://docs.datadoghq.com/help/).
 
@@ -283256,6 +283999,7 @@ tags:
       scopes from alerting. Downtime settings, which can be scheduled with start and
       end times, prevent all alerting related to specified Datadog tags.
     name: Downtimes
+    x-datadog-package: monitors
   - description: |-
       Manage your Datadog Elastic Cloud integration accounts and account resources
       directly through the Datadog API. See the
@@ -283265,33 +284009,43 @@ tags:
       description: Elastic Cloud integration.
       url: https://docs.datadoghq.com/integrations/elastic-cloud/
     name: Elastic Cloud Integration
+    x-datadog-package: integrations
   - description: |-
       Inspect devices reported by the Datadog Agent on end-user laptops, desktops,
       and mobile devices, including their health, hardware, and connectivity attributes.
     name: End User Device Monitoring
+    x-datadog-package: device-monitoring
   - description: Manage per-integration configurations for the Internal Developer Portal (IDP). These configurations control which external resources (for example, GitHub repositories, Jira projects, or PagerDuty services) are synced as entities into the Software Catalog.
     name: Entity Integration Configs
+    x-datadog-package: software-catalog
   - description: Retrieves security risk scores for entities in your organization.
     name: Entity Risk Scores
+    x-datadog-package: security-detection
   - description: View and manage issues within Error Tracking. See the [Error Tracking page](https://docs.datadoghq.com/error_tracking/) for more information.
     name: Error Tracking
+    x-datadog-package: error-tracking
   - description: |-
       The Event Management API allows you to programmatically post events to the Events Explorer and fetch events from the Events Explorer. See the [Event Management page](https://docs.datadoghq.com/service_management/events/) for more information.
 
       **Update to Datadog monitor events `aggregation_key` starting March 1, 2025:** The Datadog monitor events `aggregation_key` is unique to each Monitor ID. Starting March 1st, this key will also include Monitor Group, making it unique per *Monitor ID and Monitor Group*. If you're using monitor events `aggregation_key` in dashboard queries or the Event API, you must migrate to use `@monitor.id`. Reach out to [support](https://www.datadoghq.com/support/) if you have any question.
     name: Events
+    x-datadog-package: events
   - description: |-
       Execution policies control which actions Datadog Action Platform is allowed to run
       and where. Each policy pairs an effect (allow or deny) with a pattern of actions,
       and can scope that decision to specific resources.
     name: Execution Policy
+    x-datadog-package: actions
   - description: Create and manage experiments, metrics, subject types, SQL models, and protocols.
     name: Experiments
+    x-datadog-package: experiments
   - description: |-
       Manage your Datadog Fastly integration accounts and services directly through the Datadog API. See the [Fastly integration page](https://docs.datadoghq.com/integrations/fastly/) for more information.
     name: Fastly Integration
+    x-datadog-package: integrations
   - description: Manage feature flags and environments.
     name: Feature Flags
+    x-datadog-package: feature-flags
   - description: |-
       Manage automated deployments across your fleet of hosts.
 
@@ -283306,16 +284060,19 @@ tags:
       Package Upgrade Deployments (`/upgrade`):
       - Upgrade the Datadog Agent to specific versions
     name: Fleet Automation
+    x-datadog-package: fleet-automation
   - description: |-
       The Datadog Forms API lets you create and manage forms within the App Builder platform.
       You can configure form settings, manage versions, and publish forms.
     name: Forms
+    x-datadog-package: actions
   - description: |-
       Configure your Datadog-Google Cloud Platform (GCP) integration directly
       through the Datadog API. Read more about the [Datadog-Google Cloud Platform integration](https://docs.datadoghq.com/integrations/google_cloud_platform).
     externalDocs:
       url: https://docs.datadoghq.com/integrations/google_cloud_platform
     name: GCP Integration
+    x-datadog-package: cloud-integrations
   - description: |-
       Configure your [Datadog Google Chat integration](https://docs.datadoghq.com/integrations/google-hangouts-chat/)
       directly through the Datadog API.
@@ -283323,6 +284080,7 @@ tags:
       description: For more information about the Datadog Google Chat integration, see the integration page.
       url: https://docs.datadoghq.com/integrations/google-hangouts-chat/
     name: Google Chat Integration
+    x-datadog-package: integrations
   - description: |-
       The Governance Console finds issues that build up across a Datadog organization over time,
       such as API keys nobody uses, users who no longer need access, or custom metrics that are
@@ -283338,11 +284096,13 @@ tags:
       See the [Governance Console page](https://docs.datadoghq.com/account_management/governance_console/)
       for more information.
     name: Governance Console
+    x-datadog-package: governance
   - description: |-
       Configure High Availability Multi-Region (HAMR) connections between Datadog organizations.
       HAMR provides disaster recovery capabilities by maintaining synchronized data between primary
       and secondary organizations across different datacenters.
     name: High Availability MultiRegion
+    x-datadog-package: governance
   - description: |-
       The IP allowlist API is used to manage the IP addresses that
       can access the Datadog API and web UI. It does not block
@@ -283351,16 +284111,21 @@ tags:
       This is an enterprise-only feature. Request access by
       contacting Datadog support, or see the [IP Allowlist page](https://docs.datadoghq.com/account_management/org_settings/ip_allowlist/) for more information.
     name: IP Allowlist
+    x-datadog-package: account-management
   - description: Manage identity providers and user authentication method overrides.
     name: Identity Providers
+    x-datadog-package: account-management
   - description: Manage incident response, as well as associated attachments, metadata, and todos. See the [Incident Management page](https://docs.datadoghq.com/service_management/incident_management/) for more information.
     name: Incidents
+    x-datadog-package: incident-response
   - description: |-
       The Integrations API is used to list available integrations
       and retrieve information about their installation status.
     name: Integrations
+    x-datadog-package: integrations
   - description: Manage your Jira Integration. Atlassian Jira is a project management and issue tracking tool for teams to coordinate work and handle tasks efficiently.
     name: Jira Integration
+    x-datadog-package: integrations
   - description: |-
       Manage your Datadog API and application keys. You need an API key and an
       application key for a user with the required permissions to interact with these endpoints.
@@ -283373,9 +284138,11 @@ tags:
       description: Find out more at
       url: "https://docs.datadoghq.com/account_management/api-app-keys/"
     name: Key Management
+    x-datadog-package: account-management
   - description: |-
       Search your logs and send them to your Datadog platform over HTTP. See the [Log Management page](https://docs.datadoghq.com/logs/) for more information.
     name: Logs
+    x-datadog-package: logs
   - description: |-
       Archive Search queries logs directly from long-term storage archives without prior
       rehydration and charges only for the data scanned.
@@ -283391,6 +284158,7 @@ tags:
       description: Find out more at
       url: https://docs.datadoghq.com/logs/explorer/archive_search/
     name: Logs Archive Searches
+    x-datadog-package: logs
   - description: |-
       Archives forward all the logs ingested to a cloud storage system.
 
@@ -283400,6 +284168,7 @@ tags:
       description: Find out more at
       url: https://docs.datadoghq.com/logs/archives/
     name: Logs Archives
+    x-datadog-package: logs
   - description: |-
       Custom Destinations forward all the logs ingested to an external destination.
 
@@ -283411,12 +284180,14 @@ tags:
       description: Find out more at
       url: https://docs.datadoghq.com/logs/log_configuration/forwarding_custom_destinations/
     name: Logs Custom Destinations
+    x-datadog-package: logs
   - description: |-
       Manage configuration of [log-based metrics](https://app.datadoghq.com/logs/pipelines/generate-metrics) for your organization.
     externalDocs:
       description: Find out more at
       url: https://docs.datadoghq.com/logs/logs_to_metrics/
     name: Logs Metrics
+    x-datadog-package: logs
   - description: |-
       **Note: This endpoint is in public beta. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).**
 
@@ -283435,6 +284206,7 @@ tags:
 
       See [How to Set Up RBAC for Logs](https://docs.datadoghq.com/logs/guide/logs-rbac/?tab=api#restrict-access-to-logs) for details on how to add restriction queries.
     name: Logs Restriction Queries
+    x-datadog-package: logs
   - description: |-
       The metrics endpoint allows you to:
 
@@ -283452,6 +284224,7 @@ tags:
 
       See the [Metrics page](https://docs.datadoghq.com/metrics/) for more information.
     name: Metrics
+    x-datadog-package: metrics
   - description: |-
       Configure your [Datadog Microsoft Teams integration](https://docs.datadoghq.com/integrations/microsoft_teams/)
       directly through the Datadog API. Note: These endpoints do not support legacy connector handles.
@@ -283459,8 +284232,10 @@ tags:
       description: For more information about the Datadog Microsoft Teams integration, see the integration page.
       url: https://docs.datadoghq.com/integrations/microsoft_teams/
     name: Microsoft Teams Integration
+    x-datadog-package: integrations
   - description: Manage Model Lab projects, runs, artifacts, and facets for ML experiment tracking.
     name: Model Lab API
+    x-datadog-package: ai-observability
   - description: |-
       [Monitors](https://docs.datadoghq.com/monitors) allow you to watch a metric or check that you care about and
       notifies your team when a defined threshold has exceeded.
@@ -283471,6 +284246,7 @@ tags:
       description: Find out more at
       url: https://docs.datadoghq.com/monitors/create/types/
     name: Monitors
+    x-datadog-package: monitors
   - description: |-
       Manage your Datadog Nebius Cloud integration accounts and account resources
       directly through the Datadog API. See the
@@ -283480,36 +284256,44 @@ tags:
       description: Nebius Cloud integration.
       url: https://docs.datadoghq.com/integrations/nebius_cloud/
     name: Nebius Cloud Integration
+    x-datadog-package: integrations
   - description: |-
       The Network Device Monitoring API allows you to fetch devices and interfaces and their attributes. See the [Network Device Monitoring page](https://docs.datadoghq.com/network_monitoring/) for more information.
     name: Network Device Monitoring
+    x-datadog-package: network-monitoring
   - description: |-
       Configure OAuth2 clients for Datadog.
       Supports RFC 7591 Dynamic Client Registration and management of OAuth2 client scopes restrictions.
     name: OAuth2 Client Public
+    x-datadog-package: account-management
   - description: Auto-generated tag OCI Integration
     name: OCI Integration
+    x-datadog-package: cloud-integrations
   - description: |-
       Observability Pipelines allows you to collect and process logs within your own infrastructure, and then route them to downstream integrations.
     externalDocs:
       description: Find out more at
       url: https://docs.datadoghq.com/observability_pipelines/
     name: Observability Pipelines
+    x-datadog-package: observability-pipelines
   - description: |-
       Configure your [Datadog Okta integration](https://docs.datadoghq.com/integrations/okta/) directly through the Datadog API.
     name: Okta Integration
+    x-datadog-package: integrations
   - description: |-
       Configure your [Datadog On-Call](https://docs.datadoghq.com/service_management/on-call/)
       directly through the Datadog API.
     externalDocs:
       url: https://docs.datadoghq.com/service_management/on-call/
     name: On-Call
+    x-datadog-package: incident-response
   - description: |-
       Trigger and manage [Datadog On-Call](https://docs.datadoghq.com/service_management/on-call/)
       pages directly through the Datadog API.
     externalDocs:
       url: https://docs.datadoghq.com/service_management/on-call/
     name: On-Call Paging
+    x-datadog-package: incident-response
   - description: |-
       Manage your Datadog OpenAI Codex integration accounts and account resources
       directly through the Datadog API. See the
@@ -283519,25 +284303,31 @@ tags:
       description: OpenAI Codex integration.
       url: https://docs.datadoghq.com/integrations/openai-codex/
     name: OpenAI Codex Integration
+    x-datadog-package: integrations
   - description: |-
       Configure your [Datadog Opsgenie integration](https://docs.datadoghq.com/integrations/opsgenie/)
       directly through the Datadog API.
     externalDocs:
       url: https://docs.datadoghq.com/api/latest/opsgenie-integration
     name: Opsgenie Integration
+    x-datadog-package: integrations
   - description: Manage OAuth2 client authorizations at the organization level.
     name: Org Authorized Clients
+    x-datadog-package: account-management
   - description: |-
       Manage connections between organizations. Org connections allow for controlled sharing of data between different Datadog organizations. See the [Cross-Organization Visibiltiy](https://docs.datadoghq.com/account_management/org_settings/cross_org_visibility/) page for more information.
     name: Org Connections
+    x-datadog-package: multi-org
   - description: >-
       Manage organization groups, memberships, policies, policy overrides, and policy configurations.
     name: Org Groups
+    x-datadog-package: multi-org
   - description: Create, edit, and manage your organizations. Read more about [multi-org accounts](https://docs.datadoghq.com/account_management/multi_organization).
     externalDocs:
       description: Find out more at
       url: "https://docs.datadoghq.com/account_management/multi_organization"
     name: Organizations
+    x-datadog-package: account-management
   - description: |-
       The Powerpack endpoints allow you to:
 
@@ -283551,9 +284341,11 @@ tags:
 
       Read [Scale Graphing Expertise with Powerpacks](https://docs.datadoghq.com/dashboards/guide/powerpacks-best-practices/) for more information.
     name: Powerpack
+    x-datadog-package: dashboards
   - description: |-
       The processes API allows you to query processes data for your organization. See the [Live Processes page](https://docs.datadoghq.com/infrastructure/process/) for more information.
     name: Processes
+    x-datadog-package: host-monitoring
   - description: |-
       Send server-side events to Product Analytics. Server-Side Events Ingestion allows you to collect custom events
       from any server-side source, and retains events for 15 months. Server-side events are helpful for understanding
@@ -283562,13 +284354,16 @@ tags:
       **Note**: Sending server-side events impacts billing. Review the [pricing page](https://www.datadoghq.com/pricing/?product=product-analytics#products)
       and contact your Customer Success Manager for more information.
     name: Product Analytics
+    x-datadog-package: product-analytics
   - description: |-
       Look up the Datadog SKUs that are generally available, together with the public list
       prices, allotments, and tiered pricing that apply to them on a given date.
     name: Product Catalog
+    x-datadog-package: usage-metering
   - description: |-
       Manage your Real User Monitoring (RUM) applications, and search or aggregate your RUM events over HTTP. See the [RUM & Session Replay page](https://docs.datadoghq.com/real_user_monitoring/) for more information
     name: RUM
+    x-datadog-package: rum
   - description: |-
       Manage the [Real User Monitoring (RUM)](https://docs.datadoghq.com/real_user_monitoring/)
       configuration for your organization.
@@ -283576,52 +284371,63 @@ tags:
       description: Find out more at
       url: https://docs.datadoghq.com/real_user_monitoring/
     name: RUM Config
+    x-datadog-package: rum
   - description: |-
       Get insights into the performance of your Real User Monitoring (RUM) applications over HTTP. See the [RUM &
       Session Replay page](https://docs.datadoghq.com/real_user_monitoring/) for more information.
     name: RUM Insights
+    x-datadog-package: rum
   - description: >-
       Configure Managed Archives for RUM applications. Your organization must have Managed Archives enabled.
 
 
       Requires `rum_rehydration_filter_read` to list or get configurations, or `rum_rehydration_filter_write` to create, update, or delete them.
     name: RUM Managed Archives
+    x-datadog-package: rum
   - description: |-
       Manage [RUM Operations](https://docs.datadoghq.com/real_user_monitoring/), business
       transactions detected from RUM events through a configurable journey, and their links
       to journeys. See the [RUM & Session Replay page](https://docs.datadoghq.com/real_user_monitoring/)
       for more information.
     name: RUM Operations
+    x-datadog-package: rum
   - description: >-
       Search archived RUM sessions and recover individual sessions or query-based batches. Your organization must have Managed Archives enabled. Creating, counting, listing, and canceling batches also require batch recovery enablement.
 
 
       Requires `rum_rehydration_filter_read` for search and request details, or `rum_rehydration_index` to create, estimate recoverable sessions, list batches, or cancel recovery requests.
     name: RUM Recovery
+    x-datadog-package: rum
   - description: |-
       Manage [RUM SDK configurations](https://docs.datadoghq.com/real_user_monitoring/) delivered to RUM applications via Remote Configuration.
     externalDocs:
       description: Find out more at
       url: https://docs.datadoghq.com/real_user_monitoring/
     name: RUM Remote Config
+    x-datadog-package: rum
   - description: |-
       Manage RUM retention quota configurations for your organization's RUM applications.
     name: RUM Retention Quotas
+    x-datadog-package: rum
   - description: View and manage Reference Tables in your organization.
     name: Reference Tables
+    x-datadog-package: reference-tables
   - description: |-
       Create and manage scheduled reports. A scheduled report renders a dashboard or integration
       dashboard on a recurring cadence and delivers it to a set of recipients over email, Slack,
       or Microsoft Teams.
     name: Report Schedules
+    x-datadog-package: dashboards
   - description: |-
       The Reporting and Sharing endpoints allow you to create snapshots of graph widgets and other shareable resources.
     name: Reporting And Sharing
+    x-datadog-package: dashboards
   - description: |-
       A restriction policy defines the access control rules for a resource, mapping a set of relations
       (such as editor and viewer) to a set of allowed principals (such as roles, teams, or users).
       The restriction policy determines who is authorized to perform what actions on the resource.
     name: Restriction Policies
+    x-datadog-package: account-management
   - description: |-
       The Roles API is used to create and manage Datadog roles, what
       [global permissions](https://docs.datadoghq.com/account_management/rbac/)
@@ -283635,50 +284441,68 @@ tags:
       Roles can also be managed in bulk through the Datadog UI, which provides
       the capability to assign a single permission to multiple roles simultaneously.
     name: Roles
+    x-datadog-package: account-management
   - description: Auto-generated tag Rum Audience Management
     name: Rum Audience Management
+    x-datadog-package: product-analytics
   - description: |-
       Manage configuration of [RUM-based metrics](https://app.datadoghq.com/rum/generate-metrics) for your organization.
     externalDocs:
       description: Find out more at
       url: https://docs.datadoghq.com/real_user_monitoring/platform/generate_metrics/
     name: Rum Metrics
+    x-datadog-package: rum
   - description: Manage heatmap snapshots for RUM replay sessions. Create, update, delete, and retrieve snapshots to visualize user interactions on specific views.
     name: Rum Replay Heatmaps
+    x-datadog-package: session-replay
   - description: Create and manage playlists of RUM replay sessions. Organize, categorize, and share collections of replay sessions for analysis and collaboration.
     name: Rum Replay Playlists
+    x-datadog-package: session-replay
   - description: |-
       Retrieve segments for RUM replay sessions.
       Access session replay data stored in event platform or blob storage.
     name: Rum Replay Sessions
+    x-datadog-package: session-replay
   - description: Track and manage RUM replay session viewership. Monitor who watches replay sessions and maintain watch history for audit and analytics purposes.
     name: Rum Replay Viewership
+    x-datadog-package: session-replay
   - description: |-
       Manage retention filters through [Manage Applications](https://app.datadoghq.com/rum/list) of RUM for your organization.
     name: Rum Retention Filters
+    x-datadog-package: rum
   - description: |-
       Manage teams ownership mappings between RUM views and the teams that own them.
       See <https://docs.datadoghq.com/real_user_monitoring/ownership_of_views/>.
     name: Rum Teams Ownership
+    x-datadog-package: rum
   - description: |-
       API to create and update scorecard rules and outcomes. See [Scorecards](https://docs.datadoghq.com/service_catalog/scorecards) for more information.
     name: Scorecards
+    x-datadog-package: software-catalog
   - description: |-
       The seats API allows you to view, assign, and unassign seats for your organization.
     name: Seats
+    x-datadog-package: usage-metering
+  - description: "Search and triage security findings, create cases and tickets for them, and manage automation rules."
+    name: Security Findings
+    x-datadog-package: security-findings
   - description: |-
       Create and manage your security rules, signals, filters, and more. See the [Datadog Security page](https://docs.datadoghq.com/security/) for more information.
     name: "Security Monitoring"
+    x-datadog-package: security-detection
   - description: Create, update, delete, and retrieve sensitive data scanner groups and rules. See the [Sensitive Data Scanner page](https://docs.datadoghq.com/sensitive_data_scanner/) for more information.
     name: Sensitive Data Scanner
+    x-datadog-package: sensitive-data-scanner
   - description: Create, edit, and disable service accounts. See the [Service Accounts page](https://docs.datadoghq.com/account_management/org_settings/service_accounts/) for more information.
     name: Service Accounts
+    x-datadog-package: account-management
   - description: |-
       API to create, update, retrieve and delete service definitions.
       Note: Service Catalog [v3.0 schema](https://docs.datadoghq.com/service_catalog/service_definitions/v3-0/) has new API endpoints documented under [Software Catalog](https://docs.datadoghq.com/api/latest/software-catalog/). Use the following Service Definition endpoints for v2.2 and earlier.
     externalDocs:
       url: https://docs.datadoghq.com/tracing/service_catalog/
     name: Service Definition
+    x-datadog-package: software-catalog
   - description: |-
       [Service Level Objectives](https://docs.datadoghq.com/monitors/service_level_objectives/#configuration)
       (SLOs) are a key part of the site reliability engineering toolkit.
@@ -283687,8 +284511,10 @@ tags:
       balance feature development with platform stability,
       and improve communication with internal and external users.
     name: Service Level Objectives
+    x-datadog-package: service-level-objectives
   - description: Manage your ServiceNow Integration. ServiceNow is a cloud-based platform that helps organizations manage digital workflows for enterprise operations.
     name: ServiceNow Integration
+    x-datadog-package: integrations
   - description: |-
       Configure your [Datadog Slack integration](https://docs.datadoghq.com/integrations/slack/)
       directly through the Datadog API.
@@ -283696,6 +284522,7 @@ tags:
       description: For more information about the Datadog Slack integration, see the integration page.
       url: https://docs.datadoghq.com/integrations/slack/
     name: Slack Integration
+    x-datadog-package: integrations
   - description: |-
       Manage your Datadog Snowflake integration accounts
       directly through the Datadog API. See the
@@ -283705,35 +284532,44 @@ tags:
       description: Snowflake integration.
       url: https://docs.datadoghq.com/integrations/snowflake_web/
     name: Snowflake Integration
+    x-datadog-package: integrations
   - description: |-
       API to create, update, retrieve, and delete Software Catalog entities.
     externalDocs:
       url: https://docs.datadoghq.com/service_catalog/service_definitions#metadata-schema-v30-beta
     name: Software Catalog
+    x-datadog-package: software-catalog
   - description: |-
       Search and aggregate your spans from your Datadog platform over HTTP.
     name: Spans
+    x-datadog-package: apm
   - description: |-
       Manage configuration of [span-based metrics](https://app.datadoghq.com/apm/traces/generate-metrics) for your organization. See [Generate Metrics from Spans](https://docs.datadoghq.com/tracing/trace_pipeline/generate_metrics/) for more information.
     externalDocs:
       description: Find out more at
       url: https://docs.datadoghq.com/tracing/metrics/metrics_namespace/
     name: Spans Metrics
+    x-datadog-package: apm
   - description: API for static analysis
     name: Static Analysis
+    x-datadog-package: code-security
   - description: Manage your status pages and communicate service disruptions to stakeholders via Datadog's API. See the [Status Pages documentation](https://docs.datadoghq.com/incident_response/status_pages/) for more information.
     name: Status Pages
+    x-datadog-package: status-pages
   - description: |-
       Configure your [Datadog Statuspage integration](https://docs.datadoghq.com/integrations/statuspage/)
       directly through the Datadog API.
     externalDocs:
       url: https://docs.datadoghq.com/api/latest/statuspage-integration
     name: Statuspage Integration
+    x-datadog-package: integrations
   - description: Extract watermarks embedded in dashboard screenshots to retrieve cached widget state.
     name: Stegadography
+    x-datadog-package: dashboards
   - description: |-
       Enable Storage Management for S3 buckets, GCS buckets, and Azure containers. Each configuration registers the destination that holds inventory reports for the storage being monitored.
     name: Storage Management
+    x-datadog-package: storage-management
   - description: |-
       Synthetic tests use simulated requests and actions so you can monitor the availability and performance of systems and applications. Datadog supports the following types of synthetic tests:
       - [API tests](https://docs.datadoghq.com/synthetics/api_tests/)
@@ -283743,6 +284579,7 @@ tags:
       You can use the Datadog API to create, manage, and organize tests and test suites programmatically.
       For more information, see the [Synthetic Monitoring documentation](https://docs.datadoghq.com/synthetics/).
     name: Synthetics
+    x-datadog-package: synthetics
   - description: |-
       Tag Rules define rules that govern which tag values are accepted for a given tag key,
       scoped to a particular telemetry source (such as logs, spans, or metrics). Rules can be
@@ -283750,8 +284587,10 @@ tags:
       highlighted but not blocked). Each rule reports a compliance `score` derived from how
       much recent telemetry adheres to the rule. RUM supports only `surfacing` rules.
     name: Tag Rules
+    x-datadog-package: governance
   - description: View and manage teams within Datadog. See the [Teams page](https://docs.datadoghq.com/account_management/teams/) for more information.
     name: Teams
+    x-datadog-package: teams
   - description: |-
       Manage your Datadog Temporal Cloud OpenMetrics integration accounts and account resources
       directly through the Datadog API. See the
@@ -283761,13 +284600,17 @@ tags:
       description: Temporal Cloud OpenMetrics integration.
       url: https://docs.datadoghq.com/integrations/temporal-cloud-openmetrics/
     name: Temporal Cloud OpenMetrics Integration
+    x-datadog-package: integrations
   - description: |-
       Search and manage flaky tests through Test Optimization. See the [Test Optimization page](https://docs.datadoghq.com/tests/) for more information.
     name: Test Optimization
+    x-datadog-package: test-optimization
   - description: Ingest and manage threat intelligence data for security enrichment and investigation.
     name: Threat Intelligence
+    x-datadog-package: security-detection
   - description: Investigate metrics timeseries anomalies and return deterministic findings.
     name: Timeseries Anomaly Investigations
+    x-datadog-package: dashboards
   - description: |-
       Manage your Datadog Twilio integration accounts and account resources directly
       through the Datadog API. See the
@@ -283777,6 +284620,7 @@ tags:
       description: Twilio integration.
       url: https://docs.datadoghq.com/integrations/twilio/
     name: Twilio Integration
+    x-datadog-package: integrations
   - description: |-
       The usage metering API allows you to get hourly, daily, and
       monthly usage across multiple facets of Datadog.
@@ -283792,31 +284636,41 @@ tags:
       description: Find out more at
       url: "https://docs.datadoghq.com/account_management/billing/usage_details/"
     name: Usage Metering
+    x-datadog-package: usage-metering
   - description: Manage OAuth2 client authorizations at the user level.
     name: User Authorized Clients
+    x-datadog-package: account-management
   - description: Create, edit, and disable users.
     externalDocs:
       url: https://docs.datadoghq.com/account_management/users
     name: Users
+    x-datadog-package: account-management
+  - description: "List vulnerabilities and vulnerable assets, get SBOMs, and import vulnerabilities from third-party scanners."
+    name: Vulnerabilities
+    x-datadog-package: security-findings
   - description: |-
       Manage web integration accounts programmatically through the Datadog API.
       See the [Web Integrations page](https://app.datadoghq.com/integrations) for more information.
     name: Web Integrations
+    x-datadog-package: integrations
   - description: |-
       Configure your [Datadog Webhooks integration](https://docs.datadoghq.com/integrations/webhooks/)
       directly through the Datadog API.
     externalDocs:
       url: https://docs.datadoghq.com/api/latest/webhooks-integration
     name: Webhooks Integration
+    x-datadog-package: integrations
   - description: |-
       Create, read, update, and delete saved widgets. Widgets are reusable
       visualization components stored independently from any dashboard or notebook,
       partitioned by experience type and identified by a UUID.
     name: Widgets
+    x-datadog-package: widgets
   - description: |-
       Datadog Workflow Automation allows you to automate your end-to-end processes by connecting Datadog with the rest of your tech stack. Build workflows to auto-remediate your alerts, streamline your incident and security processes, and reduce manual toil. Workflow Automation supports over 1,000+ OOTB actions, including AWS, JIRA, ServiceNow, GitHub, and OpenAI. Learn more in our Workflow Automation docs [here](https://docs.datadoghq.com/service_management/workflows/).
     externalDocs:
       description: Find out more at
       url: "https://docs.datadoghq.com/service_management/workflows/"
     name: Workflow Automation
+    x-datadog-package: actions
 x-group-parameters: true
