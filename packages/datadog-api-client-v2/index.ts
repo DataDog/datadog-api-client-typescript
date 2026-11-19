@@ -474,18 +474,21 @@ export {
   CloudAuthenticationApiCreateGitHubCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiCreateOIDCCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiCreateOIDCCloudAuthProviderRequest,
+  CloudAuthenticationApiCreateTerraformCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiDeleteAWSCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiDeleteAWSCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiDeleteGitHubCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiDeleteGitHubCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiDeleteOIDCCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiDeleteOIDCCloudAuthProviderRequest,
+  CloudAuthenticationApiDeleteTerraformCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiGetAWSCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiGetAWSCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiGetGitHubCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiGetGitHubCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiGetOIDCCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiGetOIDCCloudAuthProviderRequest,
+  CloudAuthenticationApiGetTerraformCloudAuthPersonaMappingRequest,
   CloudAuthenticationApi,
 } from "./apis/CloudAuthenticationApi";
 
@@ -11234,6 +11237,15 @@ export { TenancyProductsDataAttributes } from "./models/TenancyProductsDataAttri
 export { TenancyProductsDataAttributesProductsItems } from "./models/TenancyProductsDataAttributesProductsItems";
 export { TenancyProductsDataType } from "./models/TenancyProductsDataType";
 export { TenancyProductsList } from "./models/TenancyProductsList";
+export { TerraformCloudAuthIssuerURL } from "./models/TerraformCloudAuthIssuerURL";
+export { TerraformCloudAuthPersonaMappingAttributesResponse } from "./models/TerraformCloudAuthPersonaMappingAttributesResponse";
+export { TerraformCloudAuthPersonaMappingCreateAttributes } from "./models/TerraformCloudAuthPersonaMappingCreateAttributes";
+export { TerraformCloudAuthPersonaMappingCreateData } from "./models/TerraformCloudAuthPersonaMappingCreateData";
+export { TerraformCloudAuthPersonaMappingCreateRequest } from "./models/TerraformCloudAuthPersonaMappingCreateRequest";
+export { TerraformCloudAuthPersonaMappingDataResponse } from "./models/TerraformCloudAuthPersonaMappingDataResponse";
+export { TerraformCloudAuthPersonaMappingResponse } from "./models/TerraformCloudAuthPersonaMappingResponse";
+export { TerraformCloudAuthPersonaMappingsResponse } from "./models/TerraformCloudAuthPersonaMappingsResponse";
+export { TerraformCloudAuthPersonaMappingType } from "./models/TerraformCloudAuthPersonaMappingType";
 export { TestOptimizationDeleteServiceSettingsRequest } from "./models/TestOptimizationDeleteServiceSettingsRequest";
 export { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./models/TestOptimizationDeleteServiceSettingsRequestAttributes";
 export { TestOptimizationDeleteServiceSettingsRequestData } from "./models/TestOptimizationDeleteServiceSettingsRequestData";

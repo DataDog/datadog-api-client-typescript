@@ -36,6 +36,9 @@ import { OIDCCloudAuthPersonaMappingsResponse } from "../models/OIDCCloudAuthPer
 import { OIDCCloudAuthProviderCreateRequest } from "../models/OIDCCloudAuthProviderCreateRequest";
 import { OIDCCloudAuthProviderResponse } from "../models/OIDCCloudAuthProviderResponse";
 import { OIDCCloudAuthProvidersResponse } from "../models/OIDCCloudAuthProvidersResponse";
+import { TerraformCloudAuthPersonaMappingCreateRequest } from "../models/TerraformCloudAuthPersonaMappingCreateRequest";
+import { TerraformCloudAuthPersonaMappingResponse } from "../models/TerraformCloudAuthPersonaMappingResponse";
+import { TerraformCloudAuthPersonaMappingsResponse } from "../models/TerraformCloudAuthPersonaMappingsResponse";
 
 export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory {
   public async createAWSCloudAuthIntakeMapping(
@@ -398,6 +401,71 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async createTerraformCloudAuthPersonaMapping(
+    body: TerraformCloudAuthPersonaMappingCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'createTerraformCloudAuthPersonaMapping'"
+    );
+    if (
+      !_config.unstableOperations["v2.createTerraformCloudAuthPersonaMapping"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createTerraformCloudAuthPersonaMapping' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createTerraformCloudAuthPersonaMapping");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/wif/terraform/persona_mapping";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.CloudAuthenticationApi.createTerraformCloudAuthPersonaMapping"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "TerraformCloudAuthPersonaMappingCreateRequest",
+        ""
+      ),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteAWSCloudAuthIntakeMapping(
     intakeMappingId: string,
     _options?: Configuration
@@ -681,6 +749,62 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer("v2.CloudAuthenticationApi.deleteOIDCCloudAuthProvider")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteTerraformCloudAuthPersonaMapping(
+    personaMappingId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'deleteTerraformCloudAuthPersonaMapping'"
+    );
+    if (
+      !_config.unstableOperations["v2.deleteTerraformCloudAuthPersonaMapping"]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteTerraformCloudAuthPersonaMapping' is disabled"
+      );
+    }
+
+    // verify required parameter 'personaMappingId' is not null or undefined
+    if (personaMappingId === null || personaMappingId === undefined) {
+      throw new RequiredError(
+        "personaMappingId",
+        "deleteTerraformCloudAuthPersonaMapping"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/wif/terraform/persona_mapping/{persona_mapping_id}".replace(
+        "{persona_mapping_id}",
+        encodeURIComponent(String(personaMappingId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.CloudAuthenticationApi.deleteTerraformCloudAuthPersonaMapping"
+      )
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -996,6 +1120,60 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getTerraformCloudAuthPersonaMapping(
+    personaMappingId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'getTerraformCloudAuthPersonaMapping'"
+    );
+    if (!_config.unstableOperations["v2.getTerraformCloudAuthPersonaMapping"]) {
+      throw new Error(
+        "Unstable operation 'getTerraformCloudAuthPersonaMapping' is disabled"
+      );
+    }
+
+    // verify required parameter 'personaMappingId' is not null or undefined
+    if (personaMappingId === null || personaMappingId === undefined) {
+      throw new RequiredError(
+        "personaMappingId",
+        "getTerraformCloudAuthPersonaMapping"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/wif/terraform/persona_mapping/{persona_mapping_id}".replace(
+        "{persona_mapping_id}",
+        encodeURIComponent(String(personaMappingId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.CloudAuthenticationApi.getTerraformCloudAuthPersonaMapping"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listAWSCloudAuthIntakeMappings(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -1201,6 +1379,49 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer("v2.CloudAuthenticationApi.listOIDCCloudAuthProviders")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listTerraformCloudAuthPersonaMappings(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'listTerraformCloudAuthPersonaMappings'"
+    );
+    if (
+      !_config.unstableOperations["v2.listTerraformCloudAuthPersonaMappings"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listTerraformCloudAuthPersonaMappings' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/wif/terraform/persona_mapping";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.CloudAuthenticationApi.listTerraformCloudAuthPersonaMappings"
+      )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1854,6 +2075,110 @@ export class CloudAuthenticationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createTerraformCloudAuthPersonaMapping
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createTerraformCloudAuthPersonaMapping(
+    response: ResponseContext
+  ): Promise<TerraformCloudAuthPersonaMappingResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: TerraformCloudAuthPersonaMappingResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TerraformCloudAuthPersonaMappingResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as TerraformCloudAuthPersonaMappingResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TerraformCloudAuthPersonaMappingResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TerraformCloudAuthPersonaMappingResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as TerraformCloudAuthPersonaMappingResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteAWSCloudAuthIntakeMapping
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2265,6 +2590,88 @@ export class CloudAuthenticationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 409
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteTerraformCloudAuthPersonaMapping
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteTerraformCloudAuthPersonaMapping(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -2937,6 +3344,110 @@ export class CloudAuthenticationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getTerraformCloudAuthPersonaMapping
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getTerraformCloudAuthPersonaMapping(
+    response: ResponseContext
+  ): Promise<TerraformCloudAuthPersonaMappingResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TerraformCloudAuthPersonaMappingResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TerraformCloudAuthPersonaMappingResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as TerraformCloudAuthPersonaMappingResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TerraformCloudAuthPersonaMappingResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TerraformCloudAuthPersonaMappingResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as TerraformCloudAuthPersonaMappingResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAWSCloudAuthIntakeMappings
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3530,6 +4041,106 @@ export class CloudAuthenticationApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listTerraformCloudAuthPersonaMappings
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listTerraformCloudAuthPersonaMappings(
+    response: ResponseContext
+  ): Promise<TerraformCloudAuthPersonaMappingsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TerraformCloudAuthPersonaMappingsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TerraformCloudAuthPersonaMappingsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as TerraformCloudAuthPersonaMappingsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TerraformCloudAuthPersonaMappingsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "TerraformCloudAuthPersonaMappingsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as TerraformCloudAuthPersonaMappingsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface CloudAuthenticationApiCreateAWSCloudAuthIntakeMappingRequest {
@@ -3572,6 +4183,13 @@ export interface CloudAuthenticationApiCreateOIDCCloudAuthProviderRequest {
    * @type OIDCCloudAuthProviderCreateRequest
    */
   body: OIDCCloudAuthProviderCreateRequest;
+}
+
+export interface CloudAuthenticationApiCreateTerraformCloudAuthPersonaMappingRequest {
+  /**
+   * @type TerraformCloudAuthPersonaMappingCreateRequest
+   */
+  body: TerraformCloudAuthPersonaMappingCreateRequest;
 }
 
 export interface CloudAuthenticationApiDeleteAWSCloudAuthIntakeMappingRequest {
@@ -3622,6 +4240,14 @@ export interface CloudAuthenticationApiDeleteOIDCCloudAuthProviderRequest {
   providerId: string;
 }
 
+export interface CloudAuthenticationApiDeleteTerraformCloudAuthPersonaMappingRequest {
+  /**
+   * The ID of the persona mapping
+   * @type string
+   */
+  personaMappingId: string;
+}
+
 export interface CloudAuthenticationApiGetAWSCloudAuthIntakeMappingRequest {
   /**
    * The ID of the intake mapping
@@ -3668,6 +4294,14 @@ export interface CloudAuthenticationApiGetOIDCCloudAuthProviderRequest {
    * @type string
    */
   providerId: string;
+}
+
+export interface CloudAuthenticationApiGetTerraformCloudAuthPersonaMappingRequest {
+  /**
+   * The ID of the persona mapping
+   * @type string
+   */
+  personaMappingId: string;
 }
 
 export class CloudAuthenticationApi {
@@ -3824,6 +4458,32 @@ export class CloudAuthenticationApi {
   }
 
   /**
+   * Create an HCP Terraform persona mapping. The mapping associates a Datadog user or service account with workload identity tokens from an HCP Terraform issuer whose `sub` claim matches `sub_pattern`.
+   *
+   * The response includes the `audience` value to set as the `TFC_WORKLOAD_IDENTITY_AUDIENCE_DATADOG` environment variable in HCP Terraform. The API returns a 409 error if the pattern duplicates an existing mapping, or if it can match the same token as an existing mapping for a different account.
+   * @param param The request object
+   */
+  public createTerraformCloudAuthPersonaMapping(
+    param: CloudAuthenticationApiCreateTerraformCloudAuthPersonaMappingRequest,
+    options?: Configuration
+  ): Promise<TerraformCloudAuthPersonaMappingResponse> {
+    const requestContextPromise =
+      this.requestFactory.createTerraformCloudAuthPersonaMapping(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createTerraformCloudAuthPersonaMapping(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete an AWS cloud authentication intake mapping by ID.
    * @param param The request object
    */
@@ -3961,6 +4621,30 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteOIDCCloudAuthProvider(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete an HCP Terraform persona mapping by ID. Workload identity tokens that matched only this mapping can no longer be exchanged.
+   * @param param The request object
+   */
+  public deleteTerraformCloudAuthPersonaMapping(
+    param: CloudAuthenticationApiDeleteTerraformCloudAuthPersonaMappingRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteTerraformCloudAuthPersonaMapping(
+        param.personaMappingId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteTerraformCloudAuthPersonaMapping(
             responseContext
           );
         });
@@ -4111,6 +4795,30 @@ export class CloudAuthenticationApi {
   }
 
   /**
+   * Get an HCP Terraform persona mapping by ID.
+   * @param param The request object
+   */
+  public getTerraformCloudAuthPersonaMapping(
+    param: CloudAuthenticationApiGetTerraformCloudAuthPersonaMappingRequest,
+    options?: Configuration
+  ): Promise<TerraformCloudAuthPersonaMappingResponse> {
+    const requestContextPromise =
+      this.requestFactory.getTerraformCloudAuthPersonaMapping(
+        param.personaMappingId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getTerraformCloudAuthPersonaMapping(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * List AWS cloud authentication intake mappings configured for the organization.
    * @param param The request object
    */
@@ -4224,6 +4932,26 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listOIDCCloudAuthProviders(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * List all HCP Terraform persona mappings in the organization. Each mapping associates an HCP Terraform workload identity token issuer and `sub` claim pattern with a Datadog user or service account.
+   * @param param The request object
+   */
+  public listTerraformCloudAuthPersonaMappings(
+    options?: Configuration
+  ): Promise<TerraformCloudAuthPersonaMappingsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listTerraformCloudAuthPersonaMappings(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTerraformCloudAuthPersonaMappings(
             responseContext
           );
         });
