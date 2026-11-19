@@ -12,13 +12,14 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class TopLongTaskInvoker {
   /**
-   * Number of sampled views where this invoker had long tasks contributing to the criteria metric.
+   * Number of sampled views where this invoker had long tasks contributing to the criteria
+   * metric.
    */
   "criteriaViewOccurrences"?: number;
   /**
    * Cleaned source file path for the invoker script.
    */
-  "file"?: string;
+  "file": string | null;
   /**
    * Rank-product impact score combining view frequency and blocking time severity.
    */
@@ -60,6 +61,7 @@ export class TopLongTaskInvoker {
     file: {
       baseName: "file",
       type: "string",
+      required: true,
     },
     impactScore: {
       baseName: "impact_score",

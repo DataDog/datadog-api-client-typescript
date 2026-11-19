@@ -8,7 +8,8 @@ import { AggregatedWaterfallPerformanceCriteriaMetric } from "./AggregatedWaterf
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Performance criteria used to filter view instances by a metric threshold, or null if no criteria were applied.
+ * Performance criteria used to filter view instances by a metric threshold, or null if no
+ * criteria were applied.
  */
 export class AggregatedLongTasksResponseAttributesCriteria {
   /**
