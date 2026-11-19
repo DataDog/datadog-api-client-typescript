@@ -8,7 +8,8 @@ import { AggregatedResourceTimingBreakdown } from "./AggregatedResourceTimingBre
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Aggregated performance statistics for a single network resource across sampled view instances.
+ * Aggregated performance statistics for a single network resource across sampled view
+ * instances.
  */
 export class AggregatedResource {
   /**
@@ -32,15 +33,18 @@ export class AggregatedResource {
    */
   "downloadedCount": number;
   /**
-   * 75th percentile duration across all view names in the application, present when include_global_appearance is true.
+   * 75th percentile duration across all view names in the application, present when
+   * include_global_appearance is true.
    */
   "globalP75DurationMs"?: number;
   /**
-   * Number of distinct view names in the application that load this resource, present when include_global_appearance is true.
+   * Number of distinct view names in the application that load this resource, present when
+   * include_global_appearance is true.
    */
   "globalViewNameCount"?: number;
   /**
-   * Percentage of distinct view names in the application that load this resource, present when include_global_appearance is true.
+   * Percentage of distinct view names in the application that load this resource, present when
+   * include_global_appearance is true.
    */
   "globalViewNamePct"?: number;
   /**
