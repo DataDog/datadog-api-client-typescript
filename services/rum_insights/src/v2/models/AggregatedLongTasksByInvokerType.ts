@@ -8,7 +8,8 @@ import { TopLongTaskInvoker } from "./TopLongTaskInvoker";
  */
 export class AggregatedLongTasksByInvokerType {
   /**
-   * Number of sampled views where this invoker type had long tasks contributing to the criteria metric.
+   * Number of sampled views where this invoker type had long tasks contributing to the criteria
+   * metric.
    */
   "criteriaViewOccurrences"?: number;
   /**

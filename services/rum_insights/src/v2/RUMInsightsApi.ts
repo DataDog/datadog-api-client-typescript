@@ -358,7 +358,8 @@ export class RUMInsightsApi {
   }
 
   /**
-   * Get aggregated long task data for a RUM view, grouped by invoker type and sampled across multiple view instances.
+   * Get aggregated long task data for a RUM view, grouped by invoker type and sampled across
+   * multiple view instances.
    * @param param The request object
    */
   public queryAggregatedLongTasks(

@@ -21,7 +21,8 @@ export class AggregatedLongTasksRequestAttributes {
    */
   "filter"?: string;
   /**
-   * Start of the time range as a Unix timestamp in seconds.
+   * Start of the time range as a Unix timestamp in seconds. Must be less than `to`;
+   * the range cannot exceed 7 days.
    */
   "from": number;
   /**
@@ -29,7 +30,7 @@ export class AggregatedLongTasksRequestAttributes {
    */
   "sampleSize": number;
   /**
-   * End of the time range as a Unix timestamp in seconds.
+   * End of the time range as a Unix timestamp in seconds. Must be greater than `from`.
    */
   "to": number;
   /**
@@ -55,6 +56,7 @@ export class AggregatedLongTasksRequestAttributes {
       baseName: "application_id",
       type: "string",
       required: true,
+      format: "uuid",
     },
     criteria: {
       baseName: "criteria",
