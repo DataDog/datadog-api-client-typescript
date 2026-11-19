@@ -2,7 +2,7 @@
 
 ## Description
 
-Configure AWS, GitHub, and Custom OIDC cloud authentication for persona and intake authentication through the Datadog API.
+Configure AWS, GitHub, HCP Terraform, and Custom OIDC cloud authentication for persona and intake authentication through the Datadog API.
 
 ## Navigation
 
