@@ -801,7 +801,9 @@ export { MonitorFormulaAndFunctionDataQualityModelBoundsOverride } from "./model
 export { MonitorFormulaAndFunctionDataQualityModelConfiguration } from "./models/MonitorFormulaAndFunctionDataQualityModelConfiguration";
 export { MonitorFormulaAndFunctionDataQualityModelTypeOverride } from "./models/MonitorFormulaAndFunctionDataQualityModelTypeOverride";
 export { MonitorFormulaAndFunctionDataQualityMonitorOptions } from "./models/MonitorFormulaAndFunctionDataQualityMonitorOptions";
+export { MonitorFormulaAndFunctionDataQualityPlatformSettings } from "./models/MonitorFormulaAndFunctionDataQualityPlatformSettings";
 export { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./models/MonitorFormulaAndFunctionDataQualityQueryDefinition";
+export { MonitorFormulaAndFunctionDataQualitySnowflakeSettings } from "./models/MonitorFormulaAndFunctionDataQualitySnowflakeSettings";
 export { MonitorFormulaAndFunctionDataQualitySourceToTargetConfig } from "./models/MonitorFormulaAndFunctionDataQualitySourceToTargetConfig";
 export { MonitorFormulaAndFunctionEventAggregation } from "./models/MonitorFormulaAndFunctionEventAggregation";
 export { MonitorFormulaAndFunctionEventQueryDefinition } from "./models/MonitorFormulaAndFunctionEventQueryDefinition";

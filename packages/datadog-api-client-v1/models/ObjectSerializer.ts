@@ -291,7 +291,9 @@ import { MonitorFormulaAndFunctionDataJobsQueryDefinition } from "./MonitorFormu
 import { MonitorFormulaAndFunctionDataQualityEntityMetricConfig } from "./MonitorFormulaAndFunctionDataQualityEntityMetricConfig";
 import { MonitorFormulaAndFunctionDataQualityModelConfiguration } from "./MonitorFormulaAndFunctionDataQualityModelConfiguration";
 import { MonitorFormulaAndFunctionDataQualityMonitorOptions } from "./MonitorFormulaAndFunctionDataQualityMonitorOptions";
+import { MonitorFormulaAndFunctionDataQualityPlatformSettings } from "./MonitorFormulaAndFunctionDataQualityPlatformSettings";
 import { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./MonitorFormulaAndFunctionDataQualityQueryDefinition";
+import { MonitorFormulaAndFunctionDataQualitySnowflakeSettings } from "./MonitorFormulaAndFunctionDataQualitySnowflakeSettings";
 import { MonitorFormulaAndFunctionDataQualitySourceToTargetConfig } from "./MonitorFormulaAndFunctionDataQualitySourceToTargetConfig";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorFormulaAndFunctionEventQueryDefinitionCompute";
@@ -2519,8 +2521,12 @@ const typeMap: { [index: string]: any } = {
     MonitorFormulaAndFunctionDataQualityModelConfiguration,
   MonitorFormulaAndFunctionDataQualityMonitorOptions:
     MonitorFormulaAndFunctionDataQualityMonitorOptions,
+  MonitorFormulaAndFunctionDataQualityPlatformSettings:
+    MonitorFormulaAndFunctionDataQualityPlatformSettings,
   MonitorFormulaAndFunctionDataQualityQueryDefinition:
     MonitorFormulaAndFunctionDataQualityQueryDefinition,
+  MonitorFormulaAndFunctionDataQualitySnowflakeSettings:
+    MonitorFormulaAndFunctionDataQualitySnowflakeSettings,
   MonitorFormulaAndFunctionDataQualitySourceToTargetConfig:
     MonitorFormulaAndFunctionDataQualitySourceToTargetConfig,
   MonitorFormulaAndFunctionEventQueryDefinition:
