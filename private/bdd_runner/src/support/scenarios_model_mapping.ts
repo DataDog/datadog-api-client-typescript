@@ -19545,6 +19545,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SecurityAgentInvestigationsListResponse",
   },
+  "BitsSecurityAnalystApi.V2.CreateSecurityAgentInvestigation": {
+    body: {
+      type: "SecurityAgentInvestigationCreateRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityAgentInvestigationResponse",
+  },
   "BitsSecurityAnalystApi.V2.CountSecurityAgentInvestigations": {
     field: {
       type: "SecurityAgentInvestigationCountField",
