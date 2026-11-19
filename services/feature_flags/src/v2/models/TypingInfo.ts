@@ -72,6 +72,7 @@ import { SavedFilterAttributes } from "./SavedFilterAttributes";
 import { SavedFilterCondition } from "./SavedFilterCondition";
 import { SavedFilterConditionRequest } from "./SavedFilterConditionRequest";
 import { SavedFilterData } from "./SavedFilterData";
+import { SavedFilterEnvironmentReference } from "./SavedFilterEnvironmentReference";
 import { SavedFilterFlagReference } from "./SavedFilterFlagReference";
 import { SavedFilterJSONAPIErrorResponse } from "./SavedFilterJSONAPIErrorResponse";
 import { SavedFilterPermissionDeniedAttributes } from "./SavedFilterPermissionDeniedAttributes";
@@ -281,6 +282,7 @@ export const TypingInfo: ModelTypingInfo = {
     SavedFilterCondition: SavedFilterCondition,
     SavedFilterConditionRequest: SavedFilterConditionRequest,
     SavedFilterData: SavedFilterData,
+    SavedFilterEnvironmentReference: SavedFilterEnvironmentReference,
     SavedFilterFlagReference: SavedFilterFlagReference,
     SavedFilterJSONAPIErrorResponse: SavedFilterJSONAPIErrorResponse,
     SavedFilterPermissionDeniedAttributes:

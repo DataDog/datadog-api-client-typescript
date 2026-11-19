@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { SavedFilterPermissionDeniedData } from "./SavedFilterPermissionDeniedData";
 
 /**
- * The caller lacks edit permission on one or more feature flags that reference this saved filter.
+ * The caller lacks edit permission on one or more feature flags that reference this saved filter, or on one or more of their environments.
  */
 export class SavedFilterPermissionDeniedResponse {
   /**
-   * The caller lacks edit permission on one or more feature flags that reference this saved filter.
+   * The caller lacks edit permission on one or more feature flags that reference this saved filter, or on one or more of their environments.
    */
   "data": SavedFilterPermissionDeniedData;
   /**

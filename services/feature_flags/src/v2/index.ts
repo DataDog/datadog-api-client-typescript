@@ -127,6 +127,7 @@ export { SavedFilterConditionRequest } from "./models/SavedFilterConditionReques
 export { SavedFilterCreationType } from "./models/SavedFilterCreationType";
 export { SavedFilterData } from "./models/SavedFilterData";
 export { SavedFilterDataType } from "./models/SavedFilterDataType";
+export { SavedFilterEnvironmentReference } from "./models/SavedFilterEnvironmentReference";
 export { SavedFilterFlagReference } from "./models/SavedFilterFlagReference";
 export { SavedFilterJSONAPIErrorResponse } from "./models/SavedFilterJSONAPIErrorResponse";
 export { SavedFilterPermissionDeniedAttributes } from "./models/SavedFilterPermissionDeniedAttributes";
