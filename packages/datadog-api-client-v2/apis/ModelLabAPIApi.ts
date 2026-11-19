@@ -33,6 +33,58 @@ import { ModelLabRunsResponse } from "../models/ModelLabRunsResponse";
 import { ModelLabRunStatus } from "../models/ModelLabRunStatus";
 
 export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
+  public async addModelLabProjectOwner(
+    projectId: Int64Input,
+    userId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'addModelLabProjectOwner'");
+    if (!_config.unstableOperations["v2.addModelLabProjectOwner"]) {
+      throw new Error(
+        "Unstable operation 'addModelLabProjectOwner' is disabled"
+      );
+    }
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "addModelLabProjectOwner");
+    }
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "addModelLabProjectOwner");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/model-lab-api/projects/{project_id}/owners/{user_id}"
+        .replace("{project_id}", encodeURIComponent(String(projectId)))
+        .replace("{user_id}", encodeURIComponent(String(userId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.ModelLabAPIApi.addModelLabProjectOwner")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteModelLabRun(
     runId: Int64Input,
     _options?: Configuration
@@ -847,6 +899,58 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async removeModelLabProjectOwner(
+    projectId: Int64Input,
+    userId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'removeModelLabProjectOwner'");
+    if (!_config.unstableOperations["v2.removeModelLabProjectOwner"]) {
+      throw new Error(
+        "Unstable operation 'removeModelLabProjectOwner' is disabled"
+      );
+    }
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "removeModelLabProjectOwner");
+    }
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "removeModelLabProjectOwner");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/model-lab-api/projects/{project_id}/owners/{user_id}"
+        .replace("{project_id}", encodeURIComponent(String(projectId)))
+        .replace("{user_id}", encodeURIComponent(String(userId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.ModelLabAPIApi.removeModelLabProjectOwner")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async starModelLabProject(
     projectId: Int64Input,
     _options?: Configuration
@@ -987,6 +1091,89 @@ export class ModelLabAPIApiResponseProcessor {
 
   public constructor(configuration?: Configuration) {
     this.configuration = configuration;
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to addModelLabProjectOwner
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async addModelLabProjectOwner(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -2237,6 +2424,89 @@ export class ModelLabAPIApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to removeModelLabProjectOwner
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async removeModelLabProjectOwner(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to starModelLabProject
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2477,6 +2747,19 @@ export class ModelLabAPIApiResponseProcessor {
   }
 }
 
+export interface ModelLabAPIApiAddModelLabProjectOwnerRequest {
+  /**
+   * The ID of the Model Lab project.
+   * @type Int64Input
+   */
+  projectId: Int64Input;
+  /**
+   * The UUID of the user.
+   * @type string
+   */
+  userId: string;
+}
+
 export interface ModelLabAPIApiDeleteModelLabRunRequest {
   /**
    * The ID of the Model Lab run.
@@ -2542,7 +2825,7 @@ export interface ModelLabAPIApiListModelLabProjectsRequest {
    */
   filter?: string;
   /**
-   * Filter by owner UUID.
+   * Filter by owner UUID. Matches projects the user created and projects the user was added to as an owner.
    * @type string
    */
   filterOwnerId?: string;
@@ -2688,6 +2971,19 @@ export interface ModelLabAPIApiPinModelLabRunRequest {
   runId: Int64Input;
 }
 
+export interface ModelLabAPIApiRemoveModelLabProjectOwnerRequest {
+  /**
+   * The ID of the Model Lab project.
+   * @type Int64Input
+   */
+  projectId: Int64Input;
+  /**
+   * The UUID of the user.
+   * @type string
+   */
+  userId: string;
+}
+
 export interface ModelLabAPIApiStarModelLabProjectRequest {
   /**
    * The ID of the Model Lab project.
@@ -2727,6 +3023,33 @@ export class ModelLabAPIApi {
       requestFactory || new ModelLabAPIApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new ModelLabAPIApiResponseProcessor(configuration);
+  }
+
+  /**
+   * Add a user as an owner of a Model Lab project. The user must belong to the
+   * project's organization. The project's creator is always an owner, so adding
+   * the creator, or a user who is already an owner, has no effect.
+   * A project can have at most 50 owners besides its creator.
+   * @param param The request object
+   */
+  public addModelLabProjectOwner(
+    param: ModelLabAPIApiAddModelLabProjectOwnerRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.addModelLabProjectOwner(
+      param.projectId,
+      param.userId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.addModelLabProjectOwner(
+            responseContext
+          );
+        });
+    });
   }
 
   /**
@@ -3036,6 +3359,33 @@ export class ModelLabAPIApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.pinModelLabRun(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Remove a user from the owners of a Model Lab project. Removing a user who
+   * isn't an owner has no effect. The project's creator is always an owner and
+   * can't be removed.
+   * @param param The request object
+   */
+  public removeModelLabProjectOwner(
+    param: ModelLabAPIApiRemoveModelLabProjectOwnerRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.removeModelLabProjectOwner(
+        param.projectId,
+        param.userId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.removeModelLabProjectOwner(
+            responseContext
+          );
         });
     });
   }

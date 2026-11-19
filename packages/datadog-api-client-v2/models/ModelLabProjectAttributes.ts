@@ -40,9 +40,13 @@ export class ModelLabProjectAttributes {
    */
   "name": string;
   /**
-   * The UUID of the project owner.
+   * The UUID of the user that created the project. The creator is always an owner of the project.
    */
   "ownerId"?: string;
+  /**
+   * The UUIDs of the project's owners besides its creator, in the order they became owners.
+   */
+  "ownerIds"?: Array<string>;
   /**
    * The list of tags associated with the project.
    */
@@ -106,6 +110,10 @@ export class ModelLabProjectAttributes {
     ownerId: {
       baseName: "owner_id",
       type: "string",
+    },
+    ownerIds: {
+      baseName: "owner_ids",
+      type: "Array<string>",
     },
     tags: {
       baseName: "tags",

@@ -1250,6 +1250,7 @@ export {
 } from "./apis/MicrosoftTeamsIntegrationApi";
 
 export {
+  ModelLabAPIApiAddModelLabProjectOwnerRequest,
   ModelLabAPIApiDeleteModelLabRunRequest,
   ModelLabAPIApiGetModelLabArtifactContentRequest,
   ModelLabAPIApiGetModelLabProjectRequest,
@@ -1262,6 +1263,7 @@ export {
   ModelLabAPIApiListModelLabRunFacetValuesRequest,
   ModelLabAPIApiListModelLabRunsRequest,
   ModelLabAPIApiPinModelLabRunRequest,
+  ModelLabAPIApiRemoveModelLabProjectOwnerRequest,
   ModelLabAPIApiStarModelLabProjectRequest,
   ModelLabAPIApiUnpinModelLabRunRequest,
   ModelLabAPIApiUnstarModelLabProjectRequest,
