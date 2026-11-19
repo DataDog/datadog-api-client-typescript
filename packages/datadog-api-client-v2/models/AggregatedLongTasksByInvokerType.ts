@@ -13,7 +13,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AggregatedLongTasksByInvokerType {
   /**
-   * Number of sampled views where this invoker type had long tasks contributing to the criteria metric.
+   * Number of sampled views where this invoker type had long tasks contributing to the criteria
+   * metric.
    */
   "criteriaViewOccurrences"?: number;
   /**

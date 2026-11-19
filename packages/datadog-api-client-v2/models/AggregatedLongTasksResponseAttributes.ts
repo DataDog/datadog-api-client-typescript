@@ -17,7 +17,8 @@ export class AggregatedLongTasksResponseAttributes {
    */
   "applicationId": string;
   /**
-   * Performance criteria used to filter view instances by a metric threshold, or null if no criteria were applied.
+   * Performance criteria used to filter view instances by a metric threshold, or null if no
+   * criteria were applied.
    */
   "criteria": AggregatedLongTasksResponseAttributesCriteria | null;
   /**
@@ -29,7 +30,7 @@ export class AggregatedLongTasksResponseAttributes {
    */
   "longTasksByInvokerType": Array<AggregatedLongTasksByInvokerType>;
   /**
-   * List of RUM view IDs sampled for this aggregation, capped at 50.
+   * IDs of sampled views that contain at least one long task. At most 50 IDs are returned.
    */
   "sampledViewIds": Array<string>;
   /**
@@ -37,7 +38,7 @@ export class AggregatedLongTasksResponseAttributes {
    */
   "to": Int64;
   /**
-   * Number of view instances included in the analysis.
+   * Number of sampled views that contain at least one long task.
    */
   "viewCount": number;
   /**
@@ -65,6 +66,7 @@ export class AggregatedLongTasksResponseAttributes {
       baseName: "application_id",
       type: "string",
       required: true,
+      format: "uuid",
     },
     criteria: {
       baseName: "criteria",
