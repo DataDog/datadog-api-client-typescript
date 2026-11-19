@@ -2191,16 +2191,24 @@ import { ExperimentsAnalysisPlanWriteV2Request } from "./ExperimentsAnalysisPlan
 import { ExperimentsAnalysisPlanWriteV2RequestData } from "./ExperimentsAnalysisPlanWriteV2RequestData";
 import { ExperimentsAnalysisPlanWriteV2RequestDataAttributes } from "./ExperimentsAnalysisPlanWriteV2RequestDataAttributes";
 import { ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior } from "./ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior";
+import { ExperimentsBanditBayesianPriorInputV2 } from "./ExperimentsBanditBayesianPriorInputV2";
 import { ExperimentsBanditBayesianPriorV2 } from "./ExperimentsBanditBayesianPriorV2";
 import { ExperimentsBanditConfidenceIntervalV2 } from "./ExperimentsBanditConfidenceIntervalV2";
 import { ExperimentsBanditDailyTrafficV2 } from "./ExperimentsBanditDailyTrafficV2";
+import { ExperimentsBanditFlagConfigurationInputV2 } from "./ExperimentsBanditFlagConfigurationInputV2";
 import { ExperimentsBanditFlagConfigurationV2 } from "./ExperimentsBanditFlagConfigurationV2";
 import { ExperimentsBanditNullableConfidenceIntervalV2 } from "./ExperimentsBanditNullableConfidenceIntervalV2";
 import { ExperimentsBanditObservationCountsV2 } from "./ExperimentsBanditObservationCountsV2";
 import { ExperimentsBanditPointEstimateV2 } from "./ExperimentsBanditPointEstimateV2";
+import { ExperimentsBanditPolicyHistoryV2DTOArray } from "./ExperimentsBanditPolicyHistoryV2DTOArray";
+import { ExperimentsBanditPolicyHistoryV2DTOData } from "./ExperimentsBanditPolicyHistoryV2DTOData";
+import { ExperimentsBanditPolicyHistoryV2DTODataAttributes } from "./ExperimentsBanditPolicyHistoryV2DTODataAttributes";
 import { ExperimentsBanditPolicyV2 } from "./ExperimentsBanditPolicyV2";
 import { ExperimentsBanditPolicyVariantV2 } from "./ExperimentsBanditPolicyVariantV2";
 import { ExperimentsBanditRefreshV2 } from "./ExperimentsBanditRefreshV2";
+import { ExperimentsBanditRefreshV2DTO } from "./ExperimentsBanditRefreshV2DTO";
+import { ExperimentsBanditRefreshV2DTOData } from "./ExperimentsBanditRefreshV2DTOData";
+import { ExperimentsBanditRefreshV2DTODataAttributes } from "./ExperimentsBanditRefreshV2DTODataAttributes";
 import { ExperimentsBanditResultsV2DTO } from "./ExperimentsBanditResultsV2DTO";
 import { ExperimentsBanditResultsV2DTOData } from "./ExperimentsBanditResultsV2DTOData";
 import { ExperimentsBanditResultsV2DTODataAttributes } from "./ExperimentsBanditResultsV2DTODataAttributes";
@@ -2217,6 +2225,7 @@ import { ExperimentsBanditV2ListDTOData } from "./ExperimentsBanditV2ListDTOData
 import { ExperimentsBanditV2ListDTODataAttributes } from "./ExperimentsBanditV2ListDTODataAttributes";
 import { ExperimentsBanditV2ReadMetaDTO } from "./ExperimentsBanditV2ReadMetaDTO";
 import { ExperimentsBanditV2WarningDTO } from "./ExperimentsBanditV2WarningDTO";
+import { ExperimentsBanditVariantInputV2 } from "./ExperimentsBanditVariantInputV2";
 import { ExperimentsBanditVariantResultV2 } from "./ExperimentsBanditVariantResultV2";
 import { ExperimentsBanditVariantV2 } from "./ExperimentsBanditVariantV2";
 import { ExperimentsCancelExperimentV2Request } from "./ExperimentsCancelExperimentV2Request";
@@ -2226,6 +2235,9 @@ import { ExperimentsConcludeExperimentV2Request } from "./ExperimentsConcludeExp
 import { ExperimentsConcludeExperimentV2RequestData } from "./ExperimentsConcludeExperimentV2RequestData";
 import { ExperimentsConcludeExperimentV2RequestDataAttributes } from "./ExperimentsConcludeExperimentV2RequestDataAttributes";
 import { ExperimentsConfidenceInterval } from "./ExperimentsConfidenceInterval";
+import { ExperimentsCreateBanditV2Request } from "./ExperimentsCreateBanditV2Request";
+import { ExperimentsCreateBanditV2RequestData } from "./ExperimentsCreateBanditV2RequestData";
+import { ExperimentsCreateBanditV2RequestDataAttributes } from "./ExperimentsCreateBanditV2RequestDataAttributes";
 import { ExperimentsCreateExperimentMetricGroupV2Request } from "./ExperimentsCreateExperimentMetricGroupV2Request";
 import { ExperimentsCreateExperimentMetricGroupV2RequestData } from "./ExperimentsCreateExperimentMetricGroupV2RequestData";
 import { ExperimentsCreateExperimentMetricGroupV2RequestDataAttributes } from "./ExperimentsCreateExperimentMetricGroupV2RequestDataAttributes";
@@ -2323,6 +2335,9 @@ import { ExperimentsNullableWarehouseMetricMeasureInput } from "./ExperimentsNul
 import { ExperimentsOffsetLinks } from "./ExperimentsOffsetLinks";
 import { ExperimentsOffsetMeta } from "./ExperimentsOffsetMeta";
 import { ExperimentsOffsetMetaPage } from "./ExperimentsOffsetMetaPage";
+import { ExperimentsPatchBanditV2Request } from "./ExperimentsPatchBanditV2Request";
+import { ExperimentsPatchBanditV2RequestData } from "./ExperimentsPatchBanditV2RequestData";
+import { ExperimentsPatchBanditV2RequestDataAttributes } from "./ExperimentsPatchBanditV2RequestDataAttributes";
 import { ExperimentsPatchExperimentMetricGroupV2Request } from "./ExperimentsPatchExperimentMetricGroupV2Request";
 import { ExperimentsPatchExperimentMetricGroupV2RequestData } from "./ExperimentsPatchExperimentMetricGroupV2RequestData";
 import { ExperimentsPatchExperimentMetricGroupV2RequestDataAttributes } from "./ExperimentsPatchExperimentMetricGroupV2RequestDataAttributes";
@@ -2389,6 +2404,9 @@ import { ExperimentsSQLModelPropertyInput } from "./ExperimentsSQLModelPropertyI
 import { ExperimentsSavedFilterCondition } from "./ExperimentsSavedFilterCondition";
 import { ExperimentsStartExperimentV2Request } from "./ExperimentsStartExperimentV2Request";
 import { ExperimentsStartExperimentV2RequestData } from "./ExperimentsStartExperimentV2RequestData";
+import { ExperimentsStopBanditV2Request } from "./ExperimentsStopBanditV2Request";
+import { ExperimentsStopBanditV2RequestData } from "./ExperimentsStopBanditV2RequestData";
+import { ExperimentsStopBanditV2RequestDataAttributes } from "./ExperimentsStopBanditV2RequestDataAttributes";
 import { ExperimentsStructuredMetadataResponse } from "./ExperimentsStructuredMetadataResponse";
 import { ExperimentsSubjectTypeV2DTO } from "./ExperimentsSubjectTypeV2DTO";
 import { ExperimentsSubjectTypeV2DTOArray } from "./ExperimentsSubjectTypeV2DTOArray";
@@ -8386,6 +8404,7 @@ const enumsMap: { [key: string]: any[] } = {
     "NO_DIFFERENCE",
     "STATS_UNAVAILABLE",
   ],
+  ExperimentsBanditPolicyHistoryV2DTODataType: ["bandit-policies"],
   ExperimentsBanditPolicyKind: ["WARMUP", "ADAPTIVE", "FALLBACK"],
   ExperimentsBanditPolicyReason: [
     "ACTIVATION",
@@ -8406,6 +8425,7 @@ const enumsMap: { [key: string]: any[] } = {
     "FAILED",
     "CANCELLED",
   ],
+  ExperimentsBanditRefreshV2DTODataType: ["bandit-refresh"],
   ExperimentsBanditResultsState: [
     "WAITING_FOR_FIRST_REFRESH",
     "WARMUP",
@@ -8638,6 +8658,7 @@ const enumsMap: { [key: string]: any[] } = {
     "experiment-results-refresh",
   ],
   ExperimentsStartExperimentV2RequestDataType: ["start-experiment-request"],
+  ExperimentsStopBanditV2RequestDataType: ["stop-bandit-request"],
   ExperimentsSubjectTypeV2DTODataType: ["subject-types"],
   ExperimentsTargetingRuleOperator: [
     "LT",
@@ -14245,17 +14266,30 @@ const typeMap: { [index: string]: any } = {
     ExperimentsAnalysisPlanWriteV2RequestDataAttributes,
   ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior:
     ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior,
+  ExperimentsBanditBayesianPriorInputV2: ExperimentsBanditBayesianPriorInputV2,
   ExperimentsBanditBayesianPriorV2: ExperimentsBanditBayesianPriorV2,
   ExperimentsBanditConfidenceIntervalV2: ExperimentsBanditConfidenceIntervalV2,
   ExperimentsBanditDailyTrafficV2: ExperimentsBanditDailyTrafficV2,
+  ExperimentsBanditFlagConfigurationInputV2:
+    ExperimentsBanditFlagConfigurationInputV2,
   ExperimentsBanditFlagConfigurationV2: ExperimentsBanditFlagConfigurationV2,
   ExperimentsBanditNullableConfidenceIntervalV2:
     ExperimentsBanditNullableConfidenceIntervalV2,
   ExperimentsBanditObservationCountsV2: ExperimentsBanditObservationCountsV2,
   ExperimentsBanditPointEstimateV2: ExperimentsBanditPointEstimateV2,
+  ExperimentsBanditPolicyHistoryV2DTOArray:
+    ExperimentsBanditPolicyHistoryV2DTOArray,
+  ExperimentsBanditPolicyHistoryV2DTOData:
+    ExperimentsBanditPolicyHistoryV2DTOData,
+  ExperimentsBanditPolicyHistoryV2DTODataAttributes:
+    ExperimentsBanditPolicyHistoryV2DTODataAttributes,
   ExperimentsBanditPolicyV2: ExperimentsBanditPolicyV2,
   ExperimentsBanditPolicyVariantV2: ExperimentsBanditPolicyVariantV2,
   ExperimentsBanditRefreshV2: ExperimentsBanditRefreshV2,
+  ExperimentsBanditRefreshV2DTO: ExperimentsBanditRefreshV2DTO,
+  ExperimentsBanditRefreshV2DTOData: ExperimentsBanditRefreshV2DTOData,
+  ExperimentsBanditRefreshV2DTODataAttributes:
+    ExperimentsBanditRefreshV2DTODataAttributes,
   ExperimentsBanditResultsV2DTO: ExperimentsBanditResultsV2DTO,
   ExperimentsBanditResultsV2DTOData: ExperimentsBanditResultsV2DTOData,
   ExperimentsBanditResultsV2DTODataAttributes:
@@ -14277,6 +14311,7 @@ const typeMap: { [index: string]: any } = {
     ExperimentsBanditV2ListDTODataAttributes,
   ExperimentsBanditV2ReadMetaDTO: ExperimentsBanditV2ReadMetaDTO,
   ExperimentsBanditV2WarningDTO: ExperimentsBanditV2WarningDTO,
+  ExperimentsBanditVariantInputV2: ExperimentsBanditVariantInputV2,
   ExperimentsBanditVariantResultV2: ExperimentsBanditVariantResultV2,
   ExperimentsBanditVariantV2: ExperimentsBanditVariantV2,
   ExperimentsCancelExperimentV2Request: ExperimentsCancelExperimentV2Request,
@@ -14291,6 +14326,10 @@ const typeMap: { [index: string]: any } = {
   ExperimentsConcludeExperimentV2RequestDataAttributes:
     ExperimentsConcludeExperimentV2RequestDataAttributes,
   ExperimentsConfidenceInterval: ExperimentsConfidenceInterval,
+  ExperimentsCreateBanditV2Request: ExperimentsCreateBanditV2Request,
+  ExperimentsCreateBanditV2RequestData: ExperimentsCreateBanditV2RequestData,
+  ExperimentsCreateBanditV2RequestDataAttributes:
+    ExperimentsCreateBanditV2RequestDataAttributes,
   ExperimentsCreateExperimentMetricGroupV2Request:
     ExperimentsCreateExperimentMetricGroupV2Request,
   ExperimentsCreateExperimentMetricGroupV2RequestData:
@@ -14451,6 +14490,10 @@ const typeMap: { [index: string]: any } = {
   ExperimentsOffsetLinks: ExperimentsOffsetLinks,
   ExperimentsOffsetMeta: ExperimentsOffsetMeta,
   ExperimentsOffsetMetaPage: ExperimentsOffsetMetaPage,
+  ExperimentsPatchBanditV2Request: ExperimentsPatchBanditV2Request,
+  ExperimentsPatchBanditV2RequestData: ExperimentsPatchBanditV2RequestData,
+  ExperimentsPatchBanditV2RequestDataAttributes:
+    ExperimentsPatchBanditV2RequestDataAttributes,
   ExperimentsPatchExperimentMetricGroupV2Request:
     ExperimentsPatchExperimentMetricGroupV2Request,
   ExperimentsPatchExperimentMetricGroupV2RequestData:
@@ -14566,6 +14609,10 @@ const typeMap: { [index: string]: any } = {
   ExperimentsStartExperimentV2Request: ExperimentsStartExperimentV2Request,
   ExperimentsStartExperimentV2RequestData:
     ExperimentsStartExperimentV2RequestData,
+  ExperimentsStopBanditV2Request: ExperimentsStopBanditV2Request,
+  ExperimentsStopBanditV2RequestData: ExperimentsStopBanditV2RequestData,
+  ExperimentsStopBanditV2RequestDataAttributes:
+    ExperimentsStopBanditV2RequestDataAttributes,
   ExperimentsStructuredMetadataResponse: ExperimentsStructuredMetadataResponse,
   ExperimentsSubjectTypeV2DTO: ExperimentsSubjectTypeV2DTO,
   ExperimentsSubjectTypeV2DTOArray: ExperimentsSubjectTypeV2DTOArray,

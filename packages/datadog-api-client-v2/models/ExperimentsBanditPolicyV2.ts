@@ -30,9 +30,17 @@ export class ExperimentsBanditPolicyV2 {
    */
   "kind": ExperimentsBanditPolicyKind;
   /**
+   * The policy's place in the bandit's policy history. It follows `applied_at` and orders policies saved at the same time.
+   */
+  "policyNumber": Int64;
+  /**
    * Why the policy was applied.
    */
   "reason": ExperimentsBanditPolicyReason;
+  /**
+   * The refresh that proposed the policy. `null` for policies no refresh proposed, such as the first split and the policy served after the bandit ends.
+   */
+  "refreshId": string | null;
   /**
    * Each variant's share of traffic. The probabilities add up to 1.
    */
@@ -77,10 +85,22 @@ export class ExperimentsBanditPolicyV2 {
       type: "ExperimentsBanditPolicyKind",
       required: true,
     },
+    policyNumber: {
+      baseName: "policy_number",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
     reason: {
       baseName: "reason",
       type: "ExperimentsBanditPolicyReason",
       required: true,
+    },
+    refreshId: {
+      baseName: "refresh_id",
+      type: "string",
+      required: true,
+      format: "uuid",
     },
     variants: {
       baseName: "variants",
