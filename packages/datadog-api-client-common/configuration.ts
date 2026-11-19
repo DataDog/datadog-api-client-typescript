@@ -806,6 +806,7 @@ export function createConfiguration(
       "v2.createTagIndexingRuleExemption": false,
       "v2.deleteTagIndexingRuleExemption": false,
       "v2.getTagIndexingRuleExemption": false,
+      "v2.listMetricMetadata": false,
       "v2.listTagIndexingRuleExemptions": false,
       "v2.updateTagIndexingRuleExemption": false,
       "v2.deleteModelLabRun": false,
