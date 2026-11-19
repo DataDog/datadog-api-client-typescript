@@ -902,6 +902,7 @@ export function createConfiguration(
       "v2.listEntityRiskScores": false,
       "v2.addSTIXThreatIntel": false,
       "v2.countSecurityAgentInvestigations": false,
+      "v2.createSecurityAgentInvestigation": false,
       "v2.getSecurityAgentInvestigation": false,
       "v2.listSecurityAgentInvestigations": false,
       "v2.createSLOReportJob": false,

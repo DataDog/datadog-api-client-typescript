@@ -5641,6 +5641,9 @@ import { SecurityAgentInvestigationCount } from "./SecurityAgentInvestigationCou
 import { SecurityAgentInvestigationCountsAttributes } from "./SecurityAgentInvestigationCountsAttributes";
 import { SecurityAgentInvestigationCountsData } from "./SecurityAgentInvestigationCountsData";
 import { SecurityAgentInvestigationCountsResponse } from "./SecurityAgentInvestigationCountsResponse";
+import { SecurityAgentInvestigationCreateAttributes } from "./SecurityAgentInvestigationCreateAttributes";
+import { SecurityAgentInvestigationCreateData } from "./SecurityAgentInvestigationCreateData";
+import { SecurityAgentInvestigationCreateRequest } from "./SecurityAgentInvestigationCreateRequest";
 import { SecurityAgentInvestigationData } from "./SecurityAgentInvestigationData";
 import { SecurityAgentInvestigationEntity } from "./SecurityAgentInvestigationEntity";
 import { SecurityAgentInvestigationKeyEntities } from "./SecurityAgentInvestigationKeyEntities";
@@ -18553,6 +18556,11 @@ const typeMap: { [index: string]: any } = {
   SecurityAgentInvestigationCountsData: SecurityAgentInvestigationCountsData,
   SecurityAgentInvestigationCountsResponse:
     SecurityAgentInvestigationCountsResponse,
+  SecurityAgentInvestigationCreateAttributes:
+    SecurityAgentInvestigationCreateAttributes,
+  SecurityAgentInvestigationCreateData: SecurityAgentInvestigationCreateData,
+  SecurityAgentInvestigationCreateRequest:
+    SecurityAgentInvestigationCreateRequest,
   SecurityAgentInvestigationData: SecurityAgentInvestigationData,
   SecurityAgentInvestigationEntity: SecurityAgentInvestigationEntity,
   SecurityAgentInvestigationKeyEntities: SecurityAgentInvestigationKeyEntities,
