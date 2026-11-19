@@ -15802,6 +15802,28 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ModelLabProjectArtifactsResponse",
   },
+  "ModelLabAPIApi.V2.AddModelLabProjectOwner": {
+    projectId: {
+      type: "number",
+      format: "int64",
+    },
+    userId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "ModelLabAPIApi.V2.RemoveModelLabProjectOwner": {
+    projectId: {
+      type: "number",
+      format: "int64",
+    },
+    userId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
   "ModelLabAPIApi.V2.StarModelLabProject": {
     projectId: {
       type: "number",
