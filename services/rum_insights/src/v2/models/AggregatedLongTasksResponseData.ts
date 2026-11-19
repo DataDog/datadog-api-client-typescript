@@ -12,7 +12,7 @@ export class AggregatedLongTasksResponseData {
    */
   "attributes": AggregatedLongTasksResponseAttributes;
   /**
-   * Hash-based unique identifier for this aggregation.
+   * Unique UUID identifying this response.
    */
   "id": string;
   /**
@@ -43,6 +43,7 @@ export class AggregatedLongTasksResponseData {
       baseName: "id",
       type: "string",
       required: true,
+      format: "uuid",
     },
     type: {
       baseName: "type",
