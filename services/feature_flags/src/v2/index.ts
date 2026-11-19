@@ -66,6 +66,7 @@ export { ExposureRolloutStepRequest } from "./models/ExposureRolloutStepRequest"
 export { ExposureScheduleRequest } from "./models/ExposureScheduleRequest";
 export { FeatureFlag } from "./models/FeatureFlag";
 export { FeatureFlagAttributes } from "./models/FeatureFlagAttributes";
+export { FeatureFlagBucketingMode } from "./models/FeatureFlagBucketingMode";
 export { FeatureFlagChangeEvent } from "./models/FeatureFlagChangeEvent";
 export { FeatureFlagChangeEventAction } from "./models/FeatureFlagChangeEventAction";
 export { FeatureFlagChangeEventAttributes } from "./models/FeatureFlagChangeEventAttributes";

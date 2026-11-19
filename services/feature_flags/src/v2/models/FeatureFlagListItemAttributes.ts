@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { FeatureFlagBucketingMode } from "./FeatureFlagBucketingMode";
 import { FeatureFlagEnvironmentListItem } from "./FeatureFlagEnvironmentListItem";
 import { FeatureFlagStalenessDetails } from "./FeatureFlagStalenessDetails";
 import { FeatureFlagStalenessStatusOverride } from "./FeatureFlagStalenessStatusOverride";
@@ -14,6 +15,10 @@ export class FeatureFlagListItemAttributes {
    * The timestamp when the feature flag was archived.
    */
   "archivedAt"?: Date;
+  /**
+   * How subjects are assigned to variants. `DATADOG` is the native scheme. `EPPO` reproduces the assignments that Eppo made for a flag migrated from Eppo, so its subjects keep their variants. Set when the flag is created and never changed.
+   */
+  "bucketingMode"?: FeatureFlagBucketingMode;
   /**
    * The timestamp when the feature flag was created.
    */
@@ -105,6 +110,10 @@ export class FeatureFlagListItemAttributes {
       baseName: "archived_at",
       type: "Date",
       format: "date-time",
+    },
+    bucketingMode: {
+      baseName: "bucketing_mode",
+      type: "FeatureFlagBucketingMode",
     },
     createdAt: {
       baseName: "created_at",
