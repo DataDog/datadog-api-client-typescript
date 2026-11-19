@@ -5,18 +5,21 @@ export {
   CloudAuthenticationApiCreateGitHubCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiCreateOIDCCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiCreateOIDCCloudAuthProviderRequest,
+  CloudAuthenticationApiCreateTerraformCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiDeleteAWSCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiDeleteAWSCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiDeleteGitHubCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiDeleteGitHubCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiDeleteOIDCCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiDeleteOIDCCloudAuthProviderRequest,
+  CloudAuthenticationApiDeleteTerraformCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiGetAWSCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiGetAWSCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiGetGitHubCloudAuthIntakeMappingRequest,
   CloudAuthenticationApiGetGitHubCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiGetOIDCCloudAuthPersonaMappingRequest,
   CloudAuthenticationApiGetOIDCCloudAuthProviderRequest,
+  CloudAuthenticationApiGetTerraformCloudAuthPersonaMappingRequest,
   CloudAuthenticationApi,
 } from "./CloudAuthenticationApi";
 
@@ -78,3 +81,12 @@ export { OIDCCloudAuthProviderDataResponse } from "./models/OIDCCloudAuthProvide
 export { OIDCCloudAuthProviderResponse } from "./models/OIDCCloudAuthProviderResponse";
 export { OIDCCloudAuthProvidersResponse } from "./models/OIDCCloudAuthProvidersResponse";
 export { OIDCCloudAuthProviderType } from "./models/OIDCCloudAuthProviderType";
+export { TerraformCloudAuthIssuerURL } from "./models/TerraformCloudAuthIssuerURL";
+export { TerraformCloudAuthPersonaMappingAttributesResponse } from "./models/TerraformCloudAuthPersonaMappingAttributesResponse";
+export { TerraformCloudAuthPersonaMappingCreateAttributes } from "./models/TerraformCloudAuthPersonaMappingCreateAttributes";
+export { TerraformCloudAuthPersonaMappingCreateData } from "./models/TerraformCloudAuthPersonaMappingCreateData";
+export { TerraformCloudAuthPersonaMappingCreateRequest } from "./models/TerraformCloudAuthPersonaMappingCreateRequest";
+export { TerraformCloudAuthPersonaMappingDataResponse } from "./models/TerraformCloudAuthPersonaMappingDataResponse";
+export { TerraformCloudAuthPersonaMappingResponse } from "./models/TerraformCloudAuthPersonaMappingResponse";
+export { TerraformCloudAuthPersonaMappingsResponse } from "./models/TerraformCloudAuthPersonaMappingsResponse";
+export { TerraformCloudAuthPersonaMappingType } from "./models/TerraformCloudAuthPersonaMappingType";

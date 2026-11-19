@@ -22189,6 +22189,30 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "CloudAuthenticationApi.V2.ListTerraformCloudAuthPersonaMappings": {
+    operationResponseType: "TerraformCloudAuthPersonaMappingsResponse",
+  },
+  "CloudAuthenticationApi.V2.CreateTerraformCloudAuthPersonaMapping": {
+    body: {
+      type: "TerraformCloudAuthPersonaMappingCreateRequest",
+      format: "",
+    },
+    operationResponseType: "TerraformCloudAuthPersonaMappingResponse",
+  },
+  "CloudAuthenticationApi.V2.GetTerraformCloudAuthPersonaMapping": {
+    personaMappingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TerraformCloudAuthPersonaMappingResponse",
+  },
+  "CloudAuthenticationApi.V2.DeleteTerraformCloudAuthPersonaMapping": {
+    personaMappingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "WorkflowAutomationApi.V2.ListWorkflows": {
     limit: {
       type: "number",

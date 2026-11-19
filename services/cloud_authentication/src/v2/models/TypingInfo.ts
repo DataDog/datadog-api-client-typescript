@@ -49,6 +49,13 @@ import { OIDCCloudAuthProviderCreateRequest } from "./OIDCCloudAuthProviderCreat
 import { OIDCCloudAuthProviderDataResponse } from "./OIDCCloudAuthProviderDataResponse";
 import { OIDCCloudAuthProviderResponse } from "./OIDCCloudAuthProviderResponse";
 import { OIDCCloudAuthProvidersResponse } from "./OIDCCloudAuthProvidersResponse";
+import { TerraformCloudAuthPersonaMappingAttributesResponse } from "./TerraformCloudAuthPersonaMappingAttributesResponse";
+import { TerraformCloudAuthPersonaMappingCreateAttributes } from "./TerraformCloudAuthPersonaMappingCreateAttributes";
+import { TerraformCloudAuthPersonaMappingCreateData } from "./TerraformCloudAuthPersonaMappingCreateData";
+import { TerraformCloudAuthPersonaMappingCreateRequest } from "./TerraformCloudAuthPersonaMappingCreateRequest";
+import { TerraformCloudAuthPersonaMappingDataResponse } from "./TerraformCloudAuthPersonaMappingDataResponse";
+import { TerraformCloudAuthPersonaMappingResponse } from "./TerraformCloudAuthPersonaMappingResponse";
+import { TerraformCloudAuthPersonaMappingsResponse } from "./TerraformCloudAuthPersonaMappingsResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -61,6 +68,11 @@ export const TypingInfo: ModelTypingInfo = {
     OIDCCloudAuthOrgUUIDSource: ["dd_org_uuid", "aud"],
     OIDCCloudAuthPersonaMappingType: ["custom_oidc_identity_mapping"],
     OIDCCloudAuthProviderType: ["custom_oidc_provider_config"],
+    TerraformCloudAuthIssuerURL: [
+      "https://app.terraform.io",
+      "https://app.eu.terraform.io",
+    ],
+    TerraformCloudAuthPersonaMappingType: ["terraform_cloud_auth_config"],
   },
   oneOfMap: {},
   typeMap: {
@@ -141,5 +153,19 @@ export const TypingInfo: ModelTypingInfo = {
     OIDCCloudAuthProviderDataResponse: OIDCCloudAuthProviderDataResponse,
     OIDCCloudAuthProviderResponse: OIDCCloudAuthProviderResponse,
     OIDCCloudAuthProvidersResponse: OIDCCloudAuthProvidersResponse,
+    TerraformCloudAuthPersonaMappingAttributesResponse:
+      TerraformCloudAuthPersonaMappingAttributesResponse,
+    TerraformCloudAuthPersonaMappingCreateAttributes:
+      TerraformCloudAuthPersonaMappingCreateAttributes,
+    TerraformCloudAuthPersonaMappingCreateData:
+      TerraformCloudAuthPersonaMappingCreateData,
+    TerraformCloudAuthPersonaMappingCreateRequest:
+      TerraformCloudAuthPersonaMappingCreateRequest,
+    TerraformCloudAuthPersonaMappingDataResponse:
+      TerraformCloudAuthPersonaMappingDataResponse,
+    TerraformCloudAuthPersonaMappingResponse:
+      TerraformCloudAuthPersonaMappingResponse,
+    TerraformCloudAuthPersonaMappingsResponse:
+      TerraformCloudAuthPersonaMappingsResponse,
   },
 };
