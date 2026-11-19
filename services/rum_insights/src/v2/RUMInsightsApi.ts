@@ -382,7 +382,8 @@ export class RUMInsightsApi {
   }
 
   /**
-   * Get aggregated network resource waterfall data for a RUM view, sampled across multiple view instances.
+   * Get aggregated network resource waterfall data for a RUM view, sampled across multiple view
+   * instances.
    * @param param The request object
    */
   public queryAggregatedWaterfall(
