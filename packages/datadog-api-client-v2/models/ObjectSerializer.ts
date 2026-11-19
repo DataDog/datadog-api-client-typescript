@@ -8689,6 +8689,7 @@ const enumsMap: { [key: string]: any[] } = {
   FastlyAccountType: ["fastly-accounts"],
   FastlyIntegrationType: ["Fastly"],
   FastlyServiceType: ["fastly-services"],
+  FeatureFlagBucketingMode: ["DATADOG", "EPPO"],
   FeatureFlagChangeEventAction: [
     "created",
     "updated",
