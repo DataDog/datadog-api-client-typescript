@@ -42,6 +42,10 @@ export class IoCIndicator {
    */
   "indicatorType"?: string;
   /**
+   * Whether the indicator is muted for your organization.
+   */
+  "isMuted"?: boolean;
+  /**
    * Timestamp when the indicator was last seen.
    */
   "lastSeen"?: Date;
@@ -73,6 +77,14 @@ export class IoCIndicator {
    * Effect of a scoring factor on the indicator's threat score.
    */
   "maxTrustScore"?: IoCScoreEffect;
+  /**
+   * Reason provided when the indicator was muted. Returned only when the indicator is muted.
+   */
+  "muteReason"?: string;
+  /**
+   * Scope of the mute applied to the indicator. Returned only when the indicator is muted.
+   */
+  "muteScope"?: string;
   /**
    * Threat score for the indicator (0-100).
    */
@@ -153,6 +165,10 @@ export class IoCIndicator {
       baseName: "indicator_type",
       type: "string",
     },
+    isMuted: {
+      baseName: "is_muted",
+      type: "boolean",
+    },
     lastSeen: {
       baseName: "last_seen",
       type: "Date",
@@ -186,6 +202,14 @@ export class IoCIndicator {
     maxTrustScore: {
       baseName: "max_trust_score",
       type: "IoCScoreEffect",
+    },
+    muteReason: {
+      baseName: "mute_reason",
+      type: "string",
+    },
+    muteScope: {
+      baseName: "mute_scope",
+      type: "string",
     },
     score: {
       baseName: "score",
