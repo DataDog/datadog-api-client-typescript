@@ -119,6 +119,7 @@ export const TypingInfo: ModelTypingInfo = {
     CreateEnvironmentDataType: ["environments"],
     CreateFeatureFlagDataType: ["feature-flags"],
     CreateFeatureFlagStalenessStatus: ["ACTIVE", "PERMANENT"],
+    FeatureFlagBucketingMode: ["DATADOG", "EPPO"],
     FeatureFlagChangeEventAction: [
       "created",
       "updated",
