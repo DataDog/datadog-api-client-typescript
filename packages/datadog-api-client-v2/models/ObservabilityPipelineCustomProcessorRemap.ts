@@ -27,6 +27,10 @@ export class ObservabilityPipelineCustomProcessorRemap {
    */
   "name": string;
   /**
+   * A sample event used to test the VRL script in the pipeline editor.
+   */
+  "sample"?: string;
+  /**
    * The VRL script source code that defines the processing logic.
    */
   "source": string;
@@ -65,6 +69,10 @@ export class ObservabilityPipelineCustomProcessorRemap {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    sample: {
+      baseName: "sample",
+      type: "string",
     },
     source: {
       baseName: "source",
