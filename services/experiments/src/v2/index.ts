@@ -3,6 +3,7 @@ export {
   ExperimentsApiArchiveExposureSQLModelRequest,
   ExperimentsApiCancelExperimentRequest,
   ExperimentsApiConcludeExperimentRequest,
+  ExperimentsApiCreateBanditRequest,
   ExperimentsApiCreateExperimentRequest,
   ExperimentsApiCreateExperimentMetricGroupRequest,
   ExperimentsApiCreateExperimentMetricGroupFromCollectionRequest,
@@ -12,6 +13,7 @@ export {
   ExperimentsApiCreateMetricCollectionRequest,
   ExperimentsApiCreateMetricSQLModelRequest,
   ExperimentsApiCreateSubjectTypeRequest,
+  ExperimentsApiDeleteBanditRequest,
   ExperimentsApiDeleteExperimentRequest,
   ExperimentsApiDeleteExperimentMetricGroupRequest,
   ExperimentsApiDeleteExperimentProtocolRequest,
@@ -32,6 +34,7 @@ export {
   ExperimentsApiGetMetricCollectionRequest,
   ExperimentsApiGetMetricSQLModelRequest,
   ExperimentsApiGetSubjectTypeRequest,
+  ExperimentsApiListBanditPoliciesRequest,
   ExperimentsApiListBanditsRequest,
   ExperimentsApiListExperimentHoldoutsRequest,
   ExperimentsApiListExperimentMetricGroupsRequest,
@@ -42,15 +45,21 @@ export {
   ExperimentsApiListMetricSQLModelsRequest,
   ExperimentsApiListMetricsRequest,
   ExperimentsApiListSubjectTypesRequest,
+  ExperimentsApiPatchBanditRequest,
   ExperimentsApiPatchExperimentRequest,
   ExperimentsApiPatchExperimentProtocolRequest,
   ExperimentsApiPatchSubjectTypeRequest,
+  ExperimentsApiPauseBanditRequest,
   ExperimentsApiPublishExperimentProtocolRequest,
+  ExperimentsApiRefreshBanditRequest,
   ExperimentsApiRefreshExperimentResultsRequest,
   ExperimentsApiRefreshExperimentResultsForOrgRequest,
   ExperimentsApiReplaceExperimentProtocolRequest,
+  ExperimentsApiResumeBanditRequest,
   ExperimentsApiSetDefaultSubjectTypeRequest,
+  ExperimentsApiStartBanditRequest,
   ExperimentsApiStartExperimentRequest,
+  ExperimentsApiStopBanditRequest,
   ExperimentsApiUnarchiveExposureSQLModelRequest,
   ExperimentsApiUpdateExperimentAnalysisPlanAttributesRequest,
   ExperimentsApiUpdateExperimentMetricGroupRequest,
@@ -74,15 +83,21 @@ export { ExperimentsAnalysisPlanWriteV2RequestDataAttributes } from "./models/Ex
 export { ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior } from "./models/ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior";
 export { ExperimentsAnalysisPlanWriteV2RequestDataType } from "./models/ExperimentsAnalysisPlanWriteV2RequestDataType";
 export { ExperimentsBanditArmDataStatus } from "./models/ExperimentsBanditArmDataStatus";
+export { ExperimentsBanditBayesianPriorInputV2 } from "./models/ExperimentsBanditBayesianPriorInputV2";
 export { ExperimentsBanditBayesianPriorV2 } from "./models/ExperimentsBanditBayesianPriorV2";
 export { ExperimentsBanditConfidenceIntervalV2 } from "./models/ExperimentsBanditConfidenceIntervalV2";
 export { ExperimentsBanditDailyTrafficV2 } from "./models/ExperimentsBanditDailyTrafficV2";
 export { ExperimentsBanditDesiredChange } from "./models/ExperimentsBanditDesiredChange";
+export { ExperimentsBanditFlagConfigurationInputV2 } from "./models/ExperimentsBanditFlagConfigurationInputV2";
 export { ExperimentsBanditFlagConfigurationV2 } from "./models/ExperimentsBanditFlagConfigurationV2";
 export { ExperimentsBanditNullableConfidenceIntervalV2 } from "./models/ExperimentsBanditNullableConfidenceIntervalV2";
 export { ExperimentsBanditObservationCountsV2 } from "./models/ExperimentsBanditObservationCountsV2";
 export { ExperimentsBanditOptimalVariantUnavailableReason } from "./models/ExperimentsBanditOptimalVariantUnavailableReason";
 export { ExperimentsBanditPointEstimateV2 } from "./models/ExperimentsBanditPointEstimateV2";
+export { ExperimentsBanditPolicyHistoryV2DTOArray } from "./models/ExperimentsBanditPolicyHistoryV2DTOArray";
+export { ExperimentsBanditPolicyHistoryV2DTOData } from "./models/ExperimentsBanditPolicyHistoryV2DTOData";
+export { ExperimentsBanditPolicyHistoryV2DTODataAttributes } from "./models/ExperimentsBanditPolicyHistoryV2DTODataAttributes";
+export { ExperimentsBanditPolicyHistoryV2DTODataType } from "./models/ExperimentsBanditPolicyHistoryV2DTODataType";
 export { ExperimentsBanditPolicyKind } from "./models/ExperimentsBanditPolicyKind";
 export { ExperimentsBanditPolicyReason } from "./models/ExperimentsBanditPolicyReason";
 export { ExperimentsBanditPolicyV2 } from "./models/ExperimentsBanditPolicyV2";
@@ -90,6 +105,10 @@ export { ExperimentsBanditPolicyVariantV2 } from "./models/ExperimentsBanditPoli
 export { ExperimentsBanditPosteriorUnavailableReason } from "./models/ExperimentsBanditPosteriorUnavailableReason";
 export { ExperimentsBanditRefreshStatus } from "./models/ExperimentsBanditRefreshStatus";
 export { ExperimentsBanditRefreshV2 } from "./models/ExperimentsBanditRefreshV2";
+export { ExperimentsBanditRefreshV2DTO } from "./models/ExperimentsBanditRefreshV2DTO";
+export { ExperimentsBanditRefreshV2DTOData } from "./models/ExperimentsBanditRefreshV2DTOData";
+export { ExperimentsBanditRefreshV2DTODataAttributes } from "./models/ExperimentsBanditRefreshV2DTODataAttributes";
+export { ExperimentsBanditRefreshV2DTODataType } from "./models/ExperimentsBanditRefreshV2DTODataType";
 export { ExperimentsBanditResultsState } from "./models/ExperimentsBanditResultsState";
 export { ExperimentsBanditResultsV2DTO } from "./models/ExperimentsBanditResultsV2DTO";
 export { ExperimentsBanditResultsV2DTOData } from "./models/ExperimentsBanditResultsV2DTOData";
@@ -113,6 +132,7 @@ export { ExperimentsBanditV2ListDTODataAttributes } from "./models/ExperimentsBa
 export { ExperimentsBanditV2ReadMetaDTO } from "./models/ExperimentsBanditV2ReadMetaDTO";
 export { ExperimentsBanditV2WarningCode } from "./models/ExperimentsBanditV2WarningCode";
 export { ExperimentsBanditV2WarningDTO } from "./models/ExperimentsBanditV2WarningDTO";
+export { ExperimentsBanditVariantInputV2 } from "./models/ExperimentsBanditVariantInputV2";
 export { ExperimentsBanditVariantResultV2 } from "./models/ExperimentsBanditVariantResultV2";
 export { ExperimentsBanditVariantV2 } from "./models/ExperimentsBanditVariantV2";
 export { ExperimentsCancelExperimentV2Request } from "./models/ExperimentsCancelExperimentV2Request";
@@ -124,6 +144,9 @@ export { ExperimentsConcludeExperimentV2RequestData } from "./models/Experiments
 export { ExperimentsConcludeExperimentV2RequestDataAttributes } from "./models/ExperimentsConcludeExperimentV2RequestDataAttributes";
 export { ExperimentsConcludeExperimentV2RequestDataType } from "./models/ExperimentsConcludeExperimentV2RequestDataType";
 export { ExperimentsConfidenceInterval } from "./models/ExperimentsConfidenceInterval";
+export { ExperimentsCreateBanditV2Request } from "./models/ExperimentsCreateBanditV2Request";
+export { ExperimentsCreateBanditV2RequestData } from "./models/ExperimentsCreateBanditV2RequestData";
+export { ExperimentsCreateBanditV2RequestDataAttributes } from "./models/ExperimentsCreateBanditV2RequestDataAttributes";
 export { ExperimentsCreateExperimentMetricGroupV2Request } from "./models/ExperimentsCreateExperimentMetricGroupV2Request";
 export { ExperimentsCreateExperimentMetricGroupV2RequestData } from "./models/ExperimentsCreateExperimentMetricGroupV2RequestData";
 export { ExperimentsCreateExperimentMetricGroupV2RequestDataAttributes } from "./models/ExperimentsCreateExperimentMetricGroupV2RequestDataAttributes";
@@ -249,6 +272,9 @@ export { ExperimentsNullableWarehouseMetricMeasureInput } from "./models/Experim
 export { ExperimentsOffsetLinks } from "./models/ExperimentsOffsetLinks";
 export { ExperimentsOffsetMeta } from "./models/ExperimentsOffsetMeta";
 export { ExperimentsOffsetMetaPage } from "./models/ExperimentsOffsetMetaPage";
+export { ExperimentsPatchBanditV2Request } from "./models/ExperimentsPatchBanditV2Request";
+export { ExperimentsPatchBanditV2RequestData } from "./models/ExperimentsPatchBanditV2RequestData";
+export { ExperimentsPatchBanditV2RequestDataAttributes } from "./models/ExperimentsPatchBanditV2RequestDataAttributes";
 export { ExperimentsPatchExperimentMetricGroupV2Request } from "./models/ExperimentsPatchExperimentMetricGroupV2Request";
 export { ExperimentsPatchExperimentMetricGroupV2RequestData } from "./models/ExperimentsPatchExperimentMetricGroupV2RequestData";
 export { ExperimentsPatchExperimentMetricGroupV2RequestDataAttributes } from "./models/ExperimentsPatchExperimentMetricGroupV2RequestDataAttributes";
@@ -326,6 +352,10 @@ export { ExperimentsSQLModelPropertyInput } from "./models/ExperimentsSQLModelPr
 export { ExperimentsStartExperimentV2Request } from "./models/ExperimentsStartExperimentV2Request";
 export { ExperimentsStartExperimentV2RequestData } from "./models/ExperimentsStartExperimentV2RequestData";
 export { ExperimentsStartExperimentV2RequestDataType } from "./models/ExperimentsStartExperimentV2RequestDataType";
+export { ExperimentsStopBanditV2Request } from "./models/ExperimentsStopBanditV2Request";
+export { ExperimentsStopBanditV2RequestData } from "./models/ExperimentsStopBanditV2RequestData";
+export { ExperimentsStopBanditV2RequestDataAttributes } from "./models/ExperimentsStopBanditV2RequestDataAttributes";
+export { ExperimentsStopBanditV2RequestDataType } from "./models/ExperimentsStopBanditV2RequestDataType";
 export { ExperimentsStructuredMetadataResponse } from "./models/ExperimentsStructuredMetadataResponse";
 export { ExperimentsSubjectTypeV2DTO } from "./models/ExperimentsSubjectTypeV2DTO";
 export { ExperimentsSubjectTypeV2DTOArray } from "./models/ExperimentsSubjectTypeV2DTOArray";

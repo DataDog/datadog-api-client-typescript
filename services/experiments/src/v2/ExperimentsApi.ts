@@ -26,12 +26,15 @@ import { APIErrorResponse } from "./models/APIErrorResponse";
 import { ExperimentsAnalysisPlanV2DTO } from "./models/ExperimentsAnalysisPlanV2DTO";
 import { ExperimentsAnalysisPlanV2MutationResponse } from "./models/ExperimentsAnalysisPlanV2MutationResponse";
 import { ExperimentsAnalysisPlanWriteV2Request } from "./models/ExperimentsAnalysisPlanWriteV2Request";
+import { ExperimentsBanditPolicyHistoryV2DTOArray } from "./models/ExperimentsBanditPolicyHistoryV2DTOArray";
+import { ExperimentsBanditRefreshV2DTO } from "./models/ExperimentsBanditRefreshV2DTO";
 import { ExperimentsBanditResultsV2DTO } from "./models/ExperimentsBanditResultsV2DTO";
 import { ExperimentsBanditTrafficSummaryV2DTO } from "./models/ExperimentsBanditTrafficSummaryV2DTO";
 import { ExperimentsBanditV2DTO } from "./models/ExperimentsBanditV2DTO";
 import { ExperimentsBanditV2ListDTOArray } from "./models/ExperimentsBanditV2ListDTOArray";
 import { ExperimentsCancelExperimentV2Request } from "./models/ExperimentsCancelExperimentV2Request";
 import { ExperimentsConcludeExperimentV2Request } from "./models/ExperimentsConcludeExperimentV2Request";
+import { ExperimentsCreateBanditV2Request } from "./models/ExperimentsCreateBanditV2Request";
 import { ExperimentsCreateExperimentMetricGroupV2Request } from "./models/ExperimentsCreateExperimentMetricGroupV2Request";
 import { ExperimentsCreateExperimentProtocolRequest } from "./models/ExperimentsCreateExperimentProtocolRequest";
 import { ExperimentsCreateExperimentV2Request } from "./models/ExperimentsCreateExperimentV2Request";
@@ -54,6 +57,7 @@ import { ExperimentsMetricSQLModelV2DTO } from "./models/ExperimentsMetricSQLMod
 import { ExperimentsMetricSQLModelV2DTOArray } from "./models/ExperimentsMetricSQLModelV2DTOArray";
 import { ExperimentsMetricV2DTO } from "./models/ExperimentsMetricV2DTO";
 import { ExperimentsMetricV2DTOArray } from "./models/ExperimentsMetricV2DTOArray";
+import { ExperimentsPatchBanditV2Request } from "./models/ExperimentsPatchBanditV2Request";
 import { ExperimentsPatchExperimentMetricGroupV2Request } from "./models/ExperimentsPatchExperimentMetricGroupV2Request";
 import { ExperimentsPatchExperimentProtocolRequest } from "./models/ExperimentsPatchExperimentProtocolRequest";
 import { ExperimentsPatchExperimentV2Request } from "./models/ExperimentsPatchExperimentV2Request";
@@ -67,6 +71,7 @@ import { ExperimentsRefreshExperimentResultsV2DTO } from "./models/ExperimentsRe
 import { ExperimentsRefreshExperimentResultsV2DTOArray } from "./models/ExperimentsRefreshExperimentResultsV2DTOArray";
 import { ExperimentsReplaceExperimentProtocolRequest } from "./models/ExperimentsReplaceExperimentProtocolRequest";
 import { ExperimentsStartExperimentV2Request } from "./models/ExperimentsStartExperimentV2Request";
+import { ExperimentsStopBanditV2Request } from "./models/ExperimentsStopBanditV2Request";
 import { ExperimentsSubjectTypeV2DTO } from "./models/ExperimentsSubjectTypeV2DTO";
 import { ExperimentsSubjectTypeV2DTOArray } from "./models/ExperimentsSubjectTypeV2DTOArray";
 import { ExperimentsTrafficSummaryV2DTO } from "./models/ExperimentsTrafficSummaryV2DTO";
@@ -314,6 +319,68 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ExperimentsConcludeExperimentV2Request", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createBandit(
+    body: ExperimentsCreateBanditV2Request,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["ExperimentsApi.v2.createBandit"]) {
+      throw new Error(
+        "Unstable operation 'createBandit' is disabled. Enable it by setting `configuration.unstableOperations['ExperimentsApi.v2.createBandit'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createBandit");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/experiments/bandits";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.createBandit",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ExperimentsCreateBanditV2Request", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -865,6 +932,62 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
       contentType,
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteBandit(
+    banditId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["ExperimentsApi.v2.deleteBandit"]) {
+      throw new Error(
+        "Unstable operation 'deleteBandit' is disabled. Enable it by setting `configuration.unstableOperations['ExperimentsApi.v2.deleteBandit'] = true`",
+      );
+    }
+
+    // verify required parameter 'banditId' is not null or undefined
+    if (banditId === null || banditId === undefined) {
+      throw new RequiredError("banditId", "deleteBandit");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/experiments/bandits/{bandit_id}".replace(
+      "{bandit_id}",
+      encodeURIComponent(String(banditId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.deleteBandit",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -2002,6 +2125,105 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listBanditPolicies(
+    banditId: string,
+    filterFrom?: Date,
+    filterTo?: Date,
+    pageOffset?: number,
+    pageLimit?: number,
+    sort?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["ExperimentsApi.v2.listBanditPolicies"]) {
+      throw new Error(
+        "Unstable operation 'listBanditPolicies' is disabled. Enable it by setting `configuration.unstableOperations['ExperimentsApi.v2.listBanditPolicies'] = true`",
+      );
+    }
+
+    // verify required parameter 'banditId' is not null or undefined
+    if (banditId === null || banditId === undefined) {
+      throw new RequiredError("banditId", "listBanditPolicies");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/experiments/bandits/{bandit_id}/policies".replace(
+        "{bandit_id}",
+        encodeURIComponent(String(banditId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.listBanditPolicies",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterFrom !== undefined) {
+      requestContext.setQueryParam(
+        "filter[from]",
+        serialize(filterFrom, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+    if (filterTo !== undefined) {
+      requestContext.setQueryParam(
+        "filter[to]",
+        serialize(filterTo, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        serialize(pageOffset, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        serialize(pageLimit, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listBandits(
     pageOffset?: number,
     pageLimit?: number,
@@ -2858,6 +3080,77 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async patchBandit(
+    banditId: string,
+    body: ExperimentsPatchBanditV2Request,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["ExperimentsApi.v2.patchBandit"]) {
+      throw new Error(
+        "Unstable operation 'patchBandit' is disabled. Enable it by setting `configuration.unstableOperations['ExperimentsApi.v2.patchBandit'] = true`",
+      );
+    }
+
+    // verify required parameter 'banditId' is not null or undefined
+    if (banditId === null || banditId === undefined) {
+      throw new RequiredError("banditId", "patchBandit");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "patchBandit");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/experiments/bandits/{bandit_id}".replace(
+      "{bandit_id}",
+      encodeURIComponent(String(banditId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.patchBandit",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ExperimentsPatchBanditV2Request", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async patchExperiment(
     experimentId: string,
     body: ExperimentsPatchExperimentV2Request,
@@ -3059,6 +3352,63 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async pauseBandit(
+    banditId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["ExperimentsApi.v2.pauseBandit"]) {
+      throw new Error(
+        "Unstable operation 'pauseBandit' is disabled. Enable it by setting `configuration.unstableOperations['ExperimentsApi.v2.pauseBandit'] = true`",
+      );
+    }
+
+    // verify required parameter 'banditId' is not null or undefined
+    if (banditId === null || banditId === undefined) {
+      throw new RequiredError("banditId", "pauseBandit");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/experiments/bandits/{bandit_id}/pause".replace(
+        "{bandit_id}",
+        encodeURIComponent(String(banditId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.pauseBandit",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async publishExperimentProtocol(
     protocolId: string,
     _options?: Configuration,
@@ -3098,6 +3448,73 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async refreshBandit(
+    banditId: string,
+    fullRefresh?: boolean,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["ExperimentsApi.v2.refreshBandit"]) {
+      throw new Error(
+        "Unstable operation 'refreshBandit' is disabled. Enable it by setting `configuration.unstableOperations['ExperimentsApi.v2.refreshBandit'] = true`",
+      );
+    }
+
+    // verify required parameter 'banditId' is not null or undefined
+    if (banditId === null || banditId === undefined) {
+      throw new RequiredError("banditId", "refreshBandit");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/experiments/bandits/{bandit_id}/refresh".replace(
+        "{bandit_id}",
+        encodeURIComponent(String(banditId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.refreshBandit",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (fullRefresh !== undefined) {
+      requestContext.setQueryParam(
+        "full_refresh",
+        serialize(fullRefresh, TypingInfo, "boolean", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -3302,6 +3719,63 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async resumeBandit(
+    banditId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["ExperimentsApi.v2.resumeBandit"]) {
+      throw new Error(
+        "Unstable operation 'resumeBandit' is disabled. Enable it by setting `configuration.unstableOperations['ExperimentsApi.v2.resumeBandit'] = true`",
+      );
+    }
+
+    // verify required parameter 'banditId' is not null or undefined
+    if (banditId === null || banditId === undefined) {
+      throw new RequiredError("banditId", "resumeBandit");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/experiments/bandits/{bandit_id}/resume".replace(
+        "{bandit_id}",
+        encodeURIComponent(String(banditId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.resumeBandit",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async setDefaultSubjectType(
     subjectTypeId: string,
     _options?: Configuration,
@@ -3323,6 +3797,63 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ExperimentsApi.v2.setDefaultSubjectType",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async startBandit(
+    banditId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["ExperimentsApi.v2.startBandit"]) {
+      throw new Error(
+        "Unstable operation 'startBandit' is disabled. Enable it by setting `configuration.unstableOperations['ExperimentsApi.v2.startBandit'] = true`",
+      );
+    }
+
+    // verify required parameter 'banditId' is not null or undefined
+    if (banditId === null || banditId === undefined) {
+      throw new RequiredError("banditId", "startBandit");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/experiments/bandits/{bandit_id}/start".replace(
+        "{bandit_id}",
+        encodeURIComponent(String(banditId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.startBandit",
       ExperimentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -3399,6 +3930,77 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ExperimentsStartExperimentV2Request", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async stopBandit(
+    banditId: string,
+    body: ExperimentsStopBanditV2Request,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["ExperimentsApi.v2.stopBandit"]) {
+      throw new Error(
+        "Unstable operation 'stopBandit' is disabled. Enable it by setting `configuration.unstableOperations['ExperimentsApi.v2.stopBandit'] = true`",
+      );
+    }
+
+    // verify required parameter 'banditId' is not null or undefined
+    if (banditId === null || banditId === undefined) {
+      throw new RequiredError("banditId", "stopBandit");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "stopBandit");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/experiments/bandits/{bandit_id}/stop".replace(
+      "{bandit_id}",
+      encodeURIComponent(String(banditId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.stopBandit",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ExperimentsStopBanditV2Request", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -4204,6 +4806,89 @@ export class ExperimentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createBandit
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createBandit(
+    response: ResponseContext,
+  ): Promise<ExperimentsBanditV2DTO> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: ExperimentsBanditV2DTO = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditV2DTO",
+      ) as ExperimentsBanditV2DTO;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 415
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsBanditV2DTO = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditV2DTO",
+        "",
+      ) as ExperimentsBanditV2DTO;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createExperiment
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4939,6 +5624,76 @@ export class ExperimentsApiResponseProcessor {
         "",
       ) as ExperimentsSubjectTypeV2DTO;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteBandit
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteBandit(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -6529,6 +7284,88 @@ export class ExperimentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listBanditPolicies
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listBanditPolicies(
+    response: ResponseContext,
+  ): Promise<ExperimentsBanditPolicyHistoryV2DTOArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ExperimentsBanditPolicyHistoryV2DTOArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditPolicyHistoryV2DTOArray",
+      ) as ExperimentsBanditPolicyHistoryV2DTOArray;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsBanditPolicyHistoryV2DTOArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditPolicyHistoryV2DTOArray",
+        "",
+      ) as ExperimentsBanditPolicyHistoryV2DTOArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listBandits
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7341,6 +8178,90 @@ export class ExperimentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to patchBandit
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async patchBandit(
+    response: ResponseContext,
+  ): Promise<ExperimentsBanditV2DTO> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ExperimentsBanditV2DTO = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditV2DTO",
+      ) as ExperimentsBanditV2DTO;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 415
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsBanditV2DTO = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditV2DTO",
+        "",
+      ) as ExperimentsBanditV2DTO;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to patchExperiment
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7592,6 +8513,76 @@ export class ExperimentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to pauseBandit
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async pauseBandit(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to publishExperimentProtocol
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7662,6 +8653,89 @@ export class ExperimentsApiResponseProcessor {
         "ExperimentsPublicProtocolResponse",
         "",
       ) as ExperimentsPublicProtocolResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to refreshBandit
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async refreshBandit(
+    response: ResponseContext,
+  ): Promise<ExperimentsBanditRefreshV2DTO> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      const body: ExperimentsBanditRefreshV2DTO = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditRefreshV2DTO",
+      ) as ExperimentsBanditRefreshV2DTO;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsBanditRefreshV2DTO = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsBanditRefreshV2DTO",
+        "",
+      ) as ExperimentsBanditRefreshV2DTO;
       return body;
     }
 
@@ -7925,6 +8999,76 @@ export class ExperimentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to resumeBandit
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async resumeBandit(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to setDefaultSubjectType
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7938,6 +9082,76 @@ export class ExperimentsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to startBandit
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async startBandit(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
     ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
@@ -8008,6 +9222,77 @@ export class ExperimentsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to stopBandit
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async stopBandit(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 415
     ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
@@ -8680,6 +9965,13 @@ export interface ExperimentsApiConcludeExperimentRequest {
   body: ExperimentsConcludeExperimentV2Request;
 }
 
+export interface ExperimentsApiCreateBanditRequest {
+  /**
+   * @type ExperimentsCreateBanditV2Request
+   */
+  body: ExperimentsCreateBanditV2Request;
+}
+
 export interface ExperimentsApiCreateExperimentRequest {
   /**
    * @type ExperimentsCreateExperimentV2Request
@@ -8752,6 +10044,14 @@ export interface ExperimentsApiCreateSubjectTypeRequest {
    * @type ExperimentsCreateSubjectTypeV2Request
    */
   body: ExperimentsCreateSubjectTypeV2Request;
+}
+
+export interface ExperimentsApiDeleteBanditRequest {
+  /**
+   * The UUID of the bandit.
+   * @type string
+   */
+  banditId: string;
 }
 
 export interface ExperimentsApiDeleteExperimentRequest {
@@ -8965,6 +10265,39 @@ export interface ExperimentsApiGetSubjectTypeRequest {
    * @type string
    */
   include?: string;
+}
+
+export interface ExperimentsApiListBanditPoliciesRequest {
+  /**
+   * The UUID of the bandit.
+   * @type string
+   */
+  banditId: string;
+  /**
+   * Return only the policies in effect at or after this RFC 3339 time (inclusive), including the one already in effect at it.
+   * @type Date
+   */
+  filterFrom?: Date;
+  /**
+   * Return only the policies applied before this RFC 3339 time (exclusive).
+   * @type Date
+   */
+  filterTo?: Date;
+  /**
+   * Number of results to skip for pagination. Defaults to 0 when omitted.
+   * @type number
+   */
+  pageOffset?: number;
+  /**
+   * Maximum number of results to return. Defaults to 25 when omitted, and is capped at 50 (larger values are clamped to 50). The response includes meta.page (with total) and pagination links.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * `applied_at` for oldest first, or `-applied_at` for newest first. Defaults to `-applied_at`.
+   * @type string
+   */
+  sort?: string;
 }
 
 export interface ExperimentsApiListBanditsRequest {
@@ -9277,6 +10610,18 @@ export interface ExperimentsApiListSubjectTypesRequest {
   sort?: string;
 }
 
+export interface ExperimentsApiPatchBanditRequest {
+  /**
+   * The UUID of the bandit.
+   * @type string
+   */
+  banditId: string;
+  /**
+   * @type ExperimentsPatchBanditV2Request
+   */
+  body: ExperimentsPatchBanditV2Request;
+}
+
 export interface ExperimentsApiPatchExperimentRequest {
   /**
    * The UUID of the experiment.
@@ -9313,12 +10658,33 @@ export interface ExperimentsApiPatchSubjectTypeRequest {
   body: ExperimentsPatchSubjectTypeV2Request;
 }
 
+export interface ExperimentsApiPauseBanditRequest {
+  /**
+   * The UUID of the bandit.
+   * @type string
+   */
+  banditId: string;
+}
+
 export interface ExperimentsApiPublishExperimentProtocolRequest {
   /**
    * The UUID of the protocol.
    * @type string
    */
   protocolId: string;
+}
+
+export interface ExperimentsApiRefreshBanditRequest {
+  /**
+   * The UUID of the bandit.
+   * @type string
+   */
+  banditId: string;
+  /**
+   * Recompute the bandit's whole history instead of updating its latest refresh; for example, after its exposure or metric data was backfilled. Defaults to `false`.
+   * @type boolean
+   */
+  fullRefresh?: boolean;
 }
 
 export interface ExperimentsApiRefreshExperimentResultsRequest {
@@ -9359,12 +10725,28 @@ export interface ExperimentsApiReplaceExperimentProtocolRequest {
   expectedUpdatedAt?: string;
 }
 
+export interface ExperimentsApiResumeBanditRequest {
+  /**
+   * The UUID of the bandit.
+   * @type string
+   */
+  banditId: string;
+}
+
 export interface ExperimentsApiSetDefaultSubjectTypeRequest {
   /**
    * The UUID of the subject type.
    * @type string
    */
   subjectTypeId: string;
+}
+
+export interface ExperimentsApiStartBanditRequest {
+  /**
+   * The UUID of the bandit.
+   * @type string
+   */
+  banditId: string;
 }
 
 export interface ExperimentsApiStartExperimentRequest {
@@ -9377,6 +10759,18 @@ export interface ExperimentsApiStartExperimentRequest {
    * @type ExperimentsStartExperimentV2Request
    */
   body?: ExperimentsStartExperimentV2Request;
+}
+
+export interface ExperimentsApiStopBanditRequest {
+  /**
+   * The UUID of the bandit.
+   * @type string
+   */
+  banditId: string;
+  /**
+   * @type ExperimentsStopBanditV2Request
+   */
+  body: ExperimentsStopBanditV2Request;
 }
 
 export interface ExperimentsApiUnarchiveExposureSQLModelRequest {
@@ -9587,6 +10981,27 @@ export class ExperimentsApi {
   }
 
   /**
+   * Create a draft bandit. `name` is required; you can set everything else now, or later with PATCH `/api/v2/experiments/bandits/{bandit_id}`. A draft on a flag holds a targeting rule that doesn't serve traffic until the bandit starts. `variants` lists the flag variants the bandit uses by `feature_flag_variant_id`: `is_active` makes a variant an arm (the default), and `is_fallback` marks the variant served after a scheduled end. The server fills in each variant's `key` and `name` from the flag. A scheduled end needs a fallback. Setting `datadog_flag_configuration` or `variants` needs feature flag and environment read permissions and edit access to the flag. Whether the draft is ready to run is checked when it starts. Validation can return several field errors at once. This endpoint is not idempotent. Bandits must be enabled for the organization.
+   * @param param The request object
+   */
+  public createBandit(
+    param: ExperimentsApiCreateBanditRequest,
+    options?: Configuration,
+  ): Promise<ExperimentsBanditV2DTO> {
+    const requestContextPromise = this.requestFactory.createBandit(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createBandit(responseContext);
+        });
+    });
+  }
+
+  /**
    * Create a draft experiment. `name` is required. `structured_metadata` identifies each metadata field by `field_key`; use `freetext_value` for free-text fields and `enum_values` for enum fields. When this attribute is present, the request must include a value for every required metadata field. When `protocol_id` is present, the published protocol supplies the subject type, decision metrics, analysis-plan defaults, and configuration and enforcement baselines. The request may also include hypothesis, tags, teams, related links, and assignment or event date overrides that satisfy the protocol's duration rules; omit subject_type_id, decision_metrics, variants, warehouse_exposure_configuration, datadog_flag_configuration, traffic_exposure, split_by_properties, and structured_metadata. The protocol association cannot be changed after creation. Without `protocol_id`, a complete Warehouse or Datadog configuration saves the experiment and its configuration in one transaction. For Datadog flag configuration, send `name`, `subject_type_id`, `decision_metrics`, `variants`, `traffic_exposure`, `assignments_start_date`, `assignments_end_date`, `events_start_date`, and `events_end_date`. The four date fields can be null. Inside `datadog_flag_configuration`, send `feature_flag_id`, `environment_id`, `targeting_rules`, and `entry_point`. Use `targeting_rules: []` and `entry_point: null` when unused. This creates one saved draft allocation that does not serve traffic. Omit all configuration fields to create an experiment without an allocation. This endpoint is not idempotent.
    * @param param The request object
    */
@@ -9781,6 +11196,27 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createSubjectType(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a bandit in any status, with its targeting rule, in one transaction. As with deleting an experiment, a running bandit's rule stops serving and traffic falls through to the flag's other rules; the flag can then be used by another bandit or experiment. After deletion the API no longer returns the bandit. Deleting a bandit cannot be undone. Bandits must be enabled for the organization.
+   * @param param The request object
+   */
+  public deleteBandit(
+    param: ExperimentsApiDeleteBanditRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteBandit(
+      param.banditId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteBandit(responseContext);
         });
     });
   }
@@ -10230,6 +11666,32 @@ export class ExperimentsApi {
   }
 
   /**
+   * List the policies a bandit has served, newest first by default, including the policy it serves after it ends. Each policy is the traffic split SDKs served from when it was applied until the next one. Exposures log the policy's ID as `bandit.policy_id`, so the history tells you the split behind each exposure. Exposures logged after the bandit ends have no policy ID. `filter[from]` and `filter[to]` keep the policies in effect during the range, including the one already in effect at `filter[from]`. Bandits must be enabled for the organization.
+   * @param param The request object
+   */
+  public listBanditPolicies(
+    param: ExperimentsApiListBanditPoliciesRequest,
+    options?: Configuration,
+  ): Promise<ExperimentsBanditPolicyHistoryV2DTOArray> {
+    const requestContextPromise = this.requestFactory.listBanditPolicies(
+      param.banditId,
+      param.filterFrom,
+      param.filterTo,
+      param.pageOffset,
+      param.pageLimit,
+      param.sort,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listBanditPolicies(responseContext);
+        });
+    });
+  }
+
+  /**
    * List the organization's bandits, newest first by default. Each item is a summary. For a bandit's setup, active policy, and latest refresh, use Get bandit. Bandits must be enabled for the organization.
    * @param param The request object
    */
@@ -10487,6 +11949,28 @@ export class ExperimentsApi {
   }
 
   /**
+   * Update a bandit. Omitted attributes, including omitted fields of `datadog_flag_configuration` and `bayesian_prior`, are unchanged. `variants`, `tags`, and `teams` replace the stored lists. Setting a nullable attribute to `null` clears it; `datadog_flag_configuration: null` takes a draft off its flag. What can change depends on the status. A draft can change anything. A running or paused bandit can change its name, description, refresh schedule, scheduled end, prior, fallback (send the current arms in `variants` with a different `is_fallback`), tags, and teams. A stopped or completed bandit can change only its tags and teams. Values that don't change can be sent again in any status. Setting `datadog_flag_configuration` or `variants` needs feature flag and environment read permissions and edit access to the flag. Validation can return several field errors at once: HTTP 400 if any is about invalid input, or 409 if all are status conflicts. Bandits must be enabled for the organization.
+   * @param param The request object
+   */
+  public patchBandit(
+    param: ExperimentsApiPatchBanditRequest,
+    options?: Configuration,
+  ): Promise<ExperimentsBanditV2DTO> {
+    const requestContextPromise = this.requestFactory.patchBandit(
+      param.banditId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.patchBandit(responseContext);
+        });
+    });
+  }
+
+  /**
    * Update mutable experiment fields. State and protocol restrictions apply.
    *
    * **PATCH behavior**
@@ -10613,6 +12097,27 @@ export class ExperimentsApi {
   }
 
   /**
+   * Pause a running bandit. Its targeting rule keeps serving the current traffic split, and refreshes stop changing the split until the bandit is resumed. Pausing a bandit that isn't running returns 409. Bandits must be enabled for the organization.
+   * @param param The request object
+   */
+  public pauseBandit(
+    param: ExperimentsApiPauseBanditRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.pauseBandit(
+      param.banditId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.pauseBandit(responseContext);
+        });
+    });
+  }
+
+  /**
    * Publish a valid draft protocol. The protocol must have a name and subject type. Supplied references and settings must be valid. An exposure schedule or targeting rules require an environment. Enabled limits require their values. Configurable template fields must have a value before they can be locked.
    *
    * Independent configuration errors are returned together in the JSON:API errors array with source.pointer values that identify the fields. Earlier request and reference checks can stop on the first error. A failed request leaves the protocol unchanged.
@@ -10633,6 +12138,28 @@ export class ExperimentsApi {
           return this.responseProcessor.publishExperimentProtocol(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Start a refresh of a running bandit now, instead of waiting for its schedule. The refresh reads the bandit's latest data and saves new results. Outside warmup it also serves the traffic split it proposes, so it can change traffic. HTTP 202 confirms the refresh started, not that it finished. The response returns the refresh ID, which the bandit then reports as `latest_refresh`. Bandits must be enabled for the organization.
+   * @param param The request object
+   */
+  public refreshBandit(
+    param: ExperimentsApiRefreshBanditRequest,
+    options?: Configuration,
+  ): Promise<ExperimentsBanditRefreshV2DTO> {
+    const requestContextPromise = this.requestFactory.refreshBandit(
+      param.banditId,
+      param.fullRefresh,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.refreshBandit(responseContext);
         });
     });
   }
@@ -10715,6 +12242,27 @@ export class ExperimentsApi {
   }
 
   /**
+   * Resume a paused bandit, so refreshes change its traffic split again. Resuming a bandit that isn't paused returns 409. Bandits must be enabled for the organization.
+   * @param param The request object
+   */
+  public resumeBandit(
+    param: ExperimentsApiResumeBanditRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.resumeBandit(
+      param.banditId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.resumeBandit(responseContext);
+        });
+    });
+  }
+
+  /**
    * Make this subject type the organization's default. Experiment creation uses the default when the request names no subject type. Promoting one subject type demotes the previous default in the same transaction, so the organization always has exactly one. The call is idempotent: promoting the current default succeeds and changes nothing. There is no matching demote, because an organization cannot have no default; promote a different subject type instead.
    * @param param The request object
    */
@@ -10731,6 +12279,27 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.setDefaultSubjectType(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Start a draft bandit. Its targeting rule is published serving every arm equally, and each refresh then shifts traffic toward the arms that do best. The bandit starts exactly as it is configured; set it up with PATCH `/api/v2/experiments/bandits/{bandit_id}` first. It needs a flag, at least two arms, a subject type, a metric, and an exposure SQL model. The request is idempotent: a bandit that is already running still returns 204, so a retry after a timeout is safe. Stop is not idempotent. A start is blocked when the flag environment requires an approval or a pending change request touches the flag's targeting rules; retrying alone does not resolve an approval requirement. Bandits must be enabled for the organization.
+   * @param param The request object
+   */
+  public startBandit(
+    param: ExperimentsApiStartBanditRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.startBandit(
+      param.banditId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.startBandit(responseContext);
         });
     });
   }
@@ -10753,6 +12322,28 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.startExperiment(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Stop a running or paused bandit. From then on its targeting rule serves `served_variant_key` to everyone, overriding any configured fallback, and the bandit stops refreshing. `served_variant_key` can be any of the flag's variants. Stopping can't be reversed and is not idempotent: stopping a bandit that has already stopped or completed returns 409. Bandits must be enabled for the organization.
+   * @param param The request object
+   */
+  public stopBandit(
+    param: ExperimentsApiStopBanditRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.stopBandit(
+      param.banditId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.stopBandit(responseContext);
         });
     });
   }

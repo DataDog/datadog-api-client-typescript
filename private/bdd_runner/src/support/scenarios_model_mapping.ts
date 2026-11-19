@@ -11115,12 +11115,82 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ExperimentsBanditV2ListDTOArray",
   },
+  "ExperimentsApi.V2.CreateBandit": {
+    body: {
+      type: "ExperimentsCreateBanditV2Request",
+      format: "",
+    },
+    operationResponseType: "ExperimentsBanditV2DTO",
+  },
   "ExperimentsApi.V2.GetBandit": {
     banditId: {
       type: "string",
       format: "uuid",
     },
     operationResponseType: "ExperimentsBanditV2DTO",
+  },
+  "ExperimentsApi.V2.DeleteBandit": {
+    banditId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "ExperimentsApi.V2.PatchBandit": {
+    banditId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "ExperimentsPatchBanditV2Request",
+      format: "",
+    },
+    operationResponseType: "ExperimentsBanditV2DTO",
+  },
+  "ExperimentsApi.V2.PauseBandit": {
+    banditId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "ExperimentsApi.V2.ListBanditPolicies": {
+    banditId: {
+      type: "string",
+      format: "uuid",
+    },
+    filterFrom: {
+      type: "Date",
+      format: "date-time",
+    },
+    filterTo: {
+      type: "Date",
+      format: "date-time",
+    },
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ExperimentsBanditPolicyHistoryV2DTOArray",
+  },
+  "ExperimentsApi.V2.RefreshBandit": {
+    banditId: {
+      type: "string",
+      format: "uuid",
+    },
+    fullRefresh: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "ExperimentsBanditRefreshV2DTO",
   },
   "ExperimentsApi.V2.GetBanditResults": {
     banditId: {
@@ -11136,6 +11206,31 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "date-time",
     },
     operationResponseType: "ExperimentsBanditResultsV2DTO",
+  },
+  "ExperimentsApi.V2.ResumeBandit": {
+    banditId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "ExperimentsApi.V2.StartBandit": {
+    banditId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "ExperimentsApi.V2.StopBandit": {
+    banditId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "ExperimentsStopBanditV2Request",
+      format: "",
+    },
+    operationResponseType: "{}",
   },
   "ExperimentsApi.V2.GetBanditTrafficSummary": {
     banditId: {
