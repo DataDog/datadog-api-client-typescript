@@ -3,6 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { MonitorFormulaAndFunctionDataQualityDetectionType } from "./MonitorFormulaAndFunctionDataQualityDetectionType";
 import { MonitorFormulaAndFunctionDataQualityModelConfiguration } from "./MonitorFormulaAndFunctionDataQualityModelConfiguration";
 import { MonitorFormulaAndFunctionDataQualityModelTypeOverride } from "./MonitorFormulaAndFunctionDataQualityModelTypeOverride";
+import { MonitorFormulaAndFunctionDataQualityPlatformSettings } from "./MonitorFormulaAndFunctionDataQualityPlatformSettings";
 import { MonitorFormulaAndFunctionDataQualitySourceToTargetConfig } from "./MonitorFormulaAndFunctionDataQualitySourceToTargetConfig";
 
 /**
@@ -43,6 +44,10 @@ export class MonitorFormulaAndFunctionDataQualityMonitorOptions {
    * Override for the model type used in anomaly detection.
    */
   "modelTypeOverride"?: MonitorFormulaAndFunctionDataQualityModelTypeOverride;
+  /**
+   * Platform-specific settings for a data quality monitor.
+   */
+  "platformSettings"?: MonitorFormulaAndFunctionDataQualityPlatformSettings;
   /**
    * Sensitivity of the anomaly detection model, expressed as a multiplier on the width
    * of the predicted bounds. Higher values widen the bounds and produce fewer alerts;
@@ -101,6 +106,10 @@ export class MonitorFormulaAndFunctionDataQualityMonitorOptions {
     modelTypeOverride: {
       baseName: "model_type_override",
       type: "MonitorFormulaAndFunctionDataQualityModelTypeOverride",
+    },
+    platformSettings: {
+      baseName: "platform_settings",
+      type: "MonitorFormulaAndFunctionDataQualityPlatformSettings",
     },
     sensitivity: {
       baseName: "sensitivity",
