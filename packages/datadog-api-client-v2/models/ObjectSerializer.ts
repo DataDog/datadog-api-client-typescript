@@ -6797,6 +6797,13 @@ import { TenancyProductsData } from "./TenancyProductsData";
 import { TenancyProductsDataAttributes } from "./TenancyProductsDataAttributes";
 import { TenancyProductsDataAttributesProductsItems } from "./TenancyProductsDataAttributesProductsItems";
 import { TenancyProductsList } from "./TenancyProductsList";
+import { TerraformCloudAuthPersonaMappingAttributesResponse } from "./TerraformCloudAuthPersonaMappingAttributesResponse";
+import { TerraformCloudAuthPersonaMappingCreateAttributes } from "./TerraformCloudAuthPersonaMappingCreateAttributes";
+import { TerraformCloudAuthPersonaMappingCreateData } from "./TerraformCloudAuthPersonaMappingCreateData";
+import { TerraformCloudAuthPersonaMappingCreateRequest } from "./TerraformCloudAuthPersonaMappingCreateRequest";
+import { TerraformCloudAuthPersonaMappingDataResponse } from "./TerraformCloudAuthPersonaMappingDataResponse";
+import { TerraformCloudAuthPersonaMappingResponse } from "./TerraformCloudAuthPersonaMappingResponse";
+import { TerraformCloudAuthPersonaMappingsResponse } from "./TerraformCloudAuthPersonaMappingsResponse";
 import { TestOptimizationDeleteServiceSettingsRequest } from "./TestOptimizationDeleteServiceSettingsRequest";
 import { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./TestOptimizationDeleteServiceSettingsRequestAttributes";
 import { TestOptimizationDeleteServiceSettingsRequestData } from "./TestOptimizationDeleteServiceSettingsRequestData";
@@ -11365,6 +11372,11 @@ const enumsMap: { [key: string]: any[] } = {
   TemporaryGrantRequestStatus: ["pending", "approved", "denied", "cancelled"],
   TemporaryGrantRequestType: ["temporary_grant_requests"],
   TenancyProductsDataType: ["oci_tenancy_product"],
+  TerraformCloudAuthIssuerURL: [
+    "https://app.terraform.io",
+    "https://app.eu.terraform.io",
+  ],
+  TerraformCloudAuthPersonaMappingType: ["terraform_cloud_auth_config"],
   TestOptimizationDeleteServiceSettingsRequestDataType: [
     "test_optimization_delete_service_settings_request",
   ],
@@ -20179,6 +20191,20 @@ const typeMap: { [index: string]: any } = {
   TenancyProductsDataAttributesProductsItems:
     TenancyProductsDataAttributesProductsItems,
   TenancyProductsList: TenancyProductsList,
+  TerraformCloudAuthPersonaMappingAttributesResponse:
+    TerraformCloudAuthPersonaMappingAttributesResponse,
+  TerraformCloudAuthPersonaMappingCreateAttributes:
+    TerraformCloudAuthPersonaMappingCreateAttributes,
+  TerraformCloudAuthPersonaMappingCreateData:
+    TerraformCloudAuthPersonaMappingCreateData,
+  TerraformCloudAuthPersonaMappingCreateRequest:
+    TerraformCloudAuthPersonaMappingCreateRequest,
+  TerraformCloudAuthPersonaMappingDataResponse:
+    TerraformCloudAuthPersonaMappingDataResponse,
+  TerraformCloudAuthPersonaMappingResponse:
+    TerraformCloudAuthPersonaMappingResponse,
+  TerraformCloudAuthPersonaMappingsResponse:
+    TerraformCloudAuthPersonaMappingsResponse,
   TestOptimizationDeleteServiceSettingsRequest:
     TestOptimizationDeleteServiceSettingsRequest,
   TestOptimizationDeleteServiceSettingsRequestAttributes:
