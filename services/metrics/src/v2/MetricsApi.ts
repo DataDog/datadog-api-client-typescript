@@ -131,16 +131,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "MetricsApi.v2.createHistoricalMetricsConfiguration"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createHistoricalMetricsConfiguration' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.createHistoricalMetricsConfiguration'] = true`",
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createHistoricalMetricsConfiguration");
@@ -449,16 +439,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "MetricsApi.v2.deleteHistoricalMetricsConfiguration"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteHistoricalMetricsConfiguration' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.deleteHistoricalMetricsConfiguration'] = true`",
-      );
-    }
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
@@ -825,16 +805,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "MetricsApi.v2.getHistoricalMetricsConfiguration"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getHistoricalMetricsConfiguration' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.getHistoricalMetricsConfiguration'] = true`",
-      );
-    }
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
@@ -4827,7 +4797,7 @@ export class MetricsApi {
   }
 
   /**
-   * Enable historical metrics ingestion (late data ingestion) for a metric. Idempotent:
+   * Enable historical metrics ingestion for a metric. Idempotent:
    * enabling an already-enabled metric returns 200 instead of 201. Not supported for
    * distribution metrics, metrics with an existing tag configuration, or most standard
    * (non-custom) metrics.
