@@ -12,7 +12,8 @@ export class AggregatedWaterfallResponseAttributes {
    */
   "applicationId": string;
   /**
-   * Performance criteria used to filter view instances by a metric threshold, or null if no criteria were applied.
+   * Performance criteria used to filter view instances by a metric threshold, or null if no
+   * criteria were applied.
    */
   "criteria": AggregatedWaterfallResponseAttributesCriteria | null;
   /**
@@ -62,6 +63,7 @@ export class AggregatedWaterfallResponseAttributes {
       baseName: "application_id",
       type: "string",
       required: true,
+      format: "uuid",
     },
     criteria: {
       baseName: "criteria",
