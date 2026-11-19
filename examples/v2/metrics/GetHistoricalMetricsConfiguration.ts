@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.getHistoricalMetricsConfiguration"] = true;
 const apiInstance = new v2.MetricsApi(configuration);
 
 const params: v2.MetricsApiGetHistoricalMetricsConfigurationRequest = {

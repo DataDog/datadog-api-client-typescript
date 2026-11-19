@@ -109,17 +109,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn(
-      "Using unstable operation 'createHistoricalMetricsConfiguration'"
-    );
-    if (
-      !_config.unstableOperations["v2.createHistoricalMetricsConfiguration"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createHistoricalMetricsConfiguration' is disabled"
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createHistoricalMetricsConfiguration");
@@ -389,17 +378,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn(
-      "Using unstable operation 'deleteHistoricalMetricsConfiguration'"
-    );
-    if (
-      !_config.unstableOperations["v2.deleteHistoricalMetricsConfiguration"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteHistoricalMetricsConfiguration' is disabled"
-      );
-    }
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
@@ -697,13 +675,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getHistoricalMetricsConfiguration'");
-    if (!_config.unstableOperations["v2.getHistoricalMetricsConfiguration"]) {
-      throw new Error(
-        "Unstable operation 'getHistoricalMetricsConfiguration' is disabled"
-      );
-    }
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
@@ -5004,7 +4975,7 @@ export class MetricsApi {
   }
 
   /**
-   * Enable historical metrics ingestion (late data ingestion) for a metric. Idempotent:
+   * Enable historical metrics ingestion for a metric. Idempotent:
    * enabling an already-enabled metric returns 200 instead of 201. Not supported for
    * distribution metrics, metrics with an existing tag configuration, or most standard
    * (non-custom) metrics.
