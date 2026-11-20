@@ -1,5 +1,5 @@
 /**
- * Escalate On-Call Page returns "Accepted." response
+ * Escalate On-Call Page returns "No Content." response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
