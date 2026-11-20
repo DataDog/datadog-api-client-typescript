@@ -23,7 +23,8 @@ export class EventsListRequest {
    */
   "page"?: EventsRequestPage;
   /**
-   * The sort parameters when querying events.
+   * The sort order of events. `-timestamp` returns the newest events first, which is the default, and `timestamp`
+   * the oldest first. The client libraries reject any other value.
    */
   "sort"?: EventsSort;
   /**
