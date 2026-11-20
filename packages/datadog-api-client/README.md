@@ -377,6 +377,7 @@ apiInstance
 | CI Visibility Logs | @datadog/datadog-api-client-ci-visibility-logs | [README.md](../../services/ci-visibility-logs/README.md) |
 | CI Visibility Pipelines | @datadog/datadog-api-client-ci-visibility-pipelines | [README.md](../../services/ci-visibility-pipelines/README.md) |
 | CI Visibility Tests | @datadog/datadog-api-client-ci-visibility-tests | [README.md](../../services/ci-visibility-tests/README.md) |
+| Claude Compliance Integration | @datadog/datadog-api-client-claude-compliance-integration | [README.md](../../services/claude-compliance-integration/README.md) |
 | Cloud Authentication | @datadog/datadog-api-client-cloud-authentication | [README.md](../../services/cloud-authentication/README.md) |
 | Cloud Cost Management | @datadog/datadog-api-client-cloud-cost-management | [README.md](../../services/cloud-cost-management/README.md) |
 | Cloud Network Monitoring | @datadog/datadog-api-client-cloud-network-monitoring | [README.md](../../services/cloud-network-monitoring/README.md) |
