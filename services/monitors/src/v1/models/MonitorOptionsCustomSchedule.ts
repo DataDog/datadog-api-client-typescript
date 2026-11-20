@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { MonitorOptionsCustomScheduleRecurrence } from "./MonitorOptionsCustomScheduleRecurrence";
 
 /**
- * Configuration options for the custom schedule. **This feature is in private beta.**
+ * Configuration options for the custom schedule.
  */
 export class MonitorOptionsCustomSchedule {
   /**

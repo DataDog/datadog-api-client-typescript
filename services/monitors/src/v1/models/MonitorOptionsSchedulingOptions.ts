@@ -8,7 +8,7 @@ import { MonitorOptionsSchedulingOptionsEvaluationWindow } from "./MonitorOption
  */
 export class MonitorOptionsSchedulingOptions {
   /**
-   * Configuration options for the custom schedule. **This feature is in private beta.**
+   * Configuration options for the custom schedule.
    */
   "customSchedule"?: MonitorOptionsCustomSchedule;
   /**
