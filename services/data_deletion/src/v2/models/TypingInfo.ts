@@ -9,7 +9,11 @@ import { CreateDataDeletionResponseBody } from "./CreateDataDeletionResponseBody
 import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
 import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
+import { ForceDataDeletionResponseBody } from "./ForceDataDeletionResponseBody";
 import { GetDataDeletionsResponseBody } from "./GetDataDeletionsResponseBody";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -27,6 +31,10 @@ export const TypingInfo: ModelTypingInfo = {
     DataDeletionResponseItem: DataDeletionResponseItem,
     DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
     DataDeletionResponseMeta: DataDeletionResponseMeta,
+    ForceDataDeletionResponseBody: ForceDataDeletionResponseBody,
     GetDataDeletionsResponseBody: GetDataDeletionsResponseBody,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
   },
 };
