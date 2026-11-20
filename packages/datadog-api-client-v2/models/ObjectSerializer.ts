@@ -1906,6 +1906,8 @@ import { DeploymentGateRuleFailureMonitor } from "./DeploymentGateRuleFailureMon
 import { DeploymentGateRuleFailureNarrative } from "./DeploymentGateRuleFailureNarrative";
 import { DeploymentGateRuleFailures } from "./DeploymentGateRuleFailures";
 import { DeploymentGateRulesResponse } from "./DeploymentGateRulesResponse";
+import { DeploymentGatesBitsDeploymentAnalysisRule } from "./DeploymentGatesBitsDeploymentAnalysisRule";
+import { DeploymentGatesBitsDeploymentAnalysisRuleOptions } from "./DeploymentGatesBitsDeploymentAnalysisRuleOptions";
 import { DeploymentGatesEvaluationConfiguration } from "./DeploymentGatesEvaluationConfiguration";
 import { DeploymentGatesEvaluationRequest } from "./DeploymentGatesEvaluationRequest";
 import { DeploymentGatesEvaluationRequestAttributes } from "./DeploymentGatesEvaluationRequestAttributes";
@@ -8311,7 +8313,12 @@ const enumsMap: { [key: string]: any[] } = {
   DeploymentGateDataType: ["deployment_gate"],
   DeploymentGateEvaluationDataType: ["deployment_gate_evaluation"],
   DeploymentGateRuleEvaluationDataType: ["deployment_gate_rule_evaluation"],
-  DeploymentGateRuleEvaluationType: ["monitor", "faulty_deployment_detection"],
+  DeploymentGateRuleEvaluationType: [
+    "monitor",
+    "faulty_deployment_detection",
+    "bits_deployment_analysis",
+  ],
+  DeploymentGatesBitsDeploymentAnalysisRuleType: ["bits_deployment_analysis"],
   DeploymentGatesEvaluationRequestDataType: [
     "deployment_gates_evaluation_request",
   ],
@@ -8332,6 +8339,7 @@ const enumsMap: { [key: string]: any[] } = {
   DeploymentRuleResponseDataAttributesType: [
     "faulty_deployment_detection",
     "monitor",
+    "bits_deployment_analysis",
   ],
   DerivedMetricsType: ["derived_metrics"],
   DetailedFindingType: ["detailed_finding"],
@@ -14023,6 +14031,10 @@ const typeMap: { [index: string]: any } = {
   DeploymentGateRuleFailureNarrative: DeploymentGateRuleFailureNarrative,
   DeploymentGateRuleFailures: DeploymentGateRuleFailures,
   DeploymentGateRulesResponse: DeploymentGateRulesResponse,
+  DeploymentGatesBitsDeploymentAnalysisRule:
+    DeploymentGatesBitsDeploymentAnalysisRule,
+  DeploymentGatesBitsDeploymentAnalysisRuleOptions:
+    DeploymentGatesBitsDeploymentAnalysisRuleOptions,
   DeploymentGatesEvaluationConfiguration:
     DeploymentGatesEvaluationConfiguration,
   DeploymentGatesEvaluationRequest: DeploymentGatesEvaluationRequest,
@@ -21291,6 +21303,7 @@ const oneOfMap: { [index: string]: string[] } = {
   DeploymentGatesEvaluationRule: [
     "DeploymentGatesMonitorRule",
     "DeploymentGatesFDDRule",
+    "DeploymentGatesBitsDeploymentAnalysisRule",
   ],
   DeploymentRulesOptions: [
     "DeploymentRuleOptionsFaultyDeploymentDetection",
