@@ -2358,6 +2358,31 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "AuthenticationApi.V1.Validate": {
     operationResponseType: "AuthenticationValidationResponse",
   },
+  "DashboardsApi.V1_20270101.CreateDashboard": {
+    body: {
+      type: "Dashboard",
+      format: "",
+    },
+    operationResponseType: "Dashboard",
+  },
+  "DashboardsApi.V1_20270101.GetDashboard": {
+    dashboardId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "Dashboard",
+  },
+  "DashboardsApi.V1_20270101.UpdateDashboard": {
+    dashboardId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "Dashboard",
+      format: "",
+    },
+    operationResponseType: "Dashboard",
+  },
   "FleetAutomationApi.V2.ListFleetAgentTracers": {
     agentKey: {
       type: "string",

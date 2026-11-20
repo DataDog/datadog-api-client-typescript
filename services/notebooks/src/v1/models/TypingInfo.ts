@@ -122,6 +122,7 @@ import { WidgetNumberFormat } from "./WidgetNumberFormat";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetSortBy } from "./WidgetSortBy";
 import { WidgetStyle } from "./WidgetStyle";
+import { WidgetTime20270101OneOf4464105952 } from "./WidgetTime20270101OneOf4464105952";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -388,6 +389,10 @@ export const TypingInfo: ModelTypingInfo = {
       "FormulaAndFunctionUserJourneyQueryDefinition",
       "FormulaAndFunctionRetentionQueryDefinition",
     ],
+    FormulaProductAnalyticsExtendedQuery20270101Indexes: [
+      "Array<any>",
+      "Array<any>",
+    ],
     NotebookCellCreateRequestAttributes: [
       "NotebookMarkdownCellAttributes",
       "NotebookTimeseriesCellAttributes",
@@ -574,5 +579,6 @@ export const TypingInfo: ModelTypingInfo = {
     WidgetRequestStyle: WidgetRequestStyle,
     WidgetSortBy: WidgetSortBy,
     WidgetStyle: WidgetStyle,
+    WidgetTime20270101OneOf4464105952: WidgetTime20270101OneOf4464105952,
   },
 };

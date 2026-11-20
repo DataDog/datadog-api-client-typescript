@@ -68,6 +68,8 @@ import { FunnelQuery } from "./FunnelQuery";
 import { FunnelStep } from "./FunnelStep";
 import { FunnelWidgetDefinition } from "./FunnelWidgetDefinition";
 import { FunnelWidgetRequest } from "./FunnelWidgetRequest";
+import { GeomapView20270101OneOf } from "./GeomapView20270101OneOf";
+import { GeomapView20270101OneOf4457650336 } from "./GeomapView20270101OneOf4457650336";
 import { GeomapWidgetDefinition } from "./GeomapWidgetDefinition";
 import { GeomapWidgetDefinitionStyle } from "./GeomapWidgetDefinitionStyle";
 import { GeomapWidgetDefinitionView } from "./GeomapWidgetDefinitionView";
@@ -279,6 +281,7 @@ import { WidgetNumberFormat } from "./WidgetNumberFormat";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetSortBy } from "./WidgetSortBy";
 import { WidgetStyle } from "./WidgetStyle";
+import { WidgetTime20270101OneOf4464105952 } from "./WidgetTime20270101OneOf4464105952";
 import { WildcardWidgetDefinition } from "./WildcardWidgetDefinition";
 import { WildcardWidgetSpecification } from "./WildcardWidgetSpecification";
 
@@ -311,6 +314,7 @@ export const TypingInfo: ModelTypingInfo = {
       "previous_week",
       "previous_month",
     ],
+    Dashboard20270101SchemaVersion: ["2027-01-01"],
     DashboardExperienceType: ["default", "product_analytics"],
     DashboardFixedTimeframeType: ["fixed"],
     DashboardGlobalTimeLiveSpan: [
@@ -813,7 +817,12 @@ export const TypingInfo: ModelTypingInfo = {
     WildcardWidgetSpecificationType: ["vega", "vega-lite"],
   },
   oneOfMap: {
+    ApmRecommendationsStreamQuery20270101GroupBy: ["Array<any>", "Array<any>"],
+    AppBuilderInputValue20270101Value: ["string", "number", "boolean"],
+    BackendDistributionYAxis20270101Max: ["string", "number"],
+    BackendDistributionYAxis20270101Min: ["string", "number"],
     BarChartWidgetDisplay: ["BarChartWidgetStacked", "BarChartWidgetFlat"],
+    CohortDefinition20270101Requests: ["Array<any>", "Array<any>"],
     DashboardDefaultTimeframeSetting: [
       "DashboardLiveTimeframe",
       "DashboardFixedTimeframe",
@@ -841,6 +850,10 @@ export const TypingInfo: ModelTypingInfo = {
       "FormulaAndFunctionProductAnalyticsExtendedQueryDefinition",
       "FormulaAndFunctionUserJourneyQueryDefinition",
       "FormulaAndFunctionRetentionQueryDefinition",
+    ],
+    FormulaProductAnalyticsExtendedQuery20270101Indexes: [
+      "Array<any>",
+      "Array<any>",
     ],
     HeatgridColor: ["string", "[string, string]"],
     HeatgridColorConfig: [
@@ -1033,6 +1046,8 @@ export const TypingInfo: ModelTypingInfo = {
     FunnelStep: FunnelStep,
     FunnelWidgetDefinition: FunnelWidgetDefinition,
     FunnelWidgetRequest: FunnelWidgetRequest,
+    GeomapView20270101OneOf: GeomapView20270101OneOf,
+    GeomapView20270101OneOf4457650336: GeomapView20270101OneOf4457650336,
     GeomapWidgetDefinition: GeomapWidgetDefinition,
     GeomapWidgetDefinitionStyle: GeomapWidgetDefinitionStyle,
     GeomapWidgetDefinitionView: GeomapWidgetDefinitionView,
@@ -1256,6 +1271,7 @@ export const TypingInfo: ModelTypingInfo = {
     WidgetRequestStyle: WidgetRequestStyle,
     WidgetSortBy: WidgetSortBy,
     WidgetStyle: WidgetStyle,
+    WidgetTime20270101OneOf4464105952: WidgetTime20270101OneOf4464105952,
     WildcardWidgetDefinition: WildcardWidgetDefinition,
     WildcardWidgetSpecification: WildcardWidgetSpecification,
   },
