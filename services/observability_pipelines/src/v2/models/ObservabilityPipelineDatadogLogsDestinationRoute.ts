@@ -13,6 +13,10 @@ export class ObservabilityPipelineDatadogLogsDestinationRoute {
    */
   "include"?: string;
   /**
+   * A human-readable name for this route.
+   */
+  "name"?: string;
+  /**
    * Unique identifier for this route within the destination.
    */
   "routeId"?: string;
@@ -41,6 +45,10 @@ export class ObservabilityPipelineDatadogLogsDestinationRoute {
     },
     include: {
       baseName: "include",
+      type: "string",
+    },
+    name: {
+      baseName: "name",
       type: "string",
     },
     routeId: {
