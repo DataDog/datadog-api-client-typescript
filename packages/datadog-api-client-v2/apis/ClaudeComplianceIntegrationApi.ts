@@ -1,0 +1,998 @@
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
+import {
+  Configuration,
+  applySecurityAuthentication,
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
+import { logger } from "../../../logger";
+import { ObjectSerializer } from "../models/ObjectSerializer";
+import { ApiException } from "../../datadog-api-client-common/exception";
+
+import { APIErrorResponse } from "../models/APIErrorResponse";
+import { ClaudeComplianceIntegrationAccountCreateRequest } from "../models/ClaudeComplianceIntegrationAccountCreateRequest";
+import { ClaudeComplianceIntegrationAccountResponse } from "../models/ClaudeComplianceIntegrationAccountResponse";
+import { ClaudeComplianceIntegrationAccountsResponse } from "../models/ClaudeComplianceIntegrationAccountsResponse";
+import { ClaudeComplianceIntegrationAccountUpdateRequest } from "../models/ClaudeComplianceIntegrationAccountUpdateRequest";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+
+export class ClaudeComplianceIntegrationApiRequestFactory extends BaseAPIRequestFactory {
+  public async createClaudeComplianceIntegrationAccount(
+    body: ClaudeComplianceIntegrationAccountCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'createClaudeComplianceIntegrationAccount'"
+    );
+    if (
+      !_config.unstableOperations["v2.createClaudeComplianceIntegrationAccount"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createClaudeComplianceIntegrationAccount' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "createClaudeComplianceIntegrationAccount"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration-interfaces/claude-compliance/accounts";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.ClaudeComplianceIntegrationApi.createClaudeComplianceIntegrationAccount"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "ClaudeComplianceIntegrationAccountCreateRequest",
+        ""
+      ),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteClaudeComplianceIntegrationAccount(
+    accountId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'deleteClaudeComplianceIntegrationAccount'"
+    );
+    if (
+      !_config.unstableOperations["v2.deleteClaudeComplianceIntegrationAccount"]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteClaudeComplianceIntegrationAccount' is disabled"
+      );
+    }
+
+    // verify required parameter 'accountId' is not null or undefined
+    if (accountId === null || accountId === undefined) {
+      throw new RequiredError(
+        "accountId",
+        "deleteClaudeComplianceIntegrationAccount"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration-interfaces/claude-compliance/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.ClaudeComplianceIntegrationApi.deleteClaudeComplianceIntegrationAccount"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getClaudeComplianceIntegrationAccount(
+    accountId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'getClaudeComplianceIntegrationAccount'"
+    );
+    if (
+      !_config.unstableOperations["v2.getClaudeComplianceIntegrationAccount"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getClaudeComplianceIntegrationAccount' is disabled"
+      );
+    }
+
+    // verify required parameter 'accountId' is not null or undefined
+    if (accountId === null || accountId === undefined) {
+      throw new RequiredError(
+        "accountId",
+        "getClaudeComplianceIntegrationAccount"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration-interfaces/claude-compliance/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.ClaudeComplianceIntegrationApi.getClaudeComplianceIntegrationAccount"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listClaudeComplianceIntegrationAccounts(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'listClaudeComplianceIntegrationAccounts'"
+    );
+    if (
+      !_config.unstableOperations["v2.listClaudeComplianceIntegrationAccounts"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listClaudeComplianceIntegrationAccounts' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration-interfaces/claude-compliance/accounts";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.ClaudeComplianceIntegrationApi.listClaudeComplianceIntegrationAccounts"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateClaudeComplianceIntegrationAccount(
+    accountId: string,
+    body: ClaudeComplianceIntegrationAccountUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'updateClaudeComplianceIntegrationAccount'"
+    );
+    if (
+      !_config.unstableOperations["v2.updateClaudeComplianceIntegrationAccount"]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateClaudeComplianceIntegrationAccount' is disabled"
+      );
+    }
+
+    // verify required parameter 'accountId' is not null or undefined
+    if (accountId === null || accountId === undefined) {
+      throw new RequiredError(
+        "accountId",
+        "updateClaudeComplianceIntegrationAccount"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateClaudeComplianceIntegrationAccount"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration-interfaces/claude-compliance/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.ClaudeComplianceIntegrationApi.updateClaudeComplianceIntegrationAccount"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "ClaudeComplianceIntegrationAccountUpdateRequest",
+        ""
+      ),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+}
+
+export class ClaudeComplianceIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createClaudeComplianceIntegrationAccount
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createClaudeComplianceIntegrationAccount(
+    response: ResponseContext
+  ): Promise<ClaudeComplianceIntegrationAccountResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: ClaudeComplianceIntegrationAccountResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ClaudeComplianceIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ClaudeComplianceIntegrationAccountResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 422
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ClaudeComplianceIntegrationAccountResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ClaudeComplianceIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ClaudeComplianceIntegrationAccountResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteClaudeComplianceIntegrationAccount
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteClaudeComplianceIntegrationAccount(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getClaudeComplianceIntegrationAccount
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getClaudeComplianceIntegrationAccount(
+    response: ResponseContext
+  ): Promise<ClaudeComplianceIntegrationAccountResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ClaudeComplianceIntegrationAccountResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ClaudeComplianceIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ClaudeComplianceIntegrationAccountResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ClaudeComplianceIntegrationAccountResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ClaudeComplianceIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ClaudeComplianceIntegrationAccountResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listClaudeComplianceIntegrationAccounts
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listClaudeComplianceIntegrationAccounts(
+    response: ResponseContext
+  ): Promise<ClaudeComplianceIntegrationAccountsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ClaudeComplianceIntegrationAccountsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ClaudeComplianceIntegrationAccountsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ClaudeComplianceIntegrationAccountsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ClaudeComplianceIntegrationAccountsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ClaudeComplianceIntegrationAccountsResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ClaudeComplianceIntegrationAccountsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateClaudeComplianceIntegrationAccount
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateClaudeComplianceIntegrationAccount(
+    response: ResponseContext
+  ): Promise<ClaudeComplianceIntegrationAccountResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ClaudeComplianceIntegrationAccountResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ClaudeComplianceIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ClaudeComplianceIntegrationAccountResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 422
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ClaudeComplianceIntegrationAccountResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ClaudeComplianceIntegrationAccountResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ClaudeComplianceIntegrationAccountResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+}
+
+export interface ClaudeComplianceIntegrationApiCreateClaudeComplianceIntegrationAccountRequest {
+  /**
+   * @type ClaudeComplianceIntegrationAccountCreateRequest
+   */
+  body: ClaudeComplianceIntegrationAccountCreateRequest;
+}
+
+export interface ClaudeComplianceIntegrationApiDeleteClaudeComplianceIntegrationAccountRequest {
+  /**
+   * Unique identifier of the integration account.
+   * @type string
+   */
+  accountId: string;
+}
+
+export interface ClaudeComplianceIntegrationApiGetClaudeComplianceIntegrationAccountRequest {
+  /**
+   * Unique identifier of the integration account.
+   * @type string
+   */
+  accountId: string;
+}
+
+export interface ClaudeComplianceIntegrationApiUpdateClaudeComplianceIntegrationAccountRequest {
+  /**
+   * Unique identifier of the integration account.
+   * @type string
+   */
+  accountId: string;
+  /**
+   * @type ClaudeComplianceIntegrationAccountUpdateRequest
+   */
+  body: ClaudeComplianceIntegrationAccountUpdateRequest;
+}
+
+export class ClaudeComplianceIntegrationApi {
+  private requestFactory: ClaudeComplianceIntegrationApiRequestFactory;
+  private responseProcessor: ClaudeComplianceIntegrationApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: ClaudeComplianceIntegrationApiRequestFactory,
+    responseProcessor?: ClaudeComplianceIntegrationApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory ||
+      new ClaudeComplianceIntegrationApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor ||
+      new ClaudeComplianceIntegrationApiResponseProcessor(configuration);
+  }
+
+  /**
+   * Create a Claude Compliance integration account.
+   * @param param The request object
+   */
+  public createClaudeComplianceIntegrationAccount(
+    param: ClaudeComplianceIntegrationApiCreateClaudeComplianceIntegrationAccountRequest,
+    options?: Configuration
+  ): Promise<ClaudeComplianceIntegrationAccountResponse> {
+    const requestContextPromise =
+      this.requestFactory.createClaudeComplianceIntegrationAccount(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createClaudeComplianceIntegrationAccount(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a Claude Compliance integration account.
+   * @param param The request object
+   */
+  public deleteClaudeComplianceIntegrationAccount(
+    param: ClaudeComplianceIntegrationApiDeleteClaudeComplianceIntegrationAccountRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteClaudeComplianceIntegrationAccount(
+        param.accountId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteClaudeComplianceIntegrationAccount(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a Claude Compliance integration account.
+   * @param param The request object
+   */
+  public getClaudeComplianceIntegrationAccount(
+    param: ClaudeComplianceIntegrationApiGetClaudeComplianceIntegrationAccountRequest,
+    options?: Configuration
+  ): Promise<ClaudeComplianceIntegrationAccountResponse> {
+    const requestContextPromise =
+      this.requestFactory.getClaudeComplianceIntegrationAccount(
+        param.accountId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getClaudeComplianceIntegrationAccount(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * List Claude Compliance integration accounts.
+   * @param param The request object
+   */
+  public listClaudeComplianceIntegrationAccounts(
+    options?: Configuration
+  ): Promise<ClaudeComplianceIntegrationAccountsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listClaudeComplianceIntegrationAccounts(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listClaudeComplianceIntegrationAccounts(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a Claude Compliance integration account. Only the fields provided are changed.
+   * @param param The request object
+   */
+  public updateClaudeComplianceIntegrationAccount(
+    param: ClaudeComplianceIntegrationApiUpdateClaudeComplianceIntegrationAccountRequest,
+    options?: Configuration
+  ): Promise<ClaudeComplianceIntegrationAccountResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateClaudeComplianceIntegrationAccount(
+        param.accountId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateClaudeComplianceIntegrationAccount(
+            responseContext
+          );
+        });
+    });
+  }
+}

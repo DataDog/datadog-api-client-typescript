@@ -1014,6 +1014,21 @@ import { CircleCIAPIKey } from "./CircleCIAPIKey";
 import { CircleCIAPIKeyUpdate } from "./CircleCIAPIKeyUpdate";
 import { CircleCIIntegration } from "./CircleCIIntegration";
 import { CircleCIIntegrationUpdate } from "./CircleCIIntegrationUpdate";
+import { ClaudeComplianceComplianceLogsIntegrationDataflowResponse } from "./ClaudeComplianceComplianceLogsIntegrationDataflowResponse";
+import { ClaudeComplianceIntegrationAccountBearerTokenAuthRequest } from "./ClaudeComplianceIntegrationAccountBearerTokenAuthRequest";
+import { ClaudeComplianceIntegrationAccountBearerTokenAuthResponse } from "./ClaudeComplianceIntegrationAccountBearerTokenAuthResponse";
+import { ClaudeComplianceIntegrationAccountBearerTokenAuthUpdate } from "./ClaudeComplianceIntegrationAccountBearerTokenAuthUpdate";
+import { ClaudeComplianceIntegrationAccountCreateAttributes } from "./ClaudeComplianceIntegrationAccountCreateAttributes";
+import { ClaudeComplianceIntegrationAccountCreateData } from "./ClaudeComplianceIntegrationAccountCreateData";
+import { ClaudeComplianceIntegrationAccountCreateRequest } from "./ClaudeComplianceIntegrationAccountCreateRequest";
+import { ClaudeComplianceIntegrationAccountResponse } from "./ClaudeComplianceIntegrationAccountResponse";
+import { ClaudeComplianceIntegrationAccountResponseAttributes } from "./ClaudeComplianceIntegrationAccountResponseAttributes";
+import { ClaudeComplianceIntegrationAccountResponseData } from "./ClaudeComplianceIntegrationAccountResponseData";
+import { ClaudeComplianceIntegrationAccountUpdateAttributes } from "./ClaudeComplianceIntegrationAccountUpdateAttributes";
+import { ClaudeComplianceIntegrationAccountUpdateData } from "./ClaudeComplianceIntegrationAccountUpdateData";
+import { ClaudeComplianceIntegrationAccountUpdateRequest } from "./ClaudeComplianceIntegrationAccountUpdateRequest";
+import { ClaudeComplianceIntegrationAccountsResponse } from "./ClaudeComplianceIntegrationAccountsResponse";
+import { ClaudeComplianceIntegrationDataflowsResponse } from "./ClaudeComplianceIntegrationDataflowsResponse";
 import { ClickupAPIKey } from "./ClickupAPIKey";
 import { ClickupAPIKeyUpdate } from "./ClickupAPIKeyUpdate";
 import { ClickupIntegration } from "./ClickupIntegration";
@@ -7992,6 +8007,7 @@ const enumsMap: { [key: string]: any[] } = {
   ChatGPTEnterpriseIntegrationAccountBearerTokenAuthType: ["bearer_token"],
   CircleCIAPIKeyType: ["CircleCIAPIKey"],
   CircleCIIntegrationType: ["CircleCI"],
+  ClaudeComplianceIntegrationAccountBearerTokenAuthType: ["bearer_token"],
   ClickupAPIKeyType: ["ClickupAPIKey"],
   ClickupIntegrationType: ["Clickup"],
   CloudAssetType: ["Host", "HostImage", "Image"],
@@ -12807,6 +12823,36 @@ const typeMap: { [index: string]: any } = {
   CircleCIAPIKeyUpdate: CircleCIAPIKeyUpdate,
   CircleCIIntegration: CircleCIIntegration,
   CircleCIIntegrationUpdate: CircleCIIntegrationUpdate,
+  ClaudeComplianceComplianceLogsIntegrationDataflowResponse:
+    ClaudeComplianceComplianceLogsIntegrationDataflowResponse,
+  ClaudeComplianceIntegrationAccountBearerTokenAuthRequest:
+    ClaudeComplianceIntegrationAccountBearerTokenAuthRequest,
+  ClaudeComplianceIntegrationAccountBearerTokenAuthResponse:
+    ClaudeComplianceIntegrationAccountBearerTokenAuthResponse,
+  ClaudeComplianceIntegrationAccountBearerTokenAuthUpdate:
+    ClaudeComplianceIntegrationAccountBearerTokenAuthUpdate,
+  ClaudeComplianceIntegrationAccountCreateAttributes:
+    ClaudeComplianceIntegrationAccountCreateAttributes,
+  ClaudeComplianceIntegrationAccountCreateData:
+    ClaudeComplianceIntegrationAccountCreateData,
+  ClaudeComplianceIntegrationAccountCreateRequest:
+    ClaudeComplianceIntegrationAccountCreateRequest,
+  ClaudeComplianceIntegrationAccountResponse:
+    ClaudeComplianceIntegrationAccountResponse,
+  ClaudeComplianceIntegrationAccountResponseAttributes:
+    ClaudeComplianceIntegrationAccountResponseAttributes,
+  ClaudeComplianceIntegrationAccountResponseData:
+    ClaudeComplianceIntegrationAccountResponseData,
+  ClaudeComplianceIntegrationAccountUpdateAttributes:
+    ClaudeComplianceIntegrationAccountUpdateAttributes,
+  ClaudeComplianceIntegrationAccountUpdateData:
+    ClaudeComplianceIntegrationAccountUpdateData,
+  ClaudeComplianceIntegrationAccountUpdateRequest:
+    ClaudeComplianceIntegrationAccountUpdateRequest,
+  ClaudeComplianceIntegrationAccountsResponse:
+    ClaudeComplianceIntegrationAccountsResponse,
+  ClaudeComplianceIntegrationDataflowsResponse:
+    ClaudeComplianceIntegrationDataflowsResponse,
   ClickupAPIKey: ClickupAPIKey,
   ClickupAPIKeyUpdate: ClickupAPIKeyUpdate,
   ClickupIntegration: ClickupIntegration,
@@ -20959,6 +21005,15 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   CircleCICredentials: ["CircleCIAPIKey"],
   CircleCICredentialsUpdate: ["CircleCIAPIKeyUpdate"],
+  ClaudeComplianceIntegrationAccountAuthenticationRequest: [
+    "ClaudeComplianceIntegrationAccountBearerTokenAuthRequest",
+  ],
+  ClaudeComplianceIntegrationAccountAuthenticationResponse: [
+    "ClaudeComplianceIntegrationAccountBearerTokenAuthResponse",
+  ],
+  ClaudeComplianceIntegrationAccountAuthenticationUpdate: [
+    "ClaudeComplianceIntegrationAccountBearerTokenAuthUpdate",
+  ],
   ClickupAPIKeyApiToken: [
     "string",
     "ActionConnectionAWSSecretsManagerReference",
