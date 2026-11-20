@@ -23,7 +23,7 @@ const params: v2.RUMRecoveryApiGetRUMRecoverySessionCountRequest = {
 
 apiInstance
   .getRUMRecoverySessionCount(params)
-  .then((data: v2.RumRecoveryCountResponse) => {
+  .then((data: v2.RUMRecoveryCountResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

@@ -11,9 +11,9 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.RumReplayHeatmapsApi(configuration);
+const apiInstance = new v2.RUMReplayHeatmapsApi(configuration);
 
-const params: v2.RumReplayHeatmapsApiDeleteReplayHeatmapSnapshotRequest = {
+const params: v2.RUMReplayHeatmapsApiDeleteReplayHeatmapSnapshotRequest = {
   snapshotId: "00000000-0000-0000-0000-000000000001",
 };
 

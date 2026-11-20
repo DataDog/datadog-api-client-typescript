@@ -18,22 +18,22 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
-import { RumArchiveSessionsResponse } from "../models/RumArchiveSessionsResponse";
-import { RumArchiveSessionsSearchRequest } from "../models/RumArchiveSessionsSearchRequest";
-import { RumManagedArchiveErrorResponse } from "../models/RumManagedArchiveErrorResponse";
-import { RumRecoveryBatchListResponse } from "../models/RumRecoveryBatchListResponse";
-import { RumRecoveryBatchRequestType } from "../models/RumRecoveryBatchRequestType";
-import { RumRecoveryCancelRequest } from "../models/RumRecoveryCancelRequest";
-import { RumRecoveryCancelResponse } from "../models/RumRecoveryCancelResponse";
-import { RumRecoveryCountRequest } from "../models/RumRecoveryCountRequest";
-import { RumRecoveryCountResponse } from "../models/RumRecoveryCountResponse";
-import { RumRecoveryCreateRequest } from "../models/RumRecoveryCreateRequest";
-import { RumRecoveryCreateResponse } from "../models/RumRecoveryCreateResponse";
-import { RumRecoveryRequestResponse } from "../models/RumRecoveryRequestResponse";
+import { RUMArchiveSessionsResponse } from "../models/RUMArchiveSessionsResponse";
+import { RUMArchiveSessionsSearchRequest } from "../models/RUMArchiveSessionsSearchRequest";
+import { RUMManagedArchiveErrorResponse } from "../models/RUMManagedArchiveErrorResponse";
+import { RUMRecoveryBatchListResponse } from "../models/RUMRecoveryBatchListResponse";
+import { RUMRecoveryBatchRequestType } from "../models/RUMRecoveryBatchRequestType";
+import { RUMRecoveryCancelRequest } from "../models/RUMRecoveryCancelRequest";
+import { RUMRecoveryCancelResponse } from "../models/RUMRecoveryCancelResponse";
+import { RUMRecoveryCountRequest } from "../models/RUMRecoveryCountRequest";
+import { RUMRecoveryCountResponse } from "../models/RUMRecoveryCountResponse";
+import { RUMRecoveryCreateRequest } from "../models/RUMRecoveryCreateRequest";
+import { RUMRecoveryCreateResponse } from "../models/RUMRecoveryCreateResponse";
+import { RUMRecoveryRequestResponse } from "../models/RUMRecoveryRequestResponse";
 
 export class RUMRecoveryApiRequestFactory extends BaseAPIRequestFactory {
   public async createRUMRecoveryRequest(
-    body: RumRecoveryCreateRequest,
+    body: RUMRecoveryCreateRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -64,7 +64,7 @@ export class RUMRecoveryApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RumRecoveryCreateRequest", ""),
+      ObjectSerializer.serialize(body, "RUMRecoveryCreateRequest", ""),
       contentType,
       this.configuration.preserveLargeIntegers
     );
@@ -118,7 +118,7 @@ export class RUMRecoveryApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async getRUMRecoverySessionCount(
-    body: RumRecoveryCountRequest,
+    body: RUMRecoveryCountRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -149,7 +149,7 @@ export class RUMRecoveryApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RumRecoveryCountRequest", ""),
+      ObjectSerializer.serialize(body, "RUMRecoveryCountRequest", ""),
       contentType,
       this.configuration.preserveLargeIntegers
     );
@@ -165,7 +165,7 @@ export class RUMRecoveryApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listRUMRecoveryBatchRequests(
-    type: RumRecoveryBatchRequestType,
+    type: RUMRecoveryBatchRequestType,
     limit?: number,
     cursor?: string,
     from?: Int64Input,
@@ -199,7 +199,7 @@ export class RUMRecoveryApiRequestFactory extends BaseAPIRequestFactory {
     if (type !== undefined) {
       requestContext.setQueryParam(
         "type",
-        ObjectSerializer.serialize(type, "RumRecoveryBatchRequestType", ""),
+        ObjectSerializer.serialize(type, "RUMRecoveryBatchRequestType", ""),
         ""
       );
     }
@@ -249,7 +249,7 @@ export class RUMRecoveryApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async searchRUMArchiveSessions(
-    body: RumArchiveSessionsSearchRequest,
+    body: RUMArchiveSessionsSearchRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -280,7 +280,7 @@ export class RUMRecoveryApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RumArchiveSessionsSearchRequest", ""),
+      ObjectSerializer.serialize(body, "RUMArchiveSessionsSearchRequest", ""),
       contentType,
       this.configuration.preserveLargeIntegers
     );
@@ -297,7 +297,7 @@ export class RUMRecoveryApiRequestFactory extends BaseAPIRequestFactory {
 
   public async updateRUMRecoveryBatchRequest(
     requestId: string,
-    body: RumRecoveryCancelRequest,
+    body: RUMRecoveryCancelRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -336,7 +336,7 @@ export class RUMRecoveryApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RumRecoveryCancelRequest", ""),
+      ObjectSerializer.serialize(body, "RUMRecoveryCancelRequest", ""),
       contentType,
       this.configuration.preserveLargeIntegers
     );
@@ -368,21 +368,21 @@ export class RUMRecoveryApiResponseProcessor {
    */
   public async createRUMRecoveryRequest(
     response: ResponseContext
-  ): Promise<RumRecoveryCreateResponse> {
+  ): Promise<RUMRecoveryCreateResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 202) {
-      const body: RumRecoveryCreateResponse = ObjectSerializer.deserialize(
+      const body: RUMRecoveryCreateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(
           await response.body.text(),
           contentType,
           this.configuration?.preserveLargeIntegers
         ),
-        "RumRecoveryCreateResponse",
+        "RUMRecoveryCreateResponse",
         "",
         this.configuration?.preserveLargeIntegers
-      ) as RumRecoveryCreateResponse;
+      ) as RUMRecoveryCreateResponse;
       return body;
     }
     if (
@@ -425,22 +425,22 @@ export class RUMRecoveryApiResponseProcessor {
         contentType,
         this.configuration?.preserveLargeIntegers
       );
-      let body: RumManagedArchiveErrorResponse;
+      let body: RUMManagedArchiveErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "RumManagedArchiveErrorResponse",
+          "RUMManagedArchiveErrorResponse",
           "",
           this.configuration?.preserveLargeIntegers
-        ) as RumManagedArchiveErrorResponse;
+        ) as RUMManagedArchiveErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<RumManagedArchiveErrorResponse>(
+        throw new ApiException<RUMManagedArchiveErrorResponse>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<RumManagedArchiveErrorResponse>(
+      throw new ApiException<RUMManagedArchiveErrorResponse>(
         response.httpStatusCode,
         body
       );
@@ -448,16 +448,16 @@ export class RUMRecoveryApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumRecoveryCreateResponse = ObjectSerializer.deserialize(
+      const body: RUMRecoveryCreateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(
           await response.body.text(),
           contentType,
           this.configuration?.preserveLargeIntegers
         ),
-        "RumRecoveryCreateResponse",
+        "RUMRecoveryCreateResponse",
         "",
         this.configuration?.preserveLargeIntegers
-      ) as RumRecoveryCreateResponse;
+      ) as RUMRecoveryCreateResponse;
       return body;
     }
 
@@ -477,21 +477,21 @@ export class RUMRecoveryApiResponseProcessor {
    */
   public async getRUMRecoveryRequest(
     response: ResponseContext
-  ): Promise<RumRecoveryRequestResponse> {
+  ): Promise<RUMRecoveryRequestResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: RumRecoveryRequestResponse = ObjectSerializer.deserialize(
+      const body: RUMRecoveryRequestResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(
           await response.body.text(),
           contentType,
           this.configuration?.preserveLargeIntegers
         ),
-        "RumRecoveryRequestResponse",
+        "RUMRecoveryRequestResponse",
         "",
         this.configuration?.preserveLargeIntegers
-      ) as RumRecoveryRequestResponse;
+      ) as RUMRecoveryRequestResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
@@ -530,22 +530,22 @@ export class RUMRecoveryApiResponseProcessor {
         contentType,
         this.configuration?.preserveLargeIntegers
       );
-      let body: RumManagedArchiveErrorResponse;
+      let body: RUMManagedArchiveErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "RumManagedArchiveErrorResponse",
+          "RUMManagedArchiveErrorResponse",
           "",
           this.configuration?.preserveLargeIntegers
-        ) as RumManagedArchiveErrorResponse;
+        ) as RUMManagedArchiveErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<RumManagedArchiveErrorResponse>(
+        throw new ApiException<RUMManagedArchiveErrorResponse>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<RumManagedArchiveErrorResponse>(
+      throw new ApiException<RUMManagedArchiveErrorResponse>(
         response.httpStatusCode,
         body
       );
@@ -553,16 +553,16 @@ export class RUMRecoveryApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumRecoveryRequestResponse = ObjectSerializer.deserialize(
+      const body: RUMRecoveryRequestResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(
           await response.body.text(),
           contentType,
           this.configuration?.preserveLargeIntegers
         ),
-        "RumRecoveryRequestResponse",
+        "RUMRecoveryRequestResponse",
         "",
         this.configuration?.preserveLargeIntegers
-      ) as RumRecoveryRequestResponse;
+      ) as RUMRecoveryRequestResponse;
       return body;
     }
 
@@ -582,21 +582,21 @@ export class RUMRecoveryApiResponseProcessor {
    */
   public async getRUMRecoverySessionCount(
     response: ResponseContext
-  ): Promise<RumRecoveryCountResponse> {
+  ): Promise<RUMRecoveryCountResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: RumRecoveryCountResponse = ObjectSerializer.deserialize(
+      const body: RUMRecoveryCountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(
           await response.body.text(),
           contentType,
           this.configuration?.preserveLargeIntegers
         ),
-        "RumRecoveryCountResponse",
+        "RUMRecoveryCountResponse",
         "",
         this.configuration?.preserveLargeIntegers
-      ) as RumRecoveryCountResponse;
+      ) as RUMRecoveryCountResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
@@ -635,22 +635,22 @@ export class RUMRecoveryApiResponseProcessor {
         contentType,
         this.configuration?.preserveLargeIntegers
       );
-      let body: RumManagedArchiveErrorResponse;
+      let body: RUMManagedArchiveErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "RumManagedArchiveErrorResponse",
+          "RUMManagedArchiveErrorResponse",
           "",
           this.configuration?.preserveLargeIntegers
-        ) as RumManagedArchiveErrorResponse;
+        ) as RUMManagedArchiveErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<RumManagedArchiveErrorResponse>(
+        throw new ApiException<RUMManagedArchiveErrorResponse>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<RumManagedArchiveErrorResponse>(
+      throw new ApiException<RUMManagedArchiveErrorResponse>(
         response.httpStatusCode,
         body
       );
@@ -658,16 +658,16 @@ export class RUMRecoveryApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumRecoveryCountResponse = ObjectSerializer.deserialize(
+      const body: RUMRecoveryCountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(
           await response.body.text(),
           contentType,
           this.configuration?.preserveLargeIntegers
         ),
-        "RumRecoveryCountResponse",
+        "RUMRecoveryCountResponse",
         "",
         this.configuration?.preserveLargeIntegers
-      ) as RumRecoveryCountResponse;
+      ) as RUMRecoveryCountResponse;
       return body;
     }
 
@@ -687,21 +687,21 @@ export class RUMRecoveryApiResponseProcessor {
    */
   public async listRUMRecoveryBatchRequests(
     response: ResponseContext
-  ): Promise<RumRecoveryBatchListResponse> {
+  ): Promise<RUMRecoveryBatchListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: RumRecoveryBatchListResponse = ObjectSerializer.deserialize(
+      const body: RUMRecoveryBatchListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(
           await response.body.text(),
           contentType,
           this.configuration?.preserveLargeIntegers
         ),
-        "RumRecoveryBatchListResponse",
+        "RUMRecoveryBatchListResponse",
         "",
         this.configuration?.preserveLargeIntegers
-      ) as RumRecoveryBatchListResponse;
+      ) as RUMRecoveryBatchListResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
@@ -740,22 +740,22 @@ export class RUMRecoveryApiResponseProcessor {
         contentType,
         this.configuration?.preserveLargeIntegers
       );
-      let body: RumManagedArchiveErrorResponse;
+      let body: RUMManagedArchiveErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "RumManagedArchiveErrorResponse",
+          "RUMManagedArchiveErrorResponse",
           "",
           this.configuration?.preserveLargeIntegers
-        ) as RumManagedArchiveErrorResponse;
+        ) as RUMManagedArchiveErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<RumManagedArchiveErrorResponse>(
+        throw new ApiException<RUMManagedArchiveErrorResponse>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<RumManagedArchiveErrorResponse>(
+      throw new ApiException<RUMManagedArchiveErrorResponse>(
         response.httpStatusCode,
         body
       );
@@ -763,16 +763,16 @@ export class RUMRecoveryApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumRecoveryBatchListResponse = ObjectSerializer.deserialize(
+      const body: RUMRecoveryBatchListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(
           await response.body.text(),
           contentType,
           this.configuration?.preserveLargeIntegers
         ),
-        "RumRecoveryBatchListResponse",
+        "RUMRecoveryBatchListResponse",
         "",
         this.configuration?.preserveLargeIntegers
-      ) as RumRecoveryBatchListResponse;
+      ) as RUMRecoveryBatchListResponse;
       return body;
     }
 
@@ -792,21 +792,21 @@ export class RUMRecoveryApiResponseProcessor {
    */
   public async searchRUMArchiveSessions(
     response: ResponseContext
-  ): Promise<RumArchiveSessionsResponse> {
+  ): Promise<RUMArchiveSessionsResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: RumArchiveSessionsResponse = ObjectSerializer.deserialize(
+      const body: RUMArchiveSessionsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(
           await response.body.text(),
           contentType,
           this.configuration?.preserveLargeIntegers
         ),
-        "RumArchiveSessionsResponse",
+        "RUMArchiveSessionsResponse",
         "",
         this.configuration?.preserveLargeIntegers
-      ) as RumArchiveSessionsResponse;
+      ) as RUMArchiveSessionsResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
@@ -845,22 +845,22 @@ export class RUMRecoveryApiResponseProcessor {
         contentType,
         this.configuration?.preserveLargeIntegers
       );
-      let body: RumManagedArchiveErrorResponse;
+      let body: RUMManagedArchiveErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "RumManagedArchiveErrorResponse",
+          "RUMManagedArchiveErrorResponse",
           "",
           this.configuration?.preserveLargeIntegers
-        ) as RumManagedArchiveErrorResponse;
+        ) as RUMManagedArchiveErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<RumManagedArchiveErrorResponse>(
+        throw new ApiException<RUMManagedArchiveErrorResponse>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<RumManagedArchiveErrorResponse>(
+      throw new ApiException<RUMManagedArchiveErrorResponse>(
         response.httpStatusCode,
         body
       );
@@ -868,16 +868,16 @@ export class RUMRecoveryApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumArchiveSessionsResponse = ObjectSerializer.deserialize(
+      const body: RUMArchiveSessionsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(
           await response.body.text(),
           contentType,
           this.configuration?.preserveLargeIntegers
         ),
-        "RumArchiveSessionsResponse",
+        "RUMArchiveSessionsResponse",
         "",
         this.configuration?.preserveLargeIntegers
-      ) as RumArchiveSessionsResponse;
+      ) as RUMArchiveSessionsResponse;
       return body;
     }
 
@@ -897,21 +897,21 @@ export class RUMRecoveryApiResponseProcessor {
    */
   public async updateRUMRecoveryBatchRequest(
     response: ResponseContext
-  ): Promise<RumRecoveryCancelResponse> {
+  ): Promise<RUMRecoveryCancelResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: RumRecoveryCancelResponse = ObjectSerializer.deserialize(
+      const body: RUMRecoveryCancelResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(
           await response.body.text(),
           contentType,
           this.configuration?.preserveLargeIntegers
         ),
-        "RumRecoveryCancelResponse",
+        "RUMRecoveryCancelResponse",
         "",
         this.configuration?.preserveLargeIntegers
-      ) as RumRecoveryCancelResponse;
+      ) as RUMRecoveryCancelResponse;
       return body;
     }
     if (
@@ -954,22 +954,22 @@ export class RUMRecoveryApiResponseProcessor {
         contentType,
         this.configuration?.preserveLargeIntegers
       );
-      let body: RumManagedArchiveErrorResponse;
+      let body: RUMManagedArchiveErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "RumManagedArchiveErrorResponse",
+          "RUMManagedArchiveErrorResponse",
           "",
           this.configuration?.preserveLargeIntegers
-        ) as RumManagedArchiveErrorResponse;
+        ) as RUMManagedArchiveErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<RumManagedArchiveErrorResponse>(
+        throw new ApiException<RUMManagedArchiveErrorResponse>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<RumManagedArchiveErrorResponse>(
+      throw new ApiException<RUMManagedArchiveErrorResponse>(
         response.httpStatusCode,
         body
       );
@@ -977,16 +977,16 @@ export class RUMRecoveryApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumRecoveryCancelResponse = ObjectSerializer.deserialize(
+      const body: RUMRecoveryCancelResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(
           await response.body.text(),
           contentType,
           this.configuration?.preserveLargeIntegers
         ),
-        "RumRecoveryCancelResponse",
+        "RUMRecoveryCancelResponse",
         "",
         this.configuration?.preserveLargeIntegers
-      ) as RumRecoveryCancelResponse;
+      ) as RUMRecoveryCancelResponse;
       return body;
     }
 
@@ -1001,9 +1001,9 @@ export class RUMRecoveryApiResponseProcessor {
 export interface RUMRecoveryApiCreateRUMRecoveryRequestRequest {
   /**
    * JSON:API request body.
-   * @type RumRecoveryCreateRequest
+   * @type RUMRecoveryCreateRequest
    */
-  body: RumRecoveryCreateRequest;
+  body: RUMRecoveryCreateRequest;
 }
 
 export interface RUMRecoveryApiGetRUMRecoveryRequestRequest {
@@ -1017,17 +1017,17 @@ export interface RUMRecoveryApiGetRUMRecoveryRequestRequest {
 export interface RUMRecoveryApiGetRUMRecoverySessionCountRequest {
   /**
    * JSON:API request body.
-   * @type RumRecoveryCountRequest
+   * @type RUMRecoveryCountRequest
    */
-  body: RumRecoveryCountRequest;
+  body: RUMRecoveryCountRequest;
 }
 
 export interface RUMRecoveryApiListRUMRecoveryBatchRequestsRequest {
   /**
    * Must equal batch.
-   * @type RumRecoveryBatchRequestType
+   * @type RUMRecoveryBatchRequestType
    */
-  type: RumRecoveryBatchRequestType;
+  type: RUMRecoveryBatchRequestType;
   /**
    * Number of results returned per page, at most 100 (default 50). Omitted, zero, or negative values use 50. Invalid integers return 400.
    * @type number
@@ -1058,9 +1058,9 @@ export interface RUMRecoveryApiListRUMRecoveryBatchRequestsRequest {
 export interface RUMRecoveryApiSearchRUMArchiveSessionsRequest {
   /**
    * JSON:API request body.
-   * @type RumArchiveSessionsSearchRequest
+   * @type RUMArchiveSessionsSearchRequest
    */
-  body: RumArchiveSessionsSearchRequest;
+  body: RUMArchiveSessionsSearchRequest;
 }
 
 export interface RUMRecoveryApiUpdateRUMRecoveryBatchRequestRequest {
@@ -1071,9 +1071,9 @@ export interface RUMRecoveryApiUpdateRUMRecoveryBatchRequestRequest {
   requestId: string;
   /**
    * JSON:API request body.
-   * @type RumRecoveryCancelRequest
+   * @type RUMRecoveryCancelRequest
    */
-  body: RumRecoveryCancelRequest;
+  body: RUMRecoveryCancelRequest;
 }
 
 export class RUMRecoveryApi {
@@ -1102,7 +1102,7 @@ export class RUMRecoveryApi {
   public createRUMRecoveryRequest(
     param: RUMRecoveryApiCreateRUMRecoveryRequestRequest,
     options?: Configuration
-  ): Promise<RumRecoveryCreateResponse> {
+  ): Promise<RUMRecoveryCreateResponse> {
     const requestContextPromise = this.requestFactory.createRUMRecoveryRequest(
       param.body,
       options
@@ -1125,7 +1125,7 @@ export class RUMRecoveryApi {
   public getRUMRecoveryRequest(
     param: RUMRecoveryApiGetRUMRecoveryRequestRequest,
     options?: Configuration
-  ): Promise<RumRecoveryRequestResponse> {
+  ): Promise<RUMRecoveryRequestResponse> {
     const requestContextPromise = this.requestFactory.getRUMRecoveryRequest(
       param.requestId,
       options
@@ -1146,7 +1146,7 @@ export class RUMRecoveryApi {
   public getRUMRecoverySessionCount(
     param: RUMRecoveryApiGetRUMRecoverySessionCountRequest,
     options?: Configuration
-  ): Promise<RumRecoveryCountResponse> {
+  ): Promise<RUMRecoveryCountResponse> {
     const requestContextPromise =
       this.requestFactory.getRUMRecoverySessionCount(param.body, options);
     return requestContextPromise.then((requestContext) => {
@@ -1168,7 +1168,7 @@ export class RUMRecoveryApi {
   public listRUMRecoveryBatchRequests(
     param: RUMRecoveryApiListRUMRecoveryBatchRequestsRequest,
     options?: Configuration
-  ): Promise<RumRecoveryBatchListResponse> {
+  ): Promise<RUMRecoveryBatchListResponse> {
     const requestContextPromise =
       this.requestFactory.listRUMRecoveryBatchRequests(
         param.type,
@@ -1197,7 +1197,7 @@ export class RUMRecoveryApi {
   public searchRUMArchiveSessions(
     param: RUMRecoveryApiSearchRUMArchiveSessionsRequest,
     options?: Configuration
-  ): Promise<RumArchiveSessionsResponse> {
+  ): Promise<RUMArchiveSessionsResponse> {
     const requestContextPromise = this.requestFactory.searchRUMArchiveSessions(
       param.body,
       options
@@ -1220,7 +1220,7 @@ export class RUMRecoveryApi {
   public updateRUMRecoveryBatchRequest(
     param: RUMRecoveryApiUpdateRUMRecoveryBatchRequestRequest,
     options?: Configuration
-  ): Promise<RumRecoveryCancelResponse> {
+  ): Promise<RUMRecoveryCancelResponse> {
     const requestContextPromise =
       this.requestFactory.updateRUMRecoveryBatchRequest(
         param.requestId,

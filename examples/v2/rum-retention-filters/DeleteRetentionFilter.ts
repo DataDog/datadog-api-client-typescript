@@ -11,9 +11,9 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.RumRetentionFiltersApi(configuration);
+const apiInstance = new v2.RUMRetentionFiltersApi(configuration);
 
-const params: v2.RumRetentionFiltersApiDeleteRetentionFilterRequest = {
+const params: v2.RUMRetentionFiltersApiDeleteRetentionFilterRequest = {
   appId: "a33671aa-24fd-4dcd-ba4b-5bbdbafe7690",
   rfId: "fe34ee09-14cf-4976-9362-08044c0dea80",
 };

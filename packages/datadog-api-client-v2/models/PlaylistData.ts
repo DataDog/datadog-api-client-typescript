@@ -21,7 +21,7 @@ export class PlaylistData {
    */
   "id"?: string;
   /**
-   * Rum replay playlist resource type.
+   * RUM replay playlist resource type.
    */
   "type": PlaylistDataType;
 

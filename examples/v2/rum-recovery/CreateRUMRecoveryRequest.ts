@@ -26,7 +26,7 @@ const params: v2.RUMRecoveryApiCreateRUMRecoveryRequestRequest = {
 
 apiInstance
   .createRUMRecoveryRequest(params)
-  .then((data: v2.RumRecoveryCreateResponse) => {
+  .then((data: v2.RUMRecoveryCreateResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

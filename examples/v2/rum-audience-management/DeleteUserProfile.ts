@@ -12,9 +12,9 @@ const configuration = client.createConfiguration({
   },
 });
 configuration.unstableOperations["v2.deleteUserProfile"] = true;
-const apiInstance = new v2.RumAudienceManagementApi(configuration);
+const apiInstance = new v2.RUMAudienceManagementApi(configuration);
 
-const params: v2.RumAudienceManagementApiDeleteUserProfileRequest = {
+const params: v2.RUMAudienceManagementApiDeleteUserProfileRequest = {
   userId: "user-1234",
 };
 

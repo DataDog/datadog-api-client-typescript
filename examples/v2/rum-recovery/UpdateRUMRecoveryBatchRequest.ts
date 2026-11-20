@@ -22,7 +22,7 @@ const params: v2.RUMRecoveryApiUpdateRUMRecoveryBatchRequestRequest = {
 
 apiInstance
   .updateRUMRecoveryBatchRequest(params)
-  .then((data: v2.RumRecoveryCancelResponse) => {
+  .then((data: v2.RUMRecoveryCancelResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
