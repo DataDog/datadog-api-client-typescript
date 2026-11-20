@@ -1903,6 +1903,7 @@ export {
   SecurityMonitoringApiReorderSecurityFindingsAutomationTicketCreationRulesRequest,
   SecurityMonitoringApiRestoreSecurityMonitoringRuleRequest,
   SecurityMonitoringApiRunHistoricalJobRequest,
+  SecurityMonitoringApiSearchRemediationGroupsRequest,
   SecurityMonitoringApiSearchSecurityFindingsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
@@ -9111,6 +9112,20 @@ export { RelationshipToUserTeamUserData } from "./models/RelationshipToUserTeamU
 export { RelationToEntity } from "./models/RelationToEntity";
 export { RelationType } from "./models/RelationType";
 export { Remediation } from "./models/Remediation";
+export { RemediationGroupAttributes } from "./models/RemediationGroupAttributes";
+export { RemediationGroupCaseRelationship } from "./models/RemediationGroupCaseRelationship";
+export { RemediationGroupCaseRelationshipData } from "./models/RemediationGroupCaseRelationshipData";
+export { RemediationGroupData } from "./models/RemediationGroupData";
+export { RemediationGroupFindings } from "./models/RemediationGroupFindings";
+export { RemediationGroupFindingsBySeverity } from "./models/RemediationGroupFindingsBySeverity";
+export { RemediationGroupFindingType } from "./models/RemediationGroupFindingType";
+export { RemediationGroupImageUpdate } from "./models/RemediationGroupImageUpdate";
+export { RemediationGroupInclude } from "./models/RemediationGroupInclude";
+export { RemediationGroupPackageUpdate } from "./models/RemediationGroupPackageUpdate";
+export { RemediationGroupRelationships } from "./models/RemediationGroupRelationships";
+export { RemediationGroupsMeta } from "./models/RemediationGroupsMeta";
+export { RemediationGroupsPageMeta } from "./models/RemediationGroupsPageMeta";
+export { RemediationGroupType } from "./models/RemediationGroupType";
 export { ReorderRetentionFiltersRequest } from "./models/ReorderRetentionFiltersRequest";
 export { ReorderRuleResourceArray } from "./models/ReorderRuleResourceArray";
 export { ReorderRuleResourceData } from "./models/ReorderRuleResourceData";
@@ -9752,6 +9767,7 @@ export { ScorecardScoreRelationships } from "./models/ScorecardScoreRelationship
 export { ScorecardScoresAggregation } from "./models/ScorecardScoresAggregation";
 export { ScorecardType } from "./models/ScorecardType";
 export { SearchIssuesIncludeQueryParameterItem } from "./models/SearchIssuesIncludeQueryParameterItem";
+export { SearchRemediationGroupsResponse } from "./models/SearchRemediationGroupsResponse";
 export { SeatAssignmentsDataType } from "./models/SeatAssignmentsDataType";
 export { SeatUserData } from "./models/SeatUserData";
 export { SeatUserDataArray } from "./models/SeatUserDataArray";

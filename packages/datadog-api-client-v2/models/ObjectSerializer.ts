@@ -5227,6 +5227,17 @@ import { RelationshipToUserTeamUser } from "./RelationshipToUserTeamUser";
 import { RelationshipToUserTeamUserData } from "./RelationshipToUserTeamUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
 import { Remediation } from "./Remediation";
+import { RemediationGroupAttributes } from "./RemediationGroupAttributes";
+import { RemediationGroupCaseRelationship } from "./RemediationGroupCaseRelationship";
+import { RemediationGroupCaseRelationshipData } from "./RemediationGroupCaseRelationshipData";
+import { RemediationGroupData } from "./RemediationGroupData";
+import { RemediationGroupFindings } from "./RemediationGroupFindings";
+import { RemediationGroupFindingsBySeverity } from "./RemediationGroupFindingsBySeverity";
+import { RemediationGroupImageUpdate } from "./RemediationGroupImageUpdate";
+import { RemediationGroupPackageUpdate } from "./RemediationGroupPackageUpdate";
+import { RemediationGroupRelationships } from "./RemediationGroupRelationships";
+import { RemediationGroupsMeta } from "./RemediationGroupsMeta";
+import { RemediationGroupsPageMeta } from "./RemediationGroupsPageMeta";
 import { ReorderRetentionFiltersRequest } from "./ReorderRetentionFiltersRequest";
 import { ReorderRuleResourceArray } from "./ReorderRuleResourceArray";
 import { ReorderRuleResourceData } from "./ReorderRuleResourceData";
@@ -5664,6 +5675,7 @@ import { ScorecardScoreData } from "./ScorecardScoreData";
 import { ScorecardScoreRelationshipData } from "./ScorecardScoreRelationshipData";
 import { ScorecardScoreRelationshipItem } from "./ScorecardScoreRelationshipItem";
 import { ScorecardScoreRelationships } from "./ScorecardScoreRelationships";
+import { SearchRemediationGroupsResponse } from "./SearchRemediationGroupsResponse";
 import { SeatUserData } from "./SeatUserData";
 import { SeatUserDataArray } from "./SeatUserDataArray";
 import { SeatUserDataAttributes } from "./SeatUserDataAttributes";
@@ -10379,6 +10391,12 @@ const enumsMap: { [key: string]: any[] } = {
     "RelationTypeImplementedBy",
     "RelationTypeImplements",
   ],
+  RemediationGroupFindingType: [
+    "library_vulnerability",
+    "host_and_container_vulnerability",
+  ],
+  RemediationGroupInclude: ["case"],
+  RemediationGroupType: ["remediation_groups"],
   ReorderRuleResourceDataType: ["arbitrary_rule"],
   ReorderRulesetResourceDataType: ["ruleset"],
   ReportScheduleAuthorType: ["users"],
@@ -18189,6 +18207,17 @@ const typeMap: { [index: string]: any } = {
   RelationshipToUserTeamUserData: RelationshipToUserTeamUserData,
   RelationshipToUsers: RelationshipToUsers,
   Remediation: Remediation,
+  RemediationGroupAttributes: RemediationGroupAttributes,
+  RemediationGroupCaseRelationship: RemediationGroupCaseRelationship,
+  RemediationGroupCaseRelationshipData: RemediationGroupCaseRelationshipData,
+  RemediationGroupData: RemediationGroupData,
+  RemediationGroupFindings: RemediationGroupFindings,
+  RemediationGroupFindingsBySeverity: RemediationGroupFindingsBySeverity,
+  RemediationGroupImageUpdate: RemediationGroupImageUpdate,
+  RemediationGroupPackageUpdate: RemediationGroupPackageUpdate,
+  RemediationGroupRelationships: RemediationGroupRelationships,
+  RemediationGroupsMeta: RemediationGroupsMeta,
+  RemediationGroupsPageMeta: RemediationGroupsPageMeta,
   ReorderRetentionFiltersRequest: ReorderRetentionFiltersRequest,
   ReorderRuleResourceArray: ReorderRuleResourceArray,
   ReorderRuleResourceData: ReorderRuleResourceData,
@@ -18690,6 +18719,7 @@ const typeMap: { [index: string]: any } = {
   ScorecardScoreRelationshipData: ScorecardScoreRelationshipData,
   ScorecardScoreRelationshipItem: ScorecardScoreRelationshipItem,
   ScorecardScoreRelationships: ScorecardScoreRelationships,
+  SearchRemediationGroupsResponse: SearchRemediationGroupsResponse,
   SeatUserData: SeatUserData,
   SeatUserDataArray: SeatUserDataArray,
   SeatUserDataAttributes: SeatUserDataAttributes,

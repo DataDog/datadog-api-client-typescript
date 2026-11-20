@@ -493,6 +493,7 @@ export function createConfiguration(
       "v2.reorderSecurityFindingsAutomationSeverityModifierRules": false,
       "v2.reorderSecurityFindingsAutomationTicketCreationRules": false,
       "v2.runHistoricalJob": false,
+      "v2.searchRemediationGroups": false,
       "v2.searchSecurityMonitoringHistsignals": false,
       "v2.startSecurityMonitoringBatchMigration": false,
       "v2.startSecurityMonitoringRuleProposal": false,
