@@ -7003,6 +7003,33 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SeverityOverrideResponse",
     },
+    "v2.SearchRemediationGroups": {
+        "filterFindingType": {
+            "type": "Array<RemediationGroupFindingType>",
+            "format": "",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "include": {
+            "type": "RemediationGroupInclude",
+            "format": "",
+            },
+        "operationResponseType": "SearchRemediationGroupsResponse",
+    },
     "v2.ListAssetsSBOMs": {
         "pageToken": {
             "type": "string",
