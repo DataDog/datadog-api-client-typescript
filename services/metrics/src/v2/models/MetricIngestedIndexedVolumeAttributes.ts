@@ -5,7 +5,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class MetricIngestedIndexedVolumeAttributes {
   /**
-   * Estimated average hourly number of indexed time series for the given metric over the last hour. For organizations on Metric Name Pricing, this represents the estimated sum of indexed data points over the last hour.
+   * Estimated average hourly number of indexed time series for the given metric over the last hour. For organizations on Metric Name Pricing, this represents the estimated sum of indexed data points over the last hour. This value is `null` when no estimated usage data is available for the metric.
    */
   "indexedVolume"?: number;
   /**
@@ -14,7 +14,7 @@ export class MetricIngestedIndexedVolumeAttributes {
    */
   "indexedVolumeDelta"?: number;
   /**
-   * Estimated average hourly number of ingested time series for the given metric over the last hour. This value is `0` for metrics not configured with Metrics Without Limits. For organizations on Metric Name Pricing, this represents the estimated sum of ingested data points over the last hour.
+   * Estimated average hourly number of ingested time series for the given metric over the last hour. This value is `0` for metrics not configured with Metrics Without Limits. For organizations on Metric Name Pricing, this represents the estimated sum of ingested data points over the last hour. This value can be `null` when ingested volume is not available for the metric.
    */
   "ingestedVolume"?: number;
   /**

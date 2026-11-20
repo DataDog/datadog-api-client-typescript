@@ -5,7 +5,8 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class MetricDistinctVolumeAttributes {
   /**
-   * Distinct volume for the given metric.
+   * Distinct volume for the given metric. This value is `null` for standard metrics in organizations on
+   * Metric Name Pricing.
    */
   "distinctVolume"?: number;
   /**
