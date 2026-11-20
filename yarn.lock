@@ -541,6 +541,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-claude-compliance-integration@workspace:services/claude_compliance_integration":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-claude-compliance-integration@workspace:services/claude_compliance_integration"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-cloud-authentication@workspace:services/cloud_authentication":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-cloud-authentication@workspace:services/cloud_authentication"
