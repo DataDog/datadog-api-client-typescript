@@ -3,14 +3,19 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SavedFilterEnvironmentReference } from "./SavedFilterEnvironmentReference";
 import { SavedFilterFlagReference } from "./SavedFilterFlagReference";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The caller lacks edit permission on one or more feature flags that reference this saved filter.
+ * The caller lacks edit permission on one or more feature flags that reference this saved filter, or on one or more of their environments.
  */
 export class SavedFilterPermissionDeniedAttributes {
+  /**
+   * Environments preventing this update.
+   */
+  "deniedEnvironments"?: Array<SavedFilterEnvironmentReference>;
   /**
    * Feature flags preventing this update.
    */
@@ -36,6 +41,10 @@ export class SavedFilterPermissionDeniedAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    deniedEnvironments: {
+      baseName: "denied_environments",
+      type: "Array<SavedFilterEnvironmentReference>",
+    },
     deniedFlags: {
       baseName: "denied_flags",
       type: "Array<SavedFilterFlagReference>",
