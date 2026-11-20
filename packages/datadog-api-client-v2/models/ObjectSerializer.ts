@@ -4545,6 +4545,28 @@ import { OpenAICodexTurnMetricsIntegrationDataflowRequest } from "./OpenAICodexT
 import { OpenAICodexTurnMetricsIntegrationDataflowResponse } from "./OpenAICodexTurnMetricsIntegrationDataflowResponse";
 import { OpenAIIntegration } from "./OpenAIIntegration";
 import { OpenAIIntegrationUpdate } from "./OpenAIIntegrationUpdate";
+import { OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthRequest } from "./OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthRequest";
+import { OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthResponse } from "./OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthResponse";
+import { OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthUpdate } from "./OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthUpdate";
+import { OpenAILLMEvaluationsIntegrationAccountCreateAttributes } from "./OpenAILLMEvaluationsIntegrationAccountCreateAttributes";
+import { OpenAILLMEvaluationsIntegrationAccountCreateData } from "./OpenAILLMEvaluationsIntegrationAccountCreateData";
+import { OpenAILLMEvaluationsIntegrationAccountCreateRequest } from "./OpenAILLMEvaluationsIntegrationAccountCreateRequest";
+import { OpenAILLMEvaluationsIntegrationAccountResponse } from "./OpenAILLMEvaluationsIntegrationAccountResponse";
+import { OpenAILLMEvaluationsIntegrationAccountResponseAttributes } from "./OpenAILLMEvaluationsIntegrationAccountResponseAttributes";
+import { OpenAILLMEvaluationsIntegrationAccountResponseData } from "./OpenAILLMEvaluationsIntegrationAccountResponseData";
+import { OpenAILLMEvaluationsIntegrationAccountSettingsRequest } from "./OpenAILLMEvaluationsIntegrationAccountSettingsRequest";
+import { OpenAILLMEvaluationsIntegrationAccountSettingsResponse } from "./OpenAILLMEvaluationsIntegrationAccountSettingsResponse";
+import { OpenAILLMEvaluationsIntegrationAccountSettingsUpdate } from "./OpenAILLMEvaluationsIntegrationAccountSettingsUpdate";
+import { OpenAILLMEvaluationsIntegrationAccountUpdateAttributes } from "./OpenAILLMEvaluationsIntegrationAccountUpdateAttributes";
+import { OpenAILLMEvaluationsIntegrationAccountUpdateData } from "./OpenAILLMEvaluationsIntegrationAccountUpdateData";
+import { OpenAILLMEvaluationsIntegrationAccountUpdateRequest } from "./OpenAILLMEvaluationsIntegrationAccountUpdateRequest";
+import { OpenAILLMEvaluationsIntegrationAccountsResponse } from "./OpenAILLMEvaluationsIntegrationAccountsResponse";
+import { OpenAILLMEvaluationsIntegrationDataflowsRequest } from "./OpenAILLMEvaluationsIntegrationDataflowsRequest";
+import { OpenAILLMEvaluationsIntegrationDataflowsResponse } from "./OpenAILLMEvaluationsIntegrationDataflowsResponse";
+import { OpenAILLMEvaluationsLLMCompletionsIntegrationDataflowRequest } from "./OpenAILLMEvaluationsLLMCompletionsIntegrationDataflowRequest";
+import { OpenAILLMEvaluationsLLMCompletionsIntegrationDataflowResponse } from "./OpenAILLMEvaluationsLLMCompletionsIntegrationDataflowResponse";
+import { OpenAILLMEvaluationsProjectCloudCostDataIntegrationDataflowRequest } from "./OpenAILLMEvaluationsProjectCloudCostDataIntegrationDataflowRequest";
+import { OpenAILLMEvaluationsProjectCloudCostDataIntegrationDataflowResponse } from "./OpenAILLMEvaluationsProjectCloudCostDataIntegrationDataflowResponse";
 import { OpenAPIEndpoint } from "./OpenAPIEndpoint";
 import { OpsgenieAccountCreateAttributes } from "./OpsgenieAccountCreateAttributes";
 import { OpsgenieAccountCreateData } from "./OpsgenieAccountCreateData";
@@ -10028,6 +10050,7 @@ const enumsMap: { [key: string]: any[] } = {
   OpenAIAPIKeyType: ["OpenAIAPIKey"],
   OpenAICodexIntegrationAccountBearerTokenAuthType: ["bearer_token"],
   OpenAIIntegrationType: ["OpenAI"],
+  OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthType: ["bearer_token"],
   OpsgenieAccountType: ["opsgenie-account"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
@@ -17360,6 +17383,50 @@ const typeMap: { [index: string]: any } = {
     OpenAICodexTurnMetricsIntegrationDataflowResponse,
   OpenAIIntegration: OpenAIIntegration,
   OpenAIIntegrationUpdate: OpenAIIntegrationUpdate,
+  OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthRequest:
+    OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthRequest,
+  OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthResponse:
+    OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthResponse,
+  OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthUpdate:
+    OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthUpdate,
+  OpenAILLMEvaluationsIntegrationAccountCreateAttributes:
+    OpenAILLMEvaluationsIntegrationAccountCreateAttributes,
+  OpenAILLMEvaluationsIntegrationAccountCreateData:
+    OpenAILLMEvaluationsIntegrationAccountCreateData,
+  OpenAILLMEvaluationsIntegrationAccountCreateRequest:
+    OpenAILLMEvaluationsIntegrationAccountCreateRequest,
+  OpenAILLMEvaluationsIntegrationAccountResponse:
+    OpenAILLMEvaluationsIntegrationAccountResponse,
+  OpenAILLMEvaluationsIntegrationAccountResponseAttributes:
+    OpenAILLMEvaluationsIntegrationAccountResponseAttributes,
+  OpenAILLMEvaluationsIntegrationAccountResponseData:
+    OpenAILLMEvaluationsIntegrationAccountResponseData,
+  OpenAILLMEvaluationsIntegrationAccountSettingsRequest:
+    OpenAILLMEvaluationsIntegrationAccountSettingsRequest,
+  OpenAILLMEvaluationsIntegrationAccountSettingsResponse:
+    OpenAILLMEvaluationsIntegrationAccountSettingsResponse,
+  OpenAILLMEvaluationsIntegrationAccountSettingsUpdate:
+    OpenAILLMEvaluationsIntegrationAccountSettingsUpdate,
+  OpenAILLMEvaluationsIntegrationAccountUpdateAttributes:
+    OpenAILLMEvaluationsIntegrationAccountUpdateAttributes,
+  OpenAILLMEvaluationsIntegrationAccountUpdateData:
+    OpenAILLMEvaluationsIntegrationAccountUpdateData,
+  OpenAILLMEvaluationsIntegrationAccountUpdateRequest:
+    OpenAILLMEvaluationsIntegrationAccountUpdateRequest,
+  OpenAILLMEvaluationsIntegrationAccountsResponse:
+    OpenAILLMEvaluationsIntegrationAccountsResponse,
+  OpenAILLMEvaluationsIntegrationDataflowsRequest:
+    OpenAILLMEvaluationsIntegrationDataflowsRequest,
+  OpenAILLMEvaluationsIntegrationDataflowsResponse:
+    OpenAILLMEvaluationsIntegrationDataflowsResponse,
+  OpenAILLMEvaluationsLLMCompletionsIntegrationDataflowRequest:
+    OpenAILLMEvaluationsLLMCompletionsIntegrationDataflowRequest,
+  OpenAILLMEvaluationsLLMCompletionsIntegrationDataflowResponse:
+    OpenAILLMEvaluationsLLMCompletionsIntegrationDataflowResponse,
+  OpenAILLMEvaluationsProjectCloudCostDataIntegrationDataflowRequest:
+    OpenAILLMEvaluationsProjectCloudCostDataIntegrationDataflowRequest,
+  OpenAILLMEvaluationsProjectCloudCostDataIntegrationDataflowResponse:
+    OpenAILLMEvaluationsProjectCloudCostDataIntegrationDataflowResponse,
   OpenAPIEndpoint: OpenAPIEndpoint,
   OpsgenieAccountCreateAttributes: OpsgenieAccountCreateAttributes,
   OpsgenieAccountCreateData: OpsgenieAccountCreateData,
@@ -21749,6 +21816,15 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   OpenAICredentials: ["OpenAIAPIKey"],
   OpenAICredentialsUpdate: ["OpenAIAPIKeyUpdate"],
+  OpenAILLMEvaluationsIntegrationAccountAuthenticationRequest: [
+    "OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthRequest",
+  ],
+  OpenAILLMEvaluationsIntegrationAccountAuthenticationResponse: [
+    "OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthResponse",
+  ],
+  OpenAILLMEvaluationsIntegrationAccountAuthenticationUpdate: [
+    "OpenAILLMEvaluationsIntegrationAccountBearerTokenAuthUpdate",
+  ],
   OverrideIncluded: ["ScheduleUser"],
   PatchSavedFilterConflictResponse: [
     "SavedFilterJSONAPIErrorResponse",
