@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { EventAttributes } from "./EventAttributes";
+import { EventStatusType } from "./EventStatusType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -16,9 +17,23 @@ export class EventResponseAttributes {
    */
   "attributes"?: EventAttributes;
   /**
+   * The host associated with the event.
+   */
+  "host"?: string;
+  /**
    * The message of the event.
    */
   "message"?: string;
+  /**
+   * The service associated with the event.
+   */
+  "service"?: string;
+  /**
+   * The event status. Legacy events can use `failure`, `error`, `warning`,
+   * `info`, `success`, `user_update`, `recommendation`, or `snapshot`.
+   * Alert events can use `error`, `warn`, or `ok`.
+   */
+  "status"?: EventStatusType;
   /**
    * An array of tags associated with the event.
    */
@@ -48,9 +63,21 @@ export class EventResponseAttributes {
       baseName: "attributes",
       type: "EventAttributes",
     },
+    host: {
+      baseName: "host",
+      type: "string",
+    },
     message: {
       baseName: "message",
       type: "string",
+    },
+    service: {
+      baseName: "service",
+      type: "string",
+    },
+    status: {
+      baseName: "status",
+      type: "EventStatusType",
     },
     tags: {
       baseName: "tags",
