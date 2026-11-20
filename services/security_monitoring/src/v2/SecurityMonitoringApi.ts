@@ -108,6 +108,9 @@ import { NotificationRuleResponse } from "./models/NotificationRuleResponse";
 import { NotificationRulesListResponse } from "./models/NotificationRulesListResponse";
 import { PatchNotificationRuleParameters } from "./models/PatchNotificationRuleParameters";
 import { RecentlyUpdatedEntitiesResponse } from "./models/RecentlyUpdatedEntitiesResponse";
+import { RemediationGroupData } from "./models/RemediationGroupData";
+import { RemediationGroupFindingType } from "./models/RemediationGroupFindingType";
+import { RemediationGroupInclude } from "./models/RemediationGroupInclude";
 import { RunHistoricalJobRequest } from "./models/RunHistoricalJobRequest";
 import { SampleLogGenerationBulkSubscriptionRequest } from "./models/SampleLogGenerationBulkSubscriptionRequest";
 import { SampleLogGenerationBulkSubscriptionResponse } from "./models/SampleLogGenerationBulkSubscriptionResponse";
@@ -120,6 +123,7 @@ import { SastRulesetsResponse } from "./models/SastRulesetsResponse";
 import { SBOMComponentLicenseType } from "./models/SBOMComponentLicenseType";
 import { SBOMFormat } from "./models/SBOMFormat";
 import { ScannedAssetsMetadata } from "./models/ScannedAssetsMetadata";
+import { SearchRemediationGroupsResponse } from "./models/SearchRemediationGroupsResponse";
 import { SecretRuleArray } from "./models/SecretRuleArray";
 import { SecurityFilterCreateRequest } from "./models/SecurityFilterCreateRequest";
 import { SecurityFilterResponse } from "./models/SecurityFilterResponse";
@@ -11439,6 +11443,112 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       contentType,
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async searchRemediationGroups(
+    filterFindingType?: Array<RemediationGroupFindingType>,
+    filterQuery?: string,
+    sort?: string,
+    pageSize?: number,
+    pageNumber?: number,
+    include?: RemediationGroupInclude,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.searchRemediationGroups"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'searchRemediationGroups' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.searchRemediationGroups'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/remediation_groups";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.searchRemediationGroups",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterFindingType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[finding_type]",
+        serialize(
+          filterFindingType,
+          TypingInfo,
+          "Array<RemediationGroupFindingType>",
+          "",
+        ),
+        "multi",
+      );
+    }
+    if (filterQuery !== undefined) {
+      requestContext.setQueryParam(
+        "filter[query]",
+        serialize(filterQuery, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "RemediationGroupInclude", ""),
+        "",
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -23730,6 +23840,87 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to searchRemediationGroups
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async searchRemediationGroups(
+    response: ResponseContext,
+  ): Promise<SearchRemediationGroupsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SearchRemediationGroupsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SearchRemediationGroupsResponse",
+      ) as SearchRemediationGroupsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SearchRemediationGroupsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SearchRemediationGroupsResponse",
+        "",
+      ) as SearchRemediationGroupsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to searchSecurityFindings
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -27812,6 +28003,48 @@ export interface SecurityMonitoringApiRunHistoricalJobRequest {
    * @type RunHistoricalJobRequest
    */
   body: RunHistoricalJobRequest;
+}
+
+export interface SecurityMonitoringApiSearchRemediationGroupsRequest {
+  /**
+   * Returns only groups whose grouping definition covers this `@finding_type` value. To match more than one
+   * finding type, repeat the parameter.
+   * @type Array<RemediationGroupFindingType>
+   */
+  filterFindingType?: Array<RemediationGroupFindingType>;
+  /**
+   * Returns only groups with at least one open finding that matches the query. Use the security findings
+   * search syntax with attributes from the
+   * [security findings schema](https://docs.datadoghq.com/security/guide/findings-schema/), prefixed by `@`.
+   * For example, `@severity:(critical OR high)` returns groups with at least one critical or high finding.
+   * The group's counts still include every finding in the group. The query can be at most 2048 bytes after
+   * JSON encoding, and the parameter can appear only once.
+   * @type string
+   */
+  filterQuery?: string;
+  /**
+   * Comma-separated list of sort fields. Prefix a field with `-` to sort in descending order.
+   * `findings.by_severity` sorts by the critical count, then high, medium, low, info, none, and unknown.
+   * `findings.total` sorts by the total finding count. By default, groups are sorted by critical count,
+   * then high count, then total finding count, all in descending order.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * Number of groups in a page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Page to return, starting at 1.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Adds each group's case to `included`. `case` is the only supported value.
+   * @type RemediationGroupInclude
+   */
+  include?: RemediationGroupInclude;
 }
 
 export interface SecurityMonitoringApiSearchSecurityFindingsRequest {
@@ -32496,6 +32729,95 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.runHistoricalJob(responseContext);
         });
     });
+  }
+
+  /**
+   * Search the remediation groups of your organization. A remediation group gathers the open security findings
+   * that one change fixes, such as updating a package in a repository or upgrading an image.
+   *
+   * Each group comes from a grouping definition, which sets the finding type it covers and the kind object the
+   * group returns:
+   *
+   * | Grouping definition    | Finding type                       | Kind object      |
+   * | ---------------------- | ---------------------------------- | ---------------- |
+   * | `sca.package_update`   | `library_vulnerability`            | `package_update` |
+   * | `cloudvm.image_update` | `host_and_container_vulnerability` | `image_update`   |
+   *
+   * Groups are computed from the attributes of security findings, described in the
+   * [security findings schema](https://docs.datadoghq.com/security/guide/findings-schema/). The description of
+   * each kind object lists the findings its grouping definition reads and the attribute each field comes from.
+   *
+   * The search includes all open findings, regardless of when they were first detected.
+   *
+   * This endpoint requires the `cases_read` permission and either the `security_monitoring_findings_read` or
+   * `appsec_vm_read` permission.
+   * @param param The request object
+   */
+  public searchRemediationGroups(
+    param: SecurityMonitoringApiSearchRemediationGroupsRequest = {},
+    options?: Configuration,
+  ): Promise<SearchRemediationGroupsResponse> {
+    const requestContextPromise = this.requestFactory.searchRemediationGroups(
+      param.filterFindingType,
+      param.filterQuery,
+      param.sort,
+      param.pageSize,
+      param.pageNumber,
+      param.include,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.searchRemediationGroups(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of searchRemediationGroups returning a generator with all the items.
+   */
+  public async *searchRemediationGroupsWithPagination(
+    param: SecurityMonitoringApiSearchRemediationGroupsRequest = {},
+    options?: Configuration,
+  ): AsyncGenerator<RemediationGroupData> {
+    let pageSize = 50;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 1;
+    while (true) {
+      const requestContext = await this.requestFactory.searchRemediationGroups(
+        param.filterFindingType,
+        param.filterQuery,
+        param.sort,
+        param.pageSize,
+        param.pageNumber,
+        param.include,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
+
+      const response =
+        await this.responseProcessor.searchRemediationGroups(responseContext);
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = param.pageNumber + 1;
+    }
   }
 
   /**
