@@ -1,6 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 import { AttachmentData } from "./AttachmentData";
+import { IncidentResponderDataResponse } from "./IncidentResponderDataResponse";
 import { IncidentUserData } from "./IncidentUserData";
 
 /**
@@ -9,4 +10,5 @@ import { IncidentUserData } from "./IncidentUserData";
 export type IncidentResponseIncludedItem =
   | IncidentUserData
   | AttachmentData
+  | IncidentResponderDataResponse
   | UnparsedObject;

@@ -422,7 +422,7 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentPageTargetType: ["team_handle", "team_uuid", "user_uuid"],
     IncidentPageUUIDType: ["page_uuid"],
     IncidentPostmortemType: ["incident_postmortems"],
-    IncidentRelatedObject: ["users", "attachments"],
+    IncidentRelatedObject: ["users", "attachments", "responders"],
     IncidentResponderRelatedObject: ["users", "role_assignments"],
     IncidentResponderType: ["incident_responders"],
     IncidentRespondersType: ["incident_responders"],
@@ -524,7 +524,11 @@ export const TypingInfo: ModelTypingInfo = {
       "IncidentUserData",
       "IncidentRoleAssignmentDataResponse",
     ],
-    IncidentResponseIncludedItem: ["IncidentUserData", "AttachmentData"],
+    IncidentResponseIncludedItem: [
+      "IncidentUserData",
+      "AttachmentData",
+      "IncidentResponderDataResponse",
+    ],
     IncidentTimelineCellCreateAttributes: [
       "IncidentTimelineCellMarkdownCreateAttributes",
     ],
