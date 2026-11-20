@@ -28,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new RUMRetentionQuotasApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.getRumQuotaConfig(params).then((data) => {
+apiInstance.getRUMQuotaConfig(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

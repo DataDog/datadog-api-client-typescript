@@ -24,9 +24,9 @@ import {
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
-import { RumRetentionQuotaConfigResponse } from "./models/RumRetentionQuotaConfigResponse";
-import { RumRetentionQuotaConfigUpdateRequest } from "./models/RumRetentionQuotaConfigUpdateRequest";
-import { RumRetentionQuotaScopeType } from "./models/RumRetentionQuotaScopeType";
+import { RUMRetentionQuotaConfigResponse } from "./models/RUMRetentionQuotaConfigResponse";
+import { RUMRetentionQuotaConfigUpdateRequest } from "./models/RUMRetentionQuotaConfigUpdateRequest";
+import { RUMRetentionQuotaScopeType } from "./models/RUMRetentionQuotaScopeType";
 import { version } from "../version";
 
 export class RUMRetentionQuotasApiRequestFactory extends BaseAPIRequestFactory {
@@ -38,8 +38,8 @@ export class RUMRetentionQuotasApiRequestFactory extends BaseAPIRequestFactory {
       this.userAgent = buildUserAgent("rum-retention-quotas", version);
     }
   }
-  public async deleteRumQuotaConfig(
-    scopeType: RumRetentionQuotaScopeType,
+  public async deleteRUMQuotaConfig(
+    scopeType: RUMRetentionQuotaScopeType,
     scopeId: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -47,12 +47,12 @@ export class RUMRetentionQuotasApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'scopeType' is not null or undefined
     if (scopeType === null || scopeType === undefined) {
-      throw new RequiredError("scopeType", "deleteRumQuotaConfig");
+      throw new RequiredError("scopeType", "deleteRUMQuotaConfig");
     }
 
     // verify required parameter 'scopeId' is not null or undefined
     if (scopeId === null || scopeId === undefined) {
-      throw new RequiredError("scopeId", "deleteRumQuotaConfig");
+      throw new RequiredError("scopeId", "deleteRUMQuotaConfig");
     }
 
     // Path Params
@@ -63,7 +63,7 @@ export class RUMRetentionQuotasApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
-      "RUMRetentionQuotasApi.v2.deleteRumQuotaConfig",
+      "RUMRetentionQuotasApi.v2.deleteRUMQuotaConfig",
       RUMRetentionQuotasApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -94,8 +94,8 @@ export class RUMRetentionQuotasApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getRumQuotaConfig(
-    scopeType: RumRetentionQuotaScopeType,
+  public async getRUMQuotaConfig(
+    scopeType: RUMRetentionQuotaScopeType,
     scopeId: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -103,12 +103,12 @@ export class RUMRetentionQuotasApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'scopeType' is not null or undefined
     if (scopeType === null || scopeType === undefined) {
-      throw new RequiredError("scopeType", "getRumQuotaConfig");
+      throw new RequiredError("scopeType", "getRUMQuotaConfig");
     }
 
     // verify required parameter 'scopeId' is not null or undefined
     if (scopeId === null || scopeId === undefined) {
-      throw new RequiredError("scopeId", "getRumQuotaConfig");
+      throw new RequiredError("scopeId", "getRUMQuotaConfig");
     }
 
     // Path Params
@@ -119,7 +119,7 @@ export class RUMRetentionQuotasApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
-      "RUMRetentionQuotasApi.v2.getRumQuotaConfig",
+      "RUMRetentionQuotasApi.v2.getRUMQuotaConfig",
       RUMRetentionQuotasApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -150,27 +150,27 @@ export class RUMRetentionQuotasApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async upsertRumQuotaConfig(
-    scopeType: RumRetentionQuotaScopeType,
+  public async upsertRUMQuotaConfig(
+    scopeType: RUMRetentionQuotaScopeType,
     scopeId: string,
-    body: RumRetentionQuotaConfigUpdateRequest,
+    body: RUMRetentionQuotaConfigUpdateRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'scopeType' is not null or undefined
     if (scopeType === null || scopeType === undefined) {
-      throw new RequiredError("scopeType", "upsertRumQuotaConfig");
+      throw new RequiredError("scopeType", "upsertRUMQuotaConfig");
     }
 
     // verify required parameter 'scopeId' is not null or undefined
     if (scopeId === null || scopeId === undefined) {
-      throw new RequiredError("scopeId", "upsertRumQuotaConfig");
+      throw new RequiredError("scopeId", "upsertRUMQuotaConfig");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "upsertRumQuotaConfig");
+      throw new RequiredError("body", "upsertRUMQuotaConfig");
     }
 
     // Path Params
@@ -181,7 +181,7 @@ export class RUMRetentionQuotasApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
-      "RUMRetentionQuotasApi.v2.upsertRumQuotaConfig",
+      "RUMRetentionQuotasApi.v2.upsertRUMQuotaConfig",
       RUMRetentionQuotasApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -206,7 +206,7 @@ export class RUMRetentionQuotasApiRequestFactory extends BaseAPIRequestFactory {
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(body, TypingInfo, "RumRetentionQuotaConfigUpdateRequest", ""),
+      serialize(body, TypingInfo, "RUMRetentionQuotaConfigUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -227,10 +227,10 @@ export class RUMRetentionQuotasApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to deleteRumQuotaConfig
+   * @params response Response returned by the server for a request to deleteRUMQuotaConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRumQuotaConfig(response: ResponseContext): Promise<void> {
+  public async deleteRUMQuotaConfig(response: ResponseContext): Promise<void> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
@@ -296,19 +296,19 @@ export class RUMRetentionQuotasApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getRumQuotaConfig
+   * @params response Response returned by the server for a request to getRUMQuotaConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getRumQuotaConfig(
+  public async getRUMQuotaConfig(
     response: ResponseContext,
-  ): Promise<RumRetentionQuotaConfigResponse> {
+  ): Promise<RUMRetentionQuotaConfigResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RumRetentionQuotaConfigResponse = deserialize(
+      const body: RUMRetentionQuotaConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumRetentionQuotaConfigResponse",
-      ) as RumRetentionQuotaConfigResponse;
+        "RUMRetentionQuotaConfigResponse",
+      ) as RUMRetentionQuotaConfigResponse;
       return body;
     }
     if (
@@ -358,12 +358,12 @@ export class RUMRetentionQuotasApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumRetentionQuotaConfigResponse = deserialize(
+      const body: RUMRetentionQuotaConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumRetentionQuotaConfigResponse",
+        "RUMRetentionQuotaConfigResponse",
         "",
-      ) as RumRetentionQuotaConfigResponse;
+      ) as RUMRetentionQuotaConfigResponse;
       return body;
     }
 
@@ -378,19 +378,19 @@ export class RUMRetentionQuotasApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to upsertRumQuotaConfig
+   * @params response Response returned by the server for a request to upsertRUMQuotaConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async upsertRumQuotaConfig(
+  public async upsertRUMQuotaConfig(
     response: ResponseContext,
-  ): Promise<RumRetentionQuotaConfigResponse> {
+  ): Promise<RUMRetentionQuotaConfigResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RumRetentionQuotaConfigResponse = deserialize(
+      const body: RUMRetentionQuotaConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumRetentionQuotaConfigResponse",
-      ) as RumRetentionQuotaConfigResponse;
+        "RUMRetentionQuotaConfigResponse",
+      ) as RUMRetentionQuotaConfigResponse;
       return body;
     }
     if (
@@ -440,12 +440,12 @@ export class RUMRetentionQuotasApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumRetentionQuotaConfigResponse = deserialize(
+      const body: RUMRetentionQuotaConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumRetentionQuotaConfigResponse",
+        "RUMRetentionQuotaConfigResponse",
         "",
-      ) as RumRetentionQuotaConfigResponse;
+      ) as RUMRetentionQuotaConfigResponse;
       return body;
     }
 
@@ -457,13 +457,13 @@ export class RUMRetentionQuotasApiResponseProcessor {
   }
 }
 
-export interface RUMRetentionQuotasApiDeleteRumQuotaConfigRequest {
+export interface RUMRetentionQuotasApiDeleteRUMQuotaConfigRequest {
   /**
    * The type of scope the retention quota configuration applies to.
    * `application` is the only supported scope type.
-   * @type RumRetentionQuotaScopeType
+   * @type RUMRetentionQuotaScopeType
    */
-  scopeType: RumRetentionQuotaScopeType;
+  scopeType: RUMRetentionQuotaScopeType;
   /**
    * The identifier of the scope the retention quota configuration applies to.
    * For the `application` scope, this is the RUM application ID.
@@ -472,13 +472,13 @@ export interface RUMRetentionQuotasApiDeleteRumQuotaConfigRequest {
   scopeId: string;
 }
 
-export interface RUMRetentionQuotasApiGetRumQuotaConfigRequest {
+export interface RUMRetentionQuotasApiGetRUMQuotaConfigRequest {
   /**
    * The type of scope the retention quota configuration applies to.
    * `application` is the only supported scope type.
-   * @type RumRetentionQuotaScopeType
+   * @type RUMRetentionQuotaScopeType
    */
-  scopeType: RumRetentionQuotaScopeType;
+  scopeType: RUMRetentionQuotaScopeType;
   /**
    * The identifier of the scope the retention quota configuration applies to.
    * For the `application` scope, this is the RUM application ID.
@@ -487,13 +487,13 @@ export interface RUMRetentionQuotasApiGetRumQuotaConfigRequest {
   scopeId: string;
 }
 
-export interface RUMRetentionQuotasApiUpsertRumQuotaConfigRequest {
+export interface RUMRetentionQuotasApiUpsertRUMQuotaConfigRequest {
   /**
    * The type of scope the retention quota configuration applies to.
    * `application` is the only supported scope type.
-   * @type RumRetentionQuotaScopeType
+   * @type RUMRetentionQuotaScopeType
    */
-  scopeType: RumRetentionQuotaScopeType;
+  scopeType: RUMRetentionQuotaScopeType;
   /**
    * The identifier of the scope the retention quota configuration applies to.
    * For the `application` scope, this is the RUM application ID.
@@ -502,9 +502,9 @@ export interface RUMRetentionQuotasApiUpsertRumQuotaConfigRequest {
   scopeId: string;
   /**
    * The definition of the RUM retention quota configuration to create or update.
-   * @type RumRetentionQuotaConfigUpdateRequest
+   * @type RUMRetentionQuotaConfigUpdateRequest
    */
-  body: RumRetentionQuotaConfigUpdateRequest;
+  body: RUMRetentionQuotaConfigUpdateRequest;
 }
 
 export class RUMRetentionQuotasApi {
@@ -531,11 +531,11 @@ export class RUMRetentionQuotasApi {
    * Delete the RUM retention quota configuration for a given scope.
    * @param param The request object
    */
-  public deleteRumQuotaConfig(
-    param: RUMRetentionQuotasApiDeleteRumQuotaConfigRequest,
+  public deleteRUMQuotaConfig(
+    param: RUMRetentionQuotasApiDeleteRUMQuotaConfigRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteRumQuotaConfig(
+    const requestContextPromise = this.requestFactory.deleteRUMQuotaConfig(
       param.scopeType,
       param.scopeId,
       options,
@@ -544,7 +544,7 @@ export class RUMRetentionQuotasApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteRumQuotaConfig(responseContext);
+          return this.responseProcessor.deleteRUMQuotaConfig(responseContext);
         });
     });
   }
@@ -553,11 +553,11 @@ export class RUMRetentionQuotasApi {
    * Get the RUM retention quota configuration for a given scope.
    * @param param The request object
    */
-  public getRumQuotaConfig(
-    param: RUMRetentionQuotasApiGetRumQuotaConfigRequest,
+  public getRUMQuotaConfig(
+    param: RUMRetentionQuotasApiGetRUMQuotaConfigRequest,
     options?: Configuration,
-  ): Promise<RumRetentionQuotaConfigResponse> {
-    const requestContextPromise = this.requestFactory.getRumQuotaConfig(
+  ): Promise<RUMRetentionQuotaConfigResponse> {
+    const requestContextPromise = this.requestFactory.getRUMQuotaConfig(
       param.scopeType,
       param.scopeId,
       options,
@@ -566,7 +566,7 @@ export class RUMRetentionQuotasApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getRumQuotaConfig(responseContext);
+          return this.responseProcessor.getRUMQuotaConfig(responseContext);
         });
     });
   }
@@ -576,11 +576,11 @@ export class RUMRetentionQuotasApi {
    * Returns the retention quota configuration object when the request is successful.
    * @param param The request object
    */
-  public upsertRumQuotaConfig(
-    param: RUMRetentionQuotasApiUpsertRumQuotaConfigRequest,
+  public upsertRUMQuotaConfig(
+    param: RUMRetentionQuotasApiUpsertRUMQuotaConfigRequest,
     options?: Configuration,
-  ): Promise<RumRetentionQuotaConfigResponse> {
-    const requestContextPromise = this.requestFactory.upsertRumQuotaConfig(
+  ): Promise<RUMRetentionQuotaConfigResponse> {
+    const requestContextPromise = this.requestFactory.upsertRUMQuotaConfig(
       param.scopeType,
       param.scopeId,
       param.body,
@@ -590,7 +590,7 @@ export class RUMRetentionQuotasApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.upsertRumQuotaConfig(responseContext);
+          return this.responseProcessor.upsertRUMQuotaConfig(responseContext);
         });
     });
   }

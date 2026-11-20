@@ -1,6 +1,6 @@
 export {
-  RUMRemoteConfigApiGetRumSdkConfigRequest,
-  RUMRemoteConfigApiUpdateRumSdkConfigRequest,
+  RUMRemoteConfigApiGetRUMSdkConfigRequest,
+  RUMRemoteConfigApiUpdateRUMSdkConfigRequest,
   RUMRemoteConfigApi,
 } from "./RUMRemoteConfigApi";
 
@@ -8,23 +8,23 @@ export { APIErrorResponse } from "./models/APIErrorResponse";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
-export { RumSdkConfigAttributes } from "./models/RumSdkConfigAttributes";
-export { RumSdkConfigData } from "./models/RumSdkConfigData";
-export { RumSdkConfigDynamicOption } from "./models/RumSdkConfigDynamicOption";
-export { RumSdkConfigDynamicOptionPair } from "./models/RumSdkConfigDynamicOptionPair";
-export { RumSdkConfigDynamicOptionSerializedType } from "./models/RumSdkConfigDynamicOptionSerializedType";
-export { RumSdkConfigDynamicOptionStrategy } from "./models/RumSdkConfigDynamicOptionStrategy";
-export { RumSdkConfigMatchOption } from "./models/RumSdkConfigMatchOption";
-export { RumSdkConfigMatchOptionSerializedType } from "./models/RumSdkConfigMatchOptionSerializedType";
-export { RumSdkConfigMeta } from "./models/RumSdkConfigMeta";
-export { RumSdkConfigResponse } from "./models/RumSdkConfigResponse";
-export { RumSdkConfigRumAttributes } from "./models/RumSdkConfigRumAttributes";
-export { RumSdkConfigRumUpdateAttributes } from "./models/RumSdkConfigRumUpdateAttributes";
-export { RumSdkConfigSerializedRegex } from "./models/RumSdkConfigSerializedRegex";
-export { RumSdkConfigSerializedRegexType } from "./models/RumSdkConfigSerializedRegexType";
-export { RumSdkConfigTracingUrlConfig } from "./models/RumSdkConfigTracingUrlConfig";
-export { RumSdkConfigTracingUrlPropagatorType } from "./models/RumSdkConfigTracingUrlPropagatorType";
-export { RumSdkConfigType } from "./models/RumSdkConfigType";
-export { RumSdkConfigUpdateAttributes } from "./models/RumSdkConfigUpdateAttributes";
-export { RumSdkConfigUpdateData } from "./models/RumSdkConfigUpdateData";
-export { RumSdkConfigUpdateRequest } from "./models/RumSdkConfigUpdateRequest";
+export { RUMSdkConfigAttributes } from "./models/RUMSdkConfigAttributes";
+export { RUMSdkConfigData } from "./models/RUMSdkConfigData";
+export { RUMSdkConfigDynamicOption } from "./models/RUMSdkConfigDynamicOption";
+export { RUMSdkConfigDynamicOptionPair } from "./models/RUMSdkConfigDynamicOptionPair";
+export { RUMSdkConfigDynamicOptionSerializedType } from "./models/RUMSdkConfigDynamicOptionSerializedType";
+export { RUMSdkConfigDynamicOptionStrategy } from "./models/RUMSdkConfigDynamicOptionStrategy";
+export { RUMSdkConfigMatchOption } from "./models/RUMSdkConfigMatchOption";
+export { RUMSdkConfigMatchOptionSerializedType } from "./models/RUMSdkConfigMatchOptionSerializedType";
+export { RUMSdkConfigMeta } from "./models/RUMSdkConfigMeta";
+export { RUMSdkConfigResponse } from "./models/RUMSdkConfigResponse";
+export { RUMSdkConfigRUMAttributes } from "./models/RUMSdkConfigRUMAttributes";
+export { RUMSdkConfigRUMUpdateAttributes } from "./models/RUMSdkConfigRUMUpdateAttributes";
+export { RUMSdkConfigSerializedRegex } from "./models/RUMSdkConfigSerializedRegex";
+export { RUMSdkConfigSerializedRegexType } from "./models/RUMSdkConfigSerializedRegexType";
+export { RUMSdkConfigTracingUrlConfig } from "./models/RUMSdkConfigTracingUrlConfig";
+export { RUMSdkConfigTracingUrlPropagatorType } from "./models/RUMSdkConfigTracingUrlPropagatorType";
+export { RUMSdkConfigType } from "./models/RUMSdkConfigType";
+export { RUMSdkConfigUpdateAttributes } from "./models/RUMSdkConfigUpdateAttributes";
+export { RUMSdkConfigUpdateData } from "./models/RUMSdkConfigUpdateData";
+export { RUMSdkConfigUpdateRequest } from "./models/RUMSdkConfigUpdateRequest";

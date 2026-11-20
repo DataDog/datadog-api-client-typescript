@@ -1,32 +1,32 @@
 export {
-  RumMetricsApiCreateRumMetricRequest,
-  RumMetricsApiDeleteRumMetricRequest,
-  RumMetricsApiGetRumMetricRequest,
-  RumMetricsApiUpdateRumMetricRequest,
-  RumMetricsApi,
-} from "./RumMetricsApi";
+  RUMMetricsApiCreateRUMMetricRequest,
+  RUMMetricsApiDeleteRUMMetricRequest,
+  RUMMetricsApiGetRUMMetricRequest,
+  RUMMetricsApiUpdateRUMMetricRequest,
+  RUMMetricsApi,
+} from "./RUMMetricsApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
-export { RumMetricCompute } from "./models/RumMetricCompute";
-export { RumMetricComputeAggregationType } from "./models/RumMetricComputeAggregationType";
-export { RumMetricCreateAttributes } from "./models/RumMetricCreateAttributes";
-export { RumMetricCreateData } from "./models/RumMetricCreateData";
-export { RumMetricCreateRequest } from "./models/RumMetricCreateRequest";
-export { RumMetricEventType } from "./models/RumMetricEventType";
-export { RumMetricFilter } from "./models/RumMetricFilter";
-export { RumMetricGroupBy } from "./models/RumMetricGroupBy";
-export { RumMetricResponse } from "./models/RumMetricResponse";
-export { RumMetricResponseAttributes } from "./models/RumMetricResponseAttributes";
-export { RumMetricResponseCompute } from "./models/RumMetricResponseCompute";
-export { RumMetricResponseData } from "./models/RumMetricResponseData";
-export { RumMetricResponseFilter } from "./models/RumMetricResponseFilter";
-export { RumMetricResponseGroupBy } from "./models/RumMetricResponseGroupBy";
-export { RumMetricResponseUniqueness } from "./models/RumMetricResponseUniqueness";
-export { RumMetricsResponse } from "./models/RumMetricsResponse";
-export { RumMetricType } from "./models/RumMetricType";
-export { RumMetricUniqueness } from "./models/RumMetricUniqueness";
-export { RumMetricUniquenessWhen } from "./models/RumMetricUniquenessWhen";
-export { RumMetricUpdateAttributes } from "./models/RumMetricUpdateAttributes";
-export { RumMetricUpdateCompute } from "./models/RumMetricUpdateCompute";
-export { RumMetricUpdateData } from "./models/RumMetricUpdateData";
-export { RumMetricUpdateRequest } from "./models/RumMetricUpdateRequest";
+export { RUMMetricCompute } from "./models/RUMMetricCompute";
+export { RUMMetricComputeAggregationType } from "./models/RUMMetricComputeAggregationType";
+export { RUMMetricCreateAttributes } from "./models/RUMMetricCreateAttributes";
+export { RUMMetricCreateData } from "./models/RUMMetricCreateData";
+export { RUMMetricCreateRequest } from "./models/RUMMetricCreateRequest";
+export { RUMMetricEventType } from "./models/RUMMetricEventType";
+export { RUMMetricFilter } from "./models/RUMMetricFilter";
+export { RUMMetricGroupBy } from "./models/RUMMetricGroupBy";
+export { RUMMetricResponse } from "./models/RUMMetricResponse";
+export { RUMMetricResponseAttributes } from "./models/RUMMetricResponseAttributes";
+export { RUMMetricResponseCompute } from "./models/RUMMetricResponseCompute";
+export { RUMMetricResponseData } from "./models/RUMMetricResponseData";
+export { RUMMetricResponseFilter } from "./models/RUMMetricResponseFilter";
+export { RUMMetricResponseGroupBy } from "./models/RUMMetricResponseGroupBy";
+export { RUMMetricResponseUniqueness } from "./models/RUMMetricResponseUniqueness";
+export { RUMMetricsResponse } from "./models/RUMMetricsResponse";
+export { RUMMetricType } from "./models/RUMMetricType";
+export { RUMMetricUniqueness } from "./models/RUMMetricUniqueness";
+export { RUMMetricUniquenessWhen } from "./models/RUMMetricUniquenessWhen";
+export { RUMMetricUpdateAttributes } from "./models/RUMMetricUpdateAttributes";
+export { RUMMetricUpdateCompute } from "./models/RUMMetricUpdateCompute";
+export { RUMMetricUpdateData } from "./models/RUMMetricUpdateData";
+export { RUMMetricUpdateRequest } from "./models/RUMMetricUpdateRequest";

@@ -4,21 +4,21 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
-import { RumRetentionQuotaConfigAttributes } from "./RumRetentionQuotaConfigAttributes";
-import { RumRetentionQuotaConfigData } from "./RumRetentionQuotaConfigData";
-import { RumRetentionQuotaConfigResponse } from "./RumRetentionQuotaConfigResponse";
-import { RumRetentionQuotaConfigUpdateAttributes } from "./RumRetentionQuotaConfigUpdateAttributes";
-import { RumRetentionQuotaConfigUpdateData } from "./RumRetentionQuotaConfigUpdateData";
-import { RumRetentionQuotaConfigUpdateRequest } from "./RumRetentionQuotaConfigUpdateRequest";
-import { RumRetentionQuotaCustomConfig } from "./RumRetentionQuotaCustomConfig";
+import { RUMRetentionQuotaConfigAttributes } from "./RUMRetentionQuotaConfigAttributes";
+import { RUMRetentionQuotaConfigData } from "./RUMRetentionQuotaConfigData";
+import { RUMRetentionQuotaConfigResponse } from "./RUMRetentionQuotaConfigResponse";
+import { RUMRetentionQuotaConfigUpdateAttributes } from "./RUMRetentionQuotaConfigUpdateAttributes";
+import { RUMRetentionQuotaConfigUpdateData } from "./RUMRetentionQuotaConfigUpdateData";
+import { RUMRetentionQuotaConfigUpdateRequest } from "./RUMRetentionQuotaConfigUpdateRequest";
+import { RUMRetentionQuotaCustomConfig } from "./RUMRetentionQuotaCustomConfig";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    RumRetentionQuotaConfigType: ["rum_quota_config"],
-    RumRetentionQuotaMode: ["custom"],
-    RumRetentionQuotaReachedAction: ["stop", "slowdown"],
-    RumRetentionQuotaScopeType: ["application"],
-    RumRetentionQuotaWindowType: ["daily"],
+    RUMRetentionQuotaConfigType: ["rum_quota_config"],
+    RUMRetentionQuotaMode: ["custom"],
+    RUMRetentionQuotaReachedAction: ["stop", "slowdown"],
+    RUMRetentionQuotaScopeType: ["application"],
+    RUMRetentionQuotaWindowType: ["daily"],
   },
   oneOfMap: {},
   typeMap: {
@@ -26,13 +26,13 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
-    RumRetentionQuotaConfigAttributes: RumRetentionQuotaConfigAttributes,
-    RumRetentionQuotaConfigData: RumRetentionQuotaConfigData,
-    RumRetentionQuotaConfigResponse: RumRetentionQuotaConfigResponse,
-    RumRetentionQuotaConfigUpdateAttributes:
-      RumRetentionQuotaConfigUpdateAttributes,
-    RumRetentionQuotaConfigUpdateData: RumRetentionQuotaConfigUpdateData,
-    RumRetentionQuotaConfigUpdateRequest: RumRetentionQuotaConfigUpdateRequest,
-    RumRetentionQuotaCustomConfig: RumRetentionQuotaCustomConfig,
+    RUMRetentionQuotaConfigAttributes: RUMRetentionQuotaConfigAttributes,
+    RUMRetentionQuotaConfigData: RUMRetentionQuotaConfigData,
+    RUMRetentionQuotaConfigResponse: RUMRetentionQuotaConfigResponse,
+    RUMRetentionQuotaConfigUpdateAttributes:
+      RUMRetentionQuotaConfigUpdateAttributes,
+    RUMRetentionQuotaConfigUpdateData: RUMRetentionQuotaConfigUpdateData,
+    RUMRetentionQuotaConfigUpdateRequest: RUMRetentionQuotaConfigUpdateRequest,
+    RUMRetentionQuotaCustomConfig: RUMRetentionQuotaCustomConfig,
   },
 };

@@ -1,31 +1,31 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
-import { RumConfigAttributes } from "./RumConfigAttributes";
-import { RumConfigCreateAttributes } from "./RumConfigCreateAttributes";
-import { RumConfigCreateData } from "./RumConfigCreateData";
-import { RumConfigCreateRequest } from "./RumConfigCreateRequest";
-import { RumConfigData } from "./RumConfigData";
-import { RumConfigResponse } from "./RumConfigResponse";
-import { RumConfigUpdateAttributes } from "./RumConfigUpdateAttributes";
-import { RumConfigUpdateData } from "./RumConfigUpdateData";
-import { RumConfigUpdateRequest } from "./RumConfigUpdateRequest";
+import { RUMConfigAttributes } from "./RUMConfigAttributes";
+import { RUMConfigCreateAttributes } from "./RUMConfigCreateAttributes";
+import { RUMConfigCreateData } from "./RUMConfigCreateData";
+import { RUMConfigCreateRequest } from "./RUMConfigCreateRequest";
+import { RUMConfigData } from "./RUMConfigData";
+import { RUMConfigResponse } from "./RUMConfigResponse";
+import { RUMConfigUpdateAttributes } from "./RUMConfigUpdateAttributes";
+import { RUMConfigUpdateData } from "./RUMConfigUpdateData";
+import { RUMConfigUpdateRequest } from "./RUMConfigUpdateRequest";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    RumConfigType: ["rum_config"],
+    RUMConfigType: ["rum_config"],
   },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
-    RumConfigAttributes: RumConfigAttributes,
-    RumConfigCreateAttributes: RumConfigCreateAttributes,
-    RumConfigCreateData: RumConfigCreateData,
-    RumConfigCreateRequest: RumConfigCreateRequest,
-    RumConfigData: RumConfigData,
-    RumConfigResponse: RumConfigResponse,
-    RumConfigUpdateAttributes: RumConfigUpdateAttributes,
-    RumConfigUpdateData: RumConfigUpdateData,
-    RumConfigUpdateRequest: RumConfigUpdateRequest,
+    RUMConfigAttributes: RUMConfigAttributes,
+    RUMConfigCreateAttributes: RUMConfigCreateAttributes,
+    RUMConfigCreateData: RUMConfigCreateData,
+    RUMConfigCreateRequest: RUMConfigCreateRequest,
+    RUMConfigData: RUMConfigData,
+    RUMConfigResponse: RUMConfigResponse,
+    RUMConfigUpdateAttributes: RUMConfigUpdateAttributes,
+    RUMConfigUpdateData: RUMConfigUpdateData,
+    RUMConfigUpdateRequest: RUMConfigUpdateRequest,
   },
 };
