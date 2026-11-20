@@ -13648,6 +13648,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ChatGPTEnterpriseIntegrationAccountResponse",
     },
+    "v2.ListClaudeComplianceIntegrationAccounts": {
+        "operationResponseType": "ClaudeComplianceIntegrationAccountsResponse",
+    },
+    "v2.CreateClaudeComplianceIntegrationAccount": {
+        "body": {
+            "type": "ClaudeComplianceIntegrationAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ClaudeComplianceIntegrationAccountResponse",
+    },
+    "v2.GetClaudeComplianceIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ClaudeComplianceIntegrationAccountResponse",
+    },
+    "v2.DeleteClaudeComplianceIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateClaudeComplianceIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ClaudeComplianceIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ClaudeComplianceIntegrationAccountResponse",
+    },
     "v2.ListCoreWeaveCloudIntegrationAccounts": {
         "operationResponseType": "CoreWeaveCloudIntegrationAccountsResponse",
     },
