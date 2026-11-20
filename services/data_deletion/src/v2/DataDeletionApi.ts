@@ -26,7 +26,9 @@ import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CancelDataDeletionResponseBody } from "./models/CancelDataDeletionResponseBody";
 import { CreateDataDeletionRequestBody } from "./models/CreateDataDeletionRequestBody";
 import { CreateDataDeletionResponseBody } from "./models/CreateDataDeletionResponseBody";
+import { ForceDataDeletionResponseBody } from "./models/ForceDataDeletionResponseBody";
 import { GetDataDeletionsResponseBody } from "./models/GetDataDeletionsResponseBody";
+import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { version } from "../version";
 
 export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
@@ -142,6 +144,64 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
       contentType,
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async forceDataDeletionRequest(
+    id: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["DataDeletionApi.v2.forceDataDeletionRequest"]
+    ) {
+      throw new Error(
+        "Unstable operation 'forceDataDeletionRequest' is disabled. Enable it by setting `configuration.unstableOperations['DataDeletionApi.v2.forceDataDeletionRequest'] = true`",
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "forceDataDeletionRequest");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/deletion/requests/{id}/force".replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DataDeletionApi.v2.forceDataDeletionRequest",
+      DataDeletionApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -366,6 +426,83 @@ export class DataDeletionApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to forceDataDeletionRequest
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async forceDataDeletionRequest(
+    response: ResponseContext,
+  ): Promise<ForceDataDeletionResponseBody> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ForceDataDeletionResponseBody = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ForceDataDeletionResponseBody",
+      ) as ForceDataDeletionResponseBody;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 412) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ForceDataDeletionResponseBody = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ForceDataDeletionResponseBody",
+        "",
+      ) as ForceDataDeletionResponseBody;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getDataDeletionRequests
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -442,6 +579,14 @@ export interface DataDeletionApiCreateDataDeletionRequestRequest {
    * @type CreateDataDeletionRequestBody
    */
   body: CreateDataDeletionRequestBody;
+}
+
+export interface DataDeletionApiForceDataDeletionRequestRequest {
+  /**
+   * ID of the deletion request.
+   * @type string
+   */
+  id: string;
 }
 
 export interface DataDeletionApiGetDataDeletionRequestsRequest {
@@ -532,6 +677,31 @@ export class DataDeletionApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createDataDeletionRequest(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Skips the remaining recovery period of a data deletion request by providing its ID.
+   * Only requests in `in_progress` status can be forced. The deletion starts within a few minutes,
+   * the request moves to `deleting` status, and it can no longer be canceled.
+   * @param param The request object
+   */
+  public forceDataDeletionRequest(
+    param: DataDeletionApiForceDataDeletionRequestRequest,
+    options?: Configuration,
+  ): Promise<ForceDataDeletionResponseBody> {
+    const requestContextPromise = this.requestFactory.forceDataDeletionRequest(
+      param.id,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.forceDataDeletionRequest(
             responseContext,
           );
         });

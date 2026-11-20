@@ -10403,6 +10403,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CancelDataDeletionResponseBody",
   },
+  "DataDeletionApi.V2.ForceDataDeletionRequest": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ForceDataDeletionResponseBody",
+  },
   "DEMApi.V2.CreateJourney": {
     body: {
       type: "DemJourneyCreateRequest",

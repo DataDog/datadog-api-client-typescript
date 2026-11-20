@@ -1,6 +1,7 @@
 export {
   DataDeletionApiCancelDataDeletionRequestRequest,
   DataDeletionApiCreateDataDeletionRequestRequest,
+  DataDeletionApiForceDataDeletionRequestRequest,
   DataDeletionApiGetDataDeletionRequestsRequest,
   DataDeletionApi,
 } from "./DataDeletionApi";
@@ -15,4 +16,8 @@ export { CreateDataDeletionResponseBody } from "./models/CreateDataDeletionRespo
 export { DataDeletionResponseItem } from "./models/DataDeletionResponseItem";
 export { DataDeletionResponseItemAttributes } from "./models/DataDeletionResponseItemAttributes";
 export { DataDeletionResponseMeta } from "./models/DataDeletionResponseMeta";
+export { ForceDataDeletionResponseBody } from "./models/ForceDataDeletionResponseBody";
 export { GetDataDeletionsResponseBody } from "./models/GetDataDeletionsResponseBody";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
