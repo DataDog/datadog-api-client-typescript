@@ -464,6 +464,25 @@ import { AnthropicAPIKey } from "./AnthropicAPIKey";
 import { AnthropicAPIKeyUpdate } from "./AnthropicAPIKeyUpdate";
 import { AnthropicIntegration } from "./AnthropicIntegration";
 import { AnthropicIntegrationUpdate } from "./AnthropicIntegrationUpdate";
+import { AnthropicUsageAndCostsCloudCostMetricsIntegrationDataflowRequest } from "./AnthropicUsageAndCostsCloudCostMetricsIntegrationDataflowRequest";
+import { AnthropicUsageAndCostsCloudCostMetricsIntegrationDataflowResponse } from "./AnthropicUsageAndCostsCloudCostMetricsIntegrationDataflowResponse";
+import { AnthropicUsageAndCostsDailyUsageDoraMetricsIntegrationDataflowResponse } from "./AnthropicUsageAndCostsDailyUsageDoraMetricsIntegrationDataflowResponse";
+import { AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthRequest } from "./AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthRequest";
+import { AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthResponse } from "./AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthResponse";
+import { AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthUpdate } from "./AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthUpdate";
+import { AnthropicUsageAndCostsIntegrationAccountCreateAttributes } from "./AnthropicUsageAndCostsIntegrationAccountCreateAttributes";
+import { AnthropicUsageAndCostsIntegrationAccountCreateData } from "./AnthropicUsageAndCostsIntegrationAccountCreateData";
+import { AnthropicUsageAndCostsIntegrationAccountCreateRequest } from "./AnthropicUsageAndCostsIntegrationAccountCreateRequest";
+import { AnthropicUsageAndCostsIntegrationAccountResponse } from "./AnthropicUsageAndCostsIntegrationAccountResponse";
+import { AnthropicUsageAndCostsIntegrationAccountResponseAttributes } from "./AnthropicUsageAndCostsIntegrationAccountResponseAttributes";
+import { AnthropicUsageAndCostsIntegrationAccountResponseData } from "./AnthropicUsageAndCostsIntegrationAccountResponseData";
+import { AnthropicUsageAndCostsIntegrationAccountUpdateAttributes } from "./AnthropicUsageAndCostsIntegrationAccountUpdateAttributes";
+import { AnthropicUsageAndCostsIntegrationAccountUpdateData } from "./AnthropicUsageAndCostsIntegrationAccountUpdateData";
+import { AnthropicUsageAndCostsIntegrationAccountUpdateRequest } from "./AnthropicUsageAndCostsIntegrationAccountUpdateRequest";
+import { AnthropicUsageAndCostsIntegrationAccountsResponse } from "./AnthropicUsageAndCostsIntegrationAccountsResponse";
+import { AnthropicUsageAndCostsIntegrationDataflowsRequest } from "./AnthropicUsageAndCostsIntegrationDataflowsRequest";
+import { AnthropicUsageAndCostsIntegrationDataflowsResponse } from "./AnthropicUsageAndCostsIntegrationDataflowsResponse";
+import { AnthropicUsageAndCostsUsageMetricsIntegrationDataflowResponse } from "./AnthropicUsageAndCostsUsageMetricsIntegrationDataflowResponse";
 import { ApmDependencyStatsQuery } from "./ApmDependencyStatsQuery";
 import { ApmMetricsQuery } from "./ApmMetricsQuery";
 import { ApmResourceStatsQuery } from "./ApmResourceStatsQuery";
@@ -7641,6 +7660,7 @@ const enumsMap: { [key: string]: any[] } = {
   AnonymizeUsersResponseType: ["anonymize_users_response"],
   AnthropicAPIKeyType: ["AnthropicAPIKey"],
   AnthropicIntegrationType: ["Anthropic"],
+  AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthType: ["bearer_token"],
   ApmDependencyStatName: [
     "avg_duration",
     "avg_root_duration",
@@ -12185,6 +12205,44 @@ const typeMap: { [index: string]: any } = {
   AnthropicAPIKeyUpdate: AnthropicAPIKeyUpdate,
   AnthropicIntegration: AnthropicIntegration,
   AnthropicIntegrationUpdate: AnthropicIntegrationUpdate,
+  AnthropicUsageAndCostsCloudCostMetricsIntegrationDataflowRequest:
+    AnthropicUsageAndCostsCloudCostMetricsIntegrationDataflowRequest,
+  AnthropicUsageAndCostsCloudCostMetricsIntegrationDataflowResponse:
+    AnthropicUsageAndCostsCloudCostMetricsIntegrationDataflowResponse,
+  AnthropicUsageAndCostsDailyUsageDoraMetricsIntegrationDataflowResponse:
+    AnthropicUsageAndCostsDailyUsageDoraMetricsIntegrationDataflowResponse,
+  AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthRequest:
+    AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthRequest,
+  AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthResponse:
+    AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthResponse,
+  AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthUpdate:
+    AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthUpdate,
+  AnthropicUsageAndCostsIntegrationAccountCreateAttributes:
+    AnthropicUsageAndCostsIntegrationAccountCreateAttributes,
+  AnthropicUsageAndCostsIntegrationAccountCreateData:
+    AnthropicUsageAndCostsIntegrationAccountCreateData,
+  AnthropicUsageAndCostsIntegrationAccountCreateRequest:
+    AnthropicUsageAndCostsIntegrationAccountCreateRequest,
+  AnthropicUsageAndCostsIntegrationAccountResponse:
+    AnthropicUsageAndCostsIntegrationAccountResponse,
+  AnthropicUsageAndCostsIntegrationAccountResponseAttributes:
+    AnthropicUsageAndCostsIntegrationAccountResponseAttributes,
+  AnthropicUsageAndCostsIntegrationAccountResponseData:
+    AnthropicUsageAndCostsIntegrationAccountResponseData,
+  AnthropicUsageAndCostsIntegrationAccountUpdateAttributes:
+    AnthropicUsageAndCostsIntegrationAccountUpdateAttributes,
+  AnthropicUsageAndCostsIntegrationAccountUpdateData:
+    AnthropicUsageAndCostsIntegrationAccountUpdateData,
+  AnthropicUsageAndCostsIntegrationAccountUpdateRequest:
+    AnthropicUsageAndCostsIntegrationAccountUpdateRequest,
+  AnthropicUsageAndCostsIntegrationAccountsResponse:
+    AnthropicUsageAndCostsIntegrationAccountsResponse,
+  AnthropicUsageAndCostsIntegrationDataflowsRequest:
+    AnthropicUsageAndCostsIntegrationDataflowsRequest,
+  AnthropicUsageAndCostsIntegrationDataflowsResponse:
+    AnthropicUsageAndCostsIntegrationDataflowsResponse,
+  AnthropicUsageAndCostsUsageMetricsIntegrationDataflowResponse:
+    AnthropicUsageAndCostsUsageMetricsIntegrationDataflowResponse,
   ApmDependencyStatsQuery: ApmDependencyStatsQuery,
   ApmMetricsQuery: ApmMetricsQuery,
   ApmResourceStatsQuery: ApmResourceStatsQuery,
@@ -20958,6 +21016,15 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   AnthropicCredentials: ["AnthropicAPIKey"],
   AnthropicCredentialsUpdate: ["AnthropicAPIKeyUpdate"],
+  AnthropicUsageAndCostsIntegrationAccountAuthenticationRequest: [
+    "AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthRequest",
+  ],
+  AnthropicUsageAndCostsIntegrationAccountAuthenticationResponse: [
+    "AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthResponse",
+  ],
+  AnthropicUsageAndCostsIntegrationAccountAuthenticationUpdate: [
+    "AnthropicUsageAndCostsIntegrationAccountBearerTokenAuthUpdate",
+  ],
   AnyValue: [
     "string",
     "number",
