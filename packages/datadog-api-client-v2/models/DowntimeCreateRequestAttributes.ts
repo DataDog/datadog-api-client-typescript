@@ -6,6 +6,7 @@
 import { DowntimeMonitorIdentifier } from "./DowntimeMonitorIdentifier";
 import { DowntimeNotifyEndStateActions } from "./DowntimeNotifyEndStateActions";
 import { DowntimeNotifyEndStateTypes } from "./DowntimeNotifyEndStateTypes";
+import { DowntimeRunAsItem } from "./DowntimeRunAsItem";
 import { DowntimeScheduleCreateRequest } from "./DowntimeScheduleCreateRequest";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -40,6 +41,12 @@ export class DowntimeCreateRequestAttributes {
    * Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
    */
   "notifyEndTypes"?: Array<DowntimeNotifyEndStateActions>;
+  /**
+   * The user the downtime runs as. The downtime only silences monitors this user can mute.
+   *
+   * **Note**: This feature is currently in Preview and may not be available for all organizations.
+   */
+  "runAs"?: [DowntimeRunAsItem];
   /**
    * Schedule for the downtime.
    */
@@ -89,6 +96,10 @@ export class DowntimeCreateRequestAttributes {
     notifyEndTypes: {
       baseName: "notify_end_types",
       type: "Array<DowntimeNotifyEndStateActions>",
+    },
+    runAs: {
+      baseName: "run_as",
+      type: "[DowntimeRunAsItem]",
     },
     schedule: {
       baseName: "schedule",

@@ -3,18 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DowntimeRunAsPrincipal } from "./DowntimeRunAsPrincipal";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A set of principals allowed to act on behalf of the downtime.
+ * A set of principals the downtime runs as.
  */
 export class DowntimeRunAsItem {
   /**
-   * List of principals allowed to act on behalf of the downtime.
+   * The principal the downtime runs as. Only one user is supported.
    */
-  "principals"?: Array<DowntimeRunAsPrincipal>;
+  "principals": [string];
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +33,8 @@ export class DowntimeRunAsItem {
   static readonly attributeTypeMap: AttributeTypeMap = {
     principals: {
       baseName: "principals",
-      type: "Array<DowntimeRunAsPrincipal>",
+      type: "[string]",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
