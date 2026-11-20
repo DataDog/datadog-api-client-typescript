@@ -11,7 +11,8 @@ import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
  */
 export class MetricDistinctVolumeAttributes {
   /**
-   * Distinct volume for the given metric.
+   * Distinct volume for the given metric. This value is `null` for standard metrics in organizations on
+   * Metric Name Pricing.
    */
   "distinctVolume"?: Int64;
 
