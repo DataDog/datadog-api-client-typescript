@@ -23,7 +23,7 @@ const params: v2.RUMManagedArchivesApiUpdateRUMArchiveConfigRequest = {
 
 apiInstance
   .updateRUMArchiveConfig(params)
-  .then((data: v2.RumArchiveConfigResponse) => {
+  .then((data: v2.RUMArchiveConfigResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

@@ -12,9 +12,9 @@ const configuration = client.createConfiguration({
   },
 });
 configuration.unstableOperations["v2.createConnection"] = true;
-const apiInstance = new v2.RumAudienceManagementApi(configuration);
+const apiInstance = new v2.RUMAudienceManagementApi(configuration);
 
-const params: v2.RumAudienceManagementApiCreateConnectionRequest = {
+const params: v2.RUMAudienceManagementApiCreateConnectionRequest = {
   body: {
     data: {
       attributes: {

@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Rum replay session resource type.
+ * RUM replay session resource type.
  */
 
 export type ViewershipHistorySessionDataType =

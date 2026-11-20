@@ -12,9 +12,9 @@ const configuration = client.createConfiguration({
   },
 });
 configuration.unstableOperations["v2.queryEventFilteredUsers"] = true;
-const apiInstance = new v2.RumAudienceManagementApi(configuration);
+const apiInstance = new v2.RUMAudienceManagementApi(configuration);
 
-const params: v2.RumAudienceManagementApiQueryEventFilteredUsersRequest = {
+const params: v2.RUMAudienceManagementApiQueryEventFilteredUsersRequest = {
   body: {
     data: {
       attributes: {

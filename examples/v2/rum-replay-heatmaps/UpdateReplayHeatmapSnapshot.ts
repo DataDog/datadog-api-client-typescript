@@ -11,9 +11,9 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.RumReplayHeatmapsApi(configuration);
+const apiInstance = new v2.RUMReplayHeatmapsApi(configuration);
 
-const params: v2.RumReplayHeatmapsApiUpdateReplayHeatmapSnapshotRequest = {
+const params: v2.RUMReplayHeatmapsApiUpdateReplayHeatmapSnapshotRequest = {
   body: {
     data: {
       attributes: {

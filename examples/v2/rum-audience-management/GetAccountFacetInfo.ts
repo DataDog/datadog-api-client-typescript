@@ -12,9 +12,9 @@ const configuration = client.createConfiguration({
   },
 });
 configuration.unstableOperations["v2.getAccountFacetInfo"] = true;
-const apiInstance = new v2.RumAudienceManagementApi(configuration);
+const apiInstance = new v2.RUMAudienceManagementApi(configuration);
 
-const params: v2.RumAudienceManagementApiGetAccountFacetInfoRequest = {
+const params: v2.RUMAudienceManagementApiGetAccountFacetInfoRequest = {
   body: {
     data: {
       attributes: {

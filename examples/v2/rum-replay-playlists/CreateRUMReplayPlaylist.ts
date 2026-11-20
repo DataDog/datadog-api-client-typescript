@@ -1,0 +1,39 @@
+/**
+ * Create RUM replay playlist returns "Created" response
+ */
+
+import { client, v2 } from "@datadog/datadog-api-client";
+
+const configuration = client.createConfiguration({
+  authMethods: {
+    AuthZ: {
+      accessToken: process.env.DD_BEARER_TOKEN as string,
+    },
+  },
+});
+const apiInstance = new v2.RUMReplayPlaylistsApi(configuration);
+
+const params: v2.RUMReplayPlaylistsApiCreateRUMReplayPlaylistRequest = {
+  body: {
+    data: {
+      attributes: {
+        createdBy: {
+          handle: "john.doe@example.com",
+          id: "00000000-0000-0000-0000-000000000001",
+          uuid: "00000000-0000-0000-0000-000000000001",
+        },
+        name: "My Playlist",
+      },
+      type: "rum_replay_playlist",
+    },
+  },
+};
+
+apiInstance
+  .createRUMReplayPlaylist(params)
+  .then((data: v2.Playlist) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
