@@ -4312,6 +4312,7 @@ import { ObservabilityPipelineClientTls } from "./ObservabilityPipelineClientTls
 import { ObservabilityPipelineCloudPremDestination } from "./ObservabilityPipelineCloudPremDestination";
 import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
 import { ObservabilityPipelineConfigProcessorGroup } from "./ObservabilityPipelineConfigProcessorGroup";
+import { ObservabilityPipelineCrowdStrikeFdrSource } from "./ObservabilityPipelineCrowdStrikeFdrSource";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression";
 import { ObservabilityPipelineCustomProcessor } from "./ObservabilityPipelineCustomProcessor";
@@ -9671,6 +9672,7 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineClickhouseDestinationType: ["clickhouse"],
   ObservabilityPipelineCloudPremDestinationType: ["cloud_prem"],
   ObservabilityPipelineConfigPipelineType: ["logs", "metrics", "traces"],
+  ObservabilityPipelineCrowdStrikeFdrSourceType: ["crowdstrike_fdr"],
   ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm: [
     "gzip",
     "zlib",
@@ -17012,6 +17014,8 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineConfig: ObservabilityPipelineConfig,
   ObservabilityPipelineConfigProcessorGroup:
     ObservabilityPipelineConfigProcessorGroup,
+  ObservabilityPipelineCrowdStrikeFdrSource:
+    ObservabilityPipelineCrowdStrikeFdrSource,
   ObservabilityPipelineCrowdStrikeNextGenSiemDestination:
     ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
   ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression:
@@ -21706,6 +21710,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineOpentelemetrySource",
     "ObservabilityPipelineAmazonDataFirehoseSource",
     "ObservabilityPipelineAmazonS3Source",
+    "ObservabilityPipelineCrowdStrikeFdrSource",
     "ObservabilityPipelineFluentBitSource",
     "ObservabilityPipelineFluentdSource",
     "ObservabilityPipelineGooglePubSubSource",
