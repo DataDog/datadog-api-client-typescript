@@ -22,7 +22,7 @@ export { RUMOperationJourneyCompositeRule } from "./models/RUMOperationJourneyCo
 export { RUMOperationJourneyCompositeRuleKind } from "./models/RUMOperationJourneyCompositeRuleKind";
 export { RUMOperationJourneyNode } from "./models/RUMOperationJourneyNode";
 export { RUMOperationJourneyPredicate } from "./models/RUMOperationJourneyPredicate";
-export { RUMOperationJourneyRum } from "./models/RUMOperationJourneyRum";
+export { RUMOperationJourneyRUM } from "./models/RUMOperationJourneyRUM";
 export { RUMOperationJourneyStep } from "./models/RUMOperationJourneyStep";
 export { RUMOperationJourneyStepType } from "./models/RUMOperationJourneyStepType";
 export { RUMOperationRequestAttributes } from "./models/RUMOperationRequestAttributes";

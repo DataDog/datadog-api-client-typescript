@@ -3,53 +3,53 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
-import { RumArchiveSession } from "./RumArchiveSession";
-import { RumArchiveSessionAttributes } from "./RumArchiveSessionAttributes";
-import { RumArchiveSessionRecoveryStatus } from "./RumArchiveSessionRecoveryStatus";
-import { RumArchiveSessionsMeta } from "./RumArchiveSessionsMeta";
-import { RumArchiveSessionsPage } from "./RumArchiveSessionsPage";
-import { RumArchiveSessionsResponse } from "./RumArchiveSessionsResponse";
-import { RumArchiveSessionsSearchAttributes } from "./RumArchiveSessionsSearchAttributes";
-import { RumArchiveSessionsSearchData } from "./RumArchiveSessionsSearchData";
-import { RumArchiveSessionsSearchRequest } from "./RumArchiveSessionsSearchRequest";
-import { RumManagedArchiveErrorResponse } from "./RumManagedArchiveErrorResponse";
-import { RumRecoveredSession } from "./RumRecoveredSession";
-import { RumRecoveryBatchCreateAttributes } from "./RumRecoveryBatchCreateAttributes";
-import { RumRecoveryBatchListAttributes } from "./RumRecoveryBatchListAttributes";
-import { RumRecoveryBatchListData } from "./RumRecoveryBatchListData";
-import { RumRecoveryBatchListMeta } from "./RumRecoveryBatchListMeta";
-import { RumRecoveryBatchListResponse } from "./RumRecoveryBatchListResponse";
-import { RumRecoveryCancelAttributes } from "./RumRecoveryCancelAttributes";
-import { RumRecoveryCancelData } from "./RumRecoveryCancelData";
-import { RumRecoveryCancelRequest } from "./RumRecoveryCancelRequest";
-import { RumRecoveryCancelResponse } from "./RumRecoveryCancelResponse";
-import { RumRecoveryCancelResponseAttributes } from "./RumRecoveryCancelResponseAttributes";
-import { RumRecoveryCancelResponseData } from "./RumRecoveryCancelResponseData";
-import { RumRecoveryCountAttributes } from "./RumRecoveryCountAttributes";
-import { RumRecoveryCountRequest } from "./RumRecoveryCountRequest";
-import { RumRecoveryCountRequestData } from "./RumRecoveryCountRequestData";
-import { RumRecoveryCountResponse } from "./RumRecoveryCountResponse";
-import { RumRecoveryCountResponseAttributes } from "./RumRecoveryCountResponseAttributes";
-import { RumRecoveryCountResponseData } from "./RumRecoveryCountResponseData";
-import { RumRecoveryCreateData } from "./RumRecoveryCreateData";
-import { RumRecoveryCreateRequest } from "./RumRecoveryCreateRequest";
-import { RumRecoveryCreateResponse } from "./RumRecoveryCreateResponse";
-import { RumRecoveryCreateResponseAttributes } from "./RumRecoveryCreateResponseAttributes";
-import { RumRecoveryCreateResponseData } from "./RumRecoveryCreateResponseData";
-import { RumRecoveryRequestAttributes } from "./RumRecoveryRequestAttributes";
-import { RumRecoveryRequestData } from "./RumRecoveryRequestData";
-import { RumRecoveryRequestResponse } from "./RumRecoveryRequestResponse";
-import { RumRecoverySessionInput } from "./RumRecoverySessionInput";
-import { RumRecoverySessionsCreateAttributes } from "./RumRecoverySessionsCreateAttributes";
+import { RUMArchiveSession } from "./RUMArchiveSession";
+import { RUMArchiveSessionAttributes } from "./RUMArchiveSessionAttributes";
+import { RUMArchiveSessionRecoveryStatus } from "./RUMArchiveSessionRecoveryStatus";
+import { RUMArchiveSessionsMeta } from "./RUMArchiveSessionsMeta";
+import { RUMArchiveSessionsPage } from "./RUMArchiveSessionsPage";
+import { RUMArchiveSessionsResponse } from "./RUMArchiveSessionsResponse";
+import { RUMArchiveSessionsSearchAttributes } from "./RUMArchiveSessionsSearchAttributes";
+import { RUMArchiveSessionsSearchData } from "./RUMArchiveSessionsSearchData";
+import { RUMArchiveSessionsSearchRequest } from "./RUMArchiveSessionsSearchRequest";
+import { RUMManagedArchiveErrorResponse } from "./RUMManagedArchiveErrorResponse";
+import { RUMRecoveredSession } from "./RUMRecoveredSession";
+import { RUMRecoveryBatchCreateAttributes } from "./RUMRecoveryBatchCreateAttributes";
+import { RUMRecoveryBatchListAttributes } from "./RUMRecoveryBatchListAttributes";
+import { RUMRecoveryBatchListData } from "./RUMRecoveryBatchListData";
+import { RUMRecoveryBatchListMeta } from "./RUMRecoveryBatchListMeta";
+import { RUMRecoveryBatchListResponse } from "./RUMRecoveryBatchListResponse";
+import { RUMRecoveryCancelAttributes } from "./RUMRecoveryCancelAttributes";
+import { RUMRecoveryCancelData } from "./RUMRecoveryCancelData";
+import { RUMRecoveryCancelRequest } from "./RUMRecoveryCancelRequest";
+import { RUMRecoveryCancelResponse } from "./RUMRecoveryCancelResponse";
+import { RUMRecoveryCancelResponseAttributes } from "./RUMRecoveryCancelResponseAttributes";
+import { RUMRecoveryCancelResponseData } from "./RUMRecoveryCancelResponseData";
+import { RUMRecoveryCountAttributes } from "./RUMRecoveryCountAttributes";
+import { RUMRecoveryCountRequest } from "./RUMRecoveryCountRequest";
+import { RUMRecoveryCountRequestData } from "./RUMRecoveryCountRequestData";
+import { RUMRecoveryCountResponse } from "./RUMRecoveryCountResponse";
+import { RUMRecoveryCountResponseAttributes } from "./RUMRecoveryCountResponseAttributes";
+import { RUMRecoveryCountResponseData } from "./RUMRecoveryCountResponseData";
+import { RUMRecoveryCreateData } from "./RUMRecoveryCreateData";
+import { RUMRecoveryCreateRequest } from "./RUMRecoveryCreateRequest";
+import { RUMRecoveryCreateResponse } from "./RUMRecoveryCreateResponse";
+import { RUMRecoveryCreateResponseAttributes } from "./RUMRecoveryCreateResponseAttributes";
+import { RUMRecoveryCreateResponseData } from "./RUMRecoveryCreateResponseData";
+import { RUMRecoveryRequestAttributes } from "./RUMRecoveryRequestAttributes";
+import { RUMRecoveryRequestData } from "./RUMRecoveryRequestData";
+import { RUMRecoveryRequestResponse } from "./RUMRecoveryRequestResponse";
+import { RUMRecoverySessionInput } from "./RUMRecoverySessionInput";
+import { RUMRecoverySessionsCreateAttributes } from "./RUMRecoverySessionsCreateAttributes";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    RumArchiveSessionType: ["rum_archive_session"],
-    RumRecoveryBatchListDataType: ["rum_batch_recovery_request"],
-    RumRecoveryBatchRequestType: ["batch"],
-    RumRecoveryCancelStatus: ["cancelled"],
-    RumRecoveryCountResponseDataType: ["rum_recovery_count"],
-    RumRecoveryDiscoveryStatus: [
+    RUMArchiveSessionType: ["rum_archive_session"],
+    RUMRecoveryBatchListDataType: ["rum_batch_recovery_request"],
+    RUMRecoveryBatchRequestType: ["batch"],
+    RUMRecoveryCancelStatus: ["cancelled"],
+    RUMRecoveryCountResponseDataType: ["rum_recovery_count"],
+    RUMRecoveryDiscoveryStatus: [
       "QUEUED",
       "PENDING",
       "SLICING",
@@ -59,7 +59,7 @@ export const TypingInfo: ModelTypingInfo = {
       "FAILED",
       "CANCELLED",
     ],
-    RumRecoveryRequestStatus: [
+    RUMRecoveryRequestStatus: [
       "PENDING",
       "PROCESSING",
       "COMPLETED",
@@ -67,8 +67,8 @@ export const TypingInfo: ModelTypingInfo = {
       "CANCELLED",
       "EXPIRED",
     ],
-    RumRecoveryRequestType: ["rum_recovery_request"],
-    RumRecoverySessionStatus: [
+    RUMRecoveryRequestType: ["rum_recovery_request"],
+    RUMRecoverySessionStatus: [
       "AVAILABLE",
       "PENDING",
       "PROCESSING",
@@ -78,55 +78,55 @@ export const TypingInfo: ModelTypingInfo = {
       "EXPIRED",
       "CANCELLED",
     ],
-    RumRecoverySessionsRequestType: ["sessions"],
+    RUMRecoverySessionsRequestType: ["sessions"],
   },
   oneOfMap: {
-    RumRecoveryCreateAttributes: [
-      "RumRecoverySessionsCreateAttributes",
-      "RumRecoveryBatchCreateAttributes",
+    RUMRecoveryCreateAttributes: [
+      "RUMRecoverySessionsCreateAttributes",
+      "RUMRecoveryBatchCreateAttributes",
     ],
   },
   typeMap: {
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
-    RumArchiveSession: RumArchiveSession,
-    RumArchiveSessionAttributes: RumArchiveSessionAttributes,
-    RumArchiveSessionRecoveryStatus: RumArchiveSessionRecoveryStatus,
-    RumArchiveSessionsMeta: RumArchiveSessionsMeta,
-    RumArchiveSessionsPage: RumArchiveSessionsPage,
-    RumArchiveSessionsResponse: RumArchiveSessionsResponse,
-    RumArchiveSessionsSearchAttributes: RumArchiveSessionsSearchAttributes,
-    RumArchiveSessionsSearchData: RumArchiveSessionsSearchData,
-    RumArchiveSessionsSearchRequest: RumArchiveSessionsSearchRequest,
-    RumManagedArchiveErrorResponse: RumManagedArchiveErrorResponse,
-    RumRecoveredSession: RumRecoveredSession,
-    RumRecoveryBatchCreateAttributes: RumRecoveryBatchCreateAttributes,
-    RumRecoveryBatchListAttributes: RumRecoveryBatchListAttributes,
-    RumRecoveryBatchListData: RumRecoveryBatchListData,
-    RumRecoveryBatchListMeta: RumRecoveryBatchListMeta,
-    RumRecoveryBatchListResponse: RumRecoveryBatchListResponse,
-    RumRecoveryCancelAttributes: RumRecoveryCancelAttributes,
-    RumRecoveryCancelData: RumRecoveryCancelData,
-    RumRecoveryCancelRequest: RumRecoveryCancelRequest,
-    RumRecoveryCancelResponse: RumRecoveryCancelResponse,
-    RumRecoveryCancelResponseAttributes: RumRecoveryCancelResponseAttributes,
-    RumRecoveryCancelResponseData: RumRecoveryCancelResponseData,
-    RumRecoveryCountAttributes: RumRecoveryCountAttributes,
-    RumRecoveryCountRequest: RumRecoveryCountRequest,
-    RumRecoveryCountRequestData: RumRecoveryCountRequestData,
-    RumRecoveryCountResponse: RumRecoveryCountResponse,
-    RumRecoveryCountResponseAttributes: RumRecoveryCountResponseAttributes,
-    RumRecoveryCountResponseData: RumRecoveryCountResponseData,
-    RumRecoveryCreateData: RumRecoveryCreateData,
-    RumRecoveryCreateRequest: RumRecoveryCreateRequest,
-    RumRecoveryCreateResponse: RumRecoveryCreateResponse,
-    RumRecoveryCreateResponseAttributes: RumRecoveryCreateResponseAttributes,
-    RumRecoveryCreateResponseData: RumRecoveryCreateResponseData,
-    RumRecoveryRequestAttributes: RumRecoveryRequestAttributes,
-    RumRecoveryRequestData: RumRecoveryRequestData,
-    RumRecoveryRequestResponse: RumRecoveryRequestResponse,
-    RumRecoverySessionInput: RumRecoverySessionInput,
-    RumRecoverySessionsCreateAttributes: RumRecoverySessionsCreateAttributes,
+    RUMArchiveSession: RUMArchiveSession,
+    RUMArchiveSessionAttributes: RUMArchiveSessionAttributes,
+    RUMArchiveSessionRecoveryStatus: RUMArchiveSessionRecoveryStatus,
+    RUMArchiveSessionsMeta: RUMArchiveSessionsMeta,
+    RUMArchiveSessionsPage: RUMArchiveSessionsPage,
+    RUMArchiveSessionsResponse: RUMArchiveSessionsResponse,
+    RUMArchiveSessionsSearchAttributes: RUMArchiveSessionsSearchAttributes,
+    RUMArchiveSessionsSearchData: RUMArchiveSessionsSearchData,
+    RUMArchiveSessionsSearchRequest: RUMArchiveSessionsSearchRequest,
+    RUMManagedArchiveErrorResponse: RUMManagedArchiveErrorResponse,
+    RUMRecoveredSession: RUMRecoveredSession,
+    RUMRecoveryBatchCreateAttributes: RUMRecoveryBatchCreateAttributes,
+    RUMRecoveryBatchListAttributes: RUMRecoveryBatchListAttributes,
+    RUMRecoveryBatchListData: RUMRecoveryBatchListData,
+    RUMRecoveryBatchListMeta: RUMRecoveryBatchListMeta,
+    RUMRecoveryBatchListResponse: RUMRecoveryBatchListResponse,
+    RUMRecoveryCancelAttributes: RUMRecoveryCancelAttributes,
+    RUMRecoveryCancelData: RUMRecoveryCancelData,
+    RUMRecoveryCancelRequest: RUMRecoveryCancelRequest,
+    RUMRecoveryCancelResponse: RUMRecoveryCancelResponse,
+    RUMRecoveryCancelResponseAttributes: RUMRecoveryCancelResponseAttributes,
+    RUMRecoveryCancelResponseData: RUMRecoveryCancelResponseData,
+    RUMRecoveryCountAttributes: RUMRecoveryCountAttributes,
+    RUMRecoveryCountRequest: RUMRecoveryCountRequest,
+    RUMRecoveryCountRequestData: RUMRecoveryCountRequestData,
+    RUMRecoveryCountResponse: RUMRecoveryCountResponse,
+    RUMRecoveryCountResponseAttributes: RUMRecoveryCountResponseAttributes,
+    RUMRecoveryCountResponseData: RUMRecoveryCountResponseData,
+    RUMRecoveryCreateData: RUMRecoveryCreateData,
+    RUMRecoveryCreateRequest: RUMRecoveryCreateRequest,
+    RUMRecoveryCreateResponse: RUMRecoveryCreateResponse,
+    RUMRecoveryCreateResponseAttributes: RUMRecoveryCreateResponseAttributes,
+    RUMRecoveryCreateResponseData: RUMRecoveryCreateResponseData,
+    RUMRecoveryRequestAttributes: RUMRecoveryRequestAttributes,
+    RUMRecoveryRequestData: RUMRecoveryRequestData,
+    RUMRecoveryRequestResponse: RUMRecoveryRequestResponse,
+    RUMRecoverySessionInput: RUMRecoverySessionInput,
+    RUMRecoverySessionsCreateAttributes: RUMRecoverySessionsCreateAttributes,
   },
 };

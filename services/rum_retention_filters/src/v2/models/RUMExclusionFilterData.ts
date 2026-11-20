@@ -1,0 +1,74 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { RUMExclusionFilterAttributes } from "./RUMExclusionFilterAttributes";
+import { RUMExclusionFilterMeta } from "./RUMExclusionFilterMeta";
+import { RUMExclusionFilterType } from "./RUMExclusionFilterType";
+
+/**
+ * An exclusion filter.
+ */
+export class RUMExclusionFilterData {
+  /**
+   * The attributes of an exclusion filter.
+   */
+  "attributes"?: RUMExclusionFilterAttributes;
+  /**
+   * The ID of the exclusion filter.
+   */
+  "id": string;
+  /**
+   * Metadata about the exclusion filter.
+   */
+  "meta"?: RUMExclusionFilterMeta;
+  /**
+   * The resource type. The value must be `exclusion_filters`.
+   */
+  "type": RUMExclusionFilterType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "RUMExclusionFilterAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    meta: {
+      baseName: "meta",
+      type: "RUMExclusionFilterMeta",
+    },
+    type: {
+      baseName: "type",
+      type: "RUMExclusionFilterType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return RUMExclusionFilterData.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

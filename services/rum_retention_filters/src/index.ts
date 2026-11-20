@@ -1,3 +1,3 @@
 export * as v2 from "./v2";
 
-export { RumRetentionFiltersApi as RumRetentionFiltersApiV2 } from "./v2/RumRetentionFiltersApi";
+export { RUMRetentionFiltersApi as RUMRetentionFiltersApiV2 } from "./v2/RUMRetentionFiltersApi";

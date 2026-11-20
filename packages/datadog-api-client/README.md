@@ -469,21 +469,21 @@ apiInstance
 | Restriction Policies | @datadog/datadog-api-client-restriction-policies | [README.md](../../services/restriction-policies/README.md) |
 | Roles | @datadog/datadog-api-client-roles | [README.md](../../services/roles/README.md) |
 | RUM | @datadog/datadog-api-client-rum | [README.md](../../services/rum/README.md) |
-| Rum Audience Management | @datadog/datadog-api-client-rum-audience-management | [README.md](../../services/rum-audience-management/README.md) |
+| RUM Audience Management | @datadog/datadog-api-client-rum-audience-management | [README.md](../../services/rum-audience-management/README.md) |
 | RUM Config | @datadog/datadog-api-client-rum-config | [README.md](../../services/rum-config/README.md) |
 | RUM Insights | @datadog/datadog-api-client-rum-insights | [README.md](../../services/rum-insights/README.md) |
 | RUM Managed Archives | @datadog/datadog-api-client-rum-managed-archives | [README.md](../../services/rum-managed-archives/README.md) |
-| Rum Metrics | @datadog/datadog-api-client-rum-metrics | [README.md](../../services/rum-metrics/README.md) |
+| RUM Metrics | @datadog/datadog-api-client-rum-metrics | [README.md](../../services/rum-metrics/README.md) |
 | RUM Operations | @datadog/datadog-api-client-rum-operations | [README.md](../../services/rum-operations/README.md) |
 | RUM Recovery | @datadog/datadog-api-client-rum-recovery | [README.md](../../services/rum-recovery/README.md) |
 | RUM Remote Config | @datadog/datadog-api-client-rum-remote-config | [README.md](../../services/rum-remote-config/README.md) |
-| Rum Replay Heatmaps | @datadog/datadog-api-client-rum-replay-heatmaps | [README.md](../../services/rum-replay-heatmaps/README.md) |
-| Rum Replay Playlists | @datadog/datadog-api-client-rum-replay-playlists | [README.md](../../services/rum-replay-playlists/README.md) |
-| Rum Replay Sessions | @datadog/datadog-api-client-rum-replay-sessions | [README.md](../../services/rum-replay-sessions/README.md) |
-| Rum Replay Viewership | @datadog/datadog-api-client-rum-replay-viewership | [README.md](../../services/rum-replay-viewership/README.md) |
-| Rum Retention Filters | @datadog/datadog-api-client-rum-retention-filters | [README.md](../../services/rum-retention-filters/README.md) |
+| RUM Replay Heatmaps | @datadog/datadog-api-client-rum-replay-heatmaps | [README.md](../../services/rum-replay-heatmaps/README.md) |
+| RUM Replay Playlists | @datadog/datadog-api-client-rum-replay-playlists | [README.md](../../services/rum-replay-playlists/README.md) |
+| RUM Replay Sessions | @datadog/datadog-api-client-rum-replay-sessions | [README.md](../../services/rum-replay-sessions/README.md) |
+| RUM Replay Viewership | @datadog/datadog-api-client-rum-replay-viewership | [README.md](../../services/rum-replay-viewership/README.md) |
+| RUM Retention Filters | @datadog/datadog-api-client-rum-retention-filters | [README.md](../../services/rum-retention-filters/README.md) |
 | RUM Retention Quotas | @datadog/datadog-api-client-rum-retention-quotas | [README.md](../../services/rum-retention-quotas/README.md) |
-| Rum Teams Ownership | @datadog/datadog-api-client-rum-teams-ownership | [README.md](../../services/rum-teams-ownership/README.md) |
+| RUM Teams Ownership | @datadog/datadog-api-client-rum-teams-ownership | [README.md](../../services/rum-teams-ownership/README.md) |
 | Scorecards | @datadog/datadog-api-client-scorecards | [README.md](../../services/scorecards/README.md) |
 | Seats | @datadog/datadog-api-client-seats | [README.md](../../services/seats/README.md) |
 | Security Monitoring | @datadog/datadog-api-client-security-monitoring | [README.md](../../services/security-monitoring/README.md) |

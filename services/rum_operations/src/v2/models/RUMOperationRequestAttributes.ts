@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { RUMOperationJourneyRum } from "./RUMOperationJourneyRum";
+import { RUMOperationJourneyRUM } from "./RUMOperationJourneyRUM";
 
 /**
  * Attributes for creating or updating a RUM operation.
@@ -29,7 +29,7 @@ export class RUMOperationRequestAttributes {
   /**
    * The definition of a RUM operation's journey, used to detect it from RUM events.
    */
-  "journeyRum": RUMOperationJourneyRum;
+  "journeyRum": RUMOperationJourneyRUM;
   /**
    * The unique name of the RUM operation. Must not contain spaces.
    */
@@ -76,7 +76,7 @@ export class RUMOperationRequestAttributes {
     },
     journeyRum: {
       baseName: "journey_rum",
-      type: "RUMOperationJourneyRum",
+      type: "RUMOperationJourneyRUM",
       required: true,
     },
     name: {

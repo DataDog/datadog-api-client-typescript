@@ -23,9 +23,9 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
-import { RumConfigCreateRequest } from "./models/RumConfigCreateRequest";
-import { RumConfigResponse } from "./models/RumConfigResponse";
-import { RumConfigUpdateRequest } from "./models/RumConfigUpdateRequest";
+import { RUMConfigCreateRequest } from "./models/RUMConfigCreateRequest";
+import { RUMConfigResponse } from "./models/RUMConfigResponse";
+import { RUMConfigUpdateRequest } from "./models/RUMConfigUpdateRequest";
 import { version } from "../version";
 
 export class RUMConfigApiRequestFactory extends BaseAPIRequestFactory {
@@ -37,21 +37,21 @@ export class RUMConfigApiRequestFactory extends BaseAPIRequestFactory {
       this.userAgent = buildUserAgent("rum-config", version);
     }
   }
-  public async createRumConfig(
-    body: RumConfigCreateRequest,
+  public async createRUMConfig(
+    body: RUMConfigCreateRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["RUMConfigApi.v2.createRumConfig"]) {
+    if (!_config.unstableOperations["RUMConfigApi.v2.createRUMConfig"]) {
       throw new Error(
-        "Unstable operation 'createRumConfig' is disabled. Enable it by setting `configuration.unstableOperations['RUMConfigApi.v2.createRumConfig'] = true`",
+        "Unstable operation 'createRUMConfig' is disabled. Enable it by setting `configuration.unstableOperations['RUMConfigApi.v2.createRUMConfig'] = true`",
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createRumConfig");
+      throw new RequiredError("body", "createRUMConfig");
     }
 
     // Path Params
@@ -59,7 +59,7 @@ export class RUMConfigApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
-      "RUMConfigApi.v2.createRumConfig",
+      "RUMConfigApi.v2.createRUMConfig",
       RUMConfigApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -84,7 +84,7 @@ export class RUMConfigApiRequestFactory extends BaseAPIRequestFactory {
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(body, TypingInfo, "RumConfigCreateRequest", ""),
+      serialize(body, TypingInfo, "RUMConfigCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -99,12 +99,12 @@ export class RUMConfigApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getRumConfig(_options?: Configuration): Promise<RequestContext> {
+  public async getRUMConfig(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["RUMConfigApi.v2.getRumConfig"]) {
+    if (!_config.unstableOperations["RUMConfigApi.v2.getRUMConfig"]) {
       throw new Error(
-        "Unstable operation 'getRumConfig' is disabled. Enable it by setting `configuration.unstableOperations['RUMConfigApi.v2.getRumConfig'] = true`",
+        "Unstable operation 'getRUMConfig' is disabled. Enable it by setting `configuration.unstableOperations['RUMConfigApi.v2.getRUMConfig'] = true`",
       );
     }
 
@@ -113,7 +113,7 @@ export class RUMConfigApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
-      "RUMConfigApi.v2.getRumConfig",
+      "RUMConfigApi.v2.getRUMConfig",
       RUMConfigApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -144,21 +144,21 @@ export class RUMConfigApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateRumConfig(
-    body: RumConfigUpdateRequest,
+  public async updateRUMConfig(
+    body: RUMConfigUpdateRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["RUMConfigApi.v2.updateRumConfig"]) {
+    if (!_config.unstableOperations["RUMConfigApi.v2.updateRUMConfig"]) {
       throw new Error(
-        "Unstable operation 'updateRumConfig' is disabled. Enable it by setting `configuration.unstableOperations['RUMConfigApi.v2.updateRumConfig'] = true`",
+        "Unstable operation 'updateRUMConfig' is disabled. Enable it by setting `configuration.unstableOperations['RUMConfigApi.v2.updateRUMConfig'] = true`",
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateRumConfig");
+      throw new RequiredError("body", "updateRUMConfig");
     }
 
     // Path Params
@@ -166,7 +166,7 @@ export class RUMConfigApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
-      "RUMConfigApi.v2.updateRumConfig",
+      "RUMConfigApi.v2.updateRUMConfig",
       RUMConfigApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -191,7 +191,7 @@ export class RUMConfigApiRequestFactory extends BaseAPIRequestFactory {
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(body, TypingInfo, "RumConfigUpdateRequest", ""),
+      serialize(body, TypingInfo, "RUMConfigUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -212,19 +212,19 @@ export class RUMConfigApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to createRumConfig
+   * @params response Response returned by the server for a request to createRUMConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createRumConfig(
+  public async createRUMConfig(
     response: ResponseContext,
-  ): Promise<RumConfigResponse> {
+  ): Promise<RUMConfigResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: RumConfigResponse = deserialize(
+      const body: RUMConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumConfigResponse",
-      ) as RumConfigResponse;
+        "RUMConfigResponse",
+      ) as RUMConfigResponse;
       return body;
     }
     if (
@@ -252,12 +252,12 @@ export class RUMConfigApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumConfigResponse = deserialize(
+      const body: RUMConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumConfigResponse",
+        "RUMConfigResponse",
         "",
-      ) as RumConfigResponse;
+      ) as RUMConfigResponse;
       return body;
     }
 
@@ -272,19 +272,19 @@ export class RUMConfigApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getRumConfig
+   * @params response Response returned by the server for a request to getRUMConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getRumConfig(
+  public async getRUMConfig(
     response: ResponseContext,
-  ): Promise<RumConfigResponse> {
+  ): Promise<RUMConfigResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RumConfigResponse = deserialize(
+      const body: RUMConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumConfigResponse",
-      ) as RumConfigResponse;
+        "RUMConfigResponse",
+      ) as RUMConfigResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
@@ -308,12 +308,12 @@ export class RUMConfigApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumConfigResponse = deserialize(
+      const body: RUMConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumConfigResponse",
+        "RUMConfigResponse",
         "",
-      ) as RumConfigResponse;
+      ) as RUMConfigResponse;
       return body;
     }
 
@@ -328,19 +328,19 @@ export class RUMConfigApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to updateRumConfig
+   * @params response Response returned by the server for a request to updateRUMConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateRumConfig(
+  public async updateRUMConfig(
     response: ResponseContext,
-  ): Promise<RumConfigResponse> {
+  ): Promise<RUMConfigResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RumConfigResponse = deserialize(
+      const body: RUMConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumConfigResponse",
-      ) as RumConfigResponse;
+        "RUMConfigResponse",
+      ) as RUMConfigResponse;
       return body;
     }
     if (
@@ -368,12 +368,12 @@ export class RUMConfigApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumConfigResponse = deserialize(
+      const body: RUMConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumConfigResponse",
+        "RUMConfigResponse",
         "",
-      ) as RumConfigResponse;
+      ) as RUMConfigResponse;
       return body;
     }
 
@@ -385,20 +385,20 @@ export class RUMConfigApiResponseProcessor {
   }
 }
 
-export interface RUMConfigApiCreateRumConfigRequest {
+export interface RUMConfigApiCreateRUMConfigRequest {
   /**
    * The definition of the RUM configuration to create.
-   * @type RumConfigCreateRequest
+   * @type RUMConfigCreateRequest
    */
-  body: RumConfigCreateRequest;
+  body: RUMConfigCreateRequest;
 }
 
-export interface RUMConfigApiUpdateRumConfigRequest {
+export interface RUMConfigApiUpdateRUMConfigRequest {
   /**
    * New definition of the RUM configuration.
-   * @type RumConfigUpdateRequest
+   * @type RUMConfigUpdateRequest
    */
-  body: RumConfigUpdateRequest;
+  body: RUMConfigUpdateRequest;
 }
 
 export class RUMConfigApi {
@@ -425,11 +425,11 @@ export class RUMConfigApi {
    * Returns the RUM configuration object from the request body when the request is successful.
    * @param param The request object
    */
-  public createRumConfig(
-    param: RUMConfigApiCreateRumConfigRequest,
+  public createRUMConfig(
+    param: RUMConfigApiCreateRUMConfigRequest,
     options?: Configuration,
-  ): Promise<RumConfigResponse> {
-    const requestContextPromise = this.requestFactory.createRumConfig(
+  ): Promise<RUMConfigResponse> {
+    const requestContextPromise = this.requestFactory.createRUMConfig(
       param.body,
       options,
     );
@@ -437,7 +437,7 @@ export class RUMConfigApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createRumConfig(responseContext);
+          return this.responseProcessor.createRUMConfig(responseContext);
         });
     });
   }
@@ -446,13 +446,13 @@ export class RUMConfigApi {
    * Get the RUM configuration for your organization.
    * @param param The request object
    */
-  public getRumConfig(options?: Configuration): Promise<RumConfigResponse> {
-    const requestContextPromise = this.requestFactory.getRumConfig(options);
+  public getRUMConfig(options?: Configuration): Promise<RUMConfigResponse> {
+    const requestContextPromise = this.requestFactory.getRUMConfig(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getRumConfig(responseContext);
+          return this.responseProcessor.getRUMConfig(responseContext);
         });
     });
   }
@@ -462,11 +462,11 @@ export class RUMConfigApi {
    * Returns the RUM configuration object from the request body when the request is successful.
    * @param param The request object
    */
-  public updateRumConfig(
-    param: RUMConfigApiUpdateRumConfigRequest,
+  public updateRUMConfig(
+    param: RUMConfigApiUpdateRUMConfigRequest,
     options?: Configuration,
-  ): Promise<RumConfigResponse> {
-    const requestContextPromise = this.requestFactory.updateRumConfig(
+  ): Promise<RUMConfigResponse> {
+    const requestContextPromise = this.requestFactory.updateRUMConfig(
       param.body,
       options,
     );
@@ -474,7 +474,7 @@ export class RUMConfigApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateRumConfig(responseContext);
+          return this.responseProcessor.updateRUMConfig(responseContext);
         });
     });
   }

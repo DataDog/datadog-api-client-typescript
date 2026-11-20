@@ -1,12 +1,12 @@
 export {
-  RumTeamsOwnershipApiCreateTeamsOwnershipMappingRequest,
-  RumTeamsOwnershipApiCreateTeamsOwnershipMappingsBatchRequest,
-  RumTeamsOwnershipApiDeleteTeamsOwnershipMappingRequest,
-  RumTeamsOwnershipApiGetTeamsOwnershipMappingRequest,
-  RumTeamsOwnershipApiListTeamsOwnershipMappingsRequest,
-  RumTeamsOwnershipApiListTeamsOwnershipRulesRequest,
-  RumTeamsOwnershipApi,
-} from "./RumTeamsOwnershipApi";
+  RUMTeamsOwnershipApiCreateTeamsOwnershipMappingRequest,
+  RUMTeamsOwnershipApiCreateTeamsOwnershipMappingsBatchRequest,
+  RUMTeamsOwnershipApiDeleteTeamsOwnershipMappingRequest,
+  RUMTeamsOwnershipApiGetTeamsOwnershipMappingRequest,
+  RUMTeamsOwnershipApiListTeamsOwnershipMappingsRequest,
+  RUMTeamsOwnershipApiListTeamsOwnershipRulesRequest,
+  RUMTeamsOwnershipApi,
+} from "./RUMTeamsOwnershipApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
