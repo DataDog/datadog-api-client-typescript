@@ -13667,6 +13667,47 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IncidentTimestampOverrideResponse",
   },
+  "AnthropicUsageAndCostsIntegrationApi.V2.ListAnthropicUsageAndCostsIntegrationAccounts":
+    {
+      operationResponseType:
+        "AnthropicUsageAndCostsIntegrationAccountsResponse",
+    },
+  "AnthropicUsageAndCostsIntegrationApi.V2.CreateAnthropicUsageAndCostsIntegrationAccount":
+    {
+      body: {
+        type: "AnthropicUsageAndCostsIntegrationAccountCreateRequest",
+        format: "",
+      },
+      operationResponseType: "AnthropicUsageAndCostsIntegrationAccountResponse",
+    },
+  "AnthropicUsageAndCostsIntegrationApi.V2.GetAnthropicUsageAndCostsIntegrationAccount":
+    {
+      accountId: {
+        type: "string",
+        format: "",
+      },
+      operationResponseType: "AnthropicUsageAndCostsIntegrationAccountResponse",
+    },
+  "AnthropicUsageAndCostsIntegrationApi.V2.DeleteAnthropicUsageAndCostsIntegrationAccount":
+    {
+      accountId: {
+        type: "string",
+        format: "",
+      },
+      operationResponseType: "{}",
+    },
+  "AnthropicUsageAndCostsIntegrationApi.V2.UpdateAnthropicUsageAndCostsIntegrationAccount":
+    {
+      accountId: {
+        type: "string",
+        format: "",
+      },
+      body: {
+        type: "AnthropicUsageAndCostsIntegrationAccountUpdateRequest",
+        format: "",
+      },
+      operationResponseType: "AnthropicUsageAndCostsIntegrationAccountResponse",
+    },
   "ChatGPTEnterpriseIntegrationApi.V2.ListChatGPTEnterpriseIntegrationAccounts":
     {
       operationResponseType: "ChatGPTEnterpriseIntegrationAccountsResponse",

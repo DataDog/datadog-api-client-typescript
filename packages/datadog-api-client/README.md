@@ -354,6 +354,7 @@ apiInstance
 | AI Gateway | @datadog/datadog-api-client-ai-gateway | [README.md](../../services/ai-gateway/README.md) |
 | AI Guard | @datadog/datadog-api-client-ai-guard | [README.md](../../services/ai-guard/README.md) |
 | Annotations | @datadog/datadog-api-client-annotations | [README.md](../../services/annotations/README.md) |
+| Anthropic Usage And Costs Integration | @datadog/datadog-api-client-anthropic-usage-and-costs-integration | [README.md](../../services/anthropic-usage-and-costs-integration/README.md) |
 | API Management | @datadog/datadog-api-client-api-management | [README.md](../../services/api-management/README.md) |
 | APM | @datadog/datadog-api-client-apm | [README.md](../../services/apm/README.md) |
 | APM Retention Filters | @datadog/datadog-api-client-apm-retention-filters | [README.md](../../services/apm-retention-filters/README.md) |
