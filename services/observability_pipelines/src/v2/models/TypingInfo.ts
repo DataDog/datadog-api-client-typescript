@@ -51,6 +51,7 @@ import { ObservabilityPipelineClientTls } from "./ObservabilityPipelineClientTls
 import { ObservabilityPipelineCloudPremDestination } from "./ObservabilityPipelineCloudPremDestination";
 import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
 import { ObservabilityPipelineConfigProcessorGroup } from "./ObservabilityPipelineConfigProcessorGroup";
+import { ObservabilityPipelineCrowdStrikeFdrSource } from "./ObservabilityPipelineCrowdStrikeFdrSource";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression";
 import { ObservabilityPipelineCustomProcessor } from "./ObservabilityPipelineCustomProcessor";
@@ -330,6 +331,7 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineClickhouseDestinationType: ["clickhouse"],
     ObservabilityPipelineCloudPremDestinationType: ["cloud_prem"],
     ObservabilityPipelineConfigPipelineType: ["logs", "metrics", "traces"],
+    ObservabilityPipelineCrowdStrikeFdrSourceType: ["crowdstrike_fdr"],
     ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm:
       ["gzip", "zlib"],
     ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding: [
@@ -770,6 +772,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineOpentelemetrySource",
       "ObservabilityPipelineAmazonDataFirehoseSource",
       "ObservabilityPipelineAmazonS3Source",
+      "ObservabilityPipelineCrowdStrikeFdrSource",
       "ObservabilityPipelineFluentBitSource",
       "ObservabilityPipelineFluentdSource",
       "ObservabilityPipelineGooglePubSubSource",
@@ -945,6 +948,8 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineConfig: ObservabilityPipelineConfig,
     ObservabilityPipelineConfigProcessorGroup:
       ObservabilityPipelineConfigProcessorGroup,
+    ObservabilityPipelineCrowdStrikeFdrSource:
+      ObservabilityPipelineCrowdStrikeFdrSource,
     ObservabilityPipelineCrowdStrikeNextGenSiemDestination:
       ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
     ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression:
