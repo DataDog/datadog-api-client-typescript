@@ -15458,6 +15458,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "TagIndexingRuleExemptionsResponse",
   },
+  "MetricsApi.V2.ListMetricMetadata": {
+    filterMetricName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "MetricMetadataListResponse",
+  },
   "MetricsApi.V2.ListTagIndexingRules": {
     pageLimit: {
       type: "number",

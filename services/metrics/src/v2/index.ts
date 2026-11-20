@@ -17,6 +17,7 @@ export {
   MetricsApiGetTagIndexingRuleExemptionRequest,
   MetricsApiListActiveMetricConfigurationsRequest,
   MetricsApiListMetricAssetsRequest,
+  MetricsApiListMetricMetadataRequest,
   MetricsApiListTagConfigurationByNameRequest,
   MetricsApiListTagConfigurationsRequest,
   MetricsApiListTagIndexingRuleExemptionsRequest,
@@ -117,6 +118,12 @@ export { MetricIngestedIndexedVolumeAttributes } from "./models/MetricIngestedIn
 export { MetricIngestedIndexedVolumeType } from "./models/MetricIngestedIndexedVolumeType";
 export { MetricIntakeType } from "./models/MetricIntakeType";
 export { MetricMetadata } from "./models/MetricMetadata";
+export { MetricMetadataAttributes } from "./models/MetricMetadataAttributes";
+export { MetricMetadataData } from "./models/MetricMetadataData";
+export { MetricMetadataListResponse } from "./models/MetricMetadataListResponse";
+export { MetricMetadataOrigin } from "./models/MetricMetadataOrigin";
+export { MetricMetadataType } from "./models/MetricMetadataType";
+export { MetricMetadataUnit } from "./models/MetricMetadataUnit";
 export { MetricMetaPage } from "./models/MetricMetaPage";
 export { MetricMetaPageType } from "./models/MetricMetaPageType";
 export { MetricMonitorAsset } from "./models/MetricMonitorAsset";
