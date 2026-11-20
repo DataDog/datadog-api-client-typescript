@@ -21,7 +21,7 @@ export class WatchData {
    */
   "id"?: string;
   /**
-   * Rum replay watch resource type.
+   * RUM replay watch resource type.
    */
   "type": WatchDataType;
 

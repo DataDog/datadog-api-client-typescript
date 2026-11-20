@@ -11,9 +11,9 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.RumReplayHeatmapsApi(configuration);
+const apiInstance = new v2.RUMReplayHeatmapsApi(configuration);
 
-const params: v2.RumReplayHeatmapsApiListReplayHeatmapSnapshotsRequest = {
+const params: v2.RUMReplayHeatmapsApiListReplayHeatmapSnapshotsRequest = {
   filterViewName: "/home",
 };
 

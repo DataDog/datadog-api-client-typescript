@@ -23,7 +23,7 @@ const params: v2.RUMRecoveryApiSearchRUMArchiveSessionsRequest = {
 
 apiInstance
   .searchRUMArchiveSessions(params)
-  .then((data: v2.RumArchiveSessionsResponse) => {
+  .then((data: v2.RUMArchiveSessionsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

@@ -11,15 +11,15 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.RumRetentionFiltersApi(configuration);
+const apiInstance = new v2.RUMRetentionFiltersApi(configuration);
 
-const params: v2.RumRetentionFiltersApiListPermanentRetentionFiltersRequest = {
+const params: v2.RUMRetentionFiltersApiListPermanentRetentionFiltersRequest = {
   appId: "app_id",
 };
 
 apiInstance
   .listPermanentRetentionFilters(params)
-  .then((data: v2.RumPermanentRetentionFiltersResponse) => {
+  .then((data: v2.RUMPermanentRetentionFiltersResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

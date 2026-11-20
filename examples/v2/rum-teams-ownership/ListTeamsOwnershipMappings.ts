@@ -11,13 +11,13 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.RumTeamsOwnershipApi(configuration);
+const apiInstance = new v2.RUMTeamsOwnershipApi(configuration);
 
 // there is a valid "teams_ownership_mapping" in the system
 const TEAMS_OWNERSHIP_MAPPING_DATA_ATTRIBUTES_VIEW_NAME = process.env
   .TEAMS_OWNERSHIP_MAPPING_DATA_ATTRIBUTES_VIEW_NAME as string;
 
-const params: v2.RumTeamsOwnershipApiListTeamsOwnershipMappingsRequest = {
+const params: v2.RUMTeamsOwnershipApiListTeamsOwnershipMappingsRequest = {
   filterViewName: [TEAMS_OWNERSHIP_MAPPING_DATA_ATTRIBUTES_VIEW_NAME],
 };
 

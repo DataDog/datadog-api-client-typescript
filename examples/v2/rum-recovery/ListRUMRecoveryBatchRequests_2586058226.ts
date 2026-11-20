@@ -16,7 +16,7 @@ const params: v2.RUMRecoveryApiListRUMRecoveryBatchRequestsRequest = {
 
 apiInstance
   .listRUMRecoveryBatchRequests(params)
-  .then((data: v2.RumRecoveryBatchListResponse) => {
+  .then((data: v2.RUMRecoveryBatchListResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

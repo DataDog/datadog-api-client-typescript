@@ -12,9 +12,9 @@ const configuration = client.createConfiguration({
   },
 });
 configuration.unstableOperations["v2.listConnections"] = true;
-const apiInstance = new v2.RumAudienceManagementApi(configuration);
+const apiInstance = new v2.RUMAudienceManagementApi(configuration);
 
-const params: v2.RumAudienceManagementApiListConnectionsRequest = {
+const params: v2.RUMAudienceManagementApiListConnectionsRequest = {
   entity: "users",
 };
 
