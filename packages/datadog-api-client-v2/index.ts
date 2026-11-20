@@ -1482,6 +1482,9 @@ export {
 } from "./apis/ProcessesApi";
 
 export {
+  ProductAnalyticsApiQueryProductAnalyticsFunnelStepSuggestionsRequest,
+  ProductAnalyticsApiQueryProductAnalyticsFunnelSuggestionsRequest,
+  ProductAnalyticsApiQueryProductAnalyticsJourneyDropOffRequest,
   ProductAnalyticsApiQueryProductAnalyticsJourneyFunnelRequest,
   ProductAnalyticsApiQueryProductAnalyticsJourneyListRequest,
   ProductAnalyticsApiQueryProductAnalyticsJourneyScalarRequest,
@@ -8757,6 +8760,7 @@ export { ProductAnalyticsBaseQuery } from "./models/ProductAnalyticsBaseQuery";
 export { ProductAnalyticsCalendarInterval } from "./models/ProductAnalyticsCalendarInterval";
 export { ProductAnalyticsCalendarIntervalType } from "./models/ProductAnalyticsCalendarIntervalType";
 export { ProductAnalyticsCompute } from "./models/ProductAnalyticsCompute";
+export { ProductAnalyticsCoreUserJourney } from "./models/ProductAnalyticsCoreUserJourney";
 export { ProductAnalyticsElapsedTime } from "./models/ProductAnalyticsElapsedTime";
 export { ProductAnalyticsEventQuery } from "./models/ProductAnalyticsEventQuery";
 export { ProductAnalyticsEventQueryDataSource } from "./models/ProductAnalyticsEventQueryDataSource";
@@ -8772,6 +8776,25 @@ export { ProductAnalyticsFormulaRetentionRequest } from "./models/ProductAnalyti
 export { ProductAnalyticsFormulaRetentionRequestAttributes } from "./models/ProductAnalyticsFormulaRetentionRequestAttributes";
 export { ProductAnalyticsFormulaRetentionRequestData } from "./models/ProductAnalyticsFormulaRetentionRequestData";
 export { ProductAnalyticsFormulaRetentionRequestType } from "./models/ProductAnalyticsFormulaRetentionRequestType";
+export { ProductAnalyticsFunnelStepSuggestionsRequest } from "./models/ProductAnalyticsFunnelStepSuggestionsRequest";
+export { ProductAnalyticsFunnelStepSuggestionsRequestAttributes } from "./models/ProductAnalyticsFunnelStepSuggestionsRequestAttributes";
+export { ProductAnalyticsFunnelStepSuggestionsRequestData } from "./models/ProductAnalyticsFunnelStepSuggestionsRequestData";
+export { ProductAnalyticsFunnelStepSuggestionsRequestType } from "./models/ProductAnalyticsFunnelStepSuggestionsRequestType";
+export { ProductAnalyticsFunnelStepSuggestionsResponse } from "./models/ProductAnalyticsFunnelStepSuggestionsResponse";
+export { ProductAnalyticsFunnelStepSuggestionsResponseAttributes } from "./models/ProductAnalyticsFunnelStepSuggestionsResponseAttributes";
+export { ProductAnalyticsFunnelStepSuggestionsResponseData } from "./models/ProductAnalyticsFunnelStepSuggestionsResponseData";
+export { ProductAnalyticsFunnelStepSuggestionsResponseType } from "./models/ProductAnalyticsFunnelStepSuggestionsResponseType";
+export { ProductAnalyticsFunnelSuggestionsApplication } from "./models/ProductAnalyticsFunnelSuggestionsApplication";
+export { ProductAnalyticsFunnelSuggestionsDomain } from "./models/ProductAnalyticsFunnelSuggestionsDomain";
+export { ProductAnalyticsFunnelSuggestionsFeature } from "./models/ProductAnalyticsFunnelSuggestionsFeature";
+export { ProductAnalyticsFunnelSuggestionsRequest } from "./models/ProductAnalyticsFunnelSuggestionsRequest";
+export { ProductAnalyticsFunnelSuggestionsRequestAttributes } from "./models/ProductAnalyticsFunnelSuggestionsRequestAttributes";
+export { ProductAnalyticsFunnelSuggestionsRequestData } from "./models/ProductAnalyticsFunnelSuggestionsRequestData";
+export { ProductAnalyticsFunnelSuggestionsRequestType } from "./models/ProductAnalyticsFunnelSuggestionsRequestType";
+export { ProductAnalyticsFunnelSuggestionsResponse } from "./models/ProductAnalyticsFunnelSuggestionsResponse";
+export { ProductAnalyticsFunnelSuggestionsResponseAttributes } from "./models/ProductAnalyticsFunnelSuggestionsResponseAttributes";
+export { ProductAnalyticsFunnelSuggestionsResponseData } from "./models/ProductAnalyticsFunnelSuggestionsResponseData";
+export { ProductAnalyticsFunnelSuggestionsResponseType } from "./models/ProductAnalyticsFunnelSuggestionsResponseType";
 export { ProductAnalyticsGraphQueryCompute } from "./models/ProductAnalyticsGraphQueryCompute";
 export { ProductAnalyticsGraphQueryGroupBy } from "./models/ProductAnalyticsGraphQueryGroupBy";
 export { ProductAnalyticsGraphQueryGroupBySource } from "./models/ProductAnalyticsGraphQueryGroupBySource";
@@ -8786,6 +8809,16 @@ export { ProductAnalyticsJourneyAudienceUserQuery } from "./models/ProductAnalyt
 export { ProductAnalyticsJourneyComputedColumn } from "./models/ProductAnalyticsJourneyComputedColumn";
 export { ProductAnalyticsJourneyComputedColumnName } from "./models/ProductAnalyticsJourneyComputedColumnName";
 export { ProductAnalyticsJourneyConversionType } from "./models/ProductAnalyticsJourneyConversionType";
+export { ProductAnalyticsJourneyDropOffIssue } from "./models/ProductAnalyticsJourneyDropOffIssue";
+export { ProductAnalyticsJourneyDropOffQuery } from "./models/ProductAnalyticsJourneyDropOffQuery";
+export { ProductAnalyticsJourneyDropOffRequest } from "./models/ProductAnalyticsJourneyDropOffRequest";
+export { ProductAnalyticsJourneyDropOffRequestAttributes } from "./models/ProductAnalyticsJourneyDropOffRequestAttributes";
+export { ProductAnalyticsJourneyDropOffRequestData } from "./models/ProductAnalyticsJourneyDropOffRequestData";
+export { ProductAnalyticsJourneyDropOffRequestType } from "./models/ProductAnalyticsJourneyDropOffRequestType";
+export { ProductAnalyticsJourneyDropOffResponse } from "./models/ProductAnalyticsJourneyDropOffResponse";
+export { ProductAnalyticsJourneyDropOffResponseAttributes } from "./models/ProductAnalyticsJourneyDropOffResponseAttributes";
+export { ProductAnalyticsJourneyDropOffResponseData } from "./models/ProductAnalyticsJourneyDropOffResponseData";
+export { ProductAnalyticsJourneyDropOffResponseType } from "./models/ProductAnalyticsJourneyDropOffResponseType";
 export { ProductAnalyticsJourneyEntity } from "./models/ProductAnalyticsJourneyEntity";
 export { ProductAnalyticsJourneyFunnelCompute } from "./models/ProductAnalyticsJourneyFunnelCompute";
 export { ProductAnalyticsJourneyFunnelQuery } from "./models/ProductAnalyticsJourneyFunnelQuery";
@@ -8888,6 +8921,7 @@ export { ProductAnalyticsRetentionReturnPeriodScopeType } from "./models/Product
 export { ProductAnalyticsRetentionScope } from "./models/ProductAnalyticsRetentionScope";
 export { ProductAnalyticsRetentionSearch } from "./models/ProductAnalyticsRetentionSearch";
 export { ProductAnalyticsRetentionTimeInterval } from "./models/ProductAnalyticsRetentionTimeInterval";
+export { ProductAnalyticsSampling } from "./models/ProductAnalyticsSampling";
 export { ProductAnalyticsSankeyAggregatedNode } from "./models/ProductAnalyticsSankeyAggregatedNode";
 export { ProductAnalyticsSankeyAggregatedNodeType } from "./models/ProductAnalyticsSankeyAggregatedNodeType";
 export { ProductAnalyticsSankeyDefinition } from "./models/ProductAnalyticsSankeyDefinition";
