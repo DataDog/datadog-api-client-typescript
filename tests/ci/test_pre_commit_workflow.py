@@ -14,7 +14,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
 REPOSITORY = "DataDog/datadog-api-client-typescript"
-TRUSTED_REVISION = "dba58fc114cd51f0cb10b9a41e9afb81e0787ad7"
+TRUSTED_REVISION = "7bdb3651e1b556f8ea2c6424ee7152fe3853332b"
 WORKFLOW = yaml.safe_load(
     (ROOT / ".github/workflows/reusable-pre-commit.yml").read_text()
 )

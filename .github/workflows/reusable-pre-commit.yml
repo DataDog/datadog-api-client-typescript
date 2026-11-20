@@ -103,6 +103,6 @@ jobs:
       contents: read
       id-token: write
     # Only this immutable workflow revision is authorized to push fixes.
-    uses: DataDog/datadog-api-client-typescript/.github/workflows/reusable-pre-commit-fixes.yml@dba58fc114cd51f0cb10b9a41e9afb81e0787ad7
+    uses: DataDog/datadog-api-client-typescript/.github/workflows/reusable-pre-commit-fixes.yml@7bdb3651e1b556f8ea2c6424ee7152fe3853332b
     with:
       artifact-id: ${{ needs.pre-commit.outputs.fixes-artifact-id }}
