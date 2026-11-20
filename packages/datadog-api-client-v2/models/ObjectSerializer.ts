@@ -4545,6 +4545,27 @@ import { OpenAICodexTurnMetricsIntegrationDataflowRequest } from "./OpenAICodexT
 import { OpenAICodexTurnMetricsIntegrationDataflowResponse } from "./OpenAICodexTurnMetricsIntegrationDataflowResponse";
 import { OpenAIIntegration } from "./OpenAIIntegration";
 import { OpenAIIntegrationUpdate } from "./OpenAIIntegrationUpdate";
+import { OpenAIUsageAndCostsCloudCostDataIntegrationDataflowRequest } from "./OpenAIUsageAndCostsCloudCostDataIntegrationDataflowRequest";
+import { OpenAIUsageAndCostsCloudCostDataIntegrationDataflowResponse } from "./OpenAIUsageAndCostsCloudCostDataIntegrationDataflowResponse";
+import { OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthRequest } from "./OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthRequest";
+import { OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthResponse } from "./OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthResponse";
+import { OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthUpdate } from "./OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthUpdate";
+import { OpenAIUsageAndCostsIntegrationAccountCreateAttributes } from "./OpenAIUsageAndCostsIntegrationAccountCreateAttributes";
+import { OpenAIUsageAndCostsIntegrationAccountCreateData } from "./OpenAIUsageAndCostsIntegrationAccountCreateData";
+import { OpenAIUsageAndCostsIntegrationAccountCreateRequest } from "./OpenAIUsageAndCostsIntegrationAccountCreateRequest";
+import { OpenAIUsageAndCostsIntegrationAccountResponse } from "./OpenAIUsageAndCostsIntegrationAccountResponse";
+import { OpenAIUsageAndCostsIntegrationAccountResponseAttributes } from "./OpenAIUsageAndCostsIntegrationAccountResponseAttributes";
+import { OpenAIUsageAndCostsIntegrationAccountResponseData } from "./OpenAIUsageAndCostsIntegrationAccountResponseData";
+import { OpenAIUsageAndCostsIntegrationAccountSettingsRequest } from "./OpenAIUsageAndCostsIntegrationAccountSettingsRequest";
+import { OpenAIUsageAndCostsIntegrationAccountSettingsResponse } from "./OpenAIUsageAndCostsIntegrationAccountSettingsResponse";
+import { OpenAIUsageAndCostsIntegrationAccountSettingsUpdate } from "./OpenAIUsageAndCostsIntegrationAccountSettingsUpdate";
+import { OpenAIUsageAndCostsIntegrationAccountUpdateAttributes } from "./OpenAIUsageAndCostsIntegrationAccountUpdateAttributes";
+import { OpenAIUsageAndCostsIntegrationAccountUpdateData } from "./OpenAIUsageAndCostsIntegrationAccountUpdateData";
+import { OpenAIUsageAndCostsIntegrationAccountUpdateRequest } from "./OpenAIUsageAndCostsIntegrationAccountUpdateRequest";
+import { OpenAIUsageAndCostsIntegrationAccountsResponse } from "./OpenAIUsageAndCostsIntegrationAccountsResponse";
+import { OpenAIUsageAndCostsIntegrationDataflowsRequest } from "./OpenAIUsageAndCostsIntegrationDataflowsRequest";
+import { OpenAIUsageAndCostsIntegrationDataflowsResponse } from "./OpenAIUsageAndCostsIntegrationDataflowsResponse";
+import { OpenAIUsageAndCostsUsageMetricsIntegrationDataflowResponse } from "./OpenAIUsageAndCostsUsageMetricsIntegrationDataflowResponse";
 import { OpenAPIEndpoint } from "./OpenAPIEndpoint";
 import { OpsgenieAccountCreateAttributes } from "./OpsgenieAccountCreateAttributes";
 import { OpsgenieAccountCreateData } from "./OpsgenieAccountCreateData";
@@ -10028,6 +10049,7 @@ const enumsMap: { [key: string]: any[] } = {
   OpenAIAPIKeyType: ["OpenAIAPIKey"],
   OpenAICodexIntegrationAccountBearerTokenAuthType: ["bearer_token"],
   OpenAIIntegrationType: ["OpenAI"],
+  OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthType: ["bearer_token"],
   OpsgenieAccountType: ["opsgenie-account"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
@@ -17360,6 +17382,48 @@ const typeMap: { [index: string]: any } = {
     OpenAICodexTurnMetricsIntegrationDataflowResponse,
   OpenAIIntegration: OpenAIIntegration,
   OpenAIIntegrationUpdate: OpenAIIntegrationUpdate,
+  OpenAIUsageAndCostsCloudCostDataIntegrationDataflowRequest:
+    OpenAIUsageAndCostsCloudCostDataIntegrationDataflowRequest,
+  OpenAIUsageAndCostsCloudCostDataIntegrationDataflowResponse:
+    OpenAIUsageAndCostsCloudCostDataIntegrationDataflowResponse,
+  OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthRequest:
+    OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthRequest,
+  OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthResponse:
+    OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthResponse,
+  OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthUpdate:
+    OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthUpdate,
+  OpenAIUsageAndCostsIntegrationAccountCreateAttributes:
+    OpenAIUsageAndCostsIntegrationAccountCreateAttributes,
+  OpenAIUsageAndCostsIntegrationAccountCreateData:
+    OpenAIUsageAndCostsIntegrationAccountCreateData,
+  OpenAIUsageAndCostsIntegrationAccountCreateRequest:
+    OpenAIUsageAndCostsIntegrationAccountCreateRequest,
+  OpenAIUsageAndCostsIntegrationAccountResponse:
+    OpenAIUsageAndCostsIntegrationAccountResponse,
+  OpenAIUsageAndCostsIntegrationAccountResponseAttributes:
+    OpenAIUsageAndCostsIntegrationAccountResponseAttributes,
+  OpenAIUsageAndCostsIntegrationAccountResponseData:
+    OpenAIUsageAndCostsIntegrationAccountResponseData,
+  OpenAIUsageAndCostsIntegrationAccountSettingsRequest:
+    OpenAIUsageAndCostsIntegrationAccountSettingsRequest,
+  OpenAIUsageAndCostsIntegrationAccountSettingsResponse:
+    OpenAIUsageAndCostsIntegrationAccountSettingsResponse,
+  OpenAIUsageAndCostsIntegrationAccountSettingsUpdate:
+    OpenAIUsageAndCostsIntegrationAccountSettingsUpdate,
+  OpenAIUsageAndCostsIntegrationAccountUpdateAttributes:
+    OpenAIUsageAndCostsIntegrationAccountUpdateAttributes,
+  OpenAIUsageAndCostsIntegrationAccountUpdateData:
+    OpenAIUsageAndCostsIntegrationAccountUpdateData,
+  OpenAIUsageAndCostsIntegrationAccountUpdateRequest:
+    OpenAIUsageAndCostsIntegrationAccountUpdateRequest,
+  OpenAIUsageAndCostsIntegrationAccountsResponse:
+    OpenAIUsageAndCostsIntegrationAccountsResponse,
+  OpenAIUsageAndCostsIntegrationDataflowsRequest:
+    OpenAIUsageAndCostsIntegrationDataflowsRequest,
+  OpenAIUsageAndCostsIntegrationDataflowsResponse:
+    OpenAIUsageAndCostsIntegrationDataflowsResponse,
+  OpenAIUsageAndCostsUsageMetricsIntegrationDataflowResponse:
+    OpenAIUsageAndCostsUsageMetricsIntegrationDataflowResponse,
   OpenAPIEndpoint: OpenAPIEndpoint,
   OpsgenieAccountCreateAttributes: OpsgenieAccountCreateAttributes,
   OpsgenieAccountCreateData: OpsgenieAccountCreateData,
@@ -21749,6 +21813,15 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   OpenAICredentials: ["OpenAIAPIKey"],
   OpenAICredentialsUpdate: ["OpenAIAPIKeyUpdate"],
+  OpenAIUsageAndCostsIntegrationAccountAuthenticationRequest: [
+    "OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthRequest",
+  ],
+  OpenAIUsageAndCostsIntegrationAccountAuthenticationResponse: [
+    "OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthResponse",
+  ],
+  OpenAIUsageAndCostsIntegrationAccountAuthenticationUpdate: [
+    "OpenAIUsageAndCostsIntegrationAccountBearerTokenAuthUpdate",
+  ],
   OverrideIncluded: ["ScheduleUser"],
   PatchSavedFilterConflictResponse: [
     "SavedFilterJSONAPIErrorResponse",
