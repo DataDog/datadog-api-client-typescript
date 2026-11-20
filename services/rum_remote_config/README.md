@@ -28,7 +28,7 @@ const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "RUMRemoteConfigApi.v2.getRumSdkConfig": true
+        "RUMRemoteConfigApi.v2.getRUMSdkConfig": true
     }
 }
 
@@ -36,7 +36,7 @@ const configuration = createConfiguration(configurationOpts);
 const apiInstance = new RUMRemoteConfigApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.getRumSdkConfig(params).then((data) => {
+apiInstance.getRUMSdkConfig(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

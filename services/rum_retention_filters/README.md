@@ -21,11 +21,11 @@ yarn add @datadog/datadog-api-client-rum-retention-filters
 ## Getting Started
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
-import { RumRetentionFiltersApiV2 } from "@datadog/datadog-api-client-rum-retention-filters";
+import { RUMRetentionFiltersApiV2 } from "@datadog/datadog-api-client-rum-retention-filters";
 import { v2 } from "@datadog/datadog-api-client-rum-retention-filters";
 
 const configuration = createConfiguration();
-const apiInstance = new RumRetentionFiltersApiV2(configuration);
+const apiInstance = new RUMRetentionFiltersApiV2(configuration);
 const params = {/* parameters */};
 
 apiInstance.orderRetentionFilters(params).then((data) => {

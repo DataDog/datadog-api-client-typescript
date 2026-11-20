@@ -23,10 +23,10 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
-import { RumArchiveConfigListResponse } from "./models/RumArchiveConfigListResponse";
-import { RumArchiveConfigResponse } from "./models/RumArchiveConfigResponse";
-import { RumArchiveConfigUpsertRequest } from "./models/RumArchiveConfigUpsertRequest";
-import { RumManagedArchiveErrorResponse } from "./models/RumManagedArchiveErrorResponse";
+import { RUMArchiveConfigListResponse } from "./models/RUMArchiveConfigListResponse";
+import { RUMArchiveConfigResponse } from "./models/RUMArchiveConfigResponse";
+import { RUMArchiveConfigUpsertRequest } from "./models/RUMArchiveConfigUpsertRequest";
+import { RUMManagedArchiveErrorResponse } from "./models/RUMManagedArchiveErrorResponse";
 import { version } from "../version";
 
 export class RUMManagedArchivesApiRequestFactory extends BaseAPIRequestFactory {
@@ -196,7 +196,7 @@ export class RUMManagedArchivesApiRequestFactory extends BaseAPIRequestFactory {
 
   public async updateRUMArchiveConfig(
     appId: string,
-    body: RumArchiveConfigUpsertRequest,
+    body: RUMArchiveConfigUpsertRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -244,7 +244,7 @@ export class RUMManagedArchivesApiRequestFactory extends BaseAPIRequestFactory {
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(body, TypingInfo, "RumArchiveConfigUpsertRequest", ""),
+      serialize(body, TypingInfo, "RUMArchiveConfigUpsertRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -301,21 +301,21 @@ export class RUMManagedArchivesApiResponseProcessor {
       response.httpStatusCode === 429
     ) {
       const bodyText = parse(await response.body.text(), contentType);
-      let body: RumManagedArchiveErrorResponse;
+      let body: RUMManagedArchiveErrorResponse;
       try {
         body = deserialize(
           bodyText,
           TypingInfo,
-          "RumManagedArchiveErrorResponse",
-        ) as RumManagedArchiveErrorResponse;
+          "RUMManagedArchiveErrorResponse",
+        ) as RUMManagedArchiveErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<RumManagedArchiveErrorResponse>(
+        throw new ApiException<RUMManagedArchiveErrorResponse>(
           response.httpStatusCode,
           bodyText,
         );
       }
-      throw new ApiException<RumManagedArchiveErrorResponse>(
+      throw new ApiException<RUMManagedArchiveErrorResponse>(
         response.httpStatusCode,
         body,
       );
@@ -342,14 +342,14 @@ export class RUMManagedArchivesApiResponseProcessor {
    */
   public async getRUMArchiveConfig(
     response: ResponseContext,
-  ): Promise<RumArchiveConfigResponse> {
+  ): Promise<RUMArchiveConfigResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RumArchiveConfigResponse = deserialize(
+      const body: RUMArchiveConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumArchiveConfigResponse",
-      ) as RumArchiveConfigResponse;
+        "RUMArchiveConfigResponse",
+      ) as RUMArchiveConfigResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
@@ -379,21 +379,21 @@ export class RUMManagedArchivesApiResponseProcessor {
       response.httpStatusCode === 429
     ) {
       const bodyText = parse(await response.body.text(), contentType);
-      let body: RumManagedArchiveErrorResponse;
+      let body: RUMManagedArchiveErrorResponse;
       try {
         body = deserialize(
           bodyText,
           TypingInfo,
-          "RumManagedArchiveErrorResponse",
-        ) as RumManagedArchiveErrorResponse;
+          "RUMManagedArchiveErrorResponse",
+        ) as RUMManagedArchiveErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<RumManagedArchiveErrorResponse>(
+        throw new ApiException<RUMManagedArchiveErrorResponse>(
           response.httpStatusCode,
           bodyText,
         );
       }
-      throw new ApiException<RumManagedArchiveErrorResponse>(
+      throw new ApiException<RUMManagedArchiveErrorResponse>(
         response.httpStatusCode,
         body,
       );
@@ -401,12 +401,12 @@ export class RUMManagedArchivesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumArchiveConfigResponse = deserialize(
+      const body: RUMArchiveConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumArchiveConfigResponse",
+        "RUMArchiveConfigResponse",
         "",
-      ) as RumArchiveConfigResponse;
+      ) as RUMArchiveConfigResponse;
       return body;
     }
 
@@ -426,14 +426,14 @@ export class RUMManagedArchivesApiResponseProcessor {
    */
   public async listRUMArchiveConfigs(
     response: ResponseContext,
-  ): Promise<RumArchiveConfigListResponse> {
+  ): Promise<RUMArchiveConfigListResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RumArchiveConfigListResponse = deserialize(
+      const body: RUMArchiveConfigListResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumArchiveConfigListResponse",
-      ) as RumArchiveConfigListResponse;
+        "RUMArchiveConfigListResponse",
+      ) as RUMArchiveConfigListResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
@@ -463,21 +463,21 @@ export class RUMManagedArchivesApiResponseProcessor {
       response.httpStatusCode === 429
     ) {
       const bodyText = parse(await response.body.text(), contentType);
-      let body: RumManagedArchiveErrorResponse;
+      let body: RUMManagedArchiveErrorResponse;
       try {
         body = deserialize(
           bodyText,
           TypingInfo,
-          "RumManagedArchiveErrorResponse",
-        ) as RumManagedArchiveErrorResponse;
+          "RUMManagedArchiveErrorResponse",
+        ) as RUMManagedArchiveErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<RumManagedArchiveErrorResponse>(
+        throw new ApiException<RUMManagedArchiveErrorResponse>(
           response.httpStatusCode,
           bodyText,
         );
       }
-      throw new ApiException<RumManagedArchiveErrorResponse>(
+      throw new ApiException<RUMManagedArchiveErrorResponse>(
         response.httpStatusCode,
         body,
       );
@@ -485,12 +485,12 @@ export class RUMManagedArchivesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumArchiveConfigListResponse = deserialize(
+      const body: RUMArchiveConfigListResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumArchiveConfigListResponse",
+        "RUMArchiveConfigListResponse",
         "",
-      ) as RumArchiveConfigListResponse;
+      ) as RUMArchiveConfigListResponse;
       return body;
     }
 
@@ -510,14 +510,14 @@ export class RUMManagedArchivesApiResponseProcessor {
    */
   public async updateRUMArchiveConfig(
     response: ResponseContext,
-  ): Promise<RumArchiveConfigResponse> {
+  ): Promise<RUMArchiveConfigResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RumArchiveConfigResponse = deserialize(
+      const body: RUMArchiveConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumArchiveConfigResponse",
-      ) as RumArchiveConfigResponse;
+        "RUMArchiveConfigResponse",
+      ) as RUMArchiveConfigResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
@@ -547,21 +547,21 @@ export class RUMManagedArchivesApiResponseProcessor {
       response.httpStatusCode === 429
     ) {
       const bodyText = parse(await response.body.text(), contentType);
-      let body: RumManagedArchiveErrorResponse;
+      let body: RUMManagedArchiveErrorResponse;
       try {
         body = deserialize(
           bodyText,
           TypingInfo,
-          "RumManagedArchiveErrorResponse",
-        ) as RumManagedArchiveErrorResponse;
+          "RUMManagedArchiveErrorResponse",
+        ) as RUMManagedArchiveErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<RumManagedArchiveErrorResponse>(
+        throw new ApiException<RUMManagedArchiveErrorResponse>(
           response.httpStatusCode,
           bodyText,
         );
       }
-      throw new ApiException<RumManagedArchiveErrorResponse>(
+      throw new ApiException<RUMManagedArchiveErrorResponse>(
         response.httpStatusCode,
         body,
       );
@@ -569,12 +569,12 @@ export class RUMManagedArchivesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumArchiveConfigResponse = deserialize(
+      const body: RUMArchiveConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "RumArchiveConfigResponse",
+        "RUMArchiveConfigResponse",
         "",
-      ) as RumArchiveConfigResponse;
+      ) as RUMArchiveConfigResponse;
       return body;
     }
 
@@ -623,9 +623,9 @@ export interface RUMManagedArchivesApiUpdateRUMArchiveConfigRequest {
   appId: string;
   /**
    * JSON:API request body.
-   * @type RumArchiveConfigUpsertRequest
+   * @type RUMArchiveConfigUpsertRequest
    */
-  body: RumArchiveConfigUpsertRequest;
+  body: RUMArchiveConfigUpsertRequest;
 }
 
 export class RUMManagedArchivesApi {
@@ -676,7 +676,7 @@ export class RUMManagedArchivesApi {
   public getRUMArchiveConfig(
     param: RUMManagedArchivesApiGetRUMArchiveConfigRequest,
     options?: Configuration,
-  ): Promise<RumArchiveConfigResponse> {
+  ): Promise<RUMArchiveConfigResponse> {
     const requestContextPromise = this.requestFactory.getRUMArchiveConfig(
       param.appId,
       options,
@@ -697,7 +697,7 @@ export class RUMManagedArchivesApi {
   public listRUMArchiveConfigs(
     param: RUMManagedArchivesApiListRUMArchiveConfigsRequest = {},
     options?: Configuration,
-  ): Promise<RumArchiveConfigListResponse> {
+  ): Promise<RUMArchiveConfigListResponse> {
     const requestContextPromise = this.requestFactory.listRUMArchiveConfigs(
       param.pageNumber,
       param.pageSize,
@@ -719,7 +719,7 @@ export class RUMManagedArchivesApi {
   public updateRUMArchiveConfig(
     param: RUMManagedArchivesApiUpdateRUMArchiveConfigRequest,
     options?: Configuration,
-  ): Promise<RumArchiveConfigResponse> {
+  ): Promise<RUMArchiveConfigResponse> {
     const requestContextPromise = this.requestFactory.updateRUMArchiveConfig(
       param.appId,
       param.body,

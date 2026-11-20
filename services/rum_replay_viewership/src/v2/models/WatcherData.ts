@@ -16,7 +16,7 @@ export class WatcherData {
    */
   "id"?: string;
   /**
-   * Rum replay watcher resource type.
+   * RUM replay watcher resource type.
    */
   "type": WatcherDataType;
   /**

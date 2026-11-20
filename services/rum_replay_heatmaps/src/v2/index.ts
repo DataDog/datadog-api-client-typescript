@@ -1,10 +1,10 @@
 export {
-  RumReplayHeatmapsApiCreateReplayHeatmapSnapshotRequest,
-  RumReplayHeatmapsApiDeleteReplayHeatmapSnapshotRequest,
-  RumReplayHeatmapsApiListReplayHeatmapSnapshotsRequest,
-  RumReplayHeatmapsApiUpdateReplayHeatmapSnapshotRequest,
-  RumReplayHeatmapsApi,
-} from "./RumReplayHeatmapsApi";
+  RUMReplayHeatmapsApiCreateReplayHeatmapSnapshotRequest,
+  RUMReplayHeatmapsApiDeleteReplayHeatmapSnapshotRequest,
+  RUMReplayHeatmapsApiListReplayHeatmapSnapshotsRequest,
+  RUMReplayHeatmapsApiUpdateReplayHeatmapSnapshotRequest,
+  RUMReplayHeatmapsApi,
+} from "./RUMReplayHeatmapsApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { Snapshot } from "./models/Snapshot";

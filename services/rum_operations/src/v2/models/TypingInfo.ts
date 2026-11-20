@@ -9,7 +9,7 @@ import { RUMOperationCreateRequestData } from "./RUMOperationCreateRequestData";
 import { RUMOperationJourneyCompositeRule } from "./RUMOperationJourneyCompositeRule";
 import { RUMOperationJourneyNode } from "./RUMOperationJourneyNode";
 import { RUMOperationJourneyPredicate } from "./RUMOperationJourneyPredicate";
-import { RUMOperationJourneyRum } from "./RUMOperationJourneyRum";
+import { RUMOperationJourneyRUM } from "./RUMOperationJourneyRUM";
 import { RUMOperationJourneyStep } from "./RUMOperationJourneyStep";
 import { RUMOperationRequestAttributes } from "./RUMOperationRequestAttributes";
 import { RUMOperationResponse } from "./RUMOperationResponse";
@@ -60,7 +60,7 @@ export const TypingInfo: ModelTypingInfo = {
     RUMOperationJourneyCompositeRule: RUMOperationJourneyCompositeRule,
     RUMOperationJourneyNode: RUMOperationJourneyNode,
     RUMOperationJourneyPredicate: RUMOperationJourneyPredicate,
-    RUMOperationJourneyRum: RUMOperationJourneyRum,
+    RUMOperationJourneyRUM: RUMOperationJourneyRUM,
     RUMOperationJourneyStep: RUMOperationJourneyStep,
     RUMOperationRequestAttributes: RUMOperationRequestAttributes,
     RUMOperationResponse: RUMOperationResponse,

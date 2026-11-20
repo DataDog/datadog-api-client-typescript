@@ -29,14 +29,14 @@ const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "RUMConfigApi.v2.getRumConfig": true
+        "RUMConfigApi.v2.getRUMConfig": true
     }
 }
 
 const configuration = createConfiguration(configurationOpts);
 const apiInstance = new RUMConfigApiV2(configuration);
 
-apiInstance.getRumConfig().then((data) => {
+apiInstance.getRUMConfig().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

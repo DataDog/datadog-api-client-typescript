@@ -22,19 +22,19 @@ yarn add @datadog/datadog-api-client-rum-teams-ownership
 ## Getting Started
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
-import { RumTeamsOwnershipApiV2 } from "@datadog/datadog-api-client-rum-teams-ownership";
+import { RUMTeamsOwnershipApiV2 } from "@datadog/datadog-api-client-rum-teams-ownership";
 import { v2 } from "@datadog/datadog-api-client-rum-teams-ownership";
 
 const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "RumTeamsOwnershipApi.v2.listTeamsOwnershipMappings": true
+        "RUMTeamsOwnershipApi.v2.listTeamsOwnershipMappings": true
     }
 }
 
 const configuration = createConfiguration(configurationOpts);
-const apiInstance = new RumTeamsOwnershipApiV2(configuration);
+const apiInstance = new RUMTeamsOwnershipApiV2(configuration);
 const params = {/* parameters */};
 
 apiInstance.listTeamsOwnershipMappings(params).then((data) => {
