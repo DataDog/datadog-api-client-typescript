@@ -7,7 +7,7 @@ subject: repo:DataDog/datadog-api-client-typescript:pull_request
 
 claim_pattern:
   event_name: ^pull_request$
-  job_workflow_ref: ^DataDog/datadog-api-client-typescript/\.github/workflows/reusable-pre-commit-fixes\.yml@dba58fc114cd51f0cb10b9a41e9afb81e0787ad7$
+  job_workflow_ref: ^DataDog/datadog-api-client-typescript/\.github/workflows/reusable-pre-commit-fixes\.yml@7bdb3651e1b556f8ea2c6424ee7152fe3853332b$
   ref: ^refs/pull/[0-9]+/merge$
   repository: ^DataDog/datadog-api-client-typescript$
 
