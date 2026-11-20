@@ -288,6 +288,17 @@ import { RecentlyUpdatedEntitiesResponse } from "./RecentlyUpdatedEntitiesRespon
 import { RelationshipToUser } from "./RelationshipToUser";
 import { RelationshipToUserData } from "./RelationshipToUserData";
 import { Remediation } from "./Remediation";
+import { RemediationGroupAttributes } from "./RemediationGroupAttributes";
+import { RemediationGroupCaseRelationship } from "./RemediationGroupCaseRelationship";
+import { RemediationGroupCaseRelationshipData } from "./RemediationGroupCaseRelationshipData";
+import { RemediationGroupData } from "./RemediationGroupData";
+import { RemediationGroupFindings } from "./RemediationGroupFindings";
+import { RemediationGroupFindingsBySeverity } from "./RemediationGroupFindingsBySeverity";
+import { RemediationGroupImageUpdate } from "./RemediationGroupImageUpdate";
+import { RemediationGroupPackageUpdate } from "./RemediationGroupPackageUpdate";
+import { RemediationGroupRelationships } from "./RemediationGroupRelationships";
+import { RemediationGroupsMeta } from "./RemediationGroupsMeta";
+import { RemediationGroupsPageMeta } from "./RemediationGroupsPageMeta";
 import { ResourceFilterAttributes } from "./ResourceFilterAttributes";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RuleUser } from "./RuleUser";
@@ -330,6 +341,7 @@ import { ScannedAssetMetadataAsset } from "./ScannedAssetMetadataAsset";
 import { ScannedAssetMetadataAttributes } from "./ScannedAssetMetadataAttributes";
 import { ScannedAssetMetadataLastSuccess } from "./ScannedAssetMetadataLastSuccess";
 import { ScannedAssetsMetadata } from "./ScannedAssetsMetadata";
+import { SearchRemediationGroupsResponse } from "./SearchRemediationGroupsResponse";
 import { SecretRuleArray } from "./SecretRuleArray";
 import { SecretRuleData } from "./SecretRuleData";
 import { SecretRuleDataAttributes } from "./SecretRuleDataAttributes";
@@ -775,6 +787,12 @@ export const TypingInfo: ModelTypingInfo = {
     NotificationRulePreviewResponseType: ["notification_preview_response"],
     NotificationRuleRoutingMode: ["manual"],
     NotificationRulesType: ["notification_rules"],
+    RemediationGroupFindingType: [
+      "library_vulnerability",
+      "host_and_container_vulnerability",
+    ],
+    RemediationGroupInclude: ["case"],
+    RemediationGroupType: ["remediation_groups"],
     ResourceFilterRequestType: ["csm_resource_filter"],
     RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
     RuleTypesItems: [
@@ -1621,6 +1639,17 @@ export const TypingInfo: ModelTypingInfo = {
     RelationshipToUser: RelationshipToUser,
     RelationshipToUserData: RelationshipToUserData,
     Remediation: Remediation,
+    RemediationGroupAttributes: RemediationGroupAttributes,
+    RemediationGroupCaseRelationship: RemediationGroupCaseRelationship,
+    RemediationGroupCaseRelationshipData: RemediationGroupCaseRelationshipData,
+    RemediationGroupData: RemediationGroupData,
+    RemediationGroupFindings: RemediationGroupFindings,
+    RemediationGroupFindingsBySeverity: RemediationGroupFindingsBySeverity,
+    RemediationGroupImageUpdate: RemediationGroupImageUpdate,
+    RemediationGroupPackageUpdate: RemediationGroupPackageUpdate,
+    RemediationGroupRelationships: RemediationGroupRelationships,
+    RemediationGroupsMeta: RemediationGroupsMeta,
+    RemediationGroupsPageMeta: RemediationGroupsPageMeta,
     ResourceFilterAttributes: ResourceFilterAttributes,
     ResponseMetaAttributes: ResponseMetaAttributes,
     RuleUser: RuleUser,
@@ -1676,6 +1705,7 @@ export const TypingInfo: ModelTypingInfo = {
     ScannedAssetMetadataAttributes: ScannedAssetMetadataAttributes,
     ScannedAssetMetadataLastSuccess: ScannedAssetMetadataLastSuccess,
     ScannedAssetsMetadata: ScannedAssetsMetadata,
+    SearchRemediationGroupsResponse: SearchRemediationGroupsResponse,
     SecretRuleArray: SecretRuleArray,
     SecretRuleData: SecretRuleData,
     SecretRuleDataAttributes: SecretRuleDataAttributes,

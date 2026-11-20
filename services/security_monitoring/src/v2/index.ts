@@ -149,6 +149,7 @@ export {
   SecurityMonitoringApiReorderSecurityFindingsAutomationTicketCreationRulesRequest,
   SecurityMonitoringApiRestoreSecurityMonitoringRuleRequest,
   SecurityMonitoringApiRunHistoricalJobRequest,
+  SecurityMonitoringApiSearchRemediationGroupsRequest,
   SecurityMonitoringApiSearchSecurityFindingsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
@@ -522,6 +523,20 @@ export { RecentlyUpdatedEntitiesResponse } from "./models/RecentlyUpdatedEntitie
 export { RelationshipToUser } from "./models/RelationshipToUser";
 export { RelationshipToUserData } from "./models/RelationshipToUserData";
 export { Remediation } from "./models/Remediation";
+export { RemediationGroupAttributes } from "./models/RemediationGroupAttributes";
+export { RemediationGroupCaseRelationship } from "./models/RemediationGroupCaseRelationship";
+export { RemediationGroupCaseRelationshipData } from "./models/RemediationGroupCaseRelationshipData";
+export { RemediationGroupData } from "./models/RemediationGroupData";
+export { RemediationGroupFindings } from "./models/RemediationGroupFindings";
+export { RemediationGroupFindingsBySeverity } from "./models/RemediationGroupFindingsBySeverity";
+export { RemediationGroupFindingType } from "./models/RemediationGroupFindingType";
+export { RemediationGroupImageUpdate } from "./models/RemediationGroupImageUpdate";
+export { RemediationGroupInclude } from "./models/RemediationGroupInclude";
+export { RemediationGroupPackageUpdate } from "./models/RemediationGroupPackageUpdate";
+export { RemediationGroupRelationships } from "./models/RemediationGroupRelationships";
+export { RemediationGroupsMeta } from "./models/RemediationGroupsMeta";
+export { RemediationGroupsPageMeta } from "./models/RemediationGroupsPageMeta";
+export { RemediationGroupType } from "./models/RemediationGroupType";
 export { ResourceFilterAttributes } from "./models/ResourceFilterAttributes";
 export { ResourceFilterRequestType } from "./models/ResourceFilterRequestType";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
@@ -579,6 +594,7 @@ export { ScannedAssetMetadataAttributes } from "./models/ScannedAssetMetadataAtt
 export { ScannedAssetMetadataLastSuccess } from "./models/ScannedAssetMetadataLastSuccess";
 export { ScannedAssetMetadataType } from "./models/ScannedAssetMetadataType";
 export { ScannedAssetsMetadata } from "./models/ScannedAssetsMetadata";
+export { SearchRemediationGroupsResponse } from "./models/SearchRemediationGroupsResponse";
 export { SecretRuleArray } from "./models/SecretRuleArray";
 export { SecretRuleData } from "./models/SecretRuleData";
 export { SecretRuleDataAttributes } from "./models/SecretRuleDataAttributes";
