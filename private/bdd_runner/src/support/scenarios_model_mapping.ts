@@ -13854,6 +13854,46 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "OpenAICodexIntegrationAccountResponse",
   },
+  "OpenAILLMEvaluationsIntegrationApi.V2.ListOpenAILLMEvaluationsIntegrationAccounts":
+    {
+      operationResponseType: "OpenAILLMEvaluationsIntegrationAccountsResponse",
+    },
+  "OpenAILLMEvaluationsIntegrationApi.V2.CreateOpenAILLMEvaluationsIntegrationAccount":
+    {
+      body: {
+        type: "OpenAILLMEvaluationsIntegrationAccountCreateRequest",
+        format: "",
+      },
+      operationResponseType: "OpenAILLMEvaluationsIntegrationAccountResponse",
+    },
+  "OpenAILLMEvaluationsIntegrationApi.V2.GetOpenAILLMEvaluationsIntegrationAccount":
+    {
+      accountId: {
+        type: "string",
+        format: "",
+      },
+      operationResponseType: "OpenAILLMEvaluationsIntegrationAccountResponse",
+    },
+  "OpenAILLMEvaluationsIntegrationApi.V2.DeleteOpenAILLMEvaluationsIntegrationAccount":
+    {
+      accountId: {
+        type: "string",
+        format: "",
+      },
+      operationResponseType: "{}",
+    },
+  "OpenAILLMEvaluationsIntegrationApi.V2.UpdateOpenAILLMEvaluationsIntegrationAccount":
+    {
+      accountId: {
+        type: "string",
+        format: "",
+      },
+      body: {
+        type: "OpenAILLMEvaluationsIntegrationAccountUpdateRequest",
+        format: "",
+      },
+      operationResponseType: "OpenAILLMEvaluationsIntegrationAccountResponse",
+    },
   "SnowflakeIntegrationApi.V2.ListSnowflakeIntegrationAccounts": {
     operationResponseType: "SnowflakeIntegrationAccountsResponse",
   },
