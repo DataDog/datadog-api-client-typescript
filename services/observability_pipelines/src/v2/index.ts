@@ -116,6 +116,8 @@ export { ObservabilityPipelineConfigPipelineType } from "./models/ObservabilityP
 export { ObservabilityPipelineConfigProcessorGroup } from "./models/ObservabilityPipelineConfigProcessorGroup";
 export { ObservabilityPipelineConfigProcessorItem } from "./models/ObservabilityPipelineConfigProcessorItem";
 export { ObservabilityPipelineConfigSourceItem } from "./models/ObservabilityPipelineConfigSourceItem";
+export { ObservabilityPipelineCrowdStrikeFdrSource } from "./models/ObservabilityPipelineCrowdStrikeFdrSource";
+export { ObservabilityPipelineCrowdStrikeFdrSourceType } from "./models/ObservabilityPipelineCrowdStrikeFdrSourceType";
 export { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./models/ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
 export { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression } from "./models/ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression";
 export { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm } from "./models/ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm";
