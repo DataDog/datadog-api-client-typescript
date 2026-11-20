@@ -5,6 +5,7 @@
  */
 import { ObservabilityPipelineAmazonDataFirehoseSource } from "./ObservabilityPipelineAmazonDataFirehoseSource";
 import { ObservabilityPipelineAmazonS3Source } from "./ObservabilityPipelineAmazonS3Source";
+import { ObservabilityPipelineCrowdStrikeFdrSource } from "./ObservabilityPipelineCrowdStrikeFdrSource";
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
 import { ObservabilityPipelineFluentBitSource } from "./ObservabilityPipelineFluentBitSource";
 import { ObservabilityPipelineFluentdSource } from "./ObservabilityPipelineFluentdSource";
@@ -34,6 +35,7 @@ export type ObservabilityPipelineConfigSourceItem =
   | ObservabilityPipelineOpentelemetrySource
   | ObservabilityPipelineAmazonDataFirehoseSource
   | ObservabilityPipelineAmazonS3Source
+  | ObservabilityPipelineCrowdStrikeFdrSource
   | ObservabilityPipelineFluentBitSource
   | ObservabilityPipelineFluentdSource
   | ObservabilityPipelineGooglePubSubSource
