@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CostRecommendationDataAttributesPotentialDailySavings } from "./CostRecommendationDataAttributesPotentialDailySavings";
+import { CostRecommendationExtraField } from "./CostRecommendationExtraField";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,6 +16,10 @@ export class CostRecommendationDataAttributes {
    * Datadog resource key identifying the recommended resource.
    */
   "ddResourceKey"?: string;
+  /**
+   * Selected recommendation fields. Omitted when no requested fields match.
+   */
+  "extraFields"?: Array<CostRecommendationExtraField>;
   /**
    * Estimated daily savings if the recommendation is applied.
    */
@@ -60,6 +65,10 @@ export class CostRecommendationDataAttributes {
     ddResourceKey: {
       baseName: "dd_resource_key",
       type: "string",
+    },
+    extraFields: {
+      baseName: "extra_fields",
+      type: "Array<CostRecommendationExtraField>",
     },
     potentialDailySavings: {
       baseName: "potential_daily_savings",

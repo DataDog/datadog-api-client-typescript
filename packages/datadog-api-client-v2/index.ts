@@ -4047,6 +4047,7 @@ export { CostRecommendationData } from "./models/CostRecommendationData";
 export { CostRecommendationDataAttributes } from "./models/CostRecommendationDataAttributes";
 export { CostRecommendationDataAttributesPotentialDailySavings } from "./models/CostRecommendationDataAttributesPotentialDailySavings";
 export { CostRecommendationDataType } from "./models/CostRecommendationDataType";
+export { CostRecommendationExtraField } from "./models/CostRecommendationExtraField";
 export { CostTag } from "./models/CostTag";
 export { CostTagAttributes } from "./models/CostTagAttributes";
 export { CostTagDescription } from "./models/CostTagDescription";
