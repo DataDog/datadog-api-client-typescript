@@ -124,6 +124,7 @@ import { CostRecommendationArray } from "./CostRecommendationArray";
 import { CostRecommendationData } from "./CostRecommendationData";
 import { CostRecommendationDataAttributes } from "./CostRecommendationDataAttributes";
 import { CostRecommendationDataAttributesPotentialDailySavings } from "./CostRecommendationDataAttributesPotentialDailySavings";
+import { CostRecommendationExtraField } from "./CostRecommendationExtraField";
 import { CostTag } from "./CostTag";
 import { CostTagAttributes } from "./CostTagAttributes";
 import { CostTagDescription } from "./CostTagDescription";
@@ -491,6 +492,7 @@ export const TypingInfo: ModelTypingInfo = {
     CostRecommendationDataAttributes: CostRecommendationDataAttributes,
     CostRecommendationDataAttributesPotentialDailySavings:
       CostRecommendationDataAttributesPotentialDailySavings,
+    CostRecommendationExtraField: CostRecommendationExtraField,
     CostTag: CostTag,
     CostTagAttributes: CostTagAttributes,
     CostTagDescription: CostTagDescription,
