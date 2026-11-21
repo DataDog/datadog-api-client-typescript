@@ -5660,6 +5660,8 @@ export class SyntheticsApi {
 
   /**
    * Get the latest result summaries for a given Synthetic browser test.
+   * To filter tests across your organization by monitor status, state, or tags, use
+   * the Search Synthetic tests with filters endpoint.
    * @param param The request object
    */
   public listSyntheticsBrowserTestLatestResults(
@@ -5714,6 +5716,8 @@ export class SyntheticsApi {
 
   /**
    * Get the latest result summaries for a given Synthetic test.
+   * To filter tests across your organization by monitor status, state, or tags, use
+   * the Search Synthetic tests with filters endpoint.
    * @param param The request object
    */
   public listSyntheticsTestLatestResults(
