@@ -21,7 +21,7 @@ export class DatasetListQuery {
    */
   "datasetProvider": PublishedDatasetProvider;
   /**
-   * Filter applied to the dataset's rows, using events-style search syntax.
+   * Filter applied to the rows of the dataset, using events-style search syntax.
    */
   "filter"?: string;
   /**
