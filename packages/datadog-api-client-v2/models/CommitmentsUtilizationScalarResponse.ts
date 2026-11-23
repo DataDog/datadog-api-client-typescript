@@ -3,8 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CommitmentsScalarColumn } from "./CommitmentsScalarColumn";
-import { CommitmentsUtilizationScalarProductBreakdownEntry } from "./CommitmentsUtilizationScalarProductBreakdownEntry";
+import { CommitmentsUtilizationScalarResponseData } from "./CommitmentsUtilizationScalarResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -13,13 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CommitmentsUtilizationScalarResponse {
   /**
-   * Array of scalar columns in the response.
+   * The scalar utilization resource.
    */
-  "columns": Array<CommitmentsScalarColumn>;
-  /**
-   * Array of per-product utilization breakdown entries.
-   */
-  "productBreakdown"?: Array<CommitmentsUtilizationScalarProductBreakdownEntry>;
+  "data": CommitmentsUtilizationScalarResponseData;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,14 +32,10 @@ export class CommitmentsUtilizationScalarResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<CommitmentsScalarColumn>",
+    data: {
+      baseName: "data",
+      type: "CommitmentsUtilizationScalarResponseData",
       required: true,
-    },
-    productBreakdown: {
-      baseName: "product_breakdown",
-      type: "Array<CommitmentsUtilizationScalarProductBreakdownEntry>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

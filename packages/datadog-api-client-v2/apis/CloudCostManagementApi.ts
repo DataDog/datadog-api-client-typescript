@@ -10620,7 +10620,7 @@ export interface CloudCostManagementApiGetBudgetRequest {
 
 export interface CloudCostManagementApiGetCommitmentsCommitmentListRequest {
   /**
-   * Cloud provider for commitment programs (aws or azure).
+   * Cloud provider for commitment programs (aws, azure, or gcp).
    * @type CommitmentsProvider
    */
   provider: CommitmentsProvider;
@@ -10653,7 +10653,7 @@ export interface CloudCostManagementApiGetCommitmentsCommitmentListRequest {
 
 export interface CloudCostManagementApiGetCommitmentsCoverageScalarRequest {
   /**
-   * Cloud provider for commitment programs (aws or azure).
+   * Cloud provider for commitment programs (aws, azure, or gcp).
    * @type CommitmentsProvider
    */
   provider: CommitmentsProvider;
@@ -10681,7 +10681,7 @@ export interface CloudCostManagementApiGetCommitmentsCoverageScalarRequest {
 
 export interface CloudCostManagementApiGetCommitmentsCoverageTimeseriesRequest {
   /**
-   * Cloud provider for commitment programs (aws or azure).
+   * Cloud provider for commitment programs (aws, azure, or gcp).
    * @type CommitmentsProvider
    */
   provider: CommitmentsProvider;
@@ -10709,7 +10709,7 @@ export interface CloudCostManagementApiGetCommitmentsCoverageTimeseriesRequest {
 
 export interface CloudCostManagementApiGetCommitmentsOnDemandHotspotsScalarRequest {
   /**
-   * Cloud provider for commitment programs (aws or azure).
+   * Cloud provider for commitment programs (aws, azure, or gcp).
    * @type CommitmentsProvider
    */
   provider: CommitmentsProvider;
@@ -10737,7 +10737,7 @@ export interface CloudCostManagementApiGetCommitmentsOnDemandHotspotsScalarReque
 
 export interface CloudCostManagementApiGetCommitmentsSavingsScalarRequest {
   /**
-   * Cloud provider for commitment programs (aws or azure).
+   * Cloud provider for commitment programs (aws, azure, or gcp).
    * @type CommitmentsProvider
    */
   provider: CommitmentsProvider;
@@ -10765,7 +10765,7 @@ export interface CloudCostManagementApiGetCommitmentsSavingsScalarRequest {
 
 export interface CloudCostManagementApiGetCommitmentsSavingsTimeseriesRequest {
   /**
-   * Cloud provider for commitment programs (aws or azure).
+   * Cloud provider for commitment programs (aws, azure, or gcp).
    * @type CommitmentsProvider
    */
   provider: CommitmentsProvider;
@@ -10793,7 +10793,7 @@ export interface CloudCostManagementApiGetCommitmentsSavingsTimeseriesRequest {
 
 export interface CloudCostManagementApiGetCommitmentsUtilizationScalarRequest {
   /**
-   * Cloud provider for commitment programs (aws or azure).
+   * Cloud provider for commitment programs (aws, azure, or gcp).
    * @type CommitmentsProvider
    */
   provider: CommitmentsProvider;
@@ -10826,7 +10826,7 @@ export interface CloudCostManagementApiGetCommitmentsUtilizationScalarRequest {
 
 export interface CloudCostManagementApiGetCommitmentsUtilizationTimeseriesRequest {
   /**
-   * Cloud provider for commitment programs (aws or azure).
+   * Cloud provider for commitment programs (aws, azure, or gcp).
    * @type CommitmentsProvider
    */
   provider: CommitmentsProvider;
@@ -11879,7 +11879,7 @@ export class CloudCostManagementApi {
   }
 
   /**
-   * Get timeseries coverage metrics for cloud commitment programs, broken down by coverage type (Reserved Instances, Savings Plans, On-Demand, and Spot) for both hours and cost.
+   * Get timeseries coverage metrics for cloud commitment programs, broken down by coverage type for both hours and cost. AWS and Azure report Reserved Instances, Savings Plans, On-Demand, and Spot. GCP reports Flex Committed Use Discounts and On-Demand.
    * @param param The request object
    */
   public getCommitmentsCoverageTimeseries(

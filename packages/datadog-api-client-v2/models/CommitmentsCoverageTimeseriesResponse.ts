@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CommitmentsTimeseriesMetric } from "./CommitmentsTimeseriesMetric";
+import { CommitmentsCoverageTimeseriesResponseData } from "./CommitmentsCoverageTimeseriesResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,13 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CommitmentsCoverageTimeseriesResponse {
   /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
+   * The timeseries coverage resource.
    */
-  "cost": CommitmentsTimeseriesMetric;
-  /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
-   */
-  "hours": CommitmentsTimeseriesMetric;
+  "data": CommitmentsCoverageTimeseriesResponseData;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,14 +32,9 @@ export class CommitmentsCoverageTimeseriesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cost: {
-      baseName: "cost",
-      type: "CommitmentsTimeseriesMetric",
-      required: true,
-    },
-    hours: {
-      baseName: "hours",
-      type: "CommitmentsTimeseriesMetric",
+    data: {
+      baseName: "data",
+      type: "CommitmentsCoverageTimeseriesResponseData",
       required: true,
     },
     additionalProperties: {

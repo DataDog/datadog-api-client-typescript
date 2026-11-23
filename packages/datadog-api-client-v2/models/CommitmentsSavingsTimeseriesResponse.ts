@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CommitmentsTimeseriesMetric } from "./CommitmentsTimeseriesMetric";
+import { CommitmentsSavingsTimeseriesResponseData } from "./CommitmentsSavingsTimeseriesResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,21 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CommitmentsSavingsTimeseriesResponse {
   /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
+   * The timeseries savings resource.
    */
-  "actualCost": CommitmentsTimeseriesMetric;
-  /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
-   */
-  "effectiveSavingsRate": CommitmentsTimeseriesMetric;
-  /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
-   */
-  "onDemandEquivalentCost": CommitmentsTimeseriesMetric;
-  /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
-   */
-  "realizedSavings": CommitmentsTimeseriesMetric;
+  "data": CommitmentsSavingsTimeseriesResponseData;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,24 +32,9 @@ export class CommitmentsSavingsTimeseriesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    actualCost: {
-      baseName: "actual_cost",
-      type: "CommitmentsTimeseriesMetric",
-      required: true,
-    },
-    effectiveSavingsRate: {
-      baseName: "effective_savings_rate",
-      type: "CommitmentsTimeseriesMetric",
-      required: true,
-    },
-    onDemandEquivalentCost: {
-      baseName: "on_demand_equivalent_cost",
-      type: "CommitmentsTimeseriesMetric",
-      required: true,
-    },
-    realizedSavings: {
-      baseName: "realized_savings",
-      type: "CommitmentsTimeseriesMetric",
+    data: {
+      baseName: "data",
+      type: "CommitmentsSavingsTimeseriesResponseData",
       required: true,
     },
     additionalProperties: {
