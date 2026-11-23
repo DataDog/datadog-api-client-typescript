@@ -547,6 +547,7 @@ import { SecurityMonitoringSignalAssigneeUpdateAttributes } from "./SecurityMoni
 import { SecurityMonitoringSignalAssigneeUpdateData } from "./SecurityMonitoringSignalAssigneeUpdateData";
 import { SecurityMonitoringSignalAssigneeUpdateRequest } from "./SecurityMonitoringSignalAssigneeUpdateRequest";
 import { SecurityMonitoringSignalAttributes } from "./SecurityMonitoringSignalAttributes";
+import { SecurityMonitoringSignalCase } from "./SecurityMonitoringSignalCase";
 import { SecurityMonitoringSignalIncidentsUpdateAttributes } from "./SecurityMonitoringSignalIncidentsUpdateAttributes";
 import { SecurityMonitoringSignalIncidentsUpdateData } from "./SecurityMonitoringSignalIncidentsUpdateData";
 import { SecurityMonitoringSignalIncidentsUpdateRequest } from "./SecurityMonitoringSignalIncidentsUpdateRequest";
@@ -2058,6 +2059,7 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityMonitoringSignalAssigneeUpdateRequest:
       SecurityMonitoringSignalAssigneeUpdateRequest,
     SecurityMonitoringSignalAttributes: SecurityMonitoringSignalAttributes,
+    SecurityMonitoringSignalCase: SecurityMonitoringSignalCase,
     SecurityMonitoringSignalIncidentsUpdateAttributes:
       SecurityMonitoringSignalIncidentsUpdateAttributes,
     SecurityMonitoringSignalIncidentsUpdateData:
