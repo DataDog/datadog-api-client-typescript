@@ -88,25 +88,40 @@ import { CommitmentsAwsSPCommitment } from "./CommitmentsAwsSPCommitment";
 import { CommitmentsAzureComputeSPCommitment } from "./CommitmentsAzureComputeSPCommitment";
 import { CommitmentsAzureVMRICommitment } from "./CommitmentsAzureVMRICommitment";
 import { CommitmentsCoverageScalarResponse } from "./CommitmentsCoverageScalarResponse";
+import { CommitmentsCoverageScalarResponseAttributes } from "./CommitmentsCoverageScalarResponseAttributes";
+import { CommitmentsCoverageScalarResponseData } from "./CommitmentsCoverageScalarResponseData";
+import { CommitmentsCoverageTimeseriesMetric } from "./CommitmentsCoverageTimeseriesMetric";
 import { CommitmentsCoverageTimeseriesResponse } from "./CommitmentsCoverageTimeseriesResponse";
+import { CommitmentsCoverageTimeseriesResponseAttributes } from "./CommitmentsCoverageTimeseriesResponseAttributes";
+import { CommitmentsCoverageTimeseriesResponseData } from "./CommitmentsCoverageTimeseriesResponseData";
 import { CommitmentsListMeta } from "./CommitmentsListMeta";
 import { CommitmentsListResponse } from "./CommitmentsListResponse";
 import { CommitmentsListResponseAttributes } from "./CommitmentsListResponseAttributes";
 import { CommitmentsListResponseData } from "./CommitmentsListResponseData";
-import { CommitmentsOnDemandHotspotsScalarMeta } from "./CommitmentsOnDemandHotspotsScalarMeta";
 import { CommitmentsOnDemandHotspotsScalarResponse } from "./CommitmentsOnDemandHotspotsScalarResponse";
+import { CommitmentsOnDemandHotspotsScalarResponseAttributes } from "./CommitmentsOnDemandHotspotsScalarResponseAttributes";
+import { CommitmentsOnDemandHotspotsScalarResponseData } from "./CommitmentsOnDemandHotspotsScalarResponseData";
 import { CommitmentsQueryDefinition } from "./CommitmentsQueryDefinition";
 import { CommitmentsQueryDefinitionFormula } from "./CommitmentsQueryDefinitionFormula";
 import { CommitmentsQueryDefinitionQuery } from "./CommitmentsQueryDefinitionQuery";
 import { CommitmentsSavingsScalarResponse } from "./CommitmentsSavingsScalarResponse";
+import { CommitmentsSavingsScalarResponseAttributes } from "./CommitmentsSavingsScalarResponseAttributes";
+import { CommitmentsSavingsScalarResponseData } from "./CommitmentsSavingsScalarResponseData";
 import { CommitmentsSavingsTimeseriesResponse } from "./CommitmentsSavingsTimeseriesResponse";
+import { CommitmentsSavingsTimeseriesResponseAttributes } from "./CommitmentsSavingsTimeseriesResponseAttributes";
+import { CommitmentsSavingsTimeseriesResponseData } from "./CommitmentsSavingsTimeseriesResponseData";
 import { CommitmentsScalarColumn } from "./CommitmentsScalarColumn";
 import { CommitmentsScalarColumnMeta } from "./CommitmentsScalarColumnMeta";
 import { CommitmentsTimeseriesMetric } from "./CommitmentsTimeseriesMetric";
 import { CommitmentsUnit } from "./CommitmentsUnit";
+import { CommitmentsUnusedCostMeta } from "./CommitmentsUnusedCostMeta";
 import { CommitmentsUtilizationScalarProductBreakdownEntry } from "./CommitmentsUtilizationScalarProductBreakdownEntry";
 import { CommitmentsUtilizationScalarResponse } from "./CommitmentsUtilizationScalarResponse";
+import { CommitmentsUtilizationScalarResponseAttributes } from "./CommitmentsUtilizationScalarResponseAttributes";
+import { CommitmentsUtilizationScalarResponseData } from "./CommitmentsUtilizationScalarResponseData";
 import { CommitmentsUtilizationTimeseriesResponse } from "./CommitmentsUtilizationTimeseriesResponse";
+import { CommitmentsUtilizationTimeseriesResponseAttributes } from "./CommitmentsUtilizationTimeseriesResponseAttributes";
+import { CommitmentsUtilizationTimeseriesResponseData } from "./CommitmentsUtilizationTimeseriesResponseData";
 import { CostAnomaliesResponse } from "./CostAnomaliesResponse";
 import { CostAnomaliesResponseData } from "./CostAnomaliesResponseData";
 import { CostAnomaliesResponseDataAttributes } from "./CostAnomaliesResponseDataAttributes";
@@ -286,11 +301,16 @@ export const TypingInfo: ModelTypingInfo = {
     CloudCostAccountType: ["cloud_account"],
     CommitmentsAzureVMRIStatus: ["running", "expired", "cancelled"],
     CommitmentsCommitmentType: ["ri", "sp"],
+    CommitmentsCoverageTimeseriesResponseType: ["coverage_timeseries_response"],
     CommitmentsListResponseType: ["commitments_list_response"],
-    CommitmentsProvider: ["aws", "azure"],
+    CommitmentsProvider: ["aws", "azure", "gcp"],
     CommitmentsQueryDefinitionAggregator: ["sum", "avg", "min", "max"],
     CommitmentsQueryDefinitionDataSource: ["cloud_cost", "metrics"],
+    CommitmentsSavingsTimeseriesResponseType: ["savings_timeseries_response"],
     CommitmentsScalarColumnType: ["group", "number"],
+    CommitmentsUtilizationTimeseriesResponseType: [
+      "utilization_timeseries_response",
+    ],
     CostAnomaliesResponseDataType: ["anomalies"],
     CostCurrencyType: ["cost_currency"],
     CostMetricType: ["cost_metric"],
@@ -325,6 +345,7 @@ export const TypingInfo: ModelTypingInfo = {
     RulesValidateQueryResponseDataType: ["validate_response"],
     RulesetRespDataType: ["ruleset"],
     RulesetStatusRespDataType: ["ruleset_status"],
+    ScalarFormulaResponseType: ["scalar_response"],
     UCConfigPairDataType: ["azure_uc_configs"],
     UnitCostType: ["unit_cost"],
     UpdateRulesetRequestDataType: ["update_ruleset"],
@@ -450,30 +471,57 @@ export const TypingInfo: ModelTypingInfo = {
     CommitmentsAzureComputeSPCommitment: CommitmentsAzureComputeSPCommitment,
     CommitmentsAzureVMRICommitment: CommitmentsAzureVMRICommitment,
     CommitmentsCoverageScalarResponse: CommitmentsCoverageScalarResponse,
+    CommitmentsCoverageScalarResponseAttributes:
+      CommitmentsCoverageScalarResponseAttributes,
+    CommitmentsCoverageScalarResponseData:
+      CommitmentsCoverageScalarResponseData,
+    CommitmentsCoverageTimeseriesMetric: CommitmentsCoverageTimeseriesMetric,
     CommitmentsCoverageTimeseriesResponse:
       CommitmentsCoverageTimeseriesResponse,
+    CommitmentsCoverageTimeseriesResponseAttributes:
+      CommitmentsCoverageTimeseriesResponseAttributes,
+    CommitmentsCoverageTimeseriesResponseData:
+      CommitmentsCoverageTimeseriesResponseData,
     CommitmentsListMeta: CommitmentsListMeta,
     CommitmentsListResponse: CommitmentsListResponse,
     CommitmentsListResponseAttributes: CommitmentsListResponseAttributes,
     CommitmentsListResponseData: CommitmentsListResponseData,
-    CommitmentsOnDemandHotspotsScalarMeta:
-      CommitmentsOnDemandHotspotsScalarMeta,
     CommitmentsOnDemandHotspotsScalarResponse:
       CommitmentsOnDemandHotspotsScalarResponse,
+    CommitmentsOnDemandHotspotsScalarResponseAttributes:
+      CommitmentsOnDemandHotspotsScalarResponseAttributes,
+    CommitmentsOnDemandHotspotsScalarResponseData:
+      CommitmentsOnDemandHotspotsScalarResponseData,
     CommitmentsQueryDefinition: CommitmentsQueryDefinition,
     CommitmentsQueryDefinitionFormula: CommitmentsQueryDefinitionFormula,
     CommitmentsQueryDefinitionQuery: CommitmentsQueryDefinitionQuery,
     CommitmentsSavingsScalarResponse: CommitmentsSavingsScalarResponse,
+    CommitmentsSavingsScalarResponseAttributes:
+      CommitmentsSavingsScalarResponseAttributes,
+    CommitmentsSavingsScalarResponseData: CommitmentsSavingsScalarResponseData,
     CommitmentsSavingsTimeseriesResponse: CommitmentsSavingsTimeseriesResponse,
+    CommitmentsSavingsTimeseriesResponseAttributes:
+      CommitmentsSavingsTimeseriesResponseAttributes,
+    CommitmentsSavingsTimeseriesResponseData:
+      CommitmentsSavingsTimeseriesResponseData,
     CommitmentsScalarColumn: CommitmentsScalarColumn,
     CommitmentsScalarColumnMeta: CommitmentsScalarColumnMeta,
     CommitmentsTimeseriesMetric: CommitmentsTimeseriesMetric,
     CommitmentsUnit: CommitmentsUnit,
+    CommitmentsUnusedCostMeta: CommitmentsUnusedCostMeta,
     CommitmentsUtilizationScalarProductBreakdownEntry:
       CommitmentsUtilizationScalarProductBreakdownEntry,
     CommitmentsUtilizationScalarResponse: CommitmentsUtilizationScalarResponse,
+    CommitmentsUtilizationScalarResponseAttributes:
+      CommitmentsUtilizationScalarResponseAttributes,
+    CommitmentsUtilizationScalarResponseData:
+      CommitmentsUtilizationScalarResponseData,
     CommitmentsUtilizationTimeseriesResponse:
       CommitmentsUtilizationTimeseriesResponse,
+    CommitmentsUtilizationTimeseriesResponseAttributes:
+      CommitmentsUtilizationTimeseriesResponseAttributes,
+    CommitmentsUtilizationTimeseriesResponseData:
+      CommitmentsUtilizationTimeseriesResponseData,
     CostAnomaliesResponse: CostAnomaliesResponse,
     CostAnomaliesResponseData: CostAnomaliesResponseData,
     CostAnomaliesResponseDataAttributes: CostAnomaliesResponseDataAttributes,

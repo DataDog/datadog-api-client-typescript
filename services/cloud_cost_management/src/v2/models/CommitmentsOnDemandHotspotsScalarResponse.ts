@@ -1,24 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { CommitmentsOnDemandHotspotsScalarMeta } from "./CommitmentsOnDemandHotspotsScalarMeta";
-import { CommitmentsScalarColumn } from "./CommitmentsScalarColumn";
+import { CommitmentsOnDemandHotspotsScalarResponseData } from "./CommitmentsOnDemandHotspotsScalarResponseData";
 
 /**
  * Response containing scalar on-demand hot-spots data for cloud commitment programs.
  */
 export class CommitmentsOnDemandHotspotsScalarResponse {
   /**
-   * Array of scalar columns in the response.
+   * The scalar on-demand hot-spots resource.
    */
-  "columns": Array<CommitmentsScalarColumn>;
-  /**
-   * Metadata for the on-demand hot-spots scalar response.
-   */
-  "meta"?: CommitmentsOnDemandHotspotsScalarMeta;
-  /**
-   * Array of scalar columns in the response.
-   */
-  "total": Array<CommitmentsScalarColumn>;
+  "data": CommitmentsOnDemandHotspotsScalarResponseData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -34,18 +25,9 @@ export class CommitmentsOnDemandHotspotsScalarResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<CommitmentsScalarColumn>",
-      required: true,
-    },
-    meta: {
-      baseName: "meta",
-      type: "CommitmentsOnDemandHotspotsScalarMeta",
-    },
-    total: {
-      baseName: "total",
-      type: "Array<CommitmentsScalarColumn>",
+    data: {
+      baseName: "data",
+      type: "CommitmentsOnDemandHotspotsScalarResponseData",
       required: true,
     },
     additionalProperties: {

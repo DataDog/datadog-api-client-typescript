@@ -7,9 +7,9 @@ import { CommitmentsUnit } from "./CommitmentsUnit";
  */
 export class CommitmentsScalarColumnMeta {
   /**
-   * Unit metadata for a numeric metric.
+   * Unit metadata for a numeric metric. Unset fields are omitted, and the unit is `null` when it is unknown.
    */
-  "unit": CommitmentsUnit;
+  "unit": CommitmentsUnit | null;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with

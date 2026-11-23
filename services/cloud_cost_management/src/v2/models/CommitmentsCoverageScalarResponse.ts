@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { CommitmentsScalarColumn } from "./CommitmentsScalarColumn";
+import { CommitmentsCoverageScalarResponseData } from "./CommitmentsCoverageScalarResponseData";
 
 /**
  * Response containing scalar coverage metrics for cloud commitment programs.
  */
 export class CommitmentsCoverageScalarResponse {
   /**
-   * Array of scalar columns in the response.
+   * The scalar coverage resource.
    */
-  "columns": Array<CommitmentsScalarColumn>;
+  "data": CommitmentsCoverageScalarResponseData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +25,9 @@ export class CommitmentsCoverageScalarResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<CommitmentsScalarColumn>",
+    data: {
+      baseName: "data",
+      type: "CommitmentsCoverageScalarResponseData",
       required: true,
     },
     additionalProperties: {

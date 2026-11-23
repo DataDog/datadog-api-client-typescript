@@ -1,23 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { CommitmentsUnit } from "./CommitmentsUnit";
+import { CommitmentsUtilizationTimeseriesResponseData } from "./CommitmentsUtilizationTimeseriesResponseData";
 
 /**
  * Response containing timeseries utilization metrics for cloud commitment programs.
  */
 export class CommitmentsUtilizationTimeseriesResponse {
   /**
-   * Timeseries data as a map of series names to their corresponding value arrays.
+   * The timeseries utilization resource.
    */
-  "series": { [key: string]: Array<number> };
-  /**
-   * Unix timestamps in seconds for the timeseries data points.
-   */
-  "times": Array<number>;
-  /**
-   * Unit metadata for a numeric metric.
-   */
-  "unit"?: CommitmentsUnit;
+  "data": CommitmentsUtilizationTimeseriesResponseData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,20 +25,10 @@ export class CommitmentsUtilizationTimeseriesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    series: {
-      baseName: "series",
-      type: "{ [key: string]: Array<number>; }",
+    data: {
+      baseName: "data",
+      type: "CommitmentsUtilizationTimeseriesResponseData",
       required: true,
-    },
-    times: {
-      baseName: "times",
-      type: "Array<number>",
-      required: true,
-      format: "int64",
-    },
-    unit: {
-      baseName: "unit",
-      type: "CommitmentsUnit",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -1,13 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Metadata for the on-demand hot-spots scalar response.
+ * Metadata reporting that the cost data lacks the unused costs of some commitments, as with Azure exports
+ * scoped below the billing profile. Utilization is then overstated, and realized savings and effective
+ * savings rate are upper bounds. Omitted when the unused costs are available.
  */
-export class CommitmentsOnDemandHotspotsScalarMeta {
+export class CommitmentsUnusedCostMeta {
   /**
-   * Active on-demand filters applied to the response.
+   * Whether the cost data lacks the unused costs of some commitments.
    */
-  "onDemandFilters": string;
+  "unusedCostUnavailable"?: boolean;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -23,10 +25,9 @@ export class CommitmentsOnDemandHotspotsScalarMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    onDemandFilters: {
-      baseName: "on_demand_filters",
-      type: "string",
-      required: true,
+    unusedCostUnavailable: {
+      baseName: "unused_cost_unavailable",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -38,7 +39,7 @@ export class CommitmentsOnDemandHotspotsScalarMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CommitmentsOnDemandHotspotsScalarMeta.attributeTypeMap;
+    return CommitmentsUnusedCostMeta.attributeTypeMap;
   }
 
   public constructor() {}
