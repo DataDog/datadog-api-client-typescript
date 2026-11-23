@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CommitmentsScalarColumnMeta {
   /**
-   * Unit metadata for a numeric metric.
+   * Unit metadata for a numeric metric. Unset fields are omitted, and the unit is `null` when it is unknown.
    */
-  "unit": CommitmentsUnit;
+  "unit": CommitmentsUnit | null;
 
   /**
    * A container for additional, undeclared properties.

@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CommitmentsScalarColumn } from "./CommitmentsScalarColumn";
+import { CommitmentsCoverageScalarResponseData } from "./CommitmentsCoverageScalarResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CommitmentsCoverageScalarResponse {
   /**
-   * Array of scalar columns in the response.
+   * The scalar coverage resource.
    */
-  "columns": Array<CommitmentsScalarColumn>;
+  "data": CommitmentsCoverageScalarResponseData;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +32,9 @@ export class CommitmentsCoverageScalarResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<CommitmentsScalarColumn>",
+    data: {
+      baseName: "data",
+      type: "CommitmentsCoverageScalarResponseData",
       required: true,
     },
     additionalProperties: {

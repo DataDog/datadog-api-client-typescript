@@ -7,33 +7,33 @@
 import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
- * Unit metadata for a numeric metric.
+ * Unit metadata for a numeric metric. Unset fields are omitted, and the unit is `null` when it is unknown.
  */
 export class CommitmentsUnit {
   /**
    * The unit family (for example, percentage or money).
    */
-  "family": string;
+  "family"?: string;
   /**
    * The unit identifier.
    */
-  "id": Int64;
+  "id"?: Int64;
   /**
    * The unit name (for example, percent or dollar).
    */
-  "name": string;
+  "name"?: string;
   /**
    * The plural form of the unit name.
    */
-  "plural": string;
+  "plural"?: string;
   /**
    * The scale factor for the unit.
    */
-  "scaleFactor": number;
+  "scaleFactor"?: number;
   /**
    * The abbreviated unit name (for example, % or $).
    */
-  "shortName": string;
+  "shortName"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -54,34 +54,28 @@ export class CommitmentsUnit {
     family: {
       baseName: "family",
       type: "string",
-      required: true,
     },
     id: {
       baseName: "id",
       type: "number",
-      required: true,
       format: "int64",
     },
     name: {
       baseName: "name",
       type: "string",
-      required: true,
     },
     plural: {
       baseName: "plural",
       type: "string",
-      required: true,
     },
     scaleFactor: {
       baseName: "scale_factor",
       type: "number",
-      required: true,
       format: "double",
     },
     shortName: {
       baseName: "short_name",
       type: "string",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

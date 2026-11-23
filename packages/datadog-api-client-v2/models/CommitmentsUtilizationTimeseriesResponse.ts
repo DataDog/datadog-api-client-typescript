@@ -3,26 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CommitmentsUnit } from "./CommitmentsUnit";
+import { CommitmentsUtilizationTimeseriesResponseData } from "./CommitmentsUtilizationTimeseriesResponseData";
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing timeseries utilization metrics for cloud commitment programs.
  */
 export class CommitmentsUtilizationTimeseriesResponse {
   /**
-   * Timeseries data as a map of series names to their corresponding value arrays.
+   * The timeseries utilization resource.
    */
-  "series": { [key: string]: Array<number> };
-  /**
-   * Unix timestamps in seconds for the timeseries data points.
-   */
-  "times": Array<Int64>;
-  /**
-   * Unit metadata for a numeric metric.
-   */
-  "unit"?: CommitmentsUnit;
+  "data": CommitmentsUtilizationTimeseriesResponseData;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,20 +32,10 @@ export class CommitmentsUtilizationTimeseriesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    series: {
-      baseName: "series",
-      type: "{ [key: string]: Array<number>; }",
+    data: {
+      baseName: "data",
+      type: "CommitmentsUtilizationTimeseriesResponseData",
       required: true,
-    },
-    times: {
-      baseName: "times",
-      type: "Array<number>",
-      required: true,
-      format: "int64",
-    },
-    unit: {
-      baseName: "unit",
-      type: "CommitmentsUnit",
     },
     additionalProperties: {
       baseName: "additionalProperties",

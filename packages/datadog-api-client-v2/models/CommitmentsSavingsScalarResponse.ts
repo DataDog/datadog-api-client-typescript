@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CommitmentsScalarColumn } from "./CommitmentsScalarColumn";
+import { CommitmentsSavingsScalarResponseData } from "./CommitmentsSavingsScalarResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CommitmentsSavingsScalarResponse {
   /**
-   * Array of scalar columns in the response.
+   * The scalar savings resource.
    */
-  "columns": Array<CommitmentsScalarColumn>;
+  "data": CommitmentsSavingsScalarResponseData;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +32,9 @@ export class CommitmentsSavingsScalarResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<CommitmentsScalarColumn>",
+    data: {
+      baseName: "data",
+      type: "CommitmentsSavingsScalarResponseData",
       required: true,
     },
     additionalProperties: {

@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CommitmentsListMeta {
   /**
-   * Unit metadata for a numeric metric.
+   * Unit metadata for a numeric metric. Unset fields are omitted, and the unit is `null` when it is unknown.
    */
   "committedSpendUnit"?: CommitmentsUnit;
   /**
