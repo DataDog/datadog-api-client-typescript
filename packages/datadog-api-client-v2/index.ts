@@ -1949,6 +1949,8 @@ export {
   SensitiveDataScannerApiCreateScanningRuleRequest,
   SensitiveDataScannerApiDeleteScanningGroupRequest,
   SensitiveDataScannerApiDeleteScanningRuleRequest,
+  SensitiveDataScannerApiGetScanningGroupRequest,
+  SensitiveDataScannerApiListTargetScanningGroupsRequest,
   SensitiveDataScannerApiReorderScanningGroupsRequest,
   SensitiveDataScannerApiUpdateScanningGroupRequest,
   SensitiveDataScannerApiUpdateScanningRuleRequest,
@@ -10255,6 +10257,8 @@ export { SensitiveDataScannerConfigurationRelationships } from "./models/Sensiti
 export { SensitiveDataScannerConfigurationType } from "./models/SensitiveDataScannerConfigurationType";
 export { SensitiveDataScannerCreateGroupResponse } from "./models/SensitiveDataScannerCreateGroupResponse";
 export { SensitiveDataScannerCreateRuleResponse } from "./models/SensitiveDataScannerCreateRuleResponse";
+export { SensitiveDataScannerCustomRegexRuleAttributes } from "./models/SensitiveDataScannerCustomRegexRuleAttributes";
+export { SensitiveDataScannerCustomRegexRuleType } from "./models/SensitiveDataScannerCustomRegexRuleType";
 export { SensitiveDataScannerFilter } from "./models/SensitiveDataScannerFilter";
 export { SensitiveDataScannerGetConfigIncludedItem } from "./models/SensitiveDataScannerGetConfigIncludedItem";
 export { SensitiveDataScannerGetConfigResponse } from "./models/SensitiveDataScannerGetConfigResponse";
@@ -10271,11 +10275,15 @@ export { SensitiveDataScannerGroupItem } from "./models/SensitiveDataScannerGrou
 export { SensitiveDataScannerGroupList } from "./models/SensitiveDataScannerGroupList";
 export { SensitiveDataScannerGroupRelationships } from "./models/SensitiveDataScannerGroupRelationships";
 export { SensitiveDataScannerGroupResponse } from "./models/SensitiveDataScannerGroupResponse";
+export { SensitiveDataScannerGroupTarget } from "./models/SensitiveDataScannerGroupTarget";
+export { SensitiveDataScannerGroupTargetType } from "./models/SensitiveDataScannerGroupTargetType";
 export { SensitiveDataScannerGroupType } from "./models/SensitiveDataScannerGroupType";
 export { SensitiveDataScannerGroupUpdate } from "./models/SensitiveDataScannerGroupUpdate";
 export { SensitiveDataScannerGroupUpdateRequest } from "./models/SensitiveDataScannerGroupUpdateRequest";
 export { SensitiveDataScannerGroupUpdateResponse } from "./models/SensitiveDataScannerGroupUpdateResponse";
 export { SensitiveDataScannerIncludedKeywordConfiguration } from "./models/SensitiveDataScannerIncludedKeywordConfiguration";
+export { SensitiveDataScannerMachineLearningRuleAttributes } from "./models/SensitiveDataScannerMachineLearningRuleAttributes";
+export { SensitiveDataScannerMachineLearningRuleType } from "./models/SensitiveDataScannerMachineLearningRuleType";
 export { SensitiveDataScannerMetaVersionOnly } from "./models/SensitiveDataScannerMetaVersionOnly";
 export { SensitiveDataScannerProduct } from "./models/SensitiveDataScannerProduct";
 export { SensitiveDataScannerReorderConfig } from "./models/SensitiveDataScannerReorderConfig";
@@ -10288,6 +10296,7 @@ export { SensitiveDataScannerRuleData } from "./models/SensitiveDataScannerRuleD
 export { SensitiveDataScannerRuleDeleteRequest } from "./models/SensitiveDataScannerRuleDeleteRequest";
 export { SensitiveDataScannerRuleDeleteResponse } from "./models/SensitiveDataScannerRuleDeleteResponse";
 export { SensitiveDataScannerRuleIncludedItem } from "./models/SensitiveDataScannerRuleIncludedItem";
+export { SensitiveDataScannerRulePriority } from "./models/SensitiveDataScannerRulePriority";
 export { SensitiveDataScannerRuleRelationships } from "./models/SensitiveDataScannerRuleRelationships";
 export { SensitiveDataScannerRuleResponse } from "./models/SensitiveDataScannerRuleResponse";
 export { SensitiveDataScannerRuleType } from "./models/SensitiveDataScannerRuleType";
@@ -10301,7 +10310,20 @@ export { SensitiveDataScannerStandardPatternData } from "./models/SensitiveDataS
 export { SensitiveDataScannerStandardPatternsResponseData } from "./models/SensitiveDataScannerStandardPatternsResponseData";
 export { SensitiveDataScannerStandardPatternsResponseItem } from "./models/SensitiveDataScannerStandardPatternsResponseItem";
 export { SensitiveDataScannerStandardPatternType } from "./models/SensitiveDataScannerStandardPatternType";
+export { SensitiveDataScannerStandardRegexRuleAttributes } from "./models/SensitiveDataScannerStandardRegexRuleAttributes";
+export { SensitiveDataScannerStandardRegexRuleType } from "./models/SensitiveDataScannerStandardRegexRuleType";
+export { SensitiveDataScannerStandardRule } from "./models/SensitiveDataScannerStandardRule";
+export { SensitiveDataScannerStandardRuleData } from "./models/SensitiveDataScannerStandardRuleData";
+export { SensitiveDataScannerStandardRuleType } from "./models/SensitiveDataScannerStandardRuleType";
 export { SensitiveDataScannerSuppressions } from "./models/SensitiveDataScannerSuppressions";
+export { SensitiveDataScannerTargetGroupAttributes } from "./models/SensitiveDataScannerTargetGroupAttributes";
+export { SensitiveDataScannerTargetGroupData } from "./models/SensitiveDataScannerTargetGroupData";
+export { SensitiveDataScannerTargetGroupListResponse } from "./models/SensitiveDataScannerTargetGroupListResponse";
+export { SensitiveDataScannerTargetGroupRelationships } from "./models/SensitiveDataScannerTargetGroupRelationships";
+export { SensitiveDataScannerTargetGroupResponse } from "./models/SensitiveDataScannerTargetGroupResponse";
+export { SensitiveDataScannerTargetRuleAttributes } from "./models/SensitiveDataScannerTargetRuleAttributes";
+export { SensitiveDataScannerTargetRuleIncludedItem } from "./models/SensitiveDataScannerTargetRuleIncludedItem";
+export { SensitiveDataScannerTargetRuleRelationships } from "./models/SensitiveDataScannerTargetRuleRelationships";
 export { SensitiveDataScannerTextReplacement } from "./models/SensitiveDataScannerTextReplacement";
 export { SensitiveDataScannerTextReplacementType } from "./models/SensitiveDataScannerTextReplacementType";
 export { SerialExecution } from "./models/SerialExecution";
