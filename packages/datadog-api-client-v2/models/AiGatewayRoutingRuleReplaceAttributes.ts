@@ -12,6 +12,16 @@ import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
  */
 export class AiGatewayRoutingRuleReplaceAttributes {
   /**
+   * Optional description of what the routing rule is for. Up to 500 characters.
+   * Omit it or send null to keep the saved description. Send an empty string to clear it.
+   */
+  "description"?: string;
+  /**
+   * Optional human-readable name shown in place of the slug. Up to 100 characters on one line.
+   * Omit it or send null to keep the saved display name. Send an empty string to clear it.
+   */
+  "displayName"?: string;
+  /**
    * Saved route revision. A mismatched value returns 409 without changes.
    */
   "expectedUpdatedAt"?: Date;
@@ -37,6 +47,14 @@ export class AiGatewayRoutingRuleReplaceAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
+    displayName: {
+      baseName: "display_name",
+      type: "string",
+    },
     expectedUpdatedAt: {
       baseName: "expected_updated_at",
       type: "Date",

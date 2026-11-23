@@ -18,6 +18,8 @@ const params: v2.AIGatewayApiUpdateAiGatewayRoutingRuleRequest = {
   body: {
     data: {
       attributes: {
+        description: "Routes coding traffic to the fastest available model.",
+        displayName: "Coding fallback",
         expectedUpdatedAt: new Date(2026, 8, 24, 12, 0, 0, 0),
         removedTargetIds: [901],
         tiers: [

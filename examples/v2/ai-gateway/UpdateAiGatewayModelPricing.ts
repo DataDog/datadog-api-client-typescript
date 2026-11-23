@@ -28,6 +28,18 @@ const params: v2.AIGatewayApiUpdateAiGatewayModelPricingRequest = {
           source: {
             type: "custom",
           },
+          tiers: [
+            {
+              contextMinTokens: 200000,
+              rates: {
+                cacheReadCostPerMtok: 0.6,
+                cacheWriteCostPerMtok: 7.5,
+                nonCachedInputCostPerMtok: 6.0,
+                outputCostPerMtok: 22.5,
+              },
+              serviceTier: "priority",
+            },
+          ],
           version: 1,
         },
       },

@@ -2618,6 +2618,7 @@ export { AiGatewayModelPricingResponseData } from "./models/AiGatewayModelPricin
 export { AiGatewayModelPricingSource } from "./models/AiGatewayModelPricingSource";
 export { AiGatewayModelPricingSourceType } from "./models/AiGatewayModelPricingSourceType";
 export { AiGatewayModelPricingStatus } from "./models/AiGatewayModelPricingStatus";
+export { AiGatewayModelPricingTier } from "./models/AiGatewayModelPricingTier";
 export { AiGatewayModelPricingType } from "./models/AiGatewayModelPricingType";
 export { AiGatewayModelReasoning } from "./models/AiGatewayModelReasoning";
 export { AiGatewayModelReasoningControl } from "./models/AiGatewayModelReasoningControl";
