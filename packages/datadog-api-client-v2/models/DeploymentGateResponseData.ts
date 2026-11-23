@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DeploymentGateResponseData {
   /**
-   * Basic information about a deployment gate.
+   * Basic information about a deployment gate. The environment is `*` for a gate that applies to all environments.
    */
   "attributes": DeploymentGateResponseDataAttributes;
   /**

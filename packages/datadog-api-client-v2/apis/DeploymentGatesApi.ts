@@ -3230,7 +3230,9 @@ export class DeploymentGatesApi {
   }
 
   /**
-   * Endpoint to create a deployment gate.
+   * Create a deployment gate for a specific environment or for all environments using `*`.
+   * A gate for all environments and a gate for a specific environment cannot coexist for the
+   * same organization, service, and identifier. A conflicting creation returns 400 Bad Request.
    * @param param The request object
    */
   public createDeploymentGate(
