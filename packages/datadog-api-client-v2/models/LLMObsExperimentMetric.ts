@@ -30,6 +30,10 @@ export class LLMObsExperimentMetric {
    */
   "error"?: LLMObsExperimentMetricError;
   /**
+   * Whether a higher numeric score is better. Set to `false` when a lower score is better. If omitted, the comparison uses the boolean value of `metadata.higher_is_better` when present, or the default direction otherwise.
+   */
+  "higherIsBetter"?: boolean;
+  /**
    * JSON value. Used when `metric_type` is `json`.
    */
   "jsonValue"?: { [key: string]: any };
@@ -38,7 +42,7 @@ export class LLMObsExperimentMetric {
    */
   "label": string;
   /**
-   * Arbitrary metadata associated with the metric.
+   * Arbitrary metadata associated with the metric. For a numeric score, clients can set `higher_is_better` here when they cannot send the top-level field.
    */
   "metadata"?: { [key: string]: any };
   /**
@@ -97,6 +101,10 @@ export class LLMObsExperimentMetric {
     error: {
       baseName: "error",
       type: "LLMObsExperimentMetricError",
+    },
+    higherIsBetter: {
+      baseName: "higher_is_better",
+      type: "boolean",
     },
     jsonValue: {
       baseName: "json_value",
