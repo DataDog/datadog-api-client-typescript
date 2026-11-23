@@ -32,6 +32,14 @@ export class JobDefinition {
    */
   "index": string;
   /**
+   * Whether the job was run by Datadog to reprocess past data.
+   */
+  "isBackfillJob"?: boolean;
+  /**
+   * Whether the job is a shadow deployment run by Datadog.
+   */
+  "isShadowDeployed"?: boolean;
+  /**
    * Message for generated results.
    */
   "message": string;
@@ -43,6 +51,10 @@ export class JobDefinition {
    * Job options.
    */
   "options"?: HistoricalJobOptions;
+  /**
+   * Fields projected for each query, copied from the rule the job was created from.
+   */
+  "projectedPerQuery"?: Array<string>;
   /**
    * Queries for selecting logs analyzed by the job. Up to 10 queries are allowed.
    */
@@ -106,6 +118,14 @@ export class JobDefinition {
       type: "string",
       required: true,
     },
+    isBackfillJob: {
+      baseName: "isBackfillJob",
+      type: "boolean",
+    },
+    isShadowDeployed: {
+      baseName: "isShadowDeployed",
+      type: "boolean",
+    },
     message: {
       baseName: "message",
       type: "string",
@@ -119,6 +139,10 @@ export class JobDefinition {
     options: {
       baseName: "options",
       type: "HistoricalJobOptions",
+    },
+    projectedPerQuery: {
+      baseName: "projectedPerQuery",
+      type: "Array<string>",
     },
     queries: {
       baseName: "queries",
