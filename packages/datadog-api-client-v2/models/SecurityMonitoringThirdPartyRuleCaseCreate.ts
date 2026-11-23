@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SecurityMonitoringThirdPartyRuleCaseCreate {
   /**
+   * Severity of the Security Signal.
+   */
+  "customStatus"?: SecurityMonitoringRuleSeverity;
+  /**
    * Name of the case.
    */
   "name"?: string;
@@ -44,6 +48,10 @@ export class SecurityMonitoringThirdPartyRuleCaseCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    customStatus: {
+      baseName: "customStatus",
+      type: "SecurityMonitoringRuleSeverity",
+    },
     name: {
       baseName: "name",
       type: "string",
