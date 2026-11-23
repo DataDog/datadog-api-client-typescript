@@ -59,6 +59,11 @@ import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
 import { MetricIngestedIndexedVolumeAttributes } from "./MetricIngestedIndexedVolumeAttributes";
 import { MetricMetaPage } from "./MetricMetaPage";
 import { MetricMetadata } from "./MetricMetadata";
+import { MetricMetadataAttributes } from "./MetricMetadataAttributes";
+import { MetricMetadataData } from "./MetricMetadataData";
+import { MetricMetadataListResponse } from "./MetricMetadataListResponse";
+import { MetricMetadataOrigin } from "./MetricMetadataOrigin";
+import { MetricMetadataUnit } from "./MetricMetadataUnit";
 import { MetricMonitorAsset } from "./MetricMonitorAsset";
 import { MetricNotebookAsset } from "./MetricNotebookAsset";
 import { MetricOrigin } from "./MetricOrigin";
@@ -237,6 +242,7 @@ export const TypingInfo: ModelTypingInfo = {
     MetricIngestedIndexedVolumeType: ["metric_volumes"],
     MetricIntakeType: [0, 1, 2, 3],
     MetricMetaPageType: ["cursor_limit"],
+    MetricMetadataType: ["metric_metadata"],
     MetricMonitorType: ["monitors"],
     MetricNotebookType: ["notebooks"],
     MetricSLOType: ["slos"],
@@ -401,6 +407,11 @@ export const TypingInfo: ModelTypingInfo = {
       MetricIngestedIndexedVolumeAttributes,
     MetricMetaPage: MetricMetaPage,
     MetricMetadata: MetricMetadata,
+    MetricMetadataAttributes: MetricMetadataAttributes,
+    MetricMetadataData: MetricMetadataData,
+    MetricMetadataListResponse: MetricMetadataListResponse,
+    MetricMetadataOrigin: MetricMetadataOrigin,
+    MetricMetadataUnit: MetricMetadataUnit,
     MetricMonitorAsset: MetricMonitorAsset,
     MetricNotebookAsset: MetricNotebookAsset,
     MetricOrigin: MetricOrigin,

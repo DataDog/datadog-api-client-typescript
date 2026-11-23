@@ -33,6 +33,7 @@ import { MetricAllTagsResponse } from "./models/MetricAllTagsResponse";
 import { MetricAssetsResponse } from "./models/MetricAssetsResponse";
 import { MetricContentEncoding } from "./models/MetricContentEncoding";
 import { MetricEstimateResponse } from "./models/MetricEstimateResponse";
+import { MetricMetadataListResponse } from "./models/MetricMetadataListResponse";
 import { MetricPayload } from "./models/MetricPayload";
 import { MetricsAndMetricTagConfigurations } from "./models/MetricsAndMetricTagConfigurations";
 import { MetricsAndMetricTagConfigurationsResponse } from "./models/MetricsAndMetricTagConfigurationsResponse";
@@ -1113,6 +1114,68 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listMetricMetadata(
+    filterMetricName: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["MetricsApi.v2.listMetricMetadata"]) {
+      throw new Error(
+        "Unstable operation 'listMetricMetadata' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.listMetricMetadata'] = true`",
+      );
+    }
+
+    // verify required parameter 'filterMetricName' is not null or undefined
+    if (filterMetricName === null || filterMetricName === undefined) {
+      throw new RequiredError("filterMetricName", "listMetricMetadata");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/metadata";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MetricsApi.v2.listMetricMetadata",
+      MetricsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterMetricName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[metric_name]",
+        serialize(filterMetricName, TypingInfo, "string", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -3336,6 +3399,69 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listMetricMetadata
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listMetricMetadata(
+    response: ResponseContext,
+  ): Promise<MetricMetadataListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: MetricMetadataListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MetricMetadataListResponse",
+      ) as MetricMetadataListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MetricMetadataListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MetricMetadataListResponse",
+        "",
+      ) as MetricMetadataListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listTagConfigurationByName
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4440,6 +4566,17 @@ export interface MetricsApiListMetricAssetsRequest {
   metricName: string;
 }
 
+export interface MetricsApiListMetricMetadataRequest {
+  /**
+   * Comma-separated list of metric names, at most 50 distinct names of up to 350 characters each, and at most
+   * 17,549 characters in total. Duplicate names are removed before counting, and results keep the order of each
+   * name's first occurrence. A name that isn't a valid metric name is treated like any other metric that doesn't
+   * exist: it's left out of `data` rather than failing the request.
+   * @type string
+   */
+  filterMetricName: string;
+}
+
 export interface MetricsApiListTagConfigurationByNameRequest {
   /**
    * The name of the metric.
@@ -5234,6 +5371,31 @@ export class MetricsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listMetricAssets(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get metadata for up to 50 metrics in one request: type, description, units, StatsD interval, percentile and
+   * historical metrics settings, how the metric is ingested, and the product that reports it.
+   * Results are returned in the order the metrics were requested. Metrics that don't exist are left out of `data`.
+   * The request doesn't fail, and no not-found entry is returned. To find missing metrics, compare the returned `id`
+   * values with the names you requested.
+   * @param param The request object
+   */
+  public listMetricMetadata(
+    param: MetricsApiListMetricMetadataRequest,
+    options?: Configuration,
+  ): Promise<MetricMetadataListResponse> {
+    const requestContextPromise = this.requestFactory.listMetricMetadata(
+      param.filterMetricName,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listMetricMetadata(responseContext);
         });
     });
   }
