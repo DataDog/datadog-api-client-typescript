@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SecurityMonitoringSignalArchiveReason } from "./SecurityMonitoringSignalArchiveReason";
+import { SecurityMonitoringSignalCase } from "./SecurityMonitoringSignalCase";
 import { SecurityMonitoringSignalState } from "./SecurityMonitoringSignalState";
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 
@@ -33,6 +34,14 @@ export class SecurityMonitoringSignalTriageAttributes {
    * Object representing a given user entity.
    */
   "assignee": SecurityMonitoringTriageUser;
+  /**
+   * Cases linked to the security signal.
+   */
+  "cases"?: Array<SecurityMonitoringSignalCase>;
+  /**
+   * Whether the signal is linked to at least one case.
+   */
+  "hasCase"?: boolean;
   /**
    * Array of incidents that are associated with this signal.
    */
@@ -87,6 +96,14 @@ export class SecurityMonitoringSignalTriageAttributes {
       baseName: "assignee",
       type: "SecurityMonitoringTriageUser",
       required: true,
+    },
+    cases: {
+      baseName: "cases",
+      type: "Array<SecurityMonitoringSignalCase>",
+    },
+    hasCase: {
+      baseName: "hasCase",
+      type: "boolean",
     },
     incidentIds: {
       baseName: "incident_ids",

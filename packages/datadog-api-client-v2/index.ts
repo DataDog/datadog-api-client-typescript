@@ -10160,6 +10160,7 @@ export { SecurityMonitoringSignalAssigneeUpdateAttributes } from "./models/Secur
 export { SecurityMonitoringSignalAssigneeUpdateData } from "./models/SecurityMonitoringSignalAssigneeUpdateData";
 export { SecurityMonitoringSignalAssigneeUpdateRequest } from "./models/SecurityMonitoringSignalAssigneeUpdateRequest";
 export { SecurityMonitoringSignalAttributes } from "./models/SecurityMonitoringSignalAttributes";
+export { SecurityMonitoringSignalCase } from "./models/SecurityMonitoringSignalCase";
 export { SecurityMonitoringSignalIncidentsUpdateAttributes } from "./models/SecurityMonitoringSignalIncidentsUpdateAttributes";
 export { SecurityMonitoringSignalIncidentsUpdateData } from "./models/SecurityMonitoringSignalIncidentsUpdateData";
 export { SecurityMonitoringSignalIncidentsUpdateRequest } from "./models/SecurityMonitoringSignalIncidentsUpdateRequest";
