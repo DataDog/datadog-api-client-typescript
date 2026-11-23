@@ -18,6 +18,7 @@ const params: v2.CloudCostManagementApiSearchCostRecommendationsRequest = {
   body: {
     data: {
       attributes: {
+        extraFields: ["tags.env"],
         scope: "ccm",
         sort: [
           {

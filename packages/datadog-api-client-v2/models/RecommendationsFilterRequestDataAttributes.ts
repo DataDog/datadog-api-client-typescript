@@ -13,6 +13,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RecommendationsFilterRequestDataAttributes {
   /**
+   * Additional fields to return from the recommendation event's custom attributes, selected
+   * by dotted paths such as `tags.env` or wildcard patterns such as `*target*`.
+   * Arrays are traversed without indexes. Matched objects and arrays are returned whole.
+   * A maximum of 256 selectors can be requested. Selectors that match nothing return no field.
+   */
+  "extraFields"?: Array<string>;
+  /**
    * Filter expression applied to the recommendations. When supplied, this attribute overrides
    * `data.id`, including when empty. When omitted, `data.id` is used. If the resulting filter
    * is empty, it defaults to `*`. Scope, view, and pagination still apply.
@@ -49,6 +56,10 @@ export class RecommendationsFilterRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    extraFields: {
+      baseName: "extra_fields",
+      type: "Array<string>",
+    },
     filter: {
       baseName: "filter",
       type: "string",
