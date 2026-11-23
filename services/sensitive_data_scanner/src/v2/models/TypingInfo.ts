@@ -1,12 +1,16 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { SensitiveDataScannerConfigRequest } from "./SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerConfiguration } from "./SensitiveDataScannerConfiguration";
 import { SensitiveDataScannerConfigurationData } from "./SensitiveDataScannerConfigurationData";
 import { SensitiveDataScannerConfigurationRelationships } from "./SensitiveDataScannerConfigurationRelationships";
 import { SensitiveDataScannerCreateGroupResponse } from "./SensitiveDataScannerCreateGroupResponse";
 import { SensitiveDataScannerCreateRuleResponse } from "./SensitiveDataScannerCreateRuleResponse";
+import { SensitiveDataScannerCustomRegexRuleAttributes } from "./SensitiveDataScannerCustomRegexRuleAttributes";
 import { SensitiveDataScannerFilter } from "./SensitiveDataScannerFilter";
 import { SensitiveDataScannerGetConfigResponse } from "./SensitiveDataScannerGetConfigResponse";
 import { SensitiveDataScannerGetConfigResponseData } from "./SensitiveDataScannerGetConfigResponseData";
@@ -22,10 +26,12 @@ import { SensitiveDataScannerGroupItem } from "./SensitiveDataScannerGroupItem";
 import { SensitiveDataScannerGroupList } from "./SensitiveDataScannerGroupList";
 import { SensitiveDataScannerGroupRelationships } from "./SensitiveDataScannerGroupRelationships";
 import { SensitiveDataScannerGroupResponse } from "./SensitiveDataScannerGroupResponse";
+import { SensitiveDataScannerGroupTarget } from "./SensitiveDataScannerGroupTarget";
 import { SensitiveDataScannerGroupUpdate } from "./SensitiveDataScannerGroupUpdate";
 import { SensitiveDataScannerGroupUpdateRequest } from "./SensitiveDataScannerGroupUpdateRequest";
 import { SensitiveDataScannerGroupUpdateResponse } from "./SensitiveDataScannerGroupUpdateResponse";
 import { SensitiveDataScannerIncludedKeywordConfiguration } from "./SensitiveDataScannerIncludedKeywordConfiguration";
+import { SensitiveDataScannerMachineLearningRuleAttributes } from "./SensitiveDataScannerMachineLearningRuleAttributes";
 import { SensitiveDataScannerMetaVersionOnly } from "./SensitiveDataScannerMetaVersionOnly";
 import { SensitiveDataScannerReorderConfig } from "./SensitiveDataScannerReorderConfig";
 import { SensitiveDataScannerReorderGroupsResponse } from "./SensitiveDataScannerReorderGroupsResponse";
@@ -48,7 +54,17 @@ import { SensitiveDataScannerStandardPatternAttributes } from "./SensitiveDataSc
 import { SensitiveDataScannerStandardPatternData } from "./SensitiveDataScannerStandardPatternData";
 import { SensitiveDataScannerStandardPatternsResponseData } from "./SensitiveDataScannerStandardPatternsResponseData";
 import { SensitiveDataScannerStandardPatternsResponseItem } from "./SensitiveDataScannerStandardPatternsResponseItem";
+import { SensitiveDataScannerStandardRegexRuleAttributes } from "./SensitiveDataScannerStandardRegexRuleAttributes";
+import { SensitiveDataScannerStandardRule } from "./SensitiveDataScannerStandardRule";
+import { SensitiveDataScannerStandardRuleData } from "./SensitiveDataScannerStandardRuleData";
 import { SensitiveDataScannerSuppressions } from "./SensitiveDataScannerSuppressions";
+import { SensitiveDataScannerTargetGroupAttributes } from "./SensitiveDataScannerTargetGroupAttributes";
+import { SensitiveDataScannerTargetGroupData } from "./SensitiveDataScannerTargetGroupData";
+import { SensitiveDataScannerTargetGroupListResponse } from "./SensitiveDataScannerTargetGroupListResponse";
+import { SensitiveDataScannerTargetGroupRelationships } from "./SensitiveDataScannerTargetGroupRelationships";
+import { SensitiveDataScannerTargetGroupResponse } from "./SensitiveDataScannerTargetGroupResponse";
+import { SensitiveDataScannerTargetRuleIncludedItem } from "./SensitiveDataScannerTargetRuleIncludedItem";
+import { SensitiveDataScannerTargetRuleRelationships } from "./SensitiveDataScannerTargetRuleRelationships";
 import { SensitiveDataScannerTextReplacement } from "./SensitiveDataScannerTextReplacement";
 
 export const TypingInfo: ModelTypingInfo = {
@@ -56,11 +72,28 @@ export const TypingInfo: ModelTypingInfo = {
     SensitiveDataScannerConfigurationType: [
       "sensitive_data_scanner_configuration",
     ],
+    SensitiveDataScannerCustomRegexRuleType: ["regex_custom_rule"],
+    SensitiveDataScannerGroupTargetType: ["llm_observability"],
     SensitiveDataScannerGroupType: ["sensitive_data_scanner_group"],
+    SensitiveDataScannerMachineLearningRuleType: [
+      "machine_learning_standard_rule",
+    ],
     SensitiveDataScannerProduct: ["logs", "rum", "events", "apm"],
+    SensitiveDataScannerRulePriority: [
+      "critical",
+      "high",
+      "medium",
+      "low",
+      "info",
+    ],
     SensitiveDataScannerRuleType: ["sensitive_data_scanner_rule"],
     SensitiveDataScannerStandardPatternType: [
       "sensitive_data_scanner_standard_pattern",
+    ],
+    SensitiveDataScannerStandardRegexRuleType: ["regex_standard_rule"],
+    SensitiveDataScannerStandardRuleType: [
+      "regex_standard_rule",
+      "machine_learning_standard_rule",
     ],
     SensitiveDataScannerTextReplacementType: [
       "none",
@@ -75,9 +108,17 @@ export const TypingInfo: ModelTypingInfo = {
       "SensitiveDataScannerRuleIncludedItem",
       "SensitiveDataScannerGroupIncludedItem",
     ],
+    SensitiveDataScannerTargetRuleAttributes: [
+      "SensitiveDataScannerCustomRegexRuleAttributes",
+      "SensitiveDataScannerStandardRegexRuleAttributes",
+      "SensitiveDataScannerMachineLearningRuleAttributes",
+    ],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     SensitiveDataScannerConfigRequest: SensitiveDataScannerConfigRequest,
     SensitiveDataScannerConfiguration: SensitiveDataScannerConfiguration,
     SensitiveDataScannerConfigurationData:
@@ -88,6 +129,8 @@ export const TypingInfo: ModelTypingInfo = {
       SensitiveDataScannerCreateGroupResponse,
     SensitiveDataScannerCreateRuleResponse:
       SensitiveDataScannerCreateRuleResponse,
+    SensitiveDataScannerCustomRegexRuleAttributes:
+      SensitiveDataScannerCustomRegexRuleAttributes,
     SensitiveDataScannerFilter: SensitiveDataScannerFilter,
     SensitiveDataScannerGetConfigResponse:
       SensitiveDataScannerGetConfigResponse,
@@ -110,6 +153,7 @@ export const TypingInfo: ModelTypingInfo = {
     SensitiveDataScannerGroupRelationships:
       SensitiveDataScannerGroupRelationships,
     SensitiveDataScannerGroupResponse: SensitiveDataScannerGroupResponse,
+    SensitiveDataScannerGroupTarget: SensitiveDataScannerGroupTarget,
     SensitiveDataScannerGroupUpdate: SensitiveDataScannerGroupUpdate,
     SensitiveDataScannerGroupUpdateRequest:
       SensitiveDataScannerGroupUpdateRequest,
@@ -117,6 +161,8 @@ export const TypingInfo: ModelTypingInfo = {
       SensitiveDataScannerGroupUpdateResponse,
     SensitiveDataScannerIncludedKeywordConfiguration:
       SensitiveDataScannerIncludedKeywordConfiguration,
+    SensitiveDataScannerMachineLearningRuleAttributes:
+      SensitiveDataScannerMachineLearningRuleAttributes,
     SensitiveDataScannerMetaVersionOnly: SensitiveDataScannerMetaVersionOnly,
     SensitiveDataScannerReorderConfig: SensitiveDataScannerReorderConfig,
     SensitiveDataScannerReorderGroupsResponse:
@@ -150,7 +196,24 @@ export const TypingInfo: ModelTypingInfo = {
       SensitiveDataScannerStandardPatternsResponseData,
     SensitiveDataScannerStandardPatternsResponseItem:
       SensitiveDataScannerStandardPatternsResponseItem,
+    SensitiveDataScannerStandardRegexRuleAttributes:
+      SensitiveDataScannerStandardRegexRuleAttributes,
+    SensitiveDataScannerStandardRule: SensitiveDataScannerStandardRule,
+    SensitiveDataScannerStandardRuleData: SensitiveDataScannerStandardRuleData,
     SensitiveDataScannerSuppressions: SensitiveDataScannerSuppressions,
+    SensitiveDataScannerTargetGroupAttributes:
+      SensitiveDataScannerTargetGroupAttributes,
+    SensitiveDataScannerTargetGroupData: SensitiveDataScannerTargetGroupData,
+    SensitiveDataScannerTargetGroupListResponse:
+      SensitiveDataScannerTargetGroupListResponse,
+    SensitiveDataScannerTargetGroupRelationships:
+      SensitiveDataScannerTargetGroupRelationships,
+    SensitiveDataScannerTargetGroupResponse:
+      SensitiveDataScannerTargetGroupResponse,
+    SensitiveDataScannerTargetRuleIncludedItem:
+      SensitiveDataScannerTargetRuleIncludedItem,
+    SensitiveDataScannerTargetRuleRelationships:
+      SensitiveDataScannerTargetRuleRelationships,
     SensitiveDataScannerTextReplacement: SensitiveDataScannerTextReplacement,
   },
 };
