@@ -24,6 +24,10 @@ export class LLMObsExperimentEvalMetricEvent {
    */
   "evalSourceType"?: string;
   /**
+   * Whether a higher numeric score is better. Omitted when no direction was specified.
+   */
+  "higherIsBetter"?: boolean;
+  /**
    * Unique identifier of the evaluation metric event.
    */
   "id"?: string;
@@ -101,6 +105,10 @@ export class LLMObsExperimentEvalMetricEvent {
     evalSourceType: {
       baseName: "eval_source_type",
       type: "string",
+    },
+    higherIsBetter: {
+      baseName: "higher_is_better",
+      type: "boolean",
     },
     id: {
       baseName: "id",

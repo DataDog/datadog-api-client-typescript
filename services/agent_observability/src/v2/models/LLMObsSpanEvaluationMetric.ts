@@ -13,6 +13,10 @@ export class LLMObsSpanEvaluationMetric {
    */
   "evalMetricType"?: string;
   /**
+   * Whether a higher numeric score is better. Omitted when no direction was specified.
+   */
+  "higherIsBetter"?: boolean;
+  /**
    * Human-readable reasoning for the evaluation result.
    */
   "reasoning"?: string;
@@ -50,6 +54,10 @@ export class LLMObsSpanEvaluationMetric {
     evalMetricType: {
       baseName: "eval_metric_type",
       type: "string",
+    },
+    higherIsBetter: {
+      baseName: "higher_is_better",
+      type: "boolean",
     },
     reasoning: {
       baseName: "reasoning",
