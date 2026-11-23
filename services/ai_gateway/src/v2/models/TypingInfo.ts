@@ -110,6 +110,7 @@ import { AiGatewayModelPricingRequiredRates } from "./AiGatewayModelPricingRequi
 import { AiGatewayModelPricingResponse } from "./AiGatewayModelPricingResponse";
 import { AiGatewayModelPricingResponseData } from "./AiGatewayModelPricingResponseData";
 import { AiGatewayModelPricingSource } from "./AiGatewayModelPricingSource";
+import { AiGatewayModelPricingTier } from "./AiGatewayModelPricingTier";
 import { AiGatewayModelReasoning } from "./AiGatewayModelReasoning";
 import { AiGatewayModelReasoningControl } from "./AiGatewayModelReasoningControl";
 import { AiGatewayModelReferencePrice } from "./AiGatewayModelReferencePrice";
@@ -544,6 +545,7 @@ export const TypingInfo: ModelTypingInfo = {
     AiGatewayModelPricingResponse: AiGatewayModelPricingResponse,
     AiGatewayModelPricingResponseData: AiGatewayModelPricingResponseData,
     AiGatewayModelPricingSource: AiGatewayModelPricingSource,
+    AiGatewayModelPricingTier: AiGatewayModelPricingTier,
     AiGatewayModelReasoning: AiGatewayModelReasoning,
     AiGatewayModelReasoningControl: AiGatewayModelReasoningControl,
     AiGatewayModelReferencePrice: AiGatewayModelReferencePrice,

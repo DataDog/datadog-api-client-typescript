@@ -8,6 +8,16 @@ import { AiGatewayRoutingRuleTierRequest } from "./AiGatewayRoutingRuleTierReque
  */
 export class AiGatewayRoutingRuleCreateAttributes {
   /**
+   * Optional description of what the routing rule is for. Up to 500 characters. Line breaks are allowed.
+   * Leading and trailing spaces are trimmed, and a blank value is the same as none.
+   */
+  "description"?: string;
+  /**
+   * Optional human-readable name shown in place of the slug. Up to 100 characters on one line. Need not be unique.
+   * Leading and trailing spaces are trimmed, and a blank value is the same as none.
+   */
+  "displayName"?: string;
+  /**
    * Reserved for initial View and Edit permissions. Supplying this attribute returns HTTP 400 and doesn't
    * create the route. Create the route, then set its permissions through the restriction policy API.
    */
@@ -32,6 +42,14 @@ export class AiGatewayRoutingRuleCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
+    displayName: {
+      baseName: "display_name",
+      type: "string",
+    },
     initialBindings: {
       baseName: "initial_bindings",
       type: "Array<AiGatewayProviderInitialBinding>",
