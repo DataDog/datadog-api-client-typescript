@@ -36,7 +36,7 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
    */
   "enabled"?: boolean;
   /**
-   * The SECL expression of the Agent rule.
+   * The SECL expression of the Agent rule. See [Agent expressions](https://docs.datadoghq.com/security/workload_protection/agent_expressions/).
    */
   "expression": string;
   /**
