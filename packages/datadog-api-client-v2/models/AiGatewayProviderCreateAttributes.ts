@@ -43,7 +43,7 @@ export class AiGatewayProviderCreateAttributes {
   /**
    * Known provider implementation.
    */
-  "knownProvider"?: AiGatewayKnownProvider;
+  "knownProvider": AiGatewayKnownProvider;
   /**
    * Manually managed models to add alongside models discovered from the provider integration.
    */
@@ -103,6 +103,7 @@ export class AiGatewayProviderCreateAttributes {
     knownProvider: {
       baseName: "known_provider",
       type: "AiGatewayKnownProvider",
+      required: true,
     },
     models: {
       baseName: "models",

@@ -18,6 +18,8 @@ const params: v2.AIGatewayApiCreateAiGatewayRoutingRuleRequest = {
   body: {
     data: {
       attributes: {
+        description: "Routes coding traffic to the fastest available model.",
+        displayName: "Coding fallback",
         initialBindings: [
           {
             principals: ["org:11111111-1111-1111-1111-111111111111"],
