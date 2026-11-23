@@ -1,19 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { CommitmentsTimeseriesMetric } from "./CommitmentsTimeseriesMetric";
+import { CommitmentsCoverageTimeseriesResponseData } from "./CommitmentsCoverageTimeseriesResponseData";
 
 /**
  * Response containing timeseries coverage metrics for cloud commitment programs.
  */
 export class CommitmentsCoverageTimeseriesResponse {
   /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
+   * The timeseries coverage resource.
    */
-  "cost": CommitmentsTimeseriesMetric;
-  /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
-   */
-  "hours": CommitmentsTimeseriesMetric;
+  "data": CommitmentsCoverageTimeseriesResponseData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -29,14 +25,9 @@ export class CommitmentsCoverageTimeseriesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cost: {
-      baseName: "cost",
-      type: "CommitmentsTimeseriesMetric",
-      required: true,
-    },
-    hours: {
-      baseName: "hours",
-      type: "CommitmentsTimeseriesMetric",
+    data: {
+      baseName: "data",
+      type: "CommitmentsCoverageTimeseriesResponseData",
       required: true,
     },
     additionalProperties: {
