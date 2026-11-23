@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AiGatewayModelPricingRates } from "./AiGatewayModelPricingRates";
 import { AiGatewayModelPricingSource } from "./AiGatewayModelPricingSource";
+import { AiGatewayModelPricingTier } from "./AiGatewayModelPricingTier";
 
 /**
  * Pricing configuration for a model.
@@ -19,6 +20,11 @@ export class AiGatewayModelPricingConfig {
    * Source information for a model's pricing.
    */
   "source": AiGatewayModelPricingSource;
+  /**
+   * Custom prices that replace the base rates for the requests they select. Only valid for custom pricing.
+   * At most 16 tiers, and no two may share the same `service_tier` and `context_min_tokens`.
+   */
+  "tiers"?: Array<AiGatewayModelPricingTier>;
   /**
    * Pricing configuration version. The only supported version is `1`.
    */
@@ -50,6 +56,10 @@ export class AiGatewayModelPricingConfig {
       baseName: "source",
       type: "AiGatewayModelPricingSource",
       required: true,
+    },
+    tiers: {
+      baseName: "tiers",
+      type: "Array<AiGatewayModelPricingTier>",
     },
     version: {
       baseName: "version",

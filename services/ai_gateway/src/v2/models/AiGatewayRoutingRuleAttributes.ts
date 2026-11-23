@@ -11,6 +11,14 @@ export class AiGatewayRoutingRuleAttributes {
    */
   "createdAt": Date;
   /**
+   * Description of the routing rule. Absent when unset.
+   */
+  "description"?: string;
+  /**
+   * Human-readable name of the routing rule. Absent when unset; show the slug instead.
+   */
+  "displayName"?: string;
+  /**
    * Stable numeric route identifier used by scoped policies and `ai-gateway-route` restriction policies.
    */
   "routeId": number;
@@ -39,6 +47,14 @@ export class AiGatewayRoutingRuleAttributes {
       type: "Date",
       required: true,
       format: "date-time",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
+    },
+    displayName: {
+      baseName: "display_name",
+      type: "string",
     },
     routeId: {
       baseName: "route_id",
