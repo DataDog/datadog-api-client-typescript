@@ -8,7 +8,8 @@ import { DeploymentGateDataType } from "./DeploymentGateDataType";
  */
 export class CreateDeploymentGateParamsData {
   /**
-   * Parameters for creating a deployment gate.
+   * Parameters for creating a deployment gate. For the same organization, service, and identifier,
+   * a gate for all environments cannot coexist with gates for specific environments.
    */
   "attributes": CreateDeploymentGateParamsDataAttributes;
   /**

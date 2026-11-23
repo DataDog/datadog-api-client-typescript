@@ -4,7 +4,7 @@ import { DeploymentGateResponseDataAttributesCreatedBy } from "./DeploymentGateR
 import { DeploymentGateResponseDataAttributesUpdatedBy } from "./DeploymentGateResponseDataAttributesUpdatedBy";
 
 /**
- * Basic information about a deployment gate.
+ * Basic information about a deployment gate. The environment is `*` for a gate that applies to all environments.
  */
 export class DeploymentGateResponseDataAttributes {
   /**
@@ -20,7 +20,7 @@ export class DeploymentGateResponseDataAttributes {
    */
   "dryRun": boolean;
   /**
-   * The environment of the deployment gate.
+   * The environment of the deployment gate. `*` means all environments.
    */
   "env": string;
   /**
