@@ -49,6 +49,10 @@ export class MonitorSummaryWidgetDefinition {
    */
   "showPriority"?: boolean;
   /**
+   * Whether to count and list each monitor's subgroups instead of its notification groups. Only changes monitors that use `notify_by`, and only for the `groups` and `combined` summary types.
+   */
+  "showSubGroups"?: boolean;
+  /**
    * Widget sorting methods.
    */
   "sort"?: WidgetMonitorSummarySort;
@@ -125,6 +129,10 @@ export class MonitorSummaryWidgetDefinition {
     },
     showPriority: {
       baseName: "show_priority",
+      type: "boolean",
+    },
+    showSubGroups: {
+      baseName: "show_sub_groups",
       type: "boolean",
     },
     sort: {
