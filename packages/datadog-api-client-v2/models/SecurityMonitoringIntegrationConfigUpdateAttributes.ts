@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes } from "./SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes";
 import { SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes } from "./SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes";
 import { SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes } from "./SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes";
 import { SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes } from "./SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes";
@@ -19,6 +20,7 @@ export type SecurityMonitoringIntegrationConfigUpdateAttributes =
   | SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes
   | SecurityMonitoringOktaIntegrationConfigUpdateAttributes
   | SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes
+  | SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes
   | SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes
   | SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes
   | UnparsedObject;
