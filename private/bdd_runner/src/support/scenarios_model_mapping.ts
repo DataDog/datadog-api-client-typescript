@@ -5193,6 +5193,69 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AiGatewayProviderResponse",
   },
+  "AIGatewayApi.V2.DeleteAIGatewayModelByCanonical": {
+    providerId: {
+      type: "number",
+      format: "int64",
+    },
+    canonical: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "AIGatewayApi.V2.UpdateAIGatewayModelByCanonical": {
+    providerId: {
+      type: "number",
+      format: "int64",
+    },
+    canonical: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "AiGatewayModelUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "AiGatewayModelCatalogEntryResponse",
+  },
+  "AIGatewayApi.V2.GetAIGatewayModelPricingByCanonical": {
+    providerId: {
+      type: "number",
+      format: "int64",
+    },
+    canonical: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AiGatewayModelPricingResponse",
+  },
+  "AIGatewayApi.V2.UpdateAIGatewayModelPricingByCanonical": {
+    providerId: {
+      type: "number",
+      format: "int64",
+    },
+    canonical: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "AiGatewayModelPricingRequest",
+      format: "",
+    },
+    operationResponseType: "AiGatewayModelPricingResponse",
+  },
+  "AIGatewayApi.V2.DeleteAIGatewayModelPricingByCanonical": {
+    providerId: {
+      type: "number",
+      format: "int64",
+    },
+    canonical: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "AIGatewayApi.V2.ListAiGatewayModels": {
     providerId: {
       type: "number",
