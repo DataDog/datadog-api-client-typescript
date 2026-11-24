@@ -8480,6 +8480,7 @@ const enumsMap: { [key: string]: any[] } = {
   EntityV3QueueKind: ["queue"],
   EntityV3ServiceKind: ["service"],
   EntityV3SystemKind: ["system"],
+  EnvironmentSubjectAuthorizationState: ["disabled", "enabled"],
   EscalationPolicyCreateRequestDataType: ["policies"],
   EscalationPolicyDataRelationshipsStepsDataItemsType: ["steps"],
   EscalationPolicyDataType: ["policies"],
