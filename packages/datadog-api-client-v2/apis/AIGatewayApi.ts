@@ -786,6 +786,78 @@ export class AIGatewayApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteAIGatewayModelPricingByCanonical(
+    providerId: Int64Input,
+    canonical: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'deleteAIGatewayModelPricingByCanonical'"
+    );
+    if (
+      !_config.unstableOperations["v2.deleteAIGatewayModelPricingByCanonical"]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteAIGatewayModelPricingByCanonical' is disabled"
+      );
+    }
+
+    // verify required parameter 'providerId' is not null or undefined
+    if (providerId === null || providerId === undefined) {
+      throw new RequiredError(
+        "providerId",
+        "deleteAIGatewayModelPricingByCanonical"
+      );
+    }
+
+    // verify required parameter 'canonical' is not null or undefined
+    if (canonical === null || canonical === undefined) {
+      throw new RequiredError(
+        "canonical",
+        "deleteAIGatewayModelPricingByCanonical"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/providers/{provider_id}/model-pricing".replace(
+        "{provider_id}",
+        encodeURIComponent(String(providerId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AIGatewayApi.deleteAIGatewayModelPricingByCanonical")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (canonical !== undefined) {
+      requestContext.setQueryParam(
+        "canonical",
+        ObjectSerializer.serialize(canonical, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteAiGatewayPolicy(
     inbound: string,
     userId?: string,
@@ -1322,6 +1394,76 @@ export class AIGatewayApiRequestFactory extends BaseAPIRequestFactory {
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getAIGatewayModelPricingByCanonical(
+    providerId: Int64Input,
+    canonical: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'getAIGatewayModelPricingByCanonical'"
+    );
+    if (!_config.unstableOperations["v2.getAIGatewayModelPricingByCanonical"]) {
+      throw new Error(
+        "Unstable operation 'getAIGatewayModelPricingByCanonical' is disabled"
+      );
+    }
+
+    // verify required parameter 'providerId' is not null or undefined
+    if (providerId === null || providerId === undefined) {
+      throw new RequiredError(
+        "providerId",
+        "getAIGatewayModelPricingByCanonical"
+      );
+    }
+
+    // verify required parameter 'canonical' is not null or undefined
+    if (canonical === null || canonical === undefined) {
+      throw new RequiredError(
+        "canonical",
+        "getAIGatewayModelPricingByCanonical"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/providers/{provider_id}/model-pricing".replace(
+        "{provider_id}",
+        encodeURIComponent(String(providerId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AIGatewayApi.getAIGatewayModelPricingByCanonical")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (canonical !== undefined) {
+      requestContext.setQueryParam(
+        "canonical",
+        ObjectSerializer.serialize(canonical, "string", ""),
+        ""
+      );
     }
 
     // Apply auth methods
@@ -2870,6 +3012,96 @@ export class AIGatewayApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateAIGatewayModelPricingByCanonical(
+    providerId: Int64Input,
+    canonical: string,
+    body: AiGatewayModelPricingRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'updateAIGatewayModelPricingByCanonical'"
+    );
+    if (
+      !_config.unstableOperations["v2.updateAIGatewayModelPricingByCanonical"]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateAIGatewayModelPricingByCanonical' is disabled"
+      );
+    }
+
+    // verify required parameter 'providerId' is not null or undefined
+    if (providerId === null || providerId === undefined) {
+      throw new RequiredError(
+        "providerId",
+        "updateAIGatewayModelPricingByCanonical"
+      );
+    }
+
+    // verify required parameter 'canonical' is not null or undefined
+    if (canonical === null || canonical === undefined) {
+      throw new RequiredError(
+        "canonical",
+        "updateAIGatewayModelPricingByCanonical"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateAIGatewayModelPricingByCanonical");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/providers/{provider_id}/model-pricing".replace(
+        "{provider_id}",
+        encodeURIComponent(String(providerId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AIGatewayApi.updateAIGatewayModelPricingByCanonical")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (canonical !== undefined) {
+      requestContext.setQueryParam(
+        "canonical",
+        ObjectSerializer.serialize(canonical, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "AiGatewayModelPricingRequest", ""),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateAiGatewayProvider(
     id: Int64Input,
     body: AiGatewayProviderUpdateRequest,
@@ -4030,6 +4262,63 @@ export class AIGatewayApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteAIGatewayModelPricingByCanonical
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteAIGatewayModelPricingByCanonical(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteAiGatewayPolicy
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4741,6 +5030,82 @@ export class AIGatewayApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAiGatewayModelPricing(
+    response: ResponseContext
+  ): Promise<AiGatewayModelPricingResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AiGatewayModelPricingResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "AiGatewayModelPricingResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as AiGatewayModelPricingResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AiGatewayModelPricingResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "AiGatewayModelPricingResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as AiGatewayModelPricingResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getAIGatewayModelPricingByCanonical
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getAIGatewayModelPricingByCanonical(
     response: ResponseContext
   ): Promise<AiGatewayModelPricingResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
@@ -6837,6 +7202,83 @@ export class AIGatewayApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateAIGatewayModelPricingByCanonical
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateAIGatewayModelPricingByCanonical(
+    response: ResponseContext
+  ): Promise<AiGatewayModelPricingResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AiGatewayModelPricingResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "AiGatewayModelPricingResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as AiGatewayModelPricingResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AiGatewayModelPricingResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "AiGatewayModelPricingResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as AiGatewayModelPricingResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateAiGatewayProvider
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7257,6 +7699,19 @@ export interface AIGatewayApiDeleteAiGatewayModelPricingRequest {
   canonical: string;
 }
 
+export interface AIGatewayApiDeleteAIGatewayModelPricingByCanonicalRequest {
+  /**
+   * Provider ID.
+   * @type Int64Input
+   */
+  providerId: Int64Input;
+  /**
+   * Canonical model identifier. It can contain `/`, such as `openai/gpt-4o`.
+   * @type string
+   */
+  canonical: string;
+}
+
 export interface AIGatewayApiDeleteAiGatewayPolicyRequest {
   /**
    * Inbound routing pattern.
@@ -7354,6 +7809,19 @@ export interface AIGatewayApiGetAiGatewayModelPricingRequest {
   providerId: Int64Input;
   /**
    * Canonical model identifier.
+   * @type string
+   */
+  canonical: string;
+}
+
+export interface AIGatewayApiGetAIGatewayModelPricingByCanonicalRequest {
+  /**
+   * Provider ID.
+   * @type Int64Input
+   */
+  providerId: Int64Input;
+  /**
+   * Canonical model identifier. It can contain `/`, such as `openai/gpt-4o`.
    * @type string
    */
   canonical: string;
@@ -7649,6 +8117,23 @@ export interface AIGatewayApiUpdateAiGatewayModelPricingRequest {
   providerId: Int64Input;
   /**
    * Canonical model identifier.
+   * @type string
+   */
+  canonical: string;
+  /**
+   * @type AiGatewayModelPricingRequest
+   */
+  body: AiGatewayModelPricingRequest;
+}
+
+export interface AIGatewayApiUpdateAIGatewayModelPricingByCanonicalRequest {
+  /**
+   * Provider ID.
+   * @type Int64Input
+   */
+  providerId: Int64Input;
+  /**
+   * Canonical model identifier. It can contain `/`, such as `openai/gpt-4o`.
    * @type string
    */
   canonical: string;
@@ -8012,7 +8497,7 @@ export class AIGatewayApi {
   }
 
   /**
-   * Clear a custom provider model's pricing override. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
+   * Clear a custom provider model's pricing override. A canonical ID that contains `/` can't be sent in the path; use the `/api/v2/providers/{provider_id}/model-pricing` endpoint with the `canonical` query parameter instead. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
    * @param param The request object
    */
   public deleteAiGatewayModelPricing(
@@ -8030,6 +8515,31 @@ export class AIGatewayApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteAiGatewayModelPricing(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Clear a provider model's pricing override, naming the model in the `canonical` query parameter. Unlike the endpoint that takes the canonical ID in the path, this one accepts canonical IDs that contain `/`. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
+   * @param param The request object
+   */
+  public deleteAIGatewayModelPricingByCanonical(
+    param: AIGatewayApiDeleteAIGatewayModelPricingByCanonicalRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteAIGatewayModelPricingByCanonical(
+        param.providerId,
+        param.canonical,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAIGatewayModelPricingByCanonical(
             responseContext
           );
         });
@@ -8258,7 +8768,7 @@ export class AIGatewayApi {
   }
 
   /**
-   * Get a custom provider model's pricing override and effective pricing source. Requires `ai_gateway_config_read` and provider View. Catalog and pricing metadata inherit provider access. Lists omit hidden entries; direct reads of hidden resources return 404.
+   * Get a custom provider model's pricing override and effective pricing source. A canonical ID that contains `/` can't be sent in the path; use the `/api/v2/providers/{provider_id}/model-pricing` endpoint with the `canonical` query parameter instead. Requires `ai_gateway_config_read` and provider View. Catalog and pricing metadata inherit provider access. Lists omit hidden entries; direct reads of hidden resources return 404.
    * @param param The request object
    */
   public getAiGatewayModelPricing(
@@ -8275,6 +8785,31 @@ export class AIGatewayApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getAiGatewayModelPricing(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a provider model's pricing override and effective pricing source, naming the model in the `canonical` query parameter. Unlike the endpoint that takes the canonical ID in the path, this one accepts canonical IDs that contain `/`. Requires `ai_gateway_config_read` and provider View. Catalog and pricing metadata inherit provider access. Direct reads of hidden resources return 404.
+   * @param param The request object
+   */
+  public getAIGatewayModelPricingByCanonical(
+    param: AIGatewayApiGetAIGatewayModelPricingByCanonicalRequest,
+    options?: Configuration
+  ): Promise<AiGatewayModelPricingResponse> {
+    const requestContextPromise =
+      this.requestFactory.getAIGatewayModelPricingByCanonical(
+        param.providerId,
+        param.canonical,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAIGatewayModelPricingByCanonical(
             responseContext
           );
         });
@@ -8876,7 +9411,7 @@ export class AIGatewayApi {
   }
 
   /**
-   * Set a custom provider model's pricing override. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
+   * Set a custom provider model's pricing override. A canonical ID that contains `/` can't be sent in the path; use the `/api/v2/providers/{provider_id}/model-pricing` endpoint with the `canonical` query parameter instead. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
    * @param param The request object
    */
   public updateAiGatewayModelPricing(
@@ -8895,6 +9430,32 @@ export class AIGatewayApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateAiGatewayModelPricing(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Set a provider model's pricing override, naming the model in the `canonical` query parameter. Unlike the endpoint that takes the canonical ID in the path, this one accepts canonical IDs that contain `/`. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
+   * @param param The request object
+   */
+  public updateAIGatewayModelPricingByCanonical(
+    param: AIGatewayApiUpdateAIGatewayModelPricingByCanonicalRequest,
+    options?: Configuration
+  ): Promise<AiGatewayModelPricingResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateAIGatewayModelPricingByCanonical(
+        param.providerId,
+        param.canonical,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAIGatewayModelPricingByCanonical(
             responseContext
           );
         });

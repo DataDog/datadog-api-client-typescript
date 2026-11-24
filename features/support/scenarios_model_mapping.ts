@@ -5191,6 +5191,43 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AiGatewayProviderResponse",
     },
+    "v2.GetAIGatewayModelPricingByCanonical": {
+        "providerId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "canonical": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayModelPricingResponse",
+    },
+    "v2.UpdateAIGatewayModelPricingByCanonical": {
+        "providerId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "canonical": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AiGatewayModelPricingRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiGatewayModelPricingResponse",
+    },
+    "v2.DeleteAIGatewayModelPricingByCanonical": {
+        "providerId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "canonical": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListAiGatewayModels": {
         "providerId": {
             "type": "number",
