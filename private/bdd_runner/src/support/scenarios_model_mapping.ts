@@ -19861,6 +19861,37 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SecurityAgentInvestigationResponse",
   },
+  "BitsSecurityAnalystApi.V2.GetSecurityAgentOutreachPolicy": {
+    operationResponseType: "SecurityAgentOutreachPolicyResponse",
+  },
+  "BitsSecurityAnalystApi.V2.UpdateSecurityAgentOutreachMode": {
+    body: {
+      type: "SecurityAgentOutreachModeUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityAgentOutreachModeResponse",
+  },
+  "BitsSecurityAnalystApi.V2.AddSecurityAgentOutreachPolicyDomain": {
+    body: {
+      type: "SecurityAgentOutreachDomainAddRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityAgentOutreachPolicyResponse",
+  },
+  "BitsSecurityAnalystApi.V2.RemoveSecurityAgentOutreachPolicyDomain": {
+    domain: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SecurityAgentOutreachPolicyResponse",
+  },
+  "BitsSecurityAnalystApi.V2.UpdateSecurityAgentOutreachPolicyRules": {
+    body: {
+      type: "SecurityAgentOutreachRulesUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityAgentOutreachPolicyResponse",
+  },
   "SensitiveDataScannerApi.V2.ListScanningGroups": {
     operationResponseType: "SensitiveDataScannerGetConfigResponse",
   },
