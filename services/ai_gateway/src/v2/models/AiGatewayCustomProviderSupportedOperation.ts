@@ -7,7 +7,9 @@ export type AiGatewayCustomProviderSupportedOperation =
   | typeof OPENAI_CHAT_COMPLETIONS
   | typeof OPENAI_RESPONSES
   | typeof ANTHROPIC_MESSAGES
+  | typeof SYSTEM_ONE
   | UnparsedObject;
 export const OPENAI_CHAT_COMPLETIONS = "OPENAI_CHAT_COMPLETIONS";
 export const OPENAI_RESPONSES = "OPENAI_RESPONSES";
 export const ANTHROPIC_MESSAGES = "ANTHROPIC_MESSAGES";
+export const SYSTEM_ONE = "SYSTEM_ONE";
