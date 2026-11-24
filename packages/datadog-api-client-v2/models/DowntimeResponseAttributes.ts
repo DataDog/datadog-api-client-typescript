@@ -55,11 +55,12 @@ export class DowntimeResponseAttributes {
    */
   "notifyEndTypes"?: Array<DowntimeNotifyEndStateActions>;
   /**
-   * The principals (users, roles, or teams) allowed to act on behalf of the downtime.
+   * The user the downtime runs as. The downtime only silences monitors this user can mute. On update, omitting
+   * `run_as` resets it to the user making the update.
    *
    * **Note**: This feature is currently in Preview and may not be available for all organizations.
    */
-  "runAs"?: Array<DowntimeRunAsItem>;
+  "runAs"?: [DowntimeRunAsItem];
   /**
    * The schedule that defines when the monitor starts, stops, and recurs. There are two types of schedules:
    * one-time and recurring. Recurring schedules may have up to five RRULE-based recurrences. If no schedules are
@@ -132,7 +133,7 @@ export class DowntimeResponseAttributes {
     },
     runAs: {
       baseName: "run_as",
-      type: "Array<DowntimeRunAsItem>",
+      type: "[DowntimeRunAsItem]",
     },
     schedule: {
       baseName: "schedule",
