@@ -41,6 +41,10 @@ export class HistoricalJobQuery {
    */
   "datasetIds"?: Array<string>;
   /**
+   * Version of each dataset used by the job, keyed by dataset ID. Pinned when the job is created.
+   */
+  "datasetVersions"?: { [key: string]: Int64 };
+  /**
    * Field for which the cardinality is measured. Sent as an array.
    */
   "distinctFields"?: Array<string>;
@@ -60,6 +64,11 @@ export class HistoricalJobQuery {
    * Indexes used to load the data for this query. Mutually exclusive with `index`.
    */
   "indexes"?: Array<string>;
+  /**
+   * (Deprecated) The target field to aggregate over when using the sum or max
+   * aggregations. Use the `metrics` field instead.
+   */
+  "metric"?: string;
   /**
    * Group of target fields to aggregate over when using the sum, max, geo data, or new value aggregations. The sum, max, and geo data aggregations only accept one value in this list, whereas the new value aggregation accepts up to five values.
    */
@@ -122,6 +131,11 @@ export class HistoricalJobQuery {
       baseName: "datasetIds",
       type: "Array<string>",
     },
+    datasetVersions: {
+      baseName: "datasetVersions",
+      type: "{ [key: string]: number; }",
+      format: "int64",
+    },
     distinctFields: {
       baseName: "distinctFields",
       type: "Array<string>",
@@ -141,6 +155,10 @@ export class HistoricalJobQuery {
     indexes: {
       baseName: "indexes",
       type: "Array<string>",
+    },
+    metric: {
+      baseName: "metric",
+      type: "string",
     },
     metrics: {
       baseName: "metrics",
