@@ -16,7 +16,7 @@ export class ClaudeComplianceIntegrationAccountBearerTokenAuthUpdate {
    */
   "authType": ClaudeComplianceIntegrationAccountBearerTokenAuthType;
   /**
-   * Secret token used to authenticate with Claude Compliance.
+   * Anthropic Admin API key (prefix `sk-ant-admin01-`) with the `read:compliance_activities` scope, or a dedicated Compliance Access key (prefix `sk-ant-api01-`). Generate an Admin API key in the Anthropic Console under **Organization settings > API keys**.
    */
   "token"?: string;
 
