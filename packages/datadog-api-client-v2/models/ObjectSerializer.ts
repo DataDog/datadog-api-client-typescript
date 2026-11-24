@@ -5763,6 +5763,22 @@ import { SecurityAgentInvestigationSignal } from "./SecurityAgentInvestigationSi
 import { SecurityAgentInvestigationStep } from "./SecurityAgentInvestigationStep";
 import { SecurityAgentInvestigationsListMeta } from "./SecurityAgentInvestigationsListMeta";
 import { SecurityAgentInvestigationsListResponse } from "./SecurityAgentInvestigationsListResponse";
+import { SecurityAgentOutreachDomainAddRequest } from "./SecurityAgentOutreachDomainAddRequest";
+import { SecurityAgentOutreachDomainAddRequestData } from "./SecurityAgentOutreachDomainAddRequestData";
+import { SecurityAgentOutreachDomainAddRequestDataAttributes } from "./SecurityAgentOutreachDomainAddRequestDataAttributes";
+import { SecurityAgentOutreachModeAttributes } from "./SecurityAgentOutreachModeAttributes";
+import { SecurityAgentOutreachModeResponse } from "./SecurityAgentOutreachModeResponse";
+import { SecurityAgentOutreachModeResponseData } from "./SecurityAgentOutreachModeResponseData";
+import { SecurityAgentOutreachModeUpdateData } from "./SecurityAgentOutreachModeUpdateData";
+import { SecurityAgentOutreachModeUpdateRequest } from "./SecurityAgentOutreachModeUpdateRequest";
+import { SecurityAgentOutreachPolicy } from "./SecurityAgentOutreachPolicy";
+import { SecurityAgentOutreachPolicyAttributes } from "./SecurityAgentOutreachPolicyAttributes";
+import { SecurityAgentOutreachPolicyResponse } from "./SecurityAgentOutreachPolicyResponse";
+import { SecurityAgentOutreachRule } from "./SecurityAgentOutreachRule";
+import { SecurityAgentOutreachRuleUpdate } from "./SecurityAgentOutreachRuleUpdate";
+import { SecurityAgentOutreachRulesUpdateAttributes } from "./SecurityAgentOutreachRulesUpdateAttributes";
+import { SecurityAgentOutreachRulesUpdateRequest } from "./SecurityAgentOutreachRulesUpdateRequest";
+import { SecurityAgentOutreachRulesUpdateRequestData } from "./SecurityAgentOutreachRulesUpdateRequestData";
 import { SecurityAutomationRulesLinks } from "./SecurityAutomationRulesLinks";
 import { SecurityAutomationRulesMeta } from "./SecurityAutomationRulesMeta";
 import { SecurityAutomationRulesPageInfo } from "./SecurityAutomationRulesPageInfo";
@@ -10800,6 +10816,10 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityAgentInvestigationState: ["investigating", "completed", "failed"],
   SecurityAgentInvestigationType: ["investigations"],
   SecurityAgentInvestigationVerdict: ["benign", "suspicious", "malicious"],
+  SecurityAgentOutreachDomainAddType: ["outreach_policy_domain_add"],
+  SecurityAgentOutreachMode: ["off", "manual", "automated"],
+  SecurityAgentOutreachPolicyType: ["outreach_policy"],
+  SecurityAgentOutreachRulesUpdateType: ["outreach_policy_rules_update"],
   SecurityEntityRiskScoreAttributesSeverity: [
     "critical",
     "high",
@@ -18927,6 +18947,28 @@ const typeMap: { [index: string]: any } = {
   SecurityAgentInvestigationsListMeta: SecurityAgentInvestigationsListMeta,
   SecurityAgentInvestigationsListResponse:
     SecurityAgentInvestigationsListResponse,
+  SecurityAgentOutreachDomainAddRequest: SecurityAgentOutreachDomainAddRequest,
+  SecurityAgentOutreachDomainAddRequestData:
+    SecurityAgentOutreachDomainAddRequestData,
+  SecurityAgentOutreachDomainAddRequestDataAttributes:
+    SecurityAgentOutreachDomainAddRequestDataAttributes,
+  SecurityAgentOutreachModeAttributes: SecurityAgentOutreachModeAttributes,
+  SecurityAgentOutreachModeResponse: SecurityAgentOutreachModeResponse,
+  SecurityAgentOutreachModeResponseData: SecurityAgentOutreachModeResponseData,
+  SecurityAgentOutreachModeUpdateData: SecurityAgentOutreachModeUpdateData,
+  SecurityAgentOutreachModeUpdateRequest:
+    SecurityAgentOutreachModeUpdateRequest,
+  SecurityAgentOutreachPolicy: SecurityAgentOutreachPolicy,
+  SecurityAgentOutreachPolicyAttributes: SecurityAgentOutreachPolicyAttributes,
+  SecurityAgentOutreachPolicyResponse: SecurityAgentOutreachPolicyResponse,
+  SecurityAgentOutreachRule: SecurityAgentOutreachRule,
+  SecurityAgentOutreachRuleUpdate: SecurityAgentOutreachRuleUpdate,
+  SecurityAgentOutreachRulesUpdateAttributes:
+    SecurityAgentOutreachRulesUpdateAttributes,
+  SecurityAgentOutreachRulesUpdateRequest:
+    SecurityAgentOutreachRulesUpdateRequest,
+  SecurityAgentOutreachRulesUpdateRequestData:
+    SecurityAgentOutreachRulesUpdateRequestData,
   SecurityAutomationRulesLinks: SecurityAutomationRulesLinks,
   SecurityAutomationRulesMeta: SecurityAutomationRulesMeta,
   SecurityAutomationRulesPageInfo: SecurityAutomationRulesPageInfo,

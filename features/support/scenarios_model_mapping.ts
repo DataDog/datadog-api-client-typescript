@@ -19812,6 +19812,37 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityAgentInvestigationResponse",
     },
+    "v2.GetSecurityAgentOutreachPolicy": {
+        "operationResponseType": "SecurityAgentOutreachPolicyResponse",
+    },
+    "v2.UpdateSecurityAgentOutreachMode": {
+        "body": {
+            "type": "SecurityAgentOutreachModeUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityAgentOutreachModeResponse",
+    },
+    "v2.AddSecurityAgentOutreachPolicyDomain": {
+        "body": {
+            "type": "SecurityAgentOutreachDomainAddRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityAgentOutreachPolicyResponse",
+    },
+    "v2.RemoveSecurityAgentOutreachPolicyDomain": {
+        "domain": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityAgentOutreachPolicyResponse",
+    },
+    "v2.UpdateSecurityAgentOutreachPolicyRules": {
+        "body": {
+            "type": "SecurityAgentOutreachRulesUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityAgentOutreachPolicyResponse",
+    },
     "v2.ListScanningGroups": {
         "operationResponseType": "SensitiveDataScannerGetConfigResponse",
     },

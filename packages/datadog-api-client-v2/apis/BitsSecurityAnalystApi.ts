@@ -24,8 +24,79 @@ import { SecurityAgentInvestigationCountsResponse } from "../models/SecurityAgen
 import { SecurityAgentInvestigationField } from "../models/SecurityAgentInvestigationField";
 import { SecurityAgentInvestigationResponse } from "../models/SecurityAgentInvestigationResponse";
 import { SecurityAgentInvestigationsListResponse } from "../models/SecurityAgentInvestigationsListResponse";
+import { SecurityAgentOutreachDomainAddRequest } from "../models/SecurityAgentOutreachDomainAddRequest";
+import { SecurityAgentOutreachModeResponse } from "../models/SecurityAgentOutreachModeResponse";
+import { SecurityAgentOutreachModeUpdateRequest } from "../models/SecurityAgentOutreachModeUpdateRequest";
+import { SecurityAgentOutreachPolicyResponse } from "../models/SecurityAgentOutreachPolicyResponse";
+import { SecurityAgentOutreachRulesUpdateRequest } from "../models/SecurityAgentOutreachRulesUpdateRequest";
 
 export class BitsSecurityAnalystApiRequestFactory extends BaseAPIRequestFactory {
+  public async addSecurityAgentOutreachPolicyDomain(
+    body: SecurityAgentOutreachDomainAddRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'addSecurityAgentOutreachPolicyDomain'"
+    );
+    if (
+      !_config.unstableOperations["v2.addSecurityAgentOutreachPolicyDomain"]
+    ) {
+      throw new Error(
+        "Unstable operation 'addSecurityAgentOutreachPolicyDomain' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "addSecurityAgentOutreachPolicyDomain");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/security_agent/outreach_policy/allowed_domains";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.BitsSecurityAnalystApi.addSecurityAgentOutreachPolicyDomain"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityAgentOutreachDomainAddRequest",
+        ""
+      ),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async countSecurityAgentInvestigations(
     field: SecurityAgentInvestigationCountField,
     filterTitle?: string,
@@ -227,6 +298,44 @@ export class BitsSecurityAnalystApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getSecurityAgentOutreachPolicy(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getSecurityAgentOutreachPolicy'");
+    if (!_config.unstableOperations["v2.getSecurityAgentOutreachPolicy"]) {
+      throw new Error(
+        "Unstable operation 'getSecurityAgentOutreachPolicy' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/security_agent/outreach_policy";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.BitsSecurityAnalystApi.getSecurityAgentOutreachPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listSecurityAgentInvestigations(
     filterSignalId?: string,
     filterTitle?: string,
@@ -386,6 +495,188 @@ export class BitsSecurityAnalystApiRequestFactory extends BaseAPIRequestFactory 
 
     return requestContext;
   }
+
+  public async removeSecurityAgentOutreachPolicyDomain(
+    domain: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'removeSecurityAgentOutreachPolicyDomain'"
+    );
+    if (
+      !_config.unstableOperations["v2.removeSecurityAgentOutreachPolicyDomain"]
+    ) {
+      throw new Error(
+        "Unstable operation 'removeSecurityAgentOutreachPolicyDomain' is disabled"
+      );
+    }
+
+    // verify required parameter 'domain' is not null or undefined
+    if (domain === null || domain === undefined) {
+      throw new RequiredError(
+        "domain",
+        "removeSecurityAgentOutreachPolicyDomain"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/security_agent/outreach_policy/allowed_domains/{domain}".replace(
+        "{domain}",
+        encodeURIComponent(String(domain))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.BitsSecurityAnalystApi.removeSecurityAgentOutreachPolicyDomain"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateSecurityAgentOutreachMode(
+    body: SecurityAgentOutreachModeUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateSecurityAgentOutreachMode'");
+    if (!_config.unstableOperations["v2.updateSecurityAgentOutreachMode"]) {
+      throw new Error(
+        "Unstable operation 'updateSecurityAgentOutreachMode' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateSecurityAgentOutreachMode");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/security_agent/outreach_policy";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.BitsSecurityAnalystApi.updateSecurityAgentOutreachMode")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityAgentOutreachModeUpdateRequest",
+        ""
+      ),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateSecurityAgentOutreachPolicyRules(
+    body: SecurityAgentOutreachRulesUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'updateSecurityAgentOutreachPolicyRules'"
+    );
+    if (
+      !_config.unstableOperations["v2.updateSecurityAgentOutreachPolicyRules"]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateSecurityAgentOutreachPolicyRules' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateSecurityAgentOutreachPolicyRules");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/security_agent/outreach_policy/rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.BitsSecurityAnalystApi.updateSecurityAgentOutreachPolicyRules"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityAgentOutreachRulesUpdateRequest",
+        ""
+      ),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class BitsSecurityAnalystApiResponseProcessor {
@@ -393,6 +684,111 @@ export class BitsSecurityAnalystApiResponseProcessor {
 
   public constructor(configuration?: Configuration) {
     this.configuration = configuration;
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to addSecurityAgentOutreachPolicyDomain
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async addSecurityAgentOutreachPolicyDomain(
+    response: ResponseContext
+  ): Promise<SecurityAgentOutreachPolicyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityAgentOutreachPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityAgentOutreachPolicyResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityAgentOutreachPolicyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityAgentOutreachPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityAgentOutreachPolicyResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityAgentOutreachPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -603,6 +999,106 @@ export class BitsSecurityAnalystApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSecurityAgentOutreachPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityAgentOutreachPolicy(
+    response: ResponseContext
+  ): Promise<SecurityAgentOutreachPolicyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityAgentOutreachPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityAgentOutreachPolicyResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityAgentOutreachPolicyResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityAgentOutreachPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityAgentOutreachPolicyResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityAgentOutreachPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listSecurityAgentInvestigations
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -698,6 +1194,328 @@ export class BitsSecurityAnalystApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to removeSecurityAgentOutreachPolicyDomain
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async removeSecurityAgentOutreachPolicyDomain(
+    response: ResponseContext
+  ): Promise<SecurityAgentOutreachPolicyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityAgentOutreachPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityAgentOutreachPolicyResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityAgentOutreachPolicyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityAgentOutreachPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityAgentOutreachPolicyResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityAgentOutreachPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateSecurityAgentOutreachMode
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSecurityAgentOutreachMode(
+    response: ResponseContext
+  ): Promise<SecurityAgentOutreachModeResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityAgentOutreachModeResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityAgentOutreachModeResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityAgentOutreachModeResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityAgentOutreachModeResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityAgentOutreachModeResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityAgentOutreachModeResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateSecurityAgentOutreachPolicyRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSecurityAgentOutreachPolicyRules(
+    response: ResponseContext
+  ): Promise<SecurityAgentOutreachPolicyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityAgentOutreachPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityAgentOutreachPolicyResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityAgentOutreachPolicyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityAgentOutreachPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "SecurityAgentOutreachPolicyResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as SecurityAgentOutreachPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+}
+
+export interface BitsSecurityAnalystApiAddSecurityAgentOutreachPolicyDomainRequest {
+  /**
+   * The email domain to allow.
+   * @type SecurityAgentOutreachDomainAddRequest
+   */
+  body: SecurityAgentOutreachDomainAddRequest;
 }
 
 export interface BitsSecurityAnalystApiCountSecurityAgentInvestigationsRequest {
@@ -870,6 +1688,30 @@ export interface BitsSecurityAnalystApiListSecurityAgentInvestigationsRequest {
   pageSize?: Int64Input;
 }
 
+export interface BitsSecurityAnalystApiRemoveSecurityAgentOutreachPolicyDomainRequest {
+  /**
+   * The allowed email domain to remove, for example `example.com`. Case-insensitive.
+   * @type string
+   */
+  domain: string;
+}
+
+export interface BitsSecurityAnalystApiUpdateSecurityAgentOutreachModeRequest {
+  /**
+   * The new outreach mode.
+   * @type SecurityAgentOutreachModeUpdateRequest
+   */
+  body: SecurityAgentOutreachModeUpdateRequest;
+}
+
+export interface BitsSecurityAnalystApiUpdateSecurityAgentOutreachPolicyRulesRequest {
+  /**
+   * The rules to upsert.
+   * @type SecurityAgentOutreachRulesUpdateRequest
+   */
+  body: SecurityAgentOutreachRulesUpdateRequest;
+}
+
 export class BitsSecurityAnalystApi {
   private requestFactory: BitsSecurityAnalystApiRequestFactory;
   private responseProcessor: BitsSecurityAnalystApiResponseProcessor;
@@ -886,6 +1728,32 @@ export class BitsSecurityAnalystApi {
     this.responseProcessor =
       responseProcessor ||
       new BitsSecurityAnalystApiResponseProcessor(configuration);
+  }
+
+  /**
+   * Add one allowed email domain. User outreach is only sent to users whose email domain is allowed. The
+   * domain must be a fully qualified domain name, like `example.com`; it is lowercased before being stored.
+   * An organization can allow at most 20 domains.
+   * @param param The request object
+   */
+  public addSecurityAgentOutreachPolicyDomain(
+    param: BitsSecurityAnalystApiAddSecurityAgentOutreachPolicyDomainRequest,
+    options?: Configuration
+  ): Promise<SecurityAgentOutreachPolicyResponse> {
+    const requestContextPromise =
+      this.requestFactory.addSecurityAgentOutreachPolicyDomain(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.addSecurityAgentOutreachPolicyDomain(
+            responseContext
+          );
+        });
+    });
   }
 
   /**
@@ -951,6 +1819,28 @@ export class BitsSecurityAnalystApi {
   }
 
   /**
+   * Get the organization's user outreach policy for Bits Security Analyst: the outreach mode, the per-rule
+   * automation state, the allowed email domains that user outreach can be sent to, and, for the caller, domains
+   * that could be allowed next.
+   * @param param The request object
+   */
+  public getSecurityAgentOutreachPolicy(
+    options?: Configuration
+  ): Promise<SecurityAgentOutreachPolicyResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityAgentOutreachPolicy(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityAgentOutreachPolicy(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * List Bits Security Analyst investigations.
    *
    * Without `filter[signal_id]`, returns the latest investigation of each signal, filtered, sorted, and paginated.
@@ -986,6 +1876,79 @@ export class BitsSecurityAnalystApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listSecurityAgentInvestigations(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Remove one allowed email domain, by its name.
+   * @param param The request object
+   */
+  public removeSecurityAgentOutreachPolicyDomain(
+    param: BitsSecurityAnalystApiRemoveSecurityAgentOutreachPolicyDomainRequest,
+    options?: Configuration
+  ): Promise<SecurityAgentOutreachPolicyResponse> {
+    const requestContextPromise =
+      this.requestFactory.removeSecurityAgentOutreachPolicyDomain(
+        param.domain,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.removeSecurityAgentOutreachPolicyDomain(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Set the organization's outreach mode: `off` (no user outreach), `manual` (outreach is only sent when an
+   * analyst triggers it), or `automated` (rules with outreach enabled auto-send automated interviews to users
+   * whose email domain is allowed).
+   * @param param The request object
+   */
+  public updateSecurityAgentOutreachMode(
+    param: BitsSecurityAnalystApiUpdateSecurityAgentOutreachModeRequest,
+    options?: Configuration
+  ): Promise<SecurityAgentOutreachModeResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSecurityAgentOutreachMode(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSecurityAgentOutreachMode(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Upsert the outreach automation state of detection rules. Each rule in the request gets the given state;
+   * rules not in the request keep their state. A rule with `is_enabled: true` auto-sends automated interviews
+   * in `automated` mode.
+   * @param param The request object
+   */
+  public updateSecurityAgentOutreachPolicyRules(
+    param: BitsSecurityAnalystApiUpdateSecurityAgentOutreachPolicyRulesRequest,
+    options?: Configuration
+  ): Promise<SecurityAgentOutreachPolicyResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSecurityAgentOutreachPolicyRules(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSecurityAgentOutreachPolicyRules(
             responseContext
           );
         });
