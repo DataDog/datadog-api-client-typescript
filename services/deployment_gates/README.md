@@ -25,14 +25,6 @@ import { DeploymentGatesApiV2 } from "@datadog/datadog-api-client-deployment-gat
 import { v2 } from "@datadog/datadog-api-client-deployment-gates";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "DeploymentGatesApi.v2.listDeploymentGates": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new DeploymentGatesApiV2(configuration);
 const params = {/* parameters */};
 
