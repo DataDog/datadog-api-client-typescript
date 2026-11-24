@@ -294,7 +294,8 @@ import { RemediationGroupCaseRelationshipData } from "./RemediationGroupCaseRela
 import { RemediationGroupData } from "./RemediationGroupData";
 import { RemediationGroupFindings } from "./RemediationGroupFindings";
 import { RemediationGroupFindingsBySeverity } from "./RemediationGroupFindingsBySeverity";
-import { RemediationGroupImageUpdate } from "./RemediationGroupImageUpdate";
+import { RemediationGroupOwnerList } from "./RemediationGroupOwnerList";
+import { RemediationGroupOwners } from "./RemediationGroupOwners";
 import { RemediationGroupPackageUpdate } from "./RemediationGroupPackageUpdate";
 import { RemediationGroupRelationships } from "./RemediationGroupRelationships";
 import { RemediationGroupsMeta } from "./RemediationGroupsMeta";
@@ -788,10 +789,7 @@ export const TypingInfo: ModelTypingInfo = {
     NotificationRulePreviewResponseType: ["notification_preview_response"],
     NotificationRuleRoutingMode: ["manual"],
     NotificationRulesType: ["notification_rules"],
-    RemediationGroupFindingType: [
-      "library_vulnerability",
-      "host_and_container_vulnerability",
-    ],
+    RemediationGroupFindingType: ["library_vulnerability"],
     RemediationGroupInclude: ["case"],
     RemediationGroupType: ["remediation_groups"],
     ResourceFilterRequestType: ["csm_resource_filter"],
@@ -1646,7 +1644,8 @@ export const TypingInfo: ModelTypingInfo = {
     RemediationGroupData: RemediationGroupData,
     RemediationGroupFindings: RemediationGroupFindings,
     RemediationGroupFindingsBySeverity: RemediationGroupFindingsBySeverity,
-    RemediationGroupImageUpdate: RemediationGroupImageUpdate,
+    RemediationGroupOwnerList: RemediationGroupOwnerList,
+    RemediationGroupOwners: RemediationGroupOwners,
     RemediationGroupPackageUpdate: RemediationGroupPackageUpdate,
     RemediationGroupRelationships: RemediationGroupRelationships,
     RemediationGroupsMeta: RemediationGroupsMeta,
