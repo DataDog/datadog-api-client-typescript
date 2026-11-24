@@ -1776,8 +1776,6 @@ export class CSMThreatsApi {
 
   /**
    * Create a new Workload Protection policy with the given parameters.
-   *
-   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public createCSMThreatsAgentPolicy(
@@ -1808,8 +1806,6 @@ export class CSMThreatsApi {
    * To add the rule to another policy, set `policy_id` to the ID of that policy, as returned by `ListCSMThreatsAgentPolicies`.
    *
    * This endpoint does not accept `kill` or `network_filter` actions, or `blocking` policies. A request that contains them returns a `400` error.
-   *
-   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public createCSMThreatsAgentRule(
@@ -1835,8 +1831,6 @@ export class CSMThreatsApi {
    * Delete a specific Workload Protection policy.
    *
    * Datadog-managed policies cannot be deleted. This action cannot be undone.
-   *
-   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public deleteCSMThreatsAgentPolicy(
@@ -1861,8 +1855,6 @@ export class CSMThreatsApi {
    *
    * The rule is removed from every policy that contains it. Datadog-managed rules cannot be deleted.
    * This action cannot be undone.
-   *
-   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public deleteCSMThreatsAgentRule(
@@ -1889,8 +1881,6 @@ export class CSMThreatsApi {
    * The download endpoint generates a Workload Protection policy file from your currently active
    * Workload Protection agent rules, and downloads them as a `.policy` file. This file can then be deployed to
    * your agents to update the policy running in your environment.
-   *
-   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public downloadCSMThreatsPolicy(options?: Configuration): Promise<HttpFile> {
@@ -1908,9 +1898,10 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Get the details of a specific agent rule.
+   * **Note**: This endpoint is deprecated. Use [Get a Workload Protection agent rule](https://docs.datadoghq.com/api/latest/csm-threats/#get-a-workload-protection-agent-rule)
+   * instead, on all sites including US1-FED.
    *
-   * **Note**: This endpoint should only be used for the Government (US1-FED) site.
+   * Get the details of a specific agent rule.
    * @param param The request object
    */
   public getCloudWorkloadSecurityAgentRule(
@@ -1935,8 +1926,6 @@ export class CSMThreatsApi {
 
   /**
    * Get the details of a specific Workload Protection policy.
-   *
-   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public getCSMThreatsAgentPolicy(
@@ -1960,8 +1949,6 @@ export class CSMThreatsApi {
 
   /**
    * Get the details of a specific Workload Protection agent rule.
-   *
-   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public getCSMThreatsAgentRule(
@@ -1983,9 +1970,10 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Get the list of agent rules.
+   * **Note**: This endpoint is deprecated. Use [Get all Workload Protection agent rules](https://docs.datadoghq.com/api/latest/csm-threats/#get-all-workload-protection-agent-rules)
+   * instead, on all sites including US1-FED.
    *
-   * **Note**: This endpoint should only be used for the Government (US1-FED) site.
+   * Get the list of agent rules.
    * @param param The request object
    */
   public listCloudWorkloadSecurityAgentRules(
@@ -2006,8 +1994,6 @@ export class CSMThreatsApi {
 
   /**
    * Get the list of Workload Protection policies.
-   *
-   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public listCSMThreatsAgentPolicies(
@@ -2030,8 +2016,6 @@ export class CSMThreatsApi {
    * Get the list of Workload Protection agent rules.
    *
    * Set `policy_id` to only return the rules of one policy. Without it, the rules of all policies are returned.
-   *
-   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public listCSMThreatsAgentRules(
@@ -2056,8 +2040,6 @@ export class CSMThreatsApi {
   /**
    * Update a specific Workload Protection policy.
    * Returns the policy object when the request is successful.
-   *
-   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public updateCSMThreatsAgentPolicy(
@@ -2089,8 +2071,6 @@ export class CSMThreatsApi {
    * See [Agent expressions](https://docs.datadoghq.com/security/workload_protection/agent_expressions/) for the syntax.
    *
    * This endpoint does not accept `kill` or `network_filter` actions, or `blocking` policies. A request that contains them returns a `400` error.
-   *
-   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public updateCSMThreatsAgentRule(
