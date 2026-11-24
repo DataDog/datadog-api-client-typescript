@@ -688,6 +688,67 @@ export class AIGatewayApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteAIGatewayModelByCanonical(
+    providerId: Int64Input,
+    canonical: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteAIGatewayModelByCanonical'");
+    if (!_config.unstableOperations["v2.deleteAIGatewayModelByCanonical"]) {
+      throw new Error(
+        "Unstable operation 'deleteAIGatewayModelByCanonical' is disabled"
+      );
+    }
+
+    // verify required parameter 'providerId' is not null or undefined
+    if (providerId === null || providerId === undefined) {
+      throw new RequiredError("providerId", "deleteAIGatewayModelByCanonical");
+    }
+
+    // verify required parameter 'canonical' is not null or undefined
+    if (canonical === null || canonical === undefined) {
+      throw new RequiredError("canonical", "deleteAIGatewayModelByCanonical");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/providers/{provider_id}/model".replace(
+      "{provider_id}",
+      encodeURIComponent(String(providerId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AIGatewayApi.deleteAIGatewayModelByCanonical")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (canonical !== undefined) {
+      requestContext.setQueryParam(
+        "canonical",
+        ObjectSerializer.serialize(canonical, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteAiGatewayModelGroup(
     id: string,
     _options?: Configuration
@@ -2878,6 +2939,85 @@ export class AIGatewayApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateAIGatewayModelByCanonical(
+    providerId: Int64Input,
+    canonical: string,
+    body: AiGatewayModelUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateAIGatewayModelByCanonical'");
+    if (!_config.unstableOperations["v2.updateAIGatewayModelByCanonical"]) {
+      throw new Error(
+        "Unstable operation 'updateAIGatewayModelByCanonical' is disabled"
+      );
+    }
+
+    // verify required parameter 'providerId' is not null or undefined
+    if (providerId === null || providerId === undefined) {
+      throw new RequiredError("providerId", "updateAIGatewayModelByCanonical");
+    }
+
+    // verify required parameter 'canonical' is not null or undefined
+    if (canonical === null || canonical === undefined) {
+      throw new RequiredError("canonical", "updateAIGatewayModelByCanonical");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateAIGatewayModelByCanonical");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/providers/{provider_id}/model".replace(
+      "{provider_id}",
+      encodeURIComponent(String(providerId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AIGatewayApi.updateAIGatewayModelByCanonical")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (canonical !== undefined) {
+      requestContext.setQueryParam(
+        "canonical",
+        ObjectSerializer.serialize(canonical, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "AiGatewayModelUpdateRequest", ""),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateAiGatewayModelGroup(
     id: string,
     body: AiGatewayModelGroupUpdateRequest,
@@ -4105,6 +4245,63 @@ export class AIGatewayApiResponseProcessor {
       return;
     }
     if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteAIGatewayModelByCanonical
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteAIGatewayModelByCanonical(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -7047,6 +7244,85 @@ export class AIGatewayApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateAIGatewayModelByCanonical
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateAIGatewayModelByCanonical(
+    response: ResponseContext
+  ): Promise<AiGatewayModelCatalogEntryResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AiGatewayModelCatalogEntryResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "AiGatewayModelCatalogEntryResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as AiGatewayModelCatalogEntryResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AiGatewayModelCatalogEntryResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "AiGatewayModelCatalogEntryResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as AiGatewayModelCatalogEntryResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateAiGatewayModelGroup
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7678,6 +7954,19 @@ export interface AIGatewayApiDeleteAiGatewayModelRequest {
   canonical: string;
 }
 
+export interface AIGatewayApiDeleteAIGatewayModelByCanonicalRequest {
+  /**
+   * Provider ID.
+   * @type Int64Input
+   */
+  providerId: Int64Input;
+  /**
+   * Canonical model identifier. It can contain `/`, such as `openai/gpt-4o`.
+   * @type string
+   */
+  canonical: string;
+}
+
 export interface AIGatewayApiDeleteAiGatewayModelGroupRequest {
   /**
    * Model group ID, or "default" for the explicit organization-wide access policy.
@@ -8097,6 +8386,23 @@ export interface AIGatewayApiUpdateAiGatewayModelRequest {
   body: AiGatewayModelUpdateRequest;
 }
 
+export interface AIGatewayApiUpdateAIGatewayModelByCanonicalRequest {
+  /**
+   * Provider ID.
+   * @type Int64Input
+   */
+  providerId: Int64Input;
+  /**
+   * Canonical model identifier. It can contain `/`, such as `openai/gpt-4o`.
+   * @type string
+   */
+  canonical: string;
+  /**
+   * @type AiGatewayModelUpdateRequest
+   */
+  body: AiGatewayModelUpdateRequest;
+}
+
 export interface AIGatewayApiUpdateAiGatewayModelGroupRequest {
   /**
    * Model group ID, or "default" for the explicit organization-wide access policy.
@@ -8453,6 +8759,7 @@ export class AIGatewayApi {
   /**
    * Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
    * Delete a manually managed model catalog entry by its canonical model ID. Discovered entries are read-only.
+   * A canonical ID that contains `/` can't be sent in the path; use the `/api/v2/providers/{provider_id}/model` endpoint with the `canonical` query parameter instead.
    * @param param The request object
    */
   public deleteAiGatewayModel(
@@ -8469,6 +8776,31 @@ export class AIGatewayApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteAiGatewayModel(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a manually managed model catalog entry, naming the model in the `canonical` query parameter. Discovered entries are read-only. Unlike the endpoint that takes the canonical ID in the path, this one accepts canonical IDs that contain `/`. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
+   * @param param The request object
+   */
+  public deleteAIGatewayModelByCanonical(
+    param: AIGatewayApiDeleteAIGatewayModelByCanonicalRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteAIGatewayModelByCanonical(
+        param.providerId,
+        param.canonical,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAIGatewayModelByCanonical(
+            responseContext
+          );
         });
     });
   }
@@ -9364,7 +9696,7 @@ export class AIGatewayApi {
   }
 
   /**
-   * Update a manually managed model catalog entry. Discovered entries are read-only. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
+   * Update a manually managed model catalog entry. Discovered entries are read-only. A canonical ID that contains `/` can't be sent in the path; use the `/api/v2/providers/{provider_id}/model` endpoint with the `canonical` query parameter instead. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
    * @param param The request object
    */
   public updateAiGatewayModel(
@@ -9382,6 +9714,32 @@ export class AIGatewayApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateAiGatewayModel(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a manually managed model catalog entry, naming the model in the `canonical` query parameter. Discovered entries are read-only. Unlike the endpoint that takes the canonical ID in the path, this one accepts canonical IDs that contain `/`. Requires `ai_gateway_config_write` and provider Edit. Models and pricing inherit provider access.
+   * @param param The request object
+   */
+  public updateAIGatewayModelByCanonical(
+    param: AIGatewayApiUpdateAIGatewayModelByCanonicalRequest,
+    options?: Configuration
+  ): Promise<AiGatewayModelCatalogEntryResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateAIGatewayModelByCanonical(
+        param.providerId,
+        param.canonical,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAIGatewayModelByCanonical(
+            responseContext
+          );
         });
     });
   }
