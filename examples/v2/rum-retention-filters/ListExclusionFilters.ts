@@ -11,15 +11,15 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.RumRetentionFiltersApi(configuration);
+const apiInstance = new v2.RUMRetentionFiltersApi(configuration);
 
-const params: v2.RumRetentionFiltersApiListExclusionFiltersRequest = {
+const params: v2.RUMRetentionFiltersApiListExclusionFiltersRequest = {
   appId: "app_id",
 };
 
 apiInstance
   .listExclusionFilters(params)
-  .then((data: v2.RumExclusionFiltersResponse) => {
+  .then((data: v2.RUMExclusionFiltersResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

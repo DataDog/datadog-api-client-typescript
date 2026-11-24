@@ -11,9 +11,9 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.RumRetentionFiltersApi(configuration);
+const apiInstance = new v2.RUMRetentionFiltersApi(configuration);
 
-const params: v2.RumRetentionFiltersApiUpdateRetentionFilterRequest = {
+const params: v2.RUMRetentionFiltersApiUpdateRetentionFilterRequest = {
   body: {
     data: {
       id: "4b95d361-f65d-4515-9824-c9aaeba5ac2a",
@@ -33,7 +33,7 @@ const params: v2.RumRetentionFiltersApiUpdateRetentionFilterRequest = {
 
 apiInstance
   .updateRetentionFilter(params)
-  .then((data: v2.RumRetentionFilterResponse) => {
+  .then((data: v2.RUMRetentionFilterResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

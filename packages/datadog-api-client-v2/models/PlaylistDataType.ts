@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Rum replay playlist resource type.
+ * RUM replay playlist resource type.
  */
 
 export type PlaylistDataType = typeof RUM_REPLAY_PLAYLIST | UnparsedObject;

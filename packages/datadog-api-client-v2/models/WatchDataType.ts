@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Rum replay watch resource type.
+ * RUM replay watch resource type.
  */
 
 export type WatchDataType = typeof RUM_REPLAY_WATCH | UnparsedObject;

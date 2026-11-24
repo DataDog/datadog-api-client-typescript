@@ -12,9 +12,9 @@ const configuration = client.createConfiguration({
   },
 });
 configuration.unstableOperations["v2.queryUsers"] = true;
-const apiInstance = new v2.RumAudienceManagementApi(configuration);
+const apiInstance = new v2.RUMAudienceManagementApi(configuration);
 
-const params: v2.RumAudienceManagementApiQueryUsersRequest = {
+const params: v2.RUMAudienceManagementApiQueryUsersRequest = {
   body: {
     data: {
       attributes: {

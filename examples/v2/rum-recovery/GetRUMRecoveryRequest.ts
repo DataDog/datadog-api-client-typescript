@@ -13,7 +13,7 @@ const params: v2.RUMRecoveryApiGetRUMRecoveryRequestRequest = {
 
 apiInstance
   .getRUMRecoveryRequest(params)
-  .then((data: v2.RumRecoveryRequestResponse) => {
+  .then((data: v2.RUMRecoveryRequestResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

@@ -1,0 +1,110 @@
+/**
+ * Update a RUM SDK configuration returns "OK" response
+ */
+
+import { client, v2 } from "@datadog/datadog-api-client";
+
+const configuration = client.createConfiguration({
+  authMethods: {
+    AuthZ: {
+      accessToken: process.env.DD_BEARER_TOKEN as string,
+    },
+  },
+});
+configuration.unstableOperations["v2.updateRUMSdkConfig"] = true;
+const apiInstance = new v2.RUMRemoteConfigApi(configuration);
+
+const params: v2.RUMRemoteConfigApiUpdateRUMSdkConfigRequest = {
+  body: {
+    data: {
+      attributes: {
+        rum: {
+          allowedTracingUrls: [
+            {
+              match: {
+                rcSerializedType: "string",
+                value: "https://app.datadoghq.com",
+              },
+              propagatorTypes: ["datadog", "tracecontext"],
+            },
+          ],
+          allowedTrackingOrigins: [
+            {
+              rcSerializedType: "string",
+              value: "https://app.datadoghq.com",
+            },
+          ],
+          context: [
+            {
+              key: "id",
+              value: {
+                attribute: "data-version",
+                extractor: {
+                  rcSerializedType: "regex",
+                  value: "^https://app-.*.datadoghq.com",
+                },
+                key: "app.version",
+                name: "app_version",
+                path: "application.version",
+                rcSerializedType: "dynamic",
+                selector: "#app-version",
+                strategy: "js",
+              },
+            },
+          ],
+          defaultPrivacyLevel: "mask",
+          enablePrivacyForActionName: true,
+          env: "production",
+          service: "my-service",
+          sessionReplaySampleRate: 20,
+          sessionSampleRate: 75,
+          traceSampleRate: 100,
+          trackSessionAcrossSubdomains: false,
+          user: [
+            {
+              key: "id",
+              value: {
+                attribute: "data-version",
+                extractor: {
+                  rcSerializedType: "regex",
+                  value: "^https://app-.*.datadoghq.com",
+                },
+                key: "app.version",
+                name: "app_version",
+                path: "application.version",
+                rcSerializedType: "dynamic",
+                selector: "#app-version",
+                strategy: "js",
+              },
+            },
+          ],
+          version: {
+            attribute: "data-version",
+            extractor: {
+              rcSerializedType: "regex",
+              value: "^https://app-.*.datadoghq.com",
+            },
+            key: "app.version",
+            name: "app_version",
+            path: "application.version",
+            rcSerializedType: "dynamic",
+            selector: "#app-version",
+            strategy: "js",
+          },
+        },
+      },
+      id: "abc12345-1234-5678-abcd-ef1234567890",
+      type: "rum_sdk_config",
+    },
+  },
+  configId: "config_id",
+};
+
+apiInstance
+  .updateRUMSdkConfig(params)
+  .then((data: v2.RUMSdkConfigResponse) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
