@@ -20,10 +20,6 @@ export class AiGatewayModelMetadataSource {
    */
   "modelId": string;
   /**
-   * Metadata source name.
-   */
-  "name": string;
-  /**
    * Last successful observation of this valid source record. Retained invalid entries keep their previous timestamp.
    */
   "observedAt"?: Date;
@@ -59,11 +55,6 @@ export class AiGatewayModelMetadataSource {
     },
     modelId: {
       baseName: "model_id",
-      type: "string",
-      required: true,
-    },
-    name: {
-      baseName: "name",
       type: "string",
       required: true,
     },

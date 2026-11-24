@@ -7613,9 +7613,9 @@ const enumsMap: { [key: string]: any[] } = {
   AiGatewayModelPricingCatalogRequestSourceType: ["catalog"],
   AiGatewayModelPricingCustomRequestSourceType: ["custom"],
   AiGatewayModelPricingEffectiveSource: [
+    "automatic",
     "catalog_auto",
     "model_override",
-    "models_dev",
     "unpriced",
     "unknown",
   ],
