@@ -13890,6 +13890,41 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ElasticCloudIntegrationAccountResponse",
   },
+  "GitHubCostsIntegrationApi.V2.ListGitHubCostsIntegrationAccounts": {
+    operationResponseType: "GitHubCostsIntegrationAccountsResponse",
+  },
+  "GitHubCostsIntegrationApi.V2.CreateGitHubCostsIntegrationAccount": {
+    body: {
+      type: "GitHubCostsIntegrationAccountCreateRequest",
+      format: "",
+    },
+    operationResponseType: "GitHubCostsIntegrationAccountResponse",
+  },
+  "GitHubCostsIntegrationApi.V2.GetGitHubCostsIntegrationAccount": {
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GitHubCostsIntegrationAccountResponse",
+  },
+  "GitHubCostsIntegrationApi.V2.DeleteGitHubCostsIntegrationAccount": {
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "GitHubCostsIntegrationApi.V2.UpdateGitHubCostsIntegrationAccount": {
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "GitHubCostsIntegrationAccountUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "GitHubCostsIntegrationAccountResponse",
+  },
   "NebiusCloudIntegrationApi.V2.ListNebiusCloudIntegrationAccounts": {
     operationResponseType: "NebiusCloudIntegrationAccountsResponse",
   },
