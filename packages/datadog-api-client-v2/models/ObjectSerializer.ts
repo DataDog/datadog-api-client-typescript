@@ -2746,6 +2746,11 @@ import { GeneralInvestigationTrigger } from "./GeneralInvestigationTrigger";
 import { GenerateCostTagDescriptionResponse } from "./GenerateCostTagDescriptionResponse";
 import { GeneratedCostTagDescription } from "./GeneratedCostTagDescription";
 import { GeneratedCostTagDescriptionAttributes } from "./GeneratedCostTagDescriptionAttributes";
+import { GeneratedMetric } from "./GeneratedMetric";
+import { GeneratedMetricAttributesRelationship } from "./GeneratedMetricAttributesRelationship";
+import { GeneratedMetricAttributesRelationshipData } from "./GeneratedMetricAttributesRelationshipData";
+import { GeneratedMetricAttributesRelationshipLinks } from "./GeneratedMetricAttributesRelationshipLinks";
+import { GeneratedMetricRelationships } from "./GeneratedMetricRelationships";
 import { GetActionConnectionResponse } from "./GetActionConnectionResponse";
 import { GetAppKeyRegistrationResponse } from "./GetAppKeyRegistrationResponse";
 import { GetAppResponse } from "./GetAppResponse";
@@ -9012,6 +9017,8 @@ const enumsMap: { [key: string]: any[] } = {
   GeminiIntegrationType: ["Gemini"],
   GeneralInvestigationTriggerType: ["general_investigation"],
   GeneratedCostTagDescriptionType: ["cost_generated_tag_description"],
+  GeneratedMetricAttributesType: ["generated_metric_attributes"],
+  GeneratedMetricType: ["generated_metric"],
   GetAstRequestDataType: ["get_ast_request"],
   GetAstResponseDataType: ["get_ast_response"],
   GetIssueIncludeQueryParameterItem: [
@@ -15222,6 +15229,13 @@ const typeMap: { [index: string]: any } = {
   GenerateCostTagDescriptionResponse: GenerateCostTagDescriptionResponse,
   GeneratedCostTagDescription: GeneratedCostTagDescription,
   GeneratedCostTagDescriptionAttributes: GeneratedCostTagDescriptionAttributes,
+  GeneratedMetric: GeneratedMetric,
+  GeneratedMetricAttributesRelationship: GeneratedMetricAttributesRelationship,
+  GeneratedMetricAttributesRelationshipData:
+    GeneratedMetricAttributesRelationshipData,
+  GeneratedMetricAttributesRelationshipLinks:
+    GeneratedMetricAttributesRelationshipLinks,
+  GeneratedMetricRelationships: GeneratedMetricRelationships,
   GetActionConnectionResponse: GetActionConnectionResponse,
   GetAppKeyRegistrationResponse: GetAppKeyRegistrationResponse,
   GetAppResponse: GetAppResponse,
@@ -21856,7 +21870,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "MetricSLOAsset",
   ],
   MetricVolumes: ["MetricDistinctVolume", "MetricIngestedIndexedVolume"],
-  MetricsAndMetricTagConfigurations: ["Metric", "MetricTagConfiguration"],
+  MetricsAndMetricTagConfigurations: [
+    "Metric",
+    "MetricTagConfiguration",
+    "GeneratedMetric",
+  ],
   MonitorConfigPolicyPolicy: [
     "MonitorConfigPolicyTagPolicy",
     "MonitorConfigPolicyDowntimePolicy",

@@ -15,7 +15,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MetricsAndMetricTagConfigurationsResponse {
   /**
-   * Array of metrics and metric tag configurations.
+   * Array of metrics, metric tag configurations, and generated metrics.
    */
   "data"?: Array<MetricsAndMetricTagConfigurations>;
   /**
