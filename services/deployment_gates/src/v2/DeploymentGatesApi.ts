@@ -62,14 +62,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["DeploymentGatesApi.v2.createDeploymentGate"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createDeploymentGate' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.createDeploymentGate'] = true`",
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createDeploymentGate");
@@ -126,14 +118,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["DeploymentGatesApi.v2.createDeploymentRule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createDeploymentRule' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.createDeploymentRule'] = true`",
-      );
-    }
 
     // verify required parameter 'gateId' is not null or undefined
     if (gateId === null || gateId === undefined) {
@@ -199,14 +183,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["DeploymentGatesApi.v2.deleteDeploymentGate"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteDeploymentGate' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.deleteDeploymentGate'] = true`",
-      );
-    }
-
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
       throw new RequiredError("id", "deleteDeploymentGate");
@@ -257,14 +233,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["DeploymentGatesApi.v2.deleteDeploymentRule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteDeploymentRule' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.deleteDeploymentRule'] = true`",
-      );
-    }
 
     // verify required parameter 'gateId' is not null or undefined
     if (gateId === null || gateId === undefined) {
@@ -320,14 +288,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["DeploymentGatesApi.v2.getDeploymentGate"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getDeploymentGate' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.getDeploymentGate'] = true`",
-      );
-    }
-
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
       throw new RequiredError("id", "getDeploymentGate");
@@ -377,16 +337,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "DeploymentGatesApi.v2.getDeploymentGateRules"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getDeploymentGateRules' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.getDeploymentGateRules'] = true`",
-      );
-    }
 
     // verify required parameter 'gateId' is not null or undefined
     if (gateId === null || gateId === undefined) {
@@ -438,16 +388,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "DeploymentGatesApi.v2.getDeploymentGatesEvaluationResult"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getDeploymentGatesEvaluationResult' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.getDeploymentGatesEvaluationResult'] = true`",
-      );
-    }
-
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
       throw new RequiredError("id", "getDeploymentGatesEvaluationResult");
@@ -498,14 +438,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["DeploymentGatesApi.v2.getDeploymentRule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getDeploymentRule' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.getDeploymentRule'] = true`",
-      );
-    }
 
     // verify required parameter 'gateId' is not null or undefined
     if (gateId === null || gateId === undefined) {
@@ -571,16 +503,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "DeploymentGatesApi.v2.listDeploymentGateEvaluations"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listDeploymentGateEvaluations' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.listDeploymentGateEvaluations'] = true`",
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/deployment_gates/evaluations";
@@ -720,14 +642,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["DeploymentGatesApi.v2.listDeploymentGates"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listDeploymentGates' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.listDeploymentGates'] = true`",
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/deployment_gates";
 
@@ -829,16 +743,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "DeploymentGatesApi.v2.listDeploymentRuleEvaluations"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listDeploymentRuleEvaluations' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.listDeploymentRuleEvaluations'] = true`",
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/deployment_gates/evaluations/rules";
@@ -1013,16 +917,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "DeploymentGatesApi.v2.triggerDeploymentGatesEvaluation"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'triggerDeploymentGatesEvaluation' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.triggerDeploymentGatesEvaluation'] = true`",
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "triggerDeploymentGatesEvaluation");
@@ -1079,14 +973,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["DeploymentGatesApi.v2.updateDeploymentGate"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateDeploymentGate' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.updateDeploymentGate'] = true`",
-      );
-    }
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
@@ -1153,14 +1039,6 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["DeploymentGatesApi.v2.updateDeploymentRule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateDeploymentRule' is disabled. Enable it by setting `configuration.unstableOperations['DeploymentGatesApi.v2.updateDeploymentRule'] = true`",
-      );
-    }
 
     // verify required parameter 'gateId' is not null or undefined
     if (gateId === null || gateId === undefined) {
