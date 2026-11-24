@@ -14,8 +14,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RemediationGroupData {
   /**
-   * Attributes of a remediation group. Each group includes one kind object, `package_update` or `image_update`,
-   * depending on its grouping definition.
+   * Attributes of a remediation group. Each group includes one kind object, depending on its grouping definition.
    */
   "attributes": RemediationGroupAttributes;
   /**
