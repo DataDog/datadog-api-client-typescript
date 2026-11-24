@@ -17,6 +17,7 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { RumMetricCreateRequest } from "../models/RumMetricCreateRequest";
 import { RumMetricResponse } from "../models/RumMetricResponse";
 import { RumMetricsResponse } from "../models/RumMetricsResponse";
@@ -270,12 +271,33 @@ export class RumMetricsApiResponseProcessor {
       ) as RumMetricResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 409 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 409) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -335,11 +357,7 @@ export class RumMetricsApiResponseProcessor {
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -361,6 +379,32 @@ export class RumMetricsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -401,11 +445,7 @@ export class RumMetricsApiResponseProcessor {
       ) as RumMetricResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -427,6 +467,32 @@ export class RumMetricsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -551,11 +617,35 @@ export class RumMetricsApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
-      response.httpStatusCode === 409 ||
-      response.httpStatusCode === 429
+      response.httpStatusCode === 409
     ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
