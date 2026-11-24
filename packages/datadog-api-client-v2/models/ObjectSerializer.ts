@@ -5834,6 +5834,12 @@ import { SecurityFindingsSearchRequest } from "./SecurityFindingsSearchRequest";
 import { SecurityFindingsSearchRequestData } from "./SecurityFindingsSearchRequestData";
 import { SecurityFindingsSearchRequestDataAttributes } from "./SecurityFindingsSearchRequestDataAttributes";
 import { SecurityFindingsSearchRequestPage } from "./SecurityFindingsSearchRequestPage";
+import { SecurityMonitoringAWSIdentityCenterAWSAccount } from "./SecurityMonitoringAWSIdentityCenterAWSAccount";
+import { SecurityMonitoringAWSIdentityCenterAWSAccountsAttributes } from "./SecurityMonitoringAWSIdentityCenterAWSAccountsAttributes";
+import { SecurityMonitoringAWSIdentityCenterAWSAccountsData } from "./SecurityMonitoringAWSIdentityCenterAWSAccountsData";
+import { SecurityMonitoringAWSIdentityCenterAWSAccountsResponse } from "./SecurityMonitoringAWSIdentityCenterAWSAccountsResponse";
+import { SecurityMonitoringAWSIdentityCenterIntegrationConfigCreateAttributes } from "./SecurityMonitoringAWSIdentityCenterIntegrationConfigCreateAttributes";
+import { SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes } from "./SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes";
 import { SecurityMonitoringAzureAppRegistration } from "./SecurityMonitoringAzureAppRegistration";
 import { SecurityMonitoringBatchMigrationAttributes } from "./SecurityMonitoringBatchMigrationAttributes";
 import { SecurityMonitoringBatchMigrationCreateAttributes } from "./SecurityMonitoringBatchMigrationCreateAttributes";
@@ -10875,6 +10881,9 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityFindingsDataType: ["finding"],
   SecurityFindingsSort: ["@detection_changed_at", "-@detection_changed_at"],
   SecurityFindingsStatus: ["done", "timeout"],
+  SecurityMonitoringAWSIdentityCenterAWSAccountsResourceType: [
+    "aws_identity_center_aws_accounts",
+  ],
   SecurityMonitoringBatchMigrationInputSource: [
     "batch_migration",
     "threat_hunting",
@@ -10980,9 +10989,11 @@ const enumsMap: { [key: string]: any[] } = {
     "GOOGLE_WORKSPACE",
     "OKTA",
     "ENTRA_ID",
+    "AWS_IDENTITY_CENTER",
     "CROWDSTRIKE",
     "SENTINELONE",
   ],
+  SecurityMonitoringIntegrationTypeAWSIdentityCenter: ["AWS_IDENTITY_CENTER"],
   SecurityMonitoringIntegrationTypeCrowdStrike: ["CROWDSTRIKE"],
   SecurityMonitoringIntegrationTypeEntraId: ["ENTRA_ID"],
   SecurityMonitoringIntegrationTypeGoogleWorkspace: ["GOOGLE_WORKSPACE"],
@@ -19070,6 +19081,18 @@ const typeMap: { [index: string]: any } = {
   SecurityFindingsSearchRequestDataAttributes:
     SecurityFindingsSearchRequestDataAttributes,
   SecurityFindingsSearchRequestPage: SecurityFindingsSearchRequestPage,
+  SecurityMonitoringAWSIdentityCenterAWSAccount:
+    SecurityMonitoringAWSIdentityCenterAWSAccount,
+  SecurityMonitoringAWSIdentityCenterAWSAccountsAttributes:
+    SecurityMonitoringAWSIdentityCenterAWSAccountsAttributes,
+  SecurityMonitoringAWSIdentityCenterAWSAccountsData:
+    SecurityMonitoringAWSIdentityCenterAWSAccountsData,
+  SecurityMonitoringAWSIdentityCenterAWSAccountsResponse:
+    SecurityMonitoringAWSIdentityCenterAWSAccountsResponse,
+  SecurityMonitoringAWSIdentityCenterIntegrationConfigCreateAttributes:
+    SecurityMonitoringAWSIdentityCenterIntegrationConfigCreateAttributes,
+  SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes:
+    SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes,
   SecurityMonitoringAzureAppRegistration:
     SecurityMonitoringAzureAppRegistration,
   SecurityMonitoringBatchMigrationAttributes:
@@ -22223,6 +22246,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes",
     "SecurityMonitoringOktaIntegrationConfigCreateAttributes",
     "SecurityMonitoringEntraIdIntegrationConfigCreateAttributes",
+    "SecurityMonitoringAWSIdentityCenterIntegrationConfigCreateAttributes",
     "SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes",
     "SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes",
   ],
@@ -22230,6 +22254,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes",
     "SecurityMonitoringOktaIntegrationConfigUpdateAttributes",
     "SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes",
+    "SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes",
     "SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes",
     "SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes",
   ],
