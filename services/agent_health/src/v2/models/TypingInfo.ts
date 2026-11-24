@@ -22,7 +22,15 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     AgentHealthAgentType: ["node", "cluster"],
     AgentHealthHostIssuesType: ["agent_health_issues"],
+    AgentHealthIssueResourceKind: [
+      "host",
+      "deployment",
+      "cluster",
+      "cluster_agent",
+      "otel",
+    ],
     AgentHealthIssueResourceType: ["agent_health_issues"],
+    AgentHealthIssueSeverity: ["low", "medium", "high", "unknown"],
     AgentHealthIssuesCountBy: ["issue_type"],
   },
   oneOfMap: {},

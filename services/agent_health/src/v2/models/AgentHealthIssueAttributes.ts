@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { AgentHealthIssueResourceKind } from "./AgentHealthIssueResourceKind";
+import { AgentHealthIssueSeverity } from "./AgentHealthIssueSeverity";
 import { AgentHealthRemediation } from "./AgentHealthRemediation";
 
 /**
@@ -39,19 +41,19 @@ export class AgentHealthIssueAttributes {
    */
   "resourceId": string;
   /**
-   * The kind of affected resource. Known values are `host`, `deployment`, `cluster`, `cluster_agent`, and `otel`.
+   * The kind of affected resource. The meaning of `resource_id` depends on this: hostname for `host`, DaemonSet UID for `deployment` (node Agent), cluster UUID for `cluster`, hostname of the host running the Cluster Agent for `cluster_agent`, or OpenTelemetry collector ID for `otel`.
    */
-  "resourceKind": string;
+  "resourceKind": AgentHealthIssueResourceKind;
   /**
    * The type of the affected resource. Omitted when empty.
    */
   "resourceType"?: string;
   /**
-   * The severity of the issue. Known values are `low`, `medium`, `high`, and `unknown`.
+   * The severity of the issue.
    */
-  "severity": string;
+  "severity": AgentHealthIssueSeverity;
   /**
-   * The state of the issue. Only issues with state `open` are returned.
+   * The state of the issue, such as `open`.
    */
   "state": string;
   /**
@@ -119,7 +121,7 @@ export class AgentHealthIssueAttributes {
     },
     resourceKind: {
       baseName: "resource_kind",
-      type: "string",
+      type: "AgentHealthIssueResourceKind",
       required: true,
     },
     resourceType: {
@@ -128,7 +130,7 @@ export class AgentHealthIssueAttributes {
     },
     severity: {
       baseName: "severity",
-      type: "string",
+      type: "AgentHealthIssueSeverity",
       required: true,
     },
     state: {

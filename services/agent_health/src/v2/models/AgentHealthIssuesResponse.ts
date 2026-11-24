@@ -12,9 +12,9 @@ export class AgentHealthIssuesResponse {
    */
   "data": Array<AgentHealthIssueData>;
   /**
-   * Aggregate counts for the matching Agent Health issues. Present only when `count_by=issue_type` is requested.
+   * Pagination metadata for the matching Agent Health issues. Always present. Includes per-issue-type counts only when `count_by=issue_type` is requested.
    */
-  "meta"?: AgentHealthIssuesResponseMeta;
+  "meta": AgentHealthIssuesResponseMeta;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -38,6 +38,7 @@ export class AgentHealthIssuesResponse {
     meta: {
       baseName: "meta",
       type: "AgentHealthIssuesResponseMeta",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
