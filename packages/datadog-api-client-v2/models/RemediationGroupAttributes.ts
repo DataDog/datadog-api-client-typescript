@@ -4,14 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { RemediationGroupFindings } from "./RemediationGroupFindings";
-import { RemediationGroupImageUpdate } from "./RemediationGroupImageUpdate";
+import { RemediationGroupOwners } from "./RemediationGroupOwners";
 import { RemediationGroupPackageUpdate } from "./RemediationGroupPackageUpdate";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of a remediation group. Each group includes one kind object, `package_update` or `image_update`,
- * depending on its grouping definition.
+ * Attributes of a remediation group. Each group includes one kind object, depending on its grouping definition.
  */
 export class RemediationGroupAttributes {
   /**
@@ -20,15 +19,14 @@ export class RemediationGroupAttributes {
    */
   "findings": RemediationGroupFindings;
   /**
-   * Grouping definition that formed the group: `sca.package_update` or `cloudvm.image_update`.
+   * Grouping definition that formed the group, such as `sca.package_update`.
    */
   "groupingDefinitionId": string;
   /**
-   * An image or package to upgrade, for a group of host and container vulnerabilities (`cloudvm.image_update`).
-   * The group gathers the open vulnerabilities of running production images that have a fix available, and groups
-   * them by `grouping_location`, `remediation_kind`, and `action`.
+   * Who should fix the group: the code owners of the group's findings, from their `@git.codeowners` attribute,
+   * and their Datadog teams, from their `team` tag. A group with no owners has empty `items` and a `total` of 0.
    */
-  "imageUpdate"?: RemediationGroupImageUpdate;
+  "owners": RemediationGroupOwners;
   /**
    * A package to update in a repository, for a group of library vulnerabilities (`sca.package_update`). The group
    * gathers the open vulnerabilities of direct dependencies that have a recommended fix, and groups them by
@@ -66,9 +64,10 @@ export class RemediationGroupAttributes {
       type: "string",
       required: true,
     },
-    imageUpdate: {
-      baseName: "image_update",
-      type: "RemediationGroupImageUpdate",
+    owners: {
+      baseName: "owners",
+      type: "RemediationGroupOwners",
+      required: true,
     },
     packageUpdate: {
       baseName: "package_update",
