@@ -3659,6 +3659,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "AgentHealthIssuesCountBy",
             "format": "",
             },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
         "filterSeverity": {
             "type": "string",
             "format": "",

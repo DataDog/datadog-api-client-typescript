@@ -7476,7 +7476,15 @@ const enumsMap: { [key: string]: any[] } = {
   ActiveBillingDimensionsType: ["billing_dimensions"],
   AgentHealthAgentType: ["node", "cluster"],
   AgentHealthHostIssuesType: ["agent_health_issues"],
+  AgentHealthIssueResourceKind: [
+    "host",
+    "deployment",
+    "cluster",
+    "cluster_agent",
+    "otel",
+  ],
   AgentHealthIssueResourceType: ["agent_health_issues"],
+  AgentHealthIssueSeverity: ["low", "medium", "high", "unknown"],
   AgentHealthIssuesCountBy: ["issue_type"],
   AggregatedLongTasksRequestType: ["aggregated_long_tasks"],
   AggregatedWaterfallPerformanceCriteriaMetric: [

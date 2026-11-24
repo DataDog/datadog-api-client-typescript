@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A step to remediate the issue.
@@ -13,11 +13,11 @@ export class AgentHealthRemediationStep {
   /**
    * The order in which to perform the step.
    */
-  "order"?: Int64;
+  "order": number;
   /**
    * The instructions for the step.
    */
-  "text"?: string;
+  "text": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -38,11 +38,13 @@ export class AgentHealthRemediationStep {
     order: {
       baseName: "order",
       type: "number",
-      format: "int64",
+      required: true,
+      format: "int32",
     },
     text: {
       baseName: "text",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
