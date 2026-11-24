@@ -11,7 +11,7 @@ export class OpenAICodexIntegrationAccountBearerTokenAuthUpdate {
    */
   "authType": OpenAICodexIntegrationAccountBearerTokenAuthType;
   /**
-   * Secret token used to authenticate with OpenAI Codex.
+   * Workspace-scoped OpenAI Admin key with the `codex.enterprise.analytics.read` scope. To collect turn metrics, also grant `chatgpt.enterprise.compliance_logs_platform.workspace_analytics.read` to the same key.
    */
   "token"?: string;
   /**
