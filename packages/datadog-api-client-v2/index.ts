@@ -5140,6 +5140,7 @@ export { EnvironmentAttributes } from "./models/EnvironmentAttributes";
 export { EnvironmentResponse } from "./models/EnvironmentResponse";
 export { EnvironmentsPaginationMeta } from "./models/EnvironmentsPaginationMeta";
 export { EnvironmentsPaginationMetaPage } from "./models/EnvironmentsPaginationMetaPage";
+export { EnvironmentSubjectAuthorizationState } from "./models/EnvironmentSubjectAuthorizationState";
 export { EPSS } from "./models/EPSS";
 export { ErrorHandler } from "./models/ErrorHandler";
 export { Escalation } from "./models/Escalation";

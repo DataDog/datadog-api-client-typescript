@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { EnvironmentSubjectAuthorizationState } from "./EnvironmentSubjectAuthorizationState";
 import { FeatureFlagStatus } from "./FeatureFlagStatus";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -59,6 +60,14 @@ export class FeatureFlagEnvironmentListItem {
    * The status of a feature flag in an environment.
    */
   "status": FeatureFlagStatus;
+  /**
+   * The environment's associated Custom OIDC provider ID, or `null` when no provider is associated.
+   */
+  "subjectAuthorizationOidcProviderId"?: string;
+  /**
+   * Whether assignment requests for this environment require subject authorization. Allowed values are `disabled` and `enabled`. Enabling requires a provider ID formatted as a nonzero UUID. If omitted on create, defaults to `disabled`. If omitted on update, the stored state is preserved. `null` is not accepted. This setting applies only to the current Datadog site and is not copied to other sites. Before you enable it, configure an eligible Custom OIDC provider in the same organization and site, and verify that the provider's keys are published. Assignment requests fail when the required verification configuration is unavailable.
+   */
+  "subjectAuthorizationState"?: EnvironmentSubjectAuthorizationState;
 
   /**
    * A container for additional, undeclared properties.
@@ -126,6 +135,15 @@ export class FeatureFlagEnvironmentListItem {
       baseName: "status",
       type: "FeatureFlagStatus",
       required: true,
+    },
+    subjectAuthorizationOidcProviderId: {
+      baseName: "subject_authorization_oidc_provider_id",
+      type: "string",
+      format: "uuid",
+    },
+    subjectAuthorizationState: {
+      baseName: "subject_authorization_state",
+      type: "EnvironmentSubjectAuthorizationState",
     },
     additionalProperties: {
       baseName: "additionalProperties",

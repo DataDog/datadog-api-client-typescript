@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { EnvironmentSubjectAuthorizationState } from "./EnvironmentSubjectAuthorizationState";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -30,6 +31,14 @@ export class CreateEnvironmentAttributes {
    * Indicates whether feature flag changes require approval in this environment.
    */
   "requireFeatureFlagApproval"?: boolean;
+  /**
+   * The ID of a Custom OIDC provider, formatted as a nonzero UUID. Required when `subject_authorization_state` is `enabled`. If omitted or `null`, no provider is associated. A non-null ID must be registered in the current organization and site, even when subject authorization is disabled. An unregistered ID returns `400 Bad Request`, and an unavailable registry returns `503 Service Unavailable`. Saving does not verify provider eligibility or key publication.
+   */
+  "subjectAuthorizationOidcProviderId"?: string;
+  /**
+   * Whether assignment requests for this environment require subject authorization. Allowed values are `disabled` and `enabled`. Enabling requires a provider ID formatted as a nonzero UUID. If omitted on create, defaults to `disabled`. If omitted on update, the stored state is preserved. `null` is not accepted. This setting applies only to the current Datadog site and is not copied to other sites. Before you enable it, configure an eligible Custom OIDC provider in the same organization and site, and verify that the provider's keys are published. Assignment requests fail when the required verification configuration is unavailable.
+   */
+  "subjectAuthorizationState"?: EnvironmentSubjectAuthorizationState;
 
   /**
    * A container for additional, undeclared properties.
@@ -68,6 +77,15 @@ export class CreateEnvironmentAttributes {
     requireFeatureFlagApproval: {
       baseName: "require_feature_flag_approval",
       type: "boolean",
+    },
+    subjectAuthorizationOidcProviderId: {
+      baseName: "subject_authorization_oidc_provider_id",
+      type: "string",
+      format: "uuid",
+    },
+    subjectAuthorizationState: {
+      baseName: "subject_authorization_state",
+      type: "EnvironmentSubjectAuthorizationState",
     },
     additionalProperties: {
       baseName: "additionalProperties",
