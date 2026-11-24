@@ -1,0 +1,57 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { SecurityAgentOutreachModeAttributes } from "./SecurityAgentOutreachModeAttributes";
+import { SecurityAgentOutreachPolicyType } from "./SecurityAgentOutreachPolicyType";
+
+/**
+ * Data of a mode-only policy update request.
+ */
+export class SecurityAgentOutreachModeUpdateData {
+  /**
+   * Attributes of a mode-only policy update.
+   */
+  "attributes": SecurityAgentOutreachModeAttributes;
+  /**
+   * Type of the outreach policy resource.
+   */
+  "type": SecurityAgentOutreachPolicyType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "SecurityAgentOutreachModeAttributes",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "SecurityAgentOutreachPolicyType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return SecurityAgentOutreachModeUpdateData.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
