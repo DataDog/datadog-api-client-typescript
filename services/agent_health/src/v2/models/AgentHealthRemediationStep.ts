@@ -7,11 +7,11 @@ export class AgentHealthRemediationStep {
   /**
    * The order in which to perform the step.
    */
-  "order"?: number;
+  "order": number;
   /**
    * The instructions for the step.
    */
-  "text"?: string;
+  "text": string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,11 +30,13 @@ export class AgentHealthRemediationStep {
     order: {
       baseName: "order",
       type: "number",
-      format: "int64",
+      required: true,
+      format: "int32",
     },
     text: {
       baseName: "text",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

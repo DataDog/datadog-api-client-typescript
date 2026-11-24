@@ -13,9 +13,11 @@ export { AgentHealthHostIssuesResponse } from "./models/AgentHealthHostIssuesRes
 export { AgentHealthHostIssuesType } from "./models/AgentHealthHostIssuesType";
 export { AgentHealthIssueAttributes } from "./models/AgentHealthIssueAttributes";
 export { AgentHealthIssueData } from "./models/AgentHealthIssueData";
+export { AgentHealthIssueResourceKind } from "./models/AgentHealthIssueResourceKind";
 export { AgentHealthIssueResourceType } from "./models/AgentHealthIssueResourceType";
 export { AgentHealthIssueResponse } from "./models/AgentHealthIssueResponse";
 export { AgentHealthIssuesCountBy } from "./models/AgentHealthIssuesCountBy";
+export { AgentHealthIssueSeverity } from "./models/AgentHealthIssueSeverity";
 export { AgentHealthIssuesResponse } from "./models/AgentHealthIssuesResponse";
 export { AgentHealthIssuesResponseMeta } from "./models/AgentHealthIssuesResponseMeta";
 export { AgentHealthIssuesResponsePage } from "./models/AgentHealthIssuesResponsePage";

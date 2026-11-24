@@ -1,13 +1,21 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Counts for the matching Agent Health issues.
+ * Pagination details and counts for the matching Agent Health issues.
  */
 export class AgentHealthIssuesResponsePage {
   /**
    * The number of open issues matching the filters in each issue-type group.
    */
-  "countsByIssueType": { [key: string]: number };
+  "countsByIssueType"?: { [key: string]: number };
+  /**
+   * The maximum number of issues returned, echoing the requested `page[limit]`.
+   */
+  "limit": number;
+  /**
+   * The number of issues skipped, echoing the requested `page[offset]`.
+   */
+  "offset": number;
   /**
    * The total number of open issues matching the filters.
    */
@@ -30,7 +38,18 @@ export class AgentHealthIssuesResponsePage {
     countsByIssueType: {
       baseName: "counts_by_issue_type",
       type: "{ [key: string]: number; }",
+    },
+    limit: {
+      baseName: "limit",
+      type: "number",
       required: true,
+      format: "int64",
+    },
+    offset: {
+      baseName: "offset",
+      type: "number",
+      required: true,
+      format: "int64",
     },
     totalCount: {
       baseName: "total_count",
