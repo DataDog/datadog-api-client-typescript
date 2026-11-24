@@ -15,9 +15,11 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { AgentHealthAgentType } from "../models/AgentHealthAgentType";
 import { AgentHealthHostIssuesResponse } from "../models/AgentHealthHostIssuesResponse";
+import { AgentHealthIssueData } from "../models/AgentHealthIssueData";
 import { AgentHealthIssueResponse } from "../models/AgentHealthIssueResponse";
 import { AgentHealthIssuesCountBy } from "../models/AgentHealthIssuesCountBy";
 import { AgentHealthIssuesResponse } from "../models/AgentHealthIssuesResponse";
@@ -30,11 +32,6 @@ export class AgentHealthApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getAgentHealthIssue'");
-    if (!_config.unstableOperations["v2.getAgentHealthIssue"]) {
-      throw new Error("Unstable operation 'getAgentHealthIssue' is disabled");
-    }
 
     // verify required parameter 'issueId' is not null or undefined
     if (issueId === null || issueId === undefined) {
@@ -117,6 +114,8 @@ export class AgentHealthApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listAgentHealthIssues(
     countBy?: AgentHealthIssuesCountBy,
+    pageLimit?: Int64Input,
+    pageOffset?: Int64Input,
     filterSeverity?: string,
     filterCategory?: string,
     filterIssueType?: string,
@@ -125,11 +124,6 @@ export class AgentHealthApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'listAgentHealthIssues'");
-    if (!_config.unstableOperations["v2.listAgentHealthIssues"]) {
-      throw new Error("Unstable operation 'listAgentHealthIssues' is disabled");
-    }
 
     // Path Params
     const localVarPath = "/api/v2/agenthealth/issues";
@@ -151,6 +145,20 @@ export class AgentHealthApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "count_by",
         ObjectSerializer.serialize(countBy, "AgentHealthIssuesCountBy", ""),
+        ""
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
         ""
       );
     }
@@ -235,6 +243,7 @@ export class AgentHealthApiResponseProcessor {
       return body;
     }
     if (
+      response.httpStatusCode === 400 ||
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
@@ -513,10 +522,20 @@ export interface AgentHealthApiListAgentHealthHostIssuesRequest {
 
 export interface AgentHealthApiListAgentHealthIssuesRequest {
   /**
-   * Set to `issue_type` to include `meta.page` with `total_count` and per-issue-type counts. If you don't set this parameter, the response omits `meta`. Only `issue_type` is supported.
+   * Set to `issue_type` to also include `counts_by_issue_type` in `meta.page` with per-issue-type counts. Pagination metadata is always included. Only `issue_type` is supported.
    * @type AgentHealthIssuesCountBy
    */
   countBy?: AgentHealthIssuesCountBy;
+  /**
+   * The maximum number of issues to return. Defaults to 100, with a minimum of 1 and a maximum of 1000.
+   * @type Int64Input
+   */
+  pageLimit?: Int64Input;
+  /**
+   * The number of issues to skip before returning results. Defaults to 0, with a minimum of 0.
+   * @type Int64Input
+   */
+  pageOffset?: Int64Input;
   /**
    * Filter by a comma-separated list of exact `severity` values, up to 50 values
    * of at most 256 characters each. Values are combined with OR within this filter and AND across filters.
@@ -573,12 +592,11 @@ export class AgentHealthApi {
 
   /**
    * Get an Agent Health issue and its available remediation in your organization.
-   * Only open issues are returned. The `remediation` attribute is omitted when
-   * the issue has no remediation.
+   * The `remediation` attribute is omitted when the issue has no remediation.
    *
-   * Returns `404` if the issue does not exist, is not open, belongs to another
-   * organization, or you do not have access to its data. This response does not
-   * reveal whether the issue exists. Returns `403` if you lack the `hosts_read` permission.
+   * Returns `404` if the issue does not exist, belongs to another organization, or
+   * you do not have access to its data. This response does not reveal whether the
+   * issue exists. Returns `403` if you lack the `hosts_read` permission.
    * @param param The request object
    */
   public getAgentHealthIssue(
@@ -631,9 +649,9 @@ export class AgentHealthApi {
    * (`high`, `medium`, `low`, then other values), then `first_seen_at` descending with
    * missing timestamps last, then issue ID ascending.
    *
-   * Set `count_by=issue_type` to include `meta.page`, where `total_count` is the number of
-   * open issues matching the filters and `counts_by_issue_type` holds the per-type counts.
-   * `meta` is omitted when `count_by` is not requested.
+   * The response always includes `meta.page` with the applied `limit`, `offset`, and
+   * `total_count` (the number of open issues matching the filters). Set `count_by=issue_type`
+   * to also include `counts_by_issue_type` with per-issue-type counts.
    *
    * Each filter accepts up to 50 comma-separated exact values of at most 256 characters
    * each, combined with OR within a filter and AND across filters. Blank entries are ignored; an all-blank filter
@@ -646,6 +664,8 @@ export class AgentHealthApi {
   ): Promise<AgentHealthIssuesResponse> {
     const requestContextPromise = this.requestFactory.listAgentHealthIssues(
       param.countBy,
+      param.pageLimit,
+      param.pageOffset,
       param.filterSeverity,
       param.filterCategory,
       param.filterIssueType,
@@ -660,5 +680,55 @@ export class AgentHealthApi {
           return this.responseProcessor.listAgentHealthIssues(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listAgentHealthIssues returning a generator with all the items.
+   */
+  public async *listAgentHealthIssuesWithPagination(
+    param: AgentHealthApiListAgentHealthIssuesRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<AgentHealthIssueData> {
+    let pageSize = 100;
+    if (param.pageLimit !== undefined) {
+      pageSize = Number(param.pageLimit);
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listAgentHealthIssues(
+        param.countBy,
+        param.pageLimit,
+        param.pageOffset,
+        param.filterSeverity,
+        param.filterCategory,
+        param.filterIssueType,
+        param.filterResourceKind,
+        param.filterResourceId,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listAgentHealthIssues(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.pageOffset === undefined) {
+        param.pageOffset = pageSize;
+      } else {
+        param.pageOffset = Number(param.pageOffset) + pageSize;
+      }
+    }
   }
 }

@@ -29,7 +29,7 @@ export class AgentHealthRemediationScript {
   /**
    * Whether the script requires root privileges.
    */
-  "requiresRoot"?: boolean;
+  "requiresRoot": boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -66,6 +66,7 @@ export class AgentHealthRemediationScript {
     requiresRoot: {
       baseName: "requires_root",
       type: "boolean",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
