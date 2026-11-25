@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MonitorOptionsSchedulingOptions {
   /**
-   * Configuration options for the custom schedule. **This feature is in private beta.**
+   * Configuration options for the custom schedule.
    */
   "customSchedule"?: MonitorOptionsCustomSchedule;
   /**
