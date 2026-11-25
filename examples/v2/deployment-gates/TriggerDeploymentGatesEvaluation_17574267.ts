@@ -1,0 +1,54 @@
+/**
+ * Trigger a deployment gates evaluation with an inline bits deployment analysis rule returns "Accepted" response
+ */
+
+import { client, v2 } from "@datadog/datadog-api-client";
+
+const configuration = client.createConfiguration({
+  authMethods: {
+    AuthZ: {
+      accessToken: process.env.DD_BEARER_TOKEN as string,
+    },
+  },
+});
+configuration.unstableOperations["v2.triggerDeploymentGatesEvaluation"] = true;
+const apiInstance = new v2.DeploymentGatesApi(configuration);
+
+// there is a valid "deployment_gate" in the system
+const DEPLOYMENT_GATE_DATA_ATTRIBUTES_IDENTIFIER = process.env
+  .DEPLOYMENT_GATE_DATA_ATTRIBUTES_IDENTIFIER as string;
+
+const params: v2.DeploymentGatesApiTriggerDeploymentGatesEvaluationRequest = {
+  body: {
+    data: {
+      attributes: {
+        configuration: {
+          dryRun: false,
+          rules: [
+            {
+              dryRun: false,
+              name: "bits deployment analysis",
+              options: {
+                duration: 900,
+              },
+              type: "bits_deployment_analysis",
+            },
+          ],
+        },
+        env: "production",
+        identifier: DEPLOYMENT_GATE_DATA_ATTRIBUTES_IDENTIFIER,
+        service: "my-service",
+      },
+      type: "deployment_gates_evaluation_request",
+    },
+  },
+};
+
+apiInstance
+  .triggerDeploymentGatesEvaluation(params)
+  .then((data: v2.DeploymentGatesEvaluationResponse) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
