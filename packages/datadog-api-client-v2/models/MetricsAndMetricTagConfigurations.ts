@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { GeneratedMetric } from "./GeneratedMetric";
 import { Metric } from "./Metric";
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
 
@@ -15,4 +16,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type MetricsAndMetricTagConfigurations =
   | Metric
   | MetricTagConfiguration
+  | GeneratedMetric
   | UnparsedObject;

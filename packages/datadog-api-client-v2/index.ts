@@ -5928,6 +5928,13 @@ export { GenerateCostTagDescriptionResponse } from "./models/GenerateCostTagDesc
 export { GeneratedCostTagDescription } from "./models/GeneratedCostTagDescription";
 export { GeneratedCostTagDescriptionAttributes } from "./models/GeneratedCostTagDescriptionAttributes";
 export { GeneratedCostTagDescriptionType } from "./models/GeneratedCostTagDescriptionType";
+export { GeneratedMetric } from "./models/GeneratedMetric";
+export { GeneratedMetricAttributesRelationship } from "./models/GeneratedMetricAttributesRelationship";
+export { GeneratedMetricAttributesRelationshipData } from "./models/GeneratedMetricAttributesRelationshipData";
+export { GeneratedMetricAttributesRelationshipLinks } from "./models/GeneratedMetricAttributesRelationshipLinks";
+export { GeneratedMetricAttributesType } from "./models/GeneratedMetricAttributesType";
+export { GeneratedMetricRelationships } from "./models/GeneratedMetricRelationships";
+export { GeneratedMetricType } from "./models/GeneratedMetricType";
 export { GetActionConnectionResponse } from "./models/GetActionConnectionResponse";
 export { GetAppKeyRegistrationResponse } from "./models/GetAppKeyRegistrationResponse";
 export { GetAppResponse } from "./models/GetAppResponse";
