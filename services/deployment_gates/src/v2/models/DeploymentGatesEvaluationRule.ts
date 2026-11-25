@@ -1,5 +1,6 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
+import { DeploymentGatesBitsDeploymentAnalysisRule } from "./DeploymentGatesBitsDeploymentAnalysisRule";
 import { DeploymentGatesFDDRule } from "./DeploymentGatesFDDRule";
 import { DeploymentGatesMonitorRule } from "./DeploymentGatesMonitorRule";
 
@@ -9,4 +10,5 @@ import { DeploymentGatesMonitorRule } from "./DeploymentGatesMonitorRule";
 export type DeploymentGatesEvaluationRule =
   | DeploymentGatesMonitorRule
   | DeploymentGatesFDDRule
+  | DeploymentGatesBitsDeploymentAnalysisRule
   | UnparsedObject;
