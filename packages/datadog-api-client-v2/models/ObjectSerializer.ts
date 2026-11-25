@@ -2004,7 +2004,6 @@ import { DowntimeResponse } from "./DowntimeResponse";
 import { DowntimeResponseAttributes } from "./DowntimeResponseAttributes";
 import { DowntimeResponseData } from "./DowntimeResponseData";
 import { DowntimeRunAsItem } from "./DowntimeRunAsItem";
-import { DowntimeRunAsPrincipal } from "./DowntimeRunAsPrincipal";
 import { DowntimeScheduleCurrentDowntimeResponse } from "./DowntimeScheduleCurrentDowntimeResponse";
 import { DowntimeScheduleOneTimeCreateUpdateRequest } from "./DowntimeScheduleOneTimeCreateUpdateRequest";
 import { DowntimeScheduleOneTimeResponse } from "./DowntimeScheduleOneTimeResponse";
@@ -8442,7 +8441,6 @@ const enumsMap: { [key: string]: any[] } = {
   DowntimeNotifyEndStateActions: ["canceled", "expired"],
   DowntimeNotifyEndStateTypes: ["alert", "no data", "warn"],
   DowntimeResourceType: ["downtime"],
-  DowntimeRunAsPrincipalType: ["user", "role", "team"],
   DowntimeStatus: ["active", "canceled", "ended", "scheduled"],
   DueDateFrom: ["first_seen", "fix_available"],
   DueDateRuleType: ["due_date_rules"],
@@ -14255,7 +14253,6 @@ const typeMap: { [index: string]: any } = {
   DowntimeResponseAttributes: DowntimeResponseAttributes,
   DowntimeResponseData: DowntimeResponseData,
   DowntimeRunAsItem: DowntimeRunAsItem,
-  DowntimeRunAsPrincipal: DowntimeRunAsPrincipal,
   DowntimeScheduleCurrentDowntimeResponse:
     DowntimeScheduleCurrentDowntimeResponse,
   DowntimeScheduleOneTimeCreateUpdateRequest:
