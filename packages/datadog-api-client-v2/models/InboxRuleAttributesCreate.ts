@@ -17,7 +17,7 @@ export class InboxRuleAttributesCreate {
    */
   "action": InboxRuleAction;
   /**
-   * Whether the inbox rule is enabled.
+   * Whether the inbox rule is enabled. If it is omitted, the API saves it as `false` and the rule doesn't apply.
    */
   "enabled"?: boolean;
   /**

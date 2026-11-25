@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The ticketing system to create tickets in.
+ * The ticketing system to create tickets in. `case_management` is Datadog Work Management, formerly called Case Management.
  */
 
 export type TicketCreationTarget =
