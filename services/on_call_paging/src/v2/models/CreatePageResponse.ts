@@ -7,7 +7,7 @@ import { CreatePageResponseData } from "./CreatePageResponseData";
  */
 export class CreatePageResponse {
   /**
-   * The information returned after successfully creating a page.
+   * The information returned after successfully creating a Page.
    */
   "data"?: CreatePageResponseData;
   /**
