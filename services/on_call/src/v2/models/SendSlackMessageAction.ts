@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { SendSlackMessageActionCustomizableContent } from "./SendSlackMessageActionCustomizableContent";
 import { SendSlackMessageActionType } from "./SendSlackMessageActionType";
 
 /**
@@ -10,6 +11,10 @@ export class SendSlackMessageAction {
    * The channel ID.
    */
   "channel": string;
+  /**
+   * Options that customize the content of the Slack message sent for a Page.
+   */
+  "customizableContent"?: SendSlackMessageActionCustomizableContent;
   /**
    * Indicates that the action is a send Slack message action.
    */
@@ -37,6 +42,10 @@ export class SendSlackMessageAction {
       baseName: "channel",
       type: "string",
       required: true,
+    },
+    customizableContent: {
+      baseName: "customizable_content",
+      type: "SendSlackMessageActionCustomizableContent",
     },
     type: {
       baseName: "type",
