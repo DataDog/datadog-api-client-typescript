@@ -15,7 +15,7 @@ export class ObservabilityPipelineMtlsServerTls {
    */
   "caFile"?: string;
   /**
-   * Path to the TLS server certificate file used to used to identify the pipeline component to connecting clients.
+   * Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
    */
   "crtFile": string;
   /**

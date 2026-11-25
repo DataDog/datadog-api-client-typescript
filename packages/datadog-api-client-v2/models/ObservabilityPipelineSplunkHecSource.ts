@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
+import { ObservabilityPipelineMtlsServerTlsWithClientIdentity } from "./ObservabilityPipelineMtlsServerTlsWithClientIdentity";
 import { ObservabilityPipelineSplunkHecSourceType } from "./ObservabilityPipelineSplunkHecSourceType";
 import { ObservabilityPipelineSplunkHecSourceValidToken } from "./ObservabilityPipelineSplunkHecSourceValidToken";
 
@@ -29,9 +29,9 @@ export class ObservabilityPipelineSplunkHecSource {
    */
   "storeHecToken"?: boolean;
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+   * Configuration for enabling TLS encryption between the pipeline component and external connecting clients, or mutual TLS when `verify_certificate` is `true`. Mutual TLS also enables an optional allowlist of client certificate identities.
    */
-  "tls"?: ObservabilityPipelineMtlsServerTls;
+  "tls"?: ObservabilityPipelineMtlsServerTlsWithClientIdentity;
   /**
    * The source type. Always `splunk_hec`.
    */
@@ -73,7 +73,7 @@ export class ObservabilityPipelineSplunkHecSource {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineMtlsServerTls",
+      type: "ObservabilityPipelineMtlsServerTlsWithClientIdentity",
     },
     type: {
       baseName: "type",

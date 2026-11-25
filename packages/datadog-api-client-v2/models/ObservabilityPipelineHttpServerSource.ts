@@ -7,7 +7,7 @@ import { ObservabilityPipelineDecoding } from "./ObservabilityPipelineDecoding";
 import { ObservabilityPipelineHttpServerSourceAuthStrategy } from "./ObservabilityPipelineHttpServerSourceAuthStrategy";
 import { ObservabilityPipelineHttpServerSourceType } from "./ObservabilityPipelineHttpServerSourceType";
 import { ObservabilityPipelineHttpServerSourceValidToken } from "./ObservabilityPipelineHttpServerSourceValidToken";
-import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
+import { ObservabilityPipelineMtlsServerTlsWithClientIdentity } from "./ObservabilityPipelineMtlsServerTlsWithClientIdentity";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -42,9 +42,9 @@ export class ObservabilityPipelineHttpServerSource {
    */
   "passwordKey"?: string;
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+   * Configuration for enabling TLS encryption between the pipeline component and external connecting clients, or mutual TLS when `verify_certificate` is `true`. Mutual TLS also enables an optional allowlist of client certificate identities.
    */
-  "tls"?: ObservabilityPipelineMtlsServerTls;
+  "tls"?: ObservabilityPipelineMtlsServerTlsWithClientIdentity;
   /**
    * The source type. The value should always be `http_server`.
    */
@@ -105,7 +105,7 @@ export class ObservabilityPipelineHttpServerSource {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineMtlsServerTls",
+      type: "ObservabilityPipelineMtlsServerTlsWithClientIdentity",
     },
     type: {
       baseName: "type",
