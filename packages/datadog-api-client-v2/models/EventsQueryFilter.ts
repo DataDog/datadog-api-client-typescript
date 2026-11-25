@@ -11,15 +11,16 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EventsQueryFilter {
   /**
-   * The minimum time for the requested events. Supports date math and regular timestamps in milliseconds.
+   * The minimum time for the requested events. Supports date math, ISO 8601, and timestamps in milliseconds.
+   * Set an earlier time than the default to search beyond the last 15 minutes.
    */
   "from"?: string;
   /**
-   * The search query following the event search syntax.
+   * The search query following the event search syntax. Attributes take `@` (`@evt.category:alert`); tags and reserved fields don't (`service:web`).
    */
   "query"?: string;
   /**
-   * The maximum time for the requested events. Supports date math and regular timestamps in milliseconds.
+   * The maximum time for the requested events. Supports date math, ISO 8601, and timestamps in milliseconds.
    */
   "to"?: string;
 
