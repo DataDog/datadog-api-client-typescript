@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.getDeploymentRule"] = true;
 const apiInstance = new v2.DeploymentGatesApi(configuration);
 
 // there is a valid "deployment_gate" in the system
