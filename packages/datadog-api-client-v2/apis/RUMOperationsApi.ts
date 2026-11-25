@@ -21,9 +21,11 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { RUMOperationCreateRequest } from "../models/RUMOperationCreateRequest";
 import { RUMOperationResponse } from "../models/RUMOperationResponse";
+import { RUMOperationResponseData } from "../models/RUMOperationResponseData";
 import { RUMOperationsListResponse } from "../models/RUMOperationsListResponse";
 import { RUMOperationStrongLinkCreateRequest } from "../models/RUMOperationStrongLinkCreateRequest";
 import { RUMOperationStrongLinkResponse } from "../models/RUMOperationStrongLinkResponse";
+import { RUMOperationStrongLinkResponseData } from "../models/RUMOperationStrongLinkResponseData";
 import { RUMOperationStrongLinksListResponse } from "../models/RUMOperationStrongLinksListResponse";
 import { RUMOperationStrongLinkUpdateRequest } from "../models/RUMOperationStrongLinkUpdateRequest";
 import { RUMOperationUpdateRequest } from "../models/RUMOperationUpdateRequest";
@@ -1849,6 +1851,55 @@ export class RUMOperationsApi {
   }
 
   /**
+   * Provide a paginated version of listRUMOperations returning a generator with all the items.
+   */
+  public async *listRUMOperationsWithPagination(
+    param: RUMOperationsApiListRUMOperationsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<RUMOperationResponseData> {
+    let pageSize = 50;
+    if (param.pageLimit !== undefined) {
+      pageSize = Number(param.pageLimit);
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listRUMOperations(
+        param.query,
+        param.pageOffset,
+        param.pageLimit,
+        param.creator,
+        param.team,
+        param.featureId,
+        param.applicationId,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listRUMOperations(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.pageOffset === undefined) {
+        param.pageOffset = pageSize;
+      } else {
+        param.pageOffset = Number(param.pageOffset) + pageSize;
+      }
+    }
+  }
+
+  /**
    * List links between RUM operations and journeys. A link confirms that a journey
    * belongs to an operation. Provide `operation_id`, `feature_id` (journey ID), or both to filter results;
    * at least one is required.
@@ -1875,6 +1926,53 @@ export class RUMOperationsApi {
           );
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listRUMOperationStrongLinks returning a generator with all the items.
+   */
+  public async *listRUMOperationStrongLinksWithPagination(
+    param: RUMOperationsApiListRUMOperationStrongLinksRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<RUMOperationStrongLinkResponseData> {
+    let pageSize = 50;
+    if (param.pageLimit !== undefined) {
+      pageSize = Number(param.pageLimit);
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext =
+        await this.requestFactory.listRUMOperationStrongLinks(
+          param.operationId,
+          param.featureId,
+          param.pageOffset,
+          param.pageLimit,
+          options
+        );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listRUMOperationStrongLinks(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.pageOffset === undefined) {
+        param.pageOffset = pageSize;
+      } else {
+        param.pageOffset = Number(param.pageOffset) + pageSize;
+      }
+    }
   }
 
   /**

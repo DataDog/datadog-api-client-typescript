@@ -17,6 +17,7 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+import { RumArchiveConfig } from "../models/RumArchiveConfig";
 import { RumArchiveConfigListResponse } from "../models/RumArchiveConfigListResponse";
 import { RumArchiveConfigResponse } from "../models/RumArchiveConfigResponse";
 import { RumArchiveConfigUpsertRequest } from "../models/RumArchiveConfigUpsertRequest";
@@ -733,6 +734,47 @@ export class RUMManagedArchivesApi {
           return this.responseProcessor.listRUMArchiveConfigs(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listRUMArchiveConfigs returning a generator with all the items.
+   */
+  public async *listRUMArchiveConfigsWithPagination(
+    param: RUMManagedArchivesApiListRUMArchiveConfigsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<RumArchiveConfig> {
+    let pageSize = 20;
+    if (param.pageSize !== undefined) {
+      pageSize = Number(param.pageSize);
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.listRUMArchiveConfigs(
+        param.pageNumber,
+        param.pageSize,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listRUMArchiveConfigs(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = Number(param.pageNumber) + 1;
+    }
   }
 
   /**
