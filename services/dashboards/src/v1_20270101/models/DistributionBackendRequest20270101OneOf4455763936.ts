@@ -1,0 +1,46 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { LogQueryDefinition } from "./LogQueryDefinition";
+import { RequestStyle } from "./RequestStyle";
+
+/**
+ * Test-only generated schema for the dashboard versioning proof of concept.
+ */
+export class DistributionBackendRequest20270101OneOf4455763936 {
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "apmQuery": LogQueryDefinition;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "style"?: RequestStyle;
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    apmQuery: {
+      baseName: "apm_query",
+      type: "LogQueryDefinition",
+      required: true,
+    },
+    style: {
+      baseName: "style",
+      type: "RequestStyle",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return DistributionBackendRequest20270101OneOf4455763936.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

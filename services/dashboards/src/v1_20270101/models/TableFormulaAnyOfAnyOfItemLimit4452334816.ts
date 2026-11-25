@@ -1,0 +1,45 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { QuerySortOrder } from "./QuerySortOrder";
+
+/**
+ * Test-only generated schema for the dashboard versioning proof of concept.
+ */
+export class TableFormulaAnyOfAnyOfItemLimit4452334816 {
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "count"?: number;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "order"?: QuerySortOrder;
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    count: {
+      baseName: "count",
+      type: "number",
+      format: "double",
+    },
+    order: {
+      baseName: "order",
+      type: "QuerySortOrder",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return TableFormulaAnyOfAnyOfItemLimit4452334816.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

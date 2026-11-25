@@ -1,0 +1,64 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { ComparisonRequest } from "./ComparisonRequest";
+import { LogQueryDefinition } from "./LogQueryDefinition";
+import { ScalarAggregator } from "./ScalarAggregator";
+import { ThresholdFormattingRule } from "./ThresholdFormattingRule";
+
+/**
+ * Test-only generated schema for the dashboard versioning proof of concept.
+ */
+export class QueryValueBackendRequest20270101OneOf4460908192 {
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "aggregator"?: ScalarAggregator;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "comparison"?: ComparisonRequest;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "conditionalFormats"?: Array<ThresholdFormattingRule>;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "eventQuery": LogQueryDefinition;
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    aggregator: {
+      baseName: "aggregator",
+      type: "ScalarAggregator",
+    },
+    comparison: {
+      baseName: "comparison",
+      type: "ComparisonRequest",
+    },
+    conditionalFormats: {
+      baseName: "conditional_formats",
+      type: "Array<ThresholdFormattingRule>",
+    },
+    eventQuery: {
+      baseName: "event_query",
+      type: "LogQueryDefinition",
+      required: true,
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return QueryValueBackendRequest20270101OneOf4460908192.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

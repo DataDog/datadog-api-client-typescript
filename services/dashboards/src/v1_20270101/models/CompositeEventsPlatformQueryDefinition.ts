@@ -1,0 +1,107 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { AggregateCompute } from "./AggregateCompute";
+import { CompositeEventsPlatformQueryDefinitionSearch } from "./CompositeEventsPlatformQueryDefinitionSearch";
+import { FormulaAndFunctionEventQueryGroupBy } from "./FormulaAndFunctionEventQueryGroupBy";
+import { FormulaAndFunctionEventsDataSource } from "./FormulaAndFunctionEventsDataSource";
+import { ListColumn } from "./ListColumn";
+import { StorageType } from "./StorageType";
+
+/**
+ * Test-only generated schema for the dashboard versioning proof of concept.
+ */
+export class CompositeEventsPlatformQueryDefinition {
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "columns"?: Array<ListColumn>;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "compute"?: Array<AggregateCompute>;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "computeCount"?: boolean;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "dataSource": FormulaAndFunctionEventsDataSource;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "groupBy"?: Array<FormulaAndFunctionEventQueryGroupBy>;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "indexes"?: Array<string>;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "name": string;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "search"?: CompositeEventsPlatformQueryDefinitionSearch;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "storage"?: StorageType;
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    columns: {
+      baseName: "columns",
+      type: "Array<ListColumn>",
+    },
+    compute: {
+      baseName: "compute",
+      type: "Array<AggregateCompute>",
+    },
+    computeCount: {
+      baseName: "compute_count",
+      type: "boolean",
+    },
+    dataSource: {
+      baseName: "data_source",
+      type: "FormulaAndFunctionEventsDataSource",
+      required: true,
+    },
+    groupBy: {
+      baseName: "group_by",
+      type: "Array<FormulaAndFunctionEventQueryGroupBy>",
+    },
+    indexes: {
+      baseName: "indexes",
+      type: "Array<string>",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
+    },
+    search: {
+      baseName: "search",
+      type: "CompositeEventsPlatformQueryDefinitionSearch",
+    },
+    storage: {
+      baseName: "storage",
+      type: "StorageType",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return CompositeEventsPlatformQueryDefinition.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

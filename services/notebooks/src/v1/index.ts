@@ -61,6 +61,7 @@ export { FormulaAndFunctionSLOMeasure } from "./models/FormulaAndFunctionSLOMeas
 export { FormulaAndFunctionSLOQueryDefinition } from "./models/FormulaAndFunctionSLOQueryDefinition";
 export { FormulaAndFunctionSLOQueryType } from "./models/FormulaAndFunctionSLOQueryType";
 export { FormulaAndFunctionUserJourneyQueryDefinition } from "./models/FormulaAndFunctionUserJourneyQueryDefinition";
+export { FormulaProductAnalyticsExtendedQuery20270101Indexes } from "./models/FormulaProductAnalyticsExtendedQuery20270101Indexes";
 export { FormulaType } from "./models/FormulaType";
 export { GroupType } from "./models/GroupType";
 export { HeatMapWidgetDefinition } from "./models/HeatMapWidgetDefinition";
@@ -218,3 +219,4 @@ export { WidgetStyle } from "./models/WidgetStyle";
 export { WidgetStyleOrderBy } from "./models/WidgetStyleOrderBy";
 export { WidgetTextAlign } from "./models/WidgetTextAlign";
 export { WidgetTime } from "./models/WidgetTime";
+export { WidgetTime20270101OneOf4464105952 } from "./models/WidgetTime20270101OneOf4464105952";

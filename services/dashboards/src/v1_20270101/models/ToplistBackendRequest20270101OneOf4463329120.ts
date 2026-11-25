@@ -1,0 +1,46 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { LogQueryDefinition } from "./LogQueryDefinition";
+import { ThresholdFormattingRule } from "./ThresholdFormattingRule";
+
+/**
+ * Test-only generated schema for the dashboard versioning proof of concept.
+ */
+export class ToplistBackendRequest20270101OneOf4463329120 {
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "complianceFindingsQuery": LogQueryDefinition;
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   */
+  "conditionalFormats"?: Array<ThresholdFormattingRule>;
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    complianceFindingsQuery: {
+      baseName: "compliance_findings_query",
+      type: "LogQueryDefinition",
+      required: true,
+    },
+    conditionalFormats: {
+      baseName: "conditional_formats",
+      type: "Array<ThresholdFormattingRule>",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return ToplistBackendRequest20270101OneOf4463329120.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
