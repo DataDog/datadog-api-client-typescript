@@ -2209,7 +2209,7 @@ export class FeatureFlagsApiResponseProcessor {
       ) as string;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+    if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -2235,7 +2235,7 @@ export class FeatureFlagsApiResponseProcessor {
         body
       );
     }
-    if (response.httpStatusCode === 429) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -2557,7 +2557,7 @@ export class FeatureFlagsApiResponseProcessor {
       ) as ListFeatureFlagHistoryResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+    if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -2583,7 +2583,7 @@ export class FeatureFlagsApiResponseProcessor {
         body
       );
     }
-    if (response.httpStatusCode === 429) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -4343,7 +4343,9 @@ export class FeatureFlagsApi {
    * It accepts the same filters as the List feature flag change history endpoint, and its columns match the CSV export on the flag history page:
    * Flag Version, Flag Name, Flag Key, Flag UUID, Action, User Name, User Email, User Type, Environment, and Timestamp.
    *
-   * If an export fails before the file starts, the response is a JSON:API error. Large exports stream as they are read.
+   * If the export service has an error before it starts to send the file, for example because a filter is invalid, it returns
+   * a JSON:API error.
+   * Large exports stream as they are read.
    * If an export fails after streaming starts, the connection closes before the file ends, so the download fails instead of
    * returning a file with missing rows. An export must finish within the 60-second request timeout. If an export times out,
    * narrow the date range.
