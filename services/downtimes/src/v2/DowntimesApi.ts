@@ -797,8 +797,7 @@ export interface DowntimesApiGetDowntimeRequest {
    */
   include?: string;
   /**
-   * If `true`, include the `run_as` attribute in the response, which lists the principals allowed to
-   * act on behalf of the downtime.
+   * If `true`, include the `run_as` attribute in the response, which lists the user the downtime runs as.
    *
    * **Note**: This feature is currently in Preview and may not be available for all organizations.
    * @type boolean
