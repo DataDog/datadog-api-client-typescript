@@ -15,11 +15,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AiGatewayModelPricingAttributes {
   /**
-   * True when models.dev pricing is authoritative for this organization and provider.
+   * True when automatic pricing is authoritative for this organization and provider.
    */
   "authoritative"?: boolean;
   /**
-   * The published models.dev price. Present only when it is the effective price.
+   * The automatically synced published price. Present only when it is the effective price.
    */
   "automaticPricing"?: AiGatewayModelAutomaticPricing;
   /**

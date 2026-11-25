@@ -19,10 +19,6 @@ export class AiGatewayModelAutomaticPricingSource {
    */
   "modelId": string;
   /**
-   * Pricing source name.
-   */
-  "name": string;
-  /**
    * Provider identifier in the source.
    */
   "providerId": string;
@@ -54,11 +50,6 @@ export class AiGatewayModelAutomaticPricingSource {
     },
     modelId: {
       baseName: "model_id",
-      type: "string",
-      required: true,
-    },
-    name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
