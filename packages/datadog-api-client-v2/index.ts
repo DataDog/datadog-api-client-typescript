@@ -7965,6 +7965,10 @@ export { ObservabilityPipelineClickhouseDestinationCompressionAlgorithm } from "
 export { ObservabilityPipelineClickhouseDestinationCompressionObject } from "./models/ObservabilityPipelineClickhouseDestinationCompressionObject";
 export { ObservabilityPipelineClickhouseDestinationFormat } from "./models/ObservabilityPipelineClickhouseDestinationFormat";
 export { ObservabilityPipelineClickhouseDestinationType } from "./models/ObservabilityPipelineClickhouseDestinationType";
+export { ObservabilityPipelineClientIdentity } from "./models/ObservabilityPipelineClientIdentity";
+export { ObservabilityPipelineClientIdentityAllowlist } from "./models/ObservabilityPipelineClientIdentityAllowlist";
+export { ObservabilityPipelineClientIdentityMode } from "./models/ObservabilityPipelineClientIdentityMode";
+export { ObservabilityPipelineClientIdentityRule } from "./models/ObservabilityPipelineClientIdentityRule";
 export { ObservabilityPipelineClientTls } from "./models/ObservabilityPipelineClientTls";
 export { ObservabilityPipelineCloudPremDestination } from "./models/ObservabilityPipelineCloudPremDestination";
 export { ObservabilityPipelineCloudPremDestinationType } from "./models/ObservabilityPipelineCloudPremDestinationType";
@@ -8114,6 +8118,7 @@ export { ObservabilityPipelineMetricTagsProcessorRuleMode } from "./models/Obser
 export { ObservabilityPipelineMetricTagsProcessorType } from "./models/ObservabilityPipelineMetricTagsProcessorType";
 export { ObservabilityPipelineMetricValue } from "./models/ObservabilityPipelineMetricValue";
 export { ObservabilityPipelineMtlsServerTls } from "./models/ObservabilityPipelineMtlsServerTls";
+export { ObservabilityPipelineMtlsServerTlsWithClientIdentity } from "./models/ObservabilityPipelineMtlsServerTlsWithClientIdentity";
 export { ObservabilityPipelineNewRelicDestination } from "./models/ObservabilityPipelineNewRelicDestination";
 export { ObservabilityPipelineNewRelicDestinationRegion } from "./models/ObservabilityPipelineNewRelicDestinationRegion";
 export { ObservabilityPipelineNewRelicDestinationType } from "./models/ObservabilityPipelineNewRelicDestinationType";

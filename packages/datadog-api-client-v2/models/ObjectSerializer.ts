@@ -4363,6 +4363,9 @@ import { ObservabilityPipelineClickhouseDestinationAuth } from "./ObservabilityP
 import { ObservabilityPipelineClickhouseDestinationBatch } from "./ObservabilityPipelineClickhouseDestinationBatch";
 import { ObservabilityPipelineClickhouseDestinationBatchEncoding } from "./ObservabilityPipelineClickhouseDestinationBatchEncoding";
 import { ObservabilityPipelineClickhouseDestinationCompressionObject } from "./ObservabilityPipelineClickhouseDestinationCompressionObject";
+import { ObservabilityPipelineClientIdentity } from "./ObservabilityPipelineClientIdentity";
+import { ObservabilityPipelineClientIdentityAllowlist } from "./ObservabilityPipelineClientIdentityAllowlist";
+import { ObservabilityPipelineClientIdentityRule } from "./ObservabilityPipelineClientIdentityRule";
 import { ObservabilityPipelineClientTls } from "./ObservabilityPipelineClientTls";
 import { ObservabilityPipelineCloudPremDestination } from "./ObservabilityPipelineCloudPremDestination";
 import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
@@ -4440,6 +4443,7 @@ import { ObservabilityPipelineMetricEnrichmentTableTagLookup } from "./Observabi
 import { ObservabilityPipelineMetricTagsProcessor } from "./ObservabilityPipelineMetricTagsProcessor";
 import { ObservabilityPipelineMetricTagsProcessorRule } from "./ObservabilityPipelineMetricTagsProcessorRule";
 import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
+import { ObservabilityPipelineMtlsServerTlsWithClientIdentity } from "./ObservabilityPipelineMtlsServerTlsWithClientIdentity";
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
 import { ObservabilityPipelineOcsfMapperProcessorMapping } from "./ObservabilityPipelineOcsfMapperProcessorMapping";
@@ -9781,6 +9785,7 @@ const enumsMap: { [key: string]: any[] } = {
     "arrow_stream",
   ],
   ObservabilityPipelineClickhouseDestinationType: ["clickhouse"],
+  ObservabilityPipelineClientIdentityMode: ["enforce", "audit"],
   ObservabilityPipelineCloudPremDestinationType: ["cloud_prem"],
   ObservabilityPipelineConfigPipelineType: ["logs", "metrics", "traces"],
   ObservabilityPipelineCrowdStrikeFdrSourceType: ["crowdstrike_fdr"],
@@ -17245,6 +17250,11 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineClickhouseDestinationBatchEncoding,
   ObservabilityPipelineClickhouseDestinationCompressionObject:
     ObservabilityPipelineClickhouseDestinationCompressionObject,
+  ObservabilityPipelineClientIdentity: ObservabilityPipelineClientIdentity,
+  ObservabilityPipelineClientIdentityAllowlist:
+    ObservabilityPipelineClientIdentityAllowlist,
+  ObservabilityPipelineClientIdentityRule:
+    ObservabilityPipelineClientIdentityRule,
   ObservabilityPipelineClientTls: ObservabilityPipelineClientTls,
   ObservabilityPipelineCloudPremDestination:
     ObservabilityPipelineCloudPremDestination,
@@ -17379,6 +17389,8 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineMetricTagsProcessorRule:
     ObservabilityPipelineMetricTagsProcessorRule,
   ObservabilityPipelineMtlsServerTls: ObservabilityPipelineMtlsServerTls,
+  ObservabilityPipelineMtlsServerTlsWithClientIdentity:
+    ObservabilityPipelineMtlsServerTlsWithClientIdentity,
   ObservabilityPipelineNewRelicDestination:
     ObservabilityPipelineNewRelicDestination,
   ObservabilityPipelineOcsfMapperProcessor:
