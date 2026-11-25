@@ -27539,7 +27539,7 @@ export interface SecurityMonitoringApiActivateIntegrationRequest {
 
 export interface SecurityMonitoringApiAttachCaseRequest {
   /**
-   * Unique identifier of the case to attach security findings to
+   * Unique identifier (UUID) or key (for example, `PROJ-123`) of the case to attach security findings to.
    * @type string
    */
   caseId: string;
@@ -30057,6 +30057,7 @@ export class SecurityMonitoringApi {
 
   /**
    * Attach security findings to a case.
+   * Identify the existing Case Management case with the `case_id` path parameter, using the case `id` or `key` that `SearchCases` or `CreateCases` returns. To open a new case for security findings, use `CreateCases` instead.
    * You can attach up to 50 security findings per case. Security findings that are already attached to another case will be detached from their previous case and attached to the specified case.
    * @param param The request object
    */
@@ -30543,6 +30544,7 @@ export class SecurityMonitoringApi {
 
   /**
    * Create cases for security findings.
+   * To add security findings to a case that already exists, use `AttachCase` instead.
    * You can create up to 50 cases per request and associate up to 50 security findings per case. Security findings that are already attached to another case will be detached from their previous case and attached to the newly created case.
    * @param param The request object
    */
@@ -31590,7 +31592,7 @@ export class SecurityMonitoringApi {
 
   /**
    * Detach security findings from their case.
-   * This operation dissociates security findings from their associated cases without deleting the cases themselves. You can detach security findings from multiple different cases in a single request, with a limit of 50 security findings per request. Security findings that are not currently attached to any case will be ignored.
+   * This operation dissociates security findings from their associated cases without deleting the cases themselves. List the security findings to detach in `data.relationships.findings`. The API detaches each one from its current case, so you don't need to pass a case ID. You can detach security findings from multiple different cases in a single request, with a limit of 50 security findings per request. Security findings that are not currently attached to any case will be ignored.
    * @param param The request object
    */
   public detachCase(
@@ -34128,6 +34130,7 @@ export class SecurityMonitoringApi {
 
   /**
    * Mute or unmute security findings.
+   * Mute security findings that you want to ignore, such as false positives, accepted risks, or findings with a pending fix. Datadog issue explorers hide muted findings by default, and muted misconfigurations no longer count toward the posture score. Datadog automatically unmutes findings when their `expire_at` date passes. To unmute them earlier, set `is_muted` to `false`.
    * You can mute or unmute up to 100 security findings per request. The request body must include `is_muted` and `reason` attributes. The allowed reasons depend on whether the finding is being muted or unmuted:
    *   - To mute a finding: `PENDING_FIX`, `FALSE_POSITIVE`, `OTHER`, `NO_FIX`, `DUPLICATE`, `RISK_ACCEPTED`.
    *   - To unmute a finding: `NO_PENDING_FIX`, `HUMAN_ERROR`, `NO_LONGER_ACCEPTED_RISK`, `OTHER`.
@@ -34883,6 +34886,7 @@ export class SecurityMonitoringApi {
    *
    * You can update up to 100 security findings per request.
    * Use the `set` action with a `value` to apply a manual severity override.
+   * The allowed values are `critical`, `high`, `medium`, `low`, and `info`.
    * `value` is required for `set` and must be omitted for `clear`.
    * The `info` value sets the lowest severity the finding type allows.
    * Use the `clear` action to remove a manual severity override.
