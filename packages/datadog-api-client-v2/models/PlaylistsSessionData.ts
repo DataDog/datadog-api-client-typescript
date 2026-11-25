@@ -21,7 +21,7 @@ export class PlaylistsSessionData {
    */
   "id"?: string;
   /**
-   * Rum replay session resource type.
+   * RUM replay session resource type.
    */
   "type": ViewershipHistorySessionDataType;
 

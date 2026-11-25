@@ -11,16 +11,16 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.RumRetentionFiltersApi(configuration);
+const apiInstance = new v2.RUMRetentionFiltersApi(configuration);
 
-const params: v2.RumRetentionFiltersApiGetRetentionFilterRequest = {
+const params: v2.RUMRetentionFiltersApiGetRetentionFilterRequest = {
   appId: "a33671aa-24fd-4dcd-ba4b-5bbdbafe7690",
   rfId: "4b95d361-f65d-4515-9824-c9aaeba5ac2a",
 };
 
 apiInstance
   .getRetentionFilter(params)
-  .then((data: v2.RumRetentionFilterResponse) => {
+  .then((data: v2.RUMRetentionFilterResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

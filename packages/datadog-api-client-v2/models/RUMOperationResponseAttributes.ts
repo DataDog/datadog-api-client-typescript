@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RUMOperationJourneyRum } from "./RUMOperationJourneyRum";
+import { RUMOperationJourneyRUM } from "./RUMOperationJourneyRUM";
 import { RUMOperationUser } from "./RUMOperationUser";
 
 import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
@@ -43,7 +43,7 @@ export class RUMOperationResponseAttributes {
   /**
    * The definition of a RUM operation's journey, used to detect it from RUM events.
    */
-  "journeyRum": RUMOperationJourneyRum;
+  "journeyRum": RUMOperationJourneyRUM;
   /**
    * The unique name of the RUM operation. Must not contain spaces.
    */
@@ -113,7 +113,7 @@ export class RUMOperationResponseAttributes {
     },
     journeyRum: {
       baseName: "journey_rum",
-      type: "RUMOperationJourneyRum",
+      type: "RUMOperationJourneyRUM",
       required: true,
     },
     name: {

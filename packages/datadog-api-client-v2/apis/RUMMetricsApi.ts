@@ -1,0 +1,864 @@
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
+import {
+  Configuration,
+  applySecurityAuthentication,
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
+import { logger } from "../../../logger";
+import { ObjectSerializer } from "../models/ObjectSerializer";
+import { ApiException } from "../../datadog-api-client-common/exception";
+
+import { APIErrorResponse } from "../models/APIErrorResponse";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+import { RUMMetricCreateRequest } from "../models/RUMMetricCreateRequest";
+import { RUMMetricResponse } from "../models/RUMMetricResponse";
+import { RUMMetricsResponse } from "../models/RUMMetricsResponse";
+import { RUMMetricUpdateRequest } from "../models/RUMMetricUpdateRequest";
+
+export class RUMMetricsApiRequestFactory extends BaseAPIRequestFactory {
+  public async createRUMMetric(
+    body: RUMMetricCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createRUMMetric");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/rum/config/metrics";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RUMMetricsApi.createRUMMetric")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "RUMMetricCreateRequest", ""),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteRUMMetric(
+    metricId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'metricId' is not null or undefined
+    if (metricId === null || metricId === undefined) {
+      throw new RequiredError("metricId", "deleteRUMMetric");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/rum/config/metrics/{metric_id}".replace(
+      "{metric_id}",
+      encodeURIComponent(String(metricId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RUMMetricsApi.deleteRUMMetric")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getRUMMetric(
+    metricId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'metricId' is not null or undefined
+    if (metricId === null || metricId === undefined) {
+      throw new RequiredError("metricId", "getRUMMetric");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/rum/config/metrics/{metric_id}".replace(
+      "{metric_id}",
+      encodeURIComponent(String(metricId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RUMMetricsApi.getRUMMetric")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listRUMMetrics(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/rum/config/metrics";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RUMMetricsApi.listRUMMetrics")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateRUMMetric(
+    metricId: string,
+    body: RUMMetricUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'metricId' is not null or undefined
+    if (metricId === null || metricId === undefined) {
+      throw new RequiredError("metricId", "updateRUMMetric");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateRUMMetric");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/rum/config/metrics/{metric_id}".replace(
+      "{metric_id}",
+      encodeURIComponent(String(metricId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RUMMetricsApi.updateRUMMetric")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "RUMMetricUpdateRequest", ""),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+}
+
+export class RUMMetricsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createRUMMetric
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createRUMMetric(
+    response: ResponseContext
+  ): Promise<RUMMetricResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: RUMMetricResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RUMMetricResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as RUMMetricResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 409) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RUMMetricResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RUMMetricResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as RUMMetricResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteRUMMetric
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteRUMMetric(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getRUMMetric
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getRUMMetric(
+    response: ResponseContext
+  ): Promise<RUMMetricResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: RUMMetricResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RUMMetricResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as RUMMetricResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RUMMetricResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RUMMetricResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as RUMMetricResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listRUMMetrics
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listRUMMetrics(
+    response: ResponseContext
+  ): Promise<RUMMetricsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: RUMMetricsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RUMMetricsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as RUMMetricsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RUMMetricsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RUMMetricsResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as RUMMetricsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateRUMMetric
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateRUMMetric(
+    response: ResponseContext
+  ): Promise<RUMMetricResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: RUMMetricResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RUMMetricResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as RUMMetricResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RUMMetricResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          this.configuration?.preserveLargeIntegers
+        ),
+        "RUMMetricResponse",
+        "",
+        this.configuration?.preserveLargeIntegers
+      ) as RUMMetricResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+}
+
+export interface RUMMetricsApiCreateRUMMetricRequest {
+  /**
+   * The definition of the new RUM-based metric.
+   * @type RUMMetricCreateRequest
+   */
+  body: RUMMetricCreateRequest;
+}
+
+export interface RUMMetricsApiDeleteRUMMetricRequest {
+  /**
+   * The name of the RUM-based metric, as returned in `data.id` by `ListRUMMetrics`.
+   * @type string
+   */
+  metricId: string;
+}
+
+export interface RUMMetricsApiGetRUMMetricRequest {
+  /**
+   * The name of the RUM-based metric, as returned in `data.id` by `ListRUMMetrics`.
+   * @type string
+   */
+  metricId: string;
+}
+
+export interface RUMMetricsApiUpdateRUMMetricRequest {
+  /**
+   * The name of the RUM-based metric, as returned in `data.id` by `ListRUMMetrics`.
+   * @type string
+   */
+  metricId: string;
+  /**
+   * New definition of the RUM-based metric.
+   * @type RUMMetricUpdateRequest
+   */
+  body: RUMMetricUpdateRequest;
+}
+
+export class RUMMetricsApi {
+  private requestFactory: RUMMetricsApiRequestFactory;
+  private responseProcessor: RUMMetricsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: RUMMetricsApiRequestFactory,
+    responseProcessor?: RUMMetricsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new RUMMetricsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new RUMMetricsApiResponseProcessor(configuration);
+  }
+
+  /**
+   * Create a metric based on your organization's RUM data.
+   * The metric name is set in `data.id`, is unique within your organization, and cannot be changed after creation.
+   * The `event_type`, `compute`, and `uniqueness` settings cannot be changed after creation either. Only `filter`, `group_by`, and `compute.include_percentiles` can be changed with `UpdateRUMMetric`.
+   * `uniqueness` is required when `event_type` is `session` or `view`, and must be omitted for any other event type.
+   * When `aggregation_type` is `distribution`, `include_percentiles` is required. When it is `count`, `include_percentiles` and `path` must be omitted.
+   * Returns the created RUM-based metric when the request is successful.
+   * The request returns a `409 Conflict` error if a metric with the same name already exists.
+   * @param param The request object
+   */
+  public createRUMMetric(
+    param: RUMMetricsApiCreateRUMMetricRequest,
+    options?: Configuration
+  ): Promise<RUMMetricResponse> {
+    const requestContextPromise = this.requestFactory.createRUMMetric(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createRUMMetric(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a specific RUM-based metric from your organization.
+   * Metric data that was already generated is not deleted. Deleting a metric cannot be undone.
+   * @param param The request object
+   */
+  public deleteRUMMetric(
+    param: RUMMetricsApiDeleteRUMMetricRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteRUMMetric(
+      param.metricId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteRUMMetric(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a specific RUM-based metric from your organization.
+   * The `metric_id` is the metric name returned in `data.id` by `ListRUMMetrics` and `CreateRUMMetric`.
+   * @param param The request object
+   */
+  public getRUMMetric(
+    param: RUMMetricsApiGetRUMMetricRequest,
+    options?: Configuration
+  ): Promise<RUMMetricResponse> {
+    const requestContextPromise = this.requestFactory.getRUMMetric(
+      param.metricId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getRUMMetric(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the list of all RUM-based metrics configured for your organization, with their definitions.
+   * The list is not paginated.
+   * Metrics whose stored definition cannot be converted to the RUM format are omitted from the list.
+   * To retrieve a single metric, use `GetRUMMetric`.
+   * @param param The request object
+   */
+  public listRUMMetrics(options?: Configuration): Promise<RUMMetricsResponse> {
+    const requestContextPromise = this.requestFactory.listRUMMetrics(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listRUMMetrics(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a specific RUM-based metric from your organization.
+   * Only `filter`, `group_by`, and `compute.include_percentiles` can be updated. `event_type`, `uniqueness`, `compute.aggregation_type`, `compute.path`, and the metric name are immutable. To change them, delete the metric and create a new one.
+   * Omitted attributes keep their current value. When provided, `filter.query` replaces the whole filter query (an empty query is ignored) and `group_by` replaces the whole list of group by rules.
+   * `data.id` is required and must match the `metric_id` path parameter, otherwise the request returns a `409 Conflict` error.
+   * The request also returns a `409 Conflict` error when `compute.include_percentiles` is set on a metric whose `aggregation_type` is not `distribution`.
+   * Returns the updated RUM-based metric when the request is successful.
+   * @param param The request object
+   */
+  public updateRUMMetric(
+    param: RUMMetricsApiUpdateRUMMetricRequest,
+    options?: Configuration
+  ): Promise<RUMMetricResponse> {
+    const requestContextPromise = this.requestFactory.updateRUMMetric(
+      param.metricId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateRUMMetric(responseContext);
+        });
+    });
+  }
+}

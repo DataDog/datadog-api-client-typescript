@@ -11,9 +11,9 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.RumReplaySessionsApi(configuration);
+const apiInstance = new v2.RUMReplaySessionsApi(configuration);
 
-const params: v2.RumReplaySessionsApiGetSegmentsRequest = {
+const params: v2.RUMReplaySessionsApiGetSegmentsRequest = {
   viewId: "00000000-0000-0000-0000-000000000002",
   sessionId: "00000000-0000-0000-0000-000000000001",
 };

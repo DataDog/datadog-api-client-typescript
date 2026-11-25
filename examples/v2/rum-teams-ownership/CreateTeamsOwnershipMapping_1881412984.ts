@@ -11,9 +11,9 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.RumTeamsOwnershipApi(configuration);
+const apiInstance = new v2.RUMTeamsOwnershipApi(configuration);
 
-const params: v2.RumTeamsOwnershipApiCreateTeamsOwnershipMappingRequest = {
+const params: v2.RUMTeamsOwnershipApiCreateTeamsOwnershipMappingRequest = {
   body: {
     data: {
       type: "teams_ownership_mappings",

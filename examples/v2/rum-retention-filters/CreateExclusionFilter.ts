@@ -11,9 +11,9 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.RumRetentionFiltersApi(configuration);
+const apiInstance = new v2.RUMRetentionFiltersApi(configuration);
 
-const params: v2.RumRetentionFiltersApiCreateExclusionFilterRequest = {
+const params: v2.RUMRetentionFiltersApiCreateExclusionFilterRequest = {
   body: {
     data: {
       attributes: {
@@ -30,7 +30,7 @@ const params: v2.RumRetentionFiltersApiCreateExclusionFilterRequest = {
 
 apiInstance
   .createExclusionFilter(params)
-  .then((data: v2.RumExclusionFilterResponse) => {
+  .then((data: v2.RUMExclusionFilterResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

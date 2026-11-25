@@ -5161,20 +5161,81 @@ import { RUMApplicationUpdate } from "./RUMApplicationUpdate";
 import { RUMApplicationUpdateAttributes } from "./RUMApplicationUpdateAttributes";
 import { RUMApplicationUpdateRequest } from "./RUMApplicationUpdateRequest";
 import { RUMApplicationsResponse } from "./RUMApplicationsResponse";
+import { RUMArchiveConfig } from "./RUMArchiveConfig";
+import { RUMArchiveConfigAttributes } from "./RUMArchiveConfigAttributes";
+import { RUMArchiveConfigListResponse } from "./RUMArchiveConfigListResponse";
+import { RUMArchiveConfigMeta } from "./RUMArchiveConfigMeta";
+import { RUMArchiveConfigPage } from "./RUMArchiveConfigPage";
+import { RUMArchiveConfigResponse } from "./RUMArchiveConfigResponse";
+import { RUMArchiveConfigUpsertAttributes } from "./RUMArchiveConfigUpsertAttributes";
+import { RUMArchiveConfigUpsertData } from "./RUMArchiveConfigUpsertData";
+import { RUMArchiveConfigUpsertRequest } from "./RUMArchiveConfigUpsertRequest";
+import { RUMArchiveSession } from "./RUMArchiveSession";
+import { RUMArchiveSessionAttributes } from "./RUMArchiveSessionAttributes";
+import { RUMArchiveSessionRecoveryStatus } from "./RUMArchiveSessionRecoveryStatus";
+import { RUMArchiveSessionsMeta } from "./RUMArchiveSessionsMeta";
+import { RUMArchiveSessionsPage } from "./RUMArchiveSessionsPage";
+import { RUMArchiveSessionsResponse } from "./RUMArchiveSessionsResponse";
+import { RUMArchiveSessionsSearchAttributes } from "./RUMArchiveSessionsSearchAttributes";
+import { RUMArchiveSessionsSearchData } from "./RUMArchiveSessionsSearchData";
+import { RUMArchiveSessionsSearchRequest } from "./RUMArchiveSessionsSearchRequest";
 import { RUMBucketResponse } from "./RUMBucketResponse";
 import { RUMCompute } from "./RUMCompute";
+import { RUMConfigAttributes } from "./RUMConfigAttributes";
+import { RUMConfigCreateAttributes } from "./RUMConfigCreateAttributes";
+import { RUMConfigCreateData } from "./RUMConfigCreateData";
+import { RUMConfigCreateRequest } from "./RUMConfigCreateRequest";
+import { RUMConfigData } from "./RUMConfigData";
+import { RUMConfigResponse } from "./RUMConfigResponse";
+import { RUMConfigUpdateAttributes } from "./RUMConfigUpdateAttributes";
+import { RUMConfigUpdateData } from "./RUMConfigUpdateData";
+import { RUMConfigUpdateRequest } from "./RUMConfigUpdateRequest";
+import { RUMCrossProductSampling } from "./RUMCrossProductSampling";
+import { RUMCrossProductSamplingCreate } from "./RUMCrossProductSamplingCreate";
+import { RUMCrossProductSamplingUpdate } from "./RUMCrossProductSamplingUpdate";
 import { RUMEvent } from "./RUMEvent";
 import { RUMEventAttributes } from "./RUMEventAttributes";
 import { RUMEventProcessingScale } from "./RUMEventProcessingScale";
 import { RUMEventsResponse } from "./RUMEventsResponse";
+import { RUMExclusionFilterAttributes } from "./RUMExclusionFilterAttributes";
+import { RUMExclusionFilterCreateAttributes } from "./RUMExclusionFilterCreateAttributes";
+import { RUMExclusionFilterCreateData } from "./RUMExclusionFilterCreateData";
+import { RUMExclusionFilterCreateRequest } from "./RUMExclusionFilterCreateRequest";
+import { RUMExclusionFilterData } from "./RUMExclusionFilterData";
+import { RUMExclusionFilterMeta } from "./RUMExclusionFilterMeta";
+import { RUMExclusionFilterResponse } from "./RUMExclusionFilterResponse";
+import { RUMExclusionFilterUpdateAttributes } from "./RUMExclusionFilterUpdateAttributes";
+import { RUMExclusionFilterUpdateData } from "./RUMExclusionFilterUpdateData";
+import { RUMExclusionFilterUpdateRequest } from "./RUMExclusionFilterUpdateRequest";
+import { RUMExclusionFiltersResponse } from "./RUMExclusionFiltersResponse";
 import { RUMGroupBy } from "./RUMGroupBy";
 import { RUMGroupByHistogram } from "./RUMGroupByHistogram";
+import { RUMManagedArchiveErrorResponse } from "./RUMManagedArchiveErrorResponse";
+import { RUMMetricCompute } from "./RUMMetricCompute";
+import { RUMMetricCreateAttributes } from "./RUMMetricCreateAttributes";
+import { RUMMetricCreateData } from "./RUMMetricCreateData";
+import { RUMMetricCreateRequest } from "./RUMMetricCreateRequest";
+import { RUMMetricFilter } from "./RUMMetricFilter";
+import { RUMMetricGroupBy } from "./RUMMetricGroupBy";
+import { RUMMetricResponse } from "./RUMMetricResponse";
+import { RUMMetricResponseAttributes } from "./RUMMetricResponseAttributes";
+import { RUMMetricResponseCompute } from "./RUMMetricResponseCompute";
+import { RUMMetricResponseData } from "./RUMMetricResponseData";
+import { RUMMetricResponseFilter } from "./RUMMetricResponseFilter";
+import { RUMMetricResponseGroupBy } from "./RUMMetricResponseGroupBy";
+import { RUMMetricResponseUniqueness } from "./RUMMetricResponseUniqueness";
+import { RUMMetricUniqueness } from "./RUMMetricUniqueness";
+import { RUMMetricUpdateAttributes } from "./RUMMetricUpdateAttributes";
+import { RUMMetricUpdateCompute } from "./RUMMetricUpdateCompute";
+import { RUMMetricUpdateData } from "./RUMMetricUpdateData";
+import { RUMMetricUpdateRequest } from "./RUMMetricUpdateRequest";
+import { RUMMetricsResponse } from "./RUMMetricsResponse";
 import { RUMOperationCreateRequest } from "./RUMOperationCreateRequest";
 import { RUMOperationCreateRequestData } from "./RUMOperationCreateRequestData";
 import { RUMOperationJourneyCompositeRule } from "./RUMOperationJourneyCompositeRule";
 import { RUMOperationJourneyNode } from "./RUMOperationJourneyNode";
 import { RUMOperationJourneyPredicate } from "./RUMOperationJourneyPredicate";
-import { RUMOperationJourneyRum } from "./RUMOperationJourneyRum";
+import { RUMOperationJourneyRUM } from "./RUMOperationJourneyRUM";
 import { RUMOperationJourneyStep } from "./RUMOperationJourneyStep";
 import { RUMOperationRequestAttributes } from "./RUMOperationRequestAttributes";
 import { RUMOperationResponse } from "./RUMOperationResponse";
@@ -5198,14 +5259,85 @@ import { RUMOperationsListResponse } from "./RUMOperationsListResponse";
 import { RUMOperationsListResponseLinks } from "./RUMOperationsListResponseLinks";
 import { RUMOperationsListResponseMeta } from "./RUMOperationsListResponseMeta";
 import { RUMOperationsListResponseMetaPage } from "./RUMOperationsListResponseMetaPage";
+import { RUMPermanentRetentionFilterAttributes } from "./RUMPermanentRetentionFilterAttributes";
+import { RUMPermanentRetentionFilterData } from "./RUMPermanentRetentionFilterData";
+import { RUMPermanentRetentionFilterEditability } from "./RUMPermanentRetentionFilterEditability";
+import { RUMPermanentRetentionFilterResponse } from "./RUMPermanentRetentionFilterResponse";
+import { RUMPermanentRetentionFilterUpdateAttributes } from "./RUMPermanentRetentionFilterUpdateAttributes";
+import { RUMPermanentRetentionFilterUpdateData } from "./RUMPermanentRetentionFilterUpdateData";
+import { RUMPermanentRetentionFilterUpdateRequest } from "./RUMPermanentRetentionFilterUpdateRequest";
+import { RUMPermanentRetentionFiltersResponse } from "./RUMPermanentRetentionFiltersResponse";
 import { RUMProductAnalyticsRetentionScale } from "./RUMProductAnalyticsRetentionScale";
 import { RUMProductScales } from "./RUMProductScales";
 import { RUMQueryFilter } from "./RUMQueryFilter";
 import { RUMQueryOptions } from "./RUMQueryOptions";
 import { RUMQueryPageOptions } from "./RUMQueryPageOptions";
+import { RUMRecoveredSession } from "./RUMRecoveredSession";
+import { RUMRecoveryBatchCreateAttributes } from "./RUMRecoveryBatchCreateAttributes";
+import { RUMRecoveryBatchListAttributes } from "./RUMRecoveryBatchListAttributes";
+import { RUMRecoveryBatchListData } from "./RUMRecoveryBatchListData";
+import { RUMRecoveryBatchListMeta } from "./RUMRecoveryBatchListMeta";
+import { RUMRecoveryBatchListResponse } from "./RUMRecoveryBatchListResponse";
+import { RUMRecoveryCancelAttributes } from "./RUMRecoveryCancelAttributes";
+import { RUMRecoveryCancelData } from "./RUMRecoveryCancelData";
+import { RUMRecoveryCancelRequest } from "./RUMRecoveryCancelRequest";
+import { RUMRecoveryCancelResponse } from "./RUMRecoveryCancelResponse";
+import { RUMRecoveryCancelResponseAttributes } from "./RUMRecoveryCancelResponseAttributes";
+import { RUMRecoveryCancelResponseData } from "./RUMRecoveryCancelResponseData";
+import { RUMRecoveryCountAttributes } from "./RUMRecoveryCountAttributes";
+import { RUMRecoveryCountRequest } from "./RUMRecoveryCountRequest";
+import { RUMRecoveryCountRequestData } from "./RUMRecoveryCountRequestData";
+import { RUMRecoveryCountResponse } from "./RUMRecoveryCountResponse";
+import { RUMRecoveryCountResponseAttributes } from "./RUMRecoveryCountResponseAttributes";
+import { RUMRecoveryCountResponseData } from "./RUMRecoveryCountResponseData";
+import { RUMRecoveryCreateData } from "./RUMRecoveryCreateData";
+import { RUMRecoveryCreateRequest } from "./RUMRecoveryCreateRequest";
+import { RUMRecoveryCreateResponse } from "./RUMRecoveryCreateResponse";
+import { RUMRecoveryCreateResponseAttributes } from "./RUMRecoveryCreateResponseAttributes";
+import { RUMRecoveryCreateResponseData } from "./RUMRecoveryCreateResponseData";
+import { RUMRecoveryRequestAttributes } from "./RUMRecoveryRequestAttributes";
+import { RUMRecoveryRequestData } from "./RUMRecoveryRequestData";
+import { RUMRecoveryRequestResponse } from "./RUMRecoveryRequestResponse";
+import { RUMRecoverySessionInput } from "./RUMRecoverySessionInput";
+import { RUMRecoverySessionsCreateAttributes } from "./RUMRecoverySessionsCreateAttributes";
 import { RUMResponseLinks } from "./RUMResponseLinks";
 import { RUMResponseMetadata } from "./RUMResponseMetadata";
 import { RUMResponsePage } from "./RUMResponsePage";
+import { RUMRetentionFilterAttributes } from "./RUMRetentionFilterAttributes";
+import { RUMRetentionFilterCreateAttributes } from "./RUMRetentionFilterCreateAttributes";
+import { RUMRetentionFilterCreateData } from "./RUMRetentionFilterCreateData";
+import { RUMRetentionFilterCreateRequest } from "./RUMRetentionFilterCreateRequest";
+import { RUMRetentionFilterData } from "./RUMRetentionFilterData";
+import { RUMRetentionFilterMeta } from "./RUMRetentionFilterMeta";
+import { RUMRetentionFilterResponse } from "./RUMRetentionFilterResponse";
+import { RUMRetentionFilterUpdateAttributes } from "./RUMRetentionFilterUpdateAttributes";
+import { RUMRetentionFilterUpdateData } from "./RUMRetentionFilterUpdateData";
+import { RUMRetentionFilterUpdateRequest } from "./RUMRetentionFilterUpdateRequest";
+import { RUMRetentionFiltersOrderData } from "./RUMRetentionFiltersOrderData";
+import { RUMRetentionFiltersOrderRequest } from "./RUMRetentionFiltersOrderRequest";
+import { RUMRetentionFiltersOrderResponse } from "./RUMRetentionFiltersOrderResponse";
+import { RUMRetentionFiltersResponse } from "./RUMRetentionFiltersResponse";
+import { RUMRetentionQuotaConfigAttributes } from "./RUMRetentionQuotaConfigAttributes";
+import { RUMRetentionQuotaConfigData } from "./RUMRetentionQuotaConfigData";
+import { RUMRetentionQuotaConfigResponse } from "./RUMRetentionQuotaConfigResponse";
+import { RUMRetentionQuotaConfigUpdateAttributes } from "./RUMRetentionQuotaConfigUpdateAttributes";
+import { RUMRetentionQuotaConfigUpdateData } from "./RUMRetentionQuotaConfigUpdateData";
+import { RUMRetentionQuotaConfigUpdateRequest } from "./RUMRetentionQuotaConfigUpdateRequest";
+import { RUMRetentionQuotaCustomConfig } from "./RUMRetentionQuotaCustomConfig";
+import { RUMSdkConfigAttributes } from "./RUMSdkConfigAttributes";
+import { RUMSdkConfigData } from "./RUMSdkConfigData";
+import { RUMSdkConfigDynamicOption } from "./RUMSdkConfigDynamicOption";
+import { RUMSdkConfigDynamicOptionPair } from "./RUMSdkConfigDynamicOptionPair";
+import { RUMSdkConfigMatchOption } from "./RUMSdkConfigMatchOption";
+import { RUMSdkConfigMeta } from "./RUMSdkConfigMeta";
+import { RUMSdkConfigRUMAttributes } from "./RUMSdkConfigRUMAttributes";
+import { RUMSdkConfigRUMUpdateAttributes } from "./RUMSdkConfigRUMUpdateAttributes";
+import { RUMSdkConfigResponse } from "./RUMSdkConfigResponse";
+import { RUMSdkConfigSerializedRegex } from "./RUMSdkConfigSerializedRegex";
+import { RUMSdkConfigTracingUrlConfig } from "./RUMSdkConfigTracingUrlConfig";
+import { RUMSdkConfigUpdateAttributes } from "./RUMSdkConfigUpdateAttributes";
+import { RUMSdkConfigUpdateData } from "./RUMSdkConfigUpdateData";
+import { RUMSdkConfigUpdateRequest } from "./RUMSdkConfigUpdateRequest";
 import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
 import { RawErrorBudgetRemaining } from "./RawErrorBudgetRemaining";
@@ -5447,138 +5579,6 @@ import { RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems } from
 import { RulesetStatusRespArray } from "./RulesetStatusRespArray";
 import { RulesetStatusRespData } from "./RulesetStatusRespData";
 import { RulesetStatusRespDataAttributes } from "./RulesetStatusRespDataAttributes";
-import { RumArchiveConfig } from "./RumArchiveConfig";
-import { RumArchiveConfigAttributes } from "./RumArchiveConfigAttributes";
-import { RumArchiveConfigListResponse } from "./RumArchiveConfigListResponse";
-import { RumArchiveConfigMeta } from "./RumArchiveConfigMeta";
-import { RumArchiveConfigPage } from "./RumArchiveConfigPage";
-import { RumArchiveConfigResponse } from "./RumArchiveConfigResponse";
-import { RumArchiveConfigUpsertAttributes } from "./RumArchiveConfigUpsertAttributes";
-import { RumArchiveConfigUpsertData } from "./RumArchiveConfigUpsertData";
-import { RumArchiveConfigUpsertRequest } from "./RumArchiveConfigUpsertRequest";
-import { RumArchiveSession } from "./RumArchiveSession";
-import { RumArchiveSessionAttributes } from "./RumArchiveSessionAttributes";
-import { RumArchiveSessionRecoveryStatus } from "./RumArchiveSessionRecoveryStatus";
-import { RumArchiveSessionsMeta } from "./RumArchiveSessionsMeta";
-import { RumArchiveSessionsPage } from "./RumArchiveSessionsPage";
-import { RumArchiveSessionsResponse } from "./RumArchiveSessionsResponse";
-import { RumArchiveSessionsSearchAttributes } from "./RumArchiveSessionsSearchAttributes";
-import { RumArchiveSessionsSearchData } from "./RumArchiveSessionsSearchData";
-import { RumArchiveSessionsSearchRequest } from "./RumArchiveSessionsSearchRequest";
-import { RumConfigAttributes } from "./RumConfigAttributes";
-import { RumConfigCreateAttributes } from "./RumConfigCreateAttributes";
-import { RumConfigCreateData } from "./RumConfigCreateData";
-import { RumConfigCreateRequest } from "./RumConfigCreateRequest";
-import { RumConfigData } from "./RumConfigData";
-import { RumConfigResponse } from "./RumConfigResponse";
-import { RumConfigUpdateAttributes } from "./RumConfigUpdateAttributes";
-import { RumConfigUpdateData } from "./RumConfigUpdateData";
-import { RumConfigUpdateRequest } from "./RumConfigUpdateRequest";
-import { RumCrossProductSampling } from "./RumCrossProductSampling";
-import { RumCrossProductSamplingCreate } from "./RumCrossProductSamplingCreate";
-import { RumCrossProductSamplingUpdate } from "./RumCrossProductSamplingUpdate";
-import { RumExclusionFilterAttributes } from "./RumExclusionFilterAttributes";
-import { RumExclusionFilterCreateAttributes } from "./RumExclusionFilterCreateAttributes";
-import { RumExclusionFilterCreateData } from "./RumExclusionFilterCreateData";
-import { RumExclusionFilterCreateRequest } from "./RumExclusionFilterCreateRequest";
-import { RumExclusionFilterData } from "./RumExclusionFilterData";
-import { RumExclusionFilterMeta } from "./RumExclusionFilterMeta";
-import { RumExclusionFilterResponse } from "./RumExclusionFilterResponse";
-import { RumExclusionFilterUpdateAttributes } from "./RumExclusionFilterUpdateAttributes";
-import { RumExclusionFilterUpdateData } from "./RumExclusionFilterUpdateData";
-import { RumExclusionFilterUpdateRequest } from "./RumExclusionFilterUpdateRequest";
-import { RumExclusionFiltersResponse } from "./RumExclusionFiltersResponse";
-import { RumManagedArchiveErrorResponse } from "./RumManagedArchiveErrorResponse";
-import { RumMetricCompute } from "./RumMetricCompute";
-import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
-import { RumMetricCreateData } from "./RumMetricCreateData";
-import { RumMetricCreateRequest } from "./RumMetricCreateRequest";
-import { RumMetricFilter } from "./RumMetricFilter";
-import { RumMetricGroupBy } from "./RumMetricGroupBy";
-import { RumMetricResponse } from "./RumMetricResponse";
-import { RumMetricResponseAttributes } from "./RumMetricResponseAttributes";
-import { RumMetricResponseCompute } from "./RumMetricResponseCompute";
-import { RumMetricResponseData } from "./RumMetricResponseData";
-import { RumMetricResponseFilter } from "./RumMetricResponseFilter";
-import { RumMetricResponseGroupBy } from "./RumMetricResponseGroupBy";
-import { RumMetricResponseUniqueness } from "./RumMetricResponseUniqueness";
-import { RumMetricUniqueness } from "./RumMetricUniqueness";
-import { RumMetricUpdateAttributes } from "./RumMetricUpdateAttributes";
-import { RumMetricUpdateCompute } from "./RumMetricUpdateCompute";
-import { RumMetricUpdateData } from "./RumMetricUpdateData";
-import { RumMetricUpdateRequest } from "./RumMetricUpdateRequest";
-import { RumMetricsResponse } from "./RumMetricsResponse";
-import { RumPermanentRetentionFilterAttributes } from "./RumPermanentRetentionFilterAttributes";
-import { RumPermanentRetentionFilterData } from "./RumPermanentRetentionFilterData";
-import { RumPermanentRetentionFilterEditability } from "./RumPermanentRetentionFilterEditability";
-import { RumPermanentRetentionFilterResponse } from "./RumPermanentRetentionFilterResponse";
-import { RumPermanentRetentionFilterUpdateAttributes } from "./RumPermanentRetentionFilterUpdateAttributes";
-import { RumPermanentRetentionFilterUpdateData } from "./RumPermanentRetentionFilterUpdateData";
-import { RumPermanentRetentionFilterUpdateRequest } from "./RumPermanentRetentionFilterUpdateRequest";
-import { RumPermanentRetentionFiltersResponse } from "./RumPermanentRetentionFiltersResponse";
-import { RumRecoveredSession } from "./RumRecoveredSession";
-import { RumRecoveryBatchCreateAttributes } from "./RumRecoveryBatchCreateAttributes";
-import { RumRecoveryBatchListAttributes } from "./RumRecoveryBatchListAttributes";
-import { RumRecoveryBatchListData } from "./RumRecoveryBatchListData";
-import { RumRecoveryBatchListMeta } from "./RumRecoveryBatchListMeta";
-import { RumRecoveryBatchListResponse } from "./RumRecoveryBatchListResponse";
-import { RumRecoveryCancelAttributes } from "./RumRecoveryCancelAttributes";
-import { RumRecoveryCancelData } from "./RumRecoveryCancelData";
-import { RumRecoveryCancelRequest } from "./RumRecoveryCancelRequest";
-import { RumRecoveryCancelResponse } from "./RumRecoveryCancelResponse";
-import { RumRecoveryCancelResponseAttributes } from "./RumRecoveryCancelResponseAttributes";
-import { RumRecoveryCancelResponseData } from "./RumRecoveryCancelResponseData";
-import { RumRecoveryCountAttributes } from "./RumRecoveryCountAttributes";
-import { RumRecoveryCountRequest } from "./RumRecoveryCountRequest";
-import { RumRecoveryCountRequestData } from "./RumRecoveryCountRequestData";
-import { RumRecoveryCountResponse } from "./RumRecoveryCountResponse";
-import { RumRecoveryCountResponseAttributes } from "./RumRecoveryCountResponseAttributes";
-import { RumRecoveryCountResponseData } from "./RumRecoveryCountResponseData";
-import { RumRecoveryCreateData } from "./RumRecoveryCreateData";
-import { RumRecoveryCreateRequest } from "./RumRecoveryCreateRequest";
-import { RumRecoveryCreateResponse } from "./RumRecoveryCreateResponse";
-import { RumRecoveryCreateResponseAttributes } from "./RumRecoveryCreateResponseAttributes";
-import { RumRecoveryCreateResponseData } from "./RumRecoveryCreateResponseData";
-import { RumRecoveryRequestAttributes } from "./RumRecoveryRequestAttributes";
-import { RumRecoveryRequestData } from "./RumRecoveryRequestData";
-import { RumRecoveryRequestResponse } from "./RumRecoveryRequestResponse";
-import { RumRecoverySessionInput } from "./RumRecoverySessionInput";
-import { RumRecoverySessionsCreateAttributes } from "./RumRecoverySessionsCreateAttributes";
-import { RumRetentionFilterAttributes } from "./RumRetentionFilterAttributes";
-import { RumRetentionFilterCreateAttributes } from "./RumRetentionFilterCreateAttributes";
-import { RumRetentionFilterCreateData } from "./RumRetentionFilterCreateData";
-import { RumRetentionFilterCreateRequest } from "./RumRetentionFilterCreateRequest";
-import { RumRetentionFilterData } from "./RumRetentionFilterData";
-import { RumRetentionFilterMeta } from "./RumRetentionFilterMeta";
-import { RumRetentionFilterResponse } from "./RumRetentionFilterResponse";
-import { RumRetentionFilterUpdateAttributes } from "./RumRetentionFilterUpdateAttributes";
-import { RumRetentionFilterUpdateData } from "./RumRetentionFilterUpdateData";
-import { RumRetentionFilterUpdateRequest } from "./RumRetentionFilterUpdateRequest";
-import { RumRetentionFiltersOrderData } from "./RumRetentionFiltersOrderData";
-import { RumRetentionFiltersOrderRequest } from "./RumRetentionFiltersOrderRequest";
-import { RumRetentionFiltersOrderResponse } from "./RumRetentionFiltersOrderResponse";
-import { RumRetentionFiltersResponse } from "./RumRetentionFiltersResponse";
-import { RumRetentionQuotaConfigAttributes } from "./RumRetentionQuotaConfigAttributes";
-import { RumRetentionQuotaConfigData } from "./RumRetentionQuotaConfigData";
-import { RumRetentionQuotaConfigResponse } from "./RumRetentionQuotaConfigResponse";
-import { RumRetentionQuotaConfigUpdateAttributes } from "./RumRetentionQuotaConfigUpdateAttributes";
-import { RumRetentionQuotaConfigUpdateData } from "./RumRetentionQuotaConfigUpdateData";
-import { RumRetentionQuotaConfigUpdateRequest } from "./RumRetentionQuotaConfigUpdateRequest";
-import { RumRetentionQuotaCustomConfig } from "./RumRetentionQuotaCustomConfig";
-import { RumSdkConfigAttributes } from "./RumSdkConfigAttributes";
-import { RumSdkConfigData } from "./RumSdkConfigData";
-import { RumSdkConfigDynamicOption } from "./RumSdkConfigDynamicOption";
-import { RumSdkConfigDynamicOptionPair } from "./RumSdkConfigDynamicOptionPair";
-import { RumSdkConfigMatchOption } from "./RumSdkConfigMatchOption";
-import { RumSdkConfigMeta } from "./RumSdkConfigMeta";
-import { RumSdkConfigResponse } from "./RumSdkConfigResponse";
-import { RumSdkConfigRumAttributes } from "./RumSdkConfigRumAttributes";
-import { RumSdkConfigRumUpdateAttributes } from "./RumSdkConfigRumUpdateAttributes";
-import { RumSdkConfigSerializedRegex } from "./RumSdkConfigSerializedRegex";
-import { RumSdkConfigTracingUrlConfig } from "./RumSdkConfigTracingUrlConfig";
-import { RumSdkConfigUpdateAttributes } from "./RumSdkConfigUpdateAttributes";
-import { RumSdkConfigUpdateData } from "./RumSdkConfigUpdateData";
-import { RumSdkConfigUpdateRequest } from "./RumSdkConfigUpdateRequest";
 import { RunDataObservabilityMonitorResponse } from "./RunDataObservabilityMonitorResponse";
 import { RunDataObservabilityMonitorResponseData } from "./RunDataObservabilityMonitorResponseData";
 import { RunHistoricalJobRequest } from "./RunHistoricalJobRequest";
@@ -10446,9 +10446,34 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   RUMApplicationType: ["rum_application"],
   RUMApplicationUpdateType: ["rum_application_update"],
+  RUMArchiveConfigType: ["rum_archive_config"],
+  RUMArchiveSessionType: ["rum_archive_session"],
   RUMComputeType: ["timeseries", "total"],
+  RUMConfigType: ["rum_config"],
   RUMEventProcessingState: ["ALL", "ERROR_FOCUSED_MODE", "NONE"],
   RUMEventType: ["rum"],
+  RUMExclusionFilterEventType: [
+    "session",
+    "view",
+    "action",
+    "error",
+    "resource",
+    "long_task",
+    "vital",
+  ],
+  RUMExclusionFilterType: ["exclusion_filters"],
+  RUMMetricComputeAggregationType: ["count", "distribution"],
+  RUMMetricEventType: [
+    "session",
+    "view",
+    "action",
+    "error",
+    "resource",
+    "long_task",
+    "vital",
+  ],
+  RUMMetricType: ["rum_metrics"],
+  RUMMetricUniquenessWhen: ["match", "end"],
   RUMOperationJourneyCompositeRuleKind: ["all_of", "in_order"],
   RUMOperationJourneyStepType: [
     "start",
@@ -10461,9 +10486,78 @@ const enumsMap: { [key: string]: any[] } = {
   RUMOperationStrongLinkType: ["strong_links"],
   RUMOperationStrongLinkUpdateStatus: ["CONFIRMED", "REJECTED"],
   RUMOperationType: ["operations"],
+  RUMPermanentRetentionFilterID: [
+    "rum_apm_flat_sampling",
+    "synthetics_sessions",
+    "forced_replay_sessions",
+  ],
+  RUMPermanentRetentionFilterType: ["permanent_retention_filters"],
   RUMProductAnalyticsRetentionState: ["MAX", "NONE"],
   RUMProductAnalyticsRetentionStateRequest: ["MAX", "NONE", "PREVIEW"],
+  RUMRecoveryBatchListDataType: ["rum_batch_recovery_request"],
+  RUMRecoveryBatchRequestType: ["batch"],
+  RUMRecoveryCancelStatus: ["cancelled"],
+  RUMRecoveryCountResponseDataType: ["rum_recovery_count"],
+  RUMRecoveryDiscoveryStatus: [
+    "QUEUED",
+    "PENDING",
+    "SLICING",
+    "DISCOVERED",
+    "PROCESSING",
+    "COMPLETED",
+    "FAILED",
+    "CANCELLED",
+  ],
+  RUMRecoveryRequestStatus: [
+    "PENDING",
+    "PROCESSING",
+    "COMPLETED",
+    "FAILED",
+    "CANCELLED",
+    "EXPIRED",
+  ],
+  RUMRecoveryRequestType: ["rum_recovery_request"],
+  RUMRecoverySessionStatus: [
+    "AVAILABLE",
+    "PENDING",
+    "PROCESSING",
+    "RECOVERED",
+    "FAILED",
+    "RETAINED",
+    "EXPIRED",
+    "CANCELLED",
+  ],
+  RUMRecoverySessionsRequestType: ["sessions"],
   RUMResponseStatus: ["done", "timeout"],
+  RUMRetentionFilterEditionMode: ["unknown", "complete", "limited"],
+  RUMRetentionFilterEventType: [
+    "session",
+    "view",
+    "action",
+    "error",
+    "resource",
+    "long_task",
+    "vital",
+  ],
+  RUMRetentionFilterMetaSource: ["default", "ui", "terraform", "unknown"],
+  RUMRetentionFilterTrack: ["rum", "product_analytics"],
+  RUMRetentionFilterType: ["retention_filters"],
+  RUMRetentionQuotaConfigType: ["rum_quota_config"],
+  RUMRetentionQuotaMode: ["custom"],
+  RUMRetentionQuotaReachedAction: ["stop", "slowdown"],
+  RUMRetentionQuotaScopeType: ["application"],
+  RUMRetentionQuotaWindowType: ["daily"],
+  RUMSdkConfigDynamicOptionSerializedType: ["dynamic"],
+  RUMSdkConfigDynamicOptionStrategy: ["js", "cookie", "dom", "localStorage"],
+  RUMSdkConfigMatchOptionSerializedType: ["string", "regex"],
+  RUMSdkConfigSerializedRegexType: ["regex"],
+  RUMSdkConfigTracingUrlPropagatorType: [
+    "datadog",
+    "b3",
+    "b3multi",
+    "tracecontext",
+  ],
+  RUMSdkConfigType: ["rum_sdk_config"],
   RUMSort: ["timestamp", "-timestamp"],
   RUMSortOrder: ["asc", "desc"],
   ReactNativeSourcemapMapKind: ["react"],
@@ -10583,100 +10677,6 @@ const enumsMap: { [key: string]: any[] } = {
   RulesValidateQueryResponseDataType: ["validate_response"],
   RulesetRespDataType: ["ruleset"],
   RulesetStatusRespDataType: ["ruleset_status"],
-  RumArchiveConfigType: ["rum_archive_config"],
-  RumArchiveSessionType: ["rum_archive_session"],
-  RumConfigType: ["rum_config"],
-  RumExclusionFilterEventType: [
-    "session",
-    "view",
-    "action",
-    "error",
-    "resource",
-    "long_task",
-    "vital",
-  ],
-  RumExclusionFilterType: ["exclusion_filters"],
-  RumMetricComputeAggregationType: ["count", "distribution"],
-  RumMetricEventType: [
-    "session",
-    "view",
-    "action",
-    "error",
-    "resource",
-    "long_task",
-    "vital",
-  ],
-  RumMetricType: ["rum_metrics"],
-  RumMetricUniquenessWhen: ["match", "end"],
-  RumPermanentRetentionFilterID: [
-    "rum_apm_flat_sampling",
-    "synthetics_sessions",
-    "forced_replay_sessions",
-  ],
-  RumPermanentRetentionFilterType: ["permanent_retention_filters"],
-  RumRecoveryBatchListDataType: ["rum_batch_recovery_request"],
-  RumRecoveryBatchRequestType: ["batch"],
-  RumRecoveryCancelStatus: ["cancelled"],
-  RumRecoveryCountResponseDataType: ["rum_recovery_count"],
-  RumRecoveryDiscoveryStatus: [
-    "QUEUED",
-    "PENDING",
-    "SLICING",
-    "DISCOVERED",
-    "PROCESSING",
-    "COMPLETED",
-    "FAILED",
-    "CANCELLED",
-  ],
-  RumRecoveryRequestStatus: [
-    "PENDING",
-    "PROCESSING",
-    "COMPLETED",
-    "FAILED",
-    "CANCELLED",
-    "EXPIRED",
-  ],
-  RumRecoveryRequestType: ["rum_recovery_request"],
-  RumRecoverySessionStatus: [
-    "AVAILABLE",
-    "PENDING",
-    "PROCESSING",
-    "RECOVERED",
-    "FAILED",
-    "RETAINED",
-    "EXPIRED",
-    "CANCELLED",
-  ],
-  RumRecoverySessionsRequestType: ["sessions"],
-  RumRetentionFilterEditionMode: ["unknown", "complete", "limited"],
-  RumRetentionFilterEventType: [
-    "session",
-    "view",
-    "action",
-    "error",
-    "resource",
-    "long_task",
-    "vital",
-  ],
-  RumRetentionFilterMetaSource: ["default", "ui", "terraform", "unknown"],
-  RumRetentionFilterTrack: ["rum", "product_analytics"],
-  RumRetentionFilterType: ["retention_filters"],
-  RumRetentionQuotaConfigType: ["rum_quota_config"],
-  RumRetentionQuotaMode: ["custom"],
-  RumRetentionQuotaReachedAction: ["stop", "slowdown"],
-  RumRetentionQuotaScopeType: ["application"],
-  RumRetentionQuotaWindowType: ["daily"],
-  RumSdkConfigDynamicOptionSerializedType: ["dynamic"],
-  RumSdkConfigDynamicOptionStrategy: ["js", "cookie", "dom", "localStorage"],
-  RumSdkConfigMatchOptionSerializedType: ["string", "regex"],
-  RumSdkConfigSerializedRegexType: ["regex"],
-  RumSdkConfigTracingUrlPropagatorType: [
-    "datadog",
-    "b3",
-    "b3multi",
-    "tracecontext",
-  ],
-  RumSdkConfigType: ["rum_sdk_config"],
   RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
   SAMLConfigurationsType: ["saml_configurations"],
@@ -18312,20 +18312,81 @@ const typeMap: { [index: string]: any } = {
   RUMApplicationUpdateAttributes: RUMApplicationUpdateAttributes,
   RUMApplicationUpdateRequest: RUMApplicationUpdateRequest,
   RUMApplicationsResponse: RUMApplicationsResponse,
+  RUMArchiveConfig: RUMArchiveConfig,
+  RUMArchiveConfigAttributes: RUMArchiveConfigAttributes,
+  RUMArchiveConfigListResponse: RUMArchiveConfigListResponse,
+  RUMArchiveConfigMeta: RUMArchiveConfigMeta,
+  RUMArchiveConfigPage: RUMArchiveConfigPage,
+  RUMArchiveConfigResponse: RUMArchiveConfigResponse,
+  RUMArchiveConfigUpsertAttributes: RUMArchiveConfigUpsertAttributes,
+  RUMArchiveConfigUpsertData: RUMArchiveConfigUpsertData,
+  RUMArchiveConfigUpsertRequest: RUMArchiveConfigUpsertRequest,
+  RUMArchiveSession: RUMArchiveSession,
+  RUMArchiveSessionAttributes: RUMArchiveSessionAttributes,
+  RUMArchiveSessionRecoveryStatus: RUMArchiveSessionRecoveryStatus,
+  RUMArchiveSessionsMeta: RUMArchiveSessionsMeta,
+  RUMArchiveSessionsPage: RUMArchiveSessionsPage,
+  RUMArchiveSessionsResponse: RUMArchiveSessionsResponse,
+  RUMArchiveSessionsSearchAttributes: RUMArchiveSessionsSearchAttributes,
+  RUMArchiveSessionsSearchData: RUMArchiveSessionsSearchData,
+  RUMArchiveSessionsSearchRequest: RUMArchiveSessionsSearchRequest,
   RUMBucketResponse: RUMBucketResponse,
   RUMCompute: RUMCompute,
+  RUMConfigAttributes: RUMConfigAttributes,
+  RUMConfigCreateAttributes: RUMConfigCreateAttributes,
+  RUMConfigCreateData: RUMConfigCreateData,
+  RUMConfigCreateRequest: RUMConfigCreateRequest,
+  RUMConfigData: RUMConfigData,
+  RUMConfigResponse: RUMConfigResponse,
+  RUMConfigUpdateAttributes: RUMConfigUpdateAttributes,
+  RUMConfigUpdateData: RUMConfigUpdateData,
+  RUMConfigUpdateRequest: RUMConfigUpdateRequest,
+  RUMCrossProductSampling: RUMCrossProductSampling,
+  RUMCrossProductSamplingCreate: RUMCrossProductSamplingCreate,
+  RUMCrossProductSamplingUpdate: RUMCrossProductSamplingUpdate,
   RUMEvent: RUMEvent,
   RUMEventAttributes: RUMEventAttributes,
   RUMEventProcessingScale: RUMEventProcessingScale,
   RUMEventsResponse: RUMEventsResponse,
+  RUMExclusionFilterAttributes: RUMExclusionFilterAttributes,
+  RUMExclusionFilterCreateAttributes: RUMExclusionFilterCreateAttributes,
+  RUMExclusionFilterCreateData: RUMExclusionFilterCreateData,
+  RUMExclusionFilterCreateRequest: RUMExclusionFilterCreateRequest,
+  RUMExclusionFilterData: RUMExclusionFilterData,
+  RUMExclusionFilterMeta: RUMExclusionFilterMeta,
+  RUMExclusionFilterResponse: RUMExclusionFilterResponse,
+  RUMExclusionFilterUpdateAttributes: RUMExclusionFilterUpdateAttributes,
+  RUMExclusionFilterUpdateData: RUMExclusionFilterUpdateData,
+  RUMExclusionFilterUpdateRequest: RUMExclusionFilterUpdateRequest,
+  RUMExclusionFiltersResponse: RUMExclusionFiltersResponse,
   RUMGroupBy: RUMGroupBy,
   RUMGroupByHistogram: RUMGroupByHistogram,
+  RUMManagedArchiveErrorResponse: RUMManagedArchiveErrorResponse,
+  RUMMetricCompute: RUMMetricCompute,
+  RUMMetricCreateAttributes: RUMMetricCreateAttributes,
+  RUMMetricCreateData: RUMMetricCreateData,
+  RUMMetricCreateRequest: RUMMetricCreateRequest,
+  RUMMetricFilter: RUMMetricFilter,
+  RUMMetricGroupBy: RUMMetricGroupBy,
+  RUMMetricResponse: RUMMetricResponse,
+  RUMMetricResponseAttributes: RUMMetricResponseAttributes,
+  RUMMetricResponseCompute: RUMMetricResponseCompute,
+  RUMMetricResponseData: RUMMetricResponseData,
+  RUMMetricResponseFilter: RUMMetricResponseFilter,
+  RUMMetricResponseGroupBy: RUMMetricResponseGroupBy,
+  RUMMetricResponseUniqueness: RUMMetricResponseUniqueness,
+  RUMMetricUniqueness: RUMMetricUniqueness,
+  RUMMetricUpdateAttributes: RUMMetricUpdateAttributes,
+  RUMMetricUpdateCompute: RUMMetricUpdateCompute,
+  RUMMetricUpdateData: RUMMetricUpdateData,
+  RUMMetricUpdateRequest: RUMMetricUpdateRequest,
+  RUMMetricsResponse: RUMMetricsResponse,
   RUMOperationCreateRequest: RUMOperationCreateRequest,
   RUMOperationCreateRequestData: RUMOperationCreateRequestData,
   RUMOperationJourneyCompositeRule: RUMOperationJourneyCompositeRule,
   RUMOperationJourneyNode: RUMOperationJourneyNode,
   RUMOperationJourneyPredicate: RUMOperationJourneyPredicate,
-  RUMOperationJourneyRum: RUMOperationJourneyRum,
+  RUMOperationJourneyRUM: RUMOperationJourneyRUM,
   RUMOperationJourneyStep: RUMOperationJourneyStep,
   RUMOperationRequestAttributes: RUMOperationRequestAttributes,
   RUMOperationResponse: RUMOperationResponse,
@@ -18355,14 +18416,89 @@ const typeMap: { [index: string]: any } = {
   RUMOperationsListResponseLinks: RUMOperationsListResponseLinks,
   RUMOperationsListResponseMeta: RUMOperationsListResponseMeta,
   RUMOperationsListResponseMetaPage: RUMOperationsListResponseMetaPage,
+  RUMPermanentRetentionFilterAttributes: RUMPermanentRetentionFilterAttributes,
+  RUMPermanentRetentionFilterData: RUMPermanentRetentionFilterData,
+  RUMPermanentRetentionFilterEditability:
+    RUMPermanentRetentionFilterEditability,
+  RUMPermanentRetentionFilterResponse: RUMPermanentRetentionFilterResponse,
+  RUMPermanentRetentionFilterUpdateAttributes:
+    RUMPermanentRetentionFilterUpdateAttributes,
+  RUMPermanentRetentionFilterUpdateData: RUMPermanentRetentionFilterUpdateData,
+  RUMPermanentRetentionFilterUpdateRequest:
+    RUMPermanentRetentionFilterUpdateRequest,
+  RUMPermanentRetentionFiltersResponse: RUMPermanentRetentionFiltersResponse,
   RUMProductAnalyticsRetentionScale: RUMProductAnalyticsRetentionScale,
   RUMProductScales: RUMProductScales,
   RUMQueryFilter: RUMQueryFilter,
   RUMQueryOptions: RUMQueryOptions,
   RUMQueryPageOptions: RUMQueryPageOptions,
+  RUMRecoveredSession: RUMRecoveredSession,
+  RUMRecoveryBatchCreateAttributes: RUMRecoveryBatchCreateAttributes,
+  RUMRecoveryBatchListAttributes: RUMRecoveryBatchListAttributes,
+  RUMRecoveryBatchListData: RUMRecoveryBatchListData,
+  RUMRecoveryBatchListMeta: RUMRecoveryBatchListMeta,
+  RUMRecoveryBatchListResponse: RUMRecoveryBatchListResponse,
+  RUMRecoveryCancelAttributes: RUMRecoveryCancelAttributes,
+  RUMRecoveryCancelData: RUMRecoveryCancelData,
+  RUMRecoveryCancelRequest: RUMRecoveryCancelRequest,
+  RUMRecoveryCancelResponse: RUMRecoveryCancelResponse,
+  RUMRecoveryCancelResponseAttributes: RUMRecoveryCancelResponseAttributes,
+  RUMRecoveryCancelResponseData: RUMRecoveryCancelResponseData,
+  RUMRecoveryCountAttributes: RUMRecoveryCountAttributes,
+  RUMRecoveryCountRequest: RUMRecoveryCountRequest,
+  RUMRecoveryCountRequestData: RUMRecoveryCountRequestData,
+  RUMRecoveryCountResponse: RUMRecoveryCountResponse,
+  RUMRecoveryCountResponseAttributes: RUMRecoveryCountResponseAttributes,
+  RUMRecoveryCountResponseData: RUMRecoveryCountResponseData,
+  RUMRecoveryCreateData: RUMRecoveryCreateData,
+  RUMRecoveryCreateRequest: RUMRecoveryCreateRequest,
+  RUMRecoveryCreateResponse: RUMRecoveryCreateResponse,
+  RUMRecoveryCreateResponseAttributes: RUMRecoveryCreateResponseAttributes,
+  RUMRecoveryCreateResponseData: RUMRecoveryCreateResponseData,
+  RUMRecoveryRequestAttributes: RUMRecoveryRequestAttributes,
+  RUMRecoveryRequestData: RUMRecoveryRequestData,
+  RUMRecoveryRequestResponse: RUMRecoveryRequestResponse,
+  RUMRecoverySessionInput: RUMRecoverySessionInput,
+  RUMRecoverySessionsCreateAttributes: RUMRecoverySessionsCreateAttributes,
   RUMResponseLinks: RUMResponseLinks,
   RUMResponseMetadata: RUMResponseMetadata,
   RUMResponsePage: RUMResponsePage,
+  RUMRetentionFilterAttributes: RUMRetentionFilterAttributes,
+  RUMRetentionFilterCreateAttributes: RUMRetentionFilterCreateAttributes,
+  RUMRetentionFilterCreateData: RUMRetentionFilterCreateData,
+  RUMRetentionFilterCreateRequest: RUMRetentionFilterCreateRequest,
+  RUMRetentionFilterData: RUMRetentionFilterData,
+  RUMRetentionFilterMeta: RUMRetentionFilterMeta,
+  RUMRetentionFilterResponse: RUMRetentionFilterResponse,
+  RUMRetentionFilterUpdateAttributes: RUMRetentionFilterUpdateAttributes,
+  RUMRetentionFilterUpdateData: RUMRetentionFilterUpdateData,
+  RUMRetentionFilterUpdateRequest: RUMRetentionFilterUpdateRequest,
+  RUMRetentionFiltersOrderData: RUMRetentionFiltersOrderData,
+  RUMRetentionFiltersOrderRequest: RUMRetentionFiltersOrderRequest,
+  RUMRetentionFiltersOrderResponse: RUMRetentionFiltersOrderResponse,
+  RUMRetentionFiltersResponse: RUMRetentionFiltersResponse,
+  RUMRetentionQuotaConfigAttributes: RUMRetentionQuotaConfigAttributes,
+  RUMRetentionQuotaConfigData: RUMRetentionQuotaConfigData,
+  RUMRetentionQuotaConfigResponse: RUMRetentionQuotaConfigResponse,
+  RUMRetentionQuotaConfigUpdateAttributes:
+    RUMRetentionQuotaConfigUpdateAttributes,
+  RUMRetentionQuotaConfigUpdateData: RUMRetentionQuotaConfigUpdateData,
+  RUMRetentionQuotaConfigUpdateRequest: RUMRetentionQuotaConfigUpdateRequest,
+  RUMRetentionQuotaCustomConfig: RUMRetentionQuotaCustomConfig,
+  RUMSdkConfigAttributes: RUMSdkConfigAttributes,
+  RUMSdkConfigData: RUMSdkConfigData,
+  RUMSdkConfigDynamicOption: RUMSdkConfigDynamicOption,
+  RUMSdkConfigDynamicOptionPair: RUMSdkConfigDynamicOptionPair,
+  RUMSdkConfigMatchOption: RUMSdkConfigMatchOption,
+  RUMSdkConfigMeta: RUMSdkConfigMeta,
+  RUMSdkConfigRUMAttributes: RUMSdkConfigRUMAttributes,
+  RUMSdkConfigRUMUpdateAttributes: RUMSdkConfigRUMUpdateAttributes,
+  RUMSdkConfigResponse: RUMSdkConfigResponse,
+  RUMSdkConfigSerializedRegex: RUMSdkConfigSerializedRegex,
+  RUMSdkConfigTracingUrlConfig: RUMSdkConfigTracingUrlConfig,
+  RUMSdkConfigUpdateAttributes: RUMSdkConfigUpdateAttributes,
+  RUMSdkConfigUpdateData: RUMSdkConfigUpdateData,
+  RUMSdkConfigUpdateRequest: RUMSdkConfigUpdateRequest,
   RUMSearchEventsRequest: RUMSearchEventsRequest,
   RUMWarning: RUMWarning,
   RawErrorBudgetRemaining: RawErrorBudgetRemaining,
@@ -18631,142 +18767,6 @@ const typeMap: { [index: string]: any } = {
   RulesetStatusRespArray: RulesetStatusRespArray,
   RulesetStatusRespData: RulesetStatusRespData,
   RulesetStatusRespDataAttributes: RulesetStatusRespDataAttributes,
-  RumArchiveConfig: RumArchiveConfig,
-  RumArchiveConfigAttributes: RumArchiveConfigAttributes,
-  RumArchiveConfigListResponse: RumArchiveConfigListResponse,
-  RumArchiveConfigMeta: RumArchiveConfigMeta,
-  RumArchiveConfigPage: RumArchiveConfigPage,
-  RumArchiveConfigResponse: RumArchiveConfigResponse,
-  RumArchiveConfigUpsertAttributes: RumArchiveConfigUpsertAttributes,
-  RumArchiveConfigUpsertData: RumArchiveConfigUpsertData,
-  RumArchiveConfigUpsertRequest: RumArchiveConfigUpsertRequest,
-  RumArchiveSession: RumArchiveSession,
-  RumArchiveSessionAttributes: RumArchiveSessionAttributes,
-  RumArchiveSessionRecoveryStatus: RumArchiveSessionRecoveryStatus,
-  RumArchiveSessionsMeta: RumArchiveSessionsMeta,
-  RumArchiveSessionsPage: RumArchiveSessionsPage,
-  RumArchiveSessionsResponse: RumArchiveSessionsResponse,
-  RumArchiveSessionsSearchAttributes: RumArchiveSessionsSearchAttributes,
-  RumArchiveSessionsSearchData: RumArchiveSessionsSearchData,
-  RumArchiveSessionsSearchRequest: RumArchiveSessionsSearchRequest,
-  RumConfigAttributes: RumConfigAttributes,
-  RumConfigCreateAttributes: RumConfigCreateAttributes,
-  RumConfigCreateData: RumConfigCreateData,
-  RumConfigCreateRequest: RumConfigCreateRequest,
-  RumConfigData: RumConfigData,
-  RumConfigResponse: RumConfigResponse,
-  RumConfigUpdateAttributes: RumConfigUpdateAttributes,
-  RumConfigUpdateData: RumConfigUpdateData,
-  RumConfigUpdateRequest: RumConfigUpdateRequest,
-  RumCrossProductSampling: RumCrossProductSampling,
-  RumCrossProductSamplingCreate: RumCrossProductSamplingCreate,
-  RumCrossProductSamplingUpdate: RumCrossProductSamplingUpdate,
-  RumExclusionFilterAttributes: RumExclusionFilterAttributes,
-  RumExclusionFilterCreateAttributes: RumExclusionFilterCreateAttributes,
-  RumExclusionFilterCreateData: RumExclusionFilterCreateData,
-  RumExclusionFilterCreateRequest: RumExclusionFilterCreateRequest,
-  RumExclusionFilterData: RumExclusionFilterData,
-  RumExclusionFilterMeta: RumExclusionFilterMeta,
-  RumExclusionFilterResponse: RumExclusionFilterResponse,
-  RumExclusionFilterUpdateAttributes: RumExclusionFilterUpdateAttributes,
-  RumExclusionFilterUpdateData: RumExclusionFilterUpdateData,
-  RumExclusionFilterUpdateRequest: RumExclusionFilterUpdateRequest,
-  RumExclusionFiltersResponse: RumExclusionFiltersResponse,
-  RumManagedArchiveErrorResponse: RumManagedArchiveErrorResponse,
-  RumMetricCompute: RumMetricCompute,
-  RumMetricCreateAttributes: RumMetricCreateAttributes,
-  RumMetricCreateData: RumMetricCreateData,
-  RumMetricCreateRequest: RumMetricCreateRequest,
-  RumMetricFilter: RumMetricFilter,
-  RumMetricGroupBy: RumMetricGroupBy,
-  RumMetricResponse: RumMetricResponse,
-  RumMetricResponseAttributes: RumMetricResponseAttributes,
-  RumMetricResponseCompute: RumMetricResponseCompute,
-  RumMetricResponseData: RumMetricResponseData,
-  RumMetricResponseFilter: RumMetricResponseFilter,
-  RumMetricResponseGroupBy: RumMetricResponseGroupBy,
-  RumMetricResponseUniqueness: RumMetricResponseUniqueness,
-  RumMetricUniqueness: RumMetricUniqueness,
-  RumMetricUpdateAttributes: RumMetricUpdateAttributes,
-  RumMetricUpdateCompute: RumMetricUpdateCompute,
-  RumMetricUpdateData: RumMetricUpdateData,
-  RumMetricUpdateRequest: RumMetricUpdateRequest,
-  RumMetricsResponse: RumMetricsResponse,
-  RumPermanentRetentionFilterAttributes: RumPermanentRetentionFilterAttributes,
-  RumPermanentRetentionFilterData: RumPermanentRetentionFilterData,
-  RumPermanentRetentionFilterEditability:
-    RumPermanentRetentionFilterEditability,
-  RumPermanentRetentionFilterResponse: RumPermanentRetentionFilterResponse,
-  RumPermanentRetentionFilterUpdateAttributes:
-    RumPermanentRetentionFilterUpdateAttributes,
-  RumPermanentRetentionFilterUpdateData: RumPermanentRetentionFilterUpdateData,
-  RumPermanentRetentionFilterUpdateRequest:
-    RumPermanentRetentionFilterUpdateRequest,
-  RumPermanentRetentionFiltersResponse: RumPermanentRetentionFiltersResponse,
-  RumRecoveredSession: RumRecoveredSession,
-  RumRecoveryBatchCreateAttributes: RumRecoveryBatchCreateAttributes,
-  RumRecoveryBatchListAttributes: RumRecoveryBatchListAttributes,
-  RumRecoveryBatchListData: RumRecoveryBatchListData,
-  RumRecoveryBatchListMeta: RumRecoveryBatchListMeta,
-  RumRecoveryBatchListResponse: RumRecoveryBatchListResponse,
-  RumRecoveryCancelAttributes: RumRecoveryCancelAttributes,
-  RumRecoveryCancelData: RumRecoveryCancelData,
-  RumRecoveryCancelRequest: RumRecoveryCancelRequest,
-  RumRecoveryCancelResponse: RumRecoveryCancelResponse,
-  RumRecoveryCancelResponseAttributes: RumRecoveryCancelResponseAttributes,
-  RumRecoveryCancelResponseData: RumRecoveryCancelResponseData,
-  RumRecoveryCountAttributes: RumRecoveryCountAttributes,
-  RumRecoveryCountRequest: RumRecoveryCountRequest,
-  RumRecoveryCountRequestData: RumRecoveryCountRequestData,
-  RumRecoveryCountResponse: RumRecoveryCountResponse,
-  RumRecoveryCountResponseAttributes: RumRecoveryCountResponseAttributes,
-  RumRecoveryCountResponseData: RumRecoveryCountResponseData,
-  RumRecoveryCreateData: RumRecoveryCreateData,
-  RumRecoveryCreateRequest: RumRecoveryCreateRequest,
-  RumRecoveryCreateResponse: RumRecoveryCreateResponse,
-  RumRecoveryCreateResponseAttributes: RumRecoveryCreateResponseAttributes,
-  RumRecoveryCreateResponseData: RumRecoveryCreateResponseData,
-  RumRecoveryRequestAttributes: RumRecoveryRequestAttributes,
-  RumRecoveryRequestData: RumRecoveryRequestData,
-  RumRecoveryRequestResponse: RumRecoveryRequestResponse,
-  RumRecoverySessionInput: RumRecoverySessionInput,
-  RumRecoverySessionsCreateAttributes: RumRecoverySessionsCreateAttributes,
-  RumRetentionFilterAttributes: RumRetentionFilterAttributes,
-  RumRetentionFilterCreateAttributes: RumRetentionFilterCreateAttributes,
-  RumRetentionFilterCreateData: RumRetentionFilterCreateData,
-  RumRetentionFilterCreateRequest: RumRetentionFilterCreateRequest,
-  RumRetentionFilterData: RumRetentionFilterData,
-  RumRetentionFilterMeta: RumRetentionFilterMeta,
-  RumRetentionFilterResponse: RumRetentionFilterResponse,
-  RumRetentionFilterUpdateAttributes: RumRetentionFilterUpdateAttributes,
-  RumRetentionFilterUpdateData: RumRetentionFilterUpdateData,
-  RumRetentionFilterUpdateRequest: RumRetentionFilterUpdateRequest,
-  RumRetentionFiltersOrderData: RumRetentionFiltersOrderData,
-  RumRetentionFiltersOrderRequest: RumRetentionFiltersOrderRequest,
-  RumRetentionFiltersOrderResponse: RumRetentionFiltersOrderResponse,
-  RumRetentionFiltersResponse: RumRetentionFiltersResponse,
-  RumRetentionQuotaConfigAttributes: RumRetentionQuotaConfigAttributes,
-  RumRetentionQuotaConfigData: RumRetentionQuotaConfigData,
-  RumRetentionQuotaConfigResponse: RumRetentionQuotaConfigResponse,
-  RumRetentionQuotaConfigUpdateAttributes:
-    RumRetentionQuotaConfigUpdateAttributes,
-  RumRetentionQuotaConfigUpdateData: RumRetentionQuotaConfigUpdateData,
-  RumRetentionQuotaConfigUpdateRequest: RumRetentionQuotaConfigUpdateRequest,
-  RumRetentionQuotaCustomConfig: RumRetentionQuotaCustomConfig,
-  RumSdkConfigAttributes: RumSdkConfigAttributes,
-  RumSdkConfigData: RumSdkConfigData,
-  RumSdkConfigDynamicOption: RumSdkConfigDynamicOption,
-  RumSdkConfigDynamicOptionPair: RumSdkConfigDynamicOptionPair,
-  RumSdkConfigMatchOption: RumSdkConfigMatchOption,
-  RumSdkConfigMeta: RumSdkConfigMeta,
-  RumSdkConfigResponse: RumSdkConfigResponse,
-  RumSdkConfigRumAttributes: RumSdkConfigRumAttributes,
-  RumSdkConfigRumUpdateAttributes: RumSdkConfigRumUpdateAttributes,
-  RumSdkConfigSerializedRegex: RumSdkConfigSerializedRegex,
-  RumSdkConfigTracingUrlConfig: RumSdkConfigTracingUrlConfig,
-  RumSdkConfigUpdateAttributes: RumSdkConfigUpdateAttributes,
-  RumSdkConfigUpdateData: RumSdkConfigUpdateData,
-  RumSdkConfigUpdateRequest: RumSdkConfigUpdateRequest,
   RunDataObservabilityMonitorResponse: RunDataObservabilityMonitorResponse,
   RunDataObservabilityMonitorResponseData:
     RunDataObservabilityMonitorResponseData,
@@ -22196,6 +22196,10 @@ const oneOfMap: { [index: string]: string[] } = {
   RUMBucketGroupByValue: ["string", "number"],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
+  RUMRecoveryCreateAttributes: [
+    "RUMRecoverySessionsCreateAttributes",
+    "RUMRecoveryBatchCreateAttributes",
+  ],
   ReportScheduleIncludedResource: [
     "ReportScheduleAuthor",
     "ReportScheduleResource",
@@ -22207,10 +22211,6 @@ const oneOfMap: { [index: string]: string[] } = {
     "TriggerWorkflowAutomationAction",
     "RoutingRuleEscalationPolicyAction",
     "RoutingRuleRerouteToTeamAction",
-  ],
-  RumRecoveryCreateAttributes: [
-    "RumRecoverySessionsCreateAttributes",
-    "RumRecoveryBatchCreateAttributes",
   ],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
   ScalarQuery: [

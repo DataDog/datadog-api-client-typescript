@@ -12,9 +12,9 @@ const configuration = client.createConfiguration({
   },
 });
 configuration.unstableOperations["v2.deleteConnection"] = true;
-const apiInstance = new v2.RumAudienceManagementApi(configuration);
+const apiInstance = new v2.RUMAudienceManagementApi(configuration);
 
-const params: v2.RumAudienceManagementApiDeleteConnectionRequest = {
+const params: v2.RUMAudienceManagementApiDeleteConnectionRequest = {
   id: "connection-id-123",
   entity: "users",
 };

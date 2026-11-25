@@ -14,7 +14,7 @@ const params: v2.RUMManagedArchivesApiListRUMArchiveConfigsRequest = {
 
 apiInstance
   .listRUMArchiveConfigs(params)
-  .then((data: v2.RumArchiveConfigListResponse) => {
+  .then((data: v2.RUMArchiveConfigListResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

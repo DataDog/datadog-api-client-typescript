@@ -11,9 +11,9 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.RumRetentionFiltersApi(configuration);
+const apiInstance = new v2.RUMRetentionFiltersApi(configuration);
 
-const params: v2.RumRetentionFiltersApiDeleteExclusionFilterRequest = {
+const params: v2.RUMRetentionFiltersApiDeleteExclusionFilterRequest = {
   appId: "app_id",
   efId: "ef_id",
 };
