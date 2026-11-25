@@ -24,6 +24,10 @@ export class ScatterPlotWidgetDefinition {
    */
   "description"?: string;
   /**
+   * Color palette to apply to the widget. Supported values include `datadog16`, `datadog32`, `semantic`, `classic`, and `dog_classic`. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors
+   */
+  "palette"?: string;
+  /**
    * Widget definition.
    */
   "requests": ScatterPlotWidgetDefinitionRequests;
@@ -80,6 +84,10 @@ export class ScatterPlotWidgetDefinition {
     },
     description: {
       baseName: "description",
+      type: "string",
+    },
+    palette: {
+      baseName: "palette",
       type: "string",
     },
     requests: {
