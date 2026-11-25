@@ -48,6 +48,10 @@ export class GCPAccount {
    */
   "hostFilters"?: string;
   /**
+   * The Datadog-assigned ID of the GCP integration account.
+   */
+  "id"?: string;
+  /**
    * When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.
    */
   "isCspmEnabled"?: boolean;
@@ -137,6 +141,11 @@ export class GCPAccount {
     hostFilters: {
       baseName: "host_filters",
       type: "string",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "uuid",
     },
     isCspmEnabled: {
       baseName: "is_cspm_enabled",
