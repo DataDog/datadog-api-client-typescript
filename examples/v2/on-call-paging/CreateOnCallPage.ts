@@ -1,5 +1,5 @@
 /**
- * Create On-Call Page returns "OK." response
+ * Create On-Call Page returns "Created." response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
