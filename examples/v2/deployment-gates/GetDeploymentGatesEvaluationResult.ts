@@ -11,8 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.getDeploymentGatesEvaluationResult"] =
-  true;
 const apiInstance = new v2.DeploymentGatesApi(configuration);
 
 const params: v2.DeploymentGatesApiGetDeploymentGatesEvaluationResultRequest = {

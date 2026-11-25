@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.listDeploymentGateEvaluations"] = true;
 const apiInstance = new v2.DeploymentGatesApi(configuration);
 
 (async () => {
