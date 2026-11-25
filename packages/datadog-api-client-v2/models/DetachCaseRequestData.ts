@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DetachCaseRequestData {
   /**
-   * Unique identifier of the detachment request.
+   * Optional identifier of the detachment request. The API doesn't use it to select a case: it detaches each security finding in `relationships.findings` from the case it's attached to.
    */
   "id"?: string;
   /**
