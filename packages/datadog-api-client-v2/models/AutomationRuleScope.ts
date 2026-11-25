@@ -12,7 +12,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AutomationRuleScope {
   /**
-   * The list of security finding types that the automation rule applies to.
+   * The security finding types that the automation rule applies to. At least one is required, and
+   * each type may appear only once. Allowed values: `api_security`, `attack_path`,
+   * `host_and_container_vulnerability`, `iac_misconfiguration`, `identity_risk`,
+   * `library_vulnerability`, `misconfiguration`, `runtime_code_vulnerability`, `secret`,
+   * `static_code_vulnerability`, and `workload_activity`.
    */
   "findingTypes": Array<SecurityFindingType>;
   /**

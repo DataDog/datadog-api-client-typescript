@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The direction in which to shift the severity of matched findings by one rank.
+ * The direction in which to shift the severity of matched findings by one rank. Shifting down stops at the lowest severity available for the finding type.
  */
 
 export type SeverityModifierSeverityDelta =

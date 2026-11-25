@@ -28,11 +28,11 @@ export class TicketCreationRuleAction {
    */
   "maxTicketsPerDay": Int64;
   /**
-   * The UUID of the case management project.
+   * The UUID of the Datadog Work Management (formerly Case Management) project.
    */
   "projectId": string;
   /**
-   * The ticketing system to create tickets in.
+   * The ticketing system to create tickets in. `case_management` is Datadog Work Management, formerly called Case Management.
    */
   "target": TicketCreationTarget;
 

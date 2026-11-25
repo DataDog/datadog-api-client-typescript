@@ -9,7 +9,7 @@ import { SeverityModifierSeverityDelta } from "./SeverityModifierSeverityDelta";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Shifts matched findings up or down by one severity rank.
+ * Shifts matched findings up or down by one severity rank. Shifting down stops at the lowest severity available for the finding type, for example `low` for `iac_misconfiguration`, `runtime_code_vulnerability`, `secret`, and `static_code_vulnerability` findings. A rule that wouldn't change a finding's severity doesn't match it, so Datadog checks the next rule.
  */
 export class SeverityModifierRuleShiftAction {
   /**
@@ -17,7 +17,7 @@ export class SeverityModifierRuleShiftAction {
    */
   "description"?: string;
   /**
-   * The direction in which to shift the severity of matched findings by one rank.
+   * The direction in which to shift the severity of matched findings by one rank. Shifting down stops at the lowest severity available for the finding type.
    */
   "severityDelta": SeverityModifierSeverityDelta;
   /**

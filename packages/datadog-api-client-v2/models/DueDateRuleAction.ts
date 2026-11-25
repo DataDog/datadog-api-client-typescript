@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DueDateRuleAction {
   /**
-   * A list of severity-to-due-date mappings. Each severity may appear at most once.
+   * A list of severity-to-due-date mappings. Each severity may appear at most once. The rule only matches findings whose severity is listed here.
    */
   "dueDaysPerSeverity": Array<DueDatePerSeverityItem>;
   /**

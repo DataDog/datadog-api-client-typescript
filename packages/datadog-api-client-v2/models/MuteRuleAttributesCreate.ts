@@ -17,7 +17,7 @@ export class MuteRuleAttributesCreate {
    */
   "action": MuteRuleAction;
   /**
-   * Whether the mute rule is enabled.
+   * Whether the mute rule is enabled. If it is omitted, the API saves it as `false` and the rule doesn't apply.
    */
   "enabled"?: boolean;
   /**
