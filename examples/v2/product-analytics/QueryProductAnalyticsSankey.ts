@@ -21,8 +21,8 @@ const params: v2.ProductAnalyticsApiQueryProductAnalyticsSankeyRequest = {
         definition: {
           entriesPerStep: 10,
           numberOfSteps: 3,
-          source: "@view.name",
-          target: "@view.name",
+          source: `@type:view @view.name:"/logs"`,
+          target: "",
         },
         search: {
           audienceFilters: {

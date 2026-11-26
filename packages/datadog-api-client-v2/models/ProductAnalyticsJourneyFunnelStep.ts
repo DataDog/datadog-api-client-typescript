@@ -17,15 +17,15 @@ export class ProductAnalyticsJourneyFunnelStep {
    */
   "elapsedTimeToNextStep": ProductAnalyticsElapsedTime;
   /**
-   * Breakdown of this step by the requested group-by facets.
+   * Breakdown of this step by the requested group-by facets. Omitted when the query has no group-by.
    */
-  "groups": Array<ProductAnalyticsJourneyFunnelStepGroup>;
+  "groups"?: Array<ProductAnalyticsJourneyFunnelStepGroup>;
   /**
    * Label of the step, derived from the node alias.
    */
   "label": string;
   /**
-   * Unit of the elapsed time values.
+   * The entity counted in `value`, such as `session` or `user`, set by the join key.
    */
   "unit": string;
   /**
@@ -57,7 +57,6 @@ export class ProductAnalyticsJourneyFunnelStep {
     groups: {
       baseName: "groups",
       type: "Array<ProductAnalyticsJourneyFunnelStepGroup>",
-      required: true,
     },
     label: {
       baseName: "label",

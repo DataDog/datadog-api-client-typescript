@@ -25,9 +25,10 @@ export class ProductAnalyticsJourneyFunnelResponseAttributes {
    */
   "funnelSteps": Array<ProductAnalyticsJourneyFunnelStep>;
   /**
-   * Number of entities that entered the funnel.
+   * Number of entities that entered the funnel. The service does not return it today; use the `value`
+   * of the first entry in `funnel_steps` instead.
    */
-  "initialCount": Int64;
+  "initialCount"?: Int64;
 
   /**
    * A container for additional, undeclared properties.
@@ -64,7 +65,6 @@ export class ProductAnalyticsJourneyFunnelResponseAttributes {
     initialCount: {
       baseName: "initial_count",
       type: "number",
-      required: true,
       format: "int64",
     },
     additionalProperties: {

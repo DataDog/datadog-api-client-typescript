@@ -1504,7 +1504,8 @@ export class RumAudienceManagementApi {
 
   /**
    * Delete a Product Analytics user profile.
-   * Deletion is asynchronous: the request is accepted and the profile is removed shortly after, usually within a few minutes.
+   * Deletion is asynchronous: the request is accepted and the profile is removed shortly after, usually within a few
+   * minutes.
    * This only deletes the user profile. To delete the RUM events of the user, use the RUM data deletion API.
    * @param param The request object
    */
@@ -1631,7 +1632,10 @@ export class RumAudienceManagementApi {
   }
 
   /**
-   * Query users filtered by both user properties and event platform data
+   * Query users filtered by both user properties and event platform data.
+   * `event_query.query` selects users who have matching events in `event_query.time_frame`, which is in
+   * milliseconds.
+   * `query` and `select_columns` use user profile attribute names, not event facets.
    * @param param The request object
    */
   public queryEventFilteredUsers(

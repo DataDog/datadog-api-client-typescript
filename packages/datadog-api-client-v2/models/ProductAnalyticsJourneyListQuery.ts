@@ -26,6 +26,7 @@ export class ProductAnalyticsJourneyListQuery {
   "conversionType"?: ProductAnalyticsJourneyConversionType;
   /**
    * Attribute columns to return for each row, in addition to the identity join key and `timestamp`.
+   * For example, `@usr.id` returns the user of each session.
    */
   "entityColumns"?: Array<string>;
   /**
