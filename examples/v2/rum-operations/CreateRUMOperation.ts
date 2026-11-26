@@ -16,37 +16,32 @@ const apiInstance = new v2.RUMOperationsApi(configuration);
 const params: v2.RUMOperationsApiCreateRUMOperationRequest = {
   body: {
     data: {
+      type: "operations",
       attributes: {
-        applicationId: "abc12345-1234-5678-abcd-ef1234567890",
-        category: undefined,
-        description: undefined,
-        displayName: "Checkout completed",
-        featureIds: [],
+        name: "bdd_examplerumoperation",
+        displayName: "BDD operation",
+        tags: ["team:rum-backend"],
         journeyRum: {
           rumSteps: [
             {
-              composite: {
-                kind: "all_of",
-                maxWindowMs: 30000,
-                predicates: [
-                  {
-                    query: "@type:action @action.type:click",
-                  },
-                ],
-              },
+              type: "start",
               nodes: [
                 {
                   query: "@type:action @action.type:click",
                 },
               ],
-              type: "start",
+            },
+            {
+              type: "stop",
+              nodes: [
+                {
+                  query: "@type:view",
+                },
+              ],
             },
           ],
         },
-        name: "checkout_completed",
-        tags: ["team:checkout"],
       },
-      type: "operations",
     },
   },
 };

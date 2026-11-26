@@ -13,17 +13,19 @@ const configuration = client.createConfiguration({
 });
 const apiInstance = new v2.RUMOperationsApi(configuration);
 
+// there is a valid "rum_operation" in the system
+const RUM_OPERATION_DATA_ID = process.env.RUM_OPERATION_DATA_ID as string;
+
 const params: v2.RUMOperationsApiCreateRUMOperationStrongLinkRequest = {
   body: {
     data: {
-      attributes: {
-        description: undefined,
-        featureId: "journey-123",
-        operationId: "abc12345-1234-5678-abcd-ef1234567890",
-        status: "CONFIRMED",
-        tags: [],
-      },
       type: "strong_links",
+      attributes: {
+        operationId: RUM_OPERATION_DATA_ID,
+        featureId: "bdd-examplerumoperation",
+        status: "DRAFT",
+        tags: ["team:rum-backend"],
+      },
     },
   },
 };

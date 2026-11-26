@@ -13,8 +13,11 @@ const configuration = client.createConfiguration({
 });
 const apiInstance = new v2.RUMOperationsApi(configuration);
 
+// there is a valid "rum_operation" in the system
+const RUM_OPERATION_DATA_ID = process.env.RUM_OPERATION_DATA_ID as string;
+
 const params: v2.RUMOperationsApiGetRUMOperationRequest = {
-  rumOperationId: "rum_operation_id",
+  rumOperationId: RUM_OPERATION_DATA_ID,
 };
 
 apiInstance

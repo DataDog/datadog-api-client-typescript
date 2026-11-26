@@ -18,7 +18,7 @@ const params: v2.RUMConfigApiUpdateRumConfigRequest = {
   body: {
     data: {
       attributes: {
-        enforcedApplicationTags: true,
+        enforcedApplicationTags: false,
       },
       type: "rum_config",
     },
