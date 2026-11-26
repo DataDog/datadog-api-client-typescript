@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AttachmentData } from "./AttachmentData";
+import { IncidentResponderDataResponse } from "./IncidentResponderDataResponse";
 import { IncidentUserData } from "./IncidentUserData";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
@@ -15,4 +16,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type IncidentResponseIncludedItem =
   | IncidentUserData
   | AttachmentData
+  | IncidentResponderDataResponse
   | UnparsedObject;
