@@ -2490,6 +2490,13 @@ import { ExperimentsWarehouseMetricMeasure } from "./ExperimentsWarehouseMetricM
 import { ExperimentsWarehousePercentileAggregationInput } from "./ExperimentsWarehousePercentileAggregationInput";
 import { ExposureRolloutStepRequest } from "./ExposureRolloutStepRequest";
 import { ExposureScheduleRequest } from "./ExposureScheduleRequest";
+import { ExternalTeamPermissionSettingDefaultResponse } from "./ExternalTeamPermissionSettingDefaultResponse";
+import { ExternalTeamPermissionSettingDefaultUpdateAttributes } from "./ExternalTeamPermissionSettingDefaultUpdateAttributes";
+import { ExternalTeamPermissionSettingDefaultUpdateData } from "./ExternalTeamPermissionSettingDefaultUpdateData";
+import { ExternalTeamPermissionSettingDefaultUpdateRequest } from "./ExternalTeamPermissionSettingDefaultUpdateRequest";
+import { ExternalTeamPermissionSettingDefaultsAttributes } from "./ExternalTeamPermissionSettingDefaultsAttributes";
+import { ExternalTeamPermissionSettingDefaultsData } from "./ExternalTeamPermissionSettingDefaultsData";
+import { ExternalTeamPermissionSettingDefaultsListResponse } from "./ExternalTeamPermissionSettingDefaultsListResponse";
 import { FacetInfoRequest } from "./FacetInfoRequest";
 import { FacetInfoRequestData } from "./FacetInfoRequestData";
 import { FacetInfoRequestDataAttributes } from "./FacetInfoRequestDataAttributes";
@@ -8870,6 +8877,10 @@ const enumsMap: { [key: string]: any[] } = {
     ],
   ExperimentsVariantResultsV2DTODataType: ["experiment-variant-results"],
   ExperimentsWarehouseEntryPointFilterOperation: ["IS", "IS_NOT"],
+  ExternalTeamPermissionSettingDefaultsSource: ["github", "scim", "servicenow"],
+  ExternalTeamPermissionSettingDefaultsType: [
+    "external_team_permission_setting_defaults",
+  ],
   FacetInfoRequestDataType: [
     "users_facet_info_request",
     "accounts_facet_info_request",
@@ -14964,6 +14975,20 @@ const typeMap: { [index: string]: any } = {
     ExperimentsWarehousePercentileAggregationInput,
   ExposureRolloutStepRequest: ExposureRolloutStepRequest,
   ExposureScheduleRequest: ExposureScheduleRequest,
+  ExternalTeamPermissionSettingDefaultResponse:
+    ExternalTeamPermissionSettingDefaultResponse,
+  ExternalTeamPermissionSettingDefaultUpdateAttributes:
+    ExternalTeamPermissionSettingDefaultUpdateAttributes,
+  ExternalTeamPermissionSettingDefaultUpdateData:
+    ExternalTeamPermissionSettingDefaultUpdateData,
+  ExternalTeamPermissionSettingDefaultUpdateRequest:
+    ExternalTeamPermissionSettingDefaultUpdateRequest,
+  ExternalTeamPermissionSettingDefaultsAttributes:
+    ExternalTeamPermissionSettingDefaultsAttributes,
+  ExternalTeamPermissionSettingDefaultsData:
+    ExternalTeamPermissionSettingDefaultsData,
+  ExternalTeamPermissionSettingDefaultsListResponse:
+    ExternalTeamPermissionSettingDefaultsListResponse,
   FacetInfoRequest: FacetInfoRequest,
   FacetInfoRequestData: FacetInfoRequestData,
   FacetInfoRequestDataAttributes: FacetInfoRequestDataAttributes,

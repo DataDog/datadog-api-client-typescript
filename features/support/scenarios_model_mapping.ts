@@ -21770,6 +21770,42 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListExternalTeamPermissionSettingDefaults": {
+        "operationResponseType": "ExternalTeamPermissionSettingDefaultsListResponse",
+    },
+    "v2.ListExternalTeamPermissionSettingDefaultsBySource": {
+        "source": {
+            "type": "ExternalTeamPermissionSettingDefaultsSource",
+            "format": "",
+            },
+        "operationResponseType": "ExternalTeamPermissionSettingDefaultsListResponse",
+    },
+    "v2.UpdateExternalTeamPermissionSettingDefault": {
+        "source": {
+            "type": "ExternalTeamPermissionSettingDefaultsSource",
+            "format": "",
+            },
+        "action": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ExternalTeamPermissionSettingDefaultUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ExternalTeamPermissionSettingDefaultResponse",
+    },
+    "v2.DeleteExternalTeamPermissionSettingDefault": {
+        "source": {
+            "type": "ExternalTeamPermissionSettingDefaultsSource",
+            "format": "",
+            },
+        "action": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetTeamSync": {
         "filterSource": {
             "type": "TeamSyncAttributesSource",

@@ -19,6 +19,10 @@ import { Int64Input } from "../../datadog-api-client-common/util";
 
 import { AddMemberTeamRequest } from "../models/AddMemberTeamRequest";
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { ExternalTeamPermissionSettingDefaultResponse } from "../models/ExternalTeamPermissionSettingDefaultResponse";
+import { ExternalTeamPermissionSettingDefaultsListResponse } from "../models/ExternalTeamPermissionSettingDefaultsListResponse";
+import { ExternalTeamPermissionSettingDefaultsSource } from "../models/ExternalTeamPermissionSettingDefaultsSource";
+import { ExternalTeamPermissionSettingDefaultUpdateRequest } from "../models/ExternalTeamPermissionSettingDefaultUpdateRequest";
 import { GetTeamMembershipsSort } from "../models/GetTeamMembershipsSort";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListTeamsInclude } from "../models/ListTeamsInclude";
@@ -424,6 +428,57 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
       this.configuration.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteExternalTeamPermissionSettingDefault(
+    source: ExternalTeamPermissionSettingDefaultsSource,
+    action: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'source' is not null or undefined
+    if (source === null || source === undefined) {
+      throw new RequiredError(
+        "source",
+        "deleteExternalTeamPermissionSettingDefault"
+      );
+    }
+
+    // verify required parameter 'action' is not null or undefined
+    if (action === null || action === undefined) {
+      throw new RequiredError(
+        "action",
+        "deleteExternalTeamPermissionSettingDefault"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/team/settings/external-permissions/{source}/{action}"
+        .replace("{source}", encodeURIComponent(String(source)))
+        .replace("{action}", encodeURIComponent(String(action)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.TeamsApi.deleteExternalTeamPermissionSettingDefault")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1098,6 +1153,81 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listExternalTeamPermissionSettingDefaults(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/team/settings/external-permissions";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.TeamsApi.listExternalTeamPermissionSettingDefaults")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listExternalTeamPermissionSettingDefaultsBySource(
+    source: ExternalTeamPermissionSettingDefaultsSource,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'source' is not null or undefined
+    if (source === null || source === undefined) {
+      throw new RequiredError(
+        "source",
+        "listExternalTeamPermissionSettingDefaultsBySource"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/team/settings/external-permissions/{source}".replace(
+        "{source}",
+        encodeURIComponent(String(source))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.TeamsApi.listExternalTeamPermissionSettingDefaultsBySource"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listMemberTeams(
     superTeamId: string,
     pageSize?: Int64Input,
@@ -1626,6 +1756,82 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamSyncRequest", ""),
+      contentType,
+      this.configuration.preserveLargeIntegers
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateExternalTeamPermissionSettingDefault(
+    source: ExternalTeamPermissionSettingDefaultsSource,
+    action: string,
+    body: ExternalTeamPermissionSettingDefaultUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'source' is not null or undefined
+    if (source === null || source === undefined) {
+      throw new RequiredError(
+        "source",
+        "updateExternalTeamPermissionSettingDefault"
+      );
+    }
+
+    // verify required parameter 'action' is not null or undefined
+    if (action === null || action === undefined) {
+      throw new RequiredError(
+        "action",
+        "updateExternalTeamPermissionSettingDefault"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateExternalTeamPermissionSettingDefault"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/team/settings/external-permissions/{source}/{action}"
+        .replace("{source}", encodeURIComponent(String(source)))
+        .replace("{action}", encodeURIComponent(String(action)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.TeamsApi.updateExternalTeamPermissionSettingDefault")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "ExternalTeamPermissionSettingDefaultUpdateRequest",
+        ""
+      ),
       contentType,
       this.configuration.preserveLargeIntegers
     );
@@ -2461,6 +2667,84 @@ export class TeamsApiResponseProcessor {
         this.configuration?.preserveLargeIntegers
       ) as TeamNotificationRuleResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteExternalTeamPermissionSettingDefault
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteExternalTeamPermissionSettingDefault(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -3497,6 +3781,206 @@ export class TeamsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listExternalTeamPermissionSettingDefaults
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listExternalTeamPermissionSettingDefaults(
+    response: ResponseContext
+  ): Promise<ExternalTeamPermissionSettingDefaultsListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ExternalTeamPermissionSettingDefaultsListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ExternalTeamPermissionSettingDefaultsListResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ExternalTeamPermissionSettingDefaultsListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExternalTeamPermissionSettingDefaultsListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ExternalTeamPermissionSettingDefaultsListResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ExternalTeamPermissionSettingDefaultsListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listExternalTeamPermissionSettingDefaultsBySource
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listExternalTeamPermissionSettingDefaultsBySource(
+    response: ResponseContext
+  ): Promise<ExternalTeamPermissionSettingDefaultsListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ExternalTeamPermissionSettingDefaultsListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ExternalTeamPermissionSettingDefaultsListResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ExternalTeamPermissionSettingDefaultsListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExternalTeamPermissionSettingDefaultsListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ExternalTeamPermissionSettingDefaultsListResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ExternalTeamPermissionSettingDefaultsListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listMemberTeams
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4057,6 +4541,106 @@ export class TeamsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateExternalTeamPermissionSettingDefault
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateExternalTeamPermissionSettingDefault(
+    response: ResponseContext
+  ): Promise<ExternalTeamPermissionSettingDefaultResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ExternalTeamPermissionSettingDefaultResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ExternalTeamPermissionSettingDefaultResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ExternalTeamPermissionSettingDefaultResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType,
+        this.configuration?.preserveLargeIntegers
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExternalTeamPermissionSettingDefaultResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            this.configuration?.preserveLargeIntegers
+          ),
+          "ExternalTeamPermissionSettingDefaultResponse",
+          "",
+          this.configuration?.preserveLargeIntegers
+        ) as ExternalTeamPermissionSettingDefaultResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4504,6 +5088,19 @@ export interface TeamsApiCreateTeamNotificationRuleRequest {
   body: TeamNotificationRuleRequest;
 }
 
+export interface TeamsApiDeleteExternalTeamPermissionSettingDefaultRequest {
+  /**
+   * The external team integration source.
+   * @type ExternalTeamPermissionSettingDefaultsSource
+   */
+  source: ExternalTeamPermissionSettingDefaultsSource;
+  /**
+   * The permission action to delete the default for.
+   * @type string
+   */
+  action: string;
+}
+
 export interface TeamsApiDeleteTeamRequest {
   /**
    * None
@@ -4666,6 +5263,14 @@ export interface TeamsApiGetUserMembershipsRequest {
    * @type string
    */
   userUuid: string;
+}
+
+export interface TeamsApiListExternalTeamPermissionSettingDefaultsBySourceRequest {
+  /**
+   * The external team integration source.
+   * @type ExternalTeamPermissionSettingDefaultsSource
+   */
+  source: ExternalTeamPermissionSettingDefaultsSource;
 }
 
 export interface TeamsApiListMemberTeamsRequest {
@@ -4854,6 +5459,23 @@ export interface TeamsApiSyncTeamsRequest {
    * @type TeamSyncRequest
    */
   body: TeamSyncRequest;
+}
+
+export interface TeamsApiUpdateExternalTeamPermissionSettingDefaultRequest {
+  /**
+   * The external team integration source.
+   * @type ExternalTeamPermissionSettingDefaultsSource
+   */
+  source: ExternalTeamPermissionSettingDefaultsSource;
+  /**
+   * The permission action to configure a default for.
+   * @type string
+   */
+  action: string;
+  /**
+   * @type ExternalTeamPermissionSettingDefaultUpdateRequest
+   */
+  body: ExternalTeamPermissionSettingDefaultUpdateRequest;
 }
 
 export interface TeamsApiUpdateTeamRequest {
@@ -5106,6 +5728,33 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createTeamNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete the organization-level permission default for a specific (source, action) pair, reverting that action to
+   * its built-in default for all synced teams. The operation is idempotent. Deleting an absent default returns 204. On
+   * success, triggers a sync of all existing synced teams so they re-derive their permissions without the override.
+   * @param param The request object
+   */
+  public deleteExternalTeamPermissionSettingDefault(
+    param: TeamsApiDeleteExternalTeamPermissionSettingDefaultRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteExternalTeamPermissionSettingDefault(
+        param.source,
+        param.action,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteExternalTeamPermissionSettingDefault(
             responseContext
           );
         });
@@ -5485,6 +6134,54 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getUserMemberships(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List the organization-level permission defaults for externally synced teams. Each default maps a
+   * (source, action) pair to the Datadog permission required to perform that action on teams managed by that
+   * source. For example, a default can set which permission level can add or remove subteams on SCIM-managed
+   * teams. Returns configured defaults for all sources.
+   * @param param The request object
+   */
+  public listExternalTeamPermissionSettingDefaults(
+    options?: Configuration
+  ): Promise<ExternalTeamPermissionSettingDefaultsListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listExternalTeamPermissionSettingDefaults(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listExternalTeamPermissionSettingDefaults(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * List the organization-level permission defaults for a specific external team integration source. Each default
+   * maps a permission action to the Datadog permission required to perform it on teams synced from that source.
+   * @param param The request object
+   */
+  public listExternalTeamPermissionSettingDefaultsBySource(
+    param: TeamsApiListExternalTeamPermissionSettingDefaultsBySourceRequest,
+    options?: Configuration
+  ): Promise<ExternalTeamPermissionSettingDefaultsListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listExternalTeamPermissionSettingDefaultsBySource(
+        param.source,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listExternalTeamPermissionSettingDefaultsBySource(
+            responseContext
+          );
         });
     });
   }
@@ -5935,6 +6632,36 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.syncTeams(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create or update the organization-level permission default for a specific (source, action) pair. This controls
+   * which Datadog permission is required to perform that action on teams synced from that source. For example, a
+   * default can require `user_access_manage` to add or remove SCIM-managed subteams. On success, triggers a sync
+   * of all existing synced teams so they re-derive the updated permission. Returns 400 if the (source, action,
+   * value) combination is not supported.
+   * @param param The request object
+   */
+  public updateExternalTeamPermissionSettingDefault(
+    param: TeamsApiUpdateExternalTeamPermissionSettingDefaultRequest,
+    options?: Configuration
+  ): Promise<ExternalTeamPermissionSettingDefaultResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateExternalTeamPermissionSettingDefault(
+        param.source,
+        param.action,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateExternalTeamPermissionSettingDefault(
+            responseContext
+          );
         });
     });
   }

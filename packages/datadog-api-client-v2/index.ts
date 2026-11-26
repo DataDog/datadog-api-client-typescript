@@ -2206,6 +2206,7 @@ export {
   TeamsApiCreateTeamLinkRequest,
   TeamsApiCreateTeamMembershipRequest,
   TeamsApiCreateTeamNotificationRuleRequest,
+  TeamsApiDeleteExternalTeamPermissionSettingDefaultRequest,
   TeamsApiDeleteTeamRequest,
   TeamsApiDeleteTeamConnectionsRequest,
   TeamsApiDeleteTeamLinkRequest,
@@ -2221,6 +2222,7 @@ export {
   TeamsApiGetTeamPermissionSettingsRequest,
   TeamsApiGetTeamSyncRequest,
   TeamsApiGetUserMembershipsRequest,
+  TeamsApiListExternalTeamPermissionSettingDefaultsBySourceRequest,
   TeamsApiListMemberTeamsRequest,
   TeamsApiListTeamConnectionsRequest,
   TeamsApiListTeamHierarchyLinksRequest,
@@ -2229,6 +2231,7 @@ export {
   TeamsApiRemoveMemberTeamRequest,
   TeamsApiRemoveTeamHierarchyLinkRequest,
   TeamsApiSyncTeamsRequest,
+  TeamsApiUpdateExternalTeamPermissionSettingDefaultRequest,
   TeamsApiUpdateTeamRequest,
   TeamsApiUpdateTeamLinkRequest,
   TeamsApiUpdateTeamMembershipRequest,
@@ -5588,6 +5591,15 @@ export { ExperimentsWarehouseMetricMeasure } from "./models/ExperimentsWarehouse
 export { ExperimentsWarehousePercentileAggregationInput } from "./models/ExperimentsWarehousePercentileAggregationInput";
 export { ExposureRolloutStepRequest } from "./models/ExposureRolloutStepRequest";
 export { ExposureScheduleRequest } from "./models/ExposureScheduleRequest";
+export { ExternalTeamPermissionSettingDefaultResponse } from "./models/ExternalTeamPermissionSettingDefaultResponse";
+export { ExternalTeamPermissionSettingDefaultsAttributes } from "./models/ExternalTeamPermissionSettingDefaultsAttributes";
+export { ExternalTeamPermissionSettingDefaultsData } from "./models/ExternalTeamPermissionSettingDefaultsData";
+export { ExternalTeamPermissionSettingDefaultsListResponse } from "./models/ExternalTeamPermissionSettingDefaultsListResponse";
+export { ExternalTeamPermissionSettingDefaultsSource } from "./models/ExternalTeamPermissionSettingDefaultsSource";
+export { ExternalTeamPermissionSettingDefaultsType } from "./models/ExternalTeamPermissionSettingDefaultsType";
+export { ExternalTeamPermissionSettingDefaultUpdateAttributes } from "./models/ExternalTeamPermissionSettingDefaultUpdateAttributes";
+export { ExternalTeamPermissionSettingDefaultUpdateData } from "./models/ExternalTeamPermissionSettingDefaultUpdateData";
+export { ExternalTeamPermissionSettingDefaultUpdateRequest } from "./models/ExternalTeamPermissionSettingDefaultUpdateRequest";
 export { FacetInfoRequest } from "./models/FacetInfoRequest";
 export { FacetInfoRequestData } from "./models/FacetInfoRequestData";
 export { FacetInfoRequestDataAttributes } from "./models/FacetInfoRequestDataAttributes";
