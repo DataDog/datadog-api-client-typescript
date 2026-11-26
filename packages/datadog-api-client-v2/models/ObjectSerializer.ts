@@ -4616,6 +4616,28 @@ import { OpenAICodexTurnMetricsIntegrationDataflowRequest } from "./OpenAICodexT
 import { OpenAICodexTurnMetricsIntegrationDataflowResponse } from "./OpenAICodexTurnMetricsIntegrationDataflowResponse";
 import { OpenAIIntegration } from "./OpenAIIntegration";
 import { OpenAIIntegrationUpdate } from "./OpenAIIntegrationUpdate";
+import { OpenAIModelInferenceIntegrationAccountBearerTokenAuthRequest } from "./OpenAIModelInferenceIntegrationAccountBearerTokenAuthRequest";
+import { OpenAIModelInferenceIntegrationAccountBearerTokenAuthResponse } from "./OpenAIModelInferenceIntegrationAccountBearerTokenAuthResponse";
+import { OpenAIModelInferenceIntegrationAccountBearerTokenAuthUpdate } from "./OpenAIModelInferenceIntegrationAccountBearerTokenAuthUpdate";
+import { OpenAIModelInferenceIntegrationAccountCreateAttributes } from "./OpenAIModelInferenceIntegrationAccountCreateAttributes";
+import { OpenAIModelInferenceIntegrationAccountCreateData } from "./OpenAIModelInferenceIntegrationAccountCreateData";
+import { OpenAIModelInferenceIntegrationAccountCreateRequest } from "./OpenAIModelInferenceIntegrationAccountCreateRequest";
+import { OpenAIModelInferenceIntegrationAccountResponse } from "./OpenAIModelInferenceIntegrationAccountResponse";
+import { OpenAIModelInferenceIntegrationAccountResponseAttributes } from "./OpenAIModelInferenceIntegrationAccountResponseAttributes";
+import { OpenAIModelInferenceIntegrationAccountResponseData } from "./OpenAIModelInferenceIntegrationAccountResponseData";
+import { OpenAIModelInferenceIntegrationAccountSettingsRequest } from "./OpenAIModelInferenceIntegrationAccountSettingsRequest";
+import { OpenAIModelInferenceIntegrationAccountSettingsResponse } from "./OpenAIModelInferenceIntegrationAccountSettingsResponse";
+import { OpenAIModelInferenceIntegrationAccountSettingsUpdate } from "./OpenAIModelInferenceIntegrationAccountSettingsUpdate";
+import { OpenAIModelInferenceIntegrationAccountUpdateAttributes } from "./OpenAIModelInferenceIntegrationAccountUpdateAttributes";
+import { OpenAIModelInferenceIntegrationAccountUpdateData } from "./OpenAIModelInferenceIntegrationAccountUpdateData";
+import { OpenAIModelInferenceIntegrationAccountUpdateRequest } from "./OpenAIModelInferenceIntegrationAccountUpdateRequest";
+import { OpenAIModelInferenceIntegrationAccountsResponse } from "./OpenAIModelInferenceIntegrationAccountsResponse";
+import { OpenAIModelInferenceIntegrationDataflowsRequest } from "./OpenAIModelInferenceIntegrationDataflowsRequest";
+import { OpenAIModelInferenceIntegrationDataflowsResponse } from "./OpenAIModelInferenceIntegrationDataflowsResponse";
+import { OpenAIModelInferenceLLMCompletionsIntegrationDataflowRequest } from "./OpenAIModelInferenceLLMCompletionsIntegrationDataflowRequest";
+import { OpenAIModelInferenceLLMCompletionsIntegrationDataflowResponse } from "./OpenAIModelInferenceLLMCompletionsIntegrationDataflowResponse";
+import { OpenAIModelInferenceProjectCloudCostDataIntegrationDataflowRequest } from "./OpenAIModelInferenceProjectCloudCostDataIntegrationDataflowRequest";
+import { OpenAIModelInferenceProjectCloudCostDataIntegrationDataflowResponse } from "./OpenAIModelInferenceProjectCloudCostDataIntegrationDataflowResponse";
 import { OpenAPIEndpoint } from "./OpenAPIEndpoint";
 import { OpsgenieAccountCreateAttributes } from "./OpsgenieAccountCreateAttributes";
 import { OpsgenieAccountCreateData } from "./OpsgenieAccountCreateData";
@@ -10169,6 +10191,7 @@ const enumsMap: { [key: string]: any[] } = {
   OpenAIAPIKeyType: ["OpenAIAPIKey"],
   OpenAICodexIntegrationAccountBearerTokenAuthType: ["bearer_token"],
   OpenAIIntegrationType: ["OpenAI"],
+  OpenAIModelInferenceIntegrationAccountBearerTokenAuthType: ["bearer_token"],
   OpsgenieAccountType: ["opsgenie-account"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
@@ -17665,6 +17688,50 @@ const typeMap: { [index: string]: any } = {
     OpenAICodexTurnMetricsIntegrationDataflowResponse,
   OpenAIIntegration: OpenAIIntegration,
   OpenAIIntegrationUpdate: OpenAIIntegrationUpdate,
+  OpenAIModelInferenceIntegrationAccountBearerTokenAuthRequest:
+    OpenAIModelInferenceIntegrationAccountBearerTokenAuthRequest,
+  OpenAIModelInferenceIntegrationAccountBearerTokenAuthResponse:
+    OpenAIModelInferenceIntegrationAccountBearerTokenAuthResponse,
+  OpenAIModelInferenceIntegrationAccountBearerTokenAuthUpdate:
+    OpenAIModelInferenceIntegrationAccountBearerTokenAuthUpdate,
+  OpenAIModelInferenceIntegrationAccountCreateAttributes:
+    OpenAIModelInferenceIntegrationAccountCreateAttributes,
+  OpenAIModelInferenceIntegrationAccountCreateData:
+    OpenAIModelInferenceIntegrationAccountCreateData,
+  OpenAIModelInferenceIntegrationAccountCreateRequest:
+    OpenAIModelInferenceIntegrationAccountCreateRequest,
+  OpenAIModelInferenceIntegrationAccountResponse:
+    OpenAIModelInferenceIntegrationAccountResponse,
+  OpenAIModelInferenceIntegrationAccountResponseAttributes:
+    OpenAIModelInferenceIntegrationAccountResponseAttributes,
+  OpenAIModelInferenceIntegrationAccountResponseData:
+    OpenAIModelInferenceIntegrationAccountResponseData,
+  OpenAIModelInferenceIntegrationAccountSettingsRequest:
+    OpenAIModelInferenceIntegrationAccountSettingsRequest,
+  OpenAIModelInferenceIntegrationAccountSettingsResponse:
+    OpenAIModelInferenceIntegrationAccountSettingsResponse,
+  OpenAIModelInferenceIntegrationAccountSettingsUpdate:
+    OpenAIModelInferenceIntegrationAccountSettingsUpdate,
+  OpenAIModelInferenceIntegrationAccountUpdateAttributes:
+    OpenAIModelInferenceIntegrationAccountUpdateAttributes,
+  OpenAIModelInferenceIntegrationAccountUpdateData:
+    OpenAIModelInferenceIntegrationAccountUpdateData,
+  OpenAIModelInferenceIntegrationAccountUpdateRequest:
+    OpenAIModelInferenceIntegrationAccountUpdateRequest,
+  OpenAIModelInferenceIntegrationAccountsResponse:
+    OpenAIModelInferenceIntegrationAccountsResponse,
+  OpenAIModelInferenceIntegrationDataflowsRequest:
+    OpenAIModelInferenceIntegrationDataflowsRequest,
+  OpenAIModelInferenceIntegrationDataflowsResponse:
+    OpenAIModelInferenceIntegrationDataflowsResponse,
+  OpenAIModelInferenceLLMCompletionsIntegrationDataflowRequest:
+    OpenAIModelInferenceLLMCompletionsIntegrationDataflowRequest,
+  OpenAIModelInferenceLLMCompletionsIntegrationDataflowResponse:
+    OpenAIModelInferenceLLMCompletionsIntegrationDataflowResponse,
+  OpenAIModelInferenceProjectCloudCostDataIntegrationDataflowRequest:
+    OpenAIModelInferenceProjectCloudCostDataIntegrationDataflowRequest,
+  OpenAIModelInferenceProjectCloudCostDataIntegrationDataflowResponse:
+    OpenAIModelInferenceProjectCloudCostDataIntegrationDataflowResponse,
   OpenAPIEndpoint: OpenAPIEndpoint,
   OpsgenieAccountCreateAttributes: OpsgenieAccountCreateAttributes,
   OpsgenieAccountCreateData: OpsgenieAccountCreateData,
@@ -22152,6 +22219,15 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   OpenAICredentials: ["OpenAIAPIKey"],
   OpenAICredentialsUpdate: ["OpenAIAPIKeyUpdate"],
+  OpenAIModelInferenceIntegrationAccountAuthenticationRequest: [
+    "OpenAIModelInferenceIntegrationAccountBearerTokenAuthRequest",
+  ],
+  OpenAIModelInferenceIntegrationAccountAuthenticationResponse: [
+    "OpenAIModelInferenceIntegrationAccountBearerTokenAuthResponse",
+  ],
+  OpenAIModelInferenceIntegrationAccountAuthenticationUpdate: [
+    "OpenAIModelInferenceIntegrationAccountBearerTokenAuthUpdate",
+  ],
   OverrideIncluded: ["ScheduleUser"],
   PatchSavedFilterConflictResponse: [
     "SavedFilterJSONAPIErrorResponse",

@@ -1431,6 +1431,14 @@ export {
 } from "./apis/OpenAICodexIntegrationApi";
 
 export {
+  OpenAIModelInferenceIntegrationApiCreateOpenAIModelInferenceIntegrationAccountRequest,
+  OpenAIModelInferenceIntegrationApiDeleteOpenAIModelInferenceIntegrationAccountRequest,
+  OpenAIModelInferenceIntegrationApiGetOpenAIModelInferenceIntegrationAccountRequest,
+  OpenAIModelInferenceIntegrationApiUpdateOpenAIModelInferenceIntegrationAccountRequest,
+  OpenAIModelInferenceIntegrationApi,
+} from "./apis/OpenAIModelInferenceIntegrationApi";
+
+export {
   OpsgenieIntegrationApiCreateOpsgenieAccountRequest,
   OpsgenieIntegrationApiCreateOpsgenieServiceRequest,
   OpsgenieIntegrationApiDeleteOpsgenieAccountRequest,
@@ -8445,6 +8453,32 @@ export { OpenAICredentialsUpdate } from "./models/OpenAICredentialsUpdate";
 export { OpenAIIntegration } from "./models/OpenAIIntegration";
 export { OpenAIIntegrationType } from "./models/OpenAIIntegrationType";
 export { OpenAIIntegrationUpdate } from "./models/OpenAIIntegrationUpdate";
+export { OpenAIModelInferenceIntegrationAccountAuthenticationRequest } from "./models/OpenAIModelInferenceIntegrationAccountAuthenticationRequest";
+export { OpenAIModelInferenceIntegrationAccountAuthenticationResponse } from "./models/OpenAIModelInferenceIntegrationAccountAuthenticationResponse";
+export { OpenAIModelInferenceIntegrationAccountAuthenticationUpdate } from "./models/OpenAIModelInferenceIntegrationAccountAuthenticationUpdate";
+export { OpenAIModelInferenceIntegrationAccountBearerTokenAuthRequest } from "./models/OpenAIModelInferenceIntegrationAccountBearerTokenAuthRequest";
+export { OpenAIModelInferenceIntegrationAccountBearerTokenAuthResponse } from "./models/OpenAIModelInferenceIntegrationAccountBearerTokenAuthResponse";
+export { OpenAIModelInferenceIntegrationAccountBearerTokenAuthType } from "./models/OpenAIModelInferenceIntegrationAccountBearerTokenAuthType";
+export { OpenAIModelInferenceIntegrationAccountBearerTokenAuthUpdate } from "./models/OpenAIModelInferenceIntegrationAccountBearerTokenAuthUpdate";
+export { OpenAIModelInferenceIntegrationAccountCreateAttributes } from "./models/OpenAIModelInferenceIntegrationAccountCreateAttributes";
+export { OpenAIModelInferenceIntegrationAccountCreateData } from "./models/OpenAIModelInferenceIntegrationAccountCreateData";
+export { OpenAIModelInferenceIntegrationAccountCreateRequest } from "./models/OpenAIModelInferenceIntegrationAccountCreateRequest";
+export { OpenAIModelInferenceIntegrationAccountResponse } from "./models/OpenAIModelInferenceIntegrationAccountResponse";
+export { OpenAIModelInferenceIntegrationAccountResponseAttributes } from "./models/OpenAIModelInferenceIntegrationAccountResponseAttributes";
+export { OpenAIModelInferenceIntegrationAccountResponseData } from "./models/OpenAIModelInferenceIntegrationAccountResponseData";
+export { OpenAIModelInferenceIntegrationAccountSettingsRequest } from "./models/OpenAIModelInferenceIntegrationAccountSettingsRequest";
+export { OpenAIModelInferenceIntegrationAccountSettingsResponse } from "./models/OpenAIModelInferenceIntegrationAccountSettingsResponse";
+export { OpenAIModelInferenceIntegrationAccountSettingsUpdate } from "./models/OpenAIModelInferenceIntegrationAccountSettingsUpdate";
+export { OpenAIModelInferenceIntegrationAccountsResponse } from "./models/OpenAIModelInferenceIntegrationAccountsResponse";
+export { OpenAIModelInferenceIntegrationAccountUpdateAttributes } from "./models/OpenAIModelInferenceIntegrationAccountUpdateAttributes";
+export { OpenAIModelInferenceIntegrationAccountUpdateData } from "./models/OpenAIModelInferenceIntegrationAccountUpdateData";
+export { OpenAIModelInferenceIntegrationAccountUpdateRequest } from "./models/OpenAIModelInferenceIntegrationAccountUpdateRequest";
+export { OpenAIModelInferenceIntegrationDataflowsRequest } from "./models/OpenAIModelInferenceIntegrationDataflowsRequest";
+export { OpenAIModelInferenceIntegrationDataflowsResponse } from "./models/OpenAIModelInferenceIntegrationDataflowsResponse";
+export { OpenAIModelInferenceLLMCompletionsIntegrationDataflowRequest } from "./models/OpenAIModelInferenceLLMCompletionsIntegrationDataflowRequest";
+export { OpenAIModelInferenceLLMCompletionsIntegrationDataflowResponse } from "./models/OpenAIModelInferenceLLMCompletionsIntegrationDataflowResponse";
+export { OpenAIModelInferenceProjectCloudCostDataIntegrationDataflowRequest } from "./models/OpenAIModelInferenceProjectCloudCostDataIntegrationDataflowRequest";
+export { OpenAIModelInferenceProjectCloudCostDataIntegrationDataflowResponse } from "./models/OpenAIModelInferenceProjectCloudCostDataIntegrationDataflowResponse";
 export { OpenAPIEndpoint } from "./models/OpenAPIEndpoint";
 export { OpsgenieAccountCreateAttributes } from "./models/OpsgenieAccountCreateAttributes";
 export { OpsgenieAccountCreateData } from "./models/OpsgenieAccountCreateData";
