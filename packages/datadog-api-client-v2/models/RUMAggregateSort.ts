@@ -26,7 +26,7 @@ export class RUMAggregateSort {
    */
   "order"?: RUMSortOrder;
   /**
-   * The type of sorting algorithm. `alphabetical` sorts buckets by the facet value. `measure` sorts them by a computed aggregation.
+   * The type of sorting algorithm. `alphabetical` sorts buckets by the facet value. `measure` sorts them by a computed aggregation, and is required when the sort sets `aggregation` or `metric`.
    */
   "type"?: RUMAggregateSortType;
 
