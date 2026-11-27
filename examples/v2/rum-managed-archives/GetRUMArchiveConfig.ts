@@ -7,8 +7,11 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.RUMManagedArchivesApi(configuration);
 
+// there is a valid "rum_application" in the system
+const RUM_APPLICATION_DATA_ID = process.env.RUM_APPLICATION_DATA_ID as string;
+
 const params: v2.RUMManagedArchivesApiGetRUMArchiveConfigRequest = {
-  appId: "a33671aa-24fd-4dcd-ba4b-5bbdbafe7690",
+  appId: RUM_APPLICATION_DATA_ID,
 };
 
 apiInstance
