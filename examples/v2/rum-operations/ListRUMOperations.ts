@@ -13,8 +13,16 @@ const configuration = client.createConfiguration({
 });
 const apiInstance = new v2.RUMOperationsApi(configuration);
 
+// there is a valid "rum_operation" in the system
+const RUM_OPERATION_DATA_ATTRIBUTES_NAME = process.env
+  .RUM_OPERATION_DATA_ATTRIBUTES_NAME as string;
+
+const params: v2.RUMOperationsApiListRUMOperationsRequest = {
+  query: RUM_OPERATION_DATA_ATTRIBUTES_NAME,
+};
+
 apiInstance
-  .listRUMOperations()
+  .listRUMOperations(params)
   .then((data: v2.RUMOperationsListResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)

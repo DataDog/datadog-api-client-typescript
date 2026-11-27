@@ -25,9 +25,11 @@ const params: v2.RUMInsightsApiQueryAggregatedLongTasksRequest = {
           min: 2.5,
         },
         filter: "@session.type:user",
-        from: 1762437564,
+        from: Math.round(
+          new Date(new Date().getTime() + -1 * 3600 * 1000).getTime() / 1000
+        ),
         sampleSize: 20,
-        to: 1762523964,
+        to: Math.round(new Date().getTime() / 1000),
         viewName: "/account/login(/:type)",
       },
       type: "aggregated_long_tasks",
