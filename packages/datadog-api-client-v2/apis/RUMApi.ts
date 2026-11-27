@@ -203,11 +203,6 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteSourcemaps'");
-    if (!_config.unstableOperations["v2.deleteSourcemaps"]) {
-      throw new Error("Unstable operation 'deleteSourcemaps' is disabled");
-    }
-
     // verify required parameter 'mapkind' is not null or undefined
     if (mapkind === null || mapkind === undefined) {
       throw new RequiredError("mapkind", "deleteSourcemaps");
@@ -533,13 +528,6 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getServiceRepositoryInfo'");
-    if (!_config.unstableOperations["v2.getServiceRepositoryInfo"]) {
-      throw new Error(
-        "Unstable operation 'getServiceRepositoryInfo' is disabled"
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "getServiceRepositoryInfo");
@@ -590,11 +578,6 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getSourcemaps'");
-    if (!_config.unstableOperations["v2.getSourcemaps"]) {
-      throw new Error("Unstable operation 'getSourcemaps' is disabled");
-    }
 
     // Path Params
     const localVarPath = "/api/v2/sourcemaps";
@@ -759,11 +742,6 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'listSourcemaps'");
-    if (!_config.unstableOperations["v2.listSourcemaps"]) {
-      throw new Error("Unstable operation 'listSourcemaps' is disabled");
-    }
 
     // Path Params
     const localVarPath = "/api/v2/sourcemaps/list";
@@ -985,11 +963,6 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'restoreSourcemaps'");
-    if (!_config.unstableOperations["v2.restoreSourcemaps"]) {
-      throw new Error("Unstable operation 'restoreSourcemaps' is disabled");
-    }
 
     // verify required parameter 'mapkind' is not null or undefined
     if (mapkind === null || mapkind === undefined) {
