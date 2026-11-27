@@ -16,7 +16,7 @@ export class QueryEventFilteredUsersRequestDataAttributesEventQuery {
    */
   "query"?: string;
   /**
-   * The time window defining the start and end of the event query period as Unix timestamps.
+   * The time window of the event query, as Unix timestamps in milliseconds.
    */
   "timeFrame"?: QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame;
 

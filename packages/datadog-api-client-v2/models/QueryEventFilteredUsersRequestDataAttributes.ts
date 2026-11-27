@@ -24,11 +24,23 @@ export class QueryEventFilteredUsersRequestDataAttributes {
    */
   "limit"?: Int64;
   /**
-   * Filter expression using user attribute conditions to narrow results.
+   * Filter expression on user profile attributes, such as `first_country_code:US`.
+   * It uses the same attribute names as `select_columns`.
+   * Filter timestamp attributes such as `first_seen` or `last_seen` with Unix timestamps in milliseconds, for
+   * example
+   * `first_seen:>=1793750400000` or `first_seen:[1793750400000 TO 1794355200000]`, or with offsets in
+   * milliseconds
+   * relative to now, for example `first_seen:[-604800000 TO 0]` for the last 7 days. A range needs an upper
+   * bound.
+   * Date strings such as `2026-10-26T00:00:00Z` are not supported, because their colons break the query syntax.
    */
   "query"?: string;
   /**
-   * List of user attribute column names to include in the response.
+   * User profile attribute names to include in the response, such as `user_id`, `user_email`, `user_name`,
+   * `first_seen`, `last_seen`, or `first_country_code`. These are profile attributes, not event facets or
+   * computed metrics. An unknown name returns a 400 error. Use the get mapping endpoint with entity `users` to
+   * list the
+   * attributes available in your organization. Omit it to return every attribute.
    */
   "selectColumns"?: Array<string>;
 

@@ -7,7 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The retention metric to compute, either an absolute count or a rate.
+ * The retention metric to compute. Use `__dd.retention` for the number of retained entities,
+ * or `__dd.retention_rate` for the share of the cohort that was retained. No other value is accepted.
  */
 
 export type ProductAnalyticsRetentionComputeMetric =

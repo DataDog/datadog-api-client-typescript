@@ -16,7 +16,8 @@ export class ProductAnalyticsRetentionIndexTarget {
    */
   "type": ProductAnalyticsRetentionIndexTargetType;
   /**
-   * Zero-based index of the targeted cohort or return period.
+   * Zero-based index of the targeted cohort or return period. It must be lower than the number of cohorts
+   * in the query window, which is the number of cohort intervals that start between `from` and `to`.
    */
   "value": Int64;
 

@@ -7,15 +7,15 @@
 import { AttributeTypeMap, Int64 } from "../../datadog-api-client-common/util";
 
 /**
- * The time window defining the start and end of the event query period as Unix timestamps.
+ * The time window of the event query, as Unix timestamps in milliseconds.
  */
 export class QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame {
   /**
-   * End of the time frame as a Unix timestamp in seconds.
+   * End of the time frame as a Unix timestamp in milliseconds. `0` means now.
    */
   "end"?: Int64;
   /**
-   * Start of the time frame as a Unix timestamp in seconds.
+   * Start of the time frame as a Unix timestamp in milliseconds. It must not be after `end`.
    */
   "start"?: Int64;
 

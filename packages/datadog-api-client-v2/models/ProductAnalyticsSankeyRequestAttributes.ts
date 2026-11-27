@@ -14,7 +14,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ProductAnalyticsSankeyRequestAttributes {
   /**
-   * The shape of the Sankey diagram, expressed as the facets to flow between and how many steps to show.
+   * The shape of the Sankey diagram: the step it is anchored on and how many steps to show.
+   * Set exactly one of `source` or `target` to a step, and send the other one as an empty string.
+   * Sending both returns `Invalid Sankey Mode`. Sending both empty starts the diagram from any view.
+   * Each column of the diagram lists view names.
    */
   "definition": ProductAnalyticsSankeyDefinition;
   /**
