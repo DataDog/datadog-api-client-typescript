@@ -454,11 +454,7 @@ export class RumTeamsOwnershipApiResponseProcessor {
         ) as TeamsOwnershipMappingBatchResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 409
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
