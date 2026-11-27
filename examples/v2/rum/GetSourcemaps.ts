@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.getSourcemaps"] = true;
 const apiInstance = new v2.RUMApi(configuration);
 
 apiInstance
