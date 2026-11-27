@@ -11163,7 +11163,7 @@ const enumsMap: { [key: string]: any[] } = {
     "sensitive_data_scanner_configuration",
   ],
   SensitiveDataScannerCustomRegexRuleType: ["regex_custom_rule"],
-  SensitiveDataScannerGroupTargetType: ["llm_observability"],
+  SensitiveDataScannerGroupTargetType: ["llm_observability", "ai_guard"],
   SensitiveDataScannerGroupType: ["sensitive_data_scanner_group"],
   SensitiveDataScannerMachineLearningRuleType: [
     "machine_learning_standard_rule",

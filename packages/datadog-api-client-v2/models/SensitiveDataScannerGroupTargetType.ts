@@ -7,10 +7,12 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of target whose scanning groups are served by the target-scoped group routes. `llm_observability` is Agent Observability.
+ * Type of target whose scanning groups are served by the target-scoped group routes. `llm_observability` is Agent Observability, `ai_guard` is AI Guard.
  */
 
 export type SensitiveDataScannerGroupTargetType =
   | typeof LLM_OBSERVABILITY
+  | typeof AI_GUARD
   | UnparsedObject;
 export const LLM_OBSERVABILITY = "llm_observability";
+export const AI_GUARD = "ai_guard";
