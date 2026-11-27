@@ -13,21 +13,23 @@ const configuration = client.createConfiguration({
 });
 const apiInstance = new v2.RumRetentionFiltersApi(configuration);
 
+// there is a valid "rum_exclusion_filter" in the system
+const RUM_EXCLUSION_FILTER_DATA_ID = process.env
+  .RUM_EXCLUSION_FILTER_DATA_ID as string;
+
 const params: v2.RumRetentionFiltersApiUpdateExclusionFilterRequest = {
   body: {
     data: {
-      attributes: {
-        enabled: true,
-        eventType: "error",
-        name: "Exclude noisy browser extension errors",
-        query: "@error.message:*extension*",
-      },
-      id: "051601eb-54a0-abc0-03f9-cc02efa18892",
+      id: RUM_EXCLUSION_FILTER_DATA_ID,
       type: "exclusion_filters",
+      attributes: {
+        enabled: false,
+        name: "Example-Rum-Retention-Filter-updated",
+      },
     },
   },
-  appId: "app_id",
-  efId: "ef_id",
+  appId: "a33671aa-24fd-4dcd-ba4b-5bbdbafe7690",
+  efId: RUM_EXCLUSION_FILTER_DATA_ID,
 };
 
 apiInstance

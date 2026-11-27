@@ -13,20 +13,23 @@ const configuration = client.createConfiguration({
 });
 const apiInstance = new v2.RumRetentionFiltersApi(configuration);
 
+// there is a valid "rum_application" in the system
+const RUM_APPLICATION_DATA_ID = process.env.RUM_APPLICATION_DATA_ID as string;
+
 const params: v2.RumRetentionFiltersApiUpdatePermanentRetentionFilterRequest = {
   body: {
     data: {
+      id: "synthetics_sessions",
+      type: "permanent_retention_filters",
       attributes: {
         crossProductSampling: {
           traceEnabled: true,
           traceSampleRate: 25.0,
         },
       },
-      id: "synthetics_sessions",
-      type: "permanent_retention_filters",
     },
   },
-  appId: "app_id",
+  appId: RUM_APPLICATION_DATA_ID,
   permanentRfId: "synthetics_sessions",
 };
 
