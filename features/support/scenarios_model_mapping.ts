@@ -14029,6 +14029,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OpenAICodexIntegrationAccountResponse",
     },
+    "v2.ListOpenAIModelInferenceIntegrationAccounts": {
+        "operationResponseType": "OpenAIModelInferenceIntegrationAccountsResponse",
+    },
+    "v2.CreateOpenAIModelInferenceIntegrationAccount": {
+        "body": {
+            "type": "OpenAIModelInferenceIntegrationAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OpenAIModelInferenceIntegrationAccountResponse",
+    },
+    "v2.GetOpenAIModelInferenceIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OpenAIModelInferenceIntegrationAccountResponse",
+    },
+    "v2.DeleteOpenAIModelInferenceIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOpenAIModelInferenceIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "OpenAIModelInferenceIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OpenAIModelInferenceIntegrationAccountResponse",
+    },
     "v2.ListSnowflakeIntegrationAccounts": {
         "operationResponseType": "SnowflakeIntegrationAccountsResponse",
     },
