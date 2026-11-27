@@ -17,7 +17,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RUMAggregateRequest {
   /**
-   * The list of metrics or timeseries to compute for the retrieved buckets.
+   * The list of metrics or timeseries to compute for the retrieved buckets. All rules must have the same `type`; mixing `total` and `timeseries` rules is rejected.
    */
   "compute"?: Array<RUMCompute>;
   /**
