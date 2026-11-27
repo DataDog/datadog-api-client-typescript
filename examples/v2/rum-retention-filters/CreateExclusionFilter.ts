@@ -16,16 +16,16 @@ const apiInstance = new v2.RumRetentionFiltersApi(configuration);
 const params: v2.RumRetentionFiltersApiCreateExclusionFilterRequest = {
   body: {
     data: {
+      type: "exclusion_filters",
       attributes: {
+        name: "Example-Rum-Retention-Filter",
         enabled: true,
         eventType: "error",
-        name: "Exclude noisy browser extension errors",
         query: "@error.message:*extension*",
       },
-      type: "exclusion_filters",
     },
   },
-  appId: "app_id",
+  appId: "a33671aa-24fd-4dcd-ba4b-5bbdbafe7690",
 };
 
 apiInstance

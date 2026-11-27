@@ -13,9 +13,13 @@ const configuration = client.createConfiguration({
 });
 const apiInstance = new v2.RumRetentionFiltersApi(configuration);
 
+// there is a valid "rum_exclusion_filter" in the system
+const RUM_EXCLUSION_FILTER_DATA_ID = process.env
+  .RUM_EXCLUSION_FILTER_DATA_ID as string;
+
 const params: v2.RumRetentionFiltersApiDeleteExclusionFilterRequest = {
-  appId: "app_id",
-  efId: "ef_id",
+  appId: "a33671aa-24fd-4dcd-ba4b-5bbdbafe7690",
+  efId: RUM_EXCLUSION_FILTER_DATA_ID,
 };
 
 apiInstance
