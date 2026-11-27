@@ -14029,6 +14029,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OpenAICodexIntegrationAccountResponse",
     },
+    "v2.ListOpenAIUsageAndCostsIntegrationAccounts": {
+        "operationResponseType": "OpenAIUsageAndCostsIntegrationAccountsResponse",
+    },
+    "v2.CreateOpenAIUsageAndCostsIntegrationAccount": {
+        "body": {
+            "type": "OpenAIUsageAndCostsIntegrationAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OpenAIUsageAndCostsIntegrationAccountResponse",
+    },
+    "v2.GetOpenAIUsageAndCostsIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OpenAIUsageAndCostsIntegrationAccountResponse",
+    },
+    "v2.DeleteOpenAIUsageAndCostsIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOpenAIUsageAndCostsIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "OpenAIUsageAndCostsIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OpenAIUsageAndCostsIntegrationAccountResponse",
+    },
     "v2.ListSnowflakeIntegrationAccounts": {
         "operationResponseType": "SnowflakeIntegrationAccountsResponse",
     },
