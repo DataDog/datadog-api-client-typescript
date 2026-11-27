@@ -1,5 +1,5 @@
 /**
- * List Agent Observability Scanning Groups returns "OK" response
+ * List Target Scanning Groups returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

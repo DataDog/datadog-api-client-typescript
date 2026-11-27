@@ -1707,7 +1707,7 @@ export class SensitiveDataScannerApi {
   }
 
   /**
-   * Get an Agent Observability scanning group, with its rules included.
+   * Get an Agent Observability or AI Guard scanning group, with its rules included.
    * Scanning groups of logs, RUM, events, and APM are reported as not found.
    * @param param The request object
    */
@@ -1765,8 +1765,8 @@ export class SensitiveDataScannerApi {
   }
 
   /**
-   * List the Agent Observability scanning groups, with their rules included.
-   * The list always includes the default Agent Observability scanning group.
+   * List the scanning groups of a target, such as Agent Observability or AI Guard, with their rules included.
+   * The list always includes the default scanning group of the target.
    * Scanning groups of logs, RUM, events, and APM are listed by the List Scanning Groups endpoint.
    * @param param The request object
    */
