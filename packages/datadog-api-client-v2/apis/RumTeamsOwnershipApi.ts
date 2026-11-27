@@ -32,13 +32,6 @@ export class RumTeamsOwnershipApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createTeamsOwnershipMapping'");
-    if (!_config.unstableOperations["v2.createTeamsOwnershipMapping"]) {
-      throw new Error(
-        "Unstable operation 'createTeamsOwnershipMapping' is disabled"
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createTeamsOwnershipMapping");
@@ -91,13 +84,6 @@ export class RumTeamsOwnershipApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createTeamsOwnershipMappingsBatch'");
-    if (!_config.unstableOperations["v2.createTeamsOwnershipMappingsBatch"]) {
-      throw new Error(
-        "Unstable operation 'createTeamsOwnershipMappingsBatch' is disabled"
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createTeamsOwnershipMappingsBatch");
@@ -147,13 +133,6 @@ export class RumTeamsOwnershipApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteTeamsOwnershipMapping'");
-    if (!_config.unstableOperations["v2.deleteTeamsOwnershipMapping"]) {
-      throw new Error(
-        "Unstable operation 'deleteTeamsOwnershipMapping' is disabled"
-      );
-    }
-
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
       throw new RequiredError("id", "deleteTeamsOwnershipMapping");
@@ -193,13 +172,6 @@ export class RumTeamsOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getTeamsOwnershipMapping'");
-    if (!_config.unstableOperations["v2.getTeamsOwnershipMapping"]) {
-      throw new Error(
-        "Unstable operation 'getTeamsOwnershipMapping' is disabled"
-      );
-    }
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
@@ -243,13 +215,6 @@ export class RumTeamsOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'listTeamsOwnershipMappings'");
-    if (!_config.unstableOperations["v2.listTeamsOwnershipMappings"]) {
-      throw new Error(
-        "Unstable operation 'listTeamsOwnershipMappings' is disabled"
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/rum/config/teams-ownership/mappings";
@@ -318,13 +283,6 @@ export class RumTeamsOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'listTeamsOwnershipRules'");
-    if (!_config.unstableOperations["v2.listTeamsOwnershipRules"]) {
-      throw new Error(
-        "Unstable operation 'listTeamsOwnershipRules' is disabled"
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/rum/config/teams-ownership/rules";
