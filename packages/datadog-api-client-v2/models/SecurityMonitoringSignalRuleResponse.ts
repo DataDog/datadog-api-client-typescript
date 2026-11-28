@@ -40,6 +40,10 @@ export class SecurityMonitoringSignalRuleResponse {
    */
   "customName"?: string;
   /**
+   * Default Tags for default rules (included in tags)
+   */
+  "defaultTags"?: Array<string>;
+  /**
    * When the rule will be deprecated, timestamp in milliseconds.
    */
   "deprecationDate"?: Int64;
@@ -96,6 +100,10 @@ export class SecurityMonitoringSignalRuleResponse {
    */
   "updateAuthorId"?: Int64;
   /**
+   * The date the rule was last updated, in milliseconds.
+   */
+  "updatedAt"?: Int64;
+  /**
    * The version of the rule.
    */
   "version"?: Int64;
@@ -142,6 +150,10 @@ export class SecurityMonitoringSignalRuleResponse {
     customName: {
       baseName: "customName",
       type: "string",
+    },
+    defaultTags: {
+      baseName: "defaultTags",
+      type: "Array<string>",
     },
     deprecationDate: {
       baseName: "deprecationDate",
@@ -198,6 +210,11 @@ export class SecurityMonitoringSignalRuleResponse {
     },
     updateAuthorId: {
       baseName: "updateAuthorId",
+      type: "number",
+      format: "int64",
+    },
+    updatedAt: {
+      baseName: "updatedAt",
       type: "number",
       format: "int64",
     },

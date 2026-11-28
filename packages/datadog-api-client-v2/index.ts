@@ -3777,6 +3777,7 @@ export { CloneFormData } from "./models/CloneFormData";
 export { CloneFormDataAttributes } from "./models/CloneFormDataAttributes";
 export { CloneFormRequest } from "./models/CloneFormRequest";
 export { CloudAssetType } from "./models/CloudAssetType";
+export { CloudConfigurationComplianceFramework } from "./models/CloudConfigurationComplianceFramework";
 export { CloudConfigurationComplianceRuleOptions } from "./models/CloudConfigurationComplianceRuleOptions";
 export { CloudConfigurationRegoRule } from "./models/CloudConfigurationRegoRule";
 export { CloudConfigurationRuleCaseCreate } from "./models/CloudConfigurationRuleCaseCreate";

@@ -36,6 +36,10 @@ export class SecurityMonitoringSignalRuleResponseQuery {
    */
   "groupByFields"?: Array<string>;
   /**
+   * When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+   */
+  "hasOptionalGroupByFields"?: boolean;
+  /**
    * Group of target fields to aggregate over.
    */
   "metrics"?: Array<string>;
@@ -88,6 +92,10 @@ export class SecurityMonitoringSignalRuleResponseQuery {
     groupByFields: {
       baseName: "groupByFields",
       type: "Array<string>",
+    },
+    hasOptionalGroupByFields: {
+      baseName: "hasOptionalGroupByFields",
+      type: "boolean",
     },
     metrics: {
       baseName: "metrics",

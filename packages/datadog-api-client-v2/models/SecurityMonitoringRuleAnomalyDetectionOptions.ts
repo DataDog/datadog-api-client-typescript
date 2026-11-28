@@ -28,6 +28,10 @@ export class SecurityMonitoringRuleAnomalyDetectionOptions {
    */
   "instantaneousBaseline"?: boolean;
   /**
+   * Maximum time in minutes to build the instantaneous baseline. Only used when `instantaneousBaseline` is true.
+   */
+  "instantaneousBaselineTimeoutMinutes"?: number;
+  /**
    * Learning duration in hours. Anomaly detection waits for at least this amount of historical data before it starts evaluating.
    */
   "learningDuration"?: SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration;
@@ -63,6 +67,11 @@ export class SecurityMonitoringRuleAnomalyDetectionOptions {
     instantaneousBaseline: {
       baseName: "instantaneousBaseline",
       type: "boolean",
+    },
+    instantaneousBaselineTimeoutMinutes: {
+      baseName: "instantaneousBaselineTimeoutMinutes",
+      type: "number",
+      format: "int32",
     },
     learningDuration: {
       baseName: "learningDuration",
