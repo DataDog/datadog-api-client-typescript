@@ -120,6 +120,8 @@ import { FunnelWidgetDefinition } from "./FunnelWidgetDefinition";
 import { FunnelWidgetRequest } from "./FunnelWidgetRequest";
 import { GCPAccount } from "./GCPAccount";
 import { GCPMonitoredResourceConfig } from "./GCPMonitoredResourceConfig";
+import { GeomapView20270101OneOf } from "./GeomapView20270101OneOf";
+import { GeomapView20270101OneOf4457650336 } from "./GeomapView20270101OneOf4457650336";
 import { GeomapWidgetDefinition } from "./GeomapWidgetDefinition";
 import { GeomapWidgetDefinitionStyle } from "./GeomapWidgetDefinitionStyle";
 import { GeomapWidgetDefinitionView } from "./GeomapWidgetDefinitionView";
@@ -813,6 +815,7 @@ import { WidgetNumberFormat } from "./WidgetNumberFormat";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetSortBy } from "./WidgetSortBy";
 import { WidgetStyle } from "./WidgetStyle";
+import { WidgetTime20270101OneOf4464105952 } from "./WidgetTime20270101OneOf4464105952";
 import { WildcardWidgetDefinition } from "./WildcardWidgetDefinition";
 import { WildcardWidgetSpecification } from "./WildcardWidgetSpecification";
 import {
@@ -902,6 +905,7 @@ const enumsMap: { [key: string]: any[] } = {
     "previous_month",
   ],
   ContentEncoding: ["gzip", "deflate"],
+  Dashboard20270101SchemaVersion: ["2027-01-01"],
   DashboardExperienceType: ["default", "product_analytics"],
   DashboardFixedTimeframeType: ["fixed"],
   DashboardGlobalTimeLiveSpan: [
@@ -2337,6 +2341,8 @@ const typeMap: { [index: string]: any } = {
   FunnelWidgetRequest: FunnelWidgetRequest,
   GCPAccount: GCPAccount,
   GCPMonitoredResourceConfig: GCPMonitoredResourceConfig,
+  GeomapView20270101OneOf: GeomapView20270101OneOf,
+  GeomapView20270101OneOf4457650336: GeomapView20270101OneOf4457650336,
   GeomapWidgetDefinition: GeomapWidgetDefinition,
   GeomapWidgetDefinitionStyle: GeomapWidgetDefinitionStyle,
   GeomapWidgetDefinitionView: GeomapWidgetDefinitionView,
@@ -3102,12 +3108,18 @@ const typeMap: { [index: string]: any } = {
   WidgetRequestStyle: WidgetRequestStyle,
   WidgetSortBy: WidgetSortBy,
   WidgetStyle: WidgetStyle,
+  WidgetTime20270101OneOf4464105952: WidgetTime20270101OneOf4464105952,
   WildcardWidgetDefinition: WildcardWidgetDefinition,
   WildcardWidgetSpecification: WildcardWidgetSpecification,
 };
 
 const oneOfMap: { [index: string]: string[] } = {
+  ApmRecommendationsStreamQuery20270101GroupBy: ["Array<any>", "Array<any>"],
+  AppBuilderInputValue20270101Value: ["string", "number", "boolean"],
+  BackendDistributionYAxis20270101Max: ["string", "number"],
+  BackendDistributionYAxis20270101Min: ["string", "number"],
   BarChartWidgetDisplay: ["BarChartWidgetStacked", "BarChartWidgetFlat"],
+  CohortDefinition20270101Requests: ["Array<any>", "Array<any>"],
   DashboardDefaultTimeframeSetting: [
     "DashboardLiveTimeframe",
     "DashboardFixedTimeframe",
@@ -3136,6 +3148,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormulaAndFunctionProductAnalyticsExtendedQueryDefinition",
     "FormulaAndFunctionUserJourneyQueryDefinition",
     "FormulaAndFunctionRetentionQueryDefinition",
+  ],
+  FormulaProductAnalyticsExtendedQuery20270101Indexes: [
+    "Array<any>",
+    "Array<any>",
   ],
   HeatgridColor: ["string", "[string, string]"],
   HeatgridColorConfig: [

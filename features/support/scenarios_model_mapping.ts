@@ -2348,6 +2348,31 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.Validate": {
         "operationResponseType": "AuthenticationValidationResponse",
     },
+    "v1_20270101.CreateDashboard": {
+        "body": {
+            "type": "Dashboard",
+            "format": "",
+            },
+        "operationResponseType": "Dashboard",
+    },
+    "v1_20270101.GetDashboard": {
+        "dashboardId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "Dashboard",
+    },
+    "v1_20270101.UpdateDashboard": {
+        "dashboardId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "Dashboard",
+            "format": "",
+            },
+        "operationResponseType": "Dashboard",
+    },
     "v2.ListFleetAgentTracers": {
         "agentKey": {
             "type": "string",
