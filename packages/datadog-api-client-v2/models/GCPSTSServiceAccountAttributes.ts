@@ -5,6 +5,7 @@
  */
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
 import { GCPMonitoredResourceConfig } from "./GCPMonitoredResourceConfig";
+import { GCPProjectFilterConfig } from "./GCPProjectFilterConfig";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -69,6 +70,14 @@ export class GCPSTSServiceAccountAttributes {
    * Configurations for GCP monitored resources.
    */
   "monitoredResourceConfigs"?: Array<GCPMonitoredResourceConfig>;
+  /**
+   * Configurations that limit which GCP projects Datadog monitors, out of the projects this service
+   * account can access. Each type can have at most one configuration. A project is monitored only if
+   * it passes the filters of every configured type. By default, Datadog monitors every project the
+   * service account can access. When updating a service account, omit this field to keep the current
+   * filters, or send an empty list to remove them.
+   */
+  "projectFilterConfigs"?: Array<GCPProjectFilterConfig>;
   /**
    * Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
    */
@@ -145,6 +154,10 @@ export class GCPSTSServiceAccountAttributes {
     monitoredResourceConfigs: {
       baseName: "monitored_resource_configs",
       type: "Array<GCPMonitoredResourceConfig>",
+    },
+    projectFilterConfigs: {
+      baseName: "project_filter_configs",
+      type: "Array<GCPProjectFilterConfig>",
     },
     regionFilterConfigs: {
       baseName: "region_filter_configs",
