@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CloudConfigurationComplianceFramework } from "./CloudConfigurationComplianceFramework";
 import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -17,6 +18,10 @@ export class CloudConfigurationComplianceRuleOptions {
    * Must be set to true if `regoRule.resourceTypes` contains more than one item. Defaults to false.
    */
   "complexRule"?: boolean;
+  /**
+   * Compliance framework requirements the rule maps to.
+   */
+  "complianceFrameworks"?: Array<CloudConfigurationComplianceFramework>;
   /**
    * Rule details.
    */
@@ -45,6 +50,10 @@ export class CloudConfigurationComplianceRuleOptions {
     complexRule: {
       baseName: "complexRule",
       type: "boolean",
+    },
+    complianceFrameworks: {
+      baseName: "complianceFrameworks",
+      type: "Array<CloudConfigurationComplianceFramework>",
     },
     regoRule: {
       baseName: "regoRule",

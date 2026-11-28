@@ -1056,6 +1056,7 @@ import { ClickupIntegrationUpdate } from "./ClickupIntegrationUpdate";
 import { CloneFormData } from "./CloneFormData";
 import { CloneFormDataAttributes } from "./CloneFormDataAttributes";
 import { CloneFormRequest } from "./CloneFormRequest";
+import { CloudConfigurationComplianceFramework } from "./CloudConfigurationComplianceFramework";
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
 import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
 import { CloudConfigurationRuleCaseCreate } from "./CloudConfigurationRuleCaseCreate";
@@ -13054,6 +13055,7 @@ const typeMap: { [index: string]: any } = {
   CloneFormData: CloneFormData,
   CloneFormDataAttributes: CloneFormDataAttributes,
   CloneFormRequest: CloneFormRequest,
+  CloudConfigurationComplianceFramework: CloudConfigurationComplianceFramework,
   CloudConfigurationComplianceRuleOptions:
     CloudConfigurationComplianceRuleOptions,
   CloudConfigurationRegoRule: CloudConfigurationRegoRule,
